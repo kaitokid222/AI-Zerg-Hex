@@ -1,0 +1,3581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="BloodDropBig">
+        <Model value="assets\units\storm_fx_butcher_base_freshmeat_drop_big.m3"/>
+    </CModel>
+    <CModel id="ChaosCultist" parent="MarineBase">
+        <Model value="assets\units\Chaos Cultist.m3"/>
+        <Radius value="0.200000"/>
+        <SelectionRadius value="0.200000"/>
+        <ShadowRadius value="0.200000"/>
+    </CModel>
+    <CModel id="ChaosCultistDeath" parent="MarineDeathBase">
+        <Model value="assets\units\Chaos Cultist Death.m3"/>
+    </CModel>
+    <CModel id="ChaosCultistPortrait" parent="MarinePortraitBase">
+        <Model value="assets\units\Chaos Cultist Portrait.m3"/>
+        <Image value="Assets\Textures\MarinePortrait_Static.dds"/>
+        <Lighting value="SCVPortrait"/>
+    </CModel>
+    <CModel id="Jaina" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_hero_jaina_ultimate.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_jaina_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Alternate,00"/>
+            <Name value="Raynor_Weapon_Melee_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_Weapon_Melee_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Radius value="0.700000"/>
+        <SelectionRadius value="0.700000"/>
+        <ShadowRadius value="0.700000"/>
+    </CModel>
+    <CModel id="EliteMarineSkin2" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_hero_raynor_ultimate.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_requiredanims.m3a"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_commander_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Alternate,00"/>
+            <Name value="Raynor_Weapon_Melee_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_Weapon_Melee_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Radius value="0.700000"/>
+        <SelectionRadius value="0.700000"/>
+        <ShadowRadius value="0.700000"/>
+    </CModel>
+    <CModel id="EliteMarineSkin3" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_hero_raynor_madaxe18.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_requiredanims.m3a"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_commander_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Alternate,00"/>
+            <Name value="Raynor_Weapon_Melee_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_Weapon_Melee_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Radius value="0.700000"/>
+        <SelectionRadius value="0.700000"/>
+        <ShadowRadius value="0.700000"/>
+    </CModel>
+    <CModel id="EliteMarineSkin4" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_hero_raynor_marshall.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_requiredanims.m3a"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_commander_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Alternate,00"/>
+            <Name value="Raynor_Weapon_Melee_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_Weapon_Melee_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Radius value="0.750000"/>
+        <SelectionRadius value="0.750000"/>
+        <ShadowRadius value="0.750000"/>
+    </CModel>
+    <CModel id="GasVentPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Doodads\SpacePlatformVentsZerged\SpacePlatformVentsZerged.m3"/>
+        <LowQualityModel value="SpacePlatformVentsUnit"/>
+        <Lighting value="FarmFieldPlacement"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="HellfortDeath" parent="HatcheryDeathBase">
+        <Model value="assets\units\storm_building_hell_fort_death.m3"/>
+        <Events index="0" removed="1"/>
+        <Events index="1" removed="1"/>
+        <Flags index="VariationPreload" value="0"/>
+    </CModel>
+    <CModel id="Hellfort" parent="Building">
+        <Model value="assets\units\storm_building_hell_fort.m3"/>
+        <EditorCategories value=""/>
+        <Radius value="2.500000"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
+    </CModel>
+    <CModel id="MercGoblinSapper" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_merc_wintercrest_sapper_base.m3"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <RequiredAnims value="assets\units\storm_merc_wintercrest_sapper_requiredanims.m3a"/>
+    </CModel>
+    <CModel id="MinionHellBanner" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_banner.m3"/>
+        <RequiredAnims value="assets\units\storm_minion_hell_banner_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="MinionHellMelee" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_melee.m3"/>
+        <RequiredAnims value="assets\units\storm_minion_hell_melee_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="MinionHellMeleeDeath" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_melee_death.m3"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="MinionHellBannerDeath" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_banner_death.m3"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="EliteMarineSkin1" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_hero_raynor_commander.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_requiredanims.m3a"/>
+        <RequiredAnims value="assets\units\storm_hero_raynor_commander_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.100000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,A,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Start,00"/>
+            <Name value="Raynor_FS_Commander"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_FS_Commander"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Alternate,00"/>
+            <Name value="Raynor_Weapon_Melee_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.001000"/>
+            <Payload value="Raynor_Weapon_Melee_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Radius value="0.700000"/>
+        <SelectionRadius value="0.700000"/>
+        <ShadowRadius value="0.700000"/>
+    </CModel>
+    <CModel id="MinionHellRangedDeath" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_ranged_death.m3"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="MinionHellRanged" parent="Unit" Race="Terran">
+        <Model value="assets\units\storm_minion_hell_ranged.m3"/>
+        <RequiredAnims value="assets\units\storm_minion_hell_ranged_requiredanims.m3a"/>
+        <Events>
+            <Anim value="Fidget,01"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.279000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Vox_Attack"/>
+            <Type value="Sound"/>
+            <Time value="0.172000"/>
+            <Payload value="Merc_Sapper_Vox_Attack"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.775000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.246000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,01"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="Merc_Sapper_Attack_Melee_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.261000"/>
+            <Payload value="Merc_Sapper_Attack_Melee_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Merc_Sapper_Vox_Idle"/>
+            <Type value="Sound"/>
+            <Time value="0.343000"/>
+            <Payload value="Merc_Sapper_Vox_Idle"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.392000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.716000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.889000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.421000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.311000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="0.744000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.120000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_FS"/>
+            <Type value="Sound"/>
+            <Time value="1.538000"/>
+            <Payload value="Merc_Sapper_FS"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.280000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="1.066000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,01"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.155000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,02"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.708000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,Start,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Unpowered,End,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Vox_Birth"/>
+            <Type value="Sound"/>
+            <Payload value="Merc_Sapper_Vox_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,Alternate,00"/>
+            <Name value="Merc_Sapper_Foley"/>
+            <Type value="Sound"/>
+            <Time value="0.354000"/>
+            <Payload value="Merc_Sapper_Foley"/>
+        </Events>
+    </CModel>
+    <CModel id="Probius" parent="ProbeBase">
+        <Model value="assets\units\storm_hero_probius_terran.m3"/>
+        <RequiredAnims value="assets\units\storm_hero_probius_requiredanims.m3a"/>
+        <TextureDeclares Prefix="probe_">
+            <Adaptions TriggerOnSubstring="_Diffuse" Slot="main"/>
+        </TextureDeclares>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+    </CModel>
+    <CModel id="ProbiusPylon" parent="PylonBase">
+        <Model value="assets\units\storm_pet_probiuspylon_terran.m3"/>
+        <TextureDeclares Prefix="pylon_">
+            <Adaptions TriggerOnSubstring="_Diffuse" Slot="campaign"/>
+            <Adaptions TriggerOnSubstring="_Specular" Slot="campaign"/>
+            <Adaptions TriggerOnSubstring="_Emissive" Slot="campaign"/>
+        </TextureDeclares>
+        <TextureDeclares Prefix="glow_">
+            <Adaptions Slot="generic01"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="ProbiusPylonBuffAuraDefense" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_shield.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ProbiusPylonBuffDefense" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_shieldbuff.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ProbiusPylonBuffAuraAttack" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_attack.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ProbiusPylonBuffPower" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_powerbuff.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ProbiusPylonBuffAuraPower" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_power.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="ProbiusPylonBuffAttack" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_probius_base_pylonbuff_attackbuff.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="SiegeTankPlasmaShardModel" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\BattleCruiserMissile\BattleCruiserMissile.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="AnimalDismissModel" parent="PersistentSpellFX">
+        <Model value="Assets\UI\Cursors\TalkIconRing\TalkIconRing.m3"/>
+    </CModel>
+    <CModel id="ArmoryPlacementEdit" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\ArmoryPlacement\ArmoryPlacement.m3"/>
+        <LowQualityModel value="Armory"/>
+    </CModel>
+    <CModel id="Artosilope">
+        <SelectionLayer value="1"/>
+    </CModel>
+    <CModel id="BanelingAcidSporeImpactModel" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Zerg\RoachMissileImpact\RoachMissileImpact.m3"/>
+        <EditorCategories value=""/>
+    </CModel>
+    <CModel id="BeaconTraderPing" parent="BeaconPing">
+        <Model value="Assets\UI\Feedback\AIBeaconIdlePing\AIBeaconIdlePing.m3"/>
+        <AnimSpeed value="0.250000"/>
+        <OccludingOpacity value="0.500000"/>
+        <ScaleMax value="0.250000,0.250000,0.250000"/>
+        <ScaleMin value="0.250000,0.250000,0.250000"/>
+    </CModel>
+    <CModel id="BanelingSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\BanelingNestPlacement\BanelingNestPlacement.m3"/>
+        <LowQualityModel value="BanelingNest"/>
+        <Radius value="1.500000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="AnimalAssignedOverheadModel" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\OracleBeamIndicator\OracleBeamIndicator.m3"/>
+    </CModel>
+    <CModel id="Cow">
+        <SelectionLayer value="1"/>
+    </CModel>
+    <CModel id="HydraliskOriginalScale" parent="HydraliskBase">
+        <Model value="Assets\Units\Zerg\Hydralisk\Hydralisk.m3"/>
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
+    <CModel id="SolidFoundationSplat" parent="Doodad">
+        <Model value="Assets\Doodads\Korhal_TarmacSplat\Korhal_TarmacSplat_01.m3"/>
+        <ScaleMax value="1.300000,1.300000,1.300000"/>
+        <ScaleMin value="1.300000,1.300000,1.300000"/>
+    </CModel>
+    <CModel id="LandingLightWhite" parent="Doodad">
+        <Model value="Assets\Doodads\DesertPlanetLandingLight\DesertPlanetLandingLight_02.m3"/>
+        <RadiusLoose value="1.250000"/>
+    </CModel>
+    <CModel id="LandingLightGreen" parent="Doodad">
+        <Model value="Assets\Doodads\DesertPlanetLandingLight\DesertPlanetLandingLight_01.m3"/>
+        <RadiusLoose value="1.250000"/>
+    </CModel>
+    <CModel id="NapalmModelFlames" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\MiraHorner_NapalmBomb_Coop_Fire\MiraHorner_NapalmBomb_Coop_Fire.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="InfestorFireAcidWeaponImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\MiraHorner_NapalmBomb_Coop_Fire\MiraHorner_NapalmBomb_Coop_Fire.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="NapalmModelExplosion" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\MiraHorner_NapalmBomb_Coop_Explosion\MiraHorner_NapalmBomb_Coop_Explosion.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="NetworkProviderOverhead" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\Disintegration_Missile\Disintegration_Missile.m3"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="NovaDashImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\Nova_DashAttack_Impact\Nova_DashAttack_Impact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="OmegaliskCocoonPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\CreepTumorPlacement\CreepTumorPlacement.m3"/>
+        <LowQualityModel value="CreepTumor"/>
+        <Occlusion value="Show"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="0.650000"/>
+        <ShadowRadius value="2.250000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <Tipability value="1.000000"/>
+        <TipabilityLength value="1.000000"/>
+        <TipabilityWidth value="1.000000"/>
+    </CModel>
+    <CModel id="CreeperSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\BanelingNestPlacement\BanelingNestPlacement.m3"/>
+        <LowQualityModel value="BanelingNest"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.680000,0.680000,0.680000"/>
+        <ScaleMin value="0.680000,0.680000,0.680000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="CowFarmPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\EngineeringBayPlacement\EngineeringBayPlacement.m3"/>
+        <LowQualityModel value="EngineeringBay"/>
+        <Lighting value="EngineeringBay"/>
+        <Radius value="-1.000000"/>
+        <ScaleMax value="0.510000,0.510000,0.510000"/>
+        <ScaleMin value="0.510000,0.510000,0.510000"/>
+        <SelectionRadius value="0.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="BrutaliskSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\NydusNetworkPlacement\NydusNetworkPlacement.m3"/>
+        <LowQualityModel value="NydusNetwork"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.476000,0.476000,0.476000"/>
+        <ScaleMin value="0.476000,0.476000,0.476000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.142500"/>
+        <ShadowRadius value="2.142500"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="ConverterPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\FactoryPlacement\FactoryPlacement.m3"/>
+        <LowQualityModel value="Factory"/>
+        <Lighting value="Factory"/>
+        <Radius value="-1.000000"/>
+        <ScaleMax value="0.544000,0.544000,0.544000"/>
+        <ScaleMin value="0.544000,0.544000,0.544000"/>
+        <SelectionRadius value="0.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="CreepTumorPlacement2" parent="Building" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\LurkerDen\LurkerDen.m3"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.578000,0.578000,0.578000"/>
+        <ScaleMin value="0.578000,0.578000,0.578000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="6.000000"/>
+        <ShadowRadius value="6.000000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="ElectricModelSearch" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\TerranBuildingFireSmall\TerranBuildingFireSmall.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="IonBeamModel" parent="Unit">
+        <Model value="Assets\Effects\Protoss\Mothership_Intro_Beam\Mothership_Intro_Beam.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Radius value="1.000000"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="ChemicalPlantCoolantTower" parent="Building" Race="Terran">
+        <Model value="Assets\Doodads\BraxisAlphaHeatExchanger\BraxisAlphaHeatExchanger.m3"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.399000,0.399000,0.448000"/>
+        <ScaleMin value="0.399000,0.399000,0.448000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
+    </CModel>
+    <CModel id="PowerPylonDeath" parent="DarkShrineDeath">
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+    </CModel>
+    <CModel id="PowerPylon" parent="DarkShrine">
+        <ScaleMax value="0.510000,0.510000,0.510000"/>
+        <ScaleMin value="0.510000,0.510000,0.510000"/>
+    </CModel>
+    <CModel id="PowerPylonPlacement" parent="Placement" Race="Protoss">
+        <Model value="Assets\Buildings\Protoss\DarkShrinePlacement\DarkShrinePlacement.m3"/>
+        <LowQualityModel value="DarkShrine"/>
+        <Radius value="1.150000"/>
+        <ScaleMax value="0.510000,0.510000,0.510000"/>
+        <ScaleMin value="0.510000,0.510000,0.510000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.352500"/>
+        <ShadowRadius value="1.352500"/>
+    </CModel>
+    <CModel id="PrimalHydralisk2" parent="Unit" Race="Zerg">
+        <Model value="Assets\Models\HybridHydralisk.m3"/>
+        <RequiredAnims value="Assets\Units\Zerg\Hydralisk_SwarmAnims\Hydralisk_SwarmAnims.m3a"/>
+        <AttachProps Id="Ref_Weapon">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon Right">
+            <Keys index="SetA" value="1"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon Left">
+            <Keys index="SetA" value="1"/>
+        </AttachProps>
+        <Events>
+            <Anim value="Attack,Cover,00"/>
+            <Name value="HydraliskAttackImpactMelee"/>
+            <Type value="Sound"/>
+            <Time value="0.500000"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Cover,00"/>
+            <Name value="HydraliskAttackImpactMelee"/>
+            <Type value="Sound"/>
+            <Time value="0.550000"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Cover,01"/>
+            <Name value="HydraliskAttackImpactMelee"/>
+            <Type value="Sound"/>
+            <Time value="0.230000"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,Cover,01"/>
+            <Name value="HydraliskAttackImpactMelee"/>
+            <Type value="Sound"/>
+            <Time value="0.400000"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid08"/>
+        <Radius value="0.600000"/>
+        <SelectionRadius value="0.571000"/>
+        <ShadowRadius value="0.571000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="Star2CameraMid08"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.800000"/>
+        <TipabilityWidth value="0.800000"/>
+        <UnitGlossaryCamera value="Star2CameraMid08"/>
+    </CModel>
+    <CModel id="PrimalHydraliskDeathTestModel" parent="OneShotSpellFX">
+        <Model value="Assets\Units\Zerg\PrimalZergHydraliskDeath\PrimalZergHydraliskDeath.m3"/>
+        <Flags index="Download" value="0"/>
+        <Flags index="PreventedWhenPhysicsPerformanceConstrained" value="1"/>
+        <Flags index="RequiresPhysicsToOperate" value="1"/>
+        <Flags index="Wait" value="1"/>
+        <Occlusion value="Show"/>
+        <Priority value="32"/>
+    </CModel>
+    <CModel id="PrimalRoachSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\HydraliskDenPlacement\HydraliskDenPlacement.m3"/>
+        <LowQualityModel value="HydraliskDen"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.578000,0.578000,0.578000"/>
+        <ScaleMin value="0.578000,0.578000,0.578000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.117100"/>
+        <ShadowRadius value="2.117100"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="ConstructionYardPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\StarportPlacement\StarportPlacement.m3"/>
+        <LowQualityModel value="Starport"/>
+        <Lighting value="Starport"/>
+        <Radius value="-1.000000"/>
+        <ScaleMax value="0.640000,0.640000,0.640000"/>
+        <ScaleMin value="0.640000,0.640000,0.640000"/>
+        <SelectionRadius value="0.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="IonBeamUnitModel" parent="Unit">
+        <Model value="Assets\Doodads\Shapes\ShapeCylinder\ShapeCylinder.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Radius value="1.000000"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="InfestorAttackBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\DominationBeam\DominationBeam.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="RavagerCorrosiveBilePrecursor">
+        <Model value="Assets\Effects\Zerg\Ravager_Artillery_Marker_Long\Ravager_Artillery_Marker_Long.m3"/>
+    </CModel>
+    <CModel id="NapalmBombMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\Mutator_Splitter_Missile\Mutator_Splitter_Missile.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Wait" value="1"/>
+        <ScaleMax value="1.250000,1.250000,1.250000"/>
+        <ScaleMin value="1.250000,1.250000,1.250000"/>
+    </CModel>
+    <CModel id="SentryGunPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\PopUpTurret\PopUpTurret.m3"/>
+        <AnimSpeed value="0.001000"/>
+        <Flags index="FOW" value="1"/>
+        <PlanetPanelCamera value="Star2CameraHigh09"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+        <TechPurchaseCamera value="Star2CameraHigh09"/>
+        <UnitGlossaryCamera value="Star2CameraHigh09"/>
+    </CModel>
+    <CModel id="MineralContainerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\SpawningPoolPlacement\SpawningPoolPlacement.m3"/>
+        <LowQualityModel value="SpawningPool"/>
+        <Radius value="1.500000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="Sheep">
+        <SelectionLayer value="1"/>
+    </CModel>
+    <CModel id="SpacePlatformVentsUnit">
+        <SelectionLayer value="2"/>
+    </CModel>
+    <CModel id="SpawnerRavatorPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\EvolutionChamberPlacement\EvolutionChamberPlacement.m3"/>
+        <LowQualityModel value="EvolutionChamber"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.999500"/>
+        <ShadowRadius value="1.999500"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="SpawnerInfusedRoachPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\RoachWarrenPlacement\RoachWarrenPlacement.m3"/>
+        <LowQualityModel value="RoachWarren"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.666500"/>
+        <ShadowRadius value="1.666500"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="StrikelingSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\InfestationPitPlacement\InfestationPitPlacement.m3"/>
+        <LowQualityModel value="InfestationPit"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.680000,0.680000,0.680000"/>
+        <ScaleMin value="0.680000,0.680000,0.680000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="FirelingFire" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\TerranBuildingFireSmall\TerranBuildingFireSmall.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="BeastlingSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\InfestationPitPlacement\InfestationPitPlacement.m3"/>
+        <LowQualityModel value="InfestationPit"/>
+        <Radius value="1.500000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="TerranWallPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\SensorTowerPlacement\SensorTowerPlacement.m3"/>
+        <LowQualityModel value="SensorTower"/>
+        <Lighting value="SensorDome"/>
+        <Radius value="-1.000000"/>
+        <ScaleMax value="0.900000,0.900000,0.700000"/>
+        <ScaleMin value="0.900000,0.900000,0.700000"/>
+        <SelectionRadius value="0.000000"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="SpawnerRoachPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\RoachWarrenPlacement\RoachWarrenPlacement.m3"/>
+        <LowQualityModel value="RoachWarren"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.612000,0.612000,0.612000"/>
+        <ScaleMin value="0.612000,0.612000,0.612000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.666500"/>
+        <ShadowRadius value="1.666500"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="SpawnerTankerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\EvolutionChamberPlacement\EvolutionChamberPlacement.m3"/>
+        <LowQualityModel value="EvolutionChamber"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.578000,0.578000,0.578000"/>
+        <ScaleMin value="0.578000,0.578000,0.578000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.999500"/>
+        <ShadowRadius value="1.999500"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="FarmFieldPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\GhostAcademyPlacement\GhostAcademyPlacement.m3"/>
+        <LowQualityModel value="GhostAcademy"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="SheepFarmPlacement" parent="Placement" Race="Terran">
+        <Model value="Assets\Buildings\Terran\MercCompoundPlacement\MercCompoundPlacement.m3"/>
+        <LowQualityModel value="MercCompound"/>
+        <Lighting value="BlackMarket"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="SpawnerSlowlingPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\SpawningPoolPlacement\SpawningPoolPlacement.m3"/>
+        <LowQualityModel value="SpawningPool"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.680000,0.680000,0.680000"/>
+        <ScaleMin value="0.680000,0.680000,0.680000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="MineralExtractorPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\SpirePlacement\SpirePlacement.m3"/>
+        <LowQualityModel value="Spire"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="TerrazineTank">
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="TestBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\InterceptorMissile\InterceptorMissile.m3"/>
+    </CModel>
+    <CModel id="TestModelSearch" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\DummyTempField\DummyTempField.m3"/>
+    </CModel>
+    <CModel id="TestModelSearch2" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\HyperionEMPImpact\HyperionEMPImpact.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="TestModelSearch3" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Neutral\Void_VoidSliver_PsiArcImpact\Void_VoidSliver_PsiArcImpact.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="TestModelSearch4" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\XelNaga_PsionicStormCloud\XelNaga_PsionicStormCloud.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="TestModelSearch5SupportBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProtossShield_Battery_Beam\ProtossShield_Battery_Beam.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="TestModelSearch6Shield" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\Mothership_Taldarim_Shield\Mothership_Taldarim_Shield.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="TestModelSearch7" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\NullField\NullField.m3"/>
+        <Lighting value="TestModelSearch"/>
+    </CModel>
+    <CModel id="UltraliskSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\UltraliskCavernPlacement\UltraliskCavernPlacement.m3"/>
+        <LowQualityModel value="UltraliskCavern"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.544000,0.544000,0.544000"/>
+        <ScaleMin value="0.544000,0.544000,0.544000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.250000"/>
+        <ShadowRadius value="2.250000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="TorraliskSpawnerPlacement" parent="Placement" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\UltraliskCavernPlacement\UltraliskCavernPlacement.m3"/>
+        <LowQualityModel value="UltraliskCavern"/>
+        <Radius value="1.500000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.250000"/>
+        <ShadowRadius value="2.250000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="FragmentBlastMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\YamatoMissile\YamatoMissile.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="pumpkin">
+        <Model value="assets\doodads\storm_doodad_kingscrest_pumpkins_00.m3"/>
+    </CModel>
+    <CModel id="pumpkin2">
+        <Model value="assets\doodads\storm_doodad_kingscrest_pumpkins_01.m3"/>
+    </CModel>
+    <CModel id="pumpkin3">
+        <Model value="assets\doodads\storm_doodad_kingscrest_pumpkins_02.m3"/>
+    </CModel>
+    <CModel id="xmascandy2">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_candycane_01.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
+    </CModel>
+    <CModel id="xmascandy3">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_candycane_02.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
+    </CModel>
+    <CModel id="xmascandy4">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_cookietree_00.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.300000,0.300000,0.300000"/>
+        <ScaleMin value="0.300000,0.300000,0.300000"/>
+    </CModel>
+    <CModel id="xmascandy5">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_cookietree_01.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.300000,0.300000,0.300000"/>
+        <ScaleMin value="0.300000,0.300000,0.300000"/>
+    </CModel>
+    <CModel id="xmaspresent">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_presentstack_00.m3"/>
+    </CModel>
+    <CModel id="xmaspresent3">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_presentstack_03.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="1.300000,1.300000,1.300000"/>
+        <ScaleMin value="1.300000,1.300000,1.300000"/>
+    </CModel>
+    <CModel id="BloodDrop">
+        <Model value="assets\units\storm_fx_butcher_base_freshmeat_drop.m3"/>
+    </CModel>
+    <CModel id="xmaspresentlarge">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_presentstack_04.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="xmascandy">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_candycane_00.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
+    </CModel>
+    <CModel id="xmaspresentsmall">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_presentstack_01.m3"/>
+        <Lighting value="xmaspresent"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="xmaspresent2">
+        <Model value="assets\doodads\storm_doodad_winterveil2016_presentstack_02.m3"/>
+        <Lighting value="xmaspresent"/>
+    </CModel>
+    <CModel id="ChaosLord" parent="HydraliskBase">
+        <Model value="assets\units\Chaos Lord.m3"/>
+        <RequiredAnims index="0" removed="1"/>
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
+    <CModel id="ChaosLordDeath" parent="HydraliskDeathBase">
+        <Model value="assets\units\Chaos Lord Death.m3"/>
+    </CModel>
+    <CModel id="ChaosLordDeathRagdoll" parent="HydraliskDeathRagdollBase">
+        <Model value="Assets\Units\Zerg\HydraliskDeathRagdoll\HydraliskDeathRagdoll.m3"/>
+    </CModel>
+    <CModel id="ChaosLordPortrait" parent="HydraliskPortraitBase">
+        <Model value="assets\units\Chaos Lord Portrait.m3"/>
+        <Image value="Assets\Textures\HydraliskPortrait_Static.dds"/>
+        <Lighting value="HydraliskPortrait"/>
+    </CModel>
+    <CModel id="TwinBolterAttackImpact" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponImpact\MarineWeaponImpact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TwinBolterAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="DesecratedBolterBloodTargetImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Other\BloodTargetImpact\BloodTargetImpact.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+        <Flags index="Ignorable" value="1"/>
+    </CModel>
+    <CModel id="ChaosSpaceMarine" parent="MarineBase">
+        <Model value="assets\units\Chaos Marine.m3"/>
+    </CModel>
+    <CModel id="ChaosSpaceMarineDeath" parent="MarineDeathBase">
+        <Model value="assets\units\Chaos Marine Death.m3"/>
+    </CModel>
+    <CModel id="ChaosSpaceMarineDeathRagdoll" parent="MarineDeathRagdollBase">
+        <Model value="Assets\Units\Terran\MarineDeathRagdoll\MarineDeathRagdoll.m3"/>
+    </CModel>
+    <CModel id="ChaosSpaceMarinePortrait" parent="MarinePortraitBase">
+        <Model value="assets\units\Chaos Marine Portrait.m3"/>
+        <Image value="Assets\Textures\MarinePortrait_Static.dds"/>
+        <Lighting value="SCVPortrait"/>
+    </CModel>
+    <CModel id="ChaosSlave" parent="SCVBase">
+        <Model value="assets\units\CM Heretic.m3"/>
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+        <SelectionRadius value="0.200000"/>
+    </CModel>
+    <CModel id="ChaosSlaveDeath" parent="SCVDeathBase">
+        <Model value="assets\units\CM Heretic Death.m3"/>
+    </CModel>
+    <CModel id="ChaosSlaveDeathRagdoll" parent="SCVDeathRagdollBase">
+        <Model value="assets\units\CM Heretic Ragdoll Death.m3"/>
+    </CModel>
+    <CModel id="ChaosSlavePortrait" parent="SCVPortraitBase">
+        <Model value="assets\units\CM Heretic Portrait.m3"/>
+        <Image value="Assets\Textures\SCVPortrait_Static.dds"/>
+        <Lighting value="DronePortrait"/>
+    </CModel>
+    <CModel id="DesecratedBolterAttackImpact" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponImpact\MarineWeaponImpact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="DesecratedBolterAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="TwinBolterBloodTargetImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Other\BloodTargetImpact\BloodTargetImpact.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+        <Flags index="Ignorable" value="1"/>
+    </CModel>
+    <CModel id="DesecratedBolterBunkerAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Lighting value="MarineAttackLaunch"/>
+    </CModel>
+    <CModel id="TwinBolterBunkerAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Lighting value="MarineAttackLaunch"/>
+    </CModel>
+</Catalog>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Preload>
+<Asset path="assets\textures\ui_emoticons_gas.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_theart.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_infested.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_locust.dds" Type="Image"/>
+<Asset path="assets\textures\hud_bg_mechanicicon_coin.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_glue_tournament_group_border_accent.dds" Type="Image"/>
+<Asset path="assets\textures\sc2_ui_loadingscreen_extended_raceindicator_random.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_minerals.dds" Type="Image"/>
+<Abil id="MedivacTransport"/>
+<Abil id="WarpPrismTransport"/>
+<Abil id="TransferEnergyBattery"/>
+<Actor id="SYSTEM_ActorConfig"/>
+<Actor id="Aiur_Zerg_Ribs" Variations="1,2,3"/>
+<Actor id="DOM_Fire_Large_Long"/>
+<Actor id="Elsecaro_Bush1x1" Variations="1,2,3"/>
+<Actor id="Snow"/>
+<Actor id="ZergRoots" Variations="0,1,2"/>
+<Actor id="ZergWallDecorTwoHigh" Variations="8,9,10,11,13,14,15"/>
+<Actor id="Bush" Variations="0,1,2,3,4"/>
+<Actor id="CharAshWeather"/>
+<Actor id="CliffSpires" Variations="0,1"/>
+<Actor id="RainEmitterLarge"/>
+<Actor id="RedstoneRockSpires" Variations="0,1,2,3,4"/>
+<Actor id="Rock" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
+<Actor id="RockLarge" Variations="0,2,4,8,14,16,17,20,23"/>
+<Actor id="RockSmall" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
+<Actor id="XilSpireLarge" Variations="3"/>
+<Behavior id="InfestedVisual"/>
+<Behavior id="ZergRallyRatio"/>
+<Behavior id="ChaosLordStacks"/>
+<Behavior id="BloodStacks"/>
+<Behavior id="ConsumedBlood"/>
+<Behavior id="ConsumedBlood2"/>
+<Behavior id="ConsumedBlood3"/>
+<Behavior id="EarlyDeathDebuff"/>
+<Behavior id="MedivacTimedLife"/>
+<Behavior id="GeneratorUpgrades1"/>
+<Behavior id="GeneratorUpgrades2"/>
+<Behavior id="GeneratorUpgrades3"/>
+<Behavior id="GeneratorUpgrades4"/>
+<Behavior id="GeneratorUpgrades5"/>
+<Behavior id="GeneratorUpgrades6"/>
+<Behavior id="GeneratorUpgrades7"/>
+<Behavior id="GeneratorUpgrades8"/>
+<Behavior id="GeneratorUpgrades9"/>
+<Behavior id="GeneratorUpgrades10"/>
+<Behavior id="GeneratorUpgrades11"/>
+<Behavior id="GeneratorUpgrades12"/>
+<Behavior id="GeneratorUpgrades13"/>
+<Behavior id="GeneratorUpgrades14"/>
+<Behavior id="GeneratorUpgrades15"/>
+<Behavior id="GeneratorUpgrades16"/>
+<Behavior id="GeneratorUpgrades17"/>
+<Behavior id="GeneratorUpgrades18"/>
+<Behavior id="GeneratorUpgrades19"/>
+<Behavior id="GeneratorUpgrades20"/>
+<Behavior id="GeneratorUpgrades21"/>
+<Behavior id="GeneratorUpgrades22"/>
+<Behavior id="GeneratorUpgrades23"/>
+<Behavior id="GeneratorUpgrades24"/>
+<Behavior id="GeneratorUpgrades25"/>
+<Behavior id="GeneratorUpgrades26"/>
+<Behavior id="GeneratorUpgrades27"/>
+<Behavior id="GeneratorUpgrades28"/>
+<Behavior id="GeneratorUpgrades29"/>
+<Behavior id="GeneratorUpgrades30"/>
+<Behavior id="GeneratorUpgrades31"/>
+<Behavior id="GeneratorUpgrades32"/>
+<Behavior id="GeneratorUpgrades33"/>
+<Behavior id="GeneratorUpgrades34"/>
+<Behavior id="GeneratorUpgrades35"/>
+<Behavior id="GeneratorUpgrades36"/>
+<Behavior id="GeneratorUpgrades37"/>
+<Behavior id="GeneratorUpgrades38"/>
+<Behavior id="GeneratorUpgrades39"/>
+<Behavior id="GeneratorUpgrades40"/>
+<Behavior id="GeneratorUpgrades41"/>
+<Behavior id="GeneratorUpgrades42"/>
+<Behavior id="GeneratorUpgrades43"/>
+<Behavior id="GeneratorUpgrades44"/>
+<Behavior id="GeneratorUpgrades45"/>
+<Behavior id="GeneratorUpgrades46"/>
+<Behavior id="GeneratorUpgrades47"/>
+<Behavior id="GeneratorUpgrades48"/>
+<Behavior id="GeneratorUpgrades49"/>
+<Behavior id="GeneratorUpgrades50"/>
+<Behavior id="GeneratorUpgrades51"/>
+<Behavior id="GeneratorUpgrades52"/>
+<Behavior id="GeneratorUpgrades53"/>
+<Behavior id="GeneratorUpgrades54"/>
+<Behavior id="GeneratorUpgrades55"/>
+<Behavior id="GeneratorUpgrades56"/>
+<Behavior id="GeneratorUpgrades57"/>
+<Behavior id="GeneratorUpgrades58"/>
+<Behavior id="GeneratorUpgrades59"/>
+<Behavior id="GeneratorUpgrades60"/>
+<Behavior id="HighTechBuff"/>
+<Behavior id="ProbiusPylonBuffAuraDefense"/>
+<Behavior id="ProbiusPylonBuffAuraPower"/>
+<Behavior id="GasExtraction"/>
+<Behavior id="ProbiusPylonBuffAuraAttack"/>
+<Behavior id="CanExtractGas"/>
+<Behavior id="SpawnsBombers"/>
+<Behavior id="InvulnerableBlockers"/>
+<Behavior id="SpawnProtection"/>
+<Effect id="SpawnerUpgradeUpgradeSet2"/>
+<Light id="Agria"/>
+<Light id="AgriaNight"/>
+<Model id="PingBoss"/>
+<Model id="PingObjective"/>
+<Model id="PingSimple"/>
+<Sound id="UI_Zerg_Warning"/>
+<Sound id="Omegalisk_Roar"/>
+<Terrain id="HavenEx1"/>
+<Unit id="Marauder"/>
+<Unit id="Medivac"/>
+<Unit id="Zealot"/>
+<Unit id="WarpPrism"/>
+<Unit id="Probe"/>
+<Unit id="SpineCrawler"/>
+<Unit id="Overlord"/>
+<Unit id="Viper"/>
+<Unit id="VespeneGeyser"/>
+<Unit id="ShapeHeart"/>
+<Unit id="PickupScrapSalvage1x1"/>
+<Unit id="PickupScrapSalvage2x2"/>
+<Unit id="PickupScrapSalvage3x3"/>
+<Unit id="Artanis"/>
+<Unit id="Hercules"/>
+<Unit id="Raynor"/>
+<Unit id="PickupPlasmaRounds"/>
+<Unit id="PickupRestorationCharge"/>
+<Unit id="PickupHealth100"/>
+<Unit id="PickupEnergy100"/>
+<Unit id="FireworksBlue"/>
+<Unit id="FireworksRed"/>
+<Unit id="FireworksYellow"/>
+<Unit id="KerriganReviveCocoon"/>
+<Unit id="KaraxChampion"/>
+<Unit id="ZerglingCarbot"/>
+<Unit id="KerriganVoid"/>
+<Unit id="AiurRockDebris2x2"/>
+<Unit id="PickupNovaTechnology"/>
+<Unit id="SiegeTank2"/>
+<Unit id="RavatorSpawner"/>
+<Unit id="Torralisk"/>
+<Unit id="Ravator"/>
+<Unit id="BanelingZergHex"/>
+<Unit id="InfusedRoach"/>
+<Unit id="OmegaliskZergHex"/>
+<Unit id="Fireling"/>
+<Unit id="Marine2"/>
+<Unit id="VeteranMarine"/>
+<Unit id="ShockTrooper"/>
+<Unit id="Reaper2"/>
+<Unit id="FirebatZergHex"/>
+<Unit id="ChaosSlave"/>
+<Unit id="ChaosSpaceMarine"/>
+<Unit id="ChaosCultist"/>
+<Unit id="Builder"/>
+<Unit id="Battery"/>
+<Unit id="AdvancedBattery"/>
+<Unit id="HighDensityBattery"/>
+<Unit id="InfestedBuilder"/>
+<Unit id="Probius"/>
+<Unit id="TerranGate"/>
+<Unit id="PrimalRoach2"/>
+<Unit id="MineralTrader"/>
+<Unit id="GasTrader"/>
+<Unit id="Sheep2"/>
+<Unit id="Cow2"/>
+<Unit id="Slowling"/>
+<Unit id="Strikeling"/>
+<Unit id="Tankling"/>
+<Unit id="Creeper"/>
+<Unit id="Roach2"/>
+<Unit id="Nest2"/>
+<Unit id="SlowlingSpawner"/>
+<Unit id="GeyserBlocker"/>
+<Unit id="StrikelingSpawner"/>
+<Unit id="CreeperSpawner"/>
+<Unit id="RoachSpawner"/>
+<Unit id="UltraliskSpawner"/>
+<Unit id="BrutaliskSpawner"/>
+<Unit id="MineralExtractor"/>
+<Unit id="CreepTumor2"/>
+<Unit id="GreaterMineralExtractor"/>
+<Unit id="Italis"/>
+<Unit id="Barracks2"/>
+<Unit id="Candy2"/>
+<Unit id="Candy3"/>
+<Unit id="Candy4"/>
+<Unit id="Candy5"/>
+<Unit id="MeleeMinionHell"/>
+<Unit id="RangedMinionHell"/>
+<Unit id="WizardMinion"/>
+<Unit id="SmallPresent"/>
+<Unit id="Present"/>
+<Unit id="Present2"/>
+<Unit id="Present3"/>
+<Unit id="LargePresent"/>
+<Unit id="Pumpkin"/>
+<Unit id="Pumpkin2"/>
+<Unit id="Pumpkin3"/>
+<Unit id="Candy"/>
+<Unit id="SpaceBalls"/>
+<Unit id="DynamicNearbyResource4x4"/>
+<Unit id="DynamicNearbyResource6x6"/>
+<Unit id="DynamicNearbyResource21x21"/>
+<Unit id="TrafficTower"/>
+<Unit id="RocksBE"/>
+<Unit id="DestructibleRock6x6I"/>
+<Unit id="LargeSpineCrawler"/>
+<Unit id="Hive2"/>
+<Unit id="CommandCenter2"/>
+<Unit id="Generator"/>
+<Unit id="HalloweenSapper"/>
+</Preload>

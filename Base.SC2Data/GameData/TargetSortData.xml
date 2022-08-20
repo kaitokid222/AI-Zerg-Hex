@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTargetSortBehaviorCount id="TSActivePylon">
+        <WhichUnit Value="Target"/>
+        <Behavior value="EnergyNetworkNetworkProviderAvailable"/>
+    </CTargetSortBehaviorCount>
+    <CTargetSortDistance id="TSDistanceToTargetAdept">
+        <WhichLocation Effect="ItalisLM" Value="TargetUnit"/>
+    </CTargetSortDistance>
+    <CTargetSortVitalFraction id="TSEnergyFractionMost">
+        <Descending value="1"/>
+        <Vital value="Energy"/>
+    </CTargetSortVitalFraction>
+</Catalog>

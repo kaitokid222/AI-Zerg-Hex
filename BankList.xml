@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BankList>
+    <Bank Name="hextvt" Player="1"/>
+    <Bank Name="hextvt" Player="2"/>
+    <Bank Name="hextvt" Player="3"/>
+    <Bank Name="hextvt" Player="4"/>
+    <Bank Name="hextvt" Player="5"/>
+    <Bank Name="hextvt" Player="6"/>
+</BankList>

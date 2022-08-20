@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="BolterPistol_BunkerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_1.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_2.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_3.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_Attack" parent="TerranAck">
+        <AssetArray File="assets\voices\Chaos Cultist\attack\401530.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\attack\401531.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\attack\401532.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\attack\401533.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_DeathVO" parent="Death">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="assets\voices\Chaos Cultist\die\die_1.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\die\die_2.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\die\die_3.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\die\die_4.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\die\die_5.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Flags index="Stream" value="1"/>
+        <PanLevel value="0.750000"/>
+        <SustainFade index="1" Time="250"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_Help" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="assets\voices\Chaos Cultist\combat\401661.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\morale_restored\401641.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_Pissed" parent="TerranAck">
+        <AssetArray File="assets\voices\Chaos Cultist\morale_restored\401640.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\morale\401633.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_Ready" parent="Ready">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="assets\voices\Chaos Cultist\unit_complete\401500.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_What" parent="TerranAck">
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401510.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401511.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401512.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401513.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401514.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401515.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401516.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\selection\401517.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosCultist_Yes" parent="TerranAck">
+        <AssetArray File="assets\voices\Chaos Cultist\move\401520.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401521.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401522.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401523.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401524.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401525.mp3" FacialGroup=""/>
+        <AssetArray File="assets\voices\Chaos Cultist\move\401526.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="Infestor_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact4.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact5.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\NoxiousTurret\NoxiousTurret_AttackImpact6.wav"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="2"/>
+        <Pitch value="-6.000000,-5.000000"/>
+        <Volume value="-5.000000,-5.000000"/>
+    </CSound>
+    <CSound id="Infestor_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\SporeCrawler\SporeCrawler_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SporeCrawler\SporeCrawler_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SporeCrawler\SporeCrawler_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SporeCrawler\SporeCrawler_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SporeCrawler\SporeCrawler_AttackLaunch4.wav"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="2"/>
+        <Pitch value="-4.000000,-3.000000"/>
+        <Volume value="-5.000000,-5.000000"/>
+    </CSound>
+    <CSound id="Merc_Sapper_Vox_Idle" parent="Combat">
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle01.ogg" FacialGroup=""/>
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle02.ogg" FacialGroup=""/>
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle03.ogg" FacialGroup=""/>
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle04.ogg" FacialGroup=""/>
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle05.ogg" FacialGroup=""/>
+        <AssetArray File="assets\sounds\event_shrines_skeleton_idle06.ogg" FacialGroup=""/>
+        <Pitch value="5.000000,5.000000"/>
+        <Volume value="-17.000000,-13.000000"/>
+        <DupeDestroyCountPerPlayer value="1"/>
+        <DupeWait value="5000,15000"/>
+        <VolumeRolloffPoints/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="Italis_PurifierCannonAttackLaunch" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackLaunch0.wav"/>
+        <DupeDestroyCount value="8"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="8"/>
+        <Pitch value="1.000000,2.500000"/>
+        <Volume value="-10.000000,-8.800000"/>
+    </CSound>
+    <CSound id="Merc_Sapper_Attack_Melee_Impact" parent="Combat">
+        <AssetArray File="assets\sounds\merc_flowermerc_attack_melee_impact01.wav" FacialGroup=""/>
+        <AssetArray File="assets\sounds\merc_flowermerc_attack_melee_impact02.wav" FacialGroup=""/>
+        <AssetArray File="assets\sounds\merc_flowermerc_attack_melee_impact03.wav" FacialGroup=""/>
+        <AssetArray File="assets\sounds\merc_flowermerc_attack_melee_impact04.wav" FacialGroup=""/>
+        <AssetArray File="assets\sounds\merc_flowermerc_attack_melee_impact05.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,3.000000"/>
+        <Volume value="6.000000,6.000000"/>
+    </CSound>
+    <CSound id="Omegalisk_Roar" parent="Scripted_2D_Stereo">
+        <AssetArray File="Assets\Sounds\Hybrid03_CS_Ultralisk_Roars.wav" FacialGroup=""/>
+        <SpeakerMix index="Center" value="0.800000"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="IonBeam" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Purifier\Purifier_PlanetCracker0.wav"/>
+    </CSound>
+    <CSound id="GeneratorOvercapacityLaunch" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_ForceFieldLaunch.wav"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="GeneratorOvercapacityDeath" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_ForceFieldDeath0.wav"/>
+        <DupeDestroyCount value="3"/>
+        <Volume value="-5.560000,-5.560000"/>
+    </CSound>
+    <CSound id="Stalker_AttackLaunch2" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch2.wav"/>
+        <DupeDestroyCount value="3"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="5.000000,7.000000"/>
+        <Volume value="-9.160000,-9.160000"/>
+    </CSound>
+    <CSound id="TechLab_DischargeAttackLaunchMed" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackLaunch4.wav"/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="3.000000,3.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="InstantDischarge_Launch" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch2.wav"/>
+        <Pitch value="1.000000,1.000000"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="TechLab_DischargeAttackLaunchLow" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch4.wav"/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-7.000000,-7.000000"/>
+    </CSound>
+    <CSound id="Reaper_D8ChargeExplode">
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="EnhanceProductionSound" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionStage2.wav"/>
+    </CSound>
+    <CSound id="AdvancedGateAutoClose" parent="UI">
+        <AssetArray File="Assets\Sounds\UI_MetalCage_Hit_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\UI_MetalCage_Hit_02.wav" FacialGroup=""/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="Purgable" value="1"/>
+        <Flags index="VariationFallback" value="0"/>
+        <DupeDestroyCount value="4"/>
+        <DupeMuteCount value="3"/>
+        <Mode value="3DWorld"/>
+        <Pitch value="9.000000,9.000000"/>
+        <SpeakerMix index="FrontLeft" value="0.800000"/>
+        <SpeakerMix index="FrontRight" value="0.800000"/>
+        <SpeakerMix index="BackLeft" value="0.125000"/>
+        <SpeakerMix index="BackRight" value="0.125000"/>
+        <SpeakerMix index="SideLeft" value="0.125000"/>
+        <SpeakerMix index="SideRight" value="0.125000"/>
+        <SustainFade index="1" Time="2500" Volume="-96.000000"/>
+        <Volume value="-7.000000,-7.000000"/>
+    </CSound>
+    <CSound id="AdvancedGateAutoOpen" parent="UI">
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_TerranConsoleTransition.wav"/>
+        <Mode value="3DWorld"/>
+        <Pitch value="3.000000,3.000000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="NapalmFire" parent="Flames">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Fires\Terran_FireMedium0.wav" LoopCount="-1" Pitch="-1.000000,1.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Fires\Terran_FireMedium1.wav" LoopCount="-1" Pitch="-1.000000,1.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Fires\Terran_FireMedium2.wav" LoopCount="-1" Pitch="-1.000000,1.000000"/>
+        <Flags index="VariationFallback" value="0"/>
+        <DupeDestroyCount value="32"/>
+        <Volume value="3.000000,3.000000"/>
+    </CSound>
+    <CSound id="BolterPistol_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_1.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_2.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_3.mp3" FacialGroup=""/>
+        <AssetArray File="assets\sounds\Bolt Pistol\shot_4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="BolterPistol_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact4.wav"/>
+        <Pitch value="-1.500000,1.500000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="WarpGate_TrainLoop">
+        <Volume value="-8.170000,-8.170000"/>
+    </CSound>
+    <CSound id="WarpGate_TrainStart">
+        <Volume value="-9.960000,-9.960000"/>
+    </CSound>
+    <CSound id="ZerglingFlamingRage" parent="Other">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Event_Lab01_ZerglingRelease_00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Event_Lab01_ZerglingRelease_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Event_Lab01_ZerglingRelease_02.wav" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Mode value="3DWorld"/>
+        <ReverbBalance Room="0"/>
+        <SpeakerMix index="Center" value="1.000000"/>
+        <SpeakerMix index="BackLeft" value="1.000000"/>
+        <SpeakerMix index="BackRight" value="1.000000"/>
+        <SpeakerMix index="SideLeft" value="1.000000"/>
+        <SpeakerMix index="SideRight" value="1.000000"/>
+        <SustainFade index="1" Time="1000" Volume="-96.000000"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Attack" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\attack\400520.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\attack\400521.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\attack\400522.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_BuildVO" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Slave\buildstructure\403601.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_Pissed" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Slave\repair\403593.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\repair\403595.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_Ready" parent="Ready">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Slave\unit_complete\403570.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_What" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Slave\selection\403582.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\selection\403583.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\selection\403584.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\selection\403580.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\selection\403581.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_Yes" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Slave\move\403590.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\move\403591.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\move\403592.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\move\403594.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_DeathVO" parent="Death">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Lord\die\die_1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\die\die_2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\die\die_4.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Flags index="Stream" value="1"/>
+        <PanLevel value="0.750000"/>
+        <SustainFade index="1" Time="250"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Help2" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Marine\under_fire\401061.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\under_fire\401062.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\under_fire\401063.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\under_fire\401064.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Ready" parent="Ready">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Lord\unit_complete\400500.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Pissed" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\join\400591.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\detach\400601.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\charge\400741.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Help" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Lord\under_fire\400670.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\under_fire\400671.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_SpotChaos" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\chaos_marine\401030.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\chaos_marine\401031.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\chaos_marine\401032.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_SpotChaos" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Lord\spotting\chaos_marine\400630.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_SpotEnemy" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\enemy\401010.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\enemy\401011.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\spotting\enemy\401012.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_SpotEnemy" parent="Alert">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Lord\spotting\enemy\400610.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\spotting\enemy\400611.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\spotting\enemy\400612.mp3" FacialGroup=""/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Unload" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\unloadtransport\400910.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\unloadtransport\400911.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\unloadtransport\400912.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Unload" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\unloadtransport\400540.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Upload" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\loadtransport\400900.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\loadtransport\400901.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Yes" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\move\400510.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\move\400511.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\move\400512.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\move\400513.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_What" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400501.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400502.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400503.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400504.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400505.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\selection\400506.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosLord_Upload" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Lord\loadtransport\400530.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Lord\loadtransport\400531.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_DeathVO" parent="Death">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Marine\die\die_1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\die\die_2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\die\die_3.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\die\die_4.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Flags index="Stream" value="1"/>
+        <PanLevel value="0.750000"/>
+        <SustainFade index="1" Time="250"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSlave_DeathVO" parent="Death">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Slave\die\die_1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\die\die_2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Slave\die\die_3.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Flags index="Stream" value="1"/>
+        <PanLevel value="0.750000"/>
+        <SustainFade index="1" Time="250"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="DesecratedBolter_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact4.wav"/>
+        <Pitch value="-1.500000,1.500000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="TwinBolter_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact4.wav"/>
+        <Pitch value="-1.500000,1.500000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="DesecratedBolter_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot3.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="TwinBolter_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot3.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="DesecratedBolter_BunkerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot3.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Yes" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400840.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400841.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400842.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400843.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400844.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\move\400845.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_What" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\selection\400810.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\selection\400811.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\selection\400812.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\selection\400813.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\selection\400814.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Attack" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400870.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400871.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400872.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400873.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400874.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400875.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\attack\400876.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Ready" parent="Ready">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Voices\Chaos Marine\unit_complete\400800.mp3" FacialGroup=""/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="ChaosSpaceMarine_Pissed" parent="TerranAck">
+        <AssetArray File="Assets\Voices\Chaos Marine\charge\401182.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\charge\401186.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Voices\Chaos Marine\charge\401187.mp3" FacialGroup=""/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="TwinBolter_BunkerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot1.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot2.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot3.mp3" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Weapons\Chaos Bolter\CSM_BolterShot4.mp3" FacialGroup=""/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="ChaosPowerSword_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing2.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing3.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing4.wav"/>
+        <Flags index="VariationFallback" value="0"/>
+        <DupeDestroyCount value="4"/>
+        <Pitch value="0.000000,3.000000"/>
+        <Volume value="-7.000000,-6.000000"/>
+    </CSound>
+    <CSound id="ChaosPowerSowrd_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch10.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch11.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch12.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch13.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch14.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch15.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch8.wav"/>
+        <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch9.wav"/>
+        <DupeDestroyCount value="4"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-4.560000,-4.560000"/>
+    </CSound>
+</Catalog>

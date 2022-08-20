@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CMoverMissile id="FragmentBlastShard">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="150"/>
+            <MaxSpeed value="18.75"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="BanelingAcidSporeMover">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="-25"/>
+            <Speed value="22"/>
+            <MinSpeed value="10"/>
+            <BlendType value="Linear"/>
+            <Outro value="-9,-2"/>
+            <Timeout value="5"/>
+            <ThrowVector value="0,-1.2,1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="-25"/>
+            <MinSpeed value="10"/>
+            <Timeout value="5"/>
+            <ThrowVector value="0,-1,1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5499.8437"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="CycloneMissileRight">
+        <!--MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="10"/>
+            <Speed value="10"/>
+            <MaxSpeed value="20"/>
+            <Outro value="1"/>
+            <ThrowRotationType value="LookAtTarget2D"/>
+            <ThrowVector value="-0.5,-1,0"/>
+            <Overlays Scale="0"/>
+        </MotionPhases-->
+        <MotionPhases index="0">
+            <MaxSpeed value="12"/>
+            <Outro value="1,6"/>
+            <ThrowVector value="3,0,2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="9.9975,-9.9975,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+            <Overlays index="0" Scale="0.4,0.4"/>
+        </MotionPhases>
+        <MotionPhases index="1">
+            <Driver value="Throw"/>
+            <Acceleration value="-3"/>
+            <MinSpeed value="5"/>
+            <Outro value="15,30"/>
+            <ThrowVector value="0,0,1"/>
+            <ThrowBandYaw value="4.9987,-4.9987,-360,-360"/>
+            <ThrowBandPitch value="9.9975,-9.9975,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+            <Overlays index="0" Scale="0.02,0.02"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="25"/>
+            <MaxSpeed value="100"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+            <Overlays Scale="0"/>
+        </MotionPhases>
+        <MotionOverlays index="0" RevolverSpeed="720"/>
+    </CMoverMissile>
+    <CMoverMissile id="BomberMissileCopy" parent="HunterSeekerMissile">
+        <MotionPhases index="0">
+            <Acceleration value="0"/>
+            <Speed value="-1"/>
+            <MinSpeed value="6"/>
+            <MaxSpeed value="6"/>
+            <Gravity value="-10"/>
+            <ClearanceAcceleration value="-1024"/>
+            <ClearanceIgnoresTargetProximity value="0"/>
+            <BlendType value="Linear"/>
+            <Outro value="2,4"/>
+            <Timeout value="30"/>
+            <ThrowVector value="0,-1,3"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+            <FlightTime value="-1,-1"/>
+        </MotionPhases>
+        <MotionPhases index="1">
+            <Driver value="Guidance"/>
+            <Acceleration value="4"/>
+            <Speed value="-1"/>
+            <MaxSpeed value="16"/>
+            <Gravity value="-10"/>
+            <Clearance value="0.25"/>
+            <ClearanceAcceleration value="-1024"/>
+            <ClearanceIgnoresTargetProximity value="0"/>
+            <BlendType value="Linear"/>
+            <Outro value="0"/>
+            <Timeout value="30"/>
+            <ThrowVector value="0,0,0"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+            <FlightTime value="-1,-1"/>
+            <Overlays Scale="0.2,0.2"/>
+        </MotionPhases>
+        <MotionPhases index="2" removed="1"/>
+        <MotionPhases index="3" removed="1"/>
+        <MotionPhases index="4" removed="1"/>
+        <MotionOverlays>
+            <Type value="Revolver"/>
+            <Polarity value="Positive"/>
+            <RevolverSpeed value="199.6875"/>
+            <RevolverSpeedRange value="0"/>
+            <RevolverMaxSpeed value="199.6875"/>
+            <RevolverMaxSpeedRange value="0"/>
+            <RevolverAccel value="495"/>
+            <RevolverAccelRange value="0"/>
+        </MotionOverlays>
+    </CMoverMissile>
+    <CMoverMissile id="ItalisWeapon" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="Guidance"/>
+            <Acceleration value="20"/>
+            <MinSpeed value="7"/>
+            <MaxSpeed value="32"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="RavagerBileWeaponClearance10">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <MinSpeed value="8"/>
+            <MaxSpeed value="8"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="-0.5,-0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="10"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="2"/>
+            <AdaptableParabolaDistances index="PostApex" value="2"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases Driver="Guidance" MaxSpeed="40" YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="RavagerBileWeaponClearance4">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <MinSpeed value="8"/>
+            <MaxSpeed value="8"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="-0.5,-0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="4"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="2"/>
+            <AdaptableParabolaDistances index="PostApex" value="2"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases Driver="Guidance" MaxSpeed="40" YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="RavagerBileWeaponClearance8">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <MinSpeed value="8"/>
+            <MaxSpeed value="8"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="-0.5,-0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="8"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="2"/>
+            <AdaptableParabolaDistances index="PostApex" value="2"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases Driver="Guidance" MaxSpeed="40" YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="RavagerBileWeaponClearance6">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <MinSpeed value="8"/>
+            <MaxSpeed value="8"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="-0.5,-0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="6"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="2"/>
+            <AdaptableParabolaDistances index="PostApex" value="2"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases Driver="Guidance" MaxSpeed="40" YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="RavagerCorrosiveBileEdit">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="30"/>
+            <ClearanceAcceleration value="75"/>
+            <ArrivalTestType value="3D"/>
+            <Outro value="-1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaClearance value="-15,-1"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="ReaperFlightMissile" parent="MissileDefault">
+        <Flags index="RestoreHeight" value="1"/>
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="0"/>
+            <MinSpeed value="6.75"/>
+            <MaxSpeed value="6.75"/>
+            <ClearanceAcceleration value="75"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="0"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="1,0.5"/>
+            <YawPitchRoll value="0"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="0.3"/>
+            <AdaptableParabolaDistances index="PostApex" value="0.3"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="NapalmBombMissileMover" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="Throw"/>
+            <Acceleration value="4"/>
+            <MinSpeed value="2"/>
+            <MaxSpeed value="12"/>
+            <ClearanceAcceleration value="75"/>
+            <ArrivalTestType value="Never"/>
+            <BlendType value="Linear"/>
+            <Outro value="4,7"/>
+            <Timeout value="15"/>
+            <ThrowRotationType value="ThrowForward"/>
+            <ThrowVector value="0,0,1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,0,1"/>
+            <YawPitchRoll value="0"/>
+        </MotionPhases>
+        <MotionPhases index="1">
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="12"/>
+            <ClearanceAcceleration value="75"/>
+            <ArrivalTestType value="2D"/>
+            <BlendType value="Linear"/>
+            <Timeout value="15"/>
+            <ThrowVector value="0,0,1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="ShadowCannonUp">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="9"/>
+            <Speed value="6"/>
+            <MaxSpeed value="22"/>
+            <Outro value="3,7"/>
+            <ThrowRotationType value="ThrowForward"/>
+            <ThrowVector value="0,0,1"/>
+            <ThrowBandYaw value="19.995,-19.995,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="9"/>
+            <MaxSpeed value="100"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="540"/>
+            <PowerslideAngle value="5.9985"/>
+            <PowerslideDecel value="9"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="ShadowCannonUpBomber">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Speed value="6"/>
+            <MinSpeed value="6"/>
+            <MaxSpeed value="6"/>
+            <Outro value="1,3"/>
+            <ThrowRotationType value="LauncherForward"/>
+            <ThrowVector value="0,-0.35,1"/>
+            <ThrowBandYaw value="19.995,-19.995,-360,-360"/>
+            <ThrowBandPitch value="9.9975,-9.9975,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="5"/>
+            <MaxSpeed value="20"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="540"/>
+            <PowerslideAngle value="5.9985"/>
+            <PowerslideDecel value="9"/>
+            <Overlays Scale="0.2,0.4"/>
+        </MotionPhases>
+        <MotionOverlays>
+            <Type value="Revolver"/>
+            <RevolverSpeed value="179.2968"/>
+            <RevolverSpeedRange value="179.2968"/>
+            <RevolverMaxSpeed value="719.2968"/>
+            <RevolverMaxSpeedRange value="0"/>
+            <RevolverAccel value="337.5"/>
+            <RevolverAccelRange value="337.5"/>
+        </MotionOverlays>
+    </CMoverMissile>
+    <CMoverMissile id="ShockTrooperDischargeWeapon" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="Guidance"/>
+            <Acceleration value="15"/>
+            <MinSpeed value="10"/>
+            <MaxSpeed value="50"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="PrimalNeedleSpinesWeapon2">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Speed value="40"/>
+            <MaxSpeed value="40"/>
+            <YawPitchRoll value="MAX"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankFragmentBlastShardMain">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="-70"/>
+            <Speed value="34"/>
+            <MinSpeed value="5"/>
+            <Gravity value="0"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.1,4"/>
+            <ThrowVector value="0,-1,0.7"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,0.7"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="-70"/>
+            <MinSpeed value="5"/>
+            <BlendType value="Linear"/>
+            <ThrowVector value="0,-1,-0.3"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,-0.3"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponSpeed27">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Speed value="27"/>
+            <MinSpeed value="20"/>
+            <MaxSpeed value="30"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.1,-0.5"/>
+            <ThrowVector value="1,0,0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <BlendType value="Linear"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponSpeed32">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Speed value="32"/>
+            <MinSpeed value="20"/>
+            <MaxSpeed value="32"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.1,-0.5"/>
+            <ThrowVector value="1,0,0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <BlendType value="Linear"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankPlasmaCannonShardTier1">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Speed value="14"/>
+            <MinSpeed value="2"/>
+            <Gravity value="0"/>
+            <BlendType value="Exponential"/>
+            <Outro value="0.1,-0.7"/>
+            <ThrowVector value="0,-1,0.26"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,0.3"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays Scale="0.23"/>
+            <Overlays Scale="0.23"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Speed value="3"/>
+            <MinSpeed value="2"/>
+            <BlendType value="Linear"/>
+            <ThrowVector value="0,-1,-0.3"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,-0.3"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankFragmentBlastShardUp">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="-50"/>
+            <Speed value="27"/>
+            <MinSpeed value="8.2968"/>
+            <Gravity value="0"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.5,6.7"/>
+            <ThrowVector value="0,-1,1.25"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,1.25"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="-50"/>
+            <MinSpeed value="8.2968"/>
+            <BlendType value="Linear"/>
+            <ThrowVector value="0,-1,-0.1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,-0.1"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankFragmentBlastShardMid">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Acceleration value="-60"/>
+            <Speed value="29"/>
+            <MinSpeed value="7.1015"/>
+            <Gravity value="0"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.5,5"/>
+            <ThrowVector value="0,-1,0.92"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,0.92"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="-60"/>
+            <MinSpeed value="7.1015"/>
+            <BlendType value="Linear"/>
+            <ThrowVector value="0,-1,-0.3"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <ThrowForward value="0,-1,-0.3"/>
+            <YawPitchRoll value="5499.8437"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponSpeed20" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="Throw"/>
+            <Acceleration value="0"/>
+            <Speed value="20"/>
+            <MinSpeed value="20"/>
+            <MaxSpeed value="30"/>
+            <ClearanceAcceleration value="-1024"/>
+            <BlendType value="Linear"/>
+            <Outro value="0.1,-0.5"/>
+            <ThrowVector value="1,0,0.2"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases index="1">
+            <Driver value="Guidance"/>
+            <BlendType value="Linear"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponParaAverage" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="0"/>
+            <MinSpeed value="26"/>
+            <MaxSpeed value="26"/>
+            <ClearanceAcceleration value="-1024"/>
+            <Outro value="0"/>
+            <ThrowVector value="0,-1,0.5"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaClearance value="2.5,-1"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponParaClose" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="0"/>
+            <MinSpeed value="24"/>
+            <MaxSpeed value="24"/>
+            <ClearanceAcceleration value="-1024"/>
+            <Outro value="0"/>
+            <ThrowVector value="0,-1,0.5"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaIsUpright value="1"/>
+            <AdaptableParabolaClearance value="1.75,-1"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankMissileWeaponParaFar" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="0"/>
+            <MinSpeed value="28"/>
+            <MaxSpeed value="28"/>
+            <ClearanceAcceleration value="-1024"/>
+            <Outro value="0"/>
+            <ThrowVector value="0,-1,0.5"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaClearance value="3.25,-1"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="SiegeTankFragmentBlastFar">
+        <MotionPhases>
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="5"/>
+            <Speed value="30"/>
+            <SpeedRange value="0"/>
+            <MinSpeed value="25"/>
+            <BlendType value="Linear"/>
+            <ThrowVector value="0,-1,0.5"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <AdaptableParabolaClearance value="3.25,-1"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SpineCrawlerTentacleExtendLongLarge">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="175"/>
+            <Speed value="12"/>
+            <MaxSpeed value="250"/>
+            <IgnoresTerrain value="1"/>
+            <TurnType value="RevertToUp"/>
+            <ActorTracking value="Actual"/>
+            <RotationLaunchActorType value="Supplied"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="5759.6484"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CMoverMissile id="SpineCrawlerTentacleRetractLongLarge">
+        <MotionPhases>
+            <Driver value="Throw"/>
+            <Speed value="10"/>
+            <MaxSpeed value="10"/>
+            <IgnoresTerrain value="1"/>
+            <TurnType value="RevertToUp"/>
+            <Outro value="1,3.8,0.1,0.1"/>
+            <ThrowVector value="0,-1,1"/>
+            <ThrowBandYaw value="14.9963,-14.9963"/>
+            <ThrowBandPitch value="4.9987,-1.9995"/>
+        </MotionPhases>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="30"/>
+            <MaxSpeed value="67.5"/>
+            <IgnoresTerrain value="1"/>
+            <ActorTracking value="Actual"/>
+            <RotationActorType value="Docking"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <YawPitchRoll value="119.8828"/>
+            <YawPitchRollAccel value="180"/>
+        </MotionPhases>
+    </CMoverMissile>
+</Catalog>

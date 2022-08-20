@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<Desc>
+    <Frame type="GameUI" name="GameUI" file="GameUI">
+        <Frame type="Frame" name="UIContainer">
+            <Frame type="Frame" name="ConsoleUIContainer">
+               <Frame type="MissionTimePanel" name="MissionTimePanel">
+
+                    
+                    <Frame type="Label" name="TimeLabel">
+                       <Visible val="False"/>
+                    </Frame>
+
+                    <Frame type="Label" name="TimeLabelCustom">
+                       <Anchor side="Top" relative="$parent" pos="Min" offset="7"/>
+                       <Anchor side="Bottom" relative="$parent" pos="Max" offset="-4"/>
+                       <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                       <Style val="@@@MissionTimePanel"/>
+                       <AcceptsMouse val="true"/>
+                       <Tooltip val="@UI/MissionTimeTooltip"/>
+                       <Text val="0:00"/>
+                    </Frame>
+
+                    <Frame type="Image" name="BackgroundImage">
+                       <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                       <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                       <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                       <Anchor side="Right" relative="$parent/TimeLabelCustom" pos="Max" offset="10"/>
+                       <Texture val="@@@UI/Game_Console_Timer_Background"/>
+                       <TextureType val="EndCap"/>
+                       <RenderPriority val="500"/>
+                    </Frame>
+
+               </Frame>
+             </Frame>
+         </Frame>
+     </Frame>
+</Desc>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CTurret id="Immortal">
+        <YawRate value="1999.6875"/>
+    </CTurret>
+    <CTurret id="TrafficTowerRotate" parent="FreeRotate">
+        <Idle value="Spin"/>
+        <YawIdleRate value="12.832"/>
+    </CTurret>
+    <CTurret id="SentryGunTurret2" parent="FreeRotate">
+        <YawRate value="419.9414"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="50"/>
+            <ChanceArray index="Idle" value="50"/>
+            <ChanceArray index="Turn" value="0"/>
+        </Fidget>
+    </CTurret>
+</Catalog>

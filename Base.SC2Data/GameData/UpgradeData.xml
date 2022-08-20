@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUpgrade id="Base1Dead"/>
+    <CUpgrade id="Base2Dead"/>
+    <CUpgrade id="Base3Dead"/>
+    <CUpgrade id="Base4Dead"/>
+    <CUpgrade id="Base5Dead"/>
+    <CUpgrade id="Base6Dead"/>
+    <CUpgrade id="ChooseNoWeather">
+        <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseMadaxeSkin">
+        <Icon value="Assets\Textures\btn-unit-terran-marinemercenary.dds"/>
+        <LeaderAlias value="ChooseDefaultSkin"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseMarshallSkin">
+        <Icon value="Assets\Textures\btn-unit-terran-marinemercenary.dds"/>
+        <LeaderAlias value="ChooseDefaultSkin"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseDonor">
+        <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseRain">
+        <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseSnow">
+        <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseAsh">
+        <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseUltimateSkin">
+        <Icon value="Assets\Textures\btn-unit-terran-marinemercenary.dds"/>
+        <LeaderAlias value="ChooseDefaultSkin"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseJimmySkin">
+        <Icon value="Assets\Textures\btn-unit-terran-marinemercenary.dds"/>
+        <LeaderAlias value="ChooseDefaultSkin"/>
+    </CUpgrade>
+    <CUpgrade id="CloakedFlight">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EffectArray Operation="Set" Reference="Behavior,ReaperDuringLeap,Modification.StateFlags[Cloak]" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="DoubleStrikelings">
+        <EffectArray Operation="Set" Reference="Button,MutateintoStrikelingSpawner,Tooltip" Value="Button/Tooltip/MutateintoStrikelingSpawnerDouble"/>
+        <EffectArray Operation="Set" Reference="Button,MutateintoStrikelingSpawner,AlertTooltip" Value="Button/Tooltip/MutateintoStrikelingSpawnerDouble"/>
+    </CUpgrade>
+    <CUpgrade id="EliteScope">
+        <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <EffectArray Reference="Weapon,L3Rifle,Range" Value="1"/>
+        <EffectArray Reference="Weapon,L3Rifle,MinScanRange" Value="1"/>
+        <EffectArray Reference="Effect,L3Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
+        <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="EnergyGenerationCapacity">
+        <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
+        <EffectArray Reference="Unit,Generator,EnergyRegenRate" Value="30.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="50.000000"/>
+        <EffectArray Reference="Unit,Generator,EnergyMax" Value="1000"/>
+    </CUpgrade>
+    <CUpgrade id="EnergyCapacity">
+        <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
+        <EffectArray Reference="Unit,Generator,EnergyMax" Value="4000"/>
+    </CUpgrade>
+    <CUpgrade id="GameTime215"/>
+    <CUpgrade id="EnergyGeneration">
+        <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
+        <EffectArray Reference="Unit,Generator,EnergyRegenRate" Value="3.000000"/>
+        <EffectArray Reference="Abil,GeneratorOrderUpgradeGenerator,Cost[0].Resource[Minerals]" Value="2"/>
+        <EffectArray Reference="Abil,GeneratorOrderUpgradeGenerator,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="5.000000"/>
+        <EffectArray Reference="Abil,GeneratorResearch,InfoArray[Research1].Resource[Minerals]" Value="2"/>
+        <EffectArray Reference="Effect,GeneratorUpgradeDoubleCostFixGiveMinerals,Resources[Minerals]" Value="2"/>
+        <EffectArray Reference="Behavior,ProbiusPylonBuffPower,Modification.VitalRegenArray[Energy]" Value="0.101500"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
+    <CUpgrade id="AdvancedBuild">
+        <Icon value="Assets\Textures\btn-ability-terran-emergencythrusters.dds"/>
+        <EffectArray Operation="Set" Reference="Unit,Wall2,CostResource[Vespene]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,Flower,CostResource[Vespene]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,Flower,CostResource[Minerals]" Value="0"/>
+    </CUpgrade>
+    <CUpgrade id="GasExtraction">
+        <Icon value="Assets\Textures\btn-ability-spearofadun-orbitalassimilator.dds"/>
+        <AffectedUnitArray value="ConstructionYard"/>
+    </CUpgrade>
+    <CUpgrade id="GasExtraction2">
+        <Icon value="btn-ability-spearofadun-orbitalassimilator2.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,GasExtractionGainGasSet,EffectArray[0]" Value="GasExtractionGainGasSwitchTier2"/>
+        <AffectedUnitArray value="ConstructionYard"/>
+    </CUpgrade>
+    <CUpgrade id="GasExtraction3">
+        <Icon value="btn-ability-spearofadun-orbitalassimilator3.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,GasExtractionGainGasSet,EffectArray[0]" Value="GasExtractionGainGasSwitchTier3"/>
+        <AffectedUnitArray value="ConstructionYard"/>
+    </CUpgrade>
+    <CUpgrade id="HeavyPlating">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel3.dds"/>
+        <EffectArray Reference="Unit,FirebatZergHex,LifeMax" Value="200"/>
+        <EffectArray Reference="Unit,FirebatZergHex,LifeStart" Value="200"/>
+    </CUpgrade>
+    <CUpgrade id="LotsofBlood">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ImpossibleUpgradeNew">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-carrier-solarbeam.dds"/>
+        <LeaderAlias value="Tier2Equipment"/>
+    </CUpgrade>
+    <CUpgrade id="PickupLocator">
+        <Icon value="Assets\Textures\btn-ability-terran-scannersweep-color.dds"/>
+    </CUpgrade>
+    <CUpgrade id="DoubledRewards">
+        <Icon value="Assets\Textures\btn-ability-hornerhan-salvagebonus.dds"/>
+    </CUpgrade>
+    <CUpgrade id="WeaponCapacity">
+        <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
+        <EffectArray Reference="Unit,Marine2,EnergyMax" Value="120"/>
+        <EffectArray Reference="Unit,ShockTrooper,EnergyMax" Value="180"/>
+        <EffectArray Reference="Unit,VeteranMarine,EnergyMax" Value="240"/>
+        <EffectArray Reference="Unit,EliteMarine,EnergyMax" Value="360"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,EnergyMax" Value="360"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,EnergyMax" Value="360"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,EnergyMax" Value="360"/>
+        <EffectArray Reference="Unit,FirebatZergHex,EnergyMax" Value="140"/>
+        <EffectArray Reference="Unit,SentryGun2,EnergyMax" Value="400"/>
+    </CUpgrade>
+    <CUpgrade id="SpawnBombers">
+        <Icon value="Assets\Textures\btn-unit-zerg-volatileinfested.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedFarming">
+        <EffectArray Operation="Set" Reference="Effect,EatFruitSheepSet,EffectArray[0]" Value="GainMineral3TargetText"/>
+        <EffectArray Operation="Set" Reference="Effect,EatFruitCowSet,EffectArray[0]" Value="GainMineral5TargetText"/>
+        <EffectArray Operation="Set" Reference="Effect,SheepMineralGainDisplay,Resources[Minerals]" Value="3"/>
+        <EffectArray Operation="Set" Reference="Effect,CowMineralGainDisplay,Resources[Minerals]" Value="5"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedFarming2">
+        <EffectArray Operation="Set" Reference="Effect,EatFruitSheepSet,EffectArray[0]" Value="GainMineral4TargetText"/>
+        <EffectArray Operation="Set" Reference="Effect,EatFruitCowSet,EffectArray[0]" Value="GainMineral7TargetText"/>
+        <EffectArray Operation="Set" Reference="Effect,CowMineralGainDisplay,Resources[Minerals]" Value="7"/>
+        <EffectArray Operation="Set" Reference="Effect,SheepMineralGainDisplay,Resources[Minerals]" Value="4"/>
+        <Icon value="Assets\Textures\btn-progression-hornerhan-11-mechhealing.dds"/>
+    </CUpgrade>
+    <CUpgrade id="Investment1"/>
+    <CUpgrade id="Investment2">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="9"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="9"/>
+    </CUpgrade>
+    <CUpgrade id="Investment3">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="21"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="21"/>
+    </CUpgrade>
+    <CUpgrade id="Investment4">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="45"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="45"/>
+    </CUpgrade>
+    <CUpgrade id="Investment5">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="93"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="93"/>
+    </CUpgrade>
+    <CUpgrade id="Investment6">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="183"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="183"/>
+        <LeaderAlias value="Investment5"/>
+    </CUpgrade>
+    <CUpgrade id="Investment7">
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,ResourcesCollected[Minerals]" Value="381"/>
+        <EffectArray Operation="Set" Reference="Effect,GainMineralsInvest3Text,Resources[Minerals]" Value="381"/>
+        <LeaderAlias value="Investment5"/>
+    </CUpgrade>
+    <CUpgrade id="MarineConservationL2">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,L1Rifle,Cost.Vital[Energy]" Value="0.5"/>
+        <EffectArray Operation="Set" Reference="Weapon,L2Rifle,Cost.Vital[Energy]" Value="1.1428"/>
+        <EffectArray Operation="Set" Reference="Weapon,L3Rifle,Cost.Vital[Energy]" Value="2.4"/>
+    </CUpgrade>
+    <CUpgrade id="MarineConservationL3">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,L1Rifle,Cost.Vital[Energy]" Value="0.5"/>
+        <EffectArray Operation="Set" Reference="Weapon,L2Rifle,Cost.Vital[Energy]" Value="1"/>
+        <EffectArray Operation="Set" Reference="Weapon,L3Rifle,Cost.Vital[Energy]" Value="1.5"/>
+    </CUpgrade>
+    <CUpgrade id="ChemicalPlant"/>
+    <CUpgrade id="MarineMobileSquadTraining">
+        <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
+    </CUpgrade>
+    <CUpgrade id="MarinePenetratingLaser">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L2Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L3Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ReaperDoublePistorDamage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="MarineConservationL1">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,L1Rifle,Cost.Vital[Energy]" Value="0.5715"/>
+        <EffectArray Operation="Set" Reference="Weapon,L2Rifle,Cost.Vital[Energy]" Value="1.6"/>
+    </CUpgrade>
+    <CUpgrade id="ChooseDefaultSkin">
+        <Icon value="Assets\Textures\btn-unit-terran-marinemercenary.dds"/>
+    </CUpgrade>
+    <CUpgrade id="MarineShatteringLaserUpgrade">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldrecharge.dds"/>
+        <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="2"/>
+        <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="3"/>
+        <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="6"/>
+    </CUpgrade>
+    <CUpgrade id="MarineOvercharge">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-carrier-solarbeam.dds"/>
+        <LeaderAlias value="Tier2Equipment"/>
+    </CUpgrade>
+    <CUpgrade id="MarineShatteringLaser">
+        <Icon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
+    </CUpgrade>
+    <CUpgrade id="OperationCenterReaperSuitUpgrade">
+        <EffectArray Reference="Unit,Reaper2,LifeMax" Value="40"/>
+        <EffectArray Reference="Effect,ReaperDoublePistorDamage,Amount" Value="1"/>
+        <EffectArray Reference="Unit,Reaper2,LifeStart" Value="40"/>
+        <EffectArray Operation="Set" Reference="Actor,ReaperEdit,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-reaper-mercenary.dds"/>
+        <EffectArray Operation="Set" Reference="Button,TrainReaper,AlertIcon" Value="Assets\Textures\btn-unit-terran-reapermercenary.dds"/>
+        <EffectArray Operation="Set" Reference="Button,TrainReaper,Icon" Value="Assets\Textures\btn-unit-terran-reapermercenary.dds"/>
+        <EffectArray Reference="Unit,Reaper2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Reaper2,Speed" Value="2.000000"/>
+        <EffectArray Reference="Unit,Reaper2,LifeArmor" Value="2"/>
+        <EffectArray Reference="Weapon,ReaperDoublePistol,Level" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="OperationCenterMineralMining"/>
+    <CUpgrade id="OperationCenterEmpoweredWarp">
+        <EffectArray Operation="Set" Reference="Effect,TechLabWarpEnergySearch,AreaArray[0].Radius" Value="4.5"/>
+        <EffectArray Operation="Set" Reference="Effect,EnergyWarpModifyUnit,VitalArray[Energy].Change" Value="8"/>
+    </CUpgrade>
+    <CUpgrade id="PrimalRapidRespawn">
+        <EffectArray Operation="Set" Reference="Abil,TrainPrimalRoach,InfoArray[Train1].Time" Value="4.000000"/>
+    </CUpgrade>
+    <CUpgrade id="PlasmaCannons">
+        <Icon value="Assets\Textures\btn-ability-hornerhan-battlecruiser-yamato.dds"/>
+        <EffectArray Reference="Weapon,SentryGun2,Cost.Vital[Energy]" Value="1"/>
+        <EffectArray Operation="Set" Reference="Weapon,SentryGun2,DisplayEffect" Value="SentryGunDamageUpgraded"/>
+        <EffectArray Operation="Set" Reference="Weapon,SentryGun2,Effect" Value="SentryGunDamageUpgraded"/>
+        <EffectArray Reference="Effect,SentryGunDamageUpgraded,Amount" Value="9"/>
+    </CUpgrade>
+    <CUpgrade id="ShockOverload">
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,ShockBlastRifleSearch,AreaArray[0].Radius" Value="2.5"/>
+    </CUpgrade>
+    <CUpgrade id="Firelings">
+        <Icon value="Assets\Textures\talent-kerrigan-level12-unlockraptor.dds"/>
+        <EffectArray Reference="Unit,Fireling,LifeMax" Value="15"/>
+        <EffectArray Reference="Effect,BurningDamage,Amount" Value="1"/>
+        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research10].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research10].Resource[Terrazine]" Value="100"/>
+        <EffectArray Reference="Unit,Fireling,LifeStart" Value="15"/>
+        <EffectArray Reference="Unit,FirelingBurrowed,LifeMax" Value="15"/>
+        <EffectArray Reference="Unit,FirelingBurrowed,LifeStart" Value="15"/>
+        <EffectArray Reference="Unit,Fireling,LifeArmorLevel" Value="1"/>
+        <MaxLevel value="8"/>
+    </CUpgrade>
+    <CUpgrade id="HyperElectrodes">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,ShockBlastRifle,ArmorReduction" Value="0"/>
+        <EffectArray Operation="Set" Reference="Effect,ShockBlastRifleDamageFriendly,ArmorReduction" Value="0"/>
+    </CUpgrade>
+    <CUpgrade id="ParalyzingShock">
+        <Icon value="Assets\Textures\btn-ability-kerrigan-zerglingreconstitution.dds"/>
+        <EffectArray Operation="Set" Reference="Behavior,ShockBlast,Duration" Value="2.000000"/>
+        <EffectArray Operation="Set" Reference="Behavior,ShockBlast,Modification.DamageDealtFraction[Melee]" Value="-0.6"/>
+        <EffectArray Operation="Set" Reference="Behavior,ShockBlast,Modification.MoveSpeedMultiplier" Value="0.5"/>
+    </CUpgrade>
+    <CUpgrade id="InstantDischarge">
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ShockBeam">
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,ShockBlastRifle,Effect" Value="ShockBeamCP"/>
+        <EffectArray Operation="Set" Reference="Weapon,ShockBlastRifle,Period" Value="0.500000"/>
+        <EffectArray Reference="Weapon,ShockBlastRifle,Level" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="SiegeTankPlasmaShards">
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="SiegeTank2"/>
+        <AffectedUnitArray value="SiegeTankSieged2"/>
+    </CUpgrade>
+    <CUpgrade id="SiegeTankModulation">
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="SiegeTank2"/>
+        <AffectedUnitArray value="SiegeTankSieged2"/>
+    </CUpgrade>
+    <CUpgrade id="SiegeTankRange">
+        <EffectArray Reference="Actor,SiegeTankFragmentBlastGuide,Height" Value="14.000000"/>
+        <EffectArray Reference="Abil,FragmentBlast,Range[0]" Value="14"/>
+        <EffectArray Reference="Abil,PlasmaCannon,Range[0]" Value="14"/>
+        <EffectArray Reference="Abil,PlasmaCannonT2,Range[0]" Value="14"/>
+        <EffectArray Reference="Abil,PlasmaCannonT3,Range[0]" Value="14"/>
+        <EffectArray Reference="Actor,SiegeTankFragmentBlastGuideT2,Height" Value="14.000000"/>
+        <EffectArray Reference="Abil,FragmentBlastT2,Range[0]" Value="14"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="SiegeTankSieged2"/>
+        <AffectedUnitArray value="SiegeTank2"/>
+    </CUpgrade>
+    <CUpgrade id="SolarWeapons">
+        <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
+    </CUpgrade>
+    <CUpgrade id="TarInfection">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+    </CUpgrade>
+    <CUpgrade id="TarSpawn">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+    </CUpgrade>
+    <CUpgrade id="TechLabCharge">
+        <EffectArray Reference="Effect,StaticDischargeDamageT1,Amount" Value="1"/>
+        <EffectArray Reference="Abil,ChargeUp,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Effect,StaticDischargeDamageT2,Amount" Value="1"/>
+        <EffectArray Reference="Effect,StaticDischargeDamageT3,Amount" Value="1"/>
+        <EffectArray Reference="Effect,StaticDischargeDamageT4,Amount" Value="1"/>
+        <EffectArray Reference="Effect,StaticDischargeDamageT5,Amount" Value="1"/>
+        <EffectArray Reference="Unit,TechLab3,ShieldRegenRate" Value="1.000000"/>
+        <MaxLevel value="40"/>
+    </CUpgrade>
+    <CUpgrade id="UnifiedArmor"/>
+    <CUpgrade id="UpgradedCombatShield">
+        <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
+    </CUpgrade>
+    <CUpgrade id="TerrazineDoubler">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ZergAttack">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <EffectArray Reference="Effect,TanklingMeleeDamage,Amount" Value="0.75"/>
+        <EffectArray Reference="Abil,ZergResearch,InfoArray[Research6].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Effect,Claws,Amount" Value="1.25"/>
+        <EffectArray Reference="Abil,ZergResearch,InfoArray[Research6].Resource[Minerals]" Value="200"/>
+        <EffectArray Reference="Effect,CreeperSpinesDamage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,SuicideNeedleClaws,Amount" Value="3.75"/>
+        <EffectArray Operation="Subtract" Reference="Effect,SuicideNeedleClaws,AttributeBonus[Armored]" Value="1.25"/>
+        <EffectArray Reference="Effect,NeedleSpines,Amount" Value="1.75"/>
+        <EffectArray Reference="Effect,PrimalRoachMelee,Amount" Value="2.75"/>
+        <EffectArray Reference="Effect,BrutalizeDamage,Amount" Value="6.25"/>
+        <EffectArray Reference="Effect,HotSUltraliskKaiserBladesDamage,Amount" Value="4"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit,Amount" Value="3.75"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesMeleeDamageEdit,Amount" Value="3.75"/>
+        <EffectArray Reference="Effect,FirelingClaws,Amount" Value="1.25"/>
+        <EffectArray Reference="Effect,TarRoachMeleeDamage,Amount" Value="2"/>
+        <EffectArray Reference="Effect,OmegaliskKaiserBladesDamage,Amount" Value="11.25"/>
+        <EffectArray Reference="Effect,OmegaliskKaiserBladesDamage,AttributeBonus[Structure]" Value="23.75"/>
+        <EffectArray Reference="Weapon,KaiserBlades2,Level" Value="1"/>
+        <EffectArray Reference="Weapon,Brutalize,Level" Value="1"/>
+        <EffectArray Reference="Weapon,Claws,Level" Value="1"/>
+        <EffectArray Reference="Weapon,Locust,Level" Value="1"/>
+        <EffectArray Reference="Weapon,SuicideNeedleClaws,Level" Value="1"/>
+        <EffectArray Reference="Weapon,TanklingMelee,Level" Value="1"/>
+        <EffectArray Reference="Weapon,NeedleSpines2,Level" Value="1"/>
+        <EffectArray Reference="Weapon,PrimalRoachMelee,Level" Value="1"/>
+        <EffectArray Reference="Weapon,KaiserBlades,Level" Value="1"/>
+        <EffectArray Reference="Weapon,TarRoachMelee,Level" Value="1"/>
+        <EffectArray Reference="Weapon,FirelingClaws,Level" Value="1"/>
+        <EffectArray Reference="Weapon,HydraliskNeedleSpines2,Level" Value="1"/>
+        <EffectArray Reference="Weapon,InfestorWeapon,Level" Value="1"/>
+        <EffectArray Reference="Effect,InfestorWeaponImpactDamage,Amount" Value="0.75"/>
+        <EffectArray Reference="Effect,RavatorBurnDamage,Amount" Value="0.75"/>
+        <EffectArray Reference="Weapon,RavatorWeapon,Level" Value="1"/>
+        <EffectArray Reference="Effect,RavatorWeaponDamage,Amount" Value="1.25"/>
+        <EffectArray Reference="Weapon,InfusedClaws,Level" Value="1"/>
+        <EffectArray Reference="Effect,InfusedRoachMeleeDamage,Amount" Value="10"/>
+        <EffectArray Reference="Effect,BanelingExplodeLargeDirectDamage,Amount" Value="7.5"/>
+        <EffectArray Reference="Effect,BanelingExplodeLargeAreaDamage,Amount" Value="7.5"/>
+        <EffectArray Reference="Weapon,VolatileBurstZergHex,Level" Value="1"/>
+        <EffectArray Reference="Effect,BeastlingClawsDefaultDamage,Amount" Value="2.5"/>
+        <EffectArray Reference="Weapon,BeastlingClaws,Level" Value="1"/>
+        <EffectArray Reference="Effect,TorraliskKaiserBladesDamage2,Amount" Value="7.5"/>
+        <EffectArray Reference="Effect,TorraliskKaiserBladesDamage2,AttributeBonus[Structure]" Value="6.25"/>
+        <EffectArray Reference="Weapon,TorraliskKaiserBlades,Level" Value="1"/>
+        <EffectArray Reference="Effect,InfusedRoachAuraDamage,Amount" Value="0.375"/>
+        <EffectArray Reference="Effect,TanklingMeleeDamage,AttributeBonus[Structure]" Value="0"/>
+        <EffectArray Reference="Effect,BeastlingClawsWallAreaDamage,Amount" Value="1.5"/>
+        <EffectArray Reference="Effect,BeastlingClawsMainWallDamage,Amount" Value="2.5"/>
+        <EditorCategories value="Race:Zerg"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
+    <CUpgrade id="Fortification">
+        <Icon value="Assets\Textures\btn-upgrade-terran-neosteelframe.dds"/>
+        <EffectArray Reference="Abil,ConstructionYardResearch,InfoArray[Research1].Resource[Vespene]" Value="10"/>
+        <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortification,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Unit,Wall2,LifeMax" Value="52.5"/>
+        <EffectArray Reference="Unit,Wall2,LifeStart" Value="52.5"/>
+        <EffectArray Reference="Unit,TerranGate,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TerranGate,LifeStart" Value="60"/>
+        <EffectArray Reference="Unit,TerranGateLowered,LifeMax" Value="60"/>
+        <EffectArray Reference="Unit,TerranGateLowered,LifeStart" Value="60"/>
+        <EffectArray Reference="Unit,TerranGateLowered,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TerranGate,LifeMax" Value="60"/>
+        <EffectArray Reference="Unit,Wall2,LifeArmor" Value="1"/>
+        <EffectArray Reference="Effect,ConstructionYardAutoUpgradeDoubleCostFixGiveMinerals,Resources[Vespene]" Value="10"/>
+        <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortification,Cost[0].Resource[Vespene]" Value="10"/>
+        <EffectArray Reference="Abil,ConstructionYardResearch,InfoArray[Research1].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Unit,ConstructionYard,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,ConstructionYard,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,TechLab3,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,TechLab3,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,Armory2,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,Armory2,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,SentryGun2,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,SentryGun2,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,SheepFarm,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,SheepFarm,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,CowFarm,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,CowFarm,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,PowerPylon,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,PowerPylon,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,Refinery2,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,Refinery2,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,UpgradedRefinery,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,UpgradedRefinery,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,Converter,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,Converter,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,CommandCenter2,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,CommandCenter2,LifeStart" Value="20"/>
+        <EffectArray Reference="Effect,DefenderNanoRepair,RechargeVitalRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,TerranGate,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TerranGateLowered,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Wall2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ConstructionYard,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CommandCenter2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TechLab3,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Armory2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortification,Cost[0].Charge.CountStart" Value="1"/>
+        <EffectArray Reference="Unit,Converter,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CowFarm,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PowerPylon,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Refinery2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,SentryGun2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,SheepFarm,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,UpgradedRefinery,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Effect,UnifiedArmorLeechModifyCaster,VitalArray[Life].Change" Value="2"/>
+        <EffectArray Reference="Effect,UnifiedArmorLeechModifyTarget,VitalArray[Life].Change" Value="-2"/>
+        <EffectArray Reference="Unit,TerranAdvancedGate,LifeStart" Value="60"/>
+        <EffectArray Reference="Unit,TerranAdvancedGate,LifeMax" Value="60"/>
+        <EffectArray Reference="Unit,TerranAdvancedGate,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TerranAdvancedGate,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TerranAdvancedGateLowered,LifeStart" Value="60"/>
+        <EffectArray Reference="Unit,TerranAdvancedGateLowered,LifeMax" Value="60"/>
+        <EffectArray Reference="Unit,TerranAdvancedGateLowered,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TerranAdvancedGateLowered,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ChemicalPlant,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ChemicalPlant,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,ChemicalPlant,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,OperationCenter,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,OperationCenter,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,OperationCenter,LifeStart" Value="35"/>
+        <EffectArray Reference="Behavior,ConstructionYardPlus1,Modification.VitalRegenArray[Life]" Value="0.800700"/>
+        <EffectArray Reference="Behavior,ConstructionYardPlus2,Modification.VitalRegenArray[Life]" Value="1.601500"/>
+        <EffectArray Reference="Behavior,ConstructionYardPlus3,Modification.VitalRegenArray[Life]" Value="2.402300"/>
+        <EffectArray Reference="Behavior,ConstructionYardPlus4,Modification.VitalRegenArray[Life]" Value="3.203100"/>
+        <EffectArray Reference="Unit,InfestedBunker,LifeMax" Value="52.5"/>
+        <EffectArray Reference="Unit,InfestedBunker,LifeStart" Value="52.5"/>
+        <EffectArray Reference="Unit,InfestedBunker,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,InfestedBunker,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,InfestedTerranCampaign,LifeMax" Value="15"/>
+        <EffectArray Reference="Unit,InfestedTerranCampaign,LifeStart" Value="15"/>
+        <EffectArray Reference="Effect,Add1HP,VitalArray[Life].Change" Value="2"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
+    <CUpgrade id="Tier2Equipment">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="Tier3Equipment">
+        <LeaderAlias value="Tier2Equipment"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel2.dds"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ZergArmor1">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray Reference="Unit,Tankling,LifeArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ZergArmor2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <LeaderAlias value="ZergArmor1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergArmor3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+        <LeaderAlias value="ZergArmor1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray Reference="Unit,Tankling,LifeArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ZergArmor4">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
+        <LeaderAlias value="ZergArmor1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergArmor5">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+        <LeaderAlias value="ZergArmor1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="HydraliskSpawnSize">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-regenrate.dds"/>
+        <EffectArray Reference="Effect,HydraliskAddInitialLevel,Count" Value="1"/>
+        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research1].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research1].Resource[Minerals]" Value="1000"/>
+        <EditorCategories value="Race:Zerg"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="ZergMovement">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EffectArray Reference="Abil,ZergResearch,InfoArray[Research8].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Abil,ZergResearch,InfoArray[Research8].Resource[Minerals]" Value="800"/>
+        <EffectArray Reference="Unit,Slowling,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Creeper,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Strikeling,Speed" Value="0.523400"/>
+        <EffectArray Reference="Unit,Tankling,Speed" Value="0.449200"/>
+        <EffectArray Reference="Unit,Roach2,Speed" Value="0.449200"/>
+        <EffectArray Reference="Unit,PrimalRoach2,Speed" Value="0.449200"/>
+        <EffectArray Reference="Unit,Ultralisk2,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Brutalisk2,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Torralisk,Speed" Value="0.339800"/>
+        <EffectArray Reference="Unit,Beastling,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,BanelingZergHex,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,InfusedRoach,Speed" Value="0.449200"/>
+        <EffectArray Reference="Unit,Ravator,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,TarRoach,Speed" Value="0.449200"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,RoachTarRushSpeed,Modification.MoveSpeedBonus" Value="0.449200"/>
+        <EditorCategories value="Race:Zerg"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecializationTanklingBankling">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecializationStrikelingDualHit">
+        <Icon value="Assets\Textures\btn-ability-zerg-swarmseeds-color.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecializationSlowlingPackedMass">
+        <Icon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+        <EffectArray Reference="Unit,Slowling,LifeMax" Value="25"/>
+        <EffectArray Reference="Unit,Slowling,LifeStart" Value="25"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecializationCreeperFerocity">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,CreeperSpinesApply,Count" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecialtyPrimalRoachDouble">
+        <Icon value="Assets\Textures\btn-unit-zerg-primalroach.dds"/>
+        <EffectArray Operation="Multiply" Reference="Abil,TrainPrimalRoach,InfoArray[Train1].Time" Value="0.500000"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecialtyUltraliskDouble">
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
+        <EffectArray Operation="Multiply" Reference="Abil,TrainUltralisk,InfoArray[Train1].Time" Value="0.500000"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecialtyTanklingDouble">
+        <Icon value="Assets\Textures\btn-unit-zerg-locust.dds"/>
+        <EffectArray Operation="Multiply" Reference="Abil,TrainTankling,InfoArray[Train1].Time" Value="0.500000"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecialtyRoachDouble">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
+        <EffectArray Operation="Multiply" Reference="Abil,TrainRoach,InfoArray[Train1].Time" Value="0.500000"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSpecialtyBrutaliskDouble">
+        <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
+        <EffectArray Operation="Multiply" Reference="Abil,TrainBrutalisk,InfoArray[Train1].Time" Value="0.500000"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergSupplyIncrease">
+        <Icon value="Assets\Textures\btn-ability-kerrigan-improvedoverlords.dds"/>
+        <Race value="Zerg"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ZergTier2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+</Catalog>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorBehavior id="AnimalPriority">
+        <Behavior value="AnimalAnimalPriority"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorBehavior id="BanelingAliveCount">
+        <Behavior value="BanelingSpawnerUnitCounter"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="BanelingTrainTimeFactor">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="1.1">
+            <AccumulatorArray value=""/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="BanelingAliveCount"/>
+        </Parameters>
+        <Operation value="Power"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorVitals id="BeastlingTargetMissingHealth">
+        <ApplicationRule value="AdditiveMultiply"/>
+        <Ratio value="0.2"/>
+        <Missing value="1"/>
+        <UnitSource Value="Target"/>
+    </CAccumulatorVitals>
+</Catalog>

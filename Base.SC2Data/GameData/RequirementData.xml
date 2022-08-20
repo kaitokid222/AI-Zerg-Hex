@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="40Bunkers">
+        <NodeArray index="Use" Link="LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60"/>
+    </CRequirement>
+    <CRequirement id="20Vents">
+        <NodeArray index="Use" Link="LT518456723SumCountUnitGasVentQueuedOrBetter20"/>
+    </CRequirement>
+    <CRequirement id="AutomaticChargingOff">
+        <NodeArray index="Show" Link="CountBehaviorEnergyUserUtillityManualCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="AutomaticChargingOn">
+        <NodeArray index="Show" Link="CountBehaviorEnergyUserUtillityAutomaticCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="Base1Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase1DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Have100BloodStacksandnoLord">
+        <NodeArray index="Use" Link="AndLT2011835200CountUnitChaosLordQueuedOrBetter1GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100CountUpgradeTier2EquipmentCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Have100Blood">
+        <NodeArray index="Use" Link="GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100"/>
+    </CRequirement>
+    <CRequirement id="SpawnBanelingsDelay3v3">
+        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
+    </CRequirement>
+    <CRequirement id="SpawnRavatorTerrazine3v3">
+        <NodeArray index="Use" Link="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="SpawnRavatorTerrazine3v32">
+        <NodeArray index="Use" Link="GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
+    </CRequirement>
+    <CRequirement id="SpawnRavatorTerrazine3v33">
+        <NodeArray index="Use" Link="GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
+    </CRequirement>
+    <CRequirement id="SpawnBanelingsTerrazine3v3">
+        <NodeArray index="Use" Link="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="SpawnTorraliskDelay3v3">
+        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly2119913898GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
+    </CRequirement>
+    <CRequirement id="HaveTier2and10Blood">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnlyGTE3699583646CountBehaviorBloodStacksQueuedOrBetter10"/>
+    </CRequirement>
+    <CRequirement id="Have2Blood">
+        <NodeArray index="Use" Link="GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2"/>
+    </CRequirement>
+    <CRequirement id="Have1Blood">
+        <NodeArray index="Use" Link="GTE889848497CountBehaviorBloodStacksQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="Have10Blood">
+        <NodeArray index="Use" Link="GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneHiveMindEmulator">
+        <NodeArray index="Use" Link="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneProbius">
+        <NodeArray index="Use" Link="Not225427478CountUnitProbiusQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneEventTechCenter">
+        <NodeArray index="Use" Link="Not2070812554CountUnitBarracksTechReactorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneOrbitalAssimilator">
+        <NodeArray index="Use" Link="Not862517467CountUnitAutomatedAssimilatorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="PickupLocatorReq">
+        <NodeArray index="Show" Link="NotCountUpgradePickupLocatorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="PickupDoublerreq">
+        <NodeArray index="Show" Link="NotCountUpgradeDoubledRewardsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqWeatherDonor">
+        <NodeArray index="Show" Link="CountUpgradeChooseDonorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqWeatherSnow">
+        <NodeArray index="Show" Link="NotCountUpgradeChooseSnowQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqWeatherNoWeather">
+        <NodeArray index="Show" Link="NotCountUpgradeChooseNoWeatherQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqWeatherRain">
+        <NodeArray index="Show" Link="NotCountUpgradeChooseRainQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqWeatherAsh">
+        <NodeArray index="Show" Link="NotCountUpgradeChooseAshQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SolarWeaponsRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeSolarWeaponsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="Bunkerupgradeable">
+        <NodeArray index="Use" Link="AndLT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1CountUpgradeSpawnBombersCompleteOnly3224540341"/>
+        <NodeArray index="Show" Link="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="Bunkerupgraded">
+        <NodeArray index="Use" Link="GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
+        <NodeArray index="Show" Link="GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="ChemicalPlantRequirement">
+        <NodeArray index="Use" Link="AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeChemicalPlantCompleteOnly1337995533"/>
+    </CRequirement>
+    <CRequirement id="ChemicalPlantResearchRequirement">
+        <NodeArray index="Use" Link="CountUpgradeAdvancedBuildCompleteOnly3080158053"/>
+        <NodeArray index="Show" Link="NotCountUpgradeChemicalPlantQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="DefenderUnlinkRequirement">
+        <NodeArray index="Show" Link="CountBehaviorDefenderIsLinkedCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="EnableEnemySensorRequirement">
+        <NodeArray index="Show" Link="NotCountBehaviorAutomatedCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="DisableEnemySensorRequirement">
+        <NodeArray index="Show" Link="CountBehaviorAutomatedCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="FirebatRequirement">
+        <NodeArray index="Use" Link="CountUnitChemicalPlantCompleteOnly3355057371"/>
+    </CRequirement>
+    <CRequirement id="FireNapalmBomb">
+        <NodeArray index="Use" Link="CountBehaviorNapalmPayloadFirebatCompleteOnlyAtUnit3218712903"/>
+    </CRequirement>
+    <CRequirement id="GasExtraction1Requirement">
+        <NodeArray index="Show" Link="LTCountUpgradeGasExtractionQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="GasExtraction2Requirement">
+        <NodeArray index="Use" Link="AndCountUpgradeGasExtractionCompleteOnly4054536818"/>
+        <NodeArray index="Show" Link="NotCountUpgradeGasExtraction2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="GasExtraction3Requirement">
+        <NodeArray index="Use" Link="AndCountUpgradeGasExtraction2CompleteOnly427659588"/>
+        <NodeArray index="Show" Link="NotCountUpgradeGasExtraction3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="Bunkernotupgraded">
+        <NodeArray index="Use" Link="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
+        <NodeArray index="Show" Link="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="HaveSolarWeapns">
+        <NodeArray index="Use" Link="CountUpgradeSolarWeaponsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveGasExtraction1">
+        <NodeArray index="Use" Link="CountUpgradeGasExtractionCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveGasExtraction2">
+        <NodeArray index="Use" Link="CountUpgradeGasExtraction2CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveGasExtraction3">
+        <NodeArray index="Use" Link="CountUpgradeGasExtraction3CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveHeavyPlating">
+        <NodeArray index="Use" Link="CountUpgradeHeavyPlatingCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveBomberSpawns">
+        <NodeArray index="Use" Link="CountUpgradeSpawnBombersCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveInvestmentResearched">
+        <NodeArray index="Show" Link="CountUpgradeInvestment1CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveMineralMiningResearched">
+        <NodeArray index="Show" Link="CountUpgradeOperationCenterMineralMiningCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveEmpoweredWarpResearched">
+        <NodeArray index="Show" Link="CountUpgradeOperationCenterEmpoweredWarpCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveReaperSuitUpgradeResearched">
+        <NodeArray index="Use" Link="CountUpgradeOperationCenterReaperSuitUpgradeCompleteOnly3717036268"/>
+    </CRequirement>
+    <CRequirement id="HaveSolidFoundation">
+        <NodeArray index="Use" Link="CountBehaviorSolidFoundationCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="HeavyPlatingRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeHeavyPlatingQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="BomberSpawnsRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeSpawnBombersQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="MoreFarmsThanSheep">
+        <NodeArray index="Use" Link="GTCountUnitSheepFarmCompleteOnlyCountUnitSheep2CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="MoreFarmsThanCow">
+        <NodeArray index="Use" Link="GTCountUnitCowFarmCompleteOnlyCountUnitCow2CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="ProbiusPylonAttackAura">
+        <NodeArray index="Use" Link="NotGTCountBehaviorProbiusPylonBuffAuraAttackQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="ProbiusPylonPowerAura">
+        <NodeArray index="Use" Link="NotGTCountBehaviorProbiusPylonBuffAuraPowerQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="ProbiusPylonDefenseAura">
+        <NodeArray index="Use" Link="NotGTCountBehaviorProbiusPylonBuffAuraDefenseQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="RequirementArmor1">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="CountUpgradeZergArmor1CompleteOnly1850040327"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment2">
+        <NodeArray index="Use" Link="CountUpgradeInvestment1QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="HaveShockBeam">
+        <NodeArray index="Use" Link="CountUpgradeShockBeamCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveTarInfectionResearched">
+        <NodeArray index="Use" Link="CountUpgradeTarInfectionCompleteOnly699063533"/>
+    </CRequirement>
+    <CRequirement id="HaveTarSpawnResearched">
+        <NodeArray index="Use" Link="CountUpgradeTarSpawnCompleteOnly2536952860"/>
+    </CRequirement>
+    <CRequirement id="HaveMobileSquadTrainingResearched">
+        <NodeArray index="Use" Link="CountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment1">
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment1QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment3">
+        <NodeArray index="Use" Link="CountUpgradeInvestment2QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment4">
+        <NodeArray index="Use" Link="CountUpgradeInvestment3QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment4QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment5">
+        <NodeArray index="Use" Link="CountUpgradeInvestment4QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment5QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment6">
+        <NodeArray index="Use" Link="CountUpgradeInvestment5QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment6QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementInvestment7">
+        <NodeArray index="Use" Link="CountUpgradeInvestment6QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInvestment7QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementResearchEmpoweredWarp">
+        <NodeArray index="Show" Link="NotCountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementOperationCenter">
+        <NodeArray index="Use" Link="And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementArmor2">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor2CompleteOnly3976443666"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CRequirement>
+    <CRequirement id="RequirementArmor3">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor3CompleteOnly3638424730"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CRequirement>
+    <CRequirement id="RequirementArmor5">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor5CompleteOnly2431451755"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CRequirement>
+    <CRequirement id="RequirementArmor4">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor4CompleteOnly3065930054"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CRequirement>
+    <CRequirement id="RequirementResearchReaperSuitUpgrade">
+        <NodeArray index="Show" Link="NotCountUpgradeOperationCenterReaperSuitUpgradeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementResearchMineralMining">
+        <NodeArray index="Show" Link="NotCountUpgradeOperationCenterMineralMiningQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchMobileSquadTraining">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarineMobileSquadTrainingQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ReqChooseSkin">
+        <NodeArray index="Show" Link="NotOrCountUpgradeChooseDefaultSkinQueuedOrBetterCountUpgradeChooseJimmySkinQueuedOrBetterCountUpgradeChooseMadaxeSkinQueuedOrBetterCountUpgradeChooseUltimateSkinQueuedOrBetterCountUpgradeChooseMarshallSkinQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShockBeam">
+        <NodeArray index="Show" Link="NotCountUpgradeShockBeamQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankFragmentBlastRequirement">
+        <EditorCategories value="Race:Terran"/>
+        <NodeArray index="Use" Link="CountUpgradeSiegeTankPlasmaShardsCompleteOnly3340885314"/>
+        <NodeArray index="Show" Link="OrNotCountBehaviorSiegeTankModulationCompleteOnlyAtUnitNotCountUpgradeSiegeTankPlasmaShardsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankFragmentBlastRequirementT2">
+        <EditorCategories value="Race:Terran"/>
+        <NodeArray index="Use" Link="AndNot3435105652GTCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1"/>
+        <NodeArray index="Show" Link="CountBehaviorSiegeTankModulationCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankModulateRequirement">
+        <EditorCategories value="Race:Terran"/>
+        <NodeArray index="Use" Link="CountUpgradeSiegeTankModulationCompleteOnly3535617815"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankHasRange">
+        <NodeArray index="Use" Link="CountUpgradeSiegeTankRangeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeSiegeTankRangeCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankHasPlasmaShards">
+        <NodeArray index="Use" Link="CountUpgradeSiegeTankPlasmaShardsCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeSiegeTankPlasmaShardsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankModulationUpgradeRequirement">
+        <NodeArray index="Show" Link="AndNotCountUpgradeSiegeTankModulationQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankRangeUpgradeRequirement">
+        <NodeArray index="Show" Link="AndNotCountUpgradeSiegeTankRangeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankPlasmaShardsUpgradeRequirement">
+        <NodeArray index="Show" Link="AndNotCountUpgradeSiegeTankPlasmaShardsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankRequirement">
+        <NodeArray index="Use" Link="And619414330CountUpgradePlasmaCannonsCompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUnitSiegeTank2QueuedOrBetterCountUnitSiegeTankSieged2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankShowModulate2">
+        <NodeArray index="Show" Link="EqCountBehaviorSiegeTankModulationCompleteOnlyAtUnit2"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankShowModulateNone">
+        <NodeArray index="Show" Link="NotCountBehaviorSiegeTankModulationCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankShowModulate1">
+        <NodeArray index="Show" Link="EqCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="NotHavelotsofbloodreq">
+        <NodeArray index="Use" Link="NotCountUpgradeLotsofBloodCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SpawnRavatorDelay3v32">
+        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly4013994440GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
+    </CRequirement>
+    <CRequirement id="SpawnInfusedDelay3v3">
+        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly103784274GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
+    </CRequirement>
+    <CRequirement id="WeaponCapacityRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeWeaponCapacityQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SpawnerNotYetUpgradedInfested">
+        <NodeArray index="Show" Link="EqCountBehaviorSpawnerUpgradedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="UpgradeCombatShield">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeUpgradedCombatShieldQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchImprovedFarming2">
+        <NodeArray index="Use" Link="CountUpgradeImprovedFarmingQueuedOrBetter724438663"/>
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedFarming2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchInstantDischarge">
+        <NodeArray index="Show" Link="NotCountUpgradeInstantDischargeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchPrimalRapidRespawnRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradePrimalRapidRespawnQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchTarSpawnRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTarInfectionCompleteOnly699063533"/>
+        <NodeArray index="Show" Link="NotCountUpgradeTarSpawnQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementOmegaliskEnhancePlating">
+        <NodeArray index="Show" Link="NotCountBehaviorEnhancedPlatingOmegaliskCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ResearchImprovedFarming">
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedFarmingQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchTarInfectionRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeTarInfectionQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SendBase1Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase1DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Base2Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase2DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Base3Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase3DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Base4Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase4DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Base5Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase5DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Base6Alive">
+        <NodeArray index="Show" Link="NotCountUpgradeBase6DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="EnhanceProductionRequirement">
+        <NodeArray index="Use" Link="Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmory2CompleteOnlyCountUnitTechLab3CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountBehaviorGenerateMineralsCowFarmCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="HaveAnyTechStructure">
+        <NodeArray index="Use" Link="Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmoryCompleteOnlyCountUnitTechLab3CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveConstructionYardandArmory">
+        <NodeArray index="Use" Link="AndCountUnitConstructionYardCompleteOnly2255243434CountUnitArmory2CompleteOnly609241497"/>
+    </CRequirement>
+    <CRequirement id="HaveConstructionYard">
+        <NodeArray index="Use" Link="CountUnitConstructionYardCompleteOnly2255243434"/>
+    </CRequirement>
+    <CRequirement id="HaveParalyzingShock">
+        <NodeArray index="Use" Link="CountUpgradeParalyzingShockCompleteOnly2664485168"/>
+    </CRequirement>
+    <CRequirement id="HaveShatteringLaser">
+        <NodeArray index="Show" Link="CountUpgradeMarineShatteringLaserCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveUnifiedArmorResearched">
+        <NodeArray index="Use" Link="CountUpgradeUnifiedArmorCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeUnifiedArmorCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveZergSpecialtySlowlingPackedMass">
+        <NodeArray index="Use" Link="CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveZergSpecialtyStrikelingDualHit">
+        <NodeArray index="Use" Link="CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveZergSpecialtyTanklingBankling">
+        <NodeArray index="Use" Link="CountUpgradeZergSpecializationTanklingBanklingCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="InfestorDigestingEnabled">
+        <NodeArray index="Show" Link="CountBehaviorInfestorDigestingCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="InfestorDigestingDisabled">
+        <NodeArray index="Show" Link="NotCountBehaviorInfestorDigestingCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="InfestorRallyRequirement">
+        <NodeArray index="Show" Link="CountBehaviorInfestorDigestingCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="InfestorTrainRequirement">
+        <NodeArray index="Use" Link="CountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297"/>
+    </CRequirement>
+    <CRequirement id="ModeIdle">
+        <NodeArray index="Use" Link="Not1995351566CountBehaviorConvertModeIdleCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ModeMinerals">
+        <NodeArray index="Use" Link="Not1995351566CountBehaviorConvertModeMineralsDefaultCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ModeGas">
+        <NodeArray index="Use" Link="Not1995351566CountBehaviorConvertModeGasCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="OmegaliskRequirement">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor5CompleteOnly2431451755"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneArmory">
+        <NodeArray index="Use" Link="Not3805471138CountUnitArmory2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneConstructionYard">
+        <NodeArray index="Use" Link="Not860072457CountUnitConstructionYardQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="OnlyOneTechLab">
+        <NodeArray index="Use" Link="Not4073818821CountUnitTechLab3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="PromoteToVeteran">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnly729820030OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
+    </CRequirement>
+    <CRequirement id="PromoteToElite">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
+    </CRequirement>
+    <CRequirement id="RavagerNotSiegedAlready">
+        <NodeArray index="Show" Link="EqCountBehaviorRavagerSiegedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="RavagerSieged">
+        <NodeArray index="Show" Link="EqCountBehaviorRavagerSiegedCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="RequireConYard">
+        <NodeArray index="Use" Link="CountUnitConstructionYardCompleteOnly2255243434"/>
+    </CRequirement>
+    <CRequirement id="HaveAdvancedBuild">
+        <NodeArray index="Use" Link="AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeAdvancedBuildCompleteOnly3080158053"/>
+    </CRequirement>
+    <CRequirement id="RequirementGameTime215">
+        <NodeArray index="Use" Link="CountUpgradeGameTime215CompleteOnly2123455989"/>
+    </CRequirement>
+    <CRequirement id="RequirementPrimalRoach">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor3CompleteOnly3638424730"/>
+    </CRequirement>
+    <CRequirement id="RequirementUltralisk">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor4CompleteOnly3065930054"/>
+    </CRequirement>
+    <CRequirement id="RequirementInfestor">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor1CompleteOnly1850040327"/>
+    </CRequirement>
+    <CRequirement id="RequirementRoach">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor2CompleteOnly3976443666"/>
+    </CRequirement>
+    <CRequirement id="RequirementBrutalisk">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor5CompleteOnly2431451755"/>
+    </CRequirement>
+    <CRequirement id="HaveTier2Equipment">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly3392209755"/>
+    </CRequirement>
+    <CRequirement id="HaveTier3Equipment">
+        <NodeArray index="Use" Link="CountUpgradeTier3EquipmentCompleteOnly3004331205"/>
+    </CRequirement>
+    <CRequirement id="ResearchCloakedFlight">
+        <NodeArray index="Show" Link="NotCountUpgradeCloakedFlightQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchConservationL2">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnly729820030CountUpgradeMarineConservationL1CompleteOnly2205661302"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchConservationL3">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL2CompleteOnly1428761563"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchEliteScope">
+        <NodeArray index="Use" Link="CountUpgradeTier3EquipmentCompleteOnly1892408692"/>
+        <NodeArray index="Show" Link="NotCountUpgradeEliteScopeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchTier2Equipment">
+        <NodeArray index="Show" Link="NotCountUpgradeTier2EquipmentQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchPenetratingLaser">
+        <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaserQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShatteringLaser">
+        <NodeArray index="Show" Link="NotCountUpgradeMarineShatteringLaserQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchConservationL1">
+        <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL1QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShatteringLaserUpgrade">
+        <NodeArray index="Use" Link="CountUpgradeMarineShatteringLaserCompleteOnly4238821561"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchHyperElectrodes">
+        <NodeArray index="Use" Link="CountUpgradeShockOverloadCompleteOnly445003062"/>
+        <NodeArray index="Show" Link="NotCountUpgradeHyperElectrodesQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShockOverload">
+        <NodeArray index="Show" Link="NotCountUpgradeShockOverloadQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchParalyzingShock">
+        <NodeArray index="Show" Link="NotCountUpgradeParalyzingShockQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchUnifiedArmorRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeUnifiedArmorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergSpecialtyCreeperFerocity">
+        <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationCreeperFerocityQueuedOnlyCountUpgradeZergSpecializationCreeperFerocityInProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergSpecialtySlowlingPackedMass">
+        <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationSlowlingPackedMassQueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMassInProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergSpecialtyStrikelingDualHit">
+        <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationStrikelingDualHitQueuedOnlyCountUpgradeZergSpecializationStrikelingDualHitInProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergSpecialtyTanklingBankling">
+        <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationTanklingBanklingCompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationTanklingBanklingQueuedOnlyCountUpgradeZergSpecializationTanklingBanklingInProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergSupply">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeZergSupplyIncreaseQueuedOnlyNotCountUpgradeZergSupplyIncreaseInProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="SendBase2Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase2DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SendBase3Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase3DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SendBase4Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase4DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SendBase5Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase5DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="SendBase6Requirement">
+        <NodeArray index="Use" Link="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBase6DeadCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="PlasmaCannonsRequirement">
+        <NodeArray index="Use" Link="GTE3417746048CountUpgradeFortificationCompleteOnly3"/>
+        <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SpawnerNotYetUpgraded">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor1CompleteOnly"/>
+        <NodeArray index="Show" Link="EqCountBehaviorSpawnerUpgradedCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="StrikelingSpawnerCap">
+        <NodeArray index="Use" Link="LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="TarRoachRequirement">
+        <NodeArray index="Use" Link="AndCountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297LT381415482CountUnitTarRoachQueuedOrBetter100"/>
+    </CRequirement>
+    <CRequirement id="RavagerRequirement">
+        <NodeArray index="Use" Link="AndCountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297LT2473741311CountUnitRavager2QueuedOrBetter30CountUpgradeZergArmor2CompleteOnly1814853743"/>
+    </CRequirement>
+    <CRequirement id="TechLabChargeUp">
+        <NodeArray index="Use" Link="LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges1">
+        <NodeArray index="Use" Link="GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges2">
+        <NodeArray index="Use" Link="GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges4">
+        <NodeArray index="Use" Link="GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges25">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnly729820030GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges40">
+        <NodeArray index="Use" Link="GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40"/>
+    </CRequirement>
+    <CRequirement id="TechLabRequireCharges20">
+        <NodeArray index="Use" Link="GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20"/>
+    </CRequirement>
+    <CRequirement id="ToggleWeaponTurnONRequirement">
+        <NodeArray index="Show" Link="CountBehaviorWeaponDisabledCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ToggleWeaponTurnOFFRequirement">
+        <NodeArray index="Show" Link="NotCountBehaviorWeaponDisabledCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="TrainNapalmBomb">
+        <NodeArray index="Use" Link="Not3445088064OrCountUnitNapalmBombQueuedOrBetterAtUnitCountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ArmNapalmBomb">
+        <NodeArray index="Use" Link="CountUnitNapalmBombCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="PickupNapalmBomb">
+        <NodeArray index="Use" Link="NotCountBehaviorNapalmPayloadFirebatCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="UpgradeEnergyCapability">
+        <NodeArray index="Use" Link="AndNot660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5"/>
+    </CRequirement>
+    <CRequirement id="UpgradeEnergyCapacity">
+        <NodeArray index="Use" Link="AndNot660069371CountUpgradeEnergyCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5"/>
+    </CRequirement>
+    <CRequirement id="UpgradeZergHydraliskSpawnSize">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeHydraliskSpawnSizeQueuedOnlyNotCountUpgradeHydraliskSpawnSizeInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeHydraliskSpawnSizeCompleteOnlyOrCountUpgradeHydraliskSpawnSizeQueuedOnlyCountUpgradeHydraliskSpawnSizeInProgressOnly3"/>
+    </CRequirement>
+    <CRequirement id="UpgradeZergFireling">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeFirelingsQueuedOnlyNotCountUpgradeFirelingsInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeFirelingsCompleteOnlyOrCountUpgradeFirelingsQueuedOnlyCountUpgradeFirelingsInProgressOnly8"/>
+    </CRequirement>
+    <CRequirement id="UseOvercharge">
+        <NodeArray index="Use" Link="CountUpgradeMarineOverchargeCompleteOnly2503394132"/>
+    </CRequirement>
+    <CRequirement id="ResearchTier3Equipment">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="AndNotCountUpgradeTier3EquipmentQueuedOrBetterCountUpgradeTier2EquipmentQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergArmor1">
+        <NodeArray index="Show" Link="NotCountUpgradeZergArmor1QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchAdvancedBuild">
+        <NodeArray index="Show" Link="NotCountUpgradeAdvancedBuildQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UpgradeZergMovement">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeZergMovementQueuedOnlyNotCountUpgradeZergMovementInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeZergMovementCompleteOnlyOrCountUpgradeZergMovementQueuedOnlyCountUpgradeZergMovementInProgressOnly3"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergArmor2">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor1CompleteOnly1850040327"/>
+        <NodeArray index="Show" Link="NotCountUpgradeZergArmor2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergArmor3">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor2CompleteOnly3976443666"/>
+        <NodeArray index="Show" Link="NotCountUpgradeZergArmor3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergArmor4">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor3CompleteOnly3638424730"/>
+        <NodeArray index="Show" Link="NotCountUpgradeZergArmor4QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchZergArmor5">
+        <NodeArray index="Use" Link="CountUpgradeZergArmor4CompleteOnly3065930054"/>
+        <NodeArray index="Show" Link="NotCountUpgradeZergArmor5QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UpgradeEnergyGeneration">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeEnergyGenerationQueuedOnlyNotCountUpgradeEnergyGenerationInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50"/>
+    </CRequirement>
+    <CRequirement id="UpgradeZergAttack">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeZergAttackQueuedOnlyNotCountUpgradeZergAttackInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeZergAttackCompleteOnlyOrCountUpgradeZergAttackQueuedOnlyCountUpgradeZergAttackInProgressOnly50"/>
+    </CRequirement>
+    <CRequirement id="UpgradeFortification">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeFortificationQueuedOnlyNotCountUpgradeFortificationInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeFortificationCompleteOnlyOrCountUpgradeFortificationQueuedOnlyCountUpgradeFortificationInProgressOnly30"/>
+    </CRequirement>
+    <CRequirement id="ResearchOvercharge">
+        <NodeArray index="Show" Link="NotCountUpgradeMarineOverchargeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="FirelingNotBurning">
+        <NodeArray index="Show" Link="NotCountBehaviorBurningCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="UseInstantDischarge">
+        <NodeArray index="Use" Link="CountUpgradeInstantDischargeCompleteOnly2503394132"/>
+    </CRequirement>
+    <CRequirement id="UsePlasmaCannons">
+        <NodeArray index="Use" Link="CountUpgradePlasmaCannonsCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradePlasmaCannonsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="TerrazineDoublerRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoublerQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="nothave3pylons">
+        <NodeArray index="Use" Link="LT831937892CountUnitProbiusPylonQueuedOrBetter3"/>
+    </CRequirement>
+</Catalog>

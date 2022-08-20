@@ -1,0 +1,2098 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CBehaviorBuff id="AdeptWeaponRedirect">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AdeptTargetIsDead"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffect value="AdeptRemoveMissile"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AdvancedGateAutoOpen">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="0.6"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="AdvancedGateAutoReOpenSearch"/>
+        <ExpireEffect value="AdvancedGateAutoReOpenIssue"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Afterburner">
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-medivac-igniteafterburners.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+        <Modification MoveSpeedBonus="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalAnimalAssignedCallback1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="AnimalDismissSlot1Remove"/>
+        <RemoveValidatorArray value="AnimalNotInMoveOrder"/>
+        <InitialEffect value="AnimalOrderStopIssue"/>
+        <Modification>
+            <AbilLinkDisableArray value="AnimalRequestFarm"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalAnimalAssignedCallback2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="AnimalDismissSlot2Remove"/>
+        <RemoveValidatorArray value="AnimalNotInMoveOrder"/>
+        <InitialEffect value="AnimalOrderStopIssue"/>
+        <Modification>
+            <AbilLinkDisableArray value="AnimalRequestFarm"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalAnimalAssignedCallback3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="AnimalDismissSlot3Remove"/>
+        <RemoveValidatorArray value="AnimalNotInMoveOrder"/>
+        <InitialEffect value="AnimalOrderStopIssue"/>
+        <Modification>
+            <AbilLinkDisableArray value="AnimalRequestFarm"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalFarmFruitListener">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <MaxStackCountPerCaster value="1"/>
+        <FinalEffect value="AnimalOrderFruitSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalFarmFruitListenerApplyer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Period value="18"/>
+        <PeriodicEffect value="AnimalAssignListenerApply"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ChaosLordStacks">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-icon-biomass.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BossArmor">
+        <Alignment value="Positive"/>
+        <Cost>
+            <Cooldown Link="Immortal Shield"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-kerrigan-heroicfortitude.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DamageResponse ClampMaximum="2" Minimum="2">
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BloodStacks">
+        <InfoIcon value="Assets\Textures\btn-icon-biomass.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Charging">
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConsumedBlood">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConsumedBlood2">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConsumedBlood3">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification MoveSpeedBonus="0.3007"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateTerrazine">
+        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="5"/>
+        <PeriodicEffect value="ConvertTerrazineConverterText"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="LotsofBlood">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="nothavelotsofblood"/>
+        <Modification>
+            <DamageDealtUnscaled index="Melee" value="25"/>
+            <DamageDealtUnscaled index="Ranged" value="3"/>
+            <VitalMaxArray index="Life" value="30"/>
+            <VitalRegenArray index="Life" value="2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CultistEnergyWeapon">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterEnergyis0"/>
+        <Modification>
+            <WeaponDisableArray value="LaserPistol"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwordUserEnemyNearbyRangedDisabler">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="EnemiesNearbySwordUser"/>
+        <Modification>
+            <WeaponDisableArray value="LaserPistol"/>
+            <WeaponDisableArray value="TwinBolter"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EarlyDeathDebuff">
+        <InfoIcon value="Assets\Textures\btn-hero-karax.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GapGeneration">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shadowfury.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Period value="10"/>
+        <PeriodicEffect value="GapGenerationDummyEffect"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateGasChemicalPlantLarge">
+        <InfoIcon value="Assets\Textures\icon-gas-protoss-nobg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainGas6CasterText"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedivacTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades0">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades1">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades2">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades3">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades4">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades5">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades6">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades7">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades8">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades9">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades10">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades11">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades12">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades13">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades14">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades15">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades16">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades17">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades18">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades19">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades20">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades21">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades22">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades23">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades24">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades25">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades26">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades27">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades28">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades29">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades30">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades31">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades32">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades33">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades34">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades35">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades36">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades37">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades38">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades39">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades40">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades41">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades42">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades43">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades44">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades45">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades46">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades47">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades48">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades49">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades50">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades51">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades52">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades53">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades54">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades55">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades56">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades57">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades58">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades59">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades60">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GeneratorUpgrades61">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PhaseCannonTimedLife">
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HighTechBuff">
+        <InfoIcon value="Assets\Textures\btn-tips-terran-energynova.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="12"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BloodDropTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="10"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonOvercharge">
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-structureovercharge.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Modification>
+            <WeaponEnableArray value="PylonOverchargeCannon"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffAuraDefense">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="PylonBuffDefenseSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffDefense">
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-medivac-doublehealbeam.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.1"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="Add1HP"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffAuraPower">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="PylonBuffPowerSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingPrecursor">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="BanelingSpawnerBanelingDeathRemoveCount"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingSpawnerSpawnTimer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <BuffFlags index="Countdown" value="0"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="45">
+            <AccumulatorArray value="BanelingTrainTimeFactor"/>
+        </Duration>
+        <FinalEffect value="BanelingSpawnerIncreaseCharge"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingSpawnerUnitCounter">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="100"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DetectorScannerSweep" parent="Detector">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-status-detector.dds"/>
+        <Modification Detect="13"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FragmentBlastPeriodicChard">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.5"/>
+        <Period value="0.09"/>
+        <PeriodicEffect value="SiegeTankFragmentBlastLaunchShardSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GasExtraction">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="HaveGasExtraction1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="3"/>
+        <PeriodicEffect value="GasExtractionGainGasSet"/>
+        <DisableValidatorArray value="ConstructionYardCanExtractGas"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MissileDetonateCliff3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="ZergProtectiveBaseSourceCliffLevelLT3"/>
+        <FinalEffect value="MissileDetonate"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MissileSelfDestructZergBarrierFragmentBlast">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="MissileSelfDestructZergBarrierFragmentBlast"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffAuraAttack">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="PylonBuffAttackSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffPower">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-liferegen.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.1"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="1.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProbiusPylonBuffAttack">
+        <InfoIcon value="Assets\Textures\btn-upgrade-nova-equipment-canisterrifle.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.1"/>
+        <Modification AttackSpeedMultiplier="1.4" RangedWeaponRange="1">
+            <DamageDealtUnscaled index="Melee" value="1"/>
+            <DamageDealtUnscaled index="Ranged" value="1"/>
+            <DamageDealtUnscaled index="Splash" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProdigalEngineerProductionTarget">
+        <DisableValidatorArray index="0" removed="1"/>
+        <Modification TimeScale="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ScannerSweepTimed">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="10.2"/>
+        <ExpireEffect value="ScannerSweepRemove"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankCooldown">
+        <InfoIcon value="Assets\Textures\btn-upgrade-raynor-improvedsiegemode.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <Duration value="20"/>
+        <Modification>
+            <AbilClassDisableArray index="CAbilResearch" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankPlasmaCannonHitMarker">
+        <InfoFlags index="Hidden" value="1"/>
+        <MaxStackCount value="6"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankModulation">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankUpgradingDisableAbilities">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="SiegeTankUpgradingAny"/>
+        <Modification>
+            <AbilLinkDisableArray value="FragmentBlast"/>
+            <AbilLinkDisableArray value="PlasmaCannon"/>
+            <AbilLinkDisableArray value="PlasmaCannonT2"/>
+            <AbilLinkDisableArray value="PlasmaCannonT3"/>
+            <AbilLinkDisableArray value="SiegeTankModulate"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SolidFoundation">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="300"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CanExtractGas">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CritterEatRun">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CritterOrderedToEat"/>
+        <Modification MoveSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CritterFleeRun">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <FinalEffect value="CritterFleeIssueStopOrder"/>
+        <Modification MoveSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CritterFleeTrigger">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DamageResponse Handled="CritterFleeTriggerSet">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CritterSatisfied">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <AbilLinkDisableArray value="CritterEatFruit"/>
+            <AbilLinkDisableArray value="CritterSeekFruit"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="AnimalAssignCallbackSlot1Set"/>
+        <FinalEffect value="AnimalSlot1FinalSet"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="AnimalAssignCallbackSlot2Set"/>
+        <FinalEffect value="AnimalSlot2FinalSet"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="AnimalAssignCallbackSlot3Set"/>
+        <FinalEffect value="AnimalSlot3FinalSet"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Grazing">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-garyselfhealing.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AnimalIsNotAssigned"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AnimalAnimalPriority">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ApplySpawnBonus1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffect value="IncreaseSpawner"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ApplySpawnBonus2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffect value="IncreaseSpawner"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ApplySpawnBonus4">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffect value="IncreaseSpawner"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ApplySpawnBonus3">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <PeriodCount value="3"/>
+        <PeriodicEffect value="IncreaseSpawner"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ArmoryAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="ArmorySearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AbsorbingCloud">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="0.625"/>
+        <Modification MoveSpeedMultiplier="0.5">
+            <VitalRegenArray index="Energy" value="-1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingExplodeZergHex">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DamageResponse>
+            <Fatal value="1"/>
+            <Handled value="CreepLargeBanelingDeathIssue"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BomberDeployBombs">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="5"/>
+        <PeriodicEffect value="BomberDeployPersistent"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BomberDisableBombs">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BomberSearchTargets">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.05"/>
+        <PeriodicEffect value="BomberSearchArea"/>
+        <DisableValidatorArray value="CasterEnergyGE100"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot1Priority">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot2Priority">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmSlot3Priority">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmUsedCounter">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <MaxStackCountPerCaster value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmUsed0">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AnimalFarmHasUsed0"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmUsed1">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AnimalFarmHasUsed1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmUsed2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AnimalFarmHasUsed2"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FarmUsed3">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="AnimalFarmHasUsed3"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FeedNotifier">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="FeedNotificationTrigger">
+                <Relationship index="Self" value="0"/>
+                <Relationship index="Ally" value="0"/>
+                <Relationship index="Neutral" value="0"/>
+            </DeathResponse>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ImmortalShakurasShadowCannon2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="ImmortalShakurasShadowCannonValidators2"/>
+        <Duration value="2"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="TechLabStasisCannonLM"/>
+        <Modification>
+            <StateFlags index="SuppressAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Investment">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-entomb.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="InvestmentResearched"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainMineralsInvest3Text"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IsSpawner">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MineralMining">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-entomb.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="MineralMiningResearched"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainMineralsMineralMining20Text"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NoAlliedAttacks">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1" TargetFilters="-;Player,Neutral,Enemy">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoIcon value="Assets\Textures\btn-progression-mengsk-11-psychoactivepayload.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Overshock">
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-ghost-staticempblast.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="2"/>
+        <Modification MoveSpeedMultiplier="0.6"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PeriodicFruitSpawn">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="6"/>
+        <PeriodicEffect value="FruitFarmRandomLocationFruitPersistent"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BuildSolidFoundation">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <BuffFlags index="Countdown" value="0"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="300"/>
+        <ExpireEffect value="ConstructionYardSolidFoundationApply"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RipenedCurrent">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RoachTarRushSpeed">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification MoveSpeedBonus="2.75" AttackSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Shatter01">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-ghost-staticempblast.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="10"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="HyperElectrodeDisplacerSearchShatter01"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PrecursorLargeSpawner">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="IncreaseLargeSpawner"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RadiatedRoach">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="1.75"/>
+        <Modification MoveSpeedMultiplier="1.15" AttackSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OracleStasisTrapTarget">
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="40"/>
+        <FinalEffect value="TechLabStasisCannonKill"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="0"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <AbilLinkDisableArray value="TarRush"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Radiating">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfusedRoachAuraSearch"/>
+        <RemoveValidatorArray value="NotInStasis"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavatorHitCounter">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-garytravelingdamageorb.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="3"/>
+        <Duration value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavatorStructureBurning">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-yagdra-firewave.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="3"/>
+        <Period value="0.5"/>
+        <InitialEffect value="RavatorBurnDamage"/>
+        <PeriodicEffect value="RavatorBurnDamage"/>
+        <Modification>
+            <LifeArmorBonus value="-5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Shatter02">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-ghost-staticempblast.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="10"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="HyperElectrodeDisplacerSearchShatter02"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Shatter03">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-ghost-staticempblast.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="10"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="HyperElectrodeDisplacerSearchShatter03"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnBlood">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="IsZergUnit"/>
+        <DamageResponse Fatal="1" Handled="CreateBlood">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnBlood2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="CreateBloodBig2">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnsBombers">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="StalkerSpeedBuff">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="3"/>
+        <Modification MoveSpeedMultiplier="1.4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfusedRoachInfection">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="5"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="InfusedRoachRoachSpawn"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Stimpack">
+        <Duration value="10"/>
+        <Modification MoveSpeedMultiplier="1.1" AttackSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FindBloodDrop">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="2.5"/>
+        <PeriodicEffect value="SlaveNearbySearch"/>
+        <DisableValidatorArray value="CasterNotHoldingPosition"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TarRoachSpawn">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="TarRushResearched"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="TarRoachSpawnAuto"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TarRoachInfection">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="5"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="TarRoachSpawnInfection"/>
+        </Modification>
+        <DisableValidatorArray value="NotInfectedByInfusedRoach"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TarRoachTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="18"/>
+    </CBehaviorBuff>
+    <CBehaviorCreepSource id="CreepGrowthCustomSporeCrawler">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.75"/>
+        <Build value="CreepGrowthCustomMeduimCreepSourceBuild"/>
+        <Start value="CreepGrowthCustomSporeCrawlerCreepFootprint"/>
+        <Birth value="CreepGrowthCustomMediumCreepSourceStart"/>
+        <Grown value="CreepGrowthCustomSporeCrawlerCreepFootprint"/>
+    </CBehaviorCreepSource>
+    <CBehaviorBuff id="EnergyNetworkDestroyNetwork">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-preordain.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.125"/>
+        <InitialEffect value="EnergyNetworkTransferFinishSetDelayed"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkDisconnected">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-arguslink.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="EnergyNetworkHasNoNetworkContact"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkNetworkProviderAvailable">
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-fenix-colossuschampionslowbeam.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterSourceProviderIsAvailable"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProviderAvailable">
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-fenix-colossuschampionslowbeam.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterProviderAvailableValidator"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProvider">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="1.25"/>
+        <InitialEffect value="EnergyNetworkProviderInitialSet"/>
+        <PeriodicEffect value="EnergyNetworkProviderPeriodicSet"/>
+        <DamageResponse>
+            <Handled value="EnergyNetworkSignalDamageVisualDirectGenerator"/>
+            <Location value="Attacker"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
+            <RequireEffectArray value="EnergyNetworkSignalDamageSignal"/>
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkNetworkEnabled">
+        <InfoIcon value="Assets\Textures\btn-upgrade-karax-pylonwarpininstantly.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="2"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkConnectingTo">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-hallucination-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="EnergyNetworkWithinRangeOfPylon"/>
+        <RemoveValidatorArray value="CasterNotDestroying"/>
+        <FinalEffect value="EnergyNetworkTransferFinshApplyDestroy"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProviderConnected">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-hallucination-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Handled="EnergyNetworkConnectFinalResponseSet">
+            <RequireEffectArray value="EnergyNetworkSignalReDamageSignal"/>
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProviderTryingConnection">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-hallucination-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.4"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProviderTransferring">
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-chronosurge.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="EnergyNetworkTransferApplyAfterShow"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkProviderTransferringAfterShow">
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-chronosurge.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.625"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkRelayInUse">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CasterNotDestroying"/>
+        <RemoveValidatorArray value="EnergyNetworkHasNetworkContactofCaster"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <FinalEffect value="EnergyNetworkTransferFinshApplyDestroy"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkRelayNearbyUser">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CasterNotDestroying"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkSignalListenerStart">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="2"/>
+        <DamageResponse Handled="EnergyNetworkSignalInitialResponse" ModifyFraction="0" ModifyMinimumDamage="1">
+            <RequireEffectArray value="EnergyNetworkSignalDamageSignal"/>
+            <Chance value="1"/>
+            <Cost>
+                <Charge Link="Behavior/EnergyNetworkListenerFinal"/>
+                <Cooldown Link="Behavior/EnergyNetworkListenerFinal"/>
+            </Cost>
+        </DamageResponse>
+        <DisableValidatorArray value="CasterNotConnected"/>
+        <DisableValidatorArray value="CasterSourceProviderIsAvailable"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkSignalCounter">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Duration value="10"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkSignalListenerChain">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="2"/>
+        <InitialEffect value="EnergyNetworkRefreshNetworkChainApplyListenerStart"/>
+        <RefreshEffect value="EnergyNetworkRefreshNetworkChainApplyListenerStart"/>
+        <DamageResponse Handled="EnergyNetworkSignalResponseSet">
+            <RequireEffectArray value="EnergyNetworkSignalReDamageSignal"/>
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkSignalFilter">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnhancedPlatingOmegalisk">
+        <InfoIcon value="Assets\Textures\btn-progression-stetmann-12-ultraliskupgradecache.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxFractionArray index="Life" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ImumeIonStorm">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1">
+            <RequireEffectArray value="IonStormDoTDamage"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestorAutoTransfuse">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="InfestorEnoughEnergyToTransfuse"/>
+        <DamageResponse Fatal="1" Handled="InfestorAutoTransfuseHeal">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestorTransfusion">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="200"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InvulnerableBlockers">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-basicmutation.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NapalmChargeFate">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <ExpireEffect value="NapalmChargeInitialSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NapalmPayloadChemicalPlant">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="NapalmChargeSearchArea"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NapalmPayloadFirebat">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <AbilLinkDisableArray value="attack"/>
+            <DeathResponse Chance="1" Effect="NapalmChargeSearchArea"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OutOfGas">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-tychus-firebat-wildflamefuel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.75"/>
+        <PeriodicEffect value="FirebatRefreshChargeSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ManualOverride">
+        <InfoIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="HasAutomationEnabled"/>
+        <Duration value="7"/>
+        <ExpireEffect value="AdvancedGateStartAutomationSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Bankling">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="HaveZergSpecialtyTanklingBankling"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="GainMineralBankling"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BeingRepaired">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-swann-improvednanorepair.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="255"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardAuraBuffMain">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3.125"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="2"/>
+        </Modification>
+        <DamageResponse ModifyFraction="0.6">
+            <ExcludeEffectArray value="TanklingMeleeDamage"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardPlus1">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3.125"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="4"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardPlus2">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3.125"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="8"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardPlus3">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3.125"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="12"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardPlus4">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3.125"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="16"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConvertModeIdle">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConvertModeMineralsDefault">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConvertModeGas">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DefenderIsLinked">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <Modification>
+            <AbilLinkDisableArray value="NanoRepairDefender"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DefenderLink">
+        <InfoIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification AttackSpeedMultiplier="1.3">
+            <DamageDealtFraction index="Ranged" value="0.3"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DefenderLinkConYard">
+        <InfoIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Automated">
+        <InfoIcon value="Assets\Textures\btn-ability-terran-yamatogun.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="AdvancedGateStartAutomationSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyWarpRecieved">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AdvancedGateCloseForceField">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.2"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="AdvancedGateForceFieldSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateGasChemicalPlant">
+        <InfoIcon value="Assets\Textures\icon-gas-protoss-nobg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainGas10CasterText"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HardenedShieldItalis">
+        <Alignment value="Positive"/>
+        <Cost>
+            <Cooldown Link="Immortal Shield"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\BTN-Ability-Protoss-HardenedShields.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterShieldsGE1"/>
+        <DamageResponse ClampMaximum="15" Minimum="15">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestorDigesting">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfestorAutoLoadIssue"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+        <InitialEffect value="InfestorAutoLoadIssue"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InsideInfestor">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="InfestorIsDigesting"/>
+        <DisableValidatorArray value="CasterEnergyNotFull"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfestorDigestingSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InvulnerableTest">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel3.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse ClampMaximum="0" Minimum="0" ModifyMinimumDamage="1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonBeamActive">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Duration value="20.4"/>
+        <Period value="0.2"/>
+        <PeriodicEffect value="IonBeamSet"/>
+        <ExpireEffect value="IonBeamRemoveSet"/>
+        <PeriodCount value="100"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonBeam">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="IonBeamApplyPrepare"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonBeamPrepare">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <BuffFlags index="Countdown" value="0"/>
+        <Duration value="2"/>
+        <ExpireEffect value="IonBeamApplyActive"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonWound">
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-chronomancy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalRegenMultiplier index="Life" value="-1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonStorm">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="60"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="IonStormSearch"/>
+        <ExpireEffect value="IonStormRemoveDelay"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonStormDoT">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="0.51"/>
+        <Period value="0.125"/>
+        <InitialEffect value="IonStormDoTDamage"/>
+        <PeriodicEffect value="IonStormDoTDamage"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonStormSpawnTest">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="0.1"/>
+        <InitialEffect value="IonStormSpawnTestSearch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Ionized">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="3"/>
+        <Modification MoveSpeedMultiplier="0.4"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="IonizedMedium">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="NotIonizedDirectHit"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="6"/>
+        <Modification MoveSpeedMultiplier="0.6"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="LaunchingIonCannon">
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-chronomancy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="22"/>
+        <Modification>
+            <AbilLinkDisableArray value="EnergyWarp"/>
+            <AbilLinkDisableArray value="PowerField"/>
+            <AbilLinkDisableArray value="ScannerSweep2"/>
+            <AbilLinkDisableArray value="ChargeUp"/>
+            <DeathResponse Chance="1" Effect="IonCannonStopOnDestruction"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OmegaliskUnitDeathNotifier">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="OmegaliskTriggerDeath"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OmegaliskSpawnTimer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <BuffFlags index="Countdown" value="0"/>
+        <Duration value="120"/>
+        <InitialEffect value="OmegaliskTriggerSpawnCocoon"/>
+        <ExpireEffect value="OmegaliskTriggerSpawnCompleted"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OmegaliskCocoonDeathNotifier">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="OmegaliskTriggerDeath">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Overcapacity">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterEnergyGT5000"/>
+        <Modification>
+            <VitalRegenMultiplier index="Energy" value="-0.25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PowerField">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="0.6"/>
+        <Modification>
+            <DamageDealtUnscaled index="Spell" value="3"/>
+            <DamageDealtUnscaled index="Melee" value="3"/>
+            <DamageDealtUnscaled index="Ranged" value="3"/>
+            <DamageDealtUnscaled index="NoProc" value="3"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PowerFieldEnemies">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="0.6"/>
+        <Modification LifeArmorMultiplier="0"/>
+    </CBehaviorBuff>
+    <CBehaviorPowerUser id="PowerUserWarpable">
+        <PlacementMinPowerLevel value="0"/>
+        <Flags index="KillIfUnpowered" value="0"/>
+        <PoweredWhileUnderConstruction value="0"/>
+    </CBehaviorPowerUser>
+    <CBehaviorBuff id="RavagerSieged">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfusedRoachSpawnTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="18"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PhotonCannonTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TradeDelayMineralsHeavy">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.05"/>
+        <FinalEffect value="TradeMineralsFinalIssueOrderHeavy"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UserNearbyActiveGenerator">
+        <InfoIcon value="Assets\Textures\btn-progression-hornerhan-11-mechhealing.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="1.6"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UserUnit">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnerUpgraded">
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TrafficTowerCargoEmpty">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TrafficTowerTransportUnitUndefined">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyNetworkRefreshNetworkChain">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-gravitonbeam-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="0.4375"/>
+        <Period value="0.01"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffect value="EnergyNetworkRefreshNetworkChainSearch"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnifiedArmor">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-juggernautplating.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="UnifiedArmorResearched"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <InitialEffect value="UnifiedArmorCheckLeechableMainSearch"/>
+        <DamageResponse Handled="UnifiedArmorCheckLeechableDelay">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="StaticDischarge">
+        <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.55"/>
+        <PeriodicEffect value="StaticDischargeSearchArea"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TechLabCharge">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-karax-chronowave.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="40"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnifiedArmorActiveLeech">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="0.4"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="UnifiedArmorLeechSearch"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnifiedArmorBeingRepaired">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="UnifiedArmorResearchedAndBeingRepaired"/>
+        <Period value="1"/>
+        <PeriodicEffect value="UnifiedArmorBeingRepairedSearch"/>
+        <BehaviorFlags index="Permanent" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnknownBehavior">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UserNearbyActiveRelay">
+        <InfoIcon value="Assets\Textures\btn-progression-hornerhan-10-telefrag.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="1.6"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <DamageResponse Handled="EnergyNetworkConnectFindPylonDelayIssue" ModifyFraction="0" ModifyMinimumDamage="1">
+            <RequireEffectArray value="ConnectFindPylonSignalDamage"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UserOnTransferCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-progression-stetmann-03-stetelliteovercharge.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WeaponDisabled">
+        <InfoIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergIncomeExtractorGreater">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="IncomeExtractorRemovedUpgraded"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergIncomeSpawnerLarge">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="IncomeSpawnerLargeRemoved"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergIncomeContainer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="IncomeContainerRemoved"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergRallyRatio">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="9"/>
+        <MaxStackCountPerCaster value="9"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergRandomDestroyTimer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.5"/>
+        <DurationRandomMin value="7"/>
+        <FinalEffect value="DestroySpawnerDamage"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ReaperDuringLeap">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2.5"/>
+        <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyUserUtillityAutomatic">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TempTimeout2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="3"/>
+        <ExpireEffect value="SuicideRemove"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnlimitedEnergy">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="10000"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UpgradedVespeneHarvestingUnlimited">
+        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="3"/>
+        <PeriodicEffect value="AutoHarvestVespeneU2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BarracksNearby">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2.2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BarracksNearbyNotification">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="2"/>
+        <PeriodicEffect value="BarracksNearbySearch"/>
+        <RemoveValidatorArray value="NotMobileSquadTrainingResearched"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyUserUtillityManual">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Ferocity">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Modification>
+            <DamageDealtUnscaled index="Ranged" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PackedMass">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="HaveZergSpecialtySlowlingPackedMass"/>
+        <Modification MoveSpeedMultiplier="0.6"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnBuggoUponDeath">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="CreateBuggo">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateGas2">
+        <InfoIcon value="Assets\Textures\icon-gas-zerg-nobg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainGas2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HydraliskGrowTimer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <BuffFlags index="Countdown" value="0"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <Duration value="50"/>
+        <ExpireEffect value="HydraliskIncreaseLevelSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HydraliskLevel">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="255"/>
+        <Modification RangedWeaponRange="1" WeaponScanBonus="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HydraliskShedSkin">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="HydraliskHasLevel"/>
+        <DamageResponse Fatal="1" Handled="HydraliskShedLevelSet" ModifyFraction="-1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RefundOnDeath">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="RefundUnitDummyEffect">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoIcon value="Assets\Textures\btn-kerrigan-ability-broodlingnest.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnProtection">
+        <InfoIcon value="Assets\Textures\btn-shield-protoss-plasmashields.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShatterL1">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="ShatterL1SearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ConstructionYardAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="3"/>
+        <PeriodicEffect value="ConstructionYardSearchAreaSwitch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ArmoryBuff">
+        <InfoIcon value="Assets\Textures\btn-ability-terran-lockon.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <Modification RangedWeaponRange="2">
+            <DamageDealtUnscaled index="Melee" value="1"/>
+            <DamageDealtUnscaled index="Ranged" value="1"/>
+            <DamageDealtUnscaled index="Splash" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VespeneHarvestingUnlimited">
+        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="3"/>
+        <PeriodicEffect value="AutoHarvestVespeneU1"/>
+    </CBehaviorBuff>
+    <CBehaviorCreepSource id="CreepGrowthCustomLargeEven">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.75"/>
+        <Build value="Footprint8x6CreepSourceBuild"/>
+        <Start value="CreepGrowthCustomLargeEvenCreepFootprint"/>
+        <Birth value="Footprint8x6CreepSourceStart"/>
+        <Grown value="CreepGrowthCustomLargeEvenCreepFootprint"/>
+    </CBehaviorCreepSource>
+    <CBehaviorCreepSource id="CreepGrowthCustomMediumEven">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.75"/>
+        <Build value="CreepGrowthCustomMeduimCreepSourceBuild"/>
+        <Start value="CreepGrowthCustomMediumEvenCreepFootprint"/>
+        <Birth value="CreepGrowthCustomMediumCreepSourceStart"/>
+        <Grown value="CreepGrowthCustomMediumEvenCreepFootprint"/>
+    </CBehaviorCreepSource>
+    <CBehaviorBuff id="EnergyBattery">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CherryDeath">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="ProduceMineral01">
+                <Type index="Eat" value="0"/>
+            </DeathResponse>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RelayUnit">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <FinalEffect value="EnergyNetworkDisconnectRemoveRelayInUse"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyPylonTransferredTo">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyUserInfantry">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EnergyUserDefenseStructure">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Flamable">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Handled="FirelingFlamableIssueOrder">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateGas">
+        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="1"/>
+        <PeriodicEffect value="GainGas1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateFood">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="6"/>
+        <PeriodicEffect value="FruitFarmRandomLocationFruitPersistent"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateMineral">
+        <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="5"/>
+        <PeriodicEffect value="GainMineral1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateMineralHive">
+        <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateMinerals">
+        <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="10"/>
+        <PeriodicEffect value="GainMineral1CasterText"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateMineralsCowFarm">
+        <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="10"/>
+        <PeriodicEffect value="GainMineral2Caster"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Overcharge2">
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-fenix-carrier-solarbeam.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <Modification AttackSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Burning">
+        <InfoIcon value="Assets\Textures\btn-tips-walloffire.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.75"/>
+        <PeriodicEffect value="BurningDamage"/>
+        <Modification MoveSpeedMultiplier="2" AttackSpeedMultiplier="2">
+            <VitalRegenMultiplier index="Life" value="-1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PrecursorSpawner">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="IncreaseSpawner"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShatterL2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="ShatterL2SearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShatterL3">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <Duration value="0.1"/>
+        <FinalEffect value="ShatterL3SearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShockBlast">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="0.85"/>
+    </CBehaviorBuff>
+    <CBehaviorResource id="RawVespeneGeyserGas">
+        <Capacity value="0"/>
+        <Contents value="0"/>
+        <HarvestAmount value="0"/>
+    </CBehaviorResource>
+    <CBehaviorBuff id="Ripening">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <ExpireEffect value="FruitSetRipenedSet"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Ripened">
+        <InfoIcon value="Assets\Textures\btn-icon-biomass.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <ExpireEffect value="FruitRemoveSet"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorCreepSource id="CreepGrowthCustomHuge">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.75"/>
+        <Build value="Footprint8x6CreepSourceBuild"/>
+        <Start value="CreepGrowthCustomHugeCreepFootprint"/>
+        <Birth value="Footprint8x6CreepSourceStart"/>
+        <Grown value="CreepGrowthCustomHugeCreepFootprint"/>
+    </CBehaviorCreepSource>
+    <CBehaviorBuff id="StrikelingShielded">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-regenerativebile.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Handled="RemoveShielded" ModifyFraction="-1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Test">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TradeDelayMinerals">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.05"/>
+        <FinalEffect value="TradeMineralsFinalIssueOrder"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TradeDelayGas">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.05"/>
+        <FinalEffect value="TradeGasFinalIssueOrder"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergBuildingNotOnCreep">
+        <Period value="1"/>
+        <Modification>
+            <VitalRegenMultiplier index="Life" value="-1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HydraliskNotOnCreep" parent="ZergBuildingNotOnCreep">
+        <Name value="Behavior/Name/HydraliskNotOnCreep"/>
+        <Tooltip value="Behavior/Tooltip/HydraliskNotOnCreep"/>
+        <Requirements value=""/>
+        <DisableValidatorArray index="0" value="HydraliskNotOnCreepValidator"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="HydraliskNotOnCreepSwitch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergIncomeSpawner">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <FinalEffect value="IncomeSpawnerRemoved"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergIncomeExtractorRemoveNotice">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="IncomeExtractorRemoveNotice"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorCreepSource id="CreepGrowthSustainOmegaliskEgg">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Requirements value="NotHaveK5CreepBonuses"/>
+        <Period value="0.75"/>
+        <Start value="CreepGrowthSustainOmegaliskEggCreepFootprint"/>
+        <Birth value="Footprint4x4CreepSourceStart"/>
+        <Grown value="CreepGrowthSustainOmegaliskEggCreepFootprint"/>
+    </CBehaviorCreepSource>
+    <CBehaviorCreepSource id="makeCreep4x4Omegalisk">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.5"/>
+        <Start value="Footprint4x4OmegaliskCreepSourceStart"/>
+        <Birth value="Footprint2x2OverlordCreepSourceStart"/>
+        <Grown value="Footprint4x4OmegaliskCreepSourceGrown"/>
+    </CBehaviorCreepSource>
+</Catalog>

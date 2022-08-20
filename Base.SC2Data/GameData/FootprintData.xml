@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CFootprint id="CreepGrowthCustomLargeEvenCreepFootprint">
+        <Layers index="Check" Area="-13,-13,13,13">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="..........oooooo.........."/>
+            <Rows value=".......oooooooooooo......."/>
+            <Rows value="......oooooooooooooo......"/>
+            <Rows value="....oooooooooooooooooo...."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="..oooooooooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooooooooo.."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="....oooooooooooooooooo...."/>
+            <Rows value="......oooooooooooooo......"/>
+            <Rows value=".......oooooooooooo......."/>
+            <Rows value="..........oooooo.........."/>
+        </Layers>
+        <Layers index="Place" Area="-13,-13,13,13">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="..........oooooo.........."/>
+            <Rows value=".......oooooooooooo......."/>
+            <Rows value="......oooooooooooooo......"/>
+            <Rows value="....oooooooooooooooooo...."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="..oooooooooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooooooooo.."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="...oooooooooooooooooooo..."/>
+            <Rows value="....oooooooooooooooooo...."/>
+            <Rows value="......oooooooooooooo......"/>
+            <Rows value=".......oooooooooooo......."/>
+            <Rows value="..........oooooo.........."/>
+        </Layers>
+        <Shape>
+            <Radius value="24.372"/>
+            <Offsets value="-13,-13;13,-13;-13,13;13,13"/>
+            <Borders value="0,2,1;1,0,1;2,3,1;3,1,1"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCustomMediumEvenCreepFootprint">
+        <Layers index="Check" Area="-6,-6,6,6">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="....oooo...."/>
+            <Rows value="..oooooooo.."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value=".oooooooooo."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value="..oooooooo.."/>
+            <Rows value="....oooo...."/>
+        </Layers>
+        <Layers index="Place" Area="-6,-6,6,6">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="....oooo...."/>
+            <Rows value="..oooooooo.."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value="oooooooooooo"/>
+            <Rows value=".oooooooooo."/>
+            <Rows value=".oooooooooo."/>
+            <Rows value="..oooooooo.."/>
+            <Rows value="....oooo...."/>
+        </Layers>
+        <Shape>
+            <Radius value="8.4853"/>
+            <Offsets value="-6,-6;6,-6;-6,6;6,6"/>
+            <Borders value="0,2,1;1,0,1;2,3,1;3,1,1"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCustomSporeCrawlerCreepFootprint">
+        <Layers index="Check" Area="-3,-3,3,3">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value=".ooooo"/>
+            <Rows value=".ooooo"/>
+            <Rows value="..oooo"/>
+            <Rows value="....oo"/>
+        </Layers>
+        <Layers index="Place" Area="-3,-3,3,3">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value=".oooo."/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value=".oooo."/>
+        </Layers>
+        <Shape>
+            <Radius value="4.2426"/>
+            <Offsets value="-3,-3;3,-3;-3,3;3,3"/>
+            <Borders value="0,2,1;1,0,1;2,3,1;3,1,1"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthSustainOmegaliskEggCreepFootprint">
+        <Layers index="Check" Area="-3,-3,3,3">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value=".oooo."/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value=".oooo."/>
+        </Layers>
+        <Layers index="Place" Area="-3,-3,3,3">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value=".oooo."/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value="oooooo"/>
+            <Rows value=".oooo."/>
+        </Layers>
+        <Shape>
+            <Radius value="4.2426"/>
+            <Offsets value="-3,-3;3,-3;-3,3;3,3"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint3x3OutsideBaseContour">
+        <Layers index="Check" Area="-1,-1,2,2">
+            <Sets index="0">
+                <Negative index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,2">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1,-1.5;1,-1.5;-1,1.5;1,1.5;-1.5,-1;-1.5,1;1.5,-1;1.5,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint3x3OutsideBase">
+        <Layers index="Check" Area="-1,-1,2,2">
+            <Sets index="0">
+                <Negative index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,2">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.1213"/>
+            <Offsets value="-1.5,-1.5;1.5,-1.5;-1.5,1.5;1.5,1.5"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint6x6NearResource">
+        <Layers index="Check" Area="-3,-3,3,3">
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-3,-3,3,3">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+                <Positive index="NoBuild" value="0"/>
+                <Positive index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+        </Layers>
+    </CFootprint>
+    <CFootprint id="Footprint4x4OmegaliskCreepSourceGrown">
+        <Layers index="Check" Area="-6,-6,7,7">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="............."/>
+            <Rows value=".....oo......"/>
+            <Rows value="...oooooo...."/>
+            <Rows value="..oooooooo..."/>
+            <Rows value=".oooooooooo.."/>
+            <Rows value=".oooooooooo.."/>
+            <Rows value="oooooooooooo."/>
+            <Rows value="oooooooooooo."/>
+            <Rows value=".oooooooooo.."/>
+            <Rows value=".oooooooooo.."/>
+            <Rows value="..oooooooo..."/>
+            <Rows value="...oooooo...."/>
+            <Rows value=".....oo......"/>
+        </Layers>
+        <Layers index="Place" Area="-6,-6,7,7">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="............."/>
+            <Rows value="............."/>
+            <Rows value="....ooooo...."/>
+            <Rows value="...ooooooo..."/>
+            <Rows value="..ooooooooo.."/>
+            <Rows value="..ooooooooo.."/>
+            <Rows value="..ooooooooo.."/>
+            <Rows value="..ooooooooo.."/>
+            <Rows value="..ooooooooo.."/>
+            <Rows value="...ooooooo..."/>
+            <Rows value="....ooooo...."/>
+            <Rows value="............."/>
+            <Rows value="............."/>
+        </Layers>
+    </CFootprint>
+    <CFootprint id="Footprint4x4OmegaliskCreepSourceStart">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.8286"/>
+            <Offsets value="-2,-2;2,-2;-2,2;2,2"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint4x4NearResource">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+                <Positive index="NoBuild" value="0"/>
+                <Positive index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+    </CFootprint>
+    <CFootprint id="Footprint21x21NearResource">
+        <Layers index="Check" Area="-10,-10,11,11">
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-10,-10,11,11">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+                <Positive index="NoBuild" value="0"/>
+                <Positive index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+            <Rows value="xxxxxxxxxxxxxxxxxxxxx"/>
+        </Layers>
+    </CFootprint>
+    <CFootprint id="FootprintGeyserWithoutNearbyResource">
+        <Layers index="Check" Area="-1,-1,2,2">
+            <Sets index="0">
+                <Negative index="DropOff" value="1"/>
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Sets Character="o">
+                <Negative index="DropOff" value="1"/>
+            </Sets>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,2">
+            <Sets index="0">
+                <Positive index="NearResources" value="1"/>
+            </Sets>
+            <Sets Character="o">
+                <Positive index="NearResources" value="1"/>
+            </Sets>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1,-1.5;1,-1.5;-1,1.5;1,1.5;-1.5,-1;-1.5,1;1.5,-1;1.5,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="OmegaliskCocoon" parent="Footprint1x1">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Positive index="Creep" value="1"/>
+                <Negative index="GroundNoSpawn" value="1"/>
+                <Negative index="NoBuild" value="0"/>
+                <Negative index="Creep" value="0"/>
+                <Negative index="NoCreep" value="1"/>
+                <Negative index="Fogged" value="1"/>
+                <Negative index="Dense" value="1"/>
+            </Sets>
+            <Rows index="0" value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Positive index="Dense" value="1"/>
+            </Sets>
+            <Rows index="0" value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.236"/>
+            <Offsets value="-1,-2;1,-2;-1,2;1,2;-2,-1;-2,1;2,-1;2,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint4x4Creep">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Positive index="Creep" value="1"/>
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.475"/>
+            <Offsets value="-1.75,-1.75;1.75,-1.75;-1.75,1.75;1.75,1.75"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint4x4CreepContour">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Positive index="Creep" value="1"/>
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.5"/>
+            <Offsets value="-1.5,-2;1.5,-2;-1.5,2;1.5,2;-2,-1.5;-2,1.5;2,-1.5;2,1.5"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint4x4Nest">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.236"/>
+            <Offsets value="-1,-2;1,-2;-1,2;1,2;-2,-1;-2,1;2,-1;2,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint2x2CreepTumor">
+        <Layers index="Check">
+            <Sets index="0">
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Layers index="Place">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.1181"/>
+            <Offsets value="-0.5,-1;0.5,-1;-0.5,1;0.5,1;-1,-0.5;-1,0.5;1,-0.5;1,0.5"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint6x6Farm">
+        <Layers index="Check" Area="-3,-3,3,3">
+            <Sets Character="o">
+                <Negative index="NoBuild" value="1"/>
+                <Negative index="Creep" value="1"/>
+            </Sets>
+            <Rows value="oooooo"/>
+            <Rows value="oxxxxo"/>
+            <Rows value="oxxxxo"/>
+            <Rows value="oxxxxo"/>
+            <Rows value="oxxxxo"/>
+            <Rows value="oooooo"/>
+        </Layers>
+        <Layers index="Place" Area="-3,-3,3,3">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+            </Sets>
+            <Sets Character="o">
+                <Positive index="NoBuild" value="1"/>
+                <Positive index="Dense" value="1"/>
+            </Sets>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxooxx"/>
+            <Rows value="xxooxx"/>
+            <Rows value="xxxxxx"/>
+            <Rows value="xxxxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="4.2426"/>
+            <Offsets value="-3,-3;3,-3;-0.5,-1;0.5,-1;-0.5,1;0.5,1;-3,3;3,3;-1,-0.5;-1,0.5;1,-0.5;1,0.5"/>
+            <Borders value="0,6,1;1,0,1;2,3,1;3,10,1;4,9,1;5,4,1;6,7,1;7,1,1;8,2,1;9,8,1;10,11,1;11,5,1;2,8,2;3,2,2;4,5,2;5,11,2;8,9,2;9,4,2;10,3,2;11,10,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCustomHugeCreepFootprint">
+        <Layers index="Check" Area="-15,-15,15,15">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="..........oooooooooo.........."/>
+            <Rows value="........oooooooooooooo........"/>
+            <Rows value="......oooooooooooooooooo......"/>
+            <Rows value=".....oooooooooooooooooooo....."/>
+            <Rows value="....oooooooooooooooooooooo...."/>
+            <Rows value="...oooooooooooooooooooooooo..."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="...oooooooooooooooooooooooo..."/>
+            <Rows value="....oooooooooooooooooooooo...."/>
+            <Rows value=".....oooooooooooooooooooo....."/>
+            <Rows value="......oooooooooooooooooo......"/>
+            <Rows value="........oooooooooooooo........"/>
+            <Rows value="..........oooooooooo.........."/>
+        </Layers>
+        <Layers index="Place" Area="-15,-15,15,15">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="..........oooooooooo.........."/>
+            <Rows value="........oooooooooooooo........"/>
+            <Rows value="......oooooooooooooooooo......"/>
+            <Rows value=".....oooooooooooooooooooo....."/>
+            <Rows value="....oooooooooooooooooooooo...."/>
+            <Rows value="...oooooooooooooooooooooooo..."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="..oooooooooooooooooooooooooo.."/>
+            <Rows value="...oooooooooooooooooooooooo..."/>
+            <Rows value="....oooooooooooooooooooooo...."/>
+            <Rows value=".....oooooooooooooooooooo....."/>
+            <Rows value="......oooooooooooooooooo......"/>
+            <Rows value="........oooooooooooooo........"/>
+            <Rows value="..........oooooooooo.........."/>
+        </Layers>
+        <Shape>
+            <Radius value="26.5705"/>
+            <Offsets value="-15,-15;15,-15;-15,15;15,15"/>
+            <Borders value="0,2,1;1,0,1;2,3,1;3,1,1"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCustomMeduimCreepSourceBuild">
+        <Layers index="Check">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value="oo"/>
+            <Rows value="oo"/>
+        </Layers>
+        <Layers index="Place">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value="oo"/>
+            <Rows value="oo"/>
+        </Layers>
+    </CFootprint>
+    <CFootprint id="CreepGrowthCustomMediumCreepSourceStart">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets Character="o">
+                <Negative index="NoCreep" value="1"/>
+            </Sets>
+            <Rows value=".oo."/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value=".oo."/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Sets Character="o">
+                <Positive index="Creep" value="1"/>
+            </Sets>
+            <Rows value=".oo."/>
+            <Rows value="oooo"/>
+            <Rows value="oooo"/>
+            <Rows value=".oo."/>
+        </Layers>
+        <Shape>
+            <Radius value="2.8286"/>
+            <Offsets value="-2,-2;2,-2;-2,2;2,2"/>
+            <Borders value="0,2,1;1,0,1;2,3,1;3,1,1"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="TerrazineTank2x4">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.4143"/>
+            <Offsets value="-1,-1;1,-1;-1,1;1,1"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+        <EditorCategories value="FootprintGroup:Generic"/>
+    </CFootprint>
+</Catalog>

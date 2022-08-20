@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorUnitFilters id="AdeptTargetIsNotDead">
+        <WhichUnit Effect="ItalisLM"/>
+        <Filters value="-;Dead"/>
+    </CValidatorUnitFilters>
+    <CValidatorCombine id="AdvancedGateAutoCloseValidator">
+        <Type value="And"/>
+        <CombineArray value="HasAutomationEnabled"/>
+        <CombineArray value="HasNoManualOverride"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="AdvancedGateIsClosed">
+        <WhichUnit Value="Caster"/>
+        <Value value="TerranAdvancedGate"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="AnimalAnimalPriorityGTE2">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="AnimalAnimalPriority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="AnimalCanAssignSlot1">
+        <CombineArray value="AnimalTargetFarmSlot1Empty"/>
+        <CombineArray value="AnimalCanOverrideSlot1Priority2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AutomatedAssimilatorBeam">
+        <CombineArray index="1" removed="1"/>
+        <CombineArray index="2" removed="1"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="CasterEnergyGE1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterEnergyis0">
+        <WhichUnit Value="Caster"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorLocationEnumArea id="EnemiesNearbySwordUser">
+        <AreaArray Compare="GT" Count="1" Radius="3"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorCombine id="InfestorTransfusionTargetGainsMaxHealth">
+        <Type value="And"/>
+        <CombineArray value="IsStructureTarget"/>
+        <CombineArray value="InfestorTransfusionLessThan8"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AnimalCanAssignSlot2">
+        <CombineArray value="AnimalTargetFarmSlot2Empty"/>
+        <CombineArray value="AnimalCanOverrideSlot2Priority2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AnimalCanAssignSlot3">
+        <CombineArray value="AnimalTargetFarmSlot3Empty"/>
+        <CombineArray value="AnimalCanOverrideSlot3Priority2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AnimalCanOverrideSlot2Priority2">
+        <Type value="And"/>
+        <CombineArray value="AnimalTargetFarmSlot2PriorityLTE1"/>
+        <CombineArray value="AnimalAnimalPriorityGTE2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AnimalCanOverrideSlot3Priority2">
+        <Type value="And"/>
+        <CombineArray value="AnimalTargetFarmSlot3PriorityLTE1"/>
+        <CombineArray value="AnimalAnimalPriorityGTE2"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="AnimalFarmHasUsed0">
+        <WhichUnit Value="Source"/>
+        <Behavior value="FarmUsedCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalFarmHasUsed1">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="FarmUsedCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalFarmHasUsed2">
+        <WhichUnit Value="Source"/>
+        <Value value="2"/>
+        <Behavior value="FarmUsedCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalFarmHasUsed3">
+        <WhichUnit Value="Source"/>
+        <Value value="3"/>
+        <Behavior value="FarmUsedCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalIsAssignedSlot2">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="AnimalAnimalAssignedCallback2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalIsAssignedSlot3">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="AnimalAnimalAssignedCallback3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="AnimalIsNotAssigned">
+        <CombineArray value="AnimalIsAssigned"/>
+        <Negate value="1"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="AnimalIsAssignedSlot1">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="AnimalAnimalAssignedCallback1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="AnimalIsAssigned">
+        <CombineArray value="AnimalIsAssignedSlot1"/>
+        <CombineArray value="AnimalIsAssignedSlot2"/>
+        <CombineArray value="AnimalIsAssignedSlot3"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="AnimalFarmHasCounterOfCaster">
+        <WhichUnit Value="Source"/>
+        <Compare value="NE"/>
+        <Behavior value="FarmUsedCounter"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardCanExtractGas">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="CanExtractGas"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardCanNotExtractGas">
+        <WhichUnit Value="Source"/>
+        <Behavior value="CanExtractGas"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardHasFoundation">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="SolidFoundation"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitOrderQueue id="CritterOrderedToEat">
+        <AbilLink value="CritterEatFruit"/>
+    </CValidatorUnitOrderQueue>
+    <CValidatorUnitFilters id="AnimalSourceIsAlive">
+        <WhichUnit Value="Source"/>
+        <Filters value="-;Dead"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot1Empty">
+        <Behavior value="FarmSlot1Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot1PriorityLTE1">
+        <Compare value="LE"/>
+        <Value value="1"/>
+        <Behavior value="FarmSlot1Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot2PriorityLTE1">
+        <Compare value="LE"/>
+        <Value value="1"/>
+        <Behavior value="FarmSlot2Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot2Empty">
+        <Behavior value="FarmSlot2Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot3PriorityLTE1">
+        <Compare value="LE"/>
+        <Value value="1"/>
+        <Behavior value="FarmSlot3Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="AnimalTargetFarmSlot3Empty">
+        <Behavior value="FarmSlot3Priority"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="BomberNotDisabledBombs">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="BomberDisableBombs"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="AnimalCanOverrideSlot1Priority2">
+        <Type value="And"/>
+        <CombineArray value="AnimalTargetFarmSlot1PriorityLTE1"/>
+        <CombineArray value="AnimalAnimalPriorityGTE2"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterConnected">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProviderConnected"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="CasterEnergyGE2">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterEnergyGT5000">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="5000"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotAlreadyGettingConnection">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EnergyNetworkConnectingTo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterProviderAvailableValidatorStart">
+        <Type value="And"/>
+        <CombineArray value="CasterNotConnected"/>
+        <CombineArray value="CasterNotDestroying"/>
+        <CombineArray value="TransferMinimumEnergyStart"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterTryingConnecting">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProviderTryingConnection"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterPylonProviderIsAvailable">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkNetworkProviderAvailable"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkHasNetworkContactofCaster">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkNetworkEnabled"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="HaveGasExtraction1">
+        <Find value="1"/>
+        <Value value="HaveGasExtraction1"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveGasExtraction2">
+        <Find value="1"/>
+        <Value value="HaveGasExtraction2"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveGasExtraction3">
+        <Find value="1"/>
+        <Value value="HaveGasExtraction3"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitType id="IsChemplantLarge">
+        <Value value="LargeChemicalPlant"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsOpsCenter">
+        <Value value="OperationCenter"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsOrbitalAssimilator">
+        <Value value="AutomatedAssimilator"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsChaosCultist">
+        <Value value="ChaosCultist"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsChaosSlave">
+        <Value value="ChaosSlave"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsChaosMarine">
+        <Value value="ChaosSpaceMarine"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsChaosLord">
+        <Value value="ChaosLord"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsRefinery">
+        <Value value="Refinery2"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="IsProdigalEngineerProduction">
+        <CombineArray value="IsArmoryHex"/>
+        <CombineArray value="IsBarracksHex"/>
+        <CombineArray value="IsconyardHex"/>
+        <CombineArray value="IsTechlabHex"/>
+        <CombineArray value="IsOrbitalAssimilator"/>
+        <CombineArray value="IsRefinery"/>
+        <CombineArray value="IsOpsCenter"/>
+        <CombineArray value="IsUpgradedRefinery"/>
+        <CombineArray value="IsChemplant"/>
+        <CombineArray value="IsChemplantLarge"/>
+        <CombineArray value="IsGasVent"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="IsUpgradedRefinery">
+        <Value value="UpgradedRefinery"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsChemplant">
+        <Value value="ChemicalPlant"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsGasVent">
+        <Value value="GasVent"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsconyardHex">
+        <Value value="ConstructionYard"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsBarracksHex">
+        <Value value="Barracks2"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsArmoryHex">
+        <Value value="Armory2"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsTechlabHex">
+        <Value value="TechLab3"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="NotBomber">
+        <Value value="InfestedExploder"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="PickupCheckBlood">
+        <Type value="And"/>
+        <CombineArray value="NotSpiderMine"/>
+        <CombineArray value="NotSpiderMineBurrowed"/>
+        <CombineArray value="NotHiddenSelf"/>
+        <CombineArray value="NotInterceptor"/>
+        <CombineArray value="NotSpiderMine"/>
+        <CombineArray value="NotSpiderMineBurrowed"/>
+        <CombineArray value="NotHiddenSelf"/>
+        <CombineArray value="IsChaosMarine"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ReactorIsDetached">
+        <CombineArray index="0" value="IsNotConstructing"/>
+        <CombineArray index="1" removed="1"/>
+        <CombineArray index="2" removed="1"/>
+        <CombineArray index="3" removed="1"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel0"/>
+    <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel1">
+        <Compare value="LE"/>
+        <Value value="1"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel2">
+        <Compare value="LE"/>
+        <Value value="2"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorUnitCompareBehaviorCount id="SiegeTankHasModulation2">
+        <WhichUnit Value="Caster"/>
+        <Value value="2"/>
+        <Behavior value="SiegeTankModulation"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="SiegeTankHasModulationNone">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SiegeTankModulation"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="SiegeTankHasModulation1">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="SiegeTankModulation"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="SiegeTankHasRange">
+        <Find value="1"/>
+        <Value value="SiegeTankHasRange"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="SiegeTankHasNoRange">
+        <Value value="SiegeTankHasRange"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="SiegeTankHasPlasmaShards">
+        <Find value="1"/>
+        <Value value="SiegeTankHasPlasmaShards"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="SiegeTankPlasmaCannonNoMarker">
+        <Behavior value="SiegeTankPlasmaCannonHitMarker"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareOrderCount id="SiegeTankUpgrading1">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <AbilLink value="SiegeTankUpgrade"/>
+    </CValidatorUnitCompareOrderCount>
+    <CValidatorCombine id="SiegeTankUpgradingAny">
+        <CombineArray value="SiegeTankUpgrading1"/>
+        <CombineArray value="SiegeTankUpgrading2"/>
+        <CombineArray value="SiegeTankUpgrading3"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareOrderCount id="SiegeTankUpgrading2">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <AbilLink value="SiegeTankUpgrade"/>
+        <AbilCmdIndex value="1"/>
+    </CValidatorUnitCompareOrderCount>
+    <CValidatorUnitCompareOrderCount id="SiegeTankUpgrading3">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <AbilLink value="SiegeTankUpgrade"/>
+        <AbilCmdIndex value="2"/>
+    </CValidatorUnitCompareOrderCount>
+    <CValidatorUnitCompareBehaviorCount id="TargerIsCurrentRipenedFruit">
+        <Value value="1"/>
+        <Behavior value="RipenedCurrent"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="HasHeavyPlatingUpgraded">
+        <Find value="1"/>
+        <Value value="HaveHeavyPlating"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveShockBeam">
+        <Find value="1"/>
+        <Value value="HaveShockBeam"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveNoShockBeam">
+        <Value value="HaveShockBeam"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskLevelMax">
+        <WhichUnit Value="Source"/>
+        <Value value="2"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="ImmortalShakurasShadowCannonValidators2">
+        <Type value="And"/>
+        <CombineArray value="CasterIsNotHidden"/>
+        <CombineArray value="CasterNotDead"/>
+        <CombineArray value="CasterNotStunned"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="InfestorEnoughEnergyToTransfuse">
+        <WhichUnit Value="Source"/>
+        <Compare value="GE"/>
+        <Value value="150"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitOrderQueue id="AnimalNotInMoveOrder">
+        <AbilLink value="AnimalMove"/>
+        <Find value="0"/>
+    </CValidatorUnitOrderQueue>
+    <CValidatorPlayerRequirement id="MineralMiningResearched">
+        <Find value="1"/>
+        <Value value="HaveMineralMiningResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="IsNotInvulnerableGeyserBlockerZergHex">
+        <Behavior value="InvulnerableBlockers"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="IsRoachZergHex">
+        <Value value="Roach2"/>
+    </CValidatorUnitType>
+    <CValidatorPlayerRequirement id="EmpoweredWarpResearched">
+        <Find value="1"/>
+        <Value value="HaveEmpoweredWarpResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="MoreFarmsThanSheep">
+        <Find value="1"/>
+        <Value value="MoreFarmsThanSheep"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="MoreFarmsThanCow">
+        <Find value="1"/>
+        <Value value="MoreFarmsThanCow"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitFilters id="NotInStasis">
+        <WhichUnit Value="Source"/>
+        <Filters value="-;Stasis"/>
+    </CValidatorUnitFilters>
+    <CValidatorPlayerRequirement id="ReaperSuitUpgradeResearched">
+        <Find value="1"/>
+        <Value value="HaveReaperSuitUpgradeResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="NotMobileSquadTrainingResearched">
+        <Value value="HaveMobileSquadTrainingResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="NotInfectedByInfusedRoach">
+        <Behavior value="InfusedRoachInfection"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="RavatorHitCount1">
+        <Value value="1"/>
+        <Behavior value="RavatorHitCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="RavatorHitCount2">
+        <Value value="2"/>
+        <Behavior value="RavatorHitCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="RavatorHitCount3">
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="RavatorHitCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="RoachIsNotRadiationBuffed">
+        <Behavior value="RadiatedRoach"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="SourceNotDisconnected">
+        <WhichUnit Value="Source"/>
+        <Behavior value="EnergyNetworkDisconnected"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="EnergyNetworkIsNearbyPowerNetworkOfCaster">
+        <CombineArray value="EnergyNetworkIsNearbyPowerNetworkOfCasterNearRelay"/>
+        <CombineArray value="EnergyNetworkIsNearbyPowerNetworkOfCasterNearGenerator"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkIsNearbyPowerNetworkOfCasterNearRelay">
+        <Value value="1"/>
+        <Behavior value="UserNearbyActiveRelay"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkIsNearbyPowerNetworkOfCasterNearGenerator">
+        <Value value="1"/>
+        <Behavior value="UserNearbyActiveGenerator"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="InfestorTransfusionLessThan8">
+        <Compare value="LT"/>
+        <Value value="8"/>
+        <Behavior value="InfestorTransfusion"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="InfestorTransfusionMaximumCombine">
+        <ResultFailed value="Error,Error/TransfusionMaxStack"/>
+        <CombineArray value="InfestorTransfusionLessThan8"/>
+        <CombineArray value="LifeNotFull"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="InfestorTransfusionValidatorAllow">
+        <CombineArray value="LifeNotFull"/>
+        <CombineArray value="IsStructureTarget"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="InfestorTransfusionValidator">
+        <ResultFailed value="Error,Error/TargetHive"/>
+        <Type value="And"/>
+        <CombineArray value="InfestorTransfusionValidatorAllow"/>
+        <CombineArray value="IsNotHiveTargetZergHex"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="PreviousChainedAlreadyInUseByCasterLoopingNetwork">
+        <WhichUnit Effect="EnergyNetworkRefreshNetworkChainApplyListenerChain" Value="Source"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkRelayInUse"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="TarRushResearched">
+        <Find value="1"/>
+        <Value value="HaveTarSpawnResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="TargetChemicalPlantHasNapalmBomb">
+        <Compare value="GT"/>
+        <Behavior value="NapalmPayloadChemicalPlant"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="TargetEnergyFull">
+        <Type value="Fraction"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetHealthLTE1">
+        <Compare value="LE"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsActiveEnergyRelay">
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkNetworkEnabled"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="TargetIsBlood">
+        <Value value="Blood"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsBloodBig">
+        <Value value="Blood2"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="TargetisBloodCombined">
+        <CombineArray value="TargetIsBlood"/>
+        <CombineArray value="TargetIsBloodBig"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnitisChaos">
+        <CombineArray value="IsChaosMarine"/>
+        <CombineArray value="IsChaosLord"/>
+        <CombineArray value="IsChaosSlave"/>
+        <CombineArray value="IsChaosCultist"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TargetIsInfantryTankorSentry">
+        <CombineArray value="TargetIsEnergyUserInfantry"/>
+        <CombineArray value="TargetIsEnergyUserUtilityAutomatic"/>
+        <CombineArray value="TargetIsEnergyUserDefenseStructure"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsNOTEnergyPylon">
+        <Compare value="LT"/>
+        <Value value="1"/>
+        <Behavior value="RelayUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsNOTEnergyBattery">
+        <Compare value="LT"/>
+        <Value value="1"/>
+        <Behavior value="EnergyBattery"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TargetIsNOTEnergyBatteryOrPylon">
+        <CombineArray value="TargetIsNOTEnergyPylon"/>
+        <CombineArray value="TargetIsNOTEnergyBattery"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="TargetIsFruitFarm">
+        <Value value="FruitFarm"/>
+    </CValidatorUnitType>
+    <CValidatorUnitFilters id="TargetIsNotSelf">
+        <Filters value="-;Self"/>
+    </CValidatorUnitFilters>
+    <CValidatorCombine id="TargetIsNotWall">
+        <CombineArray value="TargetIsWall"/>
+        <Negate value="1"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsSpawner">
+        <Compare value="NE"/>
+        <Behavior value="IsSpawner"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="TargetIsWall">
+        <Value value="Wall2"/>
+    </CValidatorUnitType>
+    <CValidatorUnitLastDamagePlayer id="TargetLastDamagedByAlly">
+        <Relationship value="Ally"/>
+    </CValidatorUnitLastDamagePlayer>
+    <CValidatorUnitCompareBehaviorCount id="TargetNotAlreadyGettingConnection">
+        <Behavior value="EnergyNetworkConnectingTo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterSourceProviderIsAvailable">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProviderAvailable"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotDestroying">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EnergyNetworkDestroyNetwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterProviderAvailableValidator">
+        <Type value="And"/>
+        <CombineArray value="CasterTryingConnecting"/>
+        <CombineArray value="CasterNotConnected"/>
+        <CombineArray value="CasterNotDestroying"/>
+        <CombineArray value="TransferMinimumEnergyStart"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterTransferringAfterShow">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProviderTransferringAfterShow"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterTransferringCombineShow">
+        <CombineArray value="CasterTransferring"/>
+        <CombineArray value="CasterTransferringAfterShow"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="TargetNotOmegaliskCocoonZergHex">
+        <ResultFailed value="Error,Error/CantTargetOmgegaliskCocoon"/>
+        <Value value="OmegaliskCocoon2"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetNotOmegaliskZergHex2">
+        <ResultFailed value="Error,Error/CantTargetOmgegalisk"/>
+        <Value value="OmegaliskZergHex"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="TargetNotOnTransferCooldown">
+        <Behavior value="UserOnTransferCooldown"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TransferSustainPeriodicValidator">
+        <Type value="And"/>
+        <CombineArray value="TransferMinimumEnergySustain"/>
+        <CombineArray value="CasterNotDestroying"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterTransferring">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProviderTransferring"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTransferring">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EnergyNetworkProviderTransferring"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterDestroying">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkDestroyNetwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkHasNoNetworkContact">
+        <WhichUnit Value="Source"/>
+        <Behavior value="EnergyNetworkNetworkEnabled"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkSignalCountLessThan4">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="4"/>
+        <Behavior value="EnergyNetworkSignalCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="EnergyNetworkHasSignalFilter">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkSignalFilter"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationCompareRange id="EnergyNetworkWithinRangeOfPylon">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LE"/>
+        <Range value="8"/>
+        <Value Value="SourcePoint"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorCombine id="FirebatCanIntervalReplenish">
+        <CombineArray value="FirebatCanIntervalReplenishPrioritized"/>
+        <CombineArray value="FirebatEnoughGasToReplenishUnprioritized"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="FirebatCanIntervalReplenishPrioritized">
+        <Type value="And"/>
+        <CombineArray value="FirebatEnoughGasToReplenish"/>
+        <CombineArray value="FirebatIsAttacking"/>
+    </CValidatorCombine>
+    <CValidatorPlayerCompareResource id="FirebatEnoughGasToReplenish">
+        <WhichPlayer Value="Caster"/>
+        <Compare value="GE"/>
+        <Resource value="Vespene"/>
+        <Value value="1"/>
+    </CValidatorPlayerCompareResource>
+    <CValidatorPlayerCompareResource id="FirebatEnoughGasToReplenishUnprioritized">
+        <WhichPlayer Value="Caster"/>
+        <Compare value="GE"/>
+        <Resource value="Vespene"/>
+        <Value value="15"/>
+    </CValidatorPlayerCompareResource>
+    <CValidatorPlayerCompareResource id="FirebatNotEnoughGasToReplenish">
+        <WhichPlayer Value="Caster"/>
+        <Compare value="LT"/>
+        <Resource value="Vespene"/>
+        <Value value="1"/>
+    </CValidatorPlayerCompareResource>
+    <CValidatorUnitWeaponFiring id="FirebatIsAttacking">
+        <WhichUnit Value="Caster"/>
+        <Weapon value="Firebat2"/>
+    </CValidatorUnitWeaponFiring>
+    <CValidatorUnitCompareBehaviorCount id="PreviousChainedNotActiveProvider">
+        <WhichUnit Effect="EnergyNetworkRefreshNetworkChainApplyListenerChain" Value="Source"/>
+        <Behavior value="EnergyNetworkProvider"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="PreviousChainedNotValidAnymore">
+        <Type value="And"/>
+        <CombineArray value="PreviousChainedNotActiveRelay"/>
+        <CombineArray value="PreviousChainedNotActiveProvider"/>
+        <CombineArray value="PreviousChainedAlreadyInUseByCasterLoopingNetwork"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="ShouldAbortTransferEnergyFull">
+        <WhichUnit Effect="EnergyNetworkConnectApply"/>
+        <Type value="Fraction"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TransferMinimumEnergySustain">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="TargetCanRelayToNetwork">
+        <Type value="And"/>
+        <CombineArray value="TargetHasNotVisitedByCaster"/>
+        <CombineArray value="TargetIsEnergyRelay"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TargetCanAcceptEnergy">
+        <Type value="And"/>
+        <CombineArray value="TargetIsEnergyUser"/>
+        <CombineArray value="TargetEnergyNotFull"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="PreviousChainedNotActiveRelay">
+        <WhichUnit Effect="EnergyNetworkRefreshNetworkChainApplyListenerChain" Value="Source"/>
+        <Behavior value="RelayUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetRelayHasProviderAvailable">
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkNetworkProviderAvailable"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetHasNotVisitedByCaster">
+        <Behavior value="EnergyNetworkNetworkEnabled"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterBeingRepairedZergHex">
+        <WhichUnit Value="Caster"/>
+        <Compare value="NE"/>
+        <Behavior value="BeingRepaired"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasConstructionYardBuff">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="ConstructionYardAuraBuffMain"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="CasterHealthLT25Percent">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="0.25"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterHealthLT35Percent">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="0.35"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterHealthLT45Percent">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="0.45"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterHealthLT55Percent">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="0.55"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorLocationCompareRange id="DistanceLessThanEqual16">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LE"/>
+        <Range value="16"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="DistanceLessThan3dot5">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Compare value="LT"/>
+        <Range value="3.5"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="DistanceLessThan6dot5">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Compare value="LT"/>
+        <Range value="6.5"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorCombine id="GliderAutocastValidator">
+        <CombineArray value="GliderSpeedLessThan7"/>
+        <CombineArray value="TargetIsCommandCenter"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareSpeed id="GliderSpeedLessThan7">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="7"/>
+    </CValidatorUnitCompareSpeed>
+    <CValidatorUnitCompareBehaviorCount id="HasNoManualOverride">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ManualOverride"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasNoAutoReOpen">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="AdvancedGateAutoOpen"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasAutomationEnabled">
+        <WhichUnit Value="Caster"/>
+        <Compare value="NE"/>
+        <Behavior value="Automated"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="HydraliskCanRecieveFatalDamage">
+        <CombineArray value="HydraliskHasLevel"/>
+        <CombineArray value="HydraliskHPGT5"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HydraliskCanRecieveAnyDamage">
+        <CombineArray value="HydraliskHasLevel"/>
+        <CombineArray value="HydraliskHPGT1"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="HydraliskHPGT5">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="5"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="HydraliskHPGT1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="HydraliskNotOnCreepValidator">
+        <Type value="And"/>
+        <CombineArray value="HydraliskNotOnCreep"/>
+        <CombineArray value="HydraliskCanRecieveAnyDamage"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetHasConstructionYardBuff">
+        <Value value="1"/>
+        <Behavior value="ConstructionYardAuraBuffMain"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetHasNoConstructionYardBuff">
+        <Behavior value="ConstructionYardAuraBuffMain"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasNoConstructionYardBuff">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConstructionYardAuraBuffMain"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetHasNotConnectedByCaster">
+        <Behavior value="EnergyNetworkProviderConnected"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyProvider">
+        <Compare value="GT"/>
+        <Behavior value="EnergyNetworkProvider"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsNotEnergyProvider">
+        <Behavior value="EnergyNetworkProvider"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConnected">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EnergyNetworkProviderConnected"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetNotPreviousInChain">
+        <Behavior value="EnergyNetworkRefreshNetworkChain"/>
+        <RequireCasterUnit Value="Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyRelay">
+        <Compare value="GT"/>
+        <Behavior value="RelayUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetHasUnifiedArmor">
+        <Value value="1"/>
+        <Behavior value="UnifiedArmor"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="TargetHealthGTE35Percent">
+        <Compare value="GE"/>
+        <Type value="Fraction"/>
+        <Value value="0.35"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardDefenderLinkStack1">
+        <WhichUnit Value="Source"/>
+        <Value value="1"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardDefenderLinkStack2">
+        <WhichUnit Value="Source"/>
+        <Value value="2"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardDefenderLinkStack3">
+        <WhichUnit Value="Source"/>
+        <Value value="3"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardDefenderLinkStack4">
+        <WhichUnit Value="Source"/>
+        <Value value="4"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="DefenderIsLinked">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="DefenderIsLinked"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="DefenderLinkMaxStackConstructionYard">
+        <Compare value="LT"/>
+        <Value value="3"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ConstructionYardDefenderLinkStack0">
+        <WhichUnit Value="Source"/>
+        <Behavior value="DefenderLinkConYard"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="DefenderLinkRequestFilterSentryGun">
+        <Type value="And"/>
+        <CombineArray value="TargetIsSentryGun"/>
+        <CombineArray value="DefenderLinkMaxStackSentryGun"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DefenderLinkRequestFilter">
+        <CombineArray value="DefenderLinkRequestFilterSentryGun"/>
+        <CombineArray value="DefenderLinkRequestFilterConstructionYard"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DefenderLinkRequestFilterConstructionYard">
+        <Type value="And"/>
+        <CombineArray value="TargetIsConstructionYard"/>
+        <CombineArray value="DefenderLinkMaxStackConstructionYard"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DefenderLinkSustainPeriodicValidator">
+        <Type value="And"/>
+        <CombineArray value="DefenderLinkSustainRange"/>
+        <CombineArray value="DefenderIsLinked"/>
+        <CombineArray value="CasterNotDead"/>
+        <CombineArray value="TargetNotDead"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DefenderLinkTargetUnitFilters">
+        <CombineArray value="TargetIsSentryGun"/>
+        <CombineArray value="TargetIsConstructionYard"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DefenderLinkTargetValidatorMajor">
+        <ResultFailed value="Error,NotLinkable"/>
+        <Type value="And"/>
+        <CombineArray value="NotUnderConstruction"/>
+        <CombineArray value="DefenderLinkTargetUnitFilters"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="DefenderLinkMaxStackSentryGun">
+        <Compare value="LT"/>
+        <Value value="1"/>
+        <Behavior value="DefenderLink"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationCompareRange id="RavagerSiegeMinimumRange">
+        <ResultFailed value="TargetIsTooClose"/>
+        <Compare value="GT"/>
+        <Range value="6"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitOrderQueue id="InfestorNotInMoveOrder">
+        <AbilLink value="move"/>
+        <Find value="0"/>
+    </CValidatorUnitOrderQueue>
+    <CValidatorUnitCompareVital id="CasterEnergyGE20">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="CasterEnergyNotFull">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorLocationCreep id="HydraliskNotOnCreep">
+        <ResultFailed value="CantBuildTooFarFromCreepSource"/>
+        <WhichLocation Value="CasterPoint"/>
+        <Find value="0"/>
+    </CValidatorLocationCreep>
+    <CValidatorUnitCompareVital id="CommandoEnergyGE5">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="EnergyTransferAutocastMilitary">
+        <Type value="And"/>
+        <CombineArray value="TargetEnergyFractionLT08"/>
+        <CombineArray value="TargetIsEnergyUserAnyMilitary"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="EnergyTransferAutocast">
+        <CombineArray value="EnergyTransferAutocastMilitary"/>
+        <CombineArray value="TargetIsEnergyUserUtilityAutomatic"/>
+    </CValidatorCombine>
+    <CValidatorUnitWeaponFiring id="FirelingIsAttacking">
+        <WhichUnit Value="Caster"/>
+        <Weapon value="FirelingClaws"/>
+    </CValidatorUnitWeaponFiring>
+    <CValidatorUnitCompareVital id="CasterMoreEnergy">
+        <WhichUnit Value="Caster"/>
+        <OtherUnit Value="Target"/>
+        <Compare value="GT"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE060">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="60"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE150">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="150"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE180">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="180"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE210">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="210"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE240">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="240"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE270">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="270"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE300">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="300"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="DifferCombine026090">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT060"/>
+        <CombineArray value="DifferCasterEnergyGTE090"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine0390120">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT090"/>
+        <CombineArray value="DifferCasterEnergyGTE120"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine04120150">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT120"/>
+        <CombineArray value="DifferCasterEnergyGTE150"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine05150180">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT150"/>
+        <CombineArray value="DifferCasterEnergyGTE180"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine06180210">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT180"/>
+        <CombineArray value="DifferCasterEnergyGTE210"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine07210240">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT210"/>
+        <CombineArray value="DifferCasterEnergyGTE240"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine08240270">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT240"/>
+        <CombineArray value="DifferCasterEnergyGTE270"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine09270300">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT270"/>
+        <CombineArray value="DifferCasterEnergyGTE300"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombineFinal">
+        <CombineArray value="DifferCombine013060"/>
+        <CombineArray value="DifferCombine026090"/>
+        <CombineArray value="DifferCombine0390120"/>
+        <CombineArray value="DifferCombine04120150"/>
+        <CombineArray value="DifferCombine05150180"/>
+        <CombineArray value="DifferCombine06180210"/>
+        <CombineArray value="DifferCombine07210240"/>
+        <CombineArray value="DifferCombine08240270"/>
+        <CombineArray value="DifferCombine09270300"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT030">
+        <Compare value="LT"/>
+        <Value value="30"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE090">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="90"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferCasterEnergyGTE120">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Value value="120"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT060">
+        <Compare value="LT"/>
+        <Value value="60"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT090">
+        <Compare value="LT"/>
+        <Value value="90"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT120">
+        <Compare value="LT"/>
+        <Value value="120"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT150">
+        <Compare value="LT"/>
+        <Value value="150"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT180">
+        <Compare value="LT"/>
+        <Value value="180"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT210">
+        <Compare value="LT"/>
+        <Value value="210"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT240">
+        <Compare value="LT"/>
+        <Value value="240"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="DifferTargetEnergyLT270">
+        <Compare value="LT"/>
+        <Value value="270"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorPlayerRequirement id="HaveShatteringLaser">
+        <Find value="1"/>
+        <Value value="HaveShatteringLaser"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskHasLevel">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskLevelLessThanMax">
+        <WhichUnit Value="Source"/>
+        <Compare value="LT"/>
+        <Value value="2"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskIsLevel2">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskIsLevel4">
+        <WhichUnit Value="Caster"/>
+        <Value value="3"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskIsLevel3">
+        <WhichUnit Value="Caster"/>
+        <Value value="2"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HydraliskIsLevel1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HydraliskLevel"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="InfestorIsDigesting">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="InfestorDigesting"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NotIonizedDirectHit">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Ionized"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerCompareResource id="PlayerHasMinerals15">
+        <Compare value="GE"/>
+        <Value value="15"/>
+    </CValidatorPlayerCompareResource>
+    <CValidatorPlayerCompareResource id="PlayerHasVespine5">
+        <Compare value="GE"/>
+        <Resource value="Vespene"/>
+        <Value value="5"/>
+    </CValidatorPlayerCompareResource>
+    <CValidatorUnitCompareBehaviorCount id="RavagerIsSieged">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="RavagerSieged"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="RavagerSiegeValidator">
+        <Type value="And"/>
+        <CombineArray value="CasterNotDead"/>
+        <CombineArray value="RavagerIsSieged"/>
+    </CValidatorCombine>
+    <CValidatorLocationPlacement id="ReaperFlightPlacementCheck">
+        <Range value="3"/>
+        <Unit value="MULE"/>
+    </CValidatorLocationPlacement>
+    <CValidatorUnitCompareBehaviorCount id="NotHitChain">
+        <Behavior value="HitChain"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="PickupCheck">
+        <CombineArray index="0" value="NotSpiderMine"/>
+        <CombineArray index="1" value="NotSpiderMineBurrowed"/>
+        <CombineArray index="2" value="NotHiddenSelf"/>
+        <CombineArray index="3" value="NotInterceptor"/>
+        <CombineArray index="4" value="NotSpiderMine"/>
+        <CombineArray value="NotSpiderMineBurrowed"/>
+        <CombineArray value="NotHiddenSelf"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareRange id="SiegeTankMinumumRange">
+        <ResultFailed value="TargetIsTooClose"/>
+        <Compare value="GE"/>
+        <Range value="7"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitCompareBehaviorCount id="SpawnerIsUpgraded">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="SpawnerUpgraded"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="TargetEnergyFractionLT08">
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="0.8"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetEnergyNotFull">
+        <Compare value="LT"/>
+        <Type value="Fraction"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="NotTransferredTo">
+        <Behavior value="EnergyPylonTransferredTo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="TargetHealthGTE45Percent">
+        <Compare value="GE"/>
+        <Type value="Fraction"/>
+        <Value value="0.45"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetHealthGTE55Percent">
+        <Compare value="GE"/>
+        <Type value="Fraction"/>
+        <Value value="0.55"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetHealthGTE65Percent">
+        <Compare value="GE"/>
+        <Type value="Fraction"/>
+        <Value value="0.65"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitType id="TargetIsCommandCenter">
+        <Value value="CommandCenter2"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="TargetFilterEnergyBatteryTransferFast">
+        <CombineArray value="TargetIsEnergyBattery"/>
+        <CombineArray value="TargetIsEnergyUserDefenseStructure"/>
+        <CombineArray value="TargetIsEnergyUserUtilityManual"/>
+        <CombineArray value="TargetIsEnergyUserUtilityAutomatic"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyPylon">
+        <Value value="1"/>
+        <Behavior value="RelayUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyUser">
+        <Compare value="GT"/>
+        <Behavior value="UserUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyUserUtilityManual">
+        <Value value="1"/>
+        <Behavior value="EnergyUserUtillityManual"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyUserInfantry">
+        <Value value="1"/>
+        <Behavior value="EnergyUserInfantry"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="TargetIsCherry">
+        <Value value="Fruit"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyBattery">
+        <Value value="1"/>
+        <Behavior value="EnergyBattery"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TargetIsEnergyBatteryOrPylon">
+        <CombineArray value="TargetIsEnergyPylon"/>
+        <CombineArray value="TargetIsEnergyBattery"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyUserDefenseStructure">
+        <Value value="1"/>
+        <Behavior value="EnergyUserDefenseStructure"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TargetIsEnergyUserAnyMilitary">
+        <CombineArray value="TargetIsEnergyUserInfantry"/>
+        <CombineArray value="TargetIsEnergyUserDefenseStructure"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsEnergyUserUtilityAutomatic">
+        <Value value="1"/>
+        <Behavior value="EnergyUserUtillityAutomatic"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="TargetIsGenerator">
+        <Value value="Generator"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsIonStorm">
+        <Value value="IonStorm"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsOmegalisk">
+        <Value value="OmegaliskZergHex"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsRipenedFruit">
+        <Value value="1"/>
+        <Behavior value="Ripened"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TargetIsEnergyBatteryOrUser">
+        <CombineArray value="TargetIsEnergyUserInfantry"/>
+        <CombineArray value="TargetIsEnergyBattery"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="TargetIsSentryGun">
+        <Value value="SentryGun2"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="TargetIsConstructionYard">
+        <Value value="ConstructionYard"/>
+    </CValidatorUnitType>
+    <CValidatorUnitFilters id="AdeptTargetIsDead">
+        <WhichUnit Effect="ItalisLM"/>
+        <Filters value="Dead;-"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitType id="TargetNotOmegaliskZergHex">
+        <Value value="OmegaliskZergHex"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="TargetisAllyorPlayerorStructure">
+        <CombineArray value="TargetIsAllyorPlayer"/>
+        <CombineArray value="IsStructureTarget"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeGTE10">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeGTE17">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="17"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeGTE25">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeLT05">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="5"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeLT10">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="10"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeLT17">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="17"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeLT25">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="25"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabHaveCharge1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TechLabChargeGTE05">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="TechLabCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="TechLabStaticDischargeTier2">
+        <Type value="And"/>
+        <CombineArray value="TechLabChargeGTE05"/>
+        <CombineArray value="TechLabChargeLT10"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TechLabStaticDischargeTier1">
+        <Type value="And"/>
+        <CombineArray value="TechLabChargeLT05"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TechLabStaticDischargeTier3">
+        <Type value="And"/>
+        <CombineArray value="TechLabChargeGTE10"/>
+        <CombineArray value="TechLabChargeLT17"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TechLabStaticDischargeTier4">
+        <Type value="And"/>
+        <CombineArray value="TechLabChargeGTE17"/>
+        <CombineArray value="TechLabChargeLT25"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="TechLabStaticDischargeTier5">
+        <Type value="And"/>
+        <CombineArray value="TechLabChargeGTE25"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="TransferMinimumEnergyStart">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Vital value="Energy"/>
+        <Value value="50"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="UnifiedArmorCanLeechHealth">
+        <CombineArray value="UnifiedArmorCanLeechHealthTier1"/>
+        <CombineArray value="UnifiedArmorCanLeechTier2"/>
+        <CombineArray value="UnifiedArmorCanLeechTier3"/>
+        <CombineArray value="UnifiedArmorCanLeechHealthTier4"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorCanLeechHealthTier1">
+        <Type value="And"/>
+        <CombineArray value="CasterHealthLT25Percent"/>
+        <CombineArray value="TargetHealthGTE35Percent"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorCanLeechTier2">
+        <Type value="And"/>
+        <CombineArray value="CasterHealthLT35Percent"/>
+        <CombineArray value="TargetHealthGTE45Percent"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorCanLeechTier3">
+        <Type value="And"/>
+        <CombineArray value="CasterHealthLT45Percent"/>
+        <CombineArray value="TargetHealthGTE55Percent"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorCanLeechHealthTier4">
+        <Type value="And"/>
+        <CombineArray value="CasterHealthLT55Percent"/>
+        <CombineArray value="TargetHealthGTE65Percent"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorConstructionYardBuffBothON">
+        <Type value="And"/>
+        <CombineArray value="TargetHasConstructionYardBuff"/>
+        <CombineArray value="CasterHasConstructionYardBuff"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorConstructionYardBuffBothOFF">
+        <Type value="And"/>
+        <CombineArray value="TargetHasNoConstructionYardBuff"/>
+        <CombineArray value="CasterHasNoConstructionYardBuff"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorConstructionYardBuffCheck">
+        <CombineArray value="TargetHasNoConstructionYardBuff"/>
+        <CombineArray value="CasterHasConstructionYardBuff"/>
+    </CValidatorCombine>
+    <CValidatorPlayerRequirement id="UnifiedArmorResearched">
+        <Find value="1"/>
+        <Value value="HaveUnifiedArmorResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="UnifiedArmorResearched2">
+        <Find value="1"/>
+        <Value value="HaveUnifiedArmorResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="TarInfectionResearched">
+        <Find value="1"/>
+        <Value value="HaveTarInfectionResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="MobileSquadTrainingResearched">
+        <Find value="1"/>
+        <Value value="HaveMobileSquadTrainingResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="InvestmentResearched">
+        <Find value="1"/>
+        <Value value="HaveInvestmentResearched"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorCombine id="UnifiedArmorResearchedAndBeingRepaired">
+        <Type value="And"/>
+        <CombineArray value="UnifiedArmorResearched"/>
+        <CombineArray value="CasterBeingRepairedZergHex"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorResearchedAndNotUnderConstruction">
+        <Type value="And"/>
+        <CombineArray value="UnifiedArmorResearched"/>
+        <CombineArray value="NotUnderConstruction"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="UnifiedArmorShouldLeechTarget">
+        <Type value="And"/>
+        <CombineArray value="TargetHasUnifiedArmor"/>
+        <CombineArray value="UnifiedArmorConstructionYardBuffCheck"/>
+        <CombineArray value="UnifiedArmorCanLeechHealth"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVital id="UnknownValidator">
+        <Compare value="LE"/>
+        <Value value="15"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareCargo id="TargetCargoSizeGTE1">
+        <Compare value="GE"/>
+        <Type value="Size"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorLocationCompareRange id="DefenderLinkSustainRange">
+        <Compare value="LE"/>
+        <Range value="5"/>
+        <WhichLocation Value="TargetUnit"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorPlayerRequirement id="PlasmaCannonsResearched">
+        <Find value="1"/>
+        <Value value="UsePlasmaCannons"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareChargeUsed id="FirebatChargeEmpty">
+        <ChargeLink value="FirebatCharge"/>
+        <Location value="Unit"/>
+        <Value value="2"/>
+    </CValidatorUnitCompareChargeUsed>
+    <CValidatorUnitType id="IsNotHiveTargetZergHex">
+        <Value value="Hive2"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
+    <CValidatorLocationInPlayableMapArea id="AnimalMoveLocationValidator"/>
+    <CValidatorCombine id="ZergProtectiveBaseCanTargetLowerRamp">
+        <CombineArray value="ZergProtectiveBaseTargetIsNotOnRamp"/>
+        <CombineArray value="ZergProtectiveBaseTargetCliffLevelLT2"/>
+    </CValidatorCombine>
+    <CValidatorLocationPathable id="ZergProtectiveBaseCanAttackOntoRamp">
+        <Types index="Ground" value="0"/>
+        <Types index="Building" value="0"/>
+    </CValidatorLocationPathable>
+    <CValidatorCombine id="ValidatorPylonTransfer">
+        <CombineArray value="TargetIsEnergyBattery"/>
+        <CombineArray value="ValidatorPylonTransferPylon"/>
+        <CombineArray value="ValidatorPylonTransferToDefenseStructure"/>
+        <CombineArray value="TargetIsEnergyUserUtilityAutomatic"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ValidatorPylonTransferPylon">
+        <Type value="And"/>
+        <CombineArray value="TargetIsEnergyPylon"/>
+        <CombineArray value="NotTransferredTo"/>
+        <CombineArray value="DifferCombineFinal"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="DifferCombine013060">
+        <Type value="And"/>
+        <CombineArray value="DifferTargetEnergyLT030"/>
+        <CombineArray value="DifferCasterEnergyGTE060"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ValidatorPylonTransferToDefenseStructure">
+        <Type value="And"/>
+        <CombineArray value="TargetIsEnergyUserDefenseStructure"/>
+        <CombineArray value="TargetEnergyFractionLT08"/>
+    </CValidatorCombine>
+    <CValidatorLocationPathable id="TestPathable"/>
+    <CValidatorLocationPathable id="ZergProtectiveBaseCanAttackFromRamp">
+        <WhichLocation Value="SourcePoint"/>
+        <Types index="Ground" value="0"/>
+        <Types index="Building" value="0"/>
+    </CValidatorLocationPathable>
+    <CValidatorCombine id="ZergProtectiveBaseMainAbilities">
+        <Type value="And"/>
+        <CombineArray value="ZergProtectiveBaseCanTargetLowerRamp"/>
+        <CombineArray value="ZergProtectiveBaseTargetIsNotCliffLevel3"/>
+        <ResultFailed value="Error,AbilitiesTargetInnerBase"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel3">
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseTargetIsNotCliffLevel3">
+        <Compare value="NE"/>
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseTargetCliffLevelLT2">
+        <Compare value="LT"/>
+        <Value value="2"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationPathable id="ZergProtectiveBaseTargetIsNotOnRamp">
+        <Find value="0"/>
+        <Types index="Ground" value="0"/>
+        <Types index="Building" value="0"/>
+    </CValidatorLocationPathable>
+    <CValidatorCombine id="ZergProtectiveBaseCanAttackOutsideBase">
+        <Type value="And"/>
+        <CombineArray value="ZergProtectiveBaseSourceCliffLevelLT3"/>
+        <CombineArray value="ZergProtectiveBaseTargetCliffLevelLT3"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ZergProtectiveBaseMainAttackBarrier">
+        <ResultFailed value="Error,ZergBarrier"/>
+        <CombineArray value="ZergProtectiveBaseCanAttackInsideBase"/>
+        <CombineArray value="ZergProtectiveBaseCanAttackOutsideBase"/>
+        <CombineArray value="ZergProtectiveBaseCanAttackFromRamp"/>
+        <CombineArray value="ZergProtectiveBaseCanAttackOntoRamp"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseSourceCliffLevel3">
+        <WhichLocation Value="SourcePoint"/>
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseTargetCliffLevel3">
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseSourceCliffLevelLT3">
+        <WhichLocation Value="SourcePoint"/>
+        <Compare value="LT"/>
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorLocationCompareCliffLevel id="ZergProtectiveBaseTargetCliffLevelLT3">
+        <Compare value="LT"/>
+        <Value value="3"/>
+    </CValidatorLocationCompareCliffLevel>
+    <CValidatorCombine id="ZergProtectiveBaseCanAttackInsideBase">
+        <Type value="And"/>
+        <CombineArray value="ZergProtectiveBaseSourceCliffLevel3"/>
+        <CombineArray value="ZergProtectiveBaseTargetCliffLevel3"/>
+    </CValidatorCombine>
+    <CValidatorPlayerRequirement id="nothavelotsofblood">
+        <WhichPlayer Value="Caster"/>
+        <Value value="NotHavelotsofbloodreq"/>
+    </CValidatorPlayerRequirement>
+</Catalog>
