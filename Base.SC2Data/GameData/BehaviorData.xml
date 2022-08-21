@@ -66,6 +66,12 @@
         <Period value="18"/>
         <PeriodicEffect value="AnimalAssignListenerApply"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="FirelingCountDummyStack">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-zerglingrespawn.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ChaosLordStacks">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-icon-biomass.dds"/>

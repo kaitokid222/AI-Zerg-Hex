@@ -29,6 +29,7 @@
 <Actor id="XilSpireLarge" Variations="3"/>
 <Behavior id="InfestedVisual"/>
 <Behavior id="ZergRallyRatio"/>
+<Behavior id="FirelingCountDummyStack"/>
 <Behavior id="ChaosLordStacks"/>
 <Behavior id="BloodStacks"/>
 <Behavior id="ConsumedBlood"/>
