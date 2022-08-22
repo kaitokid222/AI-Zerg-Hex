@@ -3,6 +3,9 @@
     <CRequirementConst id="12803542675">
         <Value value="1"/>
     </CRequirementConst>
+    <CRequirementConst id="1455390697">
+        <Value value="1"/>
+    </CRequirementConst>
     <CRequirementConst id="15"/>
     <CRequirementConst id="25">
         <Value value="25"/>
@@ -78,22 +81,18 @@
         <OperandArray value="CountUpgradeGasExtractionCompleteOnly4054536818"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly103784274GTE2816376595CountUnitTerrazineTankCompleteOnly2">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly103784274"/>
         <OperandArray value="GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly2119913898GTE2896091431CountUnitTerrazineTankCompleteOnly3">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly2119913898"/>
         <OperandArray value="GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly3120976078"/>
         <OperandArray value="GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly4013994440GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly4013994440"/>
         <OperandArray value="GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
     </CRequirementAnd>
@@ -279,6 +278,18 @@
     <CRequirementCountBehavior id="CountBehaviorWeaponDisabledCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="WeaponDisabled" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyEqual" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyMinusCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyMinus" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyPlus" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitArmory2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -714,7 +725,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMarineOverchargeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MarineOvercharge" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMarinePenetratingLaserQueuedOrBetter">
@@ -867,7 +877,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineDoubler" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTier2EquipmentCompleteOnly">
@@ -1202,6 +1211,21 @@
         <OperandArray index="0" value="CountBehaviorSpawnsBombersQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyMinusCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
+    </CRequirementLT>
     <CRequirementLT id="LTCountUpgradeGasExtractionQueuedOrBetter1">
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
@@ -1448,7 +1472,6 @@
         <OperandArray index="0" value="CountUpgradeMarineMobileSquadTrainingQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMarineOverchargeQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMarineOverchargeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMarinePenetratingLaserQueuedOrBetter">
@@ -1512,7 +1535,6 @@
         <OperandArray index="0" value="CountUpgradeTarSpawnQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTerrazineDoublerQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeTerrazineDoublerQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTier2EquipmentQueuedOrBetter">

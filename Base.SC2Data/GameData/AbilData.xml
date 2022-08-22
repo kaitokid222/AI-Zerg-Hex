@@ -3181,20 +3181,29 @@
         </InfoArray>
         <Flags index="WarpTrainersButton" value="0"/>
     </CAbilWarpTrain>
-    <CAbilBehavior id="ZergRallyEqual3v3">
+    <CAbilEffectInstant id="ZergRallyEqualON">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <BehaviorArray value="ZergRallyRatio,ZergRallyRatio"/>
-    </CAbilBehavior>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZergRallyEqual" Requirements="ZergRallyEqual"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="ZergRallyMinus3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="ZergRallyMinusDummy"/>
+        <Effect value="HyperionVoidCoopAirDamage"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZergRallyMinus3v3"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="ZergRallyMinusON">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZergRallyMinus" Requirements="ZergRallyMinusON"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="ZergRallyPlus3v3">
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirm_Void\WayPointConfirm_Void.m3"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="ZergRallyPlusDummy"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZergRallyPlus3v3"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="ZergRallyPlusON">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZergRallyPlus" Requirements="ZergRallyPlusON"/>
     </CAbilEffectInstant>
     <CAbilResearch id="ZergResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -536,7 +536,7 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 void gf_manage_spawners_3v3 (int lp_player_position);
 point gf_get_point_of_flying_rally (unit lp_unit);
 point gf_get_pre_point_of_flying_rally (unit lp_unit);
-fixed gf_get_left_right_zerg_ratio (int lp_player_position);
+fixed gf_get_left_zerg_ratio (int lp_player_position);
 unit gf_get_random_flying_rally_of_position (int lp_player_position);
 unitgroup gf_get_flying_rally_group_of_position (int lp_player_position);
 void gf_init_3v3_vision ();
@@ -806,6 +806,9 @@ trigger gt_BanelingSpawn;
 trigger gt_InfusedSpawn;
 trigger gt_TorraSpawn;
 trigger gt_Firelingsgotupgraded;
+trigger gt_zerg_rally_equal_on;
+trigger gt_zerg_rally_minus_on;
+trigger gt_zerg_rally_plus_on;
 trigger gt_zerg_rally_minus;
 trigger gt_zerg_rally_plus;
 trigger gt_relocate_spawners_rally_action;
@@ -5659,7 +5662,7 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     UnitSetCustomValue(lv_flying_rally, 2, lp_rally_position);
     UnitSetPosition(lv_flying_rally, gf_get_point_of_flying_rally(lv_flying_rally), false);
     PointSet(gf_get_pre_point_of_flying_rally(lv_flying_rally), UnitGetPosition(lv_flying_rally));
-    libNtve_gf_SetBehaviorCount(lv_flying_rally, "ZergRallyRatio", lv_flying_rally, 5);
+    libNtve_gf_SetBehaviorCount(lv_flying_rally, "ZergRallyEqual", lv_flying_rally, 1);
 }
 
 void gf_manage_spawners_3v3 (int lp_player_position) {
@@ -5678,6 +5681,7 @@ void gf_manage_spawners_3v3 (int lp_player_position) {
     lv_desired_ratio = 0.5;
 
     // Implementation
+    lv_desired_ratio = gf_get_left_zerg_ratio(lp_player_position);
     autoB758041D_g = gv_spawnergroups[lp_player_position].lv_all;
     autoB758041D_u = UnitGroupCount(autoB758041D_g, c_unitCountAll);
     for (;; autoB758041D_u -= 1) {
@@ -5747,11 +5751,10 @@ point gf_get_pre_point_of_flying_rally (unit lp_unit) {
     return lv_result;
 }
 
-fixed gf_get_left_right_zerg_ratio (int lp_player_position) {
+fixed gf_get_left_zerg_ratio (int lp_player_position) {
     // Variable Declarations
     unit lv_overseer;
     int lv_rally_position;
-    fixed lv_left_count;
     fixed lv_result;
 
     // Automatic Variable Declarations
@@ -5759,14 +5762,24 @@ fixed gf_get_left_right_zerg_ratio (int lp_player_position) {
 
     // Implementation
     lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_position(lp_player_position), c_unitCountAll);
+    if ((UnitHasBehavior2(lv_overseer, "ZergRallyEqual") == true)) {
+        lv_result = 0.5;
+    }
+
+    if ((UnitHasBehavior2(lv_overseer, "ZergRallyMinus") == true)) {
+        lv_result = 0.25;
+    }
+
+    if ((UnitHasBehavior2(lv_overseer, "ZergRallyPlus") == true)) {
+        lv_result = 0.75;
+    }
+
     lv_rally_position = FixedToInt(UnitGetCustomValue(lv_overseer, 2));
     if ((lv_rally_position == -1)) {
-        lv_left_count = IntToFixed(UnitBehaviorCount(lv_overseer, "ZergRallyRatio"));
     }
     else {
-        lv_left_count = (10.0 - IntToFixed(UnitBehaviorCount(lv_overseer, "ZergRallyRatio")));
+        lv_result = (1.0 - lv_result);
     }
-    lv_result = (lv_left_count / 10.0);
     return lv_result;
 }
 
@@ -5785,7 +5798,7 @@ unit gf_get_random_flying_rally_of_position (int lp_player_position) {
     // Variable Initialization
 
     // Implementation
-    lv_pick_left = (gf_get_left_right_zerg_ratio(lp_player_position) > RandomFixed(0.0, 1.0));
+    lv_pick_left = (gf_get_left_zerg_ratio(lp_player_position) > RandomFixed(0.0, 1.0));
     auto83EE81B3_g = gf_get_flying_rally_group_of_position(lp_player_position);
     auto83EE81B3_u = UnitGroupCount(auto83EE81B3_g, c_unitCountAll);
     for (;; auto83EE81B3_u -= 1) {
@@ -6010,7 +6023,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 bool gf_is_overseer (unit lp_unit) {
@@ -16656,6 +16669,153 @@ void gt_Firelingsgotupgraded_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: zerg_rally_equal_on
+//--------------------------------------------------------------------------------------------------
+bool gt_zerg_rally_equal_on_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_overseer;
+    int lv_player_id;
+    int lv_player_position;
+
+    // Automatic Variable Declarations
+    unitgroup autoBCE818F8_g;
+    int autoBCE818F8_u;
+    unit autoBCE818F8_var;
+
+    // Variable Initialization
+    lv_overseer = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_player_id = EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster);
+    lv_player_position = FixedToInt(UnitGetCustomValue(lv_overseer, 1));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoBCE818F8_g = UnitGroup("Overseer", lv_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoBCE818F8_u = UnitGroupCount(autoBCE818F8_g, c_unitCountAll);
+    for (;; autoBCE818F8_u -= 1) {
+        autoBCE818F8_var = UnitGroupUnitFromEnd(autoBCE818F8_g, autoBCE818F8_u);
+        if (autoBCE818F8_var == null) { break; }
+        UnitBehaviorRemove(autoBCE818F8_var, "ZergRallyEqual", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(autoBCE818F8_var, "ZergRallyMinus", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(autoBCE818F8_var, "ZergRallyPlus", c_unitBehaviorCountAll);
+        if ((autoBCE818F8_var == lv_overseer)) {
+            UnitBehaviorAdd(lv_overseer, "ZergRallyEqual", lv_overseer, 1);
+        }
+        else {
+            UnitBehaviorAdd(autoBCE818F8_var, "ZergRallyEqual", autoBCE818F8_var, 1);
+        }
+    }
+    gf_manage_spawners_3v3(lv_player_position);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_zerg_rally_equal_on_Init () {
+    gt_zerg_rally_equal_on = TriggerCreate("gt_zerg_rally_equal_on_Func");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_equal_on, c_playerAny, "ZergRallyEqualON");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: zerg_rally_minus_on
+//--------------------------------------------------------------------------------------------------
+bool gt_zerg_rally_minus_on_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_overseer;
+    int lv_player_id;
+    int lv_player_position;
+
+    // Automatic Variable Declarations
+    unitgroup autoA8500579_g;
+    int autoA8500579_u;
+    unit autoA8500579_var;
+
+    // Variable Initialization
+    lv_overseer = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_player_id = EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster);
+    lv_player_position = FixedToInt(UnitGetCustomValue(lv_overseer, 1));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoA8500579_g = UnitGroup("Overseer", lv_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoA8500579_u = UnitGroupCount(autoA8500579_g, c_unitCountAll);
+    for (;; autoA8500579_u -= 1) {
+        autoA8500579_var = UnitGroupUnitFromEnd(autoA8500579_g, autoA8500579_u);
+        if (autoA8500579_var == null) { break; }
+        UnitBehaviorRemove(autoA8500579_var, "ZergRallyEqual", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(autoA8500579_var, "ZergRallyMinus", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(autoA8500579_var, "ZergRallyPlus", c_unitBehaviorCountAll);
+        if ((autoA8500579_var == lv_overseer)) {
+            UnitBehaviorAdd(lv_overseer, "ZergRallyMinus", lv_overseer, 1);
+        }
+        else {
+            UnitBehaviorAdd(autoA8500579_var, "ZergRallyPlus", autoA8500579_var, 1);
+        }
+    }
+    gf_manage_spawners_3v3(lv_player_position);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_zerg_rally_minus_on_Init () {
+    gt_zerg_rally_minus_on = TriggerCreate("gt_zerg_rally_minus_on_Func");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_minus_on, c_playerAny, "ZergRallyMinusON");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: zerg_rally_plus_on
+//--------------------------------------------------------------------------------------------------
+bool gt_zerg_rally_plus_on_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_overseer;
+    int lv_player_id;
+    int lv_player_position;
+
+    // Automatic Variable Declarations
+    unitgroup auto57753B17_g;
+    int auto57753B17_u;
+    unit auto57753B17_var;
+
+    // Variable Initialization
+    lv_overseer = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_player_id = EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster);
+    lv_player_position = FixedToInt(UnitGetCustomValue(lv_overseer, 1));
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto57753B17_g = UnitGroup("Overseer", lv_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto57753B17_u = UnitGroupCount(auto57753B17_g, c_unitCountAll);
+    for (;; auto57753B17_u -= 1) {
+        auto57753B17_var = UnitGroupUnitFromEnd(auto57753B17_g, auto57753B17_u);
+        if (auto57753B17_var == null) { break; }
+        UnitBehaviorRemove(auto57753B17_var, "ZergRallyEqual", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(auto57753B17_var, "ZergRallyMinus", c_unitBehaviorCountAll);
+        UnitBehaviorRemove(auto57753B17_var, "ZergRallyPlus", c_unitBehaviorCountAll);
+        if ((auto57753B17_var == lv_overseer)) {
+            UnitBehaviorAdd(lv_overseer, "ZergRallyPlus", lv_overseer, 1);
+        }
+        else {
+            UnitBehaviorAdd(auto57753B17_var, "ZergRallyMinus", auto57753B17_var, 1);
+        }
+    }
+    gf_manage_spawners_3v3(lv_player_position);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_zerg_rally_plus_on_Init () {
+    gt_zerg_rally_plus_on = TriggerCreate("gt_zerg_rally_plus_on_Func");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_plus_on, c_playerAny, "ZergRallyPlusON");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: zerg_rally_minus
 //--------------------------------------------------------------------------------------------------
 bool gt_zerg_rally_minus_Func (bool testConds, bool runActions) {
@@ -22239,6 +22399,9 @@ void InitTriggers () {
     gt_InfusedSpawn_Init();
     gt_TorraSpawn_Init();
     gt_Firelingsgotupgraded_Init();
+    gt_zerg_rally_equal_on_Init();
+    gt_zerg_rally_minus_on_Init();
+    gt_zerg_rally_plus_on_Init();
     gt_zerg_rally_minus_Init();
     gt_zerg_rally_plus_Init();
     gt_relocate_spawners_rally_action_Init();

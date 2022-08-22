@@ -1124,11 +1124,13 @@
         <Sight value="0"/>
         <AbilArray index="3" Link="ZergRallyPlus3v3"/>
         <AbilArray Link="ZergRallyMinus3v3"/>
-        <AbilArray Link="ZergRallyEqual3v3"/>
+        <AbilArray Link="ZergRallyPlusON"/>
+        <AbilArray Link="ZergRallyMinusON"/>
+        <AbilArray Link="ZergRallyEqualON"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Detector" Type="Passive" AbilCmd="" Column="3"/>
-            <LayoutButtons index="7" Face="ZergRallyPlus3v3" Type="AbilCmd" AbilCmd="ZergRallyPlus3v3,Execute" Column="0"/>
-            <LayoutButtons index="8" Face="ZergRallyMinus3v3" AbilCmd="ZergRallyMinus3v3,Execute"/>
+            <LayoutButtons index="6" Face="ZergRallyPlus" AbilCmd="ZergRallyPlusON,Execute"/>
+            <LayoutButtons index="7" Face="ZergRallyMinus" Type="AbilCmd" AbilCmd="ZergRallyMinusON,Execute" Column="2"/>
+            <LayoutButtons index="8" Face="ZergRallyEqual" AbilCmd="ZergRallyEqualON,Execute"/>
         </CardLayouts>
         <EnergyStart value="0"/>
         <EnergyMax value="0"/>
