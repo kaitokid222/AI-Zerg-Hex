@@ -1721,12 +1721,6 @@
         <InfoIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="ZergRallyRatio">
-        <InfoIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <MaxStackCount value="9"/>
-        <MaxStackCountPerCaster value="9"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="ZergRandomDestroyTimer">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

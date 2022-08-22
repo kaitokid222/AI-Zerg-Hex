@@ -1463,15 +1463,9 @@
     <CButton id="ZergRallyEqual">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
     </CButton>
-    <CButton id="ZergRallyMinus3v3">
-        <Icon value="Assets\Textures\btn-ability-terran-land.dds"/>
-    </CButton>
     <CButton id="ZergRallyMinus">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
         <HotkeyAlias value="ZergRallyMinusOFF"/>
-    </CButton>
-    <CButton id="ZergRallyPlus3v3">
-        <Icon value="Assets\Textures\btn-ability-terran-liftoff.dds"/>
     </CButton>
     <CButton id="ZergRallyPlus">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>

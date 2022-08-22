@@ -198,9 +198,7 @@ Abil/Name/UpgradeToAdvancedGate=Upgrade To Advanced Gate
 Abil/Name/UpgradeToRefineryUpgraded=Upgrade To Refinery Upgraded
 Abil/Name/UpgradeUltraliskSpawnerInstant=Upgrade Ultralisk Spawner (Instant)
 Abil/Name/ZergRallyEqualON=Zerg Rally Equal - ON
-Abil/Name/ZergRallyMinus3v3=Zerg Rally Minus 3v3
 Abil/Name/ZergRallyMinusON=Zerg Rally Minus - ON
-Abil/Name/ZergRallyPlus3v3=Zerg Rally Plus 3v3
 Abil/Name/ZergRallyPlusON=Zerg Rally Plus - ON
 Abil/Name/ZergResearch=Zerg - Research
 Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
@@ -470,7 +468,6 @@ Behavior/Name/WeaponDisabled=Weapon Disabled
 Behavior/Name/ZergRallyEqual=Zerg Rally Equal
 Behavior/Name/ZergRallyMinus=Zerg Rally Minus
 Behavior/Name/ZergRallyPlus=Zerg Rally Plus
-Behavior/Name/ZergRallyRatio=Zerg Rally Ratio
 Behavior/Tooltip/AbsorbingCloud=This unit is slowed and leaks 3 energy per second.
 Behavior/Tooltip/Afterburner=Movement speed is greatly increased.
 Behavior/Tooltip/ArmoryBuff=This unit has increased attack range and damage.
@@ -932,9 +929,7 @@ Button/Name/WeatherSelection=Weather Selection
 Button/Name/YourBaseLocation=Your Base Location
 Button/Name/ZergRallyEqual=Zerg Rally Equal
 Button/Name/ZergRallyMinus=Zerg Rally Minus
-Button/Name/ZergRallyMinus3v3=Zerg Rally Minus 3v3
 Button/Name/ZergRallyPlus=Zerg Rally Plus
-Button/Name/ZergRallyPlus3v3=Zerg Rally Plus 3v3
 Button/Name/heXnab=<heXnab>
 Button/Tooltip/AbsorbingCloud=Creates a cloud that slows movement and causing enemies to leak 3 energy per second. Provides vision of target area.<n/><n/>Lasts for <d ref="(Effect,AbsorbingCloud,PeriodCount + 1) * Effect,AbsorbingCloud,PeriodicPeriodArray[0]"/> seconds.
 Button/Tooltip/AcidSpores=Launches 3 Acid Spores in random directions upon detonation. Acid Spores deal <d ref="Effect,BanelingAcidSporeDamage,Amount"/> damage to impact radius.
