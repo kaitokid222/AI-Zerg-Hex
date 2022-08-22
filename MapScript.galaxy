@@ -13736,6 +13736,7 @@ void gf_get_attackup () {
     int lv_interval;
     int lv_max_upgrade;
     int lv_upcnt;
+    int lv_i;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -13744,6 +13745,7 @@ void gf_get_attackup () {
     lv_interval = (120 - (gv_difficulty * 5));
     lv_max_upgrade = 50;
     lv_upcnt = 1;
+    lv_i = 1;
 
     // Implementation
     if ((gv_difficulty < 4)) {
@@ -13769,6 +13771,13 @@ void gf_get_attackup () {
 
     if ((lv_time >= lv_peacetime) && (ModI(lv_time, lv_interval) == 0) && (TechTreeUpgradeCount(7, "ZergAttack", c_techCountQueuedOrBetter) < lv_max_upgrade)) {
         TechTreeUpgradeAddLevel(7, "ZergAttack", lv_upcnt);
+        if ((gf_is_3v3() == true)) {
+            while ((lv_i <= 6)) {
+                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", lv_upcnt);
+                lv_i = (lv_i + 1);
+            }
+        }
+
     }
 
 }
@@ -13776,10 +13785,12 @@ void gf_get_attackup () {
 void gf_get_speed () {
     // Variable Declarations
     int lv_time;
+    int lv_i;
 
     // Automatic Variable Declarations
     // Variable Initialization
     lv_time = FixedToInt(GameGetMissionTime());
+    lv_i = 1;
 
     // Implementation
     if (((lv_time == (1000 - (gv_difficulty * 30))) || (lv_time == (1300 - (gv_difficulty * 30))) || (lv_time == (1600 - (gv_difficulty * 30)))) && (TechTreeUpgradeCount(7, "ZergMovement", c_techCountQueuedOrBetter) < 3)) {
@@ -13788,6 +13799,13 @@ void gf_get_speed () {
 
     if ((gv_difficulty >= 10) && (lv_time == (1800 - (gv_difficulty * 30)))) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
+        if ((gf_is_3v3() == true)) {
+            while ((lv_i <= 6)) {
+                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", 1);
+                lv_i = (lv_i + 1);
+            }
+        }
+
     }
 
 }
