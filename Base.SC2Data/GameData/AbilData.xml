@@ -453,7 +453,7 @@
                 <TimeUse value="12"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Spawn5Firelings"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Spawn5Firelings" Requirements="SpawnFirelings"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="UpgradeKarax">
         <EditorCategories value="AbilityorEffectType:Units"/>

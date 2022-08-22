@@ -19,6 +19,10 @@
     <CRequirementConst id="60">
         <Value value="60"/>
     </CRequirementConst>
+    <CRequirementConst id="80">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Value value="80"/>
+    </CRequirementConst>
     <CRequirementAnd id="And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter">
         <OperandArray value="Not1537753810CountUnitOperationCenterQueuedOrBetter"/>
     </CRequirementAnd>
@@ -206,6 +210,11 @@
     <CRequirementCountBehavior id="CountBehaviorEnhancedPlatingOmegaliskCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="EnhancedPlatingOmegalisk" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorFirelingCountDummyStackQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="FirelingCountDummyStack" State="QueuedOrBetter"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorGenerateMineralsCowFarmCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1198,6 +1207,10 @@
     <CRequirementLT id="LT381415482CountUnitTarRoachQueuedOrBetter100">
         <OperandArray index="0" value="CountUnitTarRoachQueuedOrBetter"/>
         <OperandArray index="1" value="100"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80">
+        <OperandArray index="0" value="CountBehaviorFirelingCountDummyStackQueuedOrBetter"/>
+        <OperandArray index="1" value="80"/>
     </CRequirementLT>
     <CRequirementLT id="LT518456723SumCountUnitGasVentQueuedOrBetter20">
         <OperandArray index="0" value="SumCountUnitGasVentQueuedOrBetter"/>

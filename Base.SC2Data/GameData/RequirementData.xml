@@ -24,6 +24,9 @@
     <CRequirement id="SpawnBanelingsDelay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
     </CRequirement>
+    <CRequirement id="SpawnFirelings">
+        <NodeArray index="Use" Link="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80"/>
+    </CRequirement>
     <CRequirement id="SpawnRavatorTerrazine3v3">
         <NodeArray index="Use" Link="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
     </CRequirement>
