@@ -28,7 +28,6 @@
 <Actor id="RockSmall" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
 <Actor id="XilSpireLarge" Variations="3"/>
 <Behavior id="InfestedVisual"/>
-<Behavior id="ZergRallyRatio"/>
 <Behavior id="FirelingCountDummyStack"/>
 <Behavior id="ChaosLordStacks"/>
 <Behavior id="BloodStacks"/>
@@ -107,9 +106,8 @@
 <Behavior id="InvulnerableBlockers"/>
 <Behavior id="ZergRallyPlus"/>
 <Behavior id="ZergRallyMinus"/>
-<Behavior id="ZergRallyRatio"/>
-<Behavior id="SpawnProtection"/>
 <Behavior id="ZergRallyEqual"/>
+<Behavior id="SpawnProtection"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Light id="Agria"/>
 <Light id="AgriaNight"/>
