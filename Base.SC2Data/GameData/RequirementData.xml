@@ -696,6 +696,15 @@
     <CRequirement id="TerrazineDoublerRequirement">
         <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoublerQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ZergRallyEqual">
+        <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>
+    </CRequirement>
+    <CRequirement id="ZergRallyPlusON">
+        <NodeArray index="Use" Link="LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697"/>
+    </CRequirement>
+    <CRequirement id="ZergRallyMinusON">
+        <NodeArray index="Use" Link="LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697"/>
+    </CRequirement>
     <CRequirement id="nothave3pylons">
         <NodeArray index="Use" Link="LT831937892CountUnitProbiusPylonQueuedOrBetter3"/>
     </CRequirement>

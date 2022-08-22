@@ -82,7 +82,19 @@
     <CEffectEnumArea id="VortexSearchArea">
         <SearchFilters value="-;Self,Ally,Structure,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
+    <CEffectSet id="ZergRallyEqualON">
+        <ValidatorArray value="ZergRallyEqualONTargetFilters"/>
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="ZergRallyMinusON">
+        <ValidatorArray value="ZergRallyMinusONTargetFilters"/>
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="ZergRallyMinusDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="ZergRallyPlusON">
+        <ValidatorArray value="ZergRallyPlusONTargetFilters"/>
         <EditorCategories value=""/>
     </CEffectSet>
     <CEffectSet id="ZergRallyPlusDummy">

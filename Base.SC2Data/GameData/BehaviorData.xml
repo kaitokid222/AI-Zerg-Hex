@@ -1709,11 +1709,17 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <FinalEffect value="IncomeContainerRemoved"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="ZergRallyRatio">
-        <InfoIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+    <CBehaviorBuff id="ZergRallyPlus">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <MaxStackCount value="9"/>
-        <MaxStackCountPerCaster value="9"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergRallyMinus">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZergRallyEqual">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZergRandomDestroyTimer">
         <InfoFlags index="Hidden" value="1"/>

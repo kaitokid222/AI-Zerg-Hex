@@ -3,6 +3,9 @@
     <CRequirementConst id="12803542675">
         <Value value="1"/>
     </CRequirementConst>
+    <CRequirementConst id="1455390697">
+        <Value value="1"/>
+    </CRequirementConst>
     <CRequirementConst id="15"/>
     <CRequirementConst id="25">
         <Value value="25"/>
@@ -284,6 +287,18 @@
     <CRequirementCountBehavior id="CountBehaviorWeaponDisabledCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="WeaponDisabled" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyEqual" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyMinusCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyMinus" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergRallyPlus" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitArmory2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1208,6 +1223,21 @@
     <CRequirementLT id="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray index="0" value="CountBehaviorSpawnsBombersQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyMinusCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697"/>
+        <OperandArray index="1" value="1455390697"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountUpgradeGasExtractionQueuedOrBetter1">
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
