@@ -16785,9 +16785,11 @@ bool gt_zerg_rally_equal_on_Func (bool testConds, bool runActions) {
         UnitBehaviorRemove(autoBCE818F8_var, "ZergRallyPlus", c_unitBehaviorCountAll);
         if ((autoBCE818F8_var == lv_overseer)) {
             UnitBehaviorAdd(lv_overseer, "ZergRallyEqual", lv_overseer, 1);
+            UnitSetScale(autoBCE818F8_var, 100.0, 100.0, 100.0);
         }
         else {
             UnitBehaviorAdd(autoBCE818F8_var, "ZergRallyEqual", autoBCE818F8_var, 1);
+            UnitSetScale(autoBCE818F8_var, 100.0, 100.0, 100.0);
         }
     }
     gf_manage_spawners_3v3(lv_player_position);
@@ -16835,9 +16837,11 @@ bool gt_zerg_rally_minus_on_Func (bool testConds, bool runActions) {
         UnitBehaviorRemove(autoA8500579_var, "ZergRallyPlus", c_unitBehaviorCountAll);
         if ((autoA8500579_var == lv_overseer)) {
             UnitBehaviorAdd(lv_overseer, "ZergRallyMinus", lv_overseer, 1);
+            UnitSetScale(autoA8500579_var, 70.0, 70.0, 70.0);
         }
         else {
             UnitBehaviorAdd(autoA8500579_var, "ZergRallyPlus", autoA8500579_var, 1);
+            UnitSetScale(autoA8500579_var, 145.0, 145.0, 145.0);
         }
     }
     gf_manage_spawners_3v3(lv_player_position);
@@ -16885,9 +16889,11 @@ bool gt_zerg_rally_plus_on_Func (bool testConds, bool runActions) {
         UnitBehaviorRemove(auto57753B17_var, "ZergRallyPlus", c_unitBehaviorCountAll);
         if ((auto57753B17_var == lv_overseer)) {
             UnitBehaviorAdd(lv_overseer, "ZergRallyPlus", lv_overseer, 1);
+            UnitSetScale(auto57753B17_var, 145.0, 145.0, 145.0);
         }
         else {
             UnitBehaviorAdd(auto57753B17_var, "ZergRallyMinus", auto57753B17_var, 1);
+            UnitSetScale(auto57753B17_var, 70.0, 70.0, 70.0);
         }
     }
     gf_manage_spawners_3v3(lv_player_position);
