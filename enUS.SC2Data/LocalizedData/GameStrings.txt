@@ -1316,7 +1316,7 @@ Button/Tooltip/SlowlingSpawner=
 Button/Tooltip/SmallPresent=Contains a gift!
 Button/Tooltip/SolidFoundation=After 5 minutes of being constructed, the Construction Yard gains a solid foundation.<n/><n/><c val="ffff8a">Effects:</c><n/>- Health increased by <d ref="Behavior,SolidFoundation,Modification.VitalMaxArray[Life]"/>.<n/>- Double gas income from Gas Extraction.
 Button/Tooltip/SpaceBalls=A highly intelligent and friendly creature.
-Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and attack speed while burning itself to death. Will also ignite upon taking damage.</n></n>Quickly dies off creep.
+Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and attack speed while burning itself to death. Will also ignite upon taking damage.
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
 Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
