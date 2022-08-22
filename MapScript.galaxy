@@ -13773,7 +13773,7 @@ void gf_get_attackup () {
         TechTreeUpgradeAddLevel(7, "ZergAttack", lv_upcnt);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", lv_upcnt);
+                TechTreeUpgradeAddLevel((lv_i + 7), "ZergAttack", lv_upcnt);
                 lv_i = (lv_i + 1);
             }
         }
@@ -13801,7 +13801,7 @@ void gf_get_speed () {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", 1);
+                TechTreeUpgradeAddLevel((lv_i + 7), "ZergAttack", 1);
                 lv_i = (lv_i + 1);
             }
         }
