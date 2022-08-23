@@ -242,6 +242,106 @@
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="0" Column="3"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="InfestorZergHex3v3">
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="Infestor"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="AlwaysThreatens" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIThreatAir" value="1"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="AIHighPrioTarget" value="1"/>
+        <FlagArray index="AICaster" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PushPriority value="15"/>
+        <Collide index="Colossus" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Psionic" value="1"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeRegenDelay value="2"/>
+        <LifeRegenRate value="1.25"/>
+        <LifeRegenRateCreep value="8.75"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <EnergyStart value="50"/>
+        <EnergyMax value="1000"/>
+        <EnergyRegenRate value="1"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="2.5"/>
+        <SpeedMultiplierCreep value="1.3"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="10"/>
+        <CostCategory value="Army"/>
+        <CostResource index="Minerals" value="150"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="40"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="TransfusionInfestor"/>
+        <AbilArray Link="BuildSporeCrawler3v3"/>
+        <WeaponArray Link="InfestorWeapon"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
+            <LayoutButtons Face="CreepRegeneration" Type="Passive" Row="1" Column="4"/>
+            <LayoutButtons Face="TransfusionInfestor" Type="AbilCmd" AbilCmd="TransfusionInfestor,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="EnergyGeneration" Type="Passive" Row="2" Column="4"/>
+            <LayoutButtons Face="SpawnSporeCrawler" Type="AbilCmd" AbilCmd="BuildSporeCrawler3v3,Build1" Row="2" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0002">
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+            <LayoutButtons Face="MutateintoBeastlingSpawner" Type="AbilCmd" AbilCmd="InfestorMorphUnitZergLargeBuildings,Build2" Row="0" Column="1"/>
+            <LayoutButtons Face="MutateintoRavatorSpawner" Type="AbilCmd" AbilCmd="InfestorMorphUnitZergLargeBuildings,Build3" Row="0" Column="2"/>
+            <LayoutButtons Face="MutateintoBanelingSpawner" Type="AbilCmd" AbilCmd="InfestorMorphUnitZergLargeBuildings,Build4" Row="1" Column="2"/>
+            <LayoutButtons Face="MutateintoTorraliskSpawner" Type="AbilCmd" AbilCmd="InfestorMorphUnitZergLargeBuildings,Build7" Row="0" Column="4"/>
+            <LayoutButtons Face="MutateintoInfusedRoachSpawner" Type="AbilCmd" AbilCmd="InfestorMorphUnitZergLargeBuildings,Build5" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <InnerRadius value="0.5"/>
+        <CargoSize value="2"/>
+        <ScoreMake value="250"/>
+        <ScoreKill value="250"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="19"/>
+        <MinimapRadius value="0.75"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="Infestor"/>
+        <TacticalAIThink value="AIThinkInfestor"/>
+        <AIEvalFactor value="1.8"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="150"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryStrongArray value="Mutalisk"/>
+        <GlossaryStrongArray value="Immortal"/>
+        <GlossaryWeakArray value="Ghost"/>
+        <GlossaryWeakArray value="Ultralisk"/>
+        <GlossaryWeakArray value="HighTemplar"/>
+        <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
+        <AIEvaluateAlias value="Infestor"/>
+        <ReviveInfoBase>
+            <Charge Link="Infestor/Revive"/>
+            <Cooldown Link="Infestor/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
     <CUnit id="Jaina">
         <DeathTime value="-1"/>
         <DeathRevealRadius value="3"/>

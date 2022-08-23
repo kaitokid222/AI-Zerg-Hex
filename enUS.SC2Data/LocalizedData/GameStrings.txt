@@ -21,6 +21,7 @@ Abil/Name/BombMissile=Bomb Missile
 Abil/Name/BuildBuilder=Build (Builder)
 Abil/Name/BuildBuilderScalingStructures=Build (Builder Scaling Structures)
 Abil/Name/BuildSporeCrawler=Build Spore Crawler
+Abil/Name/BuildSporeCrawler3v3=Build Spore Crawler
 Abil/Name/BurrowFireling=Burrow (Fireling)
 Abil/Name/CCSkinSwitcher=CC - Skin Switcher
 Abil/Name/CCWeatherSwitcher=CC - Weather Switcher
@@ -207,6 +208,7 @@ Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
 Abil/Name/ZergResetRally=Zerg Reset Rally
 Abil/Name/ZergTrain=Zerg - Train
 Abil/TargetMessage/BuildSporeCrawler=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
+Abil/TargetMessage/BuildSporeCrawler3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 AbilitiesTargetInnerBase=Cannot target Zerg inner base
 Activity/Trading=Trading
@@ -1131,6 +1133,7 @@ Button/Tooltip/InfestorAdvancedMutation=A list of advanced structures.
 Button/Tooltip/InfestorTransportLoad=Loads units into the Infestor.
 Button/Tooltip/InfestorZergHex=
 Button/Tooltip/InfestorZergHex2=Infestation specialist. Can use the Fungal Growth and Infested Terran abilities.
+Button/Tooltip/InfestorZergHex3v3=Infestation specialist. Can use the Fungal Growth and Infested Terran abilities.
 Button/Tooltip/InfusedRoach=
 Button/Tooltip/InfusedRoachRadiation=Nearby enemy units take <d ref="Effect,InfusedRoachAuraDamage,Amount"/> damage per second. Nearby roaches have increased attack and movement speed.<n/><n/>Units damaged become infected and will spawn a Roach if killed quickly.
 Button/Tooltip/InfusedRoachSpawner=
@@ -3409,6 +3412,7 @@ Unit/Name/InfestorFireAcidWeapon=Infestor Fire Acid Weapon
 Unit/Name/InfestorWeapon=Infestor Weapon
 Unit/Name/InfestorZergHex=Infestor
 Unit/Name/InfestorZergHex2=Infestor
+Unit/Name/InfestorZergHex3v3=Infestor
 Unit/Name/InfusedRoach=Infused Roach
 Unit/Name/InfusedRoachSpawner=Infused Roach Spawner
 Unit/Name/IonBeam=Ion Beam
