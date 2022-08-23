@@ -223,6 +223,8 @@
         <AbilArray Link="3v3SpawnInfusedRoach2"/>
         <AbilArray Link="SpawnBanelingGroup"/>
         <AbilArray Link="SpawnBanelingGroupDummy"/>
+        <AbilArray Link="SpawnInfestor3v3"/>
+        <AbilArray Link="SpawnInfestorDummy3v3"/>
         <BehaviorArray index="0" removed="1"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -236,6 +238,8 @@
             <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorraliskDummy,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorralisk2,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestorDummy3v3,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="0" Column="3"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Jaina">

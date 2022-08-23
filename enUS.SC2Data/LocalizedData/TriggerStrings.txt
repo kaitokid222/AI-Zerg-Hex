@@ -1049,6 +1049,7 @@ Trigger/Name/DDB07EDF=entry point
 Trigger/Name/DE1269C6=Feed idle infestors every 21s
 Trigger/Name/DEE07A03=player collects bonuscard
 Trigger/Name/E0233F34=Zerg Decrease Structure Cost
+Trigger/Name/E10712DB=Infestor Spawn
 Trigger/Name/E1114C09=-rtv vday
 Trigger/Name/E1CE96AE=Test Energy
 Trigger/Name/E1DAAB20=Conyard Finished

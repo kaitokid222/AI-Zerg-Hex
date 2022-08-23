@@ -70,6 +70,9 @@
     <CEffectSet id="SpawnBanelingsDummy">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectSet id="SpawnInfestorDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="SpawnTorraDummy">
         <EditorCategories value=""/>
     </CEffectSet>

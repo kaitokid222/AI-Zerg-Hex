@@ -417,6 +417,24 @@
         <AINotifyEffect value="SpawnBanelingGroup"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsDelay3v3"/>
     </CAbilEffectInstant>
+    <CAbilEffectInstant id="SpawnInfestor3v3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="SpawnInfestorDummy"/>
+        <Cost>
+            <Resource index="Terrazine" value="250"/>
+            <Charge CountMax="3" CountUse="1" TimeUse="20"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="SpawnInfestorDummy3v3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="SpawnInfestorDummy"/>
+        <Cost>
+            <Resource index="Terrazine" value="250"/>
+            <Cooldown TimeUse="20"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="SpawnInfestorDelay3v3"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="Stimpack">
         <Cost index="0">
             <Vital index="Life" value="20"/>
