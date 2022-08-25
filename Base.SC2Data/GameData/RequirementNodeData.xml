@@ -20,7 +20,6 @@
         <Value value="60"/>
     </CRequirementConst>
     <CRequirementConst id="80">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Value value="80"/>
     </CRequirementConst>
     <CRequirementAnd id="And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter">
@@ -91,6 +90,10 @@
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly2119913898GTE2896091431CountUnitTerrazineTankCompleteOnly3">
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly2119913898"/>
         <OperandArray value="GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly2973415750">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly2973415750"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675">
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly3120976078"/>
@@ -213,7 +216,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorFirelingCountDummyStackQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="FirelingCountDummyStack" State="QueuedOrBetter"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorGenerateMineralsCowFarmCompleteOnlyAtUnit">
@@ -629,6 +631,10 @@
         <Count Link="ImpossibleUpgradeNew" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeImpossibleUpgradeNewCompleteOnly2119913898">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ImpossibleUpgradeNew" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeImpossibleUpgradeNewCompleteOnly2973415750">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ImpossibleUpgradeNew" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
@@ -1225,17 +1231,14 @@
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697"/>
         <OperandArray index="1" value="1455390697"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorZergRallyMinusCompleteOnlyAtUnit455390697"/>
         <OperandArray index="1" value="1455390697"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697"/>
         <OperandArray index="1" value="1455390697"/>
     </CRequirementLT>

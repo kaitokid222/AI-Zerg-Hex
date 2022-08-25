@@ -93,6 +93,9 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-baneling.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="SpawnInfestor3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+    </CButton>
     <CButton id="TerrazineDoubler">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>

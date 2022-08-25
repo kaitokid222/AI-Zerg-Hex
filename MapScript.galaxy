@@ -803,6 +803,7 @@ trigger gt_FirelingDies;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_FirelingSpawn;
 trigger gt_RavatorSpawn;
+trigger gt_InfestorSpawn;
 trigger gt_BanelingSpawn;
 trigger gt_InfusedSpawn;
 trigger gt_TorraSpawn;
@@ -4827,6 +4828,7 @@ void gf_init_3v3 () {
             if ((gv_players[lv_index].lv_alive == true)) {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BuildBuilder", 22), true);
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BuildBuilderScalingStructures", 6), true);
+                TechTreeAbilityAllow((lv_index + 7), AbilityCommand("DestroyStructure", 0), false);
             }
 
         }
@@ -4891,6 +4893,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_FirelingDies, lv_on_off);
     TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
     TriggerEnable(gt_FirelingSpawn, lv_on_off);
+    TriggerEnable(gt_InfestorSpawn, lv_on_off);
     TriggerEnable(gt_RavatorSpawn, lv_on_off);
     TriggerEnable(gt_BanelingSpawn, lv_on_off);
     TriggerEnable(gt_InfusedSpawn, lv_on_off);
@@ -5478,6 +5481,8 @@ int gf_get_terran_id_from_zpid (int lp_zpid) {
 
 void gf_enable_3v3_spawn () {
     // Automatic Variable Declarations
+    playergroup autoAF6B5AE5_g;
+    int autoAF6B5AE5_var;
     playergroup auto3AB7AA1F_g;
     int auto3AB7AA1F_var;
     playergroup autoE3496237_g;
@@ -5486,6 +5491,16 @@ void gf_enable_3v3_spawn () {
     int autoE9F11124_var;
 
     // Implementation
+    if ((GameGetMissionTime() == (5 * 60))) {
+        autoAF6B5AE5_g = gv_terrans;
+        autoAF6B5AE5_var = -1;
+        while (true) {
+            autoAF6B5AE5_var = PlayerGroupNextPlayer(autoAF6B5AE5_g, autoAF6B5AE5_var);
+            if (autoAF6B5AE5_var < 0) { break; }
+            TechTreeAbilityAllow(autoAF6B5AE5_var, AbilityCommand("SpawnInfestorDummy3v3", 0), false);
+        }
+    }
+
     if ((GameGetMissionTime() == (15 * 60))) {
         auto3AB7AA1F_g = gv_terrans;
         auto3AB7AA1F_var = -1;
@@ -5534,7 +5549,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     lv_target_player_position = gf__3v3_get_target_or_random_enemy_terran_position(lp_player_id);
     lv_spawn_point = PointFromName(("3v3_spawn_" + IntToString(lv_target_player_position)));
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if ((lp_unit_type == "Fireling")) {
+    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
         lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
         lv_attack_point = PointFromName(("Hydra " + IntToString(lv_target_player_position)));
     }
@@ -5547,7 +5562,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
     }
 
-    if ((lp_unit_type == "Fireling")) {
+    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
     }
     else {
@@ -13773,7 +13788,7 @@ void gf_get_attackup () {
         TechTreeUpgradeAddLevel(7, "ZergAttack", lv_upcnt);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", lv_upcnt);
+                TechTreeUpgradeAddLevel((lv_i + 7), "ZergAttack", lv_upcnt);
                 lv_i = (lv_i + 1);
             }
         }
@@ -13801,7 +13816,7 @@ void gf_get_speed () {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel(lv_i, "ZergAttack", 1);
+                TechTreeUpgradeAddLevel((lv_i + 7), "ZergMovement", 1);
                 lv_i = (lv_i + 1);
             }
         }
@@ -16672,6 +16687,27 @@ void gt_RavatorSpawn_Init () {
     gt_RavatorSpawn = TriggerCreate("gt_RavatorSpawn_Func");
     TriggerEnable(gt_RavatorSpawn, false);
     TriggerAddEventPlayerEffectUsed(gt_RavatorSpawn, c_playerAny, "SpawnRavDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Infestor Spawn
+//--------------------------------------------------------------------------------------------------
+bool gt_InfestorSpawn_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfestorZergHex3v3");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InfestorSpawn_Init () {
+    gt_InfestorSpawn = TriggerCreate("gt_InfestorSpawn_Func");
+    TriggerEnable(gt_InfestorSpawn, false);
+    TriggerAddEventPlayerEffectUsed(gt_InfestorSpawn, c_playerAny, "SpawnInfestorDummy");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22408,6 +22444,7 @@ void InitTriggers () {
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_FirelingSpawn_Init();
     gt_RavatorSpawn_Init();
+    gt_InfestorSpawn_Init();
     gt_BanelingSpawn_Init();
     gt_InfusedSpawn_Init();
     gt_TorraSpawn_Init();

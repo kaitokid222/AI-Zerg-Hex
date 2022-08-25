@@ -18,6 +18,123 @@
         <HeightOffset value="3.500000"/>
         <Text value="Button/Tooltip/AutomatedRefineryTextKicker6"/>
     </CActorText>
+    <CActorUnit id="InfestorZergHex22" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="ZergBurrowMobileAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On index="0" Send="Create SoundEmitter Infestor_Ambience"/>
+        <On Terms="UnitBirth.InfestorBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.InfestorBurrowed" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
+        <On Terms="UnitMovementUpdate.InfestorBurrowed.Stand" Send="Create InfestorBurrowedSplat"/>
+        <On Terms="UnitMovementUpdate.InfestorBurrowed.Walk" Target="InfestorBurrowedSplat" Send="Destroy"/>
+        <On Terms="Abil.NeuralParasite.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="AnimPlay NeuralParasite Attack PlayForever"/>
+        <On Terms="Abil.InfestedTerrans.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell 0 -1.000000 -1.000000 2.000000 AsDuration"/>
+        <On Terms="Abil.NeuralParasite.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay NeuralParasite Stand,Burrow,Attack PlayForever"/>
+        <On Terms="Abil.NeuralParasite.SourceChannelStop" Send="AnimClear NeuralParasite"/>
+        <On Terms="Abil.FungalGrowth.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell,A"/>
+        <On Terms="Abil.FungalGrowth.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay Spell Stand,Burrow,Spell,A"/>
+        <On Terms="Abil.Frenzy.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell,A"/>
+        <On Terms="Abil.Frenzy.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay Spell Stand,Burrow,Spell,A"/>
+        <On Terms="Abil.Leech.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell,A"/>
+        <On Terms="Abil.Leech.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay Spell Stand,Burrow,Spell,A"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Infestor; MorphTo InfestorBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Infestor; MorphFrom InfestorBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <On Terms="UnitBirth.InfestorZergHex3v3" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Infestor; MorphFrom InfestorBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo InfestorBurrowed; MorphFrom Infestor" Send="TerrainSquibDeactivate"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Infestor_Land"/>
+        <On Terms="UnitMovementUpdate.*.Walk; ValidateUnit IsBuried" Send="Create ZergUnit_BurrowedMoveLoopSound"/>
+        <On Terms="UnitMovementUpdate.*.Stand" Target="ZergUnit_BurrowedMoveLoopSound" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo Infestor" Target="ZergUnit_BurrowedMoveLoopSound" Send="Destroy"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Spell,A"/>
+        <On Terms="WeaponStart.*.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Abil.BuildSporeCrawler.BuiltStart" Send="AnimPlay Build Spell,A"/>
+        <On Terms="Abil.FireAcid.SourceCastStart" Send="AnimPlay Attack Spell,A"/>
+        <On Terms="Abil.TransfusionInfestor.SourceCastStart" Send="AnimPlay Attack Spell,A"/>
+        <Model value="Infestor"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="InfestorFootprint"/>
+        <BuildModel value="Infestor"/>
+        <DeathArray index="Normal" ModelLink="InfestorDeath" SoundLink="" VoiceLink="InfestorDeathVoice"/>
+        <DeathArray index="Disintegrate" ModelLink="InfestorDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="InfestorDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ActorModel="InfestorDeathRagdoll" ModelLink="InfestorDeathRagdoll" Name="RagdollBasic"/>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PlacementModel value="Infestor"/>
+        <PortraitModel value="InfestorPortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="2.000000"/>
+            <RangeDown value="2.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleInfestor"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1.875"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Infestor.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Infestor_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Infestor_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Infestor_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Infestor_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+        <HighlightTooltip value="Unit/Name/InfestorZergHex22"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <SelectAbilCmd value="FungalGrowth,Execute"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Birth" value="Infestor_Birth"/>
+        <SoundArray index="Ready" value="Infestor_Ready"/>
+        <SoundArray index="Help" value="Infestor_Help"/>
+        <SoundArray index="What" value="Infestor_What"/>
+        <SoundArray index="Yes" value="Infestor_Yes"/>
+        <SoundArray index="Attack" value="Infestor_Attack"/>
+        <SoundArray index="Pissed" value="Infestor_Pissed"/>
+        <SoundArray index="Movement" value="Infestor_Movement"/>
+        <SoundArray index="Turning" value="Infestor_Turning"/>
+        <SoundArray index="Board" value="Infestor_Board"/>
+        <SoundArray index="Click" value="Infestor_Click"/>
+        <SoundArray index="ClickError" value="Infestor_ClickError"/>
+        <SoundArray index="Highlight" value="Infestor_Highlight"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Infestor.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorText id="TerrazineTextKicker6">
         <Filter index="Ally" value="1"/>
         <Filter index="Neutral" value="1"/>
