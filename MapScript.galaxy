@@ -21114,7 +21114,7 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gf_is_3v3() == true)) {
+    if (((gf_is_3v3() == true) && (gf_is_3v3_local_test() == false))) {
         if ((libNtve_gf_UnitInRegion(EventUnit(), gf_get_region_of_influence_3v3(1)) == true)) {
             lv_player_group = gv_terrans_team_top;
         }
