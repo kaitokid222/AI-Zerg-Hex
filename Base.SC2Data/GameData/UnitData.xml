@@ -2110,7 +2110,6 @@
         <AbilArray Link="Demolish"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
-            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="3"/>
         </CardLayouts>
         <Footprint value="TerrazineTank2x4"/>
     </CUnit>
