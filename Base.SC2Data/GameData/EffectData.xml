@@ -26,6 +26,12 @@
         <ResourcesCollected index="Vespene" value="2"/>
         <ResourcesCollected index="Terrazine" value="-4"/>
     </CEffectModifyPlayer>
+    <CEffectSet id="SpawnBeastlingDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnBrutaDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="SpawnFirelingsDummy">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -73,6 +79,15 @@
     <CEffectSet id="SpawnInfestorDummy">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectSet id="SpawnPrimalDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnRoachDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnTanklingDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="SpawnTorraDummy">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -80,6 +95,9 @@
         <EditorCategories value=""/>
     </CEffectSet>
     <CEffectSet id="SpawnInfusedDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnUltraDummy3v3">
         <EditorCategories value=""/>
     </CEffectSet>
     <CEffectEnumArea id="VortexSearchArea">

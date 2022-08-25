@@ -93,8 +93,26 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-baneling.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="SpawnBeastling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-primalzergling.dds"/>
+    </CButton>
+    <CButton id="SpawnBruta3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
+    </CButton>
     <CButton id="SpawnInfestor3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+    </CButton>
+    <CButton id="SpawnPrimalRoach3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-primalroach.dds"/>
+    </CButton>
+    <CButton id="SpawnRoach3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
+    </CButton>
+    <CButton id="SpawnTankling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-locust.dds"/>
+    </CButton>
+    <CButton id="SpawnUltra3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
     </CButton>
     <CButton id="TerrazineDoubler">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>

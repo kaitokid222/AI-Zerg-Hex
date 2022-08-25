@@ -225,21 +225,44 @@
         <AbilArray Link="SpawnBanelingGroupDummy"/>
         <AbilArray Link="SpawnInfestor3v3"/>
         <AbilArray Link="SpawnInfestorDummy3v3"/>
+        <AbilArray Link="SpawnBeastling3v3"/>
+        <AbilArray Link="SpawnBeastlingDummy3v3"/>
+        <AbilArray Link="SpawnPrimal3v3"/>
+        <AbilArray Link="SpawnPrimalDummy3v3"/>
+        <AbilArray Link="SpawnRoach3v3"/>
+        <AbilArray Link="SpawnRoachDummy3v3"/>
+        <AbilArray Link="SpawnTankling3v3"/>
+        <AbilArray Link="SpawnUltra3v3"/>
+        <AbilArray Link="SpawnUltraDummy3v3"/>
+        <AbilArray Link="SpawnBruta3v3"/>
+        <AbilArray Link="SpawnBrutaDummy3v3"/>
         <BehaviorArray index="0" removed="1"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
+            <LayoutButtons index="0" Face="SpawnTorralisk3v3" AbilCmd="3v3SpawnTorraliskDummy,Execute"/>
             <LayoutButtons index="1" Face="Spawn5Firelings" AbilCmd="SpawnFirelings,Execute" Row="0"/>
+            <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorralisk2,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ResearchDynamic,Research10" Row="0" Column="1"/>
-            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavatorDummy,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroupDummy,Execute" Row="1" Column="1"/>
-            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="1" Column="1"/>
-            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoachDummy,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorraliskDummy,Execute" Row="1" Column="3"/>
-            <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorralisk2,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="1" Column="0"/>
+            <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoachDummy3v3,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoach3v3,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestorDummy3v3,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastlingDummy3v3,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavatorDummy,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoachDummy,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroupDummy,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="SpawnPrimalRoach3v3" Type="AbilCmd" AbilCmd="SpawnPrimalDummy3v3,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="SpawnPrimalRoach3v3" Type="AbilCmd" AbilCmd="SpawnPrimal3v3,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltraDummy3v3,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltra3v3,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBrutaDummy3v3,Execute" Row="1" Column="4"/>
+            <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBruta3v3,Execute" Row="1" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="InfestorZergHex3v3">
