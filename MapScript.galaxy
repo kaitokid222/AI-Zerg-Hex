@@ -4018,7 +4018,10 @@ void gf_handle_collection_skins () {
     while (true) {
         auto43DC2AC2_var = PlayerGroupNextPlayer(auto43DC2AC2_g, auto43DC2AC2_var);
         if (auto43DC2AC2_var < 0) { break; }
-        libNtve_gf_PlayerApplySkinReplacingExistingUnit(auto43DC2AC2_var, PlayerSkin(auto43DC2AC2_var), true);
+        if ((GameIsOnline() == true)) {
+            libNtve_gf_PlayerApplySkinReplacingExistingUnit(auto43DC2AC2_var, PlayerSkin(auto43DC2AC2_var), true);
+        }
+
         libNtve_gf_PlayerApplySkinReplacingExistingUnit(auto43DC2AC2_var, "MarineXPR", false);
         libNtve_gf_PlayerApplySkinReplacingExistingUnit(auto43DC2AC2_var, "MarineJunker", false);
         libNtve_gf_PlayerApplySkinReplacingExistingUnit(auto43DC2AC2_var, "MarineCovertOps", false);

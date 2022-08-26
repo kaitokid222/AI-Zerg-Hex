@@ -195,6 +195,7 @@
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
 <Unit id="Barracks2"/>
+<Unit id="InfestorZergHex3v3"/>
 <Unit id="Candy2"/>
 <Unit id="Candy3"/>
 <Unit id="Candy4"/>
@@ -223,5 +224,4 @@
 <Unit id="CommandCenter2"/>
 <Unit id="Generator"/>
 <Unit id="HalloweenSapper"/>
-<Unit id="InfestorZergHex3v3"/>
 </Preload>
