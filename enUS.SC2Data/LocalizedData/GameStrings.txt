@@ -21,7 +21,6 @@ Abil/Name/BombMissile=Bomb Missile
 Abil/Name/BuildBuilder=Build (Builder)
 Abil/Name/BuildBuilderScalingStructures=Build (Builder Scaling Structures)
 Abil/Name/BuildSporeCrawler=Build Spore Crawler
-Abil/Name/BuildSporeCrawler3v3=Build Spore Crawler
 Abil/Name/BurrowFireling=Burrow (Fireling)
 Abil/Name/CCSkinSwitcher=CC - Skin Switcher
 Abil/Name/CCWeatherSwitcher=CC - Weather Switcher
@@ -219,7 +218,6 @@ Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
 Abil/Name/ZergResetRally=Zerg Reset Rally
 Abil/Name/ZergTrain=Zerg - Train
 Abil/TargetMessage/BuildSporeCrawler=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
-Abil/TargetMessage/BuildSporeCrawler3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 AbilitiesTargetInnerBase=Cannot target Zerg inner base
 Activity/Trading=Trading

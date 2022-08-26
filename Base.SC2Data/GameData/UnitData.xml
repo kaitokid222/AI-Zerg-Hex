@@ -313,7 +313,7 @@
         <AbilArray Link="move"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="TransfusionInfestor"/>
-        <AbilArray Link="BuildSporeCrawler3v3"/>
+        <AbilArray Link="BuildSporeCrawler"/>
         <WeaponArray Link="InfestorWeapon"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
@@ -326,7 +326,7 @@
             <LayoutButtons Face="CreepRegeneration" Type="Passive" Row="1" Column="4"/>
             <LayoutButtons Face="TransfusionInfestor" Type="AbilCmd" AbilCmd="TransfusionInfestor,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="EnergyGeneration" Type="Passive" Row="2" Column="4"/>
-            <LayoutButtons Face="SpawnSporeCrawler" Type="AbilCmd" AbilCmd="BuildSporeCrawler3v3,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="SpawnSporeCrawler" Type="AbilCmd" AbilCmd="BuildSporeCrawler,Build1" Row="2" Column="0"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
@@ -364,6 +364,7 @@
             <Charge Link="Infestor/Revive"/>
             <Cooldown Link="Infestor/Revive"/>
         </ReviveInfoBase>
+        <BehaviorArray Link="InfestorAutoTransfuse"/>
     </CUnit>
     <CUnit id="Jaina">
         <DeathTime value="-1"/>

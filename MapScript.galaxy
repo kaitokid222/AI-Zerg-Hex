@@ -5516,6 +5516,8 @@ void gf_enable_3v3_spawn () {
             if (autoAF6B5AE5_var < 0) { break; }
             TechTreeAbilityAllow(autoAF6B5AE5_var, AbilityCommand("SpawnInfestorDummy3v3", 0), false);
             TechTreeAbilityAllow(autoAF6B5AE5_var, AbilityCommand("SpawnBeastlingDummy3v3", 0), false);
+            TechTreeUpgradeAddLevel(gv_players[autoAF6B5AE5_var].lv__3v3_zerg_pid, "ZergArmor1", 1);
+            TechTreeUpgradeAddLevel(gv_players[autoAF6B5AE5_var].lv__3v3_zerg_pid, "ZergArmor2", 1);
         }
     }
 
@@ -5539,6 +5541,7 @@ void gf_enable_3v3_spawn () {
             if (autoE3496237_var < 0) { break; }
             TechTreeAbilityAllow(autoE3496237_var, AbilityCommand("3v3SpawnInfusedRoachDummy", 0), false);
             TechTreeAbilityAllow(autoE3496237_var, AbilityCommand("SpawnPrimalDummy3v3", 0), false);
+            TechTreeUpgradeAddLevel(gv_players[autoE3496237_var].lv__3v3_zerg_pid, "ZergArmor3", 1);
         }
     }
 
@@ -5549,6 +5552,7 @@ void gf_enable_3v3_spawn () {
             auto9E347BD7_var = PlayerGroupNextPlayer(auto9E347BD7_g, auto9E347BD7_var);
             if (auto9E347BD7_var < 0) { break; }
             TechTreeAbilityAllow(auto9E347BD7_var, AbilityCommand("SpawnUltraDummy3v3", 0), false);
+            TechTreeUpgradeAddLevel(gv_players[auto9E347BD7_var].lv__3v3_zerg_pid, "ZergArmor4", 1);
         }
     }
 
@@ -5560,6 +5564,7 @@ void gf_enable_3v3_spawn () {
             if (autoE9F11124_var < 0) { break; }
             TechTreeAbilityAllow(autoE9F11124_var, AbilityCommand("3v3SpawnTorraliskDummy", 0), false);
             TechTreeAbilityAllow(autoE9F11124_var, AbilityCommand("SpawnBrutaDummy3v3", 0), false);
+            TechTreeUpgradeAddLevel(gv_players[autoE9F11124_var].lv__3v3_zerg_pid, "ZergArmor5", 1);
         }
     }
 
