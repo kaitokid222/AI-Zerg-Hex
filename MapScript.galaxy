@@ -4767,10 +4767,6 @@ bool gf_is_terrans_team_bottom_dead () {
         lv_return = true;
     }
 
-    if ((gf_is_3v3_local_test() == true)) {
-        lv_return = false;
-    }
-
     return lv_return;
 }
 
@@ -4802,10 +4798,6 @@ bool gf_is_terrans_team_top_dead () {
 
     if ((UnitIsAlive(UnitFromId(478555519)) == false)) {
         lv_return = true;
-    }
-
-    if ((gf_is_3v3_local_test() == true)) {
-        lv_return = false;
     }
 
     return lv_return;
