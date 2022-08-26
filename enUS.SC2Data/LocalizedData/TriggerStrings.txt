@@ -2017,6 +2017,7 @@ Variable/Name/8DAC4E6B=on_off
 Variable/Name/8DAEBDCC=cocoon_position
 Variable/Name/8DB1FE2C=mv
 Variable/Name/8DED837D=portrait_unit
+Variable/Name/8DEDBDE3=alive_players
 Variable/Name/8DF8397C=closest_hatch
 Variable/Name/8E56A437=player_position
 Variable/Name/8E7377F7=tc

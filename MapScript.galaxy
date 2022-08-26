@@ -10761,20 +10761,34 @@ bool gf_is_area_around_point_save (point lp_position) {
 
 int gf_ai_get_random_player () {
     // Variable Declarations
+    playergroup lv_alive_players;
     int lv_random;
     int lv_return;
 
     // Automatic Variable Declarations
+    playergroup autoBEA3BA5A_g;
+    int autoBEA3BA5A_var;
+
     // Variable Initialization
+    lv_alive_players = PlayerGroupEmpty();
 
     // Implementation
-    while ((lv_return == 0)) {
-        lv_random = RandomInt(1, 6);
-        if ((gv_players[lv_random].lv_alive == true)) {
-            lv_return = lv_random;
-            break;
+    autoBEA3BA5A_g = gv_terrans;
+    autoBEA3BA5A_var = -1;
+    while (true) {
+        autoBEA3BA5A_var = PlayerGroupNextPlayer(autoBEA3BA5A_g, autoBEA3BA5A_var);
+        if (autoBEA3BA5A_var < 0) { break; }
+        if ((gv_players[autoBEA3BA5A_var].lv_alive == true)) {
+            PlayerGroupAdd(lv_alive_players, autoBEA3BA5A_var);
         }
 
+    }
+    if ((PlayerGroupCount(lv_alive_players) == 0)) {
+        lv_return = 0;
+    }
+    else {
+        lv_random = RandomInt(1, PlayerGroupCount(lv_alive_players));
+        lv_return = PlayerGroupPlayer(lv_alive_players, lv_random);
     }
     return lv_return;
 }
