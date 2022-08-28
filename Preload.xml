@@ -153,6 +153,7 @@
 <Unit id="BanelingZergHex"/>
 <Unit id="InfusedRoach"/>
 <Unit id="OmegaliskZergHex"/>
+<Unit id="Beastling"/>
 <Unit id="Fireling"/>
 <Unit id="Marine2"/>
 <Unit id="VeteranMarine"/>
@@ -172,6 +173,7 @@
 <Unit id="PrimalRoach2"/>
 <Unit id="MineralTrader"/>
 <Unit id="GasTrader"/>
+<Unit id="Ultralisk2"/>
 <Unit id="Sheep2"/>
 <Unit id="Cow2"/>
 <Unit id="Slowling"/>
@@ -179,6 +181,7 @@
 <Unit id="Tankling"/>
 <Unit id="Creeper"/>
 <Unit id="Roach2"/>
+<Unit id="Brutalisk2"/>
 <Unit id="Nest2"/>
 <Unit id="SlowlingSpawner"/>
 <Unit id="GeyserBlocker"/>
@@ -192,6 +195,7 @@
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
 <Unit id="Barracks2"/>
+<Unit id="InfestorZergHex3v3"/>
 <Unit id="Candy2"/>
 <Unit id="Candy3"/>
 <Unit id="Candy4"/>
@@ -220,5 +224,4 @@
 <Unit id="CommandCenter2"/>
 <Unit id="Generator"/>
 <Unit id="HalloweenSapper"/>
-<Unit id="InfestorZergHex3v3"/>
 </Preload>

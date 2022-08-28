@@ -7,7 +7,6 @@ Abil/EditorPrefix/BombMissile=Bomber -
 Abil/EditorPrefix/BuildBuilder=SCV -
 Abil/EditorPrefix/BuildBuilderScalingStructures=SCV -
 Abil/EditorPrefix/BuildSporeCrawler=Infestor -
-Abil/EditorPrefix/BuildSporeCrawler3v3=Infestor -
 Abil/EditorPrefix/BurrowFireling=Fireling -
 Abil/EditorPrefix/CargoClearGas=Transport -
 Abil/EditorPrefix/CargoClearMinerals=Transport -
@@ -107,7 +106,6 @@ Abil/EditorSuffix/BanelingExplodeZergHex=(ZergHex)
 Abil/EditorSuffix/BarracksTrain2=(Edit)
 Abil/EditorSuffix/BombMissile=(Seeker)
 Abil/EditorSuffix/BuildSporeCrawler=(Zerg Hex)
-Abil/EditorSuffix/BuildSporeCrawler3v3=(Zerg Hex) (3v3)
 Abil/EditorSuffix/CCSkinSwitcher=(Zerg Hex)
 Abil/EditorSuffix/CCWeatherSwitcher=(Zerg Hex)
 Abil/EditorSuffix/CommandCenterTrain2=(Edit)
@@ -135,7 +133,18 @@ Abil/EditorSuffix/Siege=(Edit)
 Abil/EditorSuffix/Siege2=(Edit) OLD
 Abil/EditorSuffix/SpawnBanelingGroup=3v3
 Abil/EditorSuffix/SpawnBanelingGroupDummy=3v3
+Abil/EditorSuffix/SpawnBeastling3v3=3v3
+Abil/EditorSuffix/SpawnBeastlingDummy3v3=3v3
+Abil/EditorSuffix/SpawnBruta3v3=3v3
+Abil/EditorSuffix/SpawnBrutaDummy3v3=3v3
 Abil/EditorSuffix/SpawnFirelings=3v3
+Abil/EditorSuffix/SpawnPrimal3v3=3v3
+Abil/EditorSuffix/SpawnPrimalDummy3v3=3v3
+Abil/EditorSuffix/SpawnRoach3v3=3v3
+Abil/EditorSuffix/SpawnRoachDummy3v3=3v3
+Abil/EditorSuffix/SpawnTankling3v3=3v3
+Abil/EditorSuffix/SpawnUltra3v3=3v3
+Abil/EditorSuffix/SpawnUltraDummy3v3=3v3
 Abil/EditorSuffix/StopRavager=(Ravager)
 Abil/EditorSuffix/TacNukeStrike2=
 Abil/EditorSuffix/TechLabResearch2=(Edit)
@@ -1717,10 +1726,14 @@ Effect/EditorSuffix/ShockBlastRifleDamageFriendly=(Damage Friendly or Structure)
 Effect/EditorSuffix/SiegeTankPlasmaCannonInitialSet2=OLD
 Effect/EditorSuffix/SiegeTankPlasmaCannonShardsTier3VariationsAdditional=(Unused)
 Effect/EditorSuffix/SpawnBanelingsDummy=3v3
+Effect/EditorSuffix/SpawnBeastlingDummy3v3=3v3
+Effect/EditorSuffix/SpawnBrutaDummy3v3=3v3
 Effect/EditorSuffix/SpawnFirelingsDummy=3v3
 Effect/EditorSuffix/SpawnInfestorDummy=3v3
 Effect/EditorSuffix/SpawnInfusedDummy=3v3
+Effect/EditorSuffix/SpawnPrimalDummy3v3=3v3
 Effect/EditorSuffix/SpawnRavDummy=3v3
+Effect/EditorSuffix/SpawnRoachDummy3v3=3v3
 Effect/EditorSuffix/SpawnTorraDummy=3v3
 Effect/EditorSuffix/SuicideNeedleClaws=(Damage)
 Effect/EditorSuffix/SuicideNeedleClawsSet=(Set)
@@ -2189,13 +2202,15 @@ Requirement/Name/SolarWeaponsRequirement=Solar Weapons Requirement
 Requirement/Name/SpawnBanelingsDelay3v3=SpawnBanelingsDelay3v3
 Requirement/Name/SpawnBanelingsTerrazine3v3=SpawnBanelingsTerrazine3v3
 Requirement/Name/SpawnFirelings=SpawnFirelings
-Requirement/Name/SpawnInfestorDelay3v3=SpawnInfestorDelay3v3
-Requirement/Name/SpawnInfusedDelay3v3=SpawnInfusedDelay3v3
-Requirement/Name/SpawnRavatorDelay3v32=SpawnRavatorDelay3v3
-Requirement/Name/SpawnRavatorTerrazine3v3=SpawnRavatorTerrazine3v3
-Requirement/Name/SpawnRavatorTerrazine3v32=SpawnInfusedTerrazine3v3
-Requirement/Name/SpawnRavatorTerrazine3v33=SpawnTorraliskTerrazine3v3
-Requirement/Name/SpawnTorraliskDelay3v3=SpawnTorraliskDelay3v3
+Requirement/Name/SpawnTier1Delay3v3=SpawnTier1Delay3v3
+Requirement/Name/SpawnTier23v3=SpawnTier23v3
+Requirement/Name/SpawnTier2Delay3v3=SpawnTier2Delay3v3
+Requirement/Name/SpawnTier33v3=SpawnTier33v3
+Requirement/Name/SpawnTier3Delay3v3=SpawnTier3Delay3v3
+Requirement/Name/SpawnTier43v3=SpawnTier43v3
+Requirement/Name/SpawnTier4Delay3v3=SpawnTier4Delay3v3
+Requirement/Name/SpawnTier53v3=SpawnTier53v3
+Requirement/Name/SpawnTier5Delay3v3=SpawnTier5Delay3v3
 Requirement/Name/SpawnerNotYetUpgraded=Spawner Not Yet Upgraded
 Requirement/Name/SpawnerNotYetUpgradedInfested=Spawner Not Yet Upgraded Infested
 Requirement/Name/StrikelingSpawnerCap=Strikeling Spawner Cap
@@ -2254,11 +2269,12 @@ RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgr
 RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeChemicalPlantCompleteOnly1337995533=CountUnit(ConstructionYard,CompleteOnly){Construction Yard} && CountUpgrade(ChemicalPlant,CompleteOnly){Research Chemical Plant}
 RequirementNode/Name/AndCountUpgradeGasExtraction2CompleteOnly427659588=CountUpgrade(GasExtraction2,CompleteOnly){Complete Gas Extraction 2} && ()
 RequirementNode/Name/AndCountUpgradeGasExtractionCompleteOnly4054536818=CountUpgrade(GasExtraction,CompleteOnly){Complete Gas Extraction 1} && ()
-RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly103784274GTE2816376595CountUnitTerrazineTankCompleteOnly2=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Infuseds before 20 minutes.} && CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 2 Terrazine Converters.}2
-RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly2119913898GTE2896091431CountUnitTerrazineTankCompleteOnly3=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Torralisks before 30 minutes.} && CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 3 Terrazine Converters.}3
-RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly2973415750=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Infuseds before 5 minutes.} && ()
 RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Banelings before 15 minutes.} && CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
-RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly4013994440GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Ravators before 15 minutes.} && CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
+RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly3785646695=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 10 minutes.} && ()
+RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly3917906240GTE2896091431CountUnitTerrazineTankCompleteOnly3=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 25 minutes.} && CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 3 Terrazine Converters.}3
+RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly561506490GTE2816376595CountUnitTerrazineTankCompleteOnly2=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 20 minutes.} && CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 2 Terrazine Converters.}2
+RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly736508412GTE4046891914CountUnitTerrazineTankCompleteOnly4=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 30 minutes.} && CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 4 Terrazine Converters.}4
+RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly736614594GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 15 minutes.} && CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && ()
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030CountUpgradeMarineConservationL1CompleteOnly2205661302=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && CountUpgrade(MarineConservationL1,CompleteOnly){Complete Conservation L1}
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
@@ -2341,6 +2357,7 @@ RequirementNode/Name/CountUnitTechLab3CompleteOnly=CountUnit(TechLab3,CompleteOn
 RequirementNode/Name/CountUnitTechLab3QueuedOrBetter=CountUnit(TechLab3,QueuedOrBetter)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly=CountUnit(TerrazineTank,CompleteOnly)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly2803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.}
+RequirementNode/Name/CountUnitTerrazineTankQueuedOnly=CountUnit(TerrazineTank,QueuedOnly)
 RequirementNode/Name/CountUpgradeAdvancedBuildCompleteOnly3080158053=CountUpgrade(AdvancedBuild,CompleteOnly){Research Advanced Build}
 RequirementNode/Name/CountUpgradeAdvancedBuildQueuedOrBetter=CountUpgrade(AdvancedBuild,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeBase1DeadCompleteOnly=CountUpgrade(Base1Dead,CompleteOnly)
@@ -2391,11 +2408,12 @@ RequirementNode/Name/CountUpgradeHydraliskSpawnSizeCompleteOnly=CountUpgrade(Hyd
 RequirementNode/Name/CountUpgradeHydraliskSpawnSizeInProgressOnly=CountUpgrade(HydraliskSpawnSize,InProgressOnly)
 RequirementNode/Name/CountUpgradeHydraliskSpawnSizeQueuedOnly=CountUpgrade(HydraliskSpawnSize,QueuedOnly)
 RequirementNode/Name/CountUpgradeHyperElectrodesQueuedOrBetter=CountUpgrade(HyperElectrodes,QueuedOrBetter)
-RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly103784274=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Infuseds before 20 minutes.}
-RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly2119913898=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Torralisks before 30 minutes.}
-RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly2973415750=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Infuseds before 5 minutes.}
 RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly3120976078=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Banelings before 15 minutes.}
-RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly4013994440=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn Ravators before 15 minutes.}
+RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly3785646695=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 10 minutes.}
+RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly3917906240=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 25 minutes.}
+RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly561506490=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 20 minutes.}
+RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly736508412=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 30 minutes.}
+RequirementNode/Name/CountUpgradeImpossibleUpgradeNewCompleteOnly736614594=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 15 minutes.}
 RequirementNode/Name/CountUpgradeImprovedFarming2QueuedOrBetter=CountUpgrade(ImprovedFarming2,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeImprovedFarmingQueuedOrBetter=CountUpgrade(ImprovedFarming,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeImprovedFarmingQueuedOrBetter724438663=CountUpgrade(ImprovedFarming,QueuedOrBetter){Complete Improved Farming 1}
@@ -2524,10 +2542,12 @@ RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly1=CountUnit(
 RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
 RequirementNode/Name/GTE2816376595CountUnitTerrazineTankCompleteOnly2=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 2 Terrazine Converters.}2
 RequirementNode/Name/GTE2896091431CountUnitTerrazineTankCompleteOnly3=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 3 Terrazine Converters.}3
+RequirementNode/Name/GTE2896091431CountUnitTerrazineTankQueuedOnly3=CountUnit(TerrazineTank,QueuedOnly) >= {You need at least 3 Terrazine Converters.}3
 RequirementNode/Name/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {1 charge}1
 RequirementNode/Name/GTE3417746048CountUpgradeFortificationCompleteOnly3=CountUpgrade(Fortification,CompleteOnly) >= {Fortification 3}3
 RequirementNode/Name/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {2 charges}2
 RequirementNode/Name/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {10 Stacks of Blood}10
+RequirementNode/Name/GTE4046891914CountUnitTerrazineTankCompleteOnly4=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 4 Terrazine Converters.}4
 RequirementNode/Name/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {40 charges}40
 RequirementNode/Name/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need one Stacks of Blood!}1
 RequirementNode/Name/GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) >= 1
