@@ -2310,6 +2310,7 @@ Variable/Name/BB509A38=nests
 Variable/Name/BB6281F6=unit
 Variable/Name/BBA9C6E1=player
 Variable/Name/BBBBD441=t_stage
+Variable/Name/BBE521AB=chosen_player
 Variable/Name/BBE6098B=has rally
 Variable/Name/BC031F98=owner
 Variable/Name/BC3FFF72=supply_upgrades
