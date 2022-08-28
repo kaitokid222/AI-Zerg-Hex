@@ -243,6 +243,7 @@ int gv_deprecated_hazard_zones_count;
 bool gv_ai_building_drone;
 int gv_f2_cooldown;
 unitgroup gv_f2_unit_group;
+int gv_cloud_cd;
 gs_bonus_gasses[13] gv_bonus_gasses;
 gs_neighbours[7] gv_neighbour_positions;
 gs_weak_player[7] gv_weak_players;
@@ -276,7 +277,6 @@ int gv_omega_target_player;
 int gv_omega_placement_cooldown;
 int gv_omega_ping;
 unit gv_omega_unit;
-int gv_cloud_cd;
 int[7] gv_t1_spawner_distro;
 int[7] gv_spawner_distro;
 string gv_build;
@@ -850,8 +850,9 @@ trigger gt_creepsourcerebuildstarted;
 trigger gt_checkhazardzones;
 trigger gt_stasisgotused;
 trigger gt_drone_finished;
-trigger gt_spinegetsattacked;
 trigger gt_Checkbridgesevery45s;
+trigger gt_spinegetsattacked;
+trigger gt_buildinggetsattacked;
 trigger gt_checkplayerseveryminute;
 trigger gt_handleweakplayersevery15s;
 trigger gt_Terranenterszerghighground;
@@ -877,7 +878,6 @@ trigger gt_Cocoonspawnfinished;
 trigger gt_CocoonorOmegadies;
 trigger gt_TryOmegaOrderRefresh;
 trigger gt_extractordies;
-trigger gt_buildinggetsattacked;
 trigger gt_spawner_started;
 trigger gt_spawnerdies;
 trigger gt_spawner_finished;
@@ -16529,12 +16529,7 @@ void gt_Ashgotselected_Init () {
 // Trigger: Terrazine Doubler finished
 //--------------------------------------------------------------------------------------------------
 bool gt_TerrazineDoublerfinished_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_o;
-
     // Automatic Variable Declarations
-    // Variable Initialization
-
     // Conditions
     if (testConds) {
         if (!((UnitGetType(EventUnit()) == "ConstructionYard"))) {
@@ -19293,62 +19288,6 @@ void gt_drone_finished_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: spine gets attacked
-//--------------------------------------------------------------------------------------------------
-bool gt_spinegetsattacked_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_unit;
-    point lv_unit_position;
-    unitgroup lv_infestors;
-    unit lv_infestor;
-    effecthistory lv_effect;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_unit = EventUnit();
-    lv_unit_position = UnitGetPosition(lv_unit);
-    lv_infestors = UnitGroupEmpty();
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(lv_unit) == "LargeSpineCrawler"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    lv_infestors = UnitGroup("InfestorZergHex2", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter(0, 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_infestor = gf_get_ready_infestor(lv_infestors);
-    gf_infestor_heal(lv_infestor, lv_unit);
-    lv_infestor = gf_get_ready_infestor(lv_infestors);
-    gf_infestor_heal(lv_infestor, lv_unit);
-    if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm")) {
-        if (true) {
-            gf_f2_point(EventUnitDamageSourcePoint(), true);
-        }
-
-    }
-    else {
-        gv_f2_cooldown = (gv_f2_cooldown - 1);
-        if ((gv_f2_cooldown < 0)) {
-            gv_f2_cooldown = 0;
-        }
-
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_spinegetsattacked_Init () {
-    gt_spinegetsattacked = TriggerCreate("gt_spinegetsattacked_Func");
-    TriggerAddEventUnitDamaged(gt_spinegetsattacked, null, c_unitDamageTypeAny, c_unitDamageEither, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Check bridges every 45s
 //--------------------------------------------------------------------------------------------------
 bool gt_Checkbridgesevery45s_Func (bool testConds, bool runActions) {
@@ -19555,6 +19494,156 @@ bool gt_Checkbridgesevery45s_Func (bool testConds, bool runActions) {
 void gt_Checkbridgesevery45s_Init () {
     gt_Checkbridgesevery45s = TriggerCreate("gt_Checkbridgesevery45s_Func");
     TriggerAddEventTimePeriodic(gt_Checkbridgesevery45s, 45.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: spine gets attacked
+//--------------------------------------------------------------------------------------------------
+bool gt_spinegetsattacked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+    point lv_unit_position;
+    unitgroup lv_infestors;
+    unit lv_infestor;
+    effecthistory lv_effect;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = EventUnit();
+    lv_unit_position = UnitGetPosition(lv_unit);
+    lv_infestors = UnitGroupEmpty();
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(lv_unit) == "LargeSpineCrawler"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_infestors = UnitGroup("InfestorZergHex2", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter(0, 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_infestor = gf_get_ready_infestor(lv_infestors);
+    gf_infestor_heal(lv_infestor, lv_unit);
+    lv_infestor = gf_get_ready_infestor(lv_infestors);
+    gf_infestor_heal(lv_infestor, lv_unit);
+    if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm")) {
+        if (true) {
+            gf_f2_point(EventUnitDamageSourcePoint(), true);
+        }
+
+    }
+    else {
+        gv_f2_cooldown = (gv_f2_cooldown - 1);
+        if ((gv_f2_cooldown < 0)) {
+            gv_f2_cooldown = 0;
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_spinegetsattacked_Init () {
+    gt_spinegetsattacked = TriggerCreate("gt_spinegetsattacked_Func");
+    TriggerAddEventUnitDamaged(gt_spinegetsattacked, null, c_unitDamageTypeAny, c_unitDamageEither, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: building gets attacked
+//--------------------------------------------------------------------------------------------------
+bool gt_buildinggetsattacked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+    point lv_unit_position;
+    unitgroup lv_nests;
+    unitgroup lv_temp_all;
+    unit lv_nest;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = EventUnit();
+    lv_unit_position = UnitGetPosition(lv_unit);
+    lv_nests = UnitGroupEmpty();
+    lv_temp_all = UnitGroupEmpty();
+
+    // Conditions
+    if (testConds) {
+        if (!((EventUnitDamageEffect() != "ShatterL1Damage"))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageEffect() != "ShatterL2Damage"))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageEffect() != "ShatterL3Damage"))) {
+            return false;
+        }
+
+        if (!((gv_cloud_cd == 0))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(lv_unit) == 7))) {
+            return false;
+        }
+
+        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_players[EventUnitDamageSourcePlayer()].lv_pet_score = 0;
+    if ((gf_is_pvp() == true)) {
+    }
+    else {
+        if ((gv_is_crazyminions == true)) {
+            lv_nests = UnitGroup("Hellfort", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            UnitGroupAddUnitGroup(lv_temp_all, lv_nests);
+        }
+
+        lv_nests = UnitGroupEmpty();
+        lv_nests = UnitGroup("Nest2", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        UnitGroupAddUnitGroup(lv_temp_all, lv_nests);
+        lv_nest = UnitGroupClosestToPoint(lv_temp_all, EventUnitDamageSourcePoint());
+        if ((DistanceBetweenPoints(EventUnitDamageSourcePoint(), UnitGetPosition(lv_nest)) <= 15.0)) {
+            UnitIssueOrder(lv_nest, OrderTargetingPoint(AbilityCommand("AbsorbingCloud", 0), EventUnitDamageSourcePoint()), c_orderQueueReplace);
+            gv_cloud_cd = 1;
+        }
+
+        if ((UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionCircle(UnitGetPosition(lv_unit), 5.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), c_unitCountAlive) == 1)) {
+            if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm")) {
+                if (true) {
+                    gf_f2_point(EventUnitDamageSourcePoint(), true);
+                }
+
+            }
+            else {
+                gv_f2_cooldown = (gv_f2_cooldown - 1);
+                if ((gv_f2_cooldown < 0)) {
+                    gv_f2_cooldown = 0;
+                }
+
+            }
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_buildinggetsattacked_Init () {
+    gt_buildinggetsattacked = TriggerCreate("gt_buildinggetsattacked_Func");
+    TriggerAddEventUnitDamaged(gt_buildinggetsattacked, null, c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20830,100 +20919,6 @@ bool gt_extractordies_Func (bool testConds, bool runActions) {
 void gt_extractordies_Init () {
     gt_extractordies = TriggerCreate("gt_extractordies_Func");
     TriggerAddEventUnitDied(gt_extractordies, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: building gets attacked
-//--------------------------------------------------------------------------------------------------
-bool gt_buildinggetsattacked_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_unit;
-    point lv_unit_position;
-    unitgroup lv_nests;
-    unitgroup lv_temp_all;
-    unit lv_nest;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_unit = EventUnit();
-    lv_unit_position = UnitGetPosition(lv_unit);
-    lv_nests = UnitGroupEmpty();
-    lv_temp_all = UnitGroupEmpty();
-
-    // Conditions
-    if (testConds) {
-        if (!((EventUnitDamageEffect() != "ShatterL1Damage"))) {
-            return false;
-        }
-
-        if (!((EventUnitDamageEffect() != "ShatterL2Damage"))) {
-            return false;
-        }
-
-        if (!((EventUnitDamageEffect() != "ShatterL3Damage"))) {
-            return false;
-        }
-
-        if (!((gv_cloud_cd == 0))) {
-            return false;
-        }
-
-        if (!((UnitGetOwner(lv_unit) == 7))) {
-            return false;
-        }
-
-        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort")))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gv_players[EventUnitDamageSourcePlayer()].lv_pet_score = 0;
-    if ((gf_is_pvp() == true)) {
-    }
-    else {
-        if ((gv_is_crazyminions == true)) {
-            lv_nests = UnitGroup("Hellfort", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            UnitGroupAddUnitGroup(lv_temp_all, lv_nests);
-        }
-
-        lv_nests = UnitGroupEmpty();
-        lv_nests = UnitGroup("Nest2", 7, RegionCircle(lv_unit_position, 25.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        UnitGroupAddUnitGroup(lv_temp_all, lv_nests);
-        lv_nest = UnitGroupClosestToPoint(lv_temp_all, EventUnitDamageSourcePoint());
-        if ((DistanceBetweenPoints(EventUnitDamageSourcePoint(), UnitGetPosition(lv_nest)) <= 15.0)) {
-            UnitIssueOrder(lv_nest, OrderTargetingPoint(AbilityCommand("AbsorbingCloud", 0), EventUnitDamageSourcePoint()), c_orderQueueReplace);
-            gv_cloud_cd = 1;
-        }
-
-        if ((UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionCircle(UnitGetPosition(lv_unit), 5.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), c_unitCountAlive) == 1)) {
-            if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm")) {
-                if (true) {
-                    gf_f2_point(EventUnitDamageSourcePoint(), true);
-                }
-
-            }
-            else {
-                gv_f2_cooldown = (gv_f2_cooldown - 1);
-                if ((gv_f2_cooldown < 0)) {
-                    gv_f2_cooldown = 0;
-                }
-
-            }
-        }
-
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_buildinggetsattacked_Init () {
-    gt_buildinggetsattacked = TriggerCreate("gt_buildinggetsattacked_Func");
-    TriggerAddEventUnitDamaged(gt_buildinggetsattacked, null, c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22659,8 +22654,9 @@ void InitTriggers () {
     gt_checkhazardzones_Init();
     gt_stasisgotused_Init();
     gt_drone_finished_Init();
-    gt_spinegetsattacked_Init();
     gt_Checkbridgesevery45s_Init();
+    gt_spinegetsattacked_Init();
+    gt_buildinggetsattacked_Init();
     gt_checkplayerseveryminute_Init();
     gt_handleweakplayersevery15s_Init();
     gt_Terranenterszerghighground_Init();
@@ -22686,7 +22682,6 @@ void InitTriggers () {
     gt_CocoonorOmegadies_Init();
     gt_TryOmegaOrderRefresh_Init();
     gt_extractordies_Init();
-    gt_buildinggetsattacked_Init();
     gt_spawner_started_Init();
     gt_spawnerdies_Init();
     gt_spawner_finished_Init();
