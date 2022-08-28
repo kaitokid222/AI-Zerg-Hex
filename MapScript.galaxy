@@ -19572,6 +19572,14 @@ bool gt_buildinggetsattacked_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
+        if (!((EventUnitDamageSourcePlayer() >= 1))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageSourcePlayer() <= 6))) {
+            return false;
+        }
+
         if (!((EventUnitDamageEffect() != "ShatterL1Damage"))) {
             return false;
         }
