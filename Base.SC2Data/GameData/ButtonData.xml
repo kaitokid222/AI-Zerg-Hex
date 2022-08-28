@@ -132,6 +132,12 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="TerrazineDoubler2">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CButton>
+    <CButton id="TerrazineDoubler3">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CButton>
     <CButton id="WeatherSelection">
         <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
         <AlertIcon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>

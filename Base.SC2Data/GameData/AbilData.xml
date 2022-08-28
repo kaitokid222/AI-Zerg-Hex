@@ -2504,7 +2504,18 @@
         </InfoArray>
         <InfoArray index="Research11" Time="15" Upgrade="TerrazineDoubler">
             <Resource index="Vespene" value="125"/>
+            <Resource index="Terrazine" value="500"/>
             <Button DefaultButtonFace="TerrazineDoubler" Requirements="TerrazineDoublerRequirement"/>
+        </InfoArray>
+        <InfoArray index="Research12" Time="15" Upgrade="TerrazineDoubler2">
+            <Resource index="Vespene" value="250"/>
+            <Resource index="Terrazine" value="1000"/>
+            <Button DefaultButtonFace="TerrazineDoubler2" Requirements="TerrazineDoubler2Requirement"/>
+        </InfoArray>
+        <InfoArray index="Research13" Time="15" Upgrade="TerrazineDoubler3">
+            <Resource index="Vespene" value="500"/>
+            <Resource index="Terrazine" value="2000"/>
+            <Button DefaultButtonFace="TerrazineDoubler3" Requirements="TerrazineDoubler3Requirement"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="ReaperFlight">

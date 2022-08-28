@@ -16536,7 +16536,7 @@ bool gt_TerrazineDoublerfinished_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libNtve_gf_TriggeringProgressUpgrade() == "TerrazineDoubler"))) {
+        if (!(((libNtve_gf_TriggeringProgressUpgrade() == "TerrazineDoubler") || (libNtve_gf_TriggeringProgressUpgrade() == "TerrazineDoubler2") || (libNtve_gf_TriggeringProgressUpgrade() == "TerrazineDoubler3")))) {
             return false;
         }
     }

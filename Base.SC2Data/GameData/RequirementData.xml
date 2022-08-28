@@ -335,6 +335,12 @@
     <CRequirement id="SpawnTier3Delay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly561506490GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
     </CRequirement>
+    <CRequirement id="TerrazineDoubler2Requirement">
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="TerrazineDoubler3Requirement">
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler3QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="WeaponCapacityRequirement">
         <NodeArray index="Show" Link="NotCountUpgradeWeaponCapacityQueuedOrBetter"/>
     </CRequirement>
