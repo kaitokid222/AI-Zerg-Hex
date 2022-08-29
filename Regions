@@ -452,6 +452,7 @@
     </region>
     <region id="76">
         <name value="top side full"/>
+        <invisible/>
         <shape type="rect">
             <quad value="23.8427,128.1718,219.4694,237.0056"/>
         </shape>

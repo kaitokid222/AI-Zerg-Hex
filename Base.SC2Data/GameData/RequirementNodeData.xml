@@ -429,10 +429,6 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TerrazineTank" State="CompleteOnly"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitTerrazineTankQueuedOnly">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="TerrazineTank"/>
-    </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeAdvancedBuildCompleteOnly3080158053">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="AdvancedBuild" State="CompleteOnly"/>
@@ -903,12 +899,10 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler2QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineDoubler2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler3QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineDoubler3" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerQueuedOrBetter">
@@ -1177,10 +1171,6 @@
     </CRequirementGTE>
     <CRequirementGTE id="GTE2896091431CountUnitTerrazineTankCompleteOnly3">
         <OperandArray index="0" value="CountUnitTerrazineTankCompleteOnly"/>
-        <OperandArray index="1" value="3"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTE2896091431CountUnitTerrazineTankQueuedOnly3">
-        <OperandArray index="0" value="CountUnitTerrazineTankQueuedOnly"/>
         <OperandArray index="1" value="3"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1">
@@ -1580,11 +1570,9 @@
         <OperandArray index="0" value="CountUpgradeTarSpawnQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTerrazineDoubler2QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeTerrazineDoubler2QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTerrazineDoubler3QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeTerrazineDoubler3QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTerrazineDoublerQueuedOrBetter">

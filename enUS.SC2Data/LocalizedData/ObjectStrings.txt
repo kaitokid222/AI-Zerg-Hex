@@ -2363,7 +2363,6 @@ RequirementNode/Name/CountUnitTechLab3CompleteOnly=CountUnit(TechLab3,CompleteOn
 RequirementNode/Name/CountUnitTechLab3QueuedOrBetter=CountUnit(TechLab3,QueuedOrBetter)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly=CountUnit(TerrazineTank,CompleteOnly)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly2803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.}
-RequirementNode/Name/CountUnitTerrazineTankQueuedOnly=CountUnit(TerrazineTank,QueuedOnly)
 RequirementNode/Name/CountUpgradeAdvancedBuildCompleteOnly3080158053=CountUpgrade(AdvancedBuild,CompleteOnly){Research Advanced Build}
 RequirementNode/Name/CountUpgradeAdvancedBuildQueuedOrBetter=CountUpgrade(AdvancedBuild,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeBase1DeadCompleteOnly=CountUpgrade(Base1Dead,CompleteOnly)
@@ -2550,7 +2549,6 @@ RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly1=CountUnit(
 RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
 RequirementNode/Name/GTE2816376595CountUnitTerrazineTankCompleteOnly2=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 2 Terrazine Converters.}2
 RequirementNode/Name/GTE2896091431CountUnitTerrazineTankCompleteOnly3=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 3 Terrazine Converters.}3
-RequirementNode/Name/GTE2896091431CountUnitTerrazineTankQueuedOnly3=CountUnit(TerrazineTank,QueuedOnly) >= {You need at least 3 Terrazine Converters.}3
 RequirementNode/Name/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {1 charge}1
 RequirementNode/Name/GTE3417746048CountUpgradeFortificationCompleteOnly3=CountUpgrade(Fortification,CompleteOnly) >= {Fortification 3}3
 RequirementNode/Name/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {2 charges}2
