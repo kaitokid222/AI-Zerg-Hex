@@ -212,7 +212,7 @@
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
-        <CostResource index="Terrazine" value="50"/>
+        <CostResource index="Terrazine" value="500"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="ResearchDynamic"/>
         <AbilArray Link="3v3SpawnRavatorDummy"/>

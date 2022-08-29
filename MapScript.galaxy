@@ -65,6 +65,7 @@ struct gs_player {
     int lv__3v3_zerg_pid;
     int lv__3v3_nemesis_terran;
     int lv__3v3_terrazine_doubler;
+    int lv__3v3_terrazine_income;
 };
 
 struct gs_TerranIncomeData {
@@ -342,6 +343,7 @@ void InitGlobals () {
         gv_players[init_i].lv_tutorial_stage = 1;
         gv_players[init_i].lv_tutorial_stage_state = "";
         gv_players[init_i].lv_wants_tutorial = 1;
+        gv_players[init_i].lv__3v3_terrazine_income = 10;
     }
     gv_transmission_units = UnitGroupEmpty();
     for (init_i = 0; init_i <= 6; init_i += 1) {
@@ -797,6 +799,7 @@ trigger gt_NoWeathergotselected;
 trigger gt_Raingotselected;
 trigger gt_Snowgotselected;
 trigger gt_Ashgotselected;
+trigger gt_TerrazineIncome;
 trigger gt_TerrazineDoublerfinished;
 trigger gt_Terrazineonkill;
 trigger gt_SpawnFireling3v3;
@@ -4891,6 +4894,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_prevent_top_from_going_bottom, lv_on_off);
     TriggerEnable(gt_TerrazineDoublerfinished, lv_on_off);
     TriggerEnable(gt_Terrazineonkill, lv_on_off);
+    TriggerEnable(gt_TerrazineIncome, lv_on_off);
     TriggerEnable(gt_FirelingDies, lv_on_off);
     TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
     TriggerEnable(gt_SpawnFireling3v3, lv_on_off);
@@ -16526,6 +16530,39 @@ void gt_Ashgotselected_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Terrazine Income
+//--------------------------------------------------------------------------------------------------
+bool gt_TerrazineIncome_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup autoB2C4F675_g;
+    int autoB2C4F675_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoB2C4F675_g = gv_terrans;
+    autoB2C4F675_var = -1;
+    while (true) {
+        autoB2C4F675_var = PlayerGroupNextPlayer(autoB2C4F675_g, autoB2C4F675_var);
+        if (autoB2C4F675_var < 0) { break; }
+        if ((gv_players[autoB2C4F675_var].lv_alive == true)) {
+        }
+
+        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazine, c_playerPropOperAdd, gv_players[autoB2C4F675_var].lv__3v3_terrazine_income);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TerrazineIncome_Init () {
+    gt_TerrazineIncome = TriggerCreate("gt_TerrazineIncome_Func");
+    TriggerEnable(gt_TerrazineIncome, false);
+    TriggerAddEventTimePeriodic(gt_TerrazineIncome, 6.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Terrazine Doubler finished
 //--------------------------------------------------------------------------------------------------
 bool gt_TerrazineDoublerfinished_Func (bool testConds, bool runActions) {
@@ -16569,12 +16606,17 @@ bool gt_Terrazineonkill_Func (bool testConds, bool runActions) {
     int lv_chosen_player;
 
     // Automatic Variable Declarations
+    playergroup auto4BFB662F_g;
+    int auto4BFB662F_var;
+    playergroup autoE77B552C_g;
+    int autoE77B552C_var;
+
     // Variable Initialization
     lv_tg = PlayerGroupEmpty();
 
     // Conditions
     if (testConds) {
-        if (!((UnitGetOwner(EventUnit()) == 7))) {
+        if (!((UnitGetOwner(EventUnit()) >= 7))) {
             return false;
         }
     }
@@ -16601,6 +16643,29 @@ bool gt_Terrazineonkill_Func (bool testConds, bool runActions) {
         PlayerModifyPropertyInt(PlayerGroupPlayer(lv_tg, lv_nri), c_playerPropTerrazine, c_playerPropOperAdd, (gv_players[PlayerGroupPlayer(lv_tg, lv_nri)].lv__3v3_terrazine_doubler + 1));
         gv_last_tz_receiver_index[lv_t] = lv_nri;
     }
+    if ((UnitGetType(EventUnit()) == "LargeSpineCrawler")) {
+        if ((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(76)) == true)) {
+            auto4BFB662F_g = gv_terrans_team_top;
+            auto4BFB662F_var = -1;
+            while (true) {
+                auto4BFB662F_var = PlayerGroupNextPlayer(auto4BFB662F_g, auto4BFB662F_var);
+                if (auto4BFB662F_var < 0) { break; }
+                gv_players[auto4BFB662F_var].lv__3v3_terrazine_income += 10;
+            }
+        }
+
+        if ((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(76)) == false)) {
+            autoE77B552C_g = gv_terrans_team_bottom;
+            autoE77B552C_var = -1;
+            while (true) {
+                autoE77B552C_var = PlayerGroupNextPlayer(autoE77B552C_g, autoE77B552C_var);
+                if (autoE77B552C_var < 0) { break; }
+                gv_players[autoE77B552C_var].lv__3v3_terrazine_income += 10;
+            }
+        }
+
+    }
+
     return true;
 }
 
@@ -22607,6 +22672,7 @@ void InitTriggers () {
     gt_Raingotselected_Init();
     gt_Snowgotselected_Init();
     gt_Ashgotselected_Init();
+    gt_TerrazineIncome_Init();
     gt_TerrazineDoublerfinished_Init();
     gt_Terrazineonkill_Init();
     gt_SpawnFireling3v3_Init();
