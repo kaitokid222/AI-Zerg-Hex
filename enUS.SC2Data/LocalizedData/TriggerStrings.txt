@@ -2127,6 +2127,7 @@ Variable/Name/9E336EFF=AAF Pool Cap Start
 Variable/Name/9E56016E=skinpoints
 Variable/Name/9E6AC5AD=income per spawner bot
 Variable/Name/9E74E838=i
+Variable/Name/9E9AEEEC=heart
 Variable/Name/9EB87D51=right
 Variable/Name/9ED32C0F=distance_to_dsp
 Variable/Name/9ED8CB46=i
