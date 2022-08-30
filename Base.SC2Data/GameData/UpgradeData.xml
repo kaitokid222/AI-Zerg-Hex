@@ -113,6 +113,12 @@
     <CUpgrade id="DoubledRewards">
         <Icon value="Assets\Textures\btn-ability-hornerhan-salvagebonus.dds"/>
     </CUpgrade>
+    <CUpgrade id="TerrazineDoubler2">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CUpgrade>
+    <CUpgrade id="TerrazineDoubler3">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CUpgrade>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
         <EffectArray Reference="Unit,Marine2,EnergyMax" Value="120"/>

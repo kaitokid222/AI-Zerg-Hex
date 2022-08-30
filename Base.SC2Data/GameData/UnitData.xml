@@ -212,7 +212,7 @@
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
-        <CostResource index="Terrazine" value="50"/>
+        <CostResource index="Terrazine" value="500"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="ResearchDynamic"/>
         <AbilArray Link="3v3SpawnRavatorDummy"/>
@@ -5910,6 +5910,8 @@
             <LayoutButtons index="16" Face="BuildSiegeTank" AbilCmd="ConstructionYardTrain,Train1" Row="0" Column="4"/>
             <LayoutButtons index="17" Face="ResearchChemicalPlant" Type="AbilCmd" AbilCmd="ConstructionYardResearch,Research5" Row="0" Column="2"/>
             <LayoutButtons index="18" Face="TerrazineDoubler" Type="AbilCmd" AbilCmd="ConstructionYardResearch,Research11" Row="1" Column="3"/>
+            <LayoutButtons Face="TerrazineDoubler2" Type="AbilCmd" AbilCmd="ConstructionYardResearch,Research12" Row="1" Column="3"/>
+            <LayoutButtons Face="TerrazineDoubler3" Type="AbilCmd" AbilCmd="ConstructionYardResearch,Research13" Row="1" Column="3"/>
         </CardLayouts>
         <CardLayouts index="1">
             <LayoutButtons index="1" Face="" Type="Undefined" AbilCmd="" Column="0"/>
