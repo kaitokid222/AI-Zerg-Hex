@@ -109,6 +109,7 @@
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
+<Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
 <Light id="AgriaNight"/>
 <Model id="PingBoss"/>

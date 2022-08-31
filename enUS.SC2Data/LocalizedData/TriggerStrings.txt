@@ -993,6 +993,7 @@ Trigger/Name/A6D488C1=hydra got born
 Trigger/Name/A84DA06B=Map Initialization
 Trigger/Name/A9A9E531=Income Zerg Extractor Subtract
 Trigger/Name/AA79A14F=every three seconds
+Trigger/Name/ACBB3302=Spore Crawler wants to shoot
 Trigger/Name/B0322177=Command Practice Resources
 Trigger/Name/B03BD61A=Income Zerg Periodic Event
 Trigger/Name/B0C10C1A=Tech Lab Charge Apply
