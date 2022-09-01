@@ -5413,7 +5413,9 @@
     <CEffectSet id="GapGenerationDummyEffect">
         <EditorCategories value=""/>
     </CEffectSet>
-    <CEffectCreateHealer id="heal"/>
+    <CEffectCreateHealer id="heal">
+        <RechargeVitalRate value="12"/>
+    </CEffectCreateHealer>
     <CEffectCreateHealer id="TransferEnergyPylonOther" parent="heal">
         <Name value="Effect/Name/TransferEnergyPylonOther"/>
         <ValidatorArray index="0" value="TargetFilterEnergyBatteryTransferFast"/>

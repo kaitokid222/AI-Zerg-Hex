@@ -1627,6 +1627,31 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RefreshNetwork"/>
     </CAbilEffectTarget>
+    <!--CAbilTransport id="MedivacTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="WarpPrismTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="OverlordTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="NydusCanalTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="HerculesTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="GreaterNydusWormTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport>-->
+    <!--    <CAbilTransport id="ZeusTransport">-->
+    <!--        <LoadValidatorArray value="NoNP"/>-->
+    <!--    </CAbilTransport-->
+    <CAbilEffectTarget id="heal">
+        <Range index="0" value="3"/>
+        <AutoCastRange value="8"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="InitiateRequest" parent="heal">
         <Name value="Abil/Name/InitiateRequest"/>
         <Effect index="0" value="InitiateRequest"/>

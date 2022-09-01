@@ -1423,6 +1423,7 @@ Variable/Name/34C228C4=i
 Variable/Name/34FB7251=kerrigan_cocoon
 Variable/Name/3542C107=mode_multi
 Variable/Name/35D656EA=i
+Variable/Name/3646064B=p
 Variable/Name/3692AFEC=player_position
 Variable/Name/36A30F62=zergSupplyStart
 Variable/Name/36B19692=r

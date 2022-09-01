@@ -15064,6 +15064,7 @@ void gt_resetelo_Init () {
 bool gt_inf_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_player;
+    point lv_p;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -15085,6 +15086,7 @@ bool gt_inf_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    lv_p = PointFromName(("Zerg Rally " + IntToString(gv_players[lv_player].lv_position)));
     PlayerModifyPropertyInt(1, c_playerPropMinerals, c_playerPropOperSetTo, 100000);
     PlayerModifyPropertyInt(1, c_playerPropVespene, c_playerPropOperSetTo, 100000);
     if ((gf_is_3v3() == true)) {

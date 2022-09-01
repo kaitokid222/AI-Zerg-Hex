@@ -1169,6 +1169,7 @@ Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
+Button/Tooltip/LoveMorales=Support trooper. Heals nearby biological units.
 Button/Tooltip/Lower2=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/Marine2=
 Button/Tooltip/MarineOvercharge=Doubles the attack speed for 5 seconds.
@@ -3456,6 +3457,7 @@ Unit/Name/Jaina=Jaina
 Unit/Name/LargeChemicalPlant=Large Chemical Plant
 Unit/Name/LargePresent=Large Present
 Unit/Name/LargeSpineCrawler=Large Spine Crawler
+Unit/Name/LoveMorales=Love Morales
 Unit/Name/Marine2=Marine
 Unit/Name/MeleeMinionHell=Melee Minion
 Unit/Name/MineralContainer=Mineral Container
