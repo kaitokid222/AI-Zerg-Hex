@@ -897,6 +897,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TarSpawn" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler2CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="TerrazineDoubler2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler2QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TerrazineDoubler2" State="QueuedOrBetter"/>
@@ -904,6 +909,11 @@
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler3QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TerrazineDoubler3" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="TerrazineDoubler" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
