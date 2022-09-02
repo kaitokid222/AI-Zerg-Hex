@@ -2286,6 +2286,11 @@
             <Unit value="ChaosCultist"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
+        <InfoArray index="Train18" Time="2">
+            <Button DefaultButtonFace="TrainLoveMorales" Requirements="Only2Morales"/>
+            <Unit value="LoveMorales"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilBuild id="BuildBuilderScalingStructures">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3001,7 +3006,6 @@
         <SmartValidatorArray index="1" removed="1"/>
         <SmartValidatorArray index="2" removed="1"/>
         <AutoCastFilters value="-;Neutral,Enemy"/>
-        <AutoCastRange value="8"/>
         <AutoCastValidatorArray index="0" value="CasterHasEnergy"/>
         <AutoCastValidatorArray index="1" value="EnergyTransferAutocast"/>
         <AutoCastValidatorArray index="2" value="TargetEnergyNotFull"/>

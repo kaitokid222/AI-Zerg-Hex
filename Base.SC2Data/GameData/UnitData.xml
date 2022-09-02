@@ -1285,6 +1285,7 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
+        <BehaviorArray Link="VdayLoveBuff"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>
@@ -4320,7 +4321,7 @@
         <AbilArray index="6" removed="1"/>
         <AbilArray index="7" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="0" Face="TrainLoveMorales" AbilCmd="BarracksTrain2,Train18" Row="1" Column="4"/>
             <LayoutButtons index="1" Face="Cancel" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons index="2" Face="RecruitChaosCultist" AbilCmd="BarracksTrain2,Train17" Column="0"/>
             <LayoutButtons index="3" Face="TrainEliteMarine" AbilCmd="BarracksTrain2,Train3" Row="2" Column="0"/>
@@ -4345,7 +4346,7 @@
                 <Row value="0"/>
                 <Column value="0"/>
             </LayoutButtons>
-            <LayoutButtons index="18" removed="1"/>
+            <LayoutButtons index="18" Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
         </CardLayouts>
         <CardLayouts index="1" removed="1"/>
         <LifeStart value="750"/>

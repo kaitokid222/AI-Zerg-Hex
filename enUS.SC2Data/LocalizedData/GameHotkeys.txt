@@ -271,6 +271,7 @@ Button/Hotkey/TrainEliteMarine=Z
 Button/Hotkey/TrainFirebat=S
 Button/Hotkey/TrainFirebatOld=S
 Button/Hotkey/TrainInfestedBuilder=Q
+Button/Hotkey/TrainLoveMorales=G
 Button/Hotkey/TrainMarine=Q
 Button/Hotkey/TrainReaper=E
 Button/Hotkey/TrainShockTrooper=W

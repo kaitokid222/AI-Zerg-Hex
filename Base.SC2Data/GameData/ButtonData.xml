@@ -83,6 +83,11 @@
         <HotkeyAlias value=""/>
     </CButton>
     <CButton id="HiveMindEmulator"/>
+    <CButton id="TrainLoveMorales">
+        <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="OverchargeSpawner">
         <Icon value="Assets\Textures\btn-upgrade-zagara-scourgegasreduction.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zagara-scourgegasreduction.dds"/>

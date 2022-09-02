@@ -14,6 +14,9 @@
     <CEffectSet id="AddProbiusPylonAttackAura">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectSet id="VdayLoveDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="AddProbiusPylonDefenseAura">
         <EditorCategories value=""/>
     </CEffectSet>

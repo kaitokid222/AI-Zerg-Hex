@@ -190,6 +190,15 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="Effect.VdayLoveDummy.Start; At Target" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <AutoScaleFactor value="0.800000"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
     <CActorText id="TerrazineTextKicker6">
         <Filter index="Ally" value="1"/>
         <Filter index="Neutral" value="1"/>

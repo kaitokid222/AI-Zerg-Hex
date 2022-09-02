@@ -365,6 +365,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedBunker" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitLoveMoralesQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="LoveMorales" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="CompleteOnlyAtUnit"/>
@@ -899,7 +904,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineDoubler2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoubler2QueuedOrBetter">
@@ -912,7 +916,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineDoubler" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTerrazineDoublerQueuedOrBetter">
@@ -1238,6 +1241,10 @@
     <CRequirementLT id="LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60">
         <OperandArray index="0" value="SumCountUnitInfestedBunkerQueuedOrBetter"/>
         <OperandArray index="1" value="60"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3437118427CountUnitLoveMoralesQueuedOrBetter2">
+        <OperandArray index="0" value="CountUnitLoveMoralesQueuedOrBetter"/>
+        <OperandArray index="1" value="2"/>
     </CRequirementLT>
     <CRequirementLT id="LT381415482CountUnitTarRoachQueuedOrBetter100">
         <OperandArray index="0" value="CountUnitTarRoachQueuedOrBetter"/>

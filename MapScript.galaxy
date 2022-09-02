@@ -747,7 +747,6 @@ void gf_get_unit_upgrades ();
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
-trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_transporterbecameidle;
 trigger gt_choaslordcreated;
 trigger gt_choasmarinecreated;
@@ -903,6 +902,7 @@ trigger gt_ViperCloudgotused;
 trigger gt_ZergSupplyUpgrade;
 trigger gt_ZergArmor;
 trigger gt_entrypoint;
+trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_everysecond;
 trigger gt_everytwoseconds;
 trigger gt_everythreeseconds;
@@ -3748,6 +3748,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 16), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilder", 22), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilderScalingStructures", 6), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 17), false);
 }
 
 void gf_apply_smod () {
@@ -7036,6 +7037,8 @@ void gf_init_event () {
     playergroup autoEF184761_g;
     int autoEF184761_var;
     int autoE7D7DBBA_val;
+    playergroup auto30C181EE_g;
+    int auto30C181EE_var;
 
     // Implementation
     if ((gf_get_lobby_event_setting() == 0)) {
@@ -7101,6 +7104,13 @@ void gf_init_event () {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/2097B6C0") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 7) {
+            auto30C181EE_g = gv_terrans;
+            auto30C181EE_var = -1;
+            while (true) {
+                auto30C181EE_var = PlayerGroupNextPlayer(auto30C181EE_g, auto30C181EE_var);
+                if (auto30C181EE_var < 0) { break; }
+                TechTreeAbilityAllow(auto30C181EE_var, AbilityCommand("BarracksTrain2", 17), true);
+            }
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/94E41F97") + StringToText("")));
         }
         else {
@@ -7652,6 +7662,8 @@ void gf_handle_votes (int lp_player, string lp_event) {
     // Automatic Variable Declarations
     string auto6613F30C_val;
     int auto481F0B10_val;
+    playergroup autoE852C16A_g;
+    int autoE852C16A_var;
     playergroup auto634FC3B5_g;
     int auto634FC3B5_var;
     int auto86891C42_val;
@@ -7751,6 +7763,13 @@ void gf_handle_votes (int lp_player, string lp_event) {
                 else if (auto481F0B10_val == 7) {
                     gv_is_vday = true;
                     gv_voted_event = true;
+                    autoE852C16A_g = gv_terrans;
+                    autoE852C16A_var = -1;
+                    while (true) {
+                        autoE852C16A_var = PlayerGroupNextPlayer(autoE852C16A_g, autoE852C16A_var);
+                        if (autoE852C16A_var < 0) { break; }
+                        TechTreeAbilityAllow(autoE852C16A_var, AbilityCommand("BarracksTrain2", 17), true);
+                    }
                     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/70CF1FCC") + StringToText("")));
                 }
                 else {
@@ -13931,26 +13950,6 @@ void gf_get_unit_upgrades () {
 
     }
 
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spore Crawler wants to shoot
-//--------------------------------------------------------------------------------------------------
-bool gt_SporeCrawlerwantstoshoot_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitCreateEffectPoint(EventPlayerEffectUsedUnit(c_effectUnitCaster), "RavagerArtilleryCP", PointWithOffsetPolar(EventPlayerEffectUsedPoint(c_effectLocationTargetPoint), RandomFixed(0.0, 5.0), libNtve_gf_RandomAngle()));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SporeCrawlerwantstoshoot_Init () {
-    gt_SporeCrawlerwantstoshoot = TriggerCreate("gt_SporeCrawlerwantstoshoot_Func");
-    TriggerAddEventPlayerEffectUsed(gt_SporeCrawlerwantstoshoot, c_playerAny, "RavagerFireDummyTriggerEffect");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22257,6 +22256,26 @@ void gt_entrypoint_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Spore Crawler wants to shoot
+//--------------------------------------------------------------------------------------------------
+bool gt_SporeCrawlerwantstoshoot_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitCreateEffectPoint(EventPlayerEffectUsedUnit(c_effectUnitCaster), "RavagerArtilleryCP", PointWithOffsetPolar(EventPlayerEffectUsedPoint(c_effectLocationTargetPoint), RandomFixed(0.0, 5.0), libNtve_gf_RandomAngle()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_SporeCrawlerwantstoshoot_Init () {
+    gt_SporeCrawlerwantstoshoot = TriggerCreate("gt_SporeCrawlerwantstoshoot_Func");
+    TriggerAddEventPlayerEffectUsed(gt_SporeCrawlerwantstoshoot, c_playerAny, "RavagerFireDummyTriggerEffect");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: every second
 //--------------------------------------------------------------------------------------------------
 bool gt_everysecond_Func (bool testConds, bool runActions) {
@@ -22643,7 +22662,6 @@ void gt_every15minutes_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
-    gt_SporeCrawlerwantstoshoot_Init();
     gt_transporterbecameidle_Init();
     gt_choaslordcreated_Init();
     gt_choasmarinecreated_Init();
@@ -22799,6 +22817,7 @@ void InitTriggers () {
     gt_ZergSupplyUpgrade_Init();
     gt_ZergArmor_Init();
     gt_entrypoint_Init();
+    gt_SporeCrawlerwantstoshoot_Init();
     gt_everysecond_Init();
     gt_everytwoseconds_Init();
     gt_everythreeseconds_Init();

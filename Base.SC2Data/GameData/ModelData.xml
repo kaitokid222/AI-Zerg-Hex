@@ -3172,6 +3172,10 @@
             <Adaptions Slot="generic01"/>
         </TextureDeclares>
     </CModel>
+    <CModel id="VdayLoveBuff" parent="PersistentSpellFX">
+        <Model value="assets\units\storm_fx_medic_love_healingbeam_buffactive.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
     <CModel id="ProbiusPylonBuffAuraDefense" parent="PersistentSpellFX">
         <Model value="assets\units\storm_fx_probius_base_pylonbuff_shield.m3"/>
         <EditorCategories value="Race:Protoss"/>
