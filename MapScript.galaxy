@@ -17434,9 +17434,12 @@ bool gt_playercollectsheart_Func (bool testConds, bool runActions) {
     int lv_luck;
 
     // Automatic Variable Declarations
+    int autoBF298446_val;
+    int auto698726D5_val;
+
     // Variable Initialization
     lv_present_position = UnitGetPosition(EventUnit());
-    lv_luck = RandomInt(1, 10);
+    lv_luck = RandomInt(1, 5);
 
     // Conditions
     if (testConds) {
@@ -17453,35 +17456,55 @@ bool gt_playercollectsheart_Func (bool testConds, bool runActions) {
     lv_player = UnitGetOwner(UnitGroupClosestToPoint(UnitGroup(null, c_playerAny, RegionCircle(lv_present_position, 1.8), UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterSummoned - 32))), 0), lv_present_position));
     if ((lv_player <= 7) && (lv_player >= 1)) {
         if ((lv_player <= 6)) {
-            if ((lv_luck <= 5)) {
-                if ((RandomInt(1, 2) == 1)) {
-                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(2, "MineralTrader", 0, lv_player, lv_present_position);
+            if ((lv_luck <= 3)) {
+                if ((gf_is_3v3() == true)) {
+                    auto698726D5_val = RandomInt(1, 3);
+                    if (auto698726D5_val == 1) {
+                        lv_rand_amount = RandomInt(5, 10);
+                        PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
+                    }
+                    else if (auto698726D5_val == 2) {
+                        lv_rand_amount = RandomInt(5, 10);
+                        PlayerModifyPropertyInt(lv_player, c_playerPropVespene, c_playerPropOperAdd, lv_rand_amount);
+                    }
+                    else if (auto698726D5_val == 3) {
+                        lv_rand_amount = RandomInt(15, 30);
+                        PlayerModifyPropertyInt(lv_player, c_playerPropTerrazine, c_playerPropOperAdd, lv_rand_amount);
                     }
                     else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
                     }
                 }
                 else {
-                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(2, "GasTrader", 0, lv_player, lv_present_position);
+                    autoBF298446_val = RandomInt(1, 2);
+                    if (autoBF298446_val == 1) {
+                        lv_rand_amount = RandomInt(5, 10);
+                        PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
+                    }
+                    else if (autoBF298446_val == 2) {
+                        lv_rand_amount = RandomInt(5, 10);
+                        PlayerModifyPropertyInt(lv_player, c_playerPropVespene, c_playerPropOperAdd, lv_rand_amount);
                     }
                     else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
                     }
                 }
             }
             else {
-                if ((lv_luck <= 8)) {
-                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 50.0);
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 50.0);
+                if ((lv_luck == 4)) {
+                    if ((RandomInt(1, 2) == 1)) {
+                        if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(2, "MineralTrader", 0, lv_player, lv_present_position);
+                        }
+                        else {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
+                        }
                     }
                     else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 50.0);
+                        if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(2, "GasTrader", 0, lv_player, lv_present_position);
+                        }
+                        else {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                        }
                     }
                 }
                 else {

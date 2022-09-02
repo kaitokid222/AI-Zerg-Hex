@@ -14,6 +14,10 @@
     <CEffectSet id="AddProbiusPylonAttackAura">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectApplyBehavior id="VdayLoveBuffAB">
+        <EditorCategories value=""/>
+        <Behavior value="VdayLoveBuff"/>
+    </CEffectApplyBehavior>
     <CEffectSet id="VdayLoveDummy">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -5418,6 +5422,7 @@
     </CEffectSet>
     <CEffectCreateHealer id="heal">
         <RechargeVitalRate value="12"/>
+        <FinalEffect value="VdayLoveBuffAB"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="TransferEnergyPylonOther" parent="heal">
         <Name value="Effect/Name/TransferEnergyPylonOther"/>

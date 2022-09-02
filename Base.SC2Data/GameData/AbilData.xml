@@ -1649,7 +1649,7 @@
     <!--        <LoadValidatorArray value="NoNP"/>-->
     <!--    </CAbilTransport-->
     <CAbilEffectTarget id="heal">
-        <Range index="0" value="3"/>
+        <Range index="0" value="8"/>
         <AutoCastRange value="8"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="InitiateRequest" parent="heal">

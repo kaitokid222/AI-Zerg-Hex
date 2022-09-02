@@ -1239,8 +1239,8 @@
         <LateralAcceleration value="46.0625"/>
         <Sight value="10"/>
         <CostCategory value="Army"/>
-        <CostResource index="Minerals" value="75"/>
-        <CostResource index="Vespene" value="50"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="40"/>
         <RepairTime value="25"/>
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
@@ -1250,6 +1250,7 @@
         <AbilArray Link="Flare"/>
         <AbilArray Link="move"/>
         <AbilArray Link="heal"/>
+        <BehaviorArray Link="VdayLoveBuff"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -1285,7 +1286,6 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <BehaviorArray Link="VdayLoveBuff"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>

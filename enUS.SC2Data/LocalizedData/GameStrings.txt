@@ -2885,6 +2885,7 @@ Effect/Name/UnifiedArmorTurnActiveApplyBuff=Unified Armor Turn Active (Apply Buf
 Effect/Name/UnknownEffect=Unknown Effect
 Effect/Name/UnknownEffect2=Unknown Effect
 Effect/Name/UpgradeKarax=Upgrade Karax
+Effect/Name/VdayLoveBuffAB=Vday Love Buff AB
 Effect/Name/VdayLoveDummy=Vday Love Dummy
 Effect/Name/ZergRallyEqualON=Zerg Rally Equal - ON
 Effect/Name/ZergRallyMinusDummy=Zerg Rally Minus Dummy

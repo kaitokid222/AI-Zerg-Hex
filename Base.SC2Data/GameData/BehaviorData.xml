@@ -157,9 +157,12 @@
         <Period value="1.5"/>
         <PeriodicEffect value="VdayLoveDummy"/>
         <Modification AttackSpeedMultiplier="1.4" RangedWeaponRange="1">
-            <DamageDealtUnscaled index="Melee" value="1"/>
-            <DamageDealtUnscaled index="Ranged" value="1"/>
-            <DamageDealtUnscaled index="Splash" value="1"/>
+            <DamageDealtUnscaled index="Melee" value="2"/>
+            <DamageDealtUnscaled index="Ranged" value="2"/>
+            <DamageDealtUnscaled index="Splash" value="2"/>
+            <VitalMaxArray index="Life" value="65"/>
+            <VitalRegenArray index="Life" value="1.5"/>
+            <VitalRegenArray index="Energy" value="1.5"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="SwordUserEnemyNearbyRangedDisabler">

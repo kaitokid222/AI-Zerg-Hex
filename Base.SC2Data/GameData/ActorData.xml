@@ -148,7 +148,7 @@
         <On Terms="UnitDeathCustomize; CanApplyActionPhysics RagdollUltraUnburrow" Send="DeathCustomize RagdollUltraUnburrow"/>
         <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
         <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
-        <Scale value="0.380000"/>
+        <Scale value="0.420000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <DeathArray index="Normal" ModelLink="MedicDeath" SoundLink="Medic_Explode"/>
         <DeathArray index="Blast" ModelLink="MedicDeath"/>
@@ -172,7 +172,7 @@
             <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
         </TerrainSquibs>
         <WalkAnimMoveSpeed value="2.25"/>
-        <BarOffset value="20"/>
+        <BarOffset value="28"/>
         <BarWidth value="36"/>
         <GroupIcon>
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
