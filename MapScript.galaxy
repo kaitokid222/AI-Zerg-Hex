@@ -2032,7 +2032,7 @@ bool gf_player_is_chaos (int lp_player) {
     // Variable Initialization
 
     // Implementation
-    if ((GameAttributePlayerValue("5", lp_player) == "0009")) {
+    if (((GameAttributePlayerValue("5", lp_player) == "0009") || ((GameAttributePlayerValue("5", lp_player) == "0012") && (gv_players[lp_player].lv_support_type == "Army")))) {
         lv_r = true;
     }
 
