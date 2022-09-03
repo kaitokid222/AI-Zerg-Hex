@@ -5436,6 +5436,7 @@
         <DrainVitalCostFactor value="1"/>
         <RechargeVital value="Energy"/>
         <RechargeVitalRate value="200"/>
+        <FinalEffect value=""/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="TransferEnergyPylonPylon" parent="heal">
         <Name value="Effect/Name/TransferEnergyPylonPylon"/>
@@ -5464,6 +5465,7 @@
         <DrainVitalCostFactor value="1"/>
         <RechargeVital value="Energy"/>
         <RechargeVitalRate value="60"/>
+        <FinalEffect value=""/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="TransferEnergyBatteryFast" parent="heal">
         <Name value="Effect/Name/TransferEnergyBatteryFast"/>
@@ -5477,6 +5479,7 @@
         <DrainVitalCostFactor value="1"/>
         <RechargeVital value="Energy"/>
         <RechargeVitalRate value="200"/>
+        <FinalEffect value=""/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="TransferEnergyGenerator" parent="heal">
         <Name value="Effect/Name/TransferEnergyGenerator"/>

@@ -3748,6 +3748,9 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 16), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilder", 22), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilderScalingStructures", 6), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 10), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 11), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 12), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 17), false);
 }
 
@@ -4093,8 +4096,6 @@ void gf_Handle_Elite_Skins () {
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 2), false);
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 3), false);
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 4), false);
-        gv_players[autoAC933295_var].lv_skinpoints = 51;
-        gv_players[autoAC933295_var].lv_has_marshall_skin = 1;
         if ((gv_players[autoAC933295_var].lv_skinpoints < 10)) {
             if ((gv_players[autoAC933295_var].lv_has_marshall_skin == 1)) {
             }
@@ -4834,6 +4835,9 @@ void gf_init_3v3 () {
             if ((gv_players[lv_index].lv_alive == true)) {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BuildBuilder", 22), true);
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BuildBuilderScalingStructures", 6), true);
+                TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 10), true);
+                TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 11), true);
+                TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 12), true);
                 TechTreeAbilityAllow((lv_index + 7), AbilityCommand("DestroyStructure", 0), false);
             }
 
@@ -6107,7 +6111,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 bool gf_is_overseer (unit lp_unit) {
