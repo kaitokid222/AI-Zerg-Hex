@@ -2258,6 +2258,7 @@ Variable/Name/B3705FF2=normal scale
 Variable/Name/B387A269=games
 Variable/Name/B38BD446=amount
 Variable/Name/B399DE59=i
+Variable/Name/B3C17075=ndebt
 Variable/Name/B3E6696B=closest_wall
 Variable/Name/B4273638=return
 Variable/Name/B430DD44=possible_positions_special_dead
