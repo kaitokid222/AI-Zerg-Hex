@@ -167,6 +167,7 @@ int[7] gv_positions;
 gs_player[7] gv_players;
 unitgroup gv_transmission_units;
 int[7] gv_blood_dialog_item;
+bool gv_game_has_ended;
 int gv_reward_related_deaths;
 int[7] gv_reward;
 int[7] gv_dialog_terranIncome;
@@ -475,6 +476,7 @@ int gf_get_winning_team ();
 int gf_get_reward_elo_count ();
 int gf_get_base_penalty_elo_count ();
 void gf_end_game (int lp_winner);
+void gf_rebalance_zerg_after_early_terran_death (int lp_player_id);
 void gf_create_income_dialog ();
 void gf_update_income_for_player (int lp_player);
 void gf_update_reward_panel (int lp_player);
@@ -504,6 +506,7 @@ void gf_Handle_Elite_Skins ();
 void gf_handle_player_tutorial_stages ();
 bool gf_is_stage_done (int lp_player, int lp_stage);
 bool gf_is_bonus_objective_done (int lp_goal_id, int lp_player);
+void gf_remove_tutorial_after_death (int lp_player_id);
 void gf_init_weather ();
 bool gf_is_player_donor (int lp_player);
 void gf_Create_weather (int lp_player_position, int lp_type);
@@ -2811,136 +2814,221 @@ void gf_end_game (int lp_winner) {
     int auto796E7148_var;
 
     // Implementation
-    TriggerDestroy(gt_everysecond);
-    TriggerDestroy(gt_buildinggetsattacked);
-    TriggerDestroy(gt_buildinggetsattackedtrydefendwithhydras);
-    TriggerDestroy(gt_buildinggetsattackedtrydefendwithwizards);
-    TriggerDestroy(gt_CCdestroyed);
-    TriggerDestroy(gt_Checkbridgesevery45s);
-    TriggerDestroy(gt_checkhydras);
-    TriggerDestroy(gt_checkplayerseveryminute);
-    TriggerDestroy(gt_creepsourcedied);
-    TriggerDestroy(gt_creepsourcerebuildstarted);
-    TriggerDestroy(gt_drone_finished);
-    TriggerDestroy(gt_every45seconds);
-    TriggerDestroy(gt_everyfiveseconds);
-    TriggerDestroy(gt_everyfiveminutes);
-    TriggerDestroy(gt_everythreeseconds);
-    TriggerDestroy(gt_f2triggerevery5s);
-    TriggerDestroy(gt_Feedidleinfestorsevery21s);
-    TriggerDestroy(gt_grabapresent);
-    TriggerDestroy(gt_handleweakplayersevery15s);
-    TriggerDestroy(gt_hydragetsattacked);
-    TriggerDestroy(gt_hydragotborn);
-    TriggerDestroy(gt_infestorgetsattacked);
-    TriggerDestroy(gt_invaderdies);
-    TriggerDestroy(gt_invaderleaveszerghighground);
-    TriggerDestroy(gt_IonCannonApplyPermaDamage);
-    TriggerDestroy(gt_IonCannonNotification);
-    TriggerDestroy(gt_killapumpkin);
-    TriggerDestroy(gt_nestdied);
-    TriggerDestroy(gt_nestislowhealth);
-    TriggerDestroy(gt_playercollectsbonuscard);
-    TriggerDestroy(gt_playercollectspresent);
-    TriggerDestroy(gt_playerleavesgame);
-    TriggerDestroy(gt_pumpkindies);
-    TriggerDestroy(gt_removefortdebrisactorfix);
-    TriggerDestroy(gt_resetwizardactioncooldown);
-    TriggerDestroy(gt_sendbuggohome);
-    TriggerDestroy(gt_spawnhellforces);
-    TriggerDestroy(gt_spawnpresent);
-    TriggerDestroy(gt_spawnpumpkin);
-    TriggerDestroy(gt_spawnerdies);
-    TriggerDestroy(gt_spawner_started);
-    TriggerDestroy(gt_specialunitgotborn);
-    TriggerDestroy(gt_spinedies);
-    TriggerDestroy(gt_spinegetsattacked);
-    TriggerDestroy(gt_Terranenterszerghighground);
-    TriggerDestroy(gt_useidleunits);
-    TriggerDestroy(gt_everytenseconds);
-    TriggerDestroy(gt_everytwoseconds);
-    TriggerDestroy(gt_every15seconds);
-    TriggerDestroy(gt_every30seconds);
-    TriggerDestroy(gt_everyminute);
-    TriggerDestroy(gt_every90seconds);
-    TriggerDestroy(gt_spawner_finished);
-    gf_manage_3v3_triggers(false);
-    if (((gf_is_3v3() == true) && (gv_practice_mode == false))) {
-        Wait(4.0, c_timeGame);
-        if ((gf_is_terrans_team_top_dead() == true)) {
-            autoA36BC37A_g = gv_terrans_team_top;
-            autoA36BC37A_var = -1;
-            while (true) {
-                autoA36BC37A_var = PlayerGroupNextPlayer(autoA36BC37A_g, autoA36BC37A_var);
-                if (autoA36BC37A_var < 0) { break; }
-                GameOver(autoA36BC37A_var, c_gameOverDefeat, true, true);
+    if ((gv_game_has_ended == false)) {
+        gv_game_has_ended = true;
+        TriggerDestroy(gt_everysecond);
+        TriggerDestroy(gt_buildinggetsattacked);
+        TriggerDestroy(gt_buildinggetsattackedtrydefendwithhydras);
+        TriggerDestroy(gt_buildinggetsattackedtrydefendwithwizards);
+        TriggerDestroy(gt_CCdestroyed);
+        TriggerDestroy(gt_Checkbridgesevery45s);
+        TriggerDestroy(gt_checkhydras);
+        TriggerDestroy(gt_checkplayerseveryminute);
+        TriggerDestroy(gt_creepsourcedied);
+        TriggerDestroy(gt_creepsourcerebuildstarted);
+        TriggerDestroy(gt_drone_finished);
+        TriggerDestroy(gt_every45seconds);
+        TriggerDestroy(gt_everyfiveseconds);
+        TriggerDestroy(gt_everyfiveminutes);
+        TriggerDestroy(gt_everythreeseconds);
+        TriggerDestroy(gt_f2triggerevery5s);
+        TriggerDestroy(gt_Feedidleinfestorsevery21s);
+        TriggerDestroy(gt_grabapresent);
+        TriggerDestroy(gt_handleweakplayersevery15s);
+        TriggerDestroy(gt_hydragetsattacked);
+        TriggerDestroy(gt_hydragotborn);
+        TriggerDestroy(gt_infestorgetsattacked);
+        TriggerDestroy(gt_invaderdies);
+        TriggerDestroy(gt_invaderleaveszerghighground);
+        TriggerDestroy(gt_IonCannonApplyPermaDamage);
+        TriggerDestroy(gt_IonCannonNotification);
+        TriggerDestroy(gt_killapumpkin);
+        TriggerDestroy(gt_nestdied);
+        TriggerDestroy(gt_nestislowhealth);
+        TriggerDestroy(gt_playercollectsbonuscard);
+        TriggerDestroy(gt_playercollectspresent);
+        TriggerDestroy(gt_playerleavesgame);
+        TriggerDestroy(gt_pumpkindies);
+        TriggerDestroy(gt_removefortdebrisactorfix);
+        TriggerDestroy(gt_resetwizardactioncooldown);
+        TriggerDestroy(gt_sendbuggohome);
+        TriggerDestroy(gt_spawnhellforces);
+        TriggerDestroy(gt_spawnpresent);
+        TriggerDestroy(gt_spawnpumpkin);
+        TriggerDestroy(gt_spawnerdies);
+        TriggerDestroy(gt_spawner_started);
+        TriggerDestroy(gt_specialunitgotborn);
+        TriggerDestroy(gt_spinedies);
+        TriggerDestroy(gt_spinegetsattacked);
+        TriggerDestroy(gt_Terranenterszerghighground);
+        TriggerDestroy(gt_useidleunits);
+        TriggerDestroy(gt_everytenseconds);
+        TriggerDestroy(gt_everytwoseconds);
+        TriggerDestroy(gt_every15seconds);
+        TriggerDestroy(gt_every30seconds);
+        TriggerDestroy(gt_everyminute);
+        TriggerDestroy(gt_every90seconds);
+        TriggerDestroy(gt_spawner_finished);
+        gf_manage_3v3_triggers(false);
+        if (((gf_is_3v3() == true) && (gv_practice_mode == false))) {
+            Wait(4.0, c_timeGame);
+            if ((gf_is_terrans_team_top_dead() == true)) {
+                autoA36BC37A_g = gv_terrans_team_top;
+                autoA36BC37A_var = -1;
+                while (true) {
+                    autoA36BC37A_var = PlayerGroupNextPlayer(autoA36BC37A_g, autoA36BC37A_var);
+                    if (autoA36BC37A_var < 0) { break; }
+                    GameOver(autoA36BC37A_var, c_gameOverDefeat, true, true);
+                }
+                autoADAFD01D_g = gv_terrans_team_bottom;
+                autoADAFD01D_var = -1;
+                while (true) {
+                    autoADAFD01D_var = PlayerGroupNextPlayer(autoADAFD01D_g, autoADAFD01D_var);
+                    if (autoADAFD01D_var < 0) { break; }
+                    GameOver(autoADAFD01D_var, c_gameOverVictory, true, true);
+                }
             }
-            autoADAFD01D_g = gv_terrans_team_bottom;
-            autoADAFD01D_var = -1;
-            while (true) {
-                autoADAFD01D_var = PlayerGroupNextPlayer(autoADAFD01D_g, autoADAFD01D_var);
-                if (autoADAFD01D_var < 0) { break; }
-                GameOver(autoADAFD01D_var, c_gameOverVictory, true, true);
-            }
-        }
 
-        if ((gf_is_terrans_team_bottom_dead() == true)) {
-            auto896F5580_g = gv_terrans_team_top;
-            auto896F5580_var = -1;
-            while (true) {
-                auto896F5580_var = PlayerGroupNextPlayer(auto896F5580_g, auto896F5580_var);
-                if (auto896F5580_var < 0) { break; }
-                GameOver(auto896F5580_var, c_gameOverVictory, true, true);
+            if ((gf_is_terrans_team_bottom_dead() == true)) {
+                auto896F5580_g = gv_terrans_team_top;
+                auto896F5580_var = -1;
+                while (true) {
+                    auto896F5580_var = PlayerGroupNextPlayer(auto896F5580_g, auto896F5580_var);
+                    if (auto896F5580_var < 0) { break; }
+                    GameOver(auto896F5580_var, c_gameOverVictory, true, true);
+                }
+                auto3CAFAD86_g = gv_terrans_team_bottom;
+                auto3CAFAD86_var = -1;
+                while (true) {
+                    auto3CAFAD86_var = PlayerGroupNextPlayer(auto3CAFAD86_g, auto3CAFAD86_var);
+                    if (auto3CAFAD86_var < 0) { break; }
+                    GameOver(auto3CAFAD86_var, c_gameOverDefeat, true, true);
+                }
             }
-            auto3CAFAD86_g = gv_terrans_team_bottom;
-            auto3CAFAD86_var = -1;
-            while (true) {
-                auto3CAFAD86_var = PlayerGroupNextPlayer(auto3CAFAD86_g, auto3CAFAD86_var);
-                if (auto3CAFAD86_var < 0) { break; }
-                GameOver(auto3CAFAD86_var, c_gameOverDefeat, true, true);
-            }
-        }
 
-    }
-    else {
-        autoC5308BE9_g = gv_terrans;
-        autoC5308BE9_var = -1;
-        while (true) {
-            autoC5308BE9_var = PlayerGroupNextPlayer(autoC5308BE9_g, autoC5308BE9_var);
-            if (autoC5308BE9_var < 0) { break; }
-            if ((lp_winner == 1)) {
-                if ((gv_practice_mode == true)) {
+        }
+        else {
+            autoC5308BE9_g = gv_terrans;
+            autoC5308BE9_var = -1;
+            while (true) {
+                autoC5308BE9_var = PlayerGroupNextPlayer(autoC5308BE9_g, autoC5308BE9_var);
+                if (autoC5308BE9_var < 0) { break; }
+                if ((lp_winner == 1)) {
+                    if ((gv_practice_mode == true)) {
+                    }
+                    else {
+                        gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo + gf_get_reward_elo_count());
+                        gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo - gv_players[autoC5308BE9_var].lv_elopenalty);
+                        gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
+                        if ((((gf_is_event() == true) && (gv_difficulty >= 5)) || (gv_difficulty >= 8))) {
+                            gf_Game_Banks_handler("addsp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
+                        }
+
+                    }
+                }
+
+            }
+            Wait(4.0, c_timeGame);
+            auto796E7148_g = gv_terrans;
+            auto796E7148_var = -1;
+            while (true) {
+                auto796E7148_var = PlayerGroupNextPlayer(auto796E7148_g, auto796E7148_var);
+                if (auto796E7148_var < 0) { break; }
+                if ((lp_winner == 1)) {
+                    GameOver(auto796E7148_var, c_gameOverVictory, true, true);
                 }
                 else {
-                    gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo + gf_get_reward_elo_count());
-                    gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo - gv_players[autoC5308BE9_var].lv_elopenalty);
-                    gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
-                    if ((((gf_is_event() == true) && (gv_difficulty >= 5)) || (gv_difficulty >= 8))) {
-                        gf_Game_Banks_handler("addsp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
-                    }
-
+                    GameOver(auto796E7148_var, c_gameOverDefeat, true, true);
                 }
             }
+            if ((gf_is_pvp() == true) && (lp_winner == 2)) {
+                GameOver(7, c_gameOverVictory, true, true);
+            }
 
         }
-        Wait(4.0, c_timeGame);
-        auto796E7148_g = gv_terrans;
-        auto796E7148_var = -1;
-        while (true) {
-            auto796E7148_var = PlayerGroupNextPlayer(auto796E7148_g, auto796E7148_var);
-            if (auto796E7148_var < 0) { break; }
-            if ((lp_winner == 1)) {
-                GameOver(auto796E7148_var, c_gameOverVictory, true, true);
-            }
-            else {
-                GameOver(auto796E7148_var, c_gameOverDefeat, true, true);
-            }
-        }
-        if ((gf_is_pvp() == true) && (lp_winner == 2)) {
-            GameOver(7, c_gameOverVictory, true, true);
-        }
-
     }
+
+}
+
+void gf_rebalance_zerg_after_early_terran_death (int lp_player_id) {
+    // Variable Declarations
+    int lv_elp_stage;
+    int lv_ndebt;
+
+    // Automatic Variable Declarations
+    unitgroup auto96ACBD2E_g;
+    int auto96ACBD2E_u;
+    unit auto96ACBD2E_var;
+    unitgroup auto4CE360BA_g;
+    int auto4CE360BA_u;
+    unit auto4CE360BA_var;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((GameGetMissionTime() < 135)) {
+        gv_very_early_leaver_count += 1;
+        if ((GameGetMissionTime() > 4.0)) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/411F328C"));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/EC047E91"));
+        }
+
+        auto96ACBD2E_g = UnitGroup(null, 7, RegionFromName(("spawner player zerg " + IntToString(gv_players[lp_player_id].lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto96ACBD2E_u = UnitGroupCount(auto96ACBD2E_g, c_unitCountAll);
+        for (;; auto96ACBD2E_u -= 1) {
+            auto96ACBD2E_var = UnitGroupUnitFromEnd(auto96ACBD2E_g, auto96ACBD2E_u);
+            if (auto96ACBD2E_var == null) { break; }
+            UnitRemove(auto96ACBD2E_var);
+            PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperSubtract, 4);
+            PlayerModifyPropertyInt(7, c_playerPropSuppliesMade, c_playerPropOperSubtract, 4);
+        }
+        auto4CE360BA_g = UnitGroup("MineralExtractor", 7, RegionFromName(("zergbase " + IntToString(gv_players[lp_player_id].lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto4CE360BA_u = UnitGroupCount(auto4CE360BA_g, c_unitCountAll);
+        for (;; auto4CE360BA_u -= 1) {
+            auto4CE360BA_var = UnitGroupUnitFromEnd(auto4CE360BA_g, auto4CE360BA_u);
+            if (auto4CE360BA_var == null) { break; }
+            UnitRemove(auto4CE360BA_var);
+            PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperSubtract, 15);
+            PlayerModifyPropertyInt(7, c_playerPropSuppliesMade, c_playerPropOperSubtract, 15);
+        }
+    }
+
+    if ((GameGetMissionTime() >= 135) && (GameGetMissionTime() < (11 * 60))) {
+        if ((GameGetMissionTime() < (11 * 60))) {
+            lv_elp_stage = 1;
+        }
+
+        if ((GameGetMissionTime() < (10 * 60))) {
+            lv_elp_stage = 2;
+        }
+
+        if ((GameGetMissionTime() < (9 * 60))) {
+            lv_elp_stage = 3;
+        }
+
+        if ((GameGetMissionTime() < (8 * 60))) {
+            lv_elp_stage = 4;
+        }
+
+        if ((GameGetMissionTime() < (7 * 60))) {
+            lv_elp_stage = 5;
+        }
+
+        if ((GameGetMissionTime() < (6 * 60))) {
+            lv_elp_stage = 6;
+        }
+
+        if ((GameGetMissionTime() < (5 * 60))) {
+            lv_elp_stage = 7;
+        }
+
+        lv_ndebt = (lv_elp_stage * 100);
+        gv_debt = (gv_debt + lv_ndebt);
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/5DA83870"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/822DFA50"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, (IntToText((lv_elp_stage * 100)) + StringExternal("Param/Value/39E74EE4")));
+    }
+
 }
 
 void gf_create_income_dialog () {
@@ -4599,6 +4687,33 @@ bool gf_is_bonus_objective_done (int lp_goal_id, int lp_player) {
     else {
     }
     return lv_r;
+}
+
+void gf_remove_tutorial_after_death (int lp_player_id) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    while ((lv_i <= gv_players[lp_player_id].lv_tutorial_stage)) {
+        ObjectiveSetState(gv_objectives[lp_player_id][lv_i], c_objectiveStateHidden);
+        lv_i += 1;
+    }
+    if ((gv_players[lp_player_id].lv_tutorial_stage >= 2)) {
+        ObjectiveSetState(gv_bonus_objectives[lp_player_id][1], c_objectiveStateHidden);
+        ObjectiveSetState(gv_bonus_objectives[lp_player_id][2], c_objectiveStateHidden);
+    }
+
+    if ((gv_players[lp_player_id].lv_tutorial_stage >= 5)) {
+        ObjectiveSetState(gv_bonus_objectives[lp_player_id][3], c_objectiveStateHidden);
+    }
+
+    if ((gv_players[lp_player_id].lv_tutorial_stage >= 8)) {
+        ObjectiveSetState(gv_bonus_objectives[lp_player_id][4], c_objectiveStateHidden);
+    }
+
 }
 
 void gf_init_weather () {
@@ -15257,20 +15372,11 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     int lv_attacker_owner;
     unit lv_n;
     int lv_cap;
-    int lv_elp_stage;
-    int lv_ndebt;
-    int lv_i;
 
     // Automatic Variable Declarations
     unitgroup autoA1C2F3A3_g;
     int autoA1C2F3A3_u;
     unit autoA1C2F3A3_var;
-    unitgroup auto96ACBD2E_g;
-    int auto96ACBD2E_u;
-    unit auto96ACBD2E_var;
-    unitgroup auto4CE360BA_g;
-    int auto4CE360BA_u;
-    unit auto4CE360BA_var;
     unitgroup auto1F8A9550_g;
     int auto1F8A9550_u;
     unit auto1F8A9550_var;
@@ -15281,7 +15387,6 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_owner = UnitGetOwner(EventUnit());
     lv_attacker_owner = UnitGetOwner(libNtve_gf_KillingUnit());
-    lv_i = 1;
 
     // Conditions
     if (testConds) {
@@ -15302,29 +15407,7 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     gv_players[lv_owner].lv_alive = false;
     PlayerModifyPropertyInt(lv_owner, c_playerPropMinerals, c_playerPropOperSetTo, 0);
     PlayerModifyPropertyInt(lv_owner, c_playerPropVespene, c_playerPropOperSetTo, 0);
-    lv_cap = gf_get_closest_alive_player_position(PointFromName(("Blocker " + IntToString(gv_players[lv_owner].lv_position))));
-    gv_spawner_distro[lv_cap] = (gv_spawner_distro[lv_cap] + gv_spawner_distro[gv_players[lv_owner].lv_position]);
-    gv_spawner_distro[gv_players[lv_owner].lv_position] = 0;
-    gv_t1_spawner_distro[lv_cap] = (gv_t1_spawner_distro[lv_cap] + gv_t1_spawner_distro[gv_players[lv_owner].lv_position]);
-    gv_t1_spawner_distro[gv_players[lv_owner].lv_position] = 0;
-    if ((gf_is_terran_dead() == false)) {
-        gf_rerally_dead_player_spawners(lv_owner);
-    }
-
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "DestructibleRock6x6I", 0, 0, PointFromName(("Blocker " + IntToString(gv_players[lv_owner].lv_position))));
-    gf_inject_extra_positions(gv_players[lv_owner].lv_position);
-    if ((gv_is_crazyminions == true)) {
-        lv_n = UnitGroupClosestToPoint(UnitGroup("Hellfort", 7, RegionCircle(gv_outer_nest[gv_players[lv_owner].lv_position].lv_position, 3.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), gv_outer_nest[gv_players[lv_owner].lv_position].lv_position);
-    }
-    else {
-        lv_n = UnitGroupClosestToPoint(UnitGroup("Nest2", 7, RegionCircle(gv_outer_nest[gv_players[lv_owner].lv_position].lv_position, 3.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), gv_outer_nest[gv_players[lv_owner].lv_position].lv_position);
-    }
-    if ((lv_n == null)) {
-        gv_dead_creep_count += 1;
-        gv_dead_creep[gv_dead_creep_count].lv_position = gv_outer_nest[gv_players[lv_owner].lv_position].lv_position;
-        gv_dead_creep[gv_dead_creep_count].lv_unit_type = "Nest2";
-    }
-
     autoA1C2F3A3_g = UnitGroup(null, lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoA1C2F3A3_u = UnitGroupCount(autoA1C2F3A3_g, c_unitCountAll);
     for (;; autoA1C2F3A3_u -= 1) {
@@ -15332,90 +15415,6 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
         if (autoA1C2F3A3_var == null) { break; }
         UnitKill(autoA1C2F3A3_var);
     }
-    if ((GameGetMissionTime() < 135)) {
-        gv_very_early_leaver_count += 1;
-        if ((GameGetMissionTime() > 4.0)) {
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/411F328C"));
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/EC047E91"));
-        }
-
-        auto96ACBD2E_g = UnitGroup(null, 7, RegionFromName(("spawner player zerg " + IntToString(gv_players[lv_owner].lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto96ACBD2E_u = UnitGroupCount(auto96ACBD2E_g, c_unitCountAll);
-        for (;; auto96ACBD2E_u -= 1) {
-            auto96ACBD2E_var = UnitGroupUnitFromEnd(auto96ACBD2E_g, auto96ACBD2E_u);
-            if (auto96ACBD2E_var == null) { break; }
-            UnitRemove(auto96ACBD2E_var);
-            PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperSubtract, 4);
-            PlayerModifyPropertyInt(7, c_playerPropSuppliesMade, c_playerPropOperSubtract, 4);
-        }
-        auto4CE360BA_g = UnitGroup("MineralExtractor", 7, RegionFromName(("zergbase " + IntToString(gv_players[lv_owner].lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto4CE360BA_u = UnitGroupCount(auto4CE360BA_g, c_unitCountAll);
-        for (;; auto4CE360BA_u -= 1) {
-            auto4CE360BA_var = UnitGroupUnitFromEnd(auto4CE360BA_g, auto4CE360BA_u);
-            if (auto4CE360BA_var == null) { break; }
-            UnitRemove(auto4CE360BA_var);
-            PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperSubtract, 15);
-            PlayerModifyPropertyInt(7, c_playerPropSuppliesMade, c_playerPropOperSubtract, 15);
-        }
-    }
-
-    if ((GameGetMissionTime() >= 135) && (GameGetMissionTime() < (11 * 60))) {
-        if ((GameGetMissionTime() < (11 * 60))) {
-            lv_elp_stage = 1;
-        }
-
-        if ((GameGetMissionTime() < (10 * 60))) {
-            lv_elp_stage = 2;
-        }
-
-        if ((GameGetMissionTime() < (9 * 60))) {
-            lv_elp_stage = 3;
-        }
-
-        if ((GameGetMissionTime() < (8 * 60))) {
-            lv_elp_stage = 4;
-        }
-
-        if ((GameGetMissionTime() < (7 * 60))) {
-            lv_elp_stage = 5;
-        }
-
-        if ((GameGetMissionTime() < (6 * 60))) {
-            lv_elp_stage = 6;
-        }
-
-        if ((GameGetMissionTime() < (5 * 60))) {
-            lv_elp_stage = 7;
-        }
-
-        lv_ndebt = (lv_elp_stage * 100);
-        gv_debt = (gv_debt + lv_ndebt);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/5DA83870"));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/822DFA50"));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, (IntToText((lv_elp_stage * 100)) + StringExternal("Param/Value/39E74EE4")));
-    }
-
-    if ((GameGetMissionTime() >= (11 * 60)) && (GameGetMissionTime() <= (25 * 60))) {
-        gv_reward_related_deaths += 1;
-    }
-
-    if ((gf_is_game_over() == false)) {
-        if (((gv_practice_mode == true) || (gv_players[lv_owner].lv_lost_elo == true) || (gf_is_zerg_dead() == true))) {
-        }
-        else {
-            if ((gf_is_player_banned(lv_owner) == true)) {
-                gv_players[lv_owner].lv_elo = 0;
-                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
-                gv_players[lv_owner].lv_lost_elo = true;
-            }
-            else {
-                gv_players[lv_owner].lv_elo = (gv_players[lv_owner].lv_elo - gf_get_base_penalty_elo_count());
-                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
-                gv_players[lv_owner].lv_lost_elo = true;
-            }
-        }
-    }
-
     auto1F8A9550_g = UnitGroup(null, c_playerAny, RegionFromName(("geysers p" + IntToString(gv_players[lv_owner].lv_position))), UnitFilter(0, 0, (1 << c_targetFilterRawResource), 0), 0);
     auto1F8A9550_u = UnitGroupCount(auto1F8A9550_g, c_unitCountAll);
     for (;; auto1F8A9550_u -= 1) {
@@ -15434,38 +15433,71 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
         libNtve_gf_ReplaceUnit(auto4FDCE40E_var, "GeyserBlocker", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
         UnitBehaviorAdd(libNtve_gf_LastReplacedUnit(), "InvulnerableBlockers", libNtve_gf_LastReplacedUnit(), 1);
     }
-    if ((PlayerStatus(lv_owner) == c_playerStatusActive)) {
-        if ((gf_is_game_over() == false) && (gf_is_player_banned(lv_owner) == false)) {
-            if ((GameAttributeGameValue("1") == "0001")) {
-                gf_create_karax_for_player(lv_owner);
+    gf_remove_tutorial_after_death(lv_owner);
+    gf__3v3_player_died(lv_owner);
+    if ((gf_is_game_over() == true)) {
+        gf_end_game(gf_get_winning_team());
+    }
+    else {
+        lv_cap = gf_get_closest_alive_player_position(PointFromName(("Blocker " + IntToString(gv_players[lv_owner].lv_position))));
+        gv_spawner_distro[lv_cap] = (gv_spawner_distro[lv_cap] + gv_spawner_distro[gv_players[lv_owner].lv_position]);
+        gv_spawner_distro[gv_players[lv_owner].lv_position] = 0;
+        gv_t1_spawner_distro[lv_cap] = (gv_t1_spawner_distro[lv_cap] + gv_t1_spawner_distro[gv_players[lv_owner].lv_position]);
+        gv_t1_spawner_distro[gv_players[lv_owner].lv_position] = 0;
+        if ((gf_is_terran_dead() == false)) {
+            gf_rerally_dead_player_spawners(lv_owner);
+        }
+
+        gf_inject_extra_positions(gv_players[lv_owner].lv_position);
+        if ((gv_is_crazyminions == true)) {
+            lv_n = UnitGroupClosestToPoint(UnitGroup("Hellfort", 7, RegionCircle(gv_outer_nest[gv_players[lv_owner].lv_position].lv_position, 3.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), gv_outer_nest[gv_players[lv_owner].lv_position].lv_position);
+        }
+        else {
+            lv_n = UnitGroupClosestToPoint(UnitGroup("Nest2", 7, RegionCircle(gv_outer_nest[gv_players[lv_owner].lv_position].lv_position, 3.0), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), gv_outer_nest[gv_players[lv_owner].lv_position].lv_position);
+        }
+        if ((lv_n == null)) {
+            gv_dead_creep_count += 1;
+            gv_dead_creep[gv_dead_creep_count].lv_position = gv_outer_nest[gv_players[lv_owner].lv_position].lv_position;
+            gv_dead_creep[gv_dead_creep_count].lv_unit_type = "Nest2";
+        }
+
+        gf_rebalance_zerg_after_early_terran_death(lv_owner);
+        if ((GameGetMissionTime() >= (11 * 60)) && (GameGetMissionTime() <= (25 * 60))) {
+            gv_reward_related_deaths += 1;
+        }
+
+        if ((gf_is_game_over() == false)) {
+            if (((gv_practice_mode == true) || (gv_players[lv_owner].lv_lost_elo == true) || (gf_is_zerg_dead() == true))) {
             }
             else {
-                if ((GameAttributeGameValue("1") == "0003")) {
+                if ((gf_is_player_banned(lv_owner) == true)) {
+                    gv_players[lv_owner].lv_elo = 0;
+                    gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
+                    gv_players[lv_owner].lv_lost_elo = true;
                 }
-
+                else {
+                    gv_players[lv_owner].lv_elo = (gv_players[lv_owner].lv_elo - gf_get_base_penalty_elo_count());
+                    gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
+                    gv_players[lv_owner].lv_lost_elo = true;
+                }
             }
         }
 
-    }
+        if ((PlayerStatus(lv_owner) == c_playerStatusActive)) {
+            if ((gf_is_game_over() == false) && (gf_is_player_banned(lv_owner) == false)) {
+                if ((GameAttributeGameValue("1") == "0001")) {
+                    gf_create_karax_for_player(lv_owner);
+                }
+                else {
+                    if ((GameAttributeGameValue("1") == "0003")) {
+                    }
 
-    while ((lv_i <= gv_players[lv_owner].lv_tutorial_stage)) {
-        ObjectiveSetState(gv_objectives[lv_owner][lv_i], c_objectiveStateHidden);
-        lv_i += 1;
-    }
-    if ((gv_players[lv_owner].lv_tutorial_stage >= 2)) {
-        ObjectiveSetState(gv_bonus_objectives[lv_owner][1], c_objectiveStateHidden);
-        ObjectiveSetState(gv_bonus_objectives[lv_owner][2], c_objectiveStateHidden);
-    }
+                }
+            }
 
-    if ((gv_players[lv_owner].lv_tutorial_stage >= 5)) {
-        ObjectiveSetState(gv_bonus_objectives[lv_owner][3], c_objectiveStateHidden);
-    }
+        }
 
-    if ((gv_players[lv_owner].lv_tutorial_stage >= 8)) {
-        ObjectiveSetState(gv_bonus_objectives[lv_owner][4], c_objectiveStateHidden);
     }
-
-    gf__3v3_player_died(lv_owner);
     return true;
 }
 
