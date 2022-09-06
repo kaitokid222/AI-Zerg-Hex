@@ -2372,6 +2372,7 @@ Variable/Name/C2E71D81=i
 Variable/Name/C2FBCDBB=elo
 Variable/Name/C309C5F7=marauders
 Variable/Name/C313DC08=r
+Variable/Name/C33459EA=player_group
 Variable/Name/C3B4FA5C=i
 Variable/Name/C3C4DA39=timer_countdown_dialog_item
 Variable/Name/C4015B50=i

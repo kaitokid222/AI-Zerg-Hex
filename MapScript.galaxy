@@ -14515,6 +14515,7 @@ void gt_DefenseAuraGotClicked_Init () {
 bool gt_ResearchComplete_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_upgrade;
+    playergroup lv_player_group;
 
     // Automatic Variable Declarations
     playergroup auto38D1E0AB_g;
@@ -14522,6 +14523,7 @@ bool gt_ResearchComplete_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
     lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
+    lv_player_group = PlayerGroupEmpty();
 
     // Conditions
     if (testConds) {
@@ -14543,7 +14545,18 @@ bool gt_ResearchComplete_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto38D1E0AB_g = gv_terrans;
+    if ((gf_is_3v3() == true)) {
+        if ((PlayerGroupHasPlayer(gv_terrans_team_top, EventPlayer()) == true)) {
+            lv_player_group = gv_terrans_team_top;
+        }
+        else {
+            lv_player_group = gv_terrans_team_bottom;
+        }
+    }
+    else {
+        lv_player_group = gv_terrans;
+    }
+    auto38D1E0AB_g = lv_player_group;
     auto38D1E0AB_var = -1;
     while (true) {
         auto38D1E0AB_var = PlayerGroupNextPlayer(auto38D1E0AB_g, auto38D1E0AB_var);
