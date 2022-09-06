@@ -134,6 +134,7 @@
 <Unit id="Artanis"/>
 <Unit id="Hercules"/>
 <Unit id="Raynor"/>
+<Unit id="Scientist"/>
 <Unit id="PickupPlasmaRounds"/>
 <Unit id="PickupRestorationCharge"/>
 <Unit id="PickupHealth100"/>

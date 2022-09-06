@@ -762,6 +762,7 @@ trigger gt_Infestedmaybestuck;
 trigger gt_PowerAuraGotClicked;
 trigger gt_AttackAuraGotClicked;
 trigger gt_DefenseAuraGotClicked;
+trigger gt_ResearchComplete;
 trigger gt_rtv;
 trigger gt_rtvhalloween;
 trigger gt_rtvxmas;
@@ -1441,6 +1442,9 @@ void gf_apply_support () {
         else if (auto847BAF84_val == "0010") {
             lv_picked_bonus_int = 11;
         }
+        else if (auto847BAF84_val == "0013") {
+            lv_picked_bonus_int = 12;
+        }
         else {
         }
         if ((lv_picked_bonus_int > 1)) {
@@ -1601,6 +1605,13 @@ void gf_apply_support () {
             TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/B8D1297B"), StringExternal("Param/Value/98E2784B"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 7), true);
             gv_players[autoD7252B7F_var].lv_support_type = "Probius";
+        }
+        else if (auto8CF24BD7_val == 12) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Scientist", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/CDD0A0CC"), StringExternal("Param/Value/1677A275"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[autoD7252B7F_var].lv_support_type = "Teacher";
         }
         else {
         }
@@ -6664,6 +6675,7 @@ void gf_end_game (int lp_winner) {
         TriggerDestroy(gt_everyminute);
         TriggerDestroy(gt_every90seconds);
         TriggerDestroy(gt_spawner_finished);
+        TriggerDestroy(gt_ResearchComplete);
         gf_manage_3v3_triggers(false);
         if (((gf_is_3v3() == true) && (gv_practice_mode == false))) {
             Wait(4.0, c_timeGame);
@@ -14495,6 +14507,59 @@ bool gt_DefenseAuraGotClicked_Func (bool testConds, bool runActions) {
 void gt_DefenseAuraGotClicked_Init () {
     gt_DefenseAuraGotClicked = TriggerCreate("gt_DefenseAuraGotClicked_Func");
     TriggerAddEventPlayerEffectUsed(gt_DefenseAuraGotClicked, c_playerAny, "AddProbiusPylonDefenseAura");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Research Complete
+//--------------------------------------------------------------------------------------------------
+bool gt_ResearchComplete_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_upgrade;
+
+    // Automatic Variable Declarations
+    playergroup auto38D1E0AB_g;
+    int auto38D1E0AB_var;
+
+    // Variable Initialization
+    lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
+
+    // Conditions
+    if (testConds) {
+        if (!((EventPlayer() >= 1))) {
+            return false;
+        }
+
+        if (!((EventPlayer() <= 6))) {
+            return false;
+        }
+
+        if (!((gv_players[EventPlayer()].lv_support_type == "Teacher"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto38D1E0AB_g = gv_terrans;
+    auto38D1E0AB_var = -1;
+    while (true) {
+        auto38D1E0AB_var = PlayerGroupNextPlayer(auto38D1E0AB_g, auto38D1E0AB_var);
+        if (auto38D1E0AB_var < 0) { break; }
+        if ((auto38D1E0AB_var != EventPlayer()) && (gv_players[auto38D1E0AB_var].lv_alive == true) && (gv_players[auto38D1E0AB_var].lv_last_recorded_strength < gv_players[EventPlayer()].lv_last_recorded_strength) && (TechTreeUpgradeCount(auto38D1E0AB_var, lv_upgrade, c_techCountQueuedOrBetter) < TechTreeUpgradeCount(EventPlayer(), lv_upgrade, c_techCountCompleteOnly))) {
+            TechTreeUpgradeAddLevel(auto38D1E0AB_var, lv_upgrade, 1);
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ResearchComplete_Init () {
+    gt_ResearchComplete = TriggerCreate("gt_ResearchComplete_Func");
+    TriggerAddEventUnitResearchProgress(gt_ResearchComplete, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22736,6 +22801,7 @@ void InitTriggers () {
     gt_PowerAuraGotClicked_Init();
     gt_AttackAuraGotClicked_Init();
     gt_DefenseAuraGotClicked_Init();
+    gt_ResearchComplete_Init();
     gt_rtv_Init();
     gt_rtvhalloween_Init();
     gt_rtvxmas_Init();

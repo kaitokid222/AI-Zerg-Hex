@@ -293,6 +293,8 @@ Attribute005/Value011/Desc=Enables some advanced researches. Replaces your initi
 Attribute005/Value011/Name=High Tech!
 Attribute005/Value012/Desc=You will start with a random bonus with lower bonus elo penalty.
 Attribute005/Value012/Name=Random!
+Attribute005/Value013/Desc=Show the beginners how it is done! Players weaker than you gain free upgrades if you complete them before them.
+Attribute005/Value013/Name=Teacher!
 Attribute006/Name=Event
 Attribute006/Value001/Name=-rtv
 Attribute006/Value002/Name=Halloween
@@ -2971,6 +2973,7 @@ Param/Value/14F5EB1D=Issuing Zerg balancing cost of:
 Param/Value/153E8050=Issuing Zerg balancing cost of: 
 Param/Value/1591E1A1=income indicator
 Param/Value/1608FB40=10 Minutes left before Zerg wins!
+Param/Value/1677A275=I believe in you.
 Param/Value/168C7CC0=. <n/>Type "-rtv" or "-rtv xmas" if you also want to play the xmas event! <n/>3 more votes needed!
 Param/Value/169D7028=<c val="FFF980">H</c><c val="E7FA96">a</c><c val="CFFBAC">p</c><c val="B7FCC2">p</c><c val="A0FDD9">y</c> 
 Param/Value/16C13C90=<c val="FF9797">Assigning 2 players at random</c>
@@ -3174,6 +3177,7 @@ Param/Value/C8D30284=array combine finished
 Param/Value/C97918D7=Pre-Picked Mode
 Param/Value/CA8B6BFF=Vote Practice Mode
 Param/Value/CD71BC83=Build 3 Gas Vents!
+Param/Value/CDD0A0CC=Teacher
 Param/Value/CE7D411E=Zerg Supply
 Param/Value/CFCFEF2C=Raynor
 Param/Value/D04B4A09=e2s max spawner count reached. try kill low spawner.
