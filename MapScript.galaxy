@@ -5769,7 +5769,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 bool gf_is_overseer (unit lp_unit) {
@@ -13996,6 +13996,13 @@ void gf_get_speed () {
     // Implementation
     if (((lv_time == (1000 - (gv_difficulty * 30))) || (lv_time == (1300 - (gv_difficulty * 30))) || (lv_time == (1600 - (gv_difficulty * 30)))) && (TechTreeUpgradeCount(7, "ZergMovement", c_techCountQueuedOrBetter) < 3)) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
+        if ((gf_is_3v3() == true)) {
+            while ((lv_i <= 6)) {
+                TechTreeUpgradeAddLevel((lv_i + 7), "ZergMovement", 1);
+                lv_i = (lv_i + 1);
+            }
+        }
+
     }
 
     if ((gv_difficulty >= 10) && (lv_time == (1800 - (gv_difficulty * 30)))) {
