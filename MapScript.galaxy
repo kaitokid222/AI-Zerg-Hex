@@ -83,6 +83,13 @@ struct gs_terrandata {
     fixed lv_tech_value;
 };
 
+struct gs_zcc_stack_backup {
+    int lv_firelings;
+    int lv_infused;
+    int lv_banelings;
+    int lv_torras;
+};
+
 struct gs_outer_nests {
     point lv_position;
 };
@@ -190,6 +197,7 @@ playergroup gv_terrans_team_bottom_open_access_units;
 int[7][3] gv__3v3_player_elo_scores;
 int gv__3v3_player_elo_scores_cnt;
 int[3] gv_last_tz_receiver_index;
+gs_zcc_stack_backup[7] gv_zcc_stack_backup;
 unitgroup gv_flying_rally_group;
 bool gv_build_top_next;
 int gv_debug_mode;
@@ -815,6 +823,8 @@ trigger gt_SpawnRavator3v3;
 trigger gt_SpawnInfused3v3;
 trigger gt_SpawnBaneling3v3;
 trigger gt_SpawnTorra3v3;
+trigger gt_zccdies;
+trigger gt_zccbuilt;
 trigger gt_FirelingDies;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_Firelingsgotupgraded;
@@ -16748,6 +16758,84 @@ void gt_SpawnTorra3v3_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: zcc dies
+//--------------------------------------------------------------------------------------------------
+bool gt_zccdies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_zcc;
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "HiveMindEmulator"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    gv_zcc_stack_backup[lv_terran_id].lv_firelings = UnitBehaviorCount(lv_zcc, "FirelingCountDummyStack");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_zccdies_Init () {
+    gt_zccdies = TriggerCreate("gt_zccdies_Func");
+    TriggerAddEventUnitDied(gt_zccdies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: zcc built
+//--------------------------------------------------------------------------------------------------
+bool gt_zccbuilt_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_zcc;
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnitProgressUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnitProgressUnit()) == "HiveMindEmulator"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings > 0)) {
+        UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_firelings);
+        gv_zcc_stack_backup[lv_terran_id].lv_firelings = 0;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_zccbuilt_Init () {
+    gt_zccbuilt = TriggerCreate("gt_zccbuilt_Func");
+    TriggerAddEventUnitConstructProgress(gt_zccbuilt, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Fireling Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_FirelingDies_Func (bool testConds, bool runActions) {
@@ -22796,6 +22884,8 @@ void InitTriggers () {
     gt_SpawnInfused3v3_Init();
     gt_SpawnBaneling3v3_Init();
     gt_SpawnTorra3v3_Init();
+    gt_zccdies_Init();
+    gt_zccbuilt_Init();
     gt_FirelingDies_Init();
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_Firelingsgotupgraded_Init();
