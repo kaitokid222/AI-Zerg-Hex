@@ -391,31 +391,31 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="120"/>
+            <Resource index="Terrazine" value="300"/>
             <Charge>
                 <CountMax value="10"/>
                 <CountUse value="1"/>
-                <TimeStart value="12"/>
-                <TimeUse value="12"/>
+                <TimeStart value="20"/>
+                <TimeUse value="20"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier43v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroupDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DataCollection value="SpawnBanelingGroup"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="120"/>
+            <Resource index="Terrazine" value="300"/>
             <Charge>
                 <CountMax value="10"/>
                 <CountUse value="1"/>
-                <TimeStart value="12"/>
-                <TimeUse value="12"/>
+                <TimeStart value="20"/>
+                <TimeUse value="20"/>
             </Charge>
         </Cost>
         <AINotifyEffect value="SpawnBanelingGroup"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsDelay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier4Delay3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnInfestor3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -603,7 +603,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnFirelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="80"/>
+            <Resource index="Terrazine" value="250"/>
             <Charge>
                 <CountMax value="10"/>
                 <CountUse value="1"/>
@@ -2673,7 +2673,7 @@
             <Button DefaultButtonFace="UpgradeHydraliskSpawnSize" Requirements="UpgradeZergHydraliskSpawnSize"/>
         </InfoArray>
         <InfoArray index="Research10" Upgrade="Firelings">
-            <Resource index="Terrazine" value="200"/>
+            <Resource index="Terrazine" value="400"/>
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="UpgradeFirelings" Requirements="UpgradeZergFireling"/>
         </InfoArray>
