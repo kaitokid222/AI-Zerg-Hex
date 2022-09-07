@@ -8,7 +8,7 @@
             <Resource index="Terrazine" value="265"/>
             <Cooldown TimeUse="25"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnTier33v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnInfusedTerrazine"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
@@ -50,7 +50,7 @@
             <Resource index="Terrazine" value="600"/>
             <Cooldown TimeUse="40"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTier53v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTorraliskTerrazine"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
@@ -399,7 +399,7 @@
                 <TimeUse value="20"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier43v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroupDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -531,6 +531,7 @@ int gf_get_average_elo_rating ();
 void gf_distribute_players_based_on_their_elo ();
 void gf_magic ();
 int gf_get_next_tz_receiver_index (int lp_team);
+void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 int gf_get_terran_id_from_zpid (int lp_zpid);
 void gf_enable_3v3_spawn ();
 void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
@@ -826,6 +827,9 @@ trigger gt_SpawnTorra3v3;
 trigger gt_zccdies;
 trigger gt_zccbuilt;
 trigger gt_FirelingDies;
+trigger gt_BanelingDies;
+trigger gt_InfusedRoachDies;
+trigger gt_TorraliskDies;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_Firelingsgotupgraded;
 trigger gt_zerg_rally_equal_on;
@@ -5143,6 +5147,86 @@ int gf_get_next_tz_receiver_index (int lp_team) {
     return lv_return;
 }
 
+void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
+    // Variable Declarations
+    unit lv_zcc;
+
+    // Automatic Variable Declarations
+    string auto126C1DE1_val;
+    string auto4D713774_val;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    if ((lv_zcc != null)) {
+        auto4D713774_val = lp_ut;
+        if (auto4D713774_val == "Fireling") {
+            UnitBehaviorRemove(lv_zcc, "FirelingCountDummyStack", 1);
+        }
+        else if (auto4D713774_val == "BanelingZergHex") {
+            UnitBehaviorRemove(lv_zcc, "BanelingCountDummyStack", 1);
+        }
+        else if (auto4D713774_val == "InfusedRoach") {
+            UnitBehaviorRemove(lv_zcc, "InfusedRoachCountDummyStack", 1);
+        }
+        else if (auto4D713774_val == "Torralisk") {
+            UnitBehaviorRemove(lv_zcc, "TorraliskRoachCountDummyStack", 1);
+        }
+        else {
+        }
+    }
+    else {
+        auto126C1DE1_val = lp_ut;
+        if (auto126C1DE1_val == "Fireling") {
+            if ((gv_zcc_stack_backup[lp_pid].lv_firelings > 0)) {
+                if ((gv_zcc_stack_backup[lp_pid].lv_firelings == 1)) {
+                    gv_zcc_stack_backup[lp_pid].lv_firelings = 0;
+                }
+                else {
+                    gv_zcc_stack_backup[lp_pid].lv_firelings = (gv_zcc_stack_backup[lp_pid].lv_firelings - 1);
+                }
+            }
+
+        }
+        else if (auto126C1DE1_val == "BanelingZergHex") {
+            if ((gv_zcc_stack_backup[lp_pid].lv_banelings > 0)) {
+                if ((gv_zcc_stack_backup[lp_pid].lv_banelings == 1)) {
+                    gv_zcc_stack_backup[lp_pid].lv_banelings = 0;
+                }
+                else {
+                    gv_zcc_stack_backup[lp_pid].lv_banelings = (gv_zcc_stack_backup[lp_pid].lv_banelings - 1);
+                }
+            }
+
+        }
+        else if (auto126C1DE1_val == "InfusedRoach") {
+            if ((gv_zcc_stack_backup[lp_pid].lv_infused > 0)) {
+                if ((gv_zcc_stack_backup[lp_pid].lv_infused == 1)) {
+                    gv_zcc_stack_backup[lp_pid].lv_infused = 0;
+                }
+                else {
+                    gv_zcc_stack_backup[lp_pid].lv_infused = (gv_zcc_stack_backup[lp_pid].lv_infused - 1);
+                }
+            }
+
+        }
+        else if (auto126C1DE1_val == "Torralisk") {
+            if ((gv_zcc_stack_backup[lp_pid].lv_torras > 0)) {
+                if ((gv_zcc_stack_backup[lp_pid].lv_torras == 1)) {
+                    gv_zcc_stack_backup[lp_pid].lv_torras = 0;
+                }
+                else {
+                    gv_zcc_stack_backup[lp_pid].lv_torras = (gv_zcc_stack_backup[lp_pid].lv_torras - 1);
+                }
+            }
+
+        }
+        else {
+        }
+    }
+}
+
 int gf_get_terran_id_from_zpid (int lp_zpid) {
     // Variable Declarations
     int lv_return;
@@ -5249,6 +5333,8 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     unit lv_zcc;
 
     // Automatic Variable Declarations
+    string auto49616E6E_val;
+
     // Variable Initialization
 
     // Implementation
@@ -5264,8 +5350,22 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
     }
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
-    if ((lp_unit_type == "Fireling")) {
-        UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
+    if (((lp_unit_type == "Fireling") || (lp_unit_type == "BanelingZergHex") || (lp_unit_type == "InfusedRoach") || (lp_unit_type == "Torralisk"))) {
+        auto49616E6E_val = lp_unit_type;
+        if (auto49616E6E_val == "Fireling") {
+            UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
+        }
+        else if (auto49616E6E_val == "BanelingZergHex") {
+            UnitBehaviorAdd(lv_zcc, "BanelingCountDummyStack", lv_zcc, lp_unit_count);
+        }
+        else if (auto49616E6E_val == "InfusedRoach") {
+            UnitBehaviorAdd(lv_zcc, "InfusedRoachCountDummyStack", lv_zcc, lp_unit_count);
+        }
+        else if (auto49616E6E_val == "Torralisk") {
+            UnitBehaviorAdd(lv_zcc, "TorraliskRoachCountDummyStack", lv_zcc, lp_unit_count);
+        }
+        else {
+        }
     }
 
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
@@ -16840,7 +16940,6 @@ void gt_zccbuilt_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_FirelingDies_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    unit lv_zcc;
     int lv_owner;
     int lv_terran_id;
 
@@ -16865,21 +16964,7 @@ bool gt_FirelingDies_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if ((lv_zcc != null)) {
-        UnitBehaviorRemove(lv_zcc, "FirelingCountDummyStack", 1);
-    }
-    else {
-        if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings > 0)) {
-            if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings == 1)) {
-                gv_zcc_stack_backup[lv_terran_id].lv_firelings = 0;
-            }
-            else {
-                gv_zcc_stack_backup[lv_terran_id].lv_firelings = (gv_zcc_stack_backup[lv_terran_id].lv_firelings - 1);
-            }
-        }
-
-    }
+    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
     return true;
 }
 
@@ -16888,6 +16973,123 @@ void gt_FirelingDies_Init () {
     gt_FirelingDies = TriggerCreate("gt_FirelingDies_Func");
     TriggerEnable(gt_FirelingDies, false);
     TriggerAddEventUnitDied(gt_FirelingDies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Baneling Dies
+//--------------------------------------------------------------------------------------------------
+bool gt_BanelingDies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((gf_is_3v3() == true))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnit()) == "BanelingZergHex"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_BanelingDies_Init () {
+    gt_BanelingDies = TriggerCreate("gt_BanelingDies_Func");
+    TriggerAddEventUnitDied(gt_BanelingDies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Infused Roach Dies
+//--------------------------------------------------------------------------------------------------
+bool gt_InfusedRoachDies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((gf_is_3v3() == true))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnit()) == "InfusedRoach"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InfusedRoachDies_Init () {
+    gt_InfusedRoachDies = TriggerCreate("gt_InfusedRoachDies_Func");
+    TriggerAddEventUnitDied(gt_InfusedRoachDies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Torralisk Dies
+//--------------------------------------------------------------------------------------------------
+bool gt_TorraliskDies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((gf_is_3v3() == true))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnit()) == "Torralisk"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TorraliskDies_Init () {
+    gt_TorraliskDies = TriggerCreate("gt_TorraliskDies_Func");
+    TriggerAddEventUnitDied(gt_TorraliskDies, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22900,6 +23102,9 @@ void InitTriggers () {
     gt_zccdies_Init();
     gt_zccbuilt_Init();
     gt_FirelingDies_Init();
+    gt_BanelingDies_Init();
+    gt_InfusedRoachDies_Init();
+    gt_TorraliskDies_Init();
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_Firelingsgotupgraded_Init();
     gt_zerg_rally_equal_on_Init();

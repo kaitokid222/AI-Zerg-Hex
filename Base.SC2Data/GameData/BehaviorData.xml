@@ -66,11 +66,17 @@
         <Period value="18"/>
         <PeriodicEffect value="AnimalAssignListenerApply"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfusedRoachCountDummyStack">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FirelingCountDummyStack">
+        <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-stetmann-zerglingrespawn.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <MaxStackCount value="1000"/>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ChaosLordStacks">
         <InfoFlags index="Hidden" value="1"/>
@@ -124,12 +130,24 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification MoveSpeedBonus="0.3007"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingCountDummyStack">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-baneling.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="GenerateTerrazine">
         <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="5"/>
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="TorraliskRoachCountDummyStack">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="LotsofBlood">
         <BehaviorFlags index="Permanent" value="1"/>

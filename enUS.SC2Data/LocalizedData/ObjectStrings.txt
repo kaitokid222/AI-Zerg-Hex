@@ -896,6 +896,7 @@ Behavior/EditorPrefix/UserOnTransferCooldown=Energy Network -
 Behavior/EditorPrefix/UserUnit=Energy Network -
 Behavior/EditorPrefix/VespeneHarvestingUnlimited=Refinery -
 Behavior/EditorSuffix/Afterburner=(Buff)
+Behavior/EditorSuffix/BanelingCountDummyStack=3v3
 Behavior/EditorSuffix/BeingRepaired=(Zerg Hex)
 Behavior/EditorSuffix/BloodStacks=(Lord)
 Behavior/EditorSuffix/BossArmor=(Zerg Hex)
@@ -996,6 +997,7 @@ Behavior/EditorSuffix/Grazing=(Info)
 Behavior/EditorSuffix/HardenedShieldItalis=(Zerg Hex)
 Behavior/EditorSuffix/ImumeIonStorm=(Damage Response)
 Behavior/EditorSuffix/InfestorTransfusion=(Max Health Buff)
+Behavior/EditorSuffix/InfusedRoachCountDummyStack=3v3
 Behavior/EditorSuffix/Investment=(Buff)
 Behavior/EditorSuffix/InvulnerableBlockers=(Geyser Blockers)
 Behavior/EditorSuffix/IonWound=(Hive Stop Regenerating)
@@ -1014,6 +1016,7 @@ Behavior/EditorSuffix/Shatter02=(Search Buff)
 Behavior/EditorSuffix/Shatter03=(Search Buff)
 Behavior/EditorSuffix/SiegeTankCooldown=(Disable Research)
 Behavior/EditorSuffix/SpawnBlood2=Big
+Behavior/EditorSuffix/TorraliskRoachCountDummyStack=3v3
 Behavior/EditorSuffix/UpgradedVespeneHarvestingUnlimited=(Unlimited +2)
 Behavior/EditorSuffix/VespeneHarvestingUnlimited=(Unlimited)
 Behavior/Name/AdvancedGateAutoOpen=Advanced Gate - Auto Re-Open
@@ -1029,6 +1032,7 @@ Behavior/Name/ApplySpawnBonus2=Apply Spawn Bonus (+2)
 Behavior/Name/ApplySpawnBonus3=Apply Spawn Bonus (+3)
 Behavior/Name/ApplySpawnBonus4=Apply Spawn Bonus (+4)
 Behavior/Name/ArmoryAura=Armory - Aura
+Behavior/Name/BanelingCountDummyStack=Baneling Count Dummy Stack
 Behavior/Name/BanelingExplodeZergHex=Explode (Zerg Hex)
 Behavior/Name/BanelingPrecursor=Baneling - Precursor
 Behavior/Name/BanelingSpawnerSpawnTimer=Baneling Spawner - Spawn Timer
@@ -1109,6 +1113,7 @@ Behavior/Name/HydraliskShedSkin=Hydralisk Shed Skin
 Behavior/Name/ImmortalShakurasShadowCannon2=Immortal Shakuras Shadow Cannon Copy
 Behavior/Name/ImumeIonStorm=Imume Ion Storm
 Behavior/Name/InfestorDigesting=Infestor Digesting
+Behavior/Name/InfusedRoachCountDummyStack=Infused Roach Count Dummy Stack
 Behavior/Name/InfusedRoachSpawnTimedLife=Infused Roach - Spawn Timed Life
 Behavior/Name/IonBeam=Ion Beam
 Behavior/Name/IonBeamActive=Ion Beam (Active)
@@ -1163,6 +1168,7 @@ Behavior/Name/SwordUserEnemyNearbyRangedDisabler=Sword User Enemy Nearby Ranged 
 Behavior/Name/TarRoachTimedLife=Tar Roach Timed Life
 Behavior/Name/TechLabCharge=Tech Lab Charge
 Behavior/Name/TempTimeout2=Temp Timeout Copy
+Behavior/Name/TorraliskRoachCountDummyStack=Torralisk Roach Count Dummy Stack
 Behavior/Name/TradeDelayGas=Trade Delay (Gas)
 Behavior/Name/TradeDelayMinerals=Trade Delay (Minerals)
 Behavior/Name/TradeDelayMineralsHeavy=Trade Delay (Minerals) Heavy
@@ -1181,6 +1187,7 @@ Behavior/Name/ZergIncomeSpawner=Zerg Income Spawner
 Behavior/Name/ZergIncomeSpawnerLarge=Zerg Income Spawner Large
 Behavior/Name/ZergRandomDestroyTimer=Zerg Random Destroy Timer
 Behavior/Name/makeCreep4x4Omegalisk=make Creep 4x4 Omegalisk
+Behavior/Tooltip/BanelingCountDummyStack=Dummy Stack to count Z Pid Banelings
 Behavior/Tooltip/BossArmor=This unit takes a maximum of 2 damage from any attack.
 Behavior/Tooltip/ChaosLordStacks=dummy stack
 Behavior/Tooltip/ConstructionYardPlus1=
@@ -1190,12 +1197,14 @@ Behavior/Tooltip/ConstructionYardPlus4=
 Behavior/Tooltip/DetectorScannerSweep=This unit can detect cloaked or burrowed units within its sight range.
 Behavior/Tooltip/FirelingCountDummyStack=Dummy Stack to count Z Pid Firelings
 Behavior/Tooltip/HardenedShieldItalis=This unit takes a maximum of 15 damage from any ranged attack.
+Behavior/Tooltip/InfusedRoachCountDummyStack=Dummy Stack to count Z Pid Infused Roach
 Behavior/Tooltip/OutOfGas=This unit requires gas to fire and has currently none available.
 Behavior/Tooltip/RavatorHitCounter=This structure has its armor reduced by successive attacks from Ravator. Up to 10 armor can be reduced.
 Behavior/Tooltip/Shatter01=
 Behavior/Tooltip/Shatter02=
 Behavior/Tooltip/Shatter03=
 Behavior/Tooltip/ShockBlast=
+Behavior/Tooltip/TorraliskRoachCountDummyStack=Dummy Stack to count Z Pid Torralisks
 Button/EditorPrefix/AbsorbingCloud=Nest -
 Button/EditorPrefix/AcidSpores=Baneling -
 Button/EditorPrefix/Afterburner=Reaper -
@@ -2220,6 +2229,7 @@ Requirement/Name/SolarWeaponsRequirement=Solar Weapons Requirement
 Requirement/Name/SpawnBanelingsDelay3v3=SpawnBanelingsDelay3v3
 Requirement/Name/SpawnBanelingsTerrazine3v3=SpawnBanelingsTerrazine3v3
 Requirement/Name/SpawnFirelings=SpawnFirelings
+Requirement/Name/SpawnInfusedTerrazine=Spawn Infused Terrazine
 Requirement/Name/SpawnTier1Delay3v3=SpawnTier1Delay3v3
 Requirement/Name/SpawnTier23v3=SpawnTier23v3
 Requirement/Name/SpawnTier2Delay3v3=SpawnTier2Delay3v3
@@ -2229,6 +2239,7 @@ Requirement/Name/SpawnTier43v3=SpawnTier43v3
 Requirement/Name/SpawnTier4Delay3v3=SpawnTier4Delay3v3
 Requirement/Name/SpawnTier53v3=SpawnTier53v3
 Requirement/Name/SpawnTier5Delay3v3=SpawnTier5Delay3v3
+Requirement/Name/SpawnTorraliskTerrazine=Spawn Torralisk Terrazine
 Requirement/Name/SpawnerNotYetUpgraded=Spawner Not Yet Upgraded
 Requirement/Name/SpawnerNotYetUpgradedInfested=Spawner Not Yet Upgraded Infested
 Requirement/Name/StrikelingSpawnerCap=Strikeling Spawner Cap
@@ -2302,6 +2313,9 @@ RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030OrCountBe
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnlyGTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=CountUpgrade(Tier2Equipment,CompleteOnly) && CountBehavior(BloodStacks,QueuedOrBetter) >= {10 Stacks of Blood}10
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL2CompleteOnly1428761563=CountUpgrade(Tier3Equipment,CompleteOnly){Tier 3 Equipment} && CountUpgrade(MarineConservationL2,CompleteOnly){Complete Conservation L2}
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563=CountUpgrade(Tier3Equipment,CompleteOnly){Tier 3 Equipment} && (CountBehavior(BarracksNearby,CompleteOnlyAtUnit){Nearby Barracks} || CountUpgrade(MarineMobileSquadTraining,CompleteOnly){Mobile Squad Training Research})
+RequirementNode/Name/AndGTE2803542675CountUnitTerrazineTankCompleteOnly1LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 1 Terrazine Converter.}1 && CountBehavior(BanelingCountDummyStack,QueuedOrBetter) < {You cant have more than 20 Banelings!}20
+RequirementNode/Name/AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10=CountUnit(TerrazineTank,CompleteOnly) >= {You need 2 Terrazine Converters!}2 && CountBehavior(InfusedRoachCountDummyStack,QueuedOrBetter) < {You cant have more than 10 Infused Roaches!}10
+RequirementNode/Name/AndGTE654834784CountUnitTerrazineTankCompleteOnly4LT2063414812CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter5=CountUnit(TerrazineTank,CompleteOnly) >= {You need 4 or more Terrazine Converters!}4 && CountBehavior(TorraliskRoachCountDummyStack,QueuedOrBetter) < {You cant have more than 5 Torralisks!}5
 RequirementNode/Name/AndLT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1CountUpgradeSpawnBombersCompleteOnly3224540341=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < {Bunker isnt upgraded already}1 && CountUpgrade(SpawnBombers,CompleteOnly){Have Bomber Spawn Tech from the Armory!}
 RequirementNode/Name/AndLT2011835200CountUnitChaosLordQueuedOrBetter1GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100CountUpgradeTier2EquipmentCompleteOnly=CountUnit(ChaosLord,QueuedOrBetter) < {You can only have 1 Chaos Lord!}1 && CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 100 Blood Stacks}100 && CountUpgrade(Tier2Equipment,CompleteOnly)
 RequirementNode/Name/AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < 1 && ()
@@ -2314,6 +2328,7 @@ RequirementNode/Name/AndNotCountUpgradeSiegeTankPlasmaShardsQueuedOrBetter=!Coun
 RequirementNode/Name/AndNotCountUpgradeSiegeTankRangeQueuedOrBetter=!CountUpgrade(SiegeTankRange,QueuedOrBetter) && ()
 RequirementNode/Name/AndNotCountUpgradeTier3EquipmentQueuedOrBetterCountUpgradeTier2EquipmentQueuedOrBetter=!CountUpgrade(Tier3Equipment,QueuedOrBetter) && CountUpgrade(Tier2Equipment,QueuedOrBetter)
 RequirementNode/Name/CountBehaviorAutomatedCompleteOnlyAtUnit=CountBehavior(Automated,CompleteOnlyAtUnit)
+RequirementNode/Name/CountBehaviorBanelingCountDummyStackQueuedOrBetter=CountBehavior(BanelingCountDummyStack,QueuedOrBetter)
 RequirementNode/Name/CountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704=CountBehavior(BarracksNearby,CompleteOnlyAtUnit){Nearby Barracks}
 RequirementNode/Name/CountBehaviorBloodStacksQueuedOrBetter=CountBehavior(BloodStacks,QueuedOrBetter)
 RequirementNode/Name/CountBehaviorBurningCompleteOnlyAtUnit=CountBehavior(Burning,CompleteOnlyAtUnit)
@@ -2328,6 +2343,7 @@ RequirementNode/Name/CountBehaviorFirelingCountDummyStackQueuedOrBetter=CountBeh
 RequirementNode/Name/CountBehaviorGenerateMineralsCowFarmCompleteOnlyAtUnit=CountBehavior(GenerateMineralsCowFarm,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorInfestorDigestingCompleteOnlyAtUnit=CountBehavior(InfestorDigesting,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297=CountBehavior(InfestorDigesting,CompleteOnlyAtUnit){Consume State}
+RequirementNode/Name/CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter=CountBehavior(InfusedRoachCountDummyStack,QueuedOrBetter)
 RequirementNode/Name/CountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit=CountBehavior(NapalmPayloadChemicalPlant,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorNapalmPayloadFirebatCompleteOnlyAtUnit=CountBehavior(NapalmPayloadFirebat,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorNapalmPayloadFirebatCompleteOnlyAtUnit3218712903=CountBehavior(NapalmPayloadFirebat,CompleteOnlyAtUnit){Pickup Napalm Bomb from Chemical Plant}
@@ -2340,6 +2356,7 @@ RequirementNode/Name/CountBehaviorSolidFoundationCompleteOnlyAtUnit=CountBehavio
 RequirementNode/Name/CountBehaviorSpawnerUpgradedCompleteOnlyAtUnit=CountBehavior(SpawnerUpgraded,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorSpawnsBombersQueuedOrBetterAtUnit=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit)
 RequirementNode/Name/CountBehaviorTechLabChargeCompleteOnlyAtUnit=CountBehavior(TechLabCharge,CompleteOnlyAtUnit)
+RequirementNode/Name/CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter=CountBehavior(TorraliskRoachCountDummyStack,QueuedOrBetter)
 RequirementNode/Name/CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit=CountBehavior(TrafficTowerCargoEmpty,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit=CountBehavior(TrafficTowerTransportUnitUndefined,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorWeaponDisabledCompleteOnlyAtUnit=CountBehavior(WeaponDisabled,CompleteOnlyAtUnit)
@@ -2566,12 +2583,14 @@ RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly1=CountUnit(
 RequirementNode/Name/GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.} >= {You need at least 1 Terrazine Converter.}1{You need at least 1 Terrazine Converter.}
 RequirementNode/Name/GTE2816376595CountUnitTerrazineTankCompleteOnly2=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 2 Terrazine Converters.}2
 RequirementNode/Name/GTE2896091431CountUnitTerrazineTankCompleteOnly3=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 3 Terrazine Converters.}3
+RequirementNode/Name/GTE3277778316CountUnitTerrazineTankCompleteOnly2=CountUnit(TerrazineTank,CompleteOnly) >= {You need 2 Terrazine Converters!}2
 RequirementNode/Name/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {1 charge}1
 RequirementNode/Name/GTE3417746048CountUpgradeFortificationCompleteOnly3=CountUpgrade(Fortification,CompleteOnly) >= {Fortification 3}3
 RequirementNode/Name/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {2 charges}2
 RequirementNode/Name/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {10 Stacks of Blood}10
 RequirementNode/Name/GTE4046891914CountUnitTerrazineTankCompleteOnly4=CountUnit(TerrazineTank,CompleteOnly) >= {You need at least 4 Terrazine Converters.}4
 RequirementNode/Name/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {40 charges}40
+RequirementNode/Name/GTE654834784CountUnitTerrazineTankCompleteOnly4=CountUnit(TerrazineTank,CompleteOnly) >= {You need 4 or more Terrazine Converters!}4
 RequirementNode/Name/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need one Stacks of Blood!}1
 RequirementNode/Name/GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) >= 1
 RequirementNode/Name/GTECountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= 25
@@ -2579,10 +2598,13 @@ RequirementNode/Name/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1
 RequirementNode/Name/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=CountUnit(StrikelingSpawner,QueuedOrBetter) < {Max Reached}(30 + (30 * CountUpgrade(DoubleStrikelings,CompleteOnly)))
 RequirementNode/Name/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) < {Maxed}40
 RequirementNode/Name/LT2011835200CountUnitChaosLordQueuedOrBetter1=CountUnit(ChaosLord,QueuedOrBetter) < {You can only have 1 Chaos Lord!}1
+RequirementNode/Name/LT2063414812CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter5=CountBehavior(TorraliskRoachCountDummyStack,QueuedOrBetter) < {You cant have more than 5 Torralisks!}5
 RequirementNode/Name/LT2473741311CountUnitRavager2QueuedOrBetter30=CountUnit(Ravager2,QueuedOrBetter) < {Have Less Than 30}30
 RequirementNode/Name/LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60=(CountUnit(InfestedBunker,QueuedOrBetter) + ()) < {Max 60}60
 RequirementNode/Name/LT3437118427CountUnitLoveMoralesQueuedOrBetter2=CountUnit(LoveMorales,QueuedOrBetter) < {You can only have two Love Morales Healers!}2
 RequirementNode/Name/LT381415482CountUnitTarRoachQueuedOrBetter100=CountUnit(TarRoach,QueuedOrBetter) < {Have Less Than 100}100
+RequirementNode/Name/LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20=CountBehavior(BanelingCountDummyStack,QueuedOrBetter) < {You cant have more than 20 Banelings!}20
+RequirementNode/Name/LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10=CountBehavior(InfusedRoachCountDummyStack,QueuedOrBetter) < {You cant have more than 10 Infused Roaches!}10
 RequirementNode/Name/LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80=CountBehavior(FirelingCountDummyStack,QueuedOrBetter) < {You cant have more than 80 Firelings!}80
 RequirementNode/Name/LT518456723SumCountUnitGasVentQueuedOrBetter20=(CountUnit(GasVent,QueuedOrBetter) + ()) < {Max 20}20
 RequirementNode/Name/LT831937892CountUnitProbiusPylonQueuedOrBetter3=CountUnit(ProbiusPylon,QueuedOrBetter) < {You can only have three pylons.}3

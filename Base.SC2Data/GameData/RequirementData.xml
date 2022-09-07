@@ -30,6 +30,9 @@
     <CRequirement id="SpawnFirelings">
         <NodeArray index="Use" Link="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80"/>
     </CRequirement>
+    <CRequirement id="SpawnTorraliskTerrazine">
+        <NodeArray index="Use" Link="AndGTE654834784CountUnitTerrazineTankCompleteOnly4LT2063414812CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter5"/>
+    </CRequirement>
     <CRequirement id="SpawnTier1Delay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3785646695"/>
     </CRequirement>
@@ -38,6 +41,9 @@
     </CRequirement>
     <CRequirement id="SpawnTier33v3">
         <NodeArray index="Use" Link="GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
+    </CRequirement>
+    <CRequirement id="SpawnInfusedTerrazine">
+        <NodeArray index="Use" Link="AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10"/>
     </CRequirement>
     <CRequirement id="SpawnTier4Delay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3917906240GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
@@ -49,7 +55,7 @@
         <NodeArray index="Use" Link="GTE4046891914CountUnitTerrazineTankCompleteOnly4"/>
     </CRequirement>
     <CRequirement id="SpawnBanelingsTerrazine3v3">
-        <NodeArray index="Use" Link="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndGTE2803542675CountUnitTerrazineTankCompleteOnly1LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20"/>
     </CRequirement>
     <CRequirement id="SpawnTier5Delay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly736508412GTE4046891914CountUnitTerrazineTankCompleteOnly4"/>
