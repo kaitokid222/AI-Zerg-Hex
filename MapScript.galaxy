@@ -16866,7 +16866,20 @@ bool gt_FirelingDies_Func (bool testConds, bool runActions) {
     }
 
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    UnitBehaviorRemove(lv_zcc, "FirelingCountDummyStack", 1);
+    if ((lv_zcc != null)) {
+        UnitBehaviorRemove(lv_zcc, "FirelingCountDummyStack", 1);
+    }
+    else {
+        if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings > 0)) {
+            if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings == 1)) {
+                gv_zcc_stack_backup[lv_terran_id].lv_firelings = 0;
+            }
+            else {
+                gv_zcc_stack_backup[lv_terran_id].lv_firelings = (gv_zcc_stack_backup[lv_terran_id].lv_firelings - 1);
+            }
+        }
+
+    }
     return true;
 }
 
