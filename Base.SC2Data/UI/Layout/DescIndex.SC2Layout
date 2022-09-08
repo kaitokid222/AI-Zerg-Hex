@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
     <Include path="UI/Layout/TimeLabelCustom.SC2Layout"/>
+	<Include path="UI/Layout/HtmlLoadScreen.SC2Layout" requiredtoload="IS_EDITOR"/>
 </Desc>

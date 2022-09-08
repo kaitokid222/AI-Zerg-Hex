@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+	<Constant name="MapName" val="AI Zerg Hex"/>
+	<Constant name="Tab1Name" val="Info"/>
+	<Constant name="Tab1Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
+	<Constant name="Tab1On" val="True"/>
+	<Constant name="Tab1Txt" val="Terran:&lt;n/&gt;
+		- Build farms for income&lt;n/&gt;
+		- Secure geysers&lt;n/&gt;
+		- Upgrade the generator to supply your energy weapons&lt;n/&gt;
+		- Destroy the zerg spawners&lt;n/&gt;&lt;n/&gt;
+Commands:&lt;n/&gt;
+		-help, -info, -elo, &lt;n/&gt;
+		-rtv or -rock the vote to start an event.&lt;n/&gt;&lt;n/&gt;
+		Win events on expert or higher difficulty for Elite Marine Skins.&lt;n/&gt;
+		In casual mode you can control a strong unit after your CC died.&lt;n/&gt;
+		Stay and support your team.
+		"/>	
+
+	<Constant name="Tab2Name" val="3v3 Info"/>
+	<Constant name="Tab2Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
+	<Constant name="Tab2On" val="True"/>
+	<Constant name="Tab2Txt" val="&lt;n/&gt;The goal of this mode is to kill your sides Hive faster than other team.&lt;n/&gt;Killing zerg units gains you Terrazine which you can use to spawn controlable Zerg units pn the other side of the map.&lt;n/&gt;Try to build the Zerg Control Center as fast as possible.&lt;n/&gt;The Construction Yard provides an upgrade to get Terrazine even faster."/>
+
+	<Constant name="Tab3Name" val="Credits"/>
+	<Constant name="Tab3Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
+	<Constant name="Tab3On" val="True"/>
+	<Constant name="Tab3Txt" val="&lt;n/&gt;Originally by WMaster!&lt;n/&gt;Based on Zerg Hex v4.9&lt;n/&gt;3v3-Mode by MisterTwo"/>
+
+	<Constant name="Tab4Name" val="Extra Info"/>
+	<Constant name="Tab4Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
+	<Constant name="Tab4On" val="False"/>
+	<Constant name="Tab4Txt" val=""/>
+
+	<Constant name="Tab2ExampleImage" val=""/>	
+	<Constant name="CopyText" val="Click to copy link to discord!"/>
+	<Constant name="CopyLink" val="https://discord.gg/E6VkTUNsKU"/>
+
+	<!-- Local Templates -->
+	<Frame type="Frame" name="CopyButtonTemplate">
+		<Width val="288"/>
+		<Height val="152"/>
+
+		<Frame type="CopyClipboardButton" name="ClipBoardBtn">
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			
+			<ClipboardText val="#CopyLink"/>
+			<DisplayType val="ImageLayer"/>
+			<ClickSound val="@UI_ActionButtonSelect"/>
+			<HoverSound val="@UI_HoverTick"/>
+			<Width val="288"/>
+			<Height val="76"/>
+
+			<Frame type="Image" name="NormalImage">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+				<StateCount val="1"/>
+				<LayerCount val="4"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Normal" layer="0"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Down" layer="1"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Selected" layer="2"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Disabled" layer="3"/>
+				<TextureType val="EndCap" layer="0"/>
+				<TextureType val="EndCap" layer="1"/>
+				<TextureType val="EndCap" layer="2"/>
+				<TextureType val="EndCap" layer="3"/>
+				<Tiled val="true"/>
+				<DesaturateOnDisable val="false"/>
+			</Frame>
+
+			<Frame type="Image" name="HoverImage">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+				<StateCount val="1"/>
+				<LayerCount val="4"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Hover" layer="0"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Down" layer="1"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Selected" layer="2"/>
+				<Texture val="@UI/Glues_Battlenet_StandardButton_Disabled" layer="3"/>
+				<TextureType val="EndCap" layer="0"/>
+				<TextureType val="EndCap" layer="1"/>
+				<TextureType val="EndCap" layer="2"/>
+				<TextureType val="EndCap" layer="3"/>
+				<Tiled val="true"/>
+				<DesaturateOnDisable val="false"/>
+			</Frame>
+
+			<Frame type="Label" name="Label">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+				<Style val="BattlenetStandardButton"/>
+				<Text val="#CopyText"/>
+			</Frame>
+
+			<Frame type="Frame" name="HitTestFrame">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			</Frame>			
+		</Frame>	
+
+		<Frame type="Frame" name="Popup">
+			<Anchor side="Bottom" relative="$parent/ClipBoardBtn" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/ClipBoardBtn" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent/ClipBoardBtn" pos="Max" offset="0"/>
+			<Width val="288"/>
+			<Height val="76"/>
+			<Alpha val="0"/>	
+			
+			<Frame type="Image" name="GameplayBackground">
+				<Anchor relative="$parent"/>
+				<TextureType val="Nineslice"/>
+				<Texture val="@UI/SC2_UI_Coop_Loading_GameplayBg"/>
+			</Frame>
+			
+			<Frame type="Label" name="Header">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+				<Style val="BattlenetAlternateButton"/>
+				<Text val="Link copied to clipboard!"/>
+			</Frame>
+			
+			<Animation name="Show">
+				<Event event="OnClick" action="Reset,Play" frame="$parent/ClipBoardBtn"/>
+					 
+				<Controller type="Fade" end="Pause">
+					<Key type="Curve" time="0" value="0" in="Slow"/>
+					<Key type="Curve" time="0.5" value="255" in="Slow"/>
+					<Key type="Curve" time="5" value="255" in="Slow"/>
+					<Key type="Curve" time="5.5" value="0" in="Slow"/>					
+				</Controller>
+				<Controller type="Dimension" dimension="Width" relative="False" percentage="True" end="Pause">
+					<Key type="Curve" time="0" value="0"/>
+					<Key type="Curve" time="0.5" value="100"/>
+					<Key type="Curve" time="5" value="100"/>
+					<Key type="Curve" time="5.5" value="0"/>					
+				</Controller>	
+				<Controller type="Dimension" dimension="Height" relative="False" percentage="True" end="Pause">
+					<Key type="Curve" time="0" value="0"/>
+					<Key type="Curve" time="0.5" value="100"/>
+					<Key type="Curve" time="5" value="100"/>
+					<Key type="Curve" time="5.5" value="0"/>					
+				</Controller>					
+			</Animation>	
+			
+		</Frame>
+	</Frame>
+
+	<Frame type="Button" name="TabButtonTemplate">
+		<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+		<Anchor side="Bottom" relative="$parent" pos="Mid" offset="-5"/>
+		<Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+
+		<Height val="55"/>
+		<Width val="200"/>
+
+		<NormalImage val="NormalImage"/>
+		<HoverImage val="HoverImage"/>
+		<Label val="Label"/>
+		<HitTestFrame val="HitTestFrame"/>
+		<ClickSound val="@UI_ActionButtonSelect"/>
+		<Toggleable val="true"/>
+
+		<Frame type="Image" name="NormalImage">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Texture val="@@UI/StandardBattlenetMediumButtonNormal"/>
+			<TextureType val="EndCap"/>
+			<Tiled val="true"/>
+			<StateCount val="2"/>
+			<DesaturateOnDisable val="false"/>
+			<DisabledAlpha val="64"/>
+			<DescFlags val="Internal"/>
+		</Frame>
+
+		<Frame type="Image" name="HoverImage">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Texture val="@@UI/StandardBattlenetMediumButtonHover"/>
+			<TextureType val="EndCap"/>
+			<Tiled val="true"/>
+			<StateCount val="2"/>
+			<DescFlags val="Internal"/>
+		</Frame>
+
+		<Frame type="Label" name="Label">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Style val="BattlenetStandardButton"/>
+			<DisabledAlpha val="40"/>
+			<DescFlags val="Internal"/>
+			<Text val="Description"/>
+		</Frame>
+
+		<Frame type="Frame" name="HitTestFrame">
+			<TooltipAnchorPosition val="TopCenter"/>
+			<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<DescFlags val="Internal"/>
+		</Frame>
+		
+		<Animation name="ChangeBG">
+			<Event event="OnClick" action="Reset,Play" frame="$this"/>
+				
+			<Controller type="Texture" end="Pause" frame="$parent/$parent/$parent/LoadScreenImage">
+				<Key type="Image" time="0" image="#Tab1Img"/>
+			</Controller>
+		</Animation>	
+	</Frame>
+
+	<Frame type="Frame" name="PanelTemplate">
+		<Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+		<Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+		<Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+		<Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+		
+		<Frame type="BlurFrame" name="BackgroundBlur">
+			<Anchor relative="$parent"/>
+			<BlurAmount val="0.35"/>
+			<Alpha val="255"/>          
+		</Frame>	
+
+		<Frame type="Image" name="Background1">
+			<Anchor relative="$parent"/>
+			<TextureType val="Nineslice"/>
+			<Texture val="Assets/Textures/ui_observer_custom_map_container.dds"/>
+			<Alpha val="150"/>	
+		</Frame>
+		
+		<Frame type="Image" name="Background2">
+			<Anchor relative="$parent"/>
+			<TextureType val="Nineslice"/>
+			<Texture val="Assets/Textures/ui_battlenet_glues_achievement_fanfare_achievementcontainer_prot.dds"/>
+		</Frame>
+		
+		<Frame type="ScrollableFrame" name="ScrollableList">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+
+			<AcceptsMouse val="true"/>
+			<Constant name="CommandButtonGap" val="1"/>
+			<Constant name="HGap" val="30"/>
+			<CollapseLayout val="true"/>
+
+			<Frame type="Frame" name="ContainerFrame">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+				<Anchor side="Bottom" relative="$this/ContentFrame/ContentsBottom" pos="Max" offset="2"/>
+				<Height val="225"/>		
+				<CollapseLayout val="true"/>
+
+				<Frame type="Frame" name="ContentFrame">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+					<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+
+					<Frame type="Frame" name="ContentsBottom">
+						<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Bottom" relative="$parent" pos="Min" offset="0"/>
+						<Height val="1"/>			
+					</Frame>							
+				</Frame>
+			</Frame>
+			
+			<Frame type="ScrollBar" name="ScrollBar">
+				<Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+				<Anchor side="Top" relative="$parent" pos="Min" offset="10"/>			
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+
+				<StepValue val="10"/>
+				<Continuous val="true"/>
+				<Visible val="true"/>
+				<Width val="20"/>
+				<RenderPriority val="600"/>
+				<Orientation val="Vertical"/>
+				
+				<Frame type="Image" name="Image">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+					<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>							
+					<Texture val="Assets/Textures/ui_observer_custom_map_container.dds"/>
+					<TextureType val="Normal"/>
+					<Tiled val="true"/>
+					<Alpha val="0"/>
+				</Frame>
+
+				<Frame type="Button" name="Button">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+					<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+					
+					<Height val="20"/>
+					
+					<Frame type="Image" name="NormalImage">
+						<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+						<Height val="20"/>
+						<Texture val="Assets/Textures/ui_observer_custom_map_container.dds"/>
+						<TextureType val="NineSlice"/>
+						<Tiled val="false"/>
+						<Height val="20"/>
+					</Frame>
+
+					<Frame type="Image" name="HoverImage">
+						<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+						<Height val="20"/>
+						
+						<Texture val="Assets/Textures/ui_observer_custom_map_container.dds"/>
+						<TextureType val="NineSlice"/>
+						<Tiled val="false"/>
+						
+					</Frame>
+				</Frame>	
+			</Frame>				
+		</Frame>
+	</Frame>
+
+	<Frame type="Frame" name="HtmlLoadingScreen">
+		<Anchor relative="$parent"/>
+		<Frame type="Image" name="LoadScreenImage">
+			<Anchor relative="$parent"/>									
+			<Texture val="#Tab1Img"/>
+		</Frame>
+		<Frame type="Image" name="Preload1">
+			<Anchor relative="$parent"/>
+			<Texture val="#Tab2Img"/>
+			<Visible val="False"/>
+		</Frame>
+		<Frame type="Image" name="Preload2">
+			<Anchor relative="$parent"/>
+			<Texture val="#Tab3Img"/>
+			<Visible val="False"/>
+		</Frame>
+		<Frame type="Image" name="Preload3">
+			<Anchor relative="$parent"/>
+			<Texture val="#Tab4Img"/>
+			<Visible val="False"/>
+		</Frame>
+		<Frame type="Image" name="Preload4">
+			<Anchor relative="$parent"/>
+			<Texture val="Assets/Textures/ui_void_mission_genericborder.dds"/>
+			<Visible val="False"/>
+		</Frame>										
+		<Frame type="Label" name="Lbl_Title">
+			<Anchor side="Bottom" relative="$parent/InfoTabController" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Style val="Coop_Loading_Title"/>
+			<Text val="#MapName"/>
+			<Width val="950"/>
+			<Height val="90"/>			
+		</Frame>		
+        <Frame type="TabControl" name="InfoTabController">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+			<Width val="950"/>
+			<Height val="540"/>
+
+            <TabListItem val="$this/TabButtonsContainer/Button01"/>
+            <TabListItem val="$this/TabButtonsContainer/Button02"/>
+            <TabListItem val="$this/TabButtonsContainer/Button03"/>
+            <TabListItem val="$this/TabButtonsContainer/Button04"/>
+            <PanelListItem val="$this/PanelsContainer/Panel01"/>
+            <PanelListItem val="$this/PanelsContainer/Panel02"/>
+            <PanelListItem val="$this/PanelsContainer/Panel03"/>
+            <PanelListItem val="$this/PanelsContainer/Panel04"/>
+
+            <Frame type="Frame" name="TabButtonsContainer">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="86"/>
+
+			    <Frame type="Button" name="Button01" template="HtmlLoadScreen/TabButtonTemplate">
+					<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+					<Anchor side="Bottom" relative="$parent" pos="Mid" offset="-5"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+					<Visible val="#Tab1On"/>
+
+					<Frame type="Label" name="Label">
+						<Text val="#Tab1Name"/>
+					</Frame>
+
+					<Animation name="ChangeBG">
+						<Event event="OnClick" action="Reset,Play" frame="$this"/>
+						 
+						<Controller type="Texture" end="Pause" frame="$parent/$parent/$parent/LoadScreenImage">
+						   <Key type="Image" time="0" image="#Tab1Img"/>
+						</Controller>
+					</Animation>	
+				</Frame> 
+
+			    <Frame type="Button" name="Button02" template="HtmlLoadScreen/TabButtonTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Button01" pos="Max" offset="5"/>
+					<Visible val="#Tab2On"/>
+
+					<Frame type="Label" name="Label">
+						<Text val="#Tab2Name"/>
+					</Frame>
+					
+					<Animation name="ChangeBG">
+						<Event event="OnClick" action="Reset,Play"/>
+						 
+						<Controller type="Texture" end="Pause"  frame="$parent/$parent/$parent/LoadScreenImage">
+						   <Key type="Image" time="0" image="#Tab2Img"/>
+						</Controller>
+					</Animation>						
+				</Frame> 				
+
+			    <Frame type="Button" name="Button03" template="HtmlLoadScreen/TabButtonTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Button02" pos="Max" offset="5"/>
+					<Visible val="#Tab3On"/>
+
+					<Frame type="Label" name="Label">
+						<Text val="#Tab3Name"/>
+					</Frame>
+					
+					<Animation name="ChangeBG">
+						<Event event="OnClick" action="Reset,Play"/>
+						 
+						<Controller type="Texture" end="Pause" frame="$parent/$parent/$parent/LoadScreenImage">
+						   <Key type="Image" time="0" image="#Tab3Img"/>
+						</Controller>
+					</Animation>					
+				</Frame> 				
+
+				<Frame type="Button" name="Button04" template="HtmlLoadScreen/TabButtonTemplate">
+					<Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+					<Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+					<Anchor side="Left" relative="$parent/Button03" pos="Max" offset="5"/>
+					<Visible val="#Tab4On"/>
+
+					<Frame type="Label" name="Label">
+						<Text val="#Tab4Name"/>			
+					</Frame>
+
+					<Animation name="ChangeBG">
+						<Event event="OnClick" action="Reset,Play"/>
+						 
+						<Controller type="Texture" end="Pause" frame="$parent/$parent/$parent/LoadScreenImage">
+						   <Key type="Image" time="0" image="#Tab4Img"/>
+						</Controller>
+					</Animation>						
+				</Frame> 
+            </Frame>
+
+            <Frame type="Frame" name="PanelsContainer">
+                <Anchor side="Top" relative="$parent/TabButtonsContainer" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+                <Frame type="Frame" name="Panel01" template="HtmlLoadScreen/PanelTemplate">
+					<Frame type="ScrollableFrame" name="ScrollableList">
+						<Frame type="Frame" name="ContainerFrame">
+							<Frame type="Frame" name="ContentFrame">
+								<Frame type="Label" name="Lbl_Body">
+									<Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+									<Width val="800"/>				
+									<Style val="LoadingScreenMission"/>
+									<Text val="#Tab1Txt"/>
+								</Frame>	
+								<Frame type="Frame" name="ContentsBottom">
+									<Anchor side="Bottom" relative="$parent/Lbl_Body" pos="Max" offset="0"/>
+								</Frame>	
+							</Frame>
+						</Frame>			
+					</Frame>
+				</Frame>
+
+				<Frame type="Frame" name="Panel02" template="HtmlLoadScreen/PanelTemplate">
+					<Frame type="ScrollableFrame" name="ScrollableList">
+						<Frame type="Frame" name="ContainerFrame">
+							<Frame type="Frame" name="ContentFrame">
+
+								<Frame type="Label" name="Lbl_Body">
+									<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+									<Width val="800"/>		
+																
+									<Style val="LoadingScreenMission"/>
+									<Text val="#Tab2Txt"/>
+								</Frame>
+
+								<Frame type="Image" name="ExampleImage">
+									<Anchor side="Top" relative="$parent/Lbl_Body" pos="Max" offset="0"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+									<Width val="0"/>
+									<Height val="0"/>								
+									<Texture val="#Tab2ExampleImage"/>
+								</Frame>								
+
+								<Frame type="Frame" name="ContentsBottom">
+									<Anchor side="Bottom" relative="$parent/ExampleImage" pos="Max" offset="0"/>
+								</Frame>	
+							</Frame>
+						</Frame>			
+					</Frame>
+				</Frame>
+
+				<Frame type="Frame" name="Panel03" template="HtmlLoadScreen/PanelTemplate">
+					<Frame type="ScrollableFrame" name="ScrollableList">
+						<Frame type="Frame" name="ContainerFrame">
+							<Frame type="Frame" name="ContentFrame">
+								<Frame type="Label" name="Lbl_Body">
+									<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+									<Width val="800"/>	
+
+									<Style val="LoadingScreenMission"/>
+									<Text val="#Tab3Txt"/>
+								</Frame>
+
+								<Frame type="Frame" name="CopyDiscord" template="HtmlLoadScreen/CopyButtonTemplate">
+									<Anchor side="Top" relative="$parent/Lbl_Body" pos="Max" offset="0"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+
+									<Frame type="CopyClipboardButton" name="ClipBoardBtn">
+										<ClipboardText val="#CopyLink"/>
+							
+										<Frame type="Label" name="Label">
+											<Text val="#CopyText"/>
+										</Frame>		
+									</Frame>	
+								
+									<Frame type="Frame" name="Popup">
+										<Frame type="Label" name="Header">
+											<Text val="Link copied to clipboard!"/>
+										</Frame>	
+									</Frame>
+								</Frame>								
+
+								<Frame type="Frame" name="ContentsBottom">
+									<Anchor side="Bottom" relative="$parent/CopyDiscord" pos="Max" offset="0"/>
+								</Frame>	
+							</Frame>
+						</Frame>			
+					</Frame>
+				</Frame>
+
+				<Frame type="Frame" name="Panel04" template="HtmlLoadScreen/PanelTemplate">
+					<Frame type="ScrollableFrame" name="ScrollableList">
+						<Frame type="Frame" name="ContainerFrame">
+							<Frame type="Frame" name="ContentFrame">
+								<Frame type="Label" name="Lbl_Body">
+									<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+									<Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+									<Width val="800"/>		
+																
+									<Style val="LoadingScreenMission"/>
+									<Text val="#Tab4Txt"/>
+								</Frame>
+								
+								<Frame type="Frame" name="ContentsBottom">
+									<Anchor side="Bottom" relative="$parent/Lbl_Body" pos="Max" offset="0"/>
+								</Frame>	
+							</Frame>
+						</Frame>			
+					</Frame>
+				</Frame>			
+            </Frame>
+        </Frame>
+
+		<StateGroup name="Visible">
+			<State name="DisableHelpTip">
+				<When type="Property" frame="$parent/$parent/LoadingHelpLabel" Visible="True"/>
+				<Action type="SetProperty" frame="$parent/$parent/LoadingHelpLabel" Visible="False"/>
+				<Action type="SetProperty" frame="$parent/$parent/LoadingHelpBackgroundImage" Alpha="0"/>
+				<Action type="SendEvent" frame="$parent/Zergling" event="Start"/>
+			</State>
+			<State name="DisableHelpTipKRNGL">
+				<When type="Property" frame="$parent/$parent/LoadingHelpLabel" Visible="True"/>
+				<Action type="SetProperty" frame="$parent/$parent/LoadingLegalLabelKRNGL" Visible="False"/>
+				<Action type="SetProperty" frame="$parent/$parent/LoadingLegalBackgroundImageKRNGL" Alpha="0"/>
+				<Action type="SendEvent" frame="$parent/Zergling" event="Start"/>
+			</State>
+		</StateGroup>
+	</Frame>
+</Desc>
