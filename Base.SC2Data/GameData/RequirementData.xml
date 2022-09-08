@@ -25,7 +25,7 @@
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>
     <CRequirement id="SpawnBanelingsDelay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3120976078GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
+        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3861650221GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
     </CRequirement>
     <CRequirement id="SpawnFirelings">
         <NodeArray index="Use" Link="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80"/>

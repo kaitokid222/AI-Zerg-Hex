@@ -5,7 +5,7 @@
         <Effect index="0" value="SpawnInfusedDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="265"/>
+            <Resource index="Terrazine" value="550"/>
             <Cooldown TimeUse="25"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnInfusedTerrazine"/>
@@ -16,8 +16,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnRavDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="135"/>
-            <Cooldown TimeUse="12"/>
+            <Resource index="Terrazine" value="225"/>
+            <Charge Link="Abil/3v3SpawnRavator2"/>
+            <Cooldown Link="Abil/3v3SpawnRavator2" TimeUse="10"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRavator3v3" Requirements="SpawnTier2Delay3v3"/>
     </CAbilEffectInstant>
@@ -25,8 +26,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfusedDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="265"/>
-            <Cooldown TimeUse="25"/>
+            <Resource index="Terrazine" value="550"/>
+            <Charge Link="Abil/3v3SpawnInfusedRoach2"/>
+            <Cooldown Link="Abil/3v3SpawnInfusedRoach2" TimeUse="25"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnTier3Delay3v3"/>
     </CAbilEffectInstant>
@@ -35,8 +37,8 @@
         <Effect index="0" value="SpawnRavDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="135"/>
-            <Cooldown TimeUse="12"/>
+            <Resource index="Terrazine" value="225"/>
+            <Cooldown TimeUse="10"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -47,7 +49,7 @@
         <Effect index="0" value="SpawnTorraDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="600"/>
+            <Resource index="Terrazine" value="1200"/>
             <Cooldown TimeUse="40"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTorraliskTerrazine"/>
@@ -382,8 +384,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnTorraDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="600"/>
-            <Cooldown TimeUse="40"/>
+            <Resource index="Terrazine" value="1200"/>
+            <Charge Link="Abil/3v3SpawnTorralisk2"/>
+            <Cooldown Link="Abil/3v3SpawnTorralisk2" TimeUse="40"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTier5Delay3v3"/>
     </CAbilEffectInstant>
@@ -393,10 +396,10 @@
         <Cost>
             <Resource index="Terrazine" value="300"/>
             <Charge>
-                <CountMax value="10"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="20"/>
-                <TimeUse value="20"/>
+                <TimeStart value="60"/>
+                <TimeUse value="60"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
@@ -408,11 +411,13 @@
         <Cost>
             <Resource index="Terrazine" value="300"/>
             <Charge>
-                <CountMax value="10"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="20"/>
-                <TimeUse value="20"/>
+                <Link value="Abil/SpawnBanelingGroup"/>
+                <TimeStart value="60"/>
+                <TimeUse value="60"/>
             </Charge>
+            <Cooldown Link="Abil/SpawnBanelingGroup"/>
         </Cost>
         <AINotifyEffect value="SpawnBanelingGroup"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier4Delay3v3"/>
@@ -421,12 +426,12 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="250"/>
+            <Resource index="Terrazine" value="500"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="20"/>
-                <TimeUse value="20"/>
+                <TimeStart value="60"/>
+                <TimeUse value="60"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3"/>
@@ -435,8 +440,15 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="250"/>
-            <Cooldown TimeUse="20"/>
+            <Resource index="Terrazine" value="500"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <Link value="Abil/SpawnInfestor3v3"/>
+                <TimeStart value="60"/>
+                <TimeUse value="60"/>
+            </Charge>
+            <Cooldown Link="Abil/SpawnInfestor3v3"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="SpawnTier1Delay3v3"/>
     </CAbilEffectInstant>
@@ -445,8 +457,8 @@
         <Effect index="0" value="SpawnBrutaDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="140"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="225"/>
+            <Cooldown TimeUse="6"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -457,8 +469,9 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="140"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="225"/>
+            <Charge Link="Abil/SpawnBruta3v3"/>
+            <Cooldown Link="Abil/SpawnBruta3v3" TimeUse="6"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -470,8 +483,8 @@
         <Effect index="0" value="SpawnBeastlingDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="80"/>
-            <Cooldown TimeUse="3"/>
+            <Resource index="Terrazine" value="175"/>
+            <Cooldown TimeUse="5"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -482,8 +495,9 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="80"/>
-            <Cooldown TimeUse="3"/>
+            <Resource index="Terrazine" value="175"/>
+            <Charge Link="Abil/SpawnBeastling3v3"/>
+            <Cooldown Link="Abil/SpawnBeastling3v3" TimeUse="5"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -495,8 +509,9 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="56"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="175"/>
+            <Charge Link="Abil/SpawnUltra3v3"/>
+            <Cooldown Link="Abil/SpawnUltra3v3" TimeUse="7"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -508,8 +523,8 @@
         <Effect index="0" value="SpawnUltraDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="56"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="175"/>
+            <Cooldown TimeUse="7"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -520,8 +535,8 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="31"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="100"/>
+            <Cooldown TimeUse="10"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -532,8 +547,8 @@
         <Effect index="0" value="SpawnPrimalDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="42"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="125"/>
+            <Cooldown TimeUse="8"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -544,8 +559,9 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="42"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="125"/>
+            <Charge Link="Abil/SpawnPrimal3v3"/>
+            <Cooldown Link="Abil/SpawnPrimal3v3" TimeUse="8"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -557,8 +573,8 @@
         <Effect index="0" value="SpawnTanklingDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="20"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="100"/>
+            <Cooldown TimeUse="10"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -568,8 +584,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="31"/>
-            <Cooldown TimeUse="2"/>
+            <Resource index="Terrazine" value="100"/>
+            <Charge Link="Abil/SpawnRoach3v3"/>
+            <Cooldown Link="Abil/SpawnRoach3v3" TimeUse="10"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -605,10 +622,10 @@
         <Cost>
             <Resource index="Terrazine" value="250"/>
             <Charge>
-                <CountMax value="10"/>
+                <CountMax value="16"/>
                 <CountUse value="1"/>
-                <TimeStart value="12"/>
-                <TimeUse value="12"/>
+                <TimeStart value="30"/>
+                <TimeUse value="30"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="Spawn5Firelings" Requirements="SpawnFirelings"/>

@@ -5282,7 +5282,6 @@ void gf_enable_3v3_spawn () {
             auto3AB7AA1F_var = PlayerGroupNextPlayer(auto3AB7AA1F_g, auto3AB7AA1F_var);
             if (auto3AB7AA1F_var < 0) { break; }
             TechTreeAbilityAllow(auto3AB7AA1F_var, AbilityCommand("3v3SpawnRavatorDummy", 0), false);
-            TechTreeAbilityAllow(auto3AB7AA1F_var, AbilityCommand("SpawnBanelingGroupDummy", 0), false);
             TechTreeAbilityAllow(auto3AB7AA1F_var, AbilityCommand("SpawnRoachDummy3v3", 0), false);
         }
     }
@@ -5293,6 +5292,7 @@ void gf_enable_3v3_spawn () {
         while (true) {
             autoE3496237_var = PlayerGroupNextPlayer(autoE3496237_g, autoE3496237_var);
             if (autoE3496237_var < 0) { break; }
+            TechTreeAbilityAllow(autoE3496237_var, AbilityCommand("SpawnBanelingGroupDummy", 0), false);
             TechTreeAbilityAllow(autoE3496237_var, AbilityCommand("3v3SpawnInfusedRoachDummy", 0), false);
             TechTreeAbilityAllow(autoE3496237_var, AbilityCommand("SpawnPrimalDummy3v3", 0), false);
             TechTreeUpgradeAddLevel(gv_players[autoE3496237_var].lv__3v3_zerg_pid, "ZergArmor3", 1);
@@ -14084,7 +14084,7 @@ void gf_get_attackup () {
         TechTreeUpgradeAddLevel(7, "ZergAttack", lv_upcnt);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel((lv_i + 7), "ZergAttack", lv_upcnt);
+                TechTreeUpgradeAddLevel(gv_players[lv_i].lv__3v3_zerg_pid, "ZergAttack", lv_upcnt);
                 lv_i = (lv_i + 1);
             }
         }
@@ -14119,7 +14119,7 @@ void gf_get_speed () {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
         if ((gf_is_3v3() == true)) {
             while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel((lv_i + 7), "ZergMovement", 1);
+                TechTreeUpgradeAddLevel(gv_players[lv_i].lv__3v3_zerg_pid, "ZergMovement", 1);
                 lv_i = (lv_i + 1);
             }
         }
@@ -16657,7 +16657,7 @@ bool gt_SpawnTankling3v3_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Tankling");
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Tankling");
     return true;
 }
 

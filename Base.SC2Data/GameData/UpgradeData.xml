@@ -259,7 +259,7 @@
         <EffectArray Reference="Unit,Fireling,LifeMax" Value="15"/>
         <EffectArray Reference="Effect,BurningDamage,Amount" Value="1"/>
         <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research10].Charge.CountMax" Value="1"/>
-        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research10].Resource[Terrazine]" Value="100"/>
+        <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research10].Resource[Terrazine]" Value="200"/>
         <EffectArray Reference="Unit,Fireling,LifeStart" Value="15"/>
         <EffectArray Reference="Unit,FirelingBurrowed,LifeMax" Value="15"/>
         <EffectArray Reference="Unit,FirelingBurrowed,LifeStart" Value="15"/>

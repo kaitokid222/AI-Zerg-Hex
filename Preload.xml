@@ -28,12 +28,15 @@
 <Actor id="RockSmall" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
 <Actor id="XilSpireLarge" Variations="3"/>
 <Behavior id="InfestedVisual"/>
+<Behavior id="InfusedRoachCountDummyStack"/>
 <Behavior id="FirelingCountDummyStack"/>
 <Behavior id="ChaosLordStacks"/>
 <Behavior id="BloodStacks"/>
 <Behavior id="ConsumedBlood"/>
 <Behavior id="ConsumedBlood2"/>
 <Behavior id="ConsumedBlood3"/>
+<Behavior id="BanelingCountDummyStack"/>
+<Behavior id="TorraliskRoachCountDummyStack"/>
 <Behavior id="EarlyDeathDebuff"/>
 <Behavior id="MedivacTimedLife"/>
 <Behavior id="GeneratorUpgrades1"/>
@@ -108,9 +111,6 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
-<Behavior id="BanelingCountDummyStack"/>
-<Behavior id="InfusedRoachCountDummyStack"/>
-<Behavior id="TorraliskRoachCountDummyStack"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
