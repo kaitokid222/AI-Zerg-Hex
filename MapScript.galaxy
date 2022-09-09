@@ -5879,7 +5879,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 bool gf_is_overseer (unit lp_unit) {
@@ -16678,7 +16678,7 @@ bool gt_SpawnRoach3v3_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Roach2");
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Roach2");
     return true;
 }
 
@@ -16699,7 +16699,7 @@ bool gt_SpawnPrimal3v3_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "PrimalRoach2");
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "PrimalRoach2");
     return true;
 }
 
@@ -16720,7 +16720,7 @@ bool gt_SpawnUltra3v3_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Ultralisk2");
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Ultralisk2");
     return true;
 }
 
@@ -16741,7 +16741,7 @@ bool gt_SpawnBruta3v3_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Brutalisk2");
+    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Brutalisk2");
     return true;
 }
 
