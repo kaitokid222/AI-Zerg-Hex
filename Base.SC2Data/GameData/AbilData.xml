@@ -394,7 +394,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="300"/>
+            <Resource index="Terrazine" value="600"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -402,7 +402,7 @@
                 <TimeUse value="60"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier33v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroupDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -420,7 +420,7 @@
             <Cooldown Link="Abil/SpawnBanelingGroup"/>
         </Cost>
         <AINotifyEffect value="SpawnBanelingGroup"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier4Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier3Delay3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnInfestor3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
