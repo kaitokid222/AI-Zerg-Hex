@@ -4592,6 +4592,11 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_zerg_rally_minus_on, lv_on_off);
     TriggerEnable(gt_zerg_rally_plus_on, lv_on_off);
     TriggerEnable(gt_relocate_spawners_rally_action, lv_on_off);
+    TriggerEnable(gt_zccdies, lv_on_off);
+    TriggerEnable(gt_zccbuilt, lv_on_off);
+    TriggerEnable(gt_BanelingDies, lv_on_off);
+    TriggerEnable(gt_InfusedRoachDies, lv_on_off);
+    TriggerEnable(gt_TorraliskDies, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -5879,7 +5884,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 bool gf_is_overseer (unit lp_unit) {
@@ -16894,6 +16899,7 @@ bool gt_zccdies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_zccdies_Init () {
     gt_zccdies = TriggerCreate("gt_zccdies_Func");
+    TriggerEnable(gt_zccdies, false);
     TriggerAddEventUnitDied(gt_zccdies, null);
 }
 
@@ -16950,6 +16956,7 @@ bool gt_zccbuilt_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_zccbuilt_Init () {
     gt_zccbuilt = TriggerCreate("gt_zccbuilt_Func");
+    TriggerEnable(gt_zccbuilt, false);
     TriggerAddEventUnitConstructProgress(gt_zccbuilt, null, c_unitProgressStageComplete);
 }
 
@@ -17029,6 +17036,7 @@ bool gt_BanelingDies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_BanelingDies_Init () {
     gt_BanelingDies = TriggerCreate("gt_BanelingDies_Func");
+    TriggerEnable(gt_BanelingDies, false);
     TriggerAddEventUnitDied(gt_BanelingDies, null);
 }
 
@@ -17068,6 +17076,7 @@ bool gt_InfusedRoachDies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_InfusedRoachDies_Init () {
     gt_InfusedRoachDies = TriggerCreate("gt_InfusedRoachDies_Func");
+    TriggerEnable(gt_InfusedRoachDies, false);
     TriggerAddEventUnitDied(gt_InfusedRoachDies, null);
 }
 
@@ -17107,6 +17116,7 @@ bool gt_TorraliskDies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_TorraliskDies_Init () {
     gt_TorraliskDies = TriggerCreate("gt_TorraliskDies_Func");
+    TriggerEnable(gt_TorraliskDies, false);
     TriggerAddEventUnitDied(gt_TorraliskDies, null);
 }
 
