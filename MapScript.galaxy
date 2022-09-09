@@ -5511,7 +5511,7 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
 
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
-    UnitSetTeamColorIndex(lv_flying_rally, PlayerGetColorIndex(lp_player_id, false));
+    UnitSetTeamColorIndex(lv_flying_rally, PlayerGetColorIndex(gv_players[lp_player_id].lv__3v3_nemesis_terran, false));
     UnitSetInfoText2(lv_flying_rally, StringExternal("Param/Value/4FEC16CE"));
     UnitSetCustomValue(lv_flying_rally, 0, lp_player_id);
     UnitSetCustomValue(lv_flying_rally, 1, lv_player_position);
