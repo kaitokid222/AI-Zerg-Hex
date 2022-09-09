@@ -4524,8 +4524,8 @@ void gf_init_3v3 () {
         gf_init_3v3_vision();
         gf_manage_3v3_triggers(true);
         gf_disable_uneeded_triggers_for_3v3();
-        UnitSetPosition(UnitFromId(706616818), PointFromId(665912327), false);
-        UnitSetPosition(UnitFromId(478555519), PointFromId(2019458258), false);
+        UnitSetPosition(UnitFromId(706616818), PointWithOffset(UnitGetPosition(UnitFromId(706616818)), 0.0, -2.0), false);
+        UnitSetPosition(UnitFromId(478555519), PointWithOffset(UnitGetPosition(UnitFromId(478555519)), 0.0, 2.0), false);
         auto90631DD0_g = UnitGroup(null, 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto90631DD0_u = UnitGroupCount(auto90631DD0_g, c_unitCountAll);
         for (;; auto90631DD0_u -= 1) {
