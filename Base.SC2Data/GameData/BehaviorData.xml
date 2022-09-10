@@ -142,6 +142,7 @@
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="5"/>
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
+        <DisableValidatorArray value="PlayerHasGTE4Terrazine"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="TorraliskRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>

@@ -402,14 +402,14 @@
                 <TimeUse value="60"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier33v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroupDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DataCollection value="SpawnBanelingGroup"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="300"/>
+            <Resource index="Terrazine" value="600"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -420,7 +420,7 @@
             <Cooldown Link="Abil/SpawnBanelingGroup"/>
         </Cost>
         <AINotifyEffect value="SpawnBanelingGroup"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnTier3Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsDelay3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnInfestor3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -591,7 +591,7 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="125"/>
+            <Resource index="Terrazine" value="210"/>
             <Charge Link="Abil/SpawnPrimal3v3"/>
             <Cooldown Link="Abil/SpawnPrimal3v3" TimeUse="8"/>
         </Cost>

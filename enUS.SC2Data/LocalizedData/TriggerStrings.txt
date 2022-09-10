@@ -2131,6 +2131,7 @@ Variable/Name/9A83D5C2=i
 Variable/Name/9AA82C5D=tech_score
 Variable/Name/9AAF486A=j
 Variable/Name/9ACD4024=o_position
+Variable/Name/9B2060D0=player_elo
 Variable/Name/9B46AEE0=team
 Variable/Name/9BACF0E1=r
 Variable/Name/9BB9BD5A=possible_positions_special_dead_count

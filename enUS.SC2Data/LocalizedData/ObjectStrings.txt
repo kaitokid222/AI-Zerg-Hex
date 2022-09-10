@@ -3436,6 +3436,7 @@ Validator/Name/NotMobileSquadTrainingResearched=Not Mobile Squad Training Resear
 Validator/Name/NotTransferredTo=Not Transferred To
 Validator/Name/PickupCheckBlood=Pickup Check Blood
 Validator/Name/PlasmaCannonsResearched=Plasma Cannons Researched
+Validator/Name/PlayerHasGTE4Terrazine=Player Has GTE4 Terrazine
 Validator/Name/PlayerHasMinerals15=Player Has Minerals 15
 Validator/Name/PlayerHasVespine5=Player Has Vespene 5
 Validator/Name/PreviousChainedAlreadyInUseByCasterLoopingNetwork=Previous Chained Already In Use By Caster (Looping Network)

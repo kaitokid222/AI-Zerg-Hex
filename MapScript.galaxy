@@ -1358,7 +1358,7 @@ void gf_remove_transmission_units () {
     unit auto6E3BB46A_var;
 
     // Implementation
-    if (((GameGetMissionTime() == 45.0) || (GameGetMissionTime() == (30 + (5 * 60))))) {
+    if (((GameGetMissionTime() == 45.0) || (GameGetMissionTime() == (30 + (11 * 60))))) {
         auto6E3BB46A_g = gv_transmission_units;
         auto6E3BB46A_u = UnitGroupCount(auto6E3BB46A_g, c_unitCountAll);
         for (;; auto6E3BB46A_u -= 1) {
@@ -3847,7 +3847,12 @@ void gf_handle_player_tutorial_stages () {
                         ObjectiveCreateForPlayers(StringExternal("Param/Value/FAAAD3C7"), StringExternal("Param/Value/F324A6BA"), c_objectiveStateActive, true, PlayerGroupSingle(autoBB0CD46E_var));
                     }
                     else if (autoC364A719_val == 12) {
-                        ObjectiveCreateForPlayers(StringExternal("Param/Value/03F781A4"), StringExternal("Param/Value/C00E4D10"), c_objectiveStateActive, true, PlayerGroupSingle(autoBB0CD46E_var));
+                        if ((gf_is_3v3() == true)) {
+                            ObjectiveCreateForPlayers(StringExternal("Param/Value/8EBA8549"), StringExternal("Param/Value/3EDE583D"), c_objectiveStateActive, true, PlayerGroupSingle(autoBB0CD46E_var));
+                        }
+                        else {
+                            ObjectiveCreateForPlayers(StringExternal("Param/Value/03F781A4"), StringExternal("Param/Value/C00E4D10"), c_objectiveStateActive, true, PlayerGroupSingle(autoBB0CD46E_var));
+                        }
                     }
                     else {
                     }
@@ -15270,10 +15275,12 @@ void gt_money_Init () {
 bool gt_resetelo_Func (bool testConds, bool runActions) {
     // Variable Declarations
     bool lv_did_reset;
+    int lv_player_elo;
 
     // Automatic Variable Declarations
     // Variable Initialization
     lv_did_reset = gv_players[EventPlayer()].lv_did_elo_reset;
+    lv_player_elo = gv_players[EventPlayer()].lv_elo;
 
     // Conditions
     if (testConds) {
@@ -15287,9 +15294,14 @@ bool gt_resetelo_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_Game_Banks_handler("save", EventPlayer(), 1100, 0);
-    gv_players[EventPlayer()].lv_elo = 1100;
-    gv_players[EventPlayer()].lv_did_elo_reset = true;
+    if ((lv_player_elo <= 1000)) {
+        gf_Game_Banks_handler("save", EventPlayer(), 1100, 0);
+        gv_players[EventPlayer()].lv_elo = 1100;
+        gv_players[EventPlayer()].lv_did_elo_reset = true;
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, StringExternal("Param/Value/60454D8C"));
+    }
     return true;
 }
 
@@ -16540,10 +16552,10 @@ bool gt_Terrazineonkill_Func (bool testConds, bool runActions) {
     int lv_chosen_player;
 
     // Automatic Variable Declarations
-    playergroup auto4BFB662F_g;
-    int auto4BFB662F_var;
     playergroup autoE77B552C_g;
     int autoE77B552C_var;
+    playergroup auto4BFB662F_g;
+    int auto4BFB662F_var;
 
     // Variable Initialization
     lv_tg = PlayerGroupEmpty();
@@ -16587,8 +16599,7 @@ bool gt_Terrazineonkill_Func (bool testConds, bool runActions) {
                 gv_players[auto4BFB662F_var].lv__3v3_terrazine_income += 10;
             }
         }
-
-        if ((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(76)) == false)) {
+        else {
             autoE77B552C_g = gv_terrans_team_bottom;
             autoE77B552C_var = -1;
             while (true) {
@@ -16597,7 +16608,6 @@ bool gt_Terrazineonkill_Func (bool testConds, bool runActions) {
                 gv_players[autoE77B552C_var].lv__3v3_terrazine_income += 10;
             }
         }
-
     }
 
     return true;

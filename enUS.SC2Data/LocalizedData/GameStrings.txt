@@ -3016,6 +3016,7 @@ Param/Value/3C8F318E=+
 Param/Value/3DAB218F= more votes needed!
 Param/Value/3DD3D3EA= has 
 Param/Value/3E71042E=(Cost Add) New costs: 
+Param/Value/3EDE583D=To win the game you have to kill the Zerg Hive before the other team kills theirs!
 Param/Value/3F2E101C=<c val="FFFFC4">(
 Param/Value/3F992C71=It's HNY-Event!
 Param/Value/3FA9BDBD="Ability Used"
@@ -3049,6 +3050,7 @@ Param/Value/5EABCCA5=No ongoing vote! Add a parameter if you want to start an ev
 Param/Value/5EDFF8C6=0
 Param/Value/5EE297F6=Removing Zerg resources accordingly
 Param/Value/5F69271C= has 
+Param/Value/60454D8C=You cant reset your Elo with more than 1000 points. Sorry :(
 Param/Value/60A50E7B=winding: 
 Param/Value/60BDC34D=Pick Your Race
 Param/Value/62902AB2=
@@ -3104,6 +3106,7 @@ Param/Value/8C0FD4D8=All commands:<n/>"-clear" - destroys stolen gasses.<n/>"-rt
 Param/Value/8C561363=<c val="FF9797">Assigning one player at random</c>
 Param/Value/8CFA5A75=Rock the vote started by player 
 Param/Value/8E8C6FC7= / 
+Param/Value/8EBA8549=Kill the Zerg Hive!
 Param/Value/8F6F4176=<c val="FF5959">Note:</c> <c val="FF9797">Must have a Zerg player</c>
 Param/Value/8FF973D9=income per minute (top-bot)
 Param/Value/91B741E3=1000
