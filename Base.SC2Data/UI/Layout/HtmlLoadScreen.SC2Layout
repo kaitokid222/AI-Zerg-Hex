@@ -20,12 +20,15 @@ Commands:&lt;n/&gt;
 	<Constant name="Tab2Name" val="3v3 Info"/>
 	<Constant name="Tab2Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
 	<Constant name="Tab2On" val="True"/>
-	<Constant name="Tab2Txt" val="&lt;n/&gt;The goal of this mode is to kill your sides Hive faster than other team.&lt;n/&gt;Killing zerg units gains you Terrazine which you can use to spawn controlable Zerg units pn the other side of the map.&lt;n/&gt;Try to build the Zerg Control Center as fast as possible.&lt;n/&gt;The Construction Yard provides an upgrade to get Terrazine even faster."/>
+	<Constant name="Tab2Txt" val="&lt;n/&gt;The goal of this mode is to kill your sides Hive faster than other team.&lt;n/&gt;&lt;n/&gt;
+Killing zerg units gains you Terrazine which you can use to spawn controlable Zerg units on the other side of the map.&lt;n/&gt;&lt;n/&gt;
+Try to build the Zerg Control Center as fast as possible.&lt;n/&gt;&lt;n/&gt;
+The Construction Yard provides an upgrade to get Terrazine even faster."/>
 
 	<Constant name="Tab3Name" val="Credits"/>
 	<Constant name="Tab3Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
 	<Constant name="Tab3On" val="True"/>
-	<Constant name="Tab3Txt" val="&lt;n/&gt;Originally by WMaster!&lt;n/&gt;Based on Zerg Hex v4.9&lt;n/&gt;3v3-Mode by MisterTwo"/>
+	<Constant name="Tab3Txt" val="&lt;n/&gt;Originally by WMaster!&lt;n/&gt;&lt;n/&gt;Based on Zerg Hex v4.9&lt;n/&gt;&lt;n/&gt;3v3-Mode by MisterTwo"/>
 
 	<Constant name="Tab4Name" val="Extra Info"/>
 	<Constant name="Tab4Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
