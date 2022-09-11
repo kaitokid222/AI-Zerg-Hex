@@ -2024,6 +2024,7 @@ Variable/Name/89DEA791=player2
 Variable/Name/8A1C15FE=return
 Variable/Name/8A7D3618=i
 Variable/Name/8AF178CD=text gas
+Variable/Name/8AFBD3FC=lgt
 Variable/Name/8B630CA2=did_reset
 Variable/Name/8BCDD3D4=result
 Variable/Name/8BD72AD6=i
