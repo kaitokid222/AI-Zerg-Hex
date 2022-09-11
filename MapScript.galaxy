@@ -4966,8 +4966,11 @@ int gf_get_player_elo_rating (int lp_player_id) {
         lv_result = 0;
     }
     else {
-        lv_new_player_factor = MinF(1.0, gv_players[lp_player_id].lv_games);
-        lv_result = FixedToInt((gv_players[lp_player_id].lv_elo * lv_new_player_factor));
+        lv_new_player_factor = MinF(500.0, (gv_players[lp_player_id].lv_games * 50.0));
+        lv_new_player_factor = (lv_new_player_factor - 500.0);
+        lv_result = FixedToInt((gv_players[lp_player_id].lv_elo + lv_new_player_factor));
+        lv_result = MinI(lv_result, 2400);
+        lv_result = MaxI(lv_result, 500);
     }
     return lv_result;
 }
@@ -15162,7 +15165,7 @@ bool gt_debug_elo_Func (bool testConds, bool runActions) {
         while (true) {
             auto34934756_var = PlayerGroupNextPlayer(auto34934756_g, auto34934756_var);
             if (auto34934756_var < 0) { break; }
-            UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, (PlayerName(auto34934756_var) + StringExternal("Param/Value/7A987D02") + IntToText(gv_players[auto34934756_var].lv_elo) + StringExternal("Param/Value/21C051C7") + IntToText(MinI(gv_players[auto34934756_var].lv_games, 5))));
+            UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, (PlayerName(auto34934756_var) + StringExternal("Param/Value/7A987D02") + IntToText(gf_get_player_elo_rating(auto34934756_var)) + StringExternal("Param/Value/21C051C7") + IntToText(MinI(gv_players[auto34934756_var].lv_games, 100))));
         }
     }
 
