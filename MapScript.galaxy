@@ -457,6 +457,9 @@ int gf_calc_new_elo (int lp_winner_elo, int lp_loser_elo, string lp_output);
 bool gf_is_bigspine_fortified (unit lp_bigspine);
 bool gf_player_vulnerable_to_dronerush (int lp_player);
 void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather);
+string gf_create_bank_data_csum (int lp_player);
+void gf_create_clean_bank (int lp_player);
+void gf_save_csum (int lp_player);
 void gf_remove_transmission_units ();
 void gf_apply_support ();
 void gf_create_special_forces_for_player (int lp_player);
@@ -1258,6 +1261,7 @@ bool gf_player_vulnerable_to_dronerush (int lp_player) {
 void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather) {
     // Variable Declarations
     int lv_used_elo;
+    string lv_csum_str;
 
     // Automatic Variable Declarations
     string autoBCFCD9D4_val;
@@ -1265,6 +1269,7 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
     int auto55E1911B_var;
 
     // Variable Initialization
+    lv_csum_str = "";
 
     // Implementation
     autoBCFCD9D4_val = lp_action;
@@ -1275,6 +1280,7 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
             auto55E1911B_var = PlayerGroupNextPlayer(auto55E1911B_g, auto55E1911B_var);
             if (auto55E1911B_var < 0) { break; }
             BankLoad("hextvt", auto55E1911B_var);
+            lv_csum_str = BankValueGetAsString(BankLastCreated(), "Player", "CS");
             if ((BankVerify(BankLastCreated()) == true)) {
                 gv_players[auto55E1911B_var].lv_bank = BankLastCreated();
                 gv_players[auto55E1911B_var].lv_elo = BankValueGetAsInt(BankLastCreated(), "Player", "Elo");
@@ -1282,22 +1288,12 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
                 gv_players[auto55E1911B_var].lv_skinpoints = BankValueGetAsInt(BankLastCreated(), "Player", "Sp");
                 gv_players[auto55E1911B_var].lv_has_marshall_skin = BankValueGetAsInt(BankLastCreated(), "Player", "ResetPromoSkin");
                 gv_players[auto55E1911B_var].lv_weather = BankValueGetAsInt(BankLastCreated(), "Player", "Weather");
+                if ((lv_csum_str != gf_create_bank_data_csum(auto55E1911B_var))) {
+                }
+
             }
             else {
-                gv_players[auto55E1911B_var].lv_elo = 1100;
-                gv_players[auto55E1911B_var].lv_games = 0;
-                gv_players[auto55E1911B_var].lv_skinpoints = 0;
-                gv_players[auto55E1911B_var].lv_has_marshall_skin = 0;
-                gv_players[auto55E1911B_var].lv_weather = 0;
-                BankValueSetFromInt(BankLastCreated(), "Player", "Elo", gv_players[auto55E1911B_var].lv_elo);
-                BankValueSetFromInt(BankLastCreated(), "Player", "Games", gv_players[auto55E1911B_var].lv_games);
-                BankValueSetFromInt(BankLastCreated(), "Player", "Sp", gv_players[auto55E1911B_var].lv_skinpoints);
-                BankValueSetFromInt(BankLastCreated(), "Player", "ResetPromoSkin", gv_players[auto55E1911B_var].lv_has_marshall_skin);
-                BankValueSetFromInt(BankLastCreated(), "Player", "Weather", gv_players[auto55E1911B_var].lv_weather);
-                BankOptionSet(BankLastCreated(), c_bankOptionSignature, true);
-                BankSave(BankLastCreated());
-                BankLoad("hextvt", auto55E1911B_var);
-                gv_players[auto55E1911B_var].lv_bank = BankLastCreated();
+                gf_create_clean_bank(auto55E1911B_var);
             }
         }
     }
@@ -1310,6 +1306,7 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
                 lv_used_elo = lp_elo;
             }
             BankValueSetFromInt(gv_players[lp_player].lv_bank, "Player", "Elo", lv_used_elo);
+            BankValueSetFromString(BankLastCreated(), "Player", "CS", gf_create_bank_data_csum(lp_player));
             BankOptionSet(gv_players[lp_player].lv_bank, c_bankOptionSignature, true);
             BankSave(gv_players[lp_player].lv_bank);
         }
@@ -1318,6 +1315,7 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
     else if (autoBCFCD9D4_val == "addgame") {
         if ((lp_player > 0)) {
             BankValueSetFromInt(gv_players[lp_player].lv_bank, "Player", "Games", (gv_players[lp_player].lv_games + 1));
+            BankValueSetFromString(BankLastCreated(), "Player", "CS", gf_create_bank_data_csum(lp_player));
             BankOptionSet(gv_players[lp_player].lv_bank, c_bankOptionSignature, true);
             BankSave(gv_players[lp_player].lv_bank);
         }
@@ -1349,6 +1347,48 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
     }
     else {
     }
+}
+
+string gf_create_bank_data_csum (int lp_player) {
+    // Variable Declarations
+    string lv_r;
+    int lv_s;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_r = "";
+    lv_s = 35451;
+
+    // Implementation
+    lv_r = (IntToString(lv_s) + (IntToString(((gv_players[lp_player].lv_elo + 1) * (gv_players[lp_player].lv_games + 1))) + IntToString(lv_s)));
+    return lv_r;
+}
+
+void gf_create_clean_bank (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    gv_players[lp_player].lv_elo = 1100;
+    gv_players[lp_player].lv_games = 0;
+    gv_players[lp_player].lv_skinpoints = 0;
+    gv_players[lp_player].lv_has_marshall_skin = 0;
+    gv_players[lp_player].lv_weather = 0;
+    BankValueSetFromInt(BankLastCreated(), "Player", "Elo", gv_players[lp_player].lv_elo);
+    BankValueSetFromInt(BankLastCreated(), "Player", "Games", gv_players[lp_player].lv_games);
+    BankValueSetFromInt(BankLastCreated(), "Player", "Sp", gv_players[lp_player].lv_skinpoints);
+    BankValueSetFromInt(BankLastCreated(), "Player", "ResetPromoSkin", gv_players[lp_player].lv_has_marshall_skin);
+    BankValueSetFromInt(BankLastCreated(), "Player", "Weather", gv_players[lp_player].lv_weather);
+    BankOptionSet(BankLastCreated(), c_bankOptionSignature, true);
+    BankSave(BankLastCreated());
+    BankLoad("hextvt", lp_player);
+    gv_players[lp_player].lv_bank = BankLastCreated();
+}
+
+void gf_save_csum (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    BankValueSetFromString(BankLastCreated(), "Player", "CS", gf_create_bank_data_csum(lp_player));
+    BankOptionSet(gv_players[lp_player].lv_bank, c_bankOptionSignature, true);
+    BankSave(gv_players[lp_player].lv_bank);
 }
 
 void gf_remove_transmission_units () {
