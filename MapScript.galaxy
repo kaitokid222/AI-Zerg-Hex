@@ -202,6 +202,7 @@ unitgroup gv_flying_rally_group;
 bool gv_build_top_next;
 int gv_debug_mode;
 bool gv_practice_mode;
+point[17][17] gv_fw_grid;
 bool gv_game_has_ended;
 int gv_reward_related_deaths;
 int gv_difficulty;
@@ -577,6 +578,8 @@ void gf_finalise_map ();
 void gf_change_ownerships ();
 void gf_replace_geysers ();
 void gf_spawn_spaceballs ();
+void gf_fill_fw_grid ();
+void gf_shot_fireworks (int lp_waves);
 bool gf_is_game_over ();
 bool gf_is_terran_dead ();
 bool gf_is_zerg_dead ();
@@ -842,6 +845,7 @@ trigger gt_relocate_spawners_rally_action;
 trigger gt_zerg_vision_3v3;
 trigger gt_prevent_bottom_from_going_top;
 trigger gt_prevent_top_from_going_bottom;
+trigger gt_testfw;
 trigger gt_CCdestroyed;
 trigger gt_playerleavesgame;
 trigger gt_spawnheart;
@@ -6543,6 +6547,103 @@ void gf_spawn_spaceballs () {
     // Implementation
     lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_r))));
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpaceBalls", 0, 0, lv_p);
+}
+
+void gf_fill_fw_grid () {
+    // Variable Declarations
+    point lv_a;
+    int lv_b;
+    int lv_i;
+    int lv_j;
+    int lv_k;
+    int lv_l;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+    lv_j = 1;
+
+    // Implementation
+    lv_a = Point((PointGetX(PointFromId(1910508930)) - 8.0), (PointGetY(PointFromId(1910508930)) + 8.0));
+    while ((lv_i <= 16)) {
+        lv_j = 1;
+        while ((lv_j <= 16)) {
+            gv_fw_grid[lv_i][lv_j] = Point((PointGetX(lv_a) + lv_k), (PointGetY(lv_a) - lv_l));
+            lv_j += 1;
+            lv_l += 1;
+        }
+        lv_i += 1;
+        lv_k += 1;
+    }
+}
+
+void gf_shot_fireworks (int lp_waves) {
+    // Variable Declarations
+    int lv_i;
+    int lv_j;
+    int lv_d;
+    point[4] lv_used_points;
+    point lv_try;
+
+    // Automatic Variable Declarations
+    int autoFBAE9688_val;
+
+    // Variable Initialization
+
+    // Implementation
+    while ((lv_i < lp_waves)) {
+        lv_d = 0;
+        lv_j = 0;
+        lv_used_points[1] = null;
+        lv_used_points[2] = null;
+        lv_used_points[3] = null;
+        while ((lv_d < 1)) {
+            lv_try = gv_fw_grid[RandomInt(1, 16)][RandomInt(1, 16)];
+            if ((lv_try != lv_used_points[1]) && (lv_try != lv_used_points[2]) && (lv_try != lv_used_points[3])) {
+                lv_j += 1;
+                lv_used_points[lv_j] = lv_try;
+            }
+
+            if ((lv_j == 3)) {
+                lv_d += 1;
+                autoFBAE9688_val = RandomInt(1, 3);
+                if (autoFBAE9688_val == 1) {
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
+                }
+                else if (autoFBAE9688_val == 2) {
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
+                }
+                else if (autoFBAE9688_val == 3) {
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
+                }
+                else {
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
+                    Wait(0.25, c_timeGame);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
+                }
+            }
+
+        }
+        lv_i += 1;
+    }
 }
 
 bool gf_is_game_over () {
@@ -17588,6 +17689,44 @@ void gt_prevent_top_from_going_bottom_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -test fw
+//--------------------------------------------------------------------------------------------------
+bool gt_testfw_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_shot_fireworks(1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_testfw_Init () {
+    gt_testfw = TriggerCreate("gt_testfw_Func");
+    TriggerAddEventChatMessage(gt_testfw, c_playerAny, "-fw", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: CC destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
@@ -22712,6 +22851,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     GameSetPauseable(false);
     gf_spawn_spaceballs();
+    gf_fill_fw_grid();
     gf_init_3v3();
     return true;
 }
@@ -23209,6 +23349,7 @@ void InitTriggers () {
     gt_zerg_vision_3v3_Init();
     gt_prevent_bottom_from_going_top_Init();
     gt_prevent_top_from_going_bottom_Init();
+    gt_testfw_Init();
     gt_CCdestroyed_Init();
     gt_playerleavesgame_Init();
     gt_spawnheart_Init();
