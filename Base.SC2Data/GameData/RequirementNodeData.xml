@@ -86,10 +86,10 @@
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3785646695">
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly3785646695"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3861650221GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675">
+    <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3861650221GTE3759116CountUnitTerrazineTankCompleteOnly3">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly3861650221"/>
-        <OperandArray value="GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
+        <OperandArray value="GTE3759116CountUnitTerrazineTankCompleteOnly3"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3917906240GTE2896091431CountUnitTerrazineTankCompleteOnly3">
         <OperandArray value="CountUpgradeImpossibleUpgradeNewCompleteOnly3917906240"/>
@@ -134,13 +134,14 @@
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly1892408692"/>
         <OperandArray value="OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTE2803542675CountUnitTerrazineTankCompleteOnly1LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20">
-        <OperandArray value="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
-        <OperandArray value="LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20"/>
-    </CRequirementAnd>
     <CRequirementAnd id="AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10">
         <OperandArray value="GTE3277778316CountUnitTerrazineTankCompleteOnly2"/>
         <OperandArray value="LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGTE3759116CountUnitTerrazineTankCompleteOnly3LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="GTE3759116CountUnitTerrazineTankCompleteOnly3"/>
+        <OperandArray value="LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTE654834784CountUnitTerrazineTankCompleteOnly4LT2063414812CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter5">
         <OperandArray value="GTE654834784CountUnitTerrazineTankCompleteOnly4"/>
@@ -1229,6 +1230,10 @@
     <CRequirementGTE id="GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10">
         <OperandArray index="0" value="CountBehaviorBloodStacksQueuedOrBetter"/>
         <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTE3759116CountUnitTerrazineTankCompleteOnly3">
+        <OperandArray index="0" value="CountUnitTerrazineTankCompleteOnly"/>
+        <OperandArray index="1" value="3"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE4046891914CountUnitTerrazineTankCompleteOnly4">
         <OperandArray index="0" value="CountUnitTerrazineTankCompleteOnly"/>
