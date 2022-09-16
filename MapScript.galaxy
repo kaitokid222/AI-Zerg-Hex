@@ -4888,7 +4888,7 @@ void gf_set_3v3_alliances () {
             gv_players[lv_i].lv__3v3_nemesis_terran = gf_get_player_at_position((7 - gv_players[lv_i].lv_position));
         }
         if ((gf_is_3v3_local_test() == true)) {
-            gv_players[lv_i].lv__3v3_nemesis_terran = 4;
+            gv_players[lv_i].lv__3v3_nemesis_terran = 1;
         }
 
         gv_players[lv_i].lv__3v3_zerg_pid = (lv_i + 7);
@@ -5404,6 +5404,9 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     unit lv_zcc;
 
     // Automatic Variable Declarations
+    unitgroup auto69714ADC_g;
+    int auto69714ADC_u;
+    unit auto69714ADC_var;
     string auto49616E6E_val;
 
     // Variable Initialization
@@ -5421,6 +5424,16 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
     }
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
+    if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3")) {
+        auto69714ADC_g = UnitLastCreatedGroup();
+        auto69714ADC_u = UnitGroupCount(auto69714ADC_g, c_unitCountAll);
+        for (;; auto69714ADC_u -= 1) {
+            auto69714ADC_var = UnitGroupUnitFromEnd(auto69714ADC_g, auto69714ADC_u);
+            if (auto69714ADC_var == null) { break; }
+            UnitBehaviorAdd(auto69714ADC_var, "ZCCTimedLife", auto69714ADC_var, 1);
+        }
+    }
+
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "BanelingZergHex") || (lp_unit_type == "InfusedRoach") || (lp_unit_type == "Torralisk"))) {
         auto49616E6E_val = lp_unit_type;
         if (auto49616E6E_val == "Fireling") {
@@ -5950,7 +5963,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 bool gf_is_overseer (unit lp_unit) {
