@@ -6324,21 +6324,24 @@ void gf_Create_game () {
 
 int gf_get_player_at_position (int lp_position) {
     // Variable Declarations
-    int lv_i;
     int lv_return;
 
     // Automatic Variable Declarations
+    playergroup auto3416F75C_g;
+    int auto3416F75C_var;
+
     // Variable Initialization
-    lv_i = 1;
 
     // Implementation
-    while ((lv_i <= gv_player_count)) {
-        if ((gv_players[lv_i].lv_position == lp_position)) {
-            lv_return = lv_i;
-            break;
+    auto3416F75C_g = gv_terrans;
+    auto3416F75C_var = -1;
+    while (true) {
+        auto3416F75C_var = PlayerGroupNextPlayer(auto3416F75C_g, auto3416F75C_var);
+        if (auto3416F75C_var < 0) { break; }
+        if ((gv_players[auto3416F75C_var].lv_position == lp_position)) {
+            lv_return = auto3416F75C_var;
         }
 
-        lv_i += 1;
     }
     return lv_return;
 }
