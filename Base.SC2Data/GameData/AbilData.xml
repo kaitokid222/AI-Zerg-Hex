@@ -21,6 +21,9 @@
             <Cooldown Link="Abil/3v3SpawnRavator2" TimeUse="10"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRavator3v3" Requirements="SpawnTier2Delay3v3"/>
+        <Flags index="AutoCast" value="1"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="3v3SpawnInfusedRoachDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -31,6 +34,9 @@
             <Cooldown Link="Abil/3v3SpawnInfusedRoach2" TimeUse="25"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnTier3Delay3v3"/>
+        <Flags index="AutoCast" value="1"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="3v3SpawnRavator2">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -389,6 +395,9 @@
             <Cooldown Link="Abil/3v3SpawnTorralisk2" TimeUse="40"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTier5Delay3v3"/>
+        <Flags index="AutoCast" value="1"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroup">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -403,6 +412,9 @@
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
+        <Flags index="AutoCast" value="1"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroupDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -421,6 +433,9 @@
         </Cost>
         <AINotifyEffect value="SpawnBanelingGroup"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsDelay3v3"/>
+        <Flags index="AutoCast" value="1"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnInfestor3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>

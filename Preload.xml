@@ -107,6 +107,7 @@
 <Behavior id="CanExtractGas"/>
 <Behavior id="SpawnsBombers"/>
 <Behavior id="InvulnerableBlockers"/>
+<Behavior id="ZCCTimedLife"/>
 <Behavior id="ZergRallyPlus"/>
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
