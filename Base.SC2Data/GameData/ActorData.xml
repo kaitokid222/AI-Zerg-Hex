@@ -18,6 +18,12 @@
         <HeightOffset value="3.500000"/>
         <Text value="Button/Tooltip/AutomatedRefineryTextKicker6"/>
     </CActorText>
+    <CActorText id="GainBounty" parent="PickupTextDefault">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <FixedSize value="12"/>
+    </CActorText>
     <CActorUnit id="InfestorZergHex22" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
         <Aliases value="_UnitLarge"/>
         <Macros value="ZergBurrowMobileAnimMacro"/>

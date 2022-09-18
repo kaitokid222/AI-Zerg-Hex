@@ -346,6 +346,7 @@ Behavior/Name/BloodStacks=Blood Stacks
 Behavior/Name/BomberDeployBombs=Bomber - Deploy Bombs
 Behavior/Name/BomberDisableBombs=Bomber - Disable Bombs
 Behavior/Name/BomberSearchTargets=Bomber - Search Targets
+Behavior/Name/Bounty=Bounty
 Behavior/Name/Burning=Burning
 Behavior/Name/ConstructionYardAuraBuffMain=Construction Yard Aura
 Behavior/Name/ConsumedBlood=Consumed Blood
@@ -1106,6 +1107,7 @@ Button/Tooltip/Flower=
 Button/Tooltip/Fortification=Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val="E8E191">Walls and Gates</c>: +30% health and +1 armor.<n/><c val="E8E191">Tech Structures</c>: +35 hp.<n/><c val="E8E191">Other</c>: +20 hp. <c val="C0C0C0">(Fruit Farm excluded)</c><n/><n/>Can be upgraded 30 times.
 Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage to enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
 Button/Tooltip/FruitFarm=
+Button/Tooltip/GainBounty=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><n/><s val="MercDescription"><c val="8AFF91">+1</c></s><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
 Button/Tooltip/GainGas2Text=<s val="MercDescription"><c val="8AFF91">+2</c></s><IMG path="Assets\Textures\icon-gas-terran.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals1Text=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals2Text=<s val="MercDescription">+2</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
@@ -2315,6 +2317,7 @@ Effect/Name/FruitRemove=Remove
 Effect/Name/FruitRemoveSet=Remove (Set)
 Effect/Name/FruitSetRipenedSet=Fruit - Set Ripened (Set)
 Effect/Name/FungalGrowthMultiTest=Fungal Growth Multi Test
+Effect/Name/GainBounty=Gain Bounty
 Effect/Name/GainGas1=Gain Gas 1
 Effect/Name/GainGas10CasterText=Gain Gas 10 (Caster) (Text)
 Effect/Name/GainGas2=Gain Gas 2

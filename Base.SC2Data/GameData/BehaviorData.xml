@@ -66,6 +66,12 @@
         <Period value="18"/>
         <PeriodicEffect value="AnimalAssignListenerApply"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="Bounty">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="GainBounty">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfusedRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>

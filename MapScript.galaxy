@@ -17120,13 +17120,11 @@ void gt_SpawnTorra3v3_Init () {
 bool gt_zccdies_Func (bool testConds, bool runActions) {
     // Variable Declarations
     unit lv_zcc;
-    int lv_owner;
     int lv_terran_id;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+    lv_terran_id = UnitGetOwner(EventUnit());
 
     // Conditions
     if (testConds) {
@@ -17140,7 +17138,7 @@ bool gt_zccdies_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    lv_zcc = EventUnit();
     gv_zcc_stack_backup[lv_terran_id].lv_firelings = UnitBehaviorCount(lv_zcc, "FirelingCountDummyStack");
     gv_zcc_stack_backup[lv_terran_id].lv_banelings = UnitBehaviorCount(lv_zcc, "BanelingCountDummyStack");
     gv_zcc_stack_backup[lv_terran_id].lv_infused = UnitBehaviorCount(lv_zcc, "InfusedRoachCountDummyStack");
@@ -17161,13 +17159,11 @@ void gt_zccdies_Init () {
 bool gt_zccbuilt_Func (bool testConds, bool runActions) {
     // Variable Declarations
     unit lv_zcc;
-    int lv_owner;
     int lv_terran_id;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnitProgressUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+    lv_terran_id = UnitGetOwner(EventUnitProgressUnit());
 
     // Conditions
     if (testConds) {
@@ -17181,7 +17177,7 @@ bool gt_zccbuilt_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lv_terran_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    lv_zcc = EventUnitProgressUnit();
     if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings > 0)) {
         UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_firelings);
         gv_zcc_stack_backup[lv_terran_id].lv_firelings = 0;
