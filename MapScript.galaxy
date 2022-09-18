@@ -204,7 +204,7 @@ bool gv_build_top_next;
 unitgroup gv_flying_rally_group;
 int gv_debug_mode;
 bool gv_practice_mode;
-point[17][17] gv_fw_grid;
+point[9][9] gv_fw_grid;
 bool gv_game_has_ended;
 int gv_reward_related_deaths;
 int gv_difficulty;
@@ -6503,12 +6503,10 @@ void gf_spawn_spaceballs () {
 
 void gf_fill_fw_grid () {
     // Variable Declarations
-    point lv_a;
-    int lv_b;
     int lv_i;
     int lv_j;
-    int lv_k;
-    int lv_l;
+    fixed lv_k;
+    fixed lv_l;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -6516,26 +6514,22 @@ void gf_fill_fw_grid () {
     lv_j = 1;
 
     // Implementation
-    lv_a = Point((PointGetX(PointFromId(1910508930)) - 8.0), (PointGetY(PointFromId(1910508930)) + 8.0));
-    while ((lv_i <= 16)) {
+    while ((lv_i <= 8)) {
         lv_j = 1;
-        while ((lv_j <= 16)) {
-            gv_fw_grid[lv_i][lv_j] = Point((PointGetX(lv_a) + lv_k), (PointGetY(lv_a) - lv_l));
+        while ((lv_j <= 8)) {
+            gv_fw_grid[lv_i][lv_j] = Point((112.0 + lv_k), (136.0 - lv_l));
+            lv_l += 2.0;
             lv_j += 1;
-            lv_l += 1;
         }
+        lv_k += 2.0;
         lv_i += 1;
-        lv_k += 1;
     }
 }
 
 void gf_shot_fireworks (int lp_waves) {
     // Variable Declarations
     int lv_i;
-    int lv_j;
-    int lv_d;
     point[4] lv_used_points;
-    point lv_try;
 
     // Automatic Variable Declarations
     int autoFBAE9688_val;
@@ -6544,55 +6538,41 @@ void gf_shot_fireworks (int lp_waves) {
 
     // Implementation
     while ((lv_i < lp_waves)) {
-        lv_d = 0;
-        lv_j = 0;
-        lv_used_points[1] = null;
-        lv_used_points[2] = null;
-        lv_used_points[3] = null;
-        while ((lv_d < 1)) {
-            lv_try = gv_fw_grid[RandomInt(1, 16)][RandomInt(1, 16)];
-            if ((lv_try != lv_used_points[1]) && (lv_try != lv_used_points[2]) && (lv_try != lv_used_points[3])) {
-                lv_j += 1;
-                lv_used_points[lv_j] = lv_try;
-            }
-
-            if ((lv_j == 3)) {
-                lv_d += 1;
-                autoFBAE9688_val = RandomInt(1, 3);
-                if (autoFBAE9688_val == 1) {
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
-                }
-                else if (autoFBAE9688_val == 2) {
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
-                }
-                else if (autoFBAE9688_val == 3) {
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
-                }
-                else {
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_used_points[1]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_used_points[2]);
-                    Wait(0.25, c_timeGame);
-                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_used_points[3]);
-                }
-            }
-
+        lv_used_points[1] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
+        lv_used_points[2] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
+        lv_used_points[3] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
+        autoFBAE9688_val = RandomInt(1, 3);
+        if (autoFBAE9688_val == 1) {
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
+        }
+        else if (autoFBAE9688_val == 2) {
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
+        }
+        else if (autoFBAE9688_val == 3) {
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
+        }
+        else {
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
+            Wait(0.25, c_timeGame);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
         }
         lv_i += 1;
     }
@@ -17724,7 +17704,7 @@ bool gt_testfw_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_shot_fireworks(1);
+    gf_shot_fireworks(5);
     return true;
 }
 
