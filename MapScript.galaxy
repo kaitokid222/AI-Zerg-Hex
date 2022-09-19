@@ -492,7 +492,7 @@ void gf_reset_terrandata ();
 void gf_update_terrandata ();
 void gf_Game_create_leaderboard ();
 void gf_Game_update_leaderboard ();
-string gf_elo_to_rank (int lp_elo, int lp_games);
+string gf_elo_to_rank_icon (int lp_elo, int lp_games);
 void gf_create_karax_for_player (int lp_player);
 void gf_overwrite_karax_base_value (int lp_o, int lp_ps);
 void gf_remove_karax_early_death_debuff ();
@@ -584,8 +584,9 @@ bool gf_is_game_over ();
 bool gf_is_terran_dead ();
 bool gf_is_zerg_dead ();
 int gf_get_winning_team ();
-int gf_get_reward_elo_count ();
+int gf_get_reward_elo_count (int lp_player_id);
 int gf_get_base_penalty_elo_count ();
+int gf_elo_to_rank_number (int lp_player_id);
 void gf_end_game (int lp_winner);
 void gf_rebalance_zerg_after_early_terran_death (int lp_player_id);
 int gf_get_ranked_difficulty ();
@@ -2690,11 +2691,7 @@ void gf_create_income_dialog () {
             }
         }
         DialogSetVisible(DialogLastCreated(), PlayerGroupSingle(auto4227153C_var), true);
-        lv_calculated_reward = (gf_get_reward_elo_count() - gv_players[auto4227153C_var].lv_elopenalty);
-        if ((lv_calculated_reward < 0)) {
-            lv_calculated_reward = 0;
-        }
-
+        lv_calculated_reward = gf_get_reward_elo_count(auto4227153C_var);
         lv_indicator_string_text = ((StringExternal("Param/Value/BFAD43E4") + IntToText(lv_calculated_reward)) + (StringExternal("Param/Value/8E8C6FC7") + (StringExternal("Param/Value/B6BD0980") + IntToText(gf_get_base_penalty_elo_count()))));
         DialogCreate(410, 78, c_anchorTop, 380, 0, true);
         DialogSetImageVisible(DialogLastCreated(), false);
@@ -2751,11 +2748,7 @@ void gf_update_reward_panel (int lp_player) {
     // Variable Initialization
 
     // Implementation
-    lv_calculated_reward = (gf_get_reward_elo_count() - gv_players[lp_player].lv_elopenalty);
-    if ((lv_calculated_reward < 0)) {
-        lv_calculated_reward = 0;
-    }
-
+    lv_calculated_reward = gf_get_reward_elo_count(lp_player);
     lv_indicator_string_text = ((StringExternal("Param/Value/D7EDDD9E") + IntToText(lv_calculated_reward)) + (StringExternal("Param/Value/92A71DC2") + (StringExternal("Param/Value/5962097F") + IntToText(gf_get_base_penalty_elo_count()))));
     libNtve_gf_SetDialogItemText(gv_reward[lp_player], lv_indicator_string_text, PlayerGroupSingle(lp_player));
 }
@@ -3149,7 +3142,7 @@ void gf_Game_create_leaderboard () {
             autoD0BD21C2_var = PlayerGroupNextPlayer(autoD0BD21C2_g, autoD0BD21C2_var);
             if (autoD0BD21C2_var < 0) { break; }
             gv_players[autoD0BD21C2_var].lv_lb_row = lv_row;
-            gv_players[autoD0BD21C2_var].lv_icon = gf_elo_to_rank(gv_players[autoD0BD21C2_var].lv_elo, gv_players[autoD0BD21C2_var].lv_games);
+            gv_players[autoD0BD21C2_var].lv_icon = gf_elo_to_rank_icon(gv_players[autoD0BD21C2_var].lv_elo, gv_players[autoD0BD21C2_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(autoD0BD21C2_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(autoD0BD21C2_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[autoD0BD21C2_var].lv_icon, false);
@@ -3164,7 +3157,7 @@ void gf_Game_create_leaderboard () {
             autoB2D8C610_var = PlayerGroupNextPlayer(autoB2D8C610_g, autoB2D8C610_var);
             if (autoB2D8C610_var < 0) { break; }
             gv_players[autoB2D8C610_var].lv_lb_row = lv_row;
-            gv_players[autoB2D8C610_var].lv_icon = gf_elo_to_rank(gv_players[autoB2D8C610_var].lv_elo, gv_players[autoB2D8C610_var].lv_games);
+            gv_players[autoB2D8C610_var].lv_icon = gf_elo_to_rank_icon(gv_players[autoB2D8C610_var].lv_elo, gv_players[autoB2D8C610_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(autoB2D8C610_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(autoB2D8C610_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[autoB2D8C610_var].lv_icon, false);
@@ -3178,7 +3171,7 @@ void gf_Game_create_leaderboard () {
             auto54536D90_var = PlayerGroupNextPlayer(auto54536D90_g, auto54536D90_var);
             if (auto54536D90_var < 0) { break; }
             gv_players[auto54536D90_var].lv_lb_row = lv_row;
-            gv_players[auto54536D90_var].lv_icon = gf_elo_to_rank(gv_players[auto54536D90_var].lv_elo, gv_players[auto54536D90_var].lv_games);
+            gv_players[auto54536D90_var].lv_icon = gf_elo_to_rank_icon(gv_players[auto54536D90_var].lv_elo, gv_players[auto54536D90_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(auto54536D90_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(auto54536D90_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[auto54536D90_var].lv_icon, false);
@@ -3213,7 +3206,7 @@ void gf_Game_update_leaderboard () {
     }
 }
 
-string gf_elo_to_rank (int lp_elo, int lp_games) {
+string gf_elo_to_rank_icon (int lp_elo, int lp_games) {
     // Variable Declarations
     string lv_image;
 
@@ -6668,12 +6661,10 @@ int gf_get_winning_team () {
     return lv_return;
 }
 
-int gf_get_reward_elo_count () {
+int gf_get_reward_elo_count (int lp_player_id) {
     // Variable Declarations
-    int lv_r;
     fixed lv_mission_time;
     int lv_mode_multi;
-    int lv_d_multi;
     int lv_og_reward;
     int lv_time_penalties;
 
@@ -6688,10 +6679,7 @@ int gf_get_reward_elo_count () {
     else {
         lv_mode_multi = 1;
     }
-    lv_mode_multi = (10 * lv_mode_multi);
-    lv_d_multi = gv_difficulty;
-    lv_og_reward = (lv_d_multi * lv_mode_multi);
-    lv_og_reward = (lv_og_reward + (gv_reward_related_deaths * gv_difficulty));
+    lv_og_reward = (((10 * lv_mode_multi) * gv_difficulty) + (gv_reward_related_deaths * gv_difficulty));
     if ((lv_mission_time > (60 * 25))) {
         lv_time_penalties += 1;
     }
@@ -6701,28 +6689,29 @@ int gf_get_reward_elo_count () {
     }
 
     if ((lv_mission_time > (60 * 45))) {
-        lv_time_penalties += 1;
+        lv_time_penalties += 2;
     }
 
     if ((lv_mission_time > (60 * 60))) {
-        lv_time_penalties += 1;
+        lv_time_penalties += 3;
     }
 
-    lv_og_reward = (lv_og_reward - (lv_time_penalties * gv_difficulty));
-    if ((lv_og_reward < 0)) {
-        lv_og_reward = 0;
-    }
-
-    if ((lv_time_penalties == 4)) {
+    lv_og_reward -= (lv_time_penalties * gv_difficulty);
+    lv_og_reward -= gv_players[lp_player_id].lv_elopenalty;
+    lv_og_reward -= ((gf_elo_to_rank_number(lp_player_id) - gv_difficulty) * gv_difficulty);
+    if ((lv_og_reward < 3)) {
         lv_og_reward = 3;
     }
 
-    lv_r = lv_og_reward;
-    if ((gv_practice_mode == true)) {
-        lv_r = 0;
+    if ((gv_players[lp_player_id].lv_games <= 5)) {
+        lv_og_reward *= 5;
     }
 
-    return lv_r;
+    if ((gv_practice_mode == true)) {
+        lv_og_reward = 0;
+    }
+
+    return lv_og_reward;
 }
 
 int gf_get_base_penalty_elo_count () {
@@ -6802,6 +6791,40 @@ int gf_get_base_penalty_elo_count () {
     }
 
     return lv_r;
+}
+
+int gf_elo_to_rank_number (int lp_player_id) {
+    // Variable Declarations
+    int lv_elo;
+    int lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_elo = gv_players[lp_player_id].lv_elo;
+    if ((lv_elo < 1000)) {
+        lv_result = 1;
+    }
+    else if ((lv_elo >= 1000) && (lv_elo < 1200)) {
+        lv_result = 2;
+    }
+    else if ((lv_elo >= 1200) && (lv_elo < 1400)) {
+        lv_result = 3;
+    }
+    else if ((lv_elo >= 1400) && (lv_elo < 1600)) {
+        lv_result = 4;
+    }
+    else if ((lv_elo >= 1600) && (lv_elo < 1900)) {
+        lv_result = 5;
+    }
+    else if ((lv_elo >= 1900) && (lv_elo < 2400)) {
+        lv_result = 6;
+    }
+    else if ((lv_elo >= 2400)) {
+        lv_result = 7;
+    }
+    return lv_result;
 }
 
 void gf_end_game (int lp_winner) {
@@ -6923,8 +6946,7 @@ void gf_end_game (int lp_winner) {
                     if ((gv_practice_mode == true)) {
                     }
                     else {
-                        gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo + gf_get_reward_elo_count());
-                        gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo - gv_players[autoC5308BE9_var].lv_elopenalty);
+                        gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo + gf_get_reward_elo_count(autoC5308BE9_var));
                         gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
                         if ((((gf_is_event() == true) && (gv_difficulty >= 5)) || (gv_difficulty >= 8))) {
                             gf_Game_Banks_handler("addsp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
@@ -15293,7 +15315,7 @@ bool gt_debug_elo_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gf_is_player_dev(EventPlayer()) == true)) {
+    if (((gv_practice_mode == true) || (gf_is_player_dev(EventPlayer()) == true))) {
         auto34934756_g = gv_terrans;
         auto34934756_var = -1;
         while (true) {
