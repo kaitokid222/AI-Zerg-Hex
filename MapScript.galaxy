@@ -6511,7 +6511,7 @@ void gf_fill_fw_grid () {
         lv_j = 1;
         lv_l = 0.0;
         while ((lv_j <= 8)) {
-            gv_fw_grid[lv_i][lv_j] = Point((112.0 + lv_k), (136.0 - lv_l));
+            gv_fw_grid[lv_i][lv_j] = Point((112.0 + lv_k), (130.0 - lv_l));
             lv_l += 2.0;
             lv_j += 1;
         }
