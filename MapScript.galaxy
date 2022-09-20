@@ -3247,6 +3247,7 @@ string gf_elo_to_rank_icon (int lp_elo, int lp_games) {
 void gf_create_karax_for_player (int lp_player) {
     // Variable Declarations
     int lv_ps;
+    point lv_spawn_point;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -3254,13 +3255,16 @@ void gf_create_karax_for_player (int lp_player) {
 
     // Implementation
     gf_overwrite_karax_base_value(lp_player, lv_ps);
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position))));
+    lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
     UnitBehaviorAdd(UnitLastCreated(), "SpawnProtection", UnitLastCreated(), 1);
     PlayerModifyPropertyInt(lp_player, c_playerPropVespene, c_playerPropOperSetTo, 10);
     if ((GameGetMissionTime() < (11 * 60))) {
         gf_add_early_death_debuff(UnitLastCreated());
     }
 
+    Wait(2.0, c_timeGame);
+    CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
 }
 
 void gf_overwrite_karax_base_value (int lp_o, int lp_ps) {

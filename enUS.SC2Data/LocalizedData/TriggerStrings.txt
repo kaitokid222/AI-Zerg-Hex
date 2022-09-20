@@ -2554,6 +2554,7 @@ Variable/Name/D7E88F3F=player_position
 Variable/Name/D8315E1D=positions
 Variable/Name/D86D91F2=score_zerg
 Variable/Name/D900D7FC=hydra_action_cooldown
+Variable/Name/D933A7F5=spawn_point
 Variable/Name/D97507E2=pylon
 Variable/Name/D9A2EE70=u_rough_position_x
 Variable/Name/D9AA201F=unitHive
