@@ -1993,6 +1993,7 @@ DocInfo/PatchNote509=Fixed Issues
 DocInfo/PatchNote510=Reworked 3v3
 DocInfo/PatchNote511=Reworked V-Day Event
 DocInfo/PatchNote512=If players need more than 1 hour to kill the zerg they get 3 elo instead of 0 now.
+DocInfo/PatchNote513=Fixed Issues.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior
