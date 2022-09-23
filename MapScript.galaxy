@@ -2151,10 +2151,10 @@ void gf_Handle_blood_pickup (int lp_player, point lp_position, int lp_size) {
     }
 
     lv_region = RegionCircle(lp_position, 7.0);
-    lv_group = UnitGroup("ChaosSpaceMarine", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_group2 = UnitGroup("ChaosCultist", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_group = UnitGroup("ChaosSpaceMarine", lp_player, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_group2 = UnitGroup("ChaosCultist", lp_player, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     UnitGroupAddUnitGroup(lv_group, lv_group2);
-    lv_lord = UnitGroupUnit(UnitGroup("ChaosLord", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    lv_lord = UnitGroupUnit(UnitGroup("ChaosLord", lp_player, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     if ((lv_lord != null)) {
         UnitGroupAdd(lv_group, lv_lord);
     }
