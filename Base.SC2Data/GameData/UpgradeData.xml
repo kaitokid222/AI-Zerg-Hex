@@ -53,6 +53,12 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="SuperEnergyGeneration">
+        <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
+        <EffectArray Reference="Unit,Generator,EnergyRegenRate" Value="150.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="250.000000"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
     <CUpgrade id="EnergyGenerationCapacity">
         <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
         <EffectArray Reference="Unit,Generator,EnergyRegenRate" Value="30.000000"/>

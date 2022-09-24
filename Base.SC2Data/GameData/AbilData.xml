@@ -236,8 +236,8 @@
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="ResearchHeavyPlating" Requirements="HeavyPlatingRequirement"/>
         </InfoArray>
-        <InfoArray index="Research19" Time="30" Upgrade="SpawnBombers">
-            <Resource index="Vespene" value="150"/>
+        <InfoArray index="Research19" Time="20" Upgrade="SpawnBombers">
+            <Resource index="Vespene" value="125"/>
             <Button DefaultButtonFace="ResearchBomberSpawns" Requirements="BomberSpawnsRequirement"/>
         </InfoArray>
         <InfoArray index="Research20" Time="20" Upgrade="SolarWeapons">
@@ -2563,6 +2563,10 @@
         <InfoArray index="Research5" Time="5" Upgrade="EnergyCapacity">
             <Resource index="Minerals" value="200"/>
             <Button DefaultButtonFace="UpgradeGeneratorCapacity" Requirements="UpgradeEnergyCapacity"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="5" Upgrade="SuperEnergyGeneration">
+            <Resource index="Minerals" value="2500"/>
+            <Button DefaultButtonFace="UpgradeSuperEnergyGeneration" Requirements="UpgradeSuperEnergyGeneration"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="ConstructionYardResearch">

@@ -352,6 +352,9 @@
         <NodeArray index="Use" Link="CountUpgradeTerrazineDoubler2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler3QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="UpgradeSuperEnergyGeneration">
+        <NodeArray index="Use" Link="AndNot660069371CountUpgradeSuperEnergyGenerationQueuedOrBetterGTE1346723988CountUpgradeEnergyGenerationCompleteOnly30"/>
+    </CRequirement>
     <CRequirement id="WeaponCapacityRequirement">
         <NodeArray index="Show" Link="NotCountUpgradeWeaponCapacityQueuedOrBetter"/>
     </CRequirement>

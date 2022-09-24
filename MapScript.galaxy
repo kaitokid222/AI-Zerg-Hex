@@ -1546,6 +1546,7 @@ void gf_apply_support () {
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 6), true);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 21), true);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
+            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("GeneratorResearch", 5), true);
             auto8828D2C3_g = UnitGroup("Battery", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             auto8828D2C3_u = UnitGroupCount(auto8828D2C3_g, c_unitCountAll);
             for (;; auto8828D2C3_u -= 1) {
@@ -3441,6 +3442,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 11), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 12), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 17), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("GeneratorResearch", 5), false);
 }
 
 void gf_apply_smod () {

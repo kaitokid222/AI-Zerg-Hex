@@ -3224,6 +3224,7 @@
         <Collide index="Ground" value="0"/>
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
+        <Collide index="DisruptorPhased" value="1"/>
         <Collide index="Small" value="0"/>
     </CUnit>
     <CUnit id="NapalmBomb">
@@ -7012,6 +7013,7 @@
             <LayoutButtons index="3" Face="UpgradeGeneratorCapability" AbilCmd="GeneratorResearch,Research4" Row="0" Column="2"/>
             <LayoutButtons index="4" Face="Overcapacity" Type="Passive" AbilCmd="" Row="2" Column="0"/>
             <LayoutButtons index="5" Face="UpgradeGeneratorCapacity" Type="AbilCmd" AbilCmd="GeneratorResearch,Research5" Row="0"/>
+            <LayoutButtons Face="UpgradeSuperEnergyGeneration" Type="AbilCmd" AbilCmd="GeneratorResearch,Research6" Row="0" Column="4"/>
         </CardLayouts>
         <FlagArray index="Invulnerable" value="1"/>
         <LeaderAlias value="Generator"/>

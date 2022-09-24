@@ -143,6 +143,10 @@
     <CButton id="TerrazineDoubler3">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
+    <CButton id="UpgradeSuperEnergyGeneration">
+        <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
+    </CButton>
     <CButton id="WeatherSelection">
         <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
         <AlertIcon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
