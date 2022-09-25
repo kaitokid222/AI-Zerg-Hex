@@ -2533,6 +2533,7 @@ Variable/Name/D4E49D0A=j
 Variable/Name/D55362BE=income_terran_interval
 Variable/Name/D554BFD7=i
 Variable/Name/D58005B1=elite_skin
+Variable/Name/D5AF1FE4=temp_unit_type
 Variable/Name/D5D6FA36=c
 Variable/Name/D5DE2492=base
 Variable/Name/D5EB8FF2=drone_goal_count
