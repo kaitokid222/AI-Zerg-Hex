@@ -9650,7 +9650,7 @@ void gf_handle_dead_player_areas () {
                     for (;; autoA26A809E_u -= 1) {
                         autoA26A809E_var = UnitGroupUnitFromEnd(autoA26A809E_g, autoA26A809E_u);
                         if (autoA26A809E_var == null) { break; }
-                        if (((UnitGetOwner(autoA26A809E_var) == 0) || (UnitGetOwner(autoA26A809E_var) == 7) || ((UnitGetOwner(autoA26A809E_var) > 7) && (UnitGetOwner(autoA26A809E_var) <= 13)))) {
+                        if (((UnitGetType(autoA26A809E_var) == "IonBeam") || (UnitGetType(autoA26A809E_var) == "IonStorm") || (UnitGetType(autoA26A809E_var) == "Buggo") || (UnitGetType(autoA26A809E_var) == "ImmortalShakurasStasisCannonMissile") || (UnitGetType(autoA26A809E_var) == "SpaceBalls") || (UnitGetOwner(autoA26A809E_var) == 0) || (UnitGetOwner(autoA26A809E_var) == 7) || ((UnitGetOwner(autoA26A809E_var) > 7) && (UnitGetOwner(autoA26A809E_var) <= 13)))) {
                             UnitGroupRemove(lv_layer1, autoA26A809E_var);
                         }
 
@@ -9662,7 +9662,7 @@ void gf_handle_dead_player_areas () {
                         for (;; auto323FCE0D_u -= 1) {
                             auto323FCE0D_var = UnitGroupUnitFromEnd(auto323FCE0D_g, auto323FCE0D_u);
                             if (auto323FCE0D_var == null) { break; }
-                            if (((UnitGetOwner(auto323FCE0D_var) == 0) || (UnitGetOwner(auto323FCE0D_var) == 7) || ((UnitGetOwner(auto323FCE0D_var) > 7) && (UnitGetOwner(auto323FCE0D_var) <= 13)))) {
+                            if (((UnitGetType(auto323FCE0D_var) == "IonBeam") || (UnitGetType(auto323FCE0D_var) == "IonStorm") || (UnitGetType(auto323FCE0D_var) == "Buggo") || (UnitGetType(auto323FCE0D_var) == "ImmortalShakurasStasisCannonMissile") || (UnitGetType(auto323FCE0D_var) == "SpaceBalls") || (UnitGetOwner(auto323FCE0D_var) == 0) || (UnitGetOwner(auto323FCE0D_var) == 7) || ((UnitGetOwner(auto323FCE0D_var) > 7) && (UnitGetOwner(auto323FCE0D_var) <= 13)))) {
                                 UnitGroupRemove(lv_layer2, auto323FCE0D_var);
                             }
 
@@ -9673,7 +9673,7 @@ void gf_handle_dead_player_areas () {
                         for (;; auto392FF87B_u -= 1) {
                             auto392FF87B_var = UnitGroupUnitFromEnd(auto392FF87B_g, auto392FF87B_u);
                             if (auto392FF87B_var == null) { break; }
-                            if (((UnitGetOwner(auto392FF87B_var) == 0) || (UnitGetOwner(auto392FF87B_var) == 7) || ((UnitGetOwner(auto392FF87B_var) > 7) && (UnitGetOwner(auto392FF87B_var) <= 13)))) {
+                            if (((UnitGetType(auto392FF87B_var) == "IonBeam") || (UnitGetType(auto392FF87B_var) == "IonStorm") || (UnitGetType(auto392FF87B_var) == "Buggo") || (UnitGetType(auto392FF87B_var) == "ImmortalShakurasStasisCannonMissile") || (UnitGetType(auto392FF87B_var) == "SpaceBalls") || (UnitGetOwner(auto392FF87B_var) == 0) || (UnitGetOwner(auto392FF87B_var) == 7) || ((UnitGetOwner(auto392FF87B_var) > 7) && (UnitGetOwner(auto392FF87B_var) <= 13)))) {
                                 UnitGroupRemove(lv_layer3, auto392FF87B_var);
                             }
 
