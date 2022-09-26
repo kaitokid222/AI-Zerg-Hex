@@ -5056,6 +5056,9 @@ void gf_set_3v3_alliances () {
     playergroup[3] lv_lgt;
 
     // Automatic Variable Declarations
+    playergroup autoEA511B56_g;
+    int autoEA511B56_var;
+
     // Variable Initialization
     lv_i = 1;
     lv_lg = PlayerGroupEmpty();
@@ -5077,8 +5080,6 @@ void gf_set_3v3_alliances () {
 
         gv_players[lv_i].lv__3v3_zerg_pid = (lv_i + 7);
         PlayerSetColorIndex(gv_players[lv_i].lv__3v3_zerg_pid, PlayerGetColorIndex(lv_i, false), true);
-        PlayerSetAlliance(gv_players[lv_i].lv__3v3_zerg_pid, c_allianceIdVision, lv_i, true);
-        PlayerSetAlliance(gv_players[lv_i].lv__3v3_zerg_pid, c_allianceIdControl, lv_i, true);
         libNtve_gf_SetAlliance(7, gv_players[lv_i].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_Ally);
         if ((gv_players[lv_i].lv_position <= 3)) {
             PlayerGroupAdd(lv_lgt[1], gv_players[lv_i].lv__3v3_zerg_pid);
@@ -5101,6 +5102,13 @@ void gf_set_3v3_alliances () {
     libNtve_gf_AddPlayerGroupToPlayerGroup(gv_terrans_team_bottom, lv_lgt[2]);
     libNtve_gf_SetPlayerGroupAlliance(lv_lgt[1], libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetPlayerGroupAlliance(lv_lgt[2], libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    autoEA511B56_g = gv_terrans;
+    autoEA511B56_var = -1;
+    while (true) {
+        autoEA511B56_var = PlayerGroupNextPlayer(autoEA511B56_g, autoEA511B56_var);
+        if (autoEA511B56_var < 0) { break; }
+        PlayerSetAlliance(gv_players[autoEA511B56_var].lv__3v3_zerg_pid, c_allianceIdControl, autoEA511B56_var, true);
+    }
 }
 
 int gf__3v3_get_alternative_terran_if_nemesis_doesnt_exist (int lp_pid) {
