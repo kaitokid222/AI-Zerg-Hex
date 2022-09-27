@@ -20293,7 +20293,7 @@ bool gt_spinegetsattacked_Func (bool testConds, bool runActions) {
     gf_infestor_heal(lv_infestor, lv_unit);
     lv_infestor = gf_get_ready_infestor(lv_infestors);
     gf_infestor_heal(lv_infestor, lv_unit);
-    if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm")) {
+    if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm") && (EventUnitDamageEffect() != "ZergBuildingNotOnCreepDamage")) {
         if (true) {
             gf_f2_point(EventUnitDamageSourcePoint(), true);
         }
@@ -20352,6 +20352,10 @@ bool gt_buildinggetsattacked_Func (bool testConds, bool runActions) {
         }
 
         if (!((EventUnitDamageEffect() != "ShatterL3Damage"))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageEffect() != "ZergBuildingNotOnCreepDamage"))) {
             return false;
         }
 
