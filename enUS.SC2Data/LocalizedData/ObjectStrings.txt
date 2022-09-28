@@ -469,6 +469,7 @@ Actor/Name/Fruit=Fruit
 Actor/Name/FruitFarm=Fruit Farm
 Actor/Name/FruitFarmBuild=Fruit Farm Build
 Actor/Name/GainBounty=Gain Bounty
+Actor/Name/GainBountyTextKicker=Gain Bounty Text Kicker
 Actor/Name/GainGas2Text=Gain Gas 2 Text
 Actor/Name/GainMinerals1Text=Gain Minerals1 Text
 Actor/Name/GainMinerals2Text=Gain Minerals2 Text

@@ -27,6 +27,7 @@
 <Actor id="RockLarge" Variations="0,2,4,8,14,16,17,20,23"/>
 <Actor id="RockSmall" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
 <Actor id="XilSpireLarge" Variations="3"/>
+<Actor id="GainBountyTextKicker"/>
 <Behavior id="InfestedVisual"/>
 <Behavior id="InfusedRoachCountDummyStack"/>
 <Behavior id="FirelingCountDummyStack"/>

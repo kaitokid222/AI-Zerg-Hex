@@ -1108,7 +1108,8 @@ Button/Tooltip/Flower=
 Button/Tooltip/Fortification=Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val="E8E191">Walls and Gates</c>: +30% health and +1 armor.<n/><c val="E8E191">Tech Structures</c>: +35 hp.<n/><c val="E8E191">Other</c>: +20 hp. <c val="C0C0C0">(Fruit Farm excluded)</c><n/><n/>Can be upgraded 30 times.
 Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage to enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
 Button/Tooltip/FruitFarm=
-Button/Tooltip/GainBounty=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><n/><s val="MercDescription"><c val="8AFF91">+1</c></s><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
+Button/Tooltip/GainBounty=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
+Button/Tooltip/GainBountyTextKicker=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
 Button/Tooltip/GainGas2Text=<s val="MercDescription"><c val="8AFF91">+2</c></s><IMG path="Assets\Textures\icon-gas-terran.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals1Text=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals2Text=<s val="MercDescription">+2</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
@@ -2000,6 +2001,8 @@ DocInfo/PatchNote514=Fixed issues.
 DocInfo/PatchNote515=Reduced Bomber Spawn Tech Gas Cost 150 -> 125
 DocInfo/PatchNote516=Infestors now collide with each other.
 DocInfo/PatchNote517=High Tech Bonus now has a Generator Upgrade which increases the Energy regeneration rate by 150. It requires a level 30 Generator.
+DocInfo/PatchNote518=Fixed Issues.
+DocInfo/PatchNote519=Added visual indicator for resource drops from event pick ups.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

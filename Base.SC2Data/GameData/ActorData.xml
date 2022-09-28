@@ -196,6 +196,21 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorText id="GainBountyTextKicker">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.100000 StartMover"/>
+        <On Terms="ActorCreation" Send="TimerSet 2.000000 Die"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.000000 2.000000"/>
+        <On Terms="TimerExpired; TimerName StartMover" Send="Create AutomatedRefineryTextMover"/>
+        <On Terms="TimerExpired; TimerName Die" Send="Destroy"/>
+        <Host Subject="_Unit"/>
+        <FixedSize value="16"/>
+        <AlignV value="Bottom"/>
+        <HeightOffset value="3.500000"/>
+        <Text value="Button/Tooltip/GainBountyTextKicker"/>
+    </CActorText>
     <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <On Terms="Effect.VdayLoveDummy.Start; At Target" Send="Create"/>
@@ -2033,6 +2048,7 @@
     </CActorUnit>
     <CActorUnit id="xmascandy4" parent="GenericUnitStandardNoAutoSoundLinks" unitName="Candy4">
         <On Terms="UnitDeath" Send="Create UI_Pickup_NovaTechnology_ActorSound"/>
+        <!-- <On Terms="Behavior.Bounty.On" Send="Create GainBountyTextKicker"/>-->
         <Model value="xmascandy4"/>
         <GroupIcon>
             <Image value="assets\textures\storm_ui_gift_icon.dds"/>
