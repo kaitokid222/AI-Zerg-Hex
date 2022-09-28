@@ -7473,7 +7473,6 @@ void gf_init_event () {
         else {
         }
     }
-    gv_is_xmas = true;
     if ((gf_is_event() == true)) {
         autoEF184761_g = gv_terrans;
         autoEF184761_var = -1;
