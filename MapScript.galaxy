@@ -10604,7 +10604,7 @@ void gf_get_infestors () {
                         autoAD5C2F0D_var = UnitGroupUnitFromEnd(autoAD5C2F0D_g, autoAD5C2F0D_u);
                         if (autoAD5C2F0D_var == null) { break; }
                         if ((UnitOrderCount(autoAD5C2F0D_var) > 0)) {
-                            UnitGroupRemove(lv_n_group, autoAD5C2F0D_var);
+                            UnitGroupRemove(lv_n_group_all, autoAD5C2F0D_var);
                         }
 
                     }
@@ -21345,7 +21345,15 @@ bool gt_infestorgetsattacked_Func (bool testConds, bool runActions) {
     if ((gf_is_pvp() == true)) {
     }
     else {
-        gf_send_infestor_home(lv_unit, lv_attacker_pos);
+        if ((gv_difficulty >= 5)) {
+            if ((UnitGetPropertyInt(lv_unit, c_unitPropLife, c_unitPropCurrent) <= 112)) {
+                gf_send_infestor_home(lv_unit, lv_attacker_pos);
+            }
+
+        }
+        else {
+            gf_send_infestor_home(lv_unit, lv_attacker_pos);
+        }
     }
     return true;
 }
