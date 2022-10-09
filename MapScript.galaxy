@@ -550,7 +550,7 @@ int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
 int gf_where_to_build_next_spawner_3v3 ();
-void gf_upgrade_random_starting_spawners ();
+void gf_update_start_spawners_3v3 ();
 void gf_init_3v3_flying_rally ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 void gf_manage_spawners_3v3 (int lp_player_position);
@@ -5802,33 +5802,28 @@ int gf_where_to_build_next_spawner_3v3 () {
     return lv_return;
 }
 
-void gf_upgrade_random_starting_spawners () {
+void gf_update_start_spawners_3v3 () {
     // Variable Declarations
     int lv_index;
     unit lv_spawner;
 
     // Automatic Variable Declarations
-    const int auto179485E0_ae = 4;
-    const int auto179485E0_ai = 1;
+    unitgroup autoE5347793_g;
+    int autoE5347793_u;
+    unit autoE5347793_var;
 
     // Variable Initialization
 
     // Implementation
-    lv_index = 1;
-    for ( ; ( (auto179485E0_ai >= 0 && lv_index <= auto179485E0_ae) || (auto179485E0_ai < 0 && lv_index >= auto179485E0_ae) ) ; lv_index += auto179485E0_ai ) {
-        lv_spawner = UnitGroupRandomUnit(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-        while ((lv_spawner != null)) {
-            if ((UnitHasBehavior2(lv_spawner, "SpawnerUpgraded") == false) && (libNtve_gf_UnitIsUnderConstruction(lv_spawner) == false) && ((UnitGetType(lv_spawner) == "CreeperSpawner") || (UnitGetType(lv_spawner) == "SlowlingSpawner"))) {
-                break;
-            }
-            else {
-                lv_spawner = UnitGroupRandomUnit(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-            }
-        }
-        UnitCreateEffectUnit(lv_spawner, "SpawnerUpgradeUpgradeSet2", lv_spawner);
+    autoE5347793_g = UnitGroup("CreeperSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoE5347793_u = UnitGroupCount(autoE5347793_g, c_unitCountAll);
+    for (;; autoE5347793_u -= 1) {
+        autoE5347793_var = UnitGroupUnitFromEnd(autoE5347793_g, autoE5347793_u);
+        if (autoE5347793_var == null) { break; }
+        UnitCreateEffectUnit(autoE5347793_var, "SpawnerUpgradeUpgradeSet2", autoE5347793_var);
         PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperSubtract, 40);
     }
-    gv_upgrade_sets_left -= 1;
+    gv_upgrade_sets_left = 0;
 }
 
 void gf_init_3v3_flying_rally () {
@@ -13640,7 +13635,7 @@ void gf_upgrade_start_spawners () {
     // Implementation
     if ((gv_upgrade_sets_left > 0)) {
         if ((gf_is_3v3() == true)) {
-            gf_upgrade_random_starting_spawners();
+            gf_update_start_spawners_3v3();
         }
         else {
             while (true) {
