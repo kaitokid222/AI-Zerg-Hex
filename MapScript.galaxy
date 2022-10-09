@@ -13235,9 +13235,9 @@ void gf_rerally_dead_player_spawners (int lp_dead_player) {
     playergroup lv_player_group;
 
     // Automatic Variable Declarations
-    unitgroup autoDA9970D3_g;
-    int autoDA9970D3_u;
-    unit autoDA9970D3_var;
+    unitgroup auto0F59C787_g;
+    int auto0F59C787_u;
+    unit auto0F59C787_var;
     unitgroup autoC8B4BF64_g;
     int autoC8B4BF64_u;
     unit autoC8B4BF64_var;
@@ -13260,21 +13260,14 @@ void gf_rerally_dead_player_spawners (int lp_dead_player) {
     else {
         lv_player_group = gv_terrans;
     }
-    autoDA9970D3_g = UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoDA9970D3_u = UnitGroupCount(autoDA9970D3_g, c_unitCountAll);
-    for (;; autoDA9970D3_u -= 1) {
-        autoDA9970D3_var = UnitGroupUnitFromEnd(autoDA9970D3_g, autoDA9970D3_u);
-        if (autoDA9970D3_var == null) { break; }
-        if ((UnitAbilityCheck(autoDA9970D3_var, "Rally", true) == true)) {
-            lv_rally = UnitRallyPointTargetPoint(autoDA9970D3_var, 1, 1);
-            if ((lv_rally != null) && (RegionContainsPoint(RegionCircle(RegionGetCenter(RegionFromName(("geysers p" + IntToString(gv_players[lp_dead_player].lv_position)))), 50.0), lv_rally) == true)) {
-                lv_closest_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(autoDA9970D3_var), lv_player_group);
-                gf_reassign_spawner_to_othergroup(autoDA9970D3_var, gv_players[lp_dead_player].lv_position, lv_closest_player_position);
-                UnitIssueOrder(autoDA9970D3_var, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_closest_player_position)))), c_orderQueueReplace);
-            }
-
-        }
-
+    auto0F59C787_g = gv_spawnergroups[gv_players[lp_dead_player].lv_position].lv_all;
+    auto0F59C787_u = UnitGroupCount(auto0F59C787_g, c_unitCountAll);
+    for (;; auto0F59C787_u -= 1) {
+        auto0F59C787_var = UnitGroupUnitFromEnd(auto0F59C787_g, auto0F59C787_u);
+        if (auto0F59C787_var == null) { break; }
+        lv_closest_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(auto0F59C787_var), lv_player_group);
+        gf_reassign_spawner_to_othergroup(auto0F59C787_var, gv_players[lp_dead_player].lv_position, lv_closest_player_position);
+        gf_manage_spawners(gv_players[lp_dead_player].lv_position);
     }
     autoC8B4BF64_g = UnitGroup(null, 7, RegionCircle(PointFromName(("Zerg Rally " + IntToString(gv_players[lp_dead_player].lv_position))), 20.0), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoC8B4BF64_u = UnitGroupCount(autoC8B4BF64_g, c_unitCountAll);
