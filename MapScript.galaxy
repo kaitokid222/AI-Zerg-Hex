@@ -642,6 +642,8 @@ bool gf_is_hazard_zone_deprecated (int lp_array_key);
 bool gf_is_point_in_hazard_zone (point lp_point);
 void gf_build_drone ();
 unit gf_get_drone ();
+int gf_get_number_of_ready_drones ();
+unitgroup gf_get_all_ready_drones ();
 void gf_f2_point (point lp_point, bool lp_force);
 void gf_scout_bonus_gasses ();
 void gf_attack_a_bonus_gas ();
@@ -712,6 +714,7 @@ int gf_get_free_supply ();
 int gf_get_total_spawner_count ();
 int gf_get_total_t1_spawner_count ();
 void gf_build_spawner_every_2_seconds ();
+void gf_build_spawners_fast_e2s ();
 int gf_get_max_allowed_spawner_count ();
 void gf_build_spawner (unit lp_drone, int lp_target_player);
 void gf_set_build ();
@@ -9011,8 +9014,9 @@ void gf_build_drone () {
     lv_hive = gf_get_hive();
 
     // Implementation
-    if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 20) && (gv_ai_building_drone == false)) {
+    if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 40) && (gv_ai_building_drone == false)) {
         UnitIssueOrder(lv_hive, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+        UnitIssueOrder(lv_hive, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         UnitIssueOrder(lv_hive, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         gv_ai_building_drone = true;
     }
@@ -9055,6 +9059,61 @@ unit gf_get_drone () {
         gf_build_drone();
     }
 
+    return lv_return;
+}
+
+int gf_get_number_of_ready_drones () {
+    // Variable Declarations
+    unitgroup lv_u_group;
+    int lv_return;
+
+    // Automatic Variable Declarations
+    unitgroup auto0E4A8C3E_g;
+    int auto0E4A8C3E_u;
+    unit auto0E4A8C3E_var;
+
+    // Variable Initialization
+    lv_u_group = UnitGroup("Drone2", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+
+    // Implementation
+    auto0E4A8C3E_g = lv_u_group;
+    auto0E4A8C3E_u = UnitGroupCount(auto0E4A8C3E_g, c_unitCountAll);
+    for (;; auto0E4A8C3E_u -= 1) {
+        auto0E4A8C3E_var = UnitGroupUnitFromEnd(auto0E4A8C3E_g, auto0E4A8C3E_u);
+        if (auto0E4A8C3E_var == null) { break; }
+        if ((UnitOrderCount(auto0E4A8C3E_var) < 1)) {
+            lv_return = (lv_return + 1);
+        }
+
+    }
+    return lv_return;
+}
+
+unitgroup gf_get_all_ready_drones () {
+    // Variable Declarations
+    unitgroup lv_u_group;
+    unitgroup lv_return;
+
+    // Automatic Variable Declarations
+    unitgroup autoA5209213_g;
+    int autoA5209213_u;
+    unit autoA5209213_var;
+
+    // Variable Initialization
+    lv_u_group = UnitGroup("Drone2", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_return = UnitGroupEmpty();
+
+    // Implementation
+    autoA5209213_g = lv_u_group;
+    autoA5209213_u = UnitGroupCount(autoA5209213_g, c_unitCountAll);
+    for (;; autoA5209213_u -= 1) {
+        autoA5209213_var = UnitGroupUnitFromEnd(autoA5209213_g, autoA5209213_u);
+        if (autoA5209213_var == null) { break; }
+        if ((UnitOrderCount(autoA5209213_var) < 1)) {
+            UnitGroupAdd(lv_return, autoA5209213_var);
+        }
+
+    }
     return lv_return;
 }
 
@@ -11518,6 +11577,85 @@ void gf_build_spawner_every_2_seconds () {
         }
     }
 
+}
+
+void gf_build_spawners_fast_e2s () {
+    // Variable Declarations
+    int lv_ready_drones;
+    unitgroup lv_drones;
+    int lv_min_supply;
+
+    // Automatic Variable Declarations
+    unitgroup autoA4115056_g;
+    int autoA4115056_u;
+    unit autoA4115056_var;
+
+    // Variable Initialization
+    lv_ready_drones = gf_get_number_of_ready_drones();
+    lv_drones = UnitGroupEmpty();
+
+    // Implementation
+    if ((gv_armor_level > 3)) {
+        if ((gv_armor_level > 4)) {
+            if ((gv_req_torra > 0) && (gf_get_infestor_for_torra() != null)) {
+                lv_min_supply = 90;
+            }
+            else {
+                lv_min_supply = 10;
+            }
+        }
+        else {
+            lv_min_supply = 8;
+        }
+    }
+    else {
+        if ((gv_build == "tanklings")) {
+            lv_min_supply = 5;
+        }
+        else {
+            lv_min_supply = 4;
+        }
+    }
+    if ((gf_get_free_supply() < lv_min_supply)) {
+        gf_try_buy_supply();
+    }
+
+    if ((lv_ready_drones > 0)) {
+        UnitGroupAddUnitGroup(lv_drones, gf_get_all_ready_drones());
+        gf_update_free_position_counts();
+        gf_reconstruct_possible_positions_array();
+        if ((gf_get_free_supply() >= lv_min_supply) && (gf_get_total_spawner_count() < gf_get_max_allowed_spawner_count())) {
+            autoA4115056_g = lv_drones;
+            autoA4115056_u = UnitGroupCount(autoA4115056_g, c_unitCountAll);
+            for (;; autoA4115056_u -= 1) {
+                autoA4115056_var = UnitGroupUnitFromEnd(autoA4115056_g, autoA4115056_u);
+                if (autoA4115056_var == null) { break; }
+                if ((gf_get_free_supply() >= lv_min_supply) && (gf_get_total_spawner_count() < gf_get_max_allowed_spawner_count())) {
+                    gf_build_spawner(autoA4115056_var, gf_where_toplace_next_spawner());
+                }
+                else {
+                    gf_try_buy_supply();
+                    break;
+                }
+            }
+        }
+
+    }
+    else {
+        gf_build_drone();
+    }
+    if ((gf_get_total_spawner_count() < gf_get_max_allowed_spawner_count())) {
+    }
+    else {
+        if ((gf_get_total_t1_spawner_count() > 0)) {
+            gf_kill_random_slowling_spawner();
+        }
+
+        if ((gf_get_free_supply() <= 90)) {
+            gf_try_buy_supply();
+        }
+
+    }
 }
 
 int gf_get_max_allowed_spawner_count () {
@@ -23031,7 +23169,7 @@ bool gt_everytwoseconds_Func (bool testConds, bool runActions) {
     if ((gf_is_pvp() == true)) {
     }
     else {
-        gf_build_spawner_every_2_seconds();
+        gf_build_spawners_fast_e2s();
     }
     return true;
 }
