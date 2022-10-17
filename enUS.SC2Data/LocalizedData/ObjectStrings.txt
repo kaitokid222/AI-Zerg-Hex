@@ -3188,6 +3188,7 @@ Upgrade/EditorSuffix/ShockOverload=(AoE Increase)
 Upgrade/EditorSuffix/SolarWeapons=long night hex
 Upgrade/EditorSuffix/SpawnBombers=Bomber hex
 Upgrade/EditorSuffix/SuperEnergyGeneration=(+150)
+Upgrade/EditorSuffix/TankExpertise=3v3
 Upgrade/EditorSuffix/TerrazineDoubler=3v3
 Upgrade/EditorSuffix/TerrazineDoubler2=3v3
 Upgrade/EditorSuffix/TerrazineDoubler3=3v3
