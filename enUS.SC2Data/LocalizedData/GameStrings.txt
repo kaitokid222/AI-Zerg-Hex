@@ -3660,6 +3660,7 @@ Upgrade/Name/SiegeTankRange=Siege Tank Range
 Upgrade/Name/SolarWeapons=Solar Weapons
 Upgrade/Name/SpawnBombers=Spawn Bombers
 Upgrade/Name/SuperEnergyGeneration=Super Energy Generation
+Upgrade/Name/TankExpertise=Tank Expertise
 Upgrade/Name/TarInfection=Tar Infection
 Upgrade/Name/TarSpawn=Tar Spawn
 Upgrade/Name/TechLabCharge=Tech Lab Charge

@@ -119,6 +119,21 @@
     <CUpgrade id="DoubledRewards">
         <Icon value="Assets\Textures\btn-ability-hornerhan-salvagebonus.dds"/>
     </CUpgrade>
+    <CUpgrade id="TankExpertise">
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Vital[Energy]" Value="20"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Vital[Energy]" Value="20"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Vital[Energy]" Value="20"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Vital[Energy]" Value="20"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Cooldown.TimeUse" Value="0.750000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Cooldown.TimeUse" Value="0.750000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="40"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="40"/>
+        <MaxLevel value="30"/>
+    </CUpgrade>
     <CUpgrade id="TerrazineDoubler2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>

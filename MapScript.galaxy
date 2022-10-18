@@ -810,6 +810,7 @@ trigger gt_SkinJimmygotselected;
 trigger gt_SkinMadaxegotselected;
 trigger gt_SkinUltimategotselected;
 trigger gt_Skinmarshallgotselected;
+trigger gt_use_tank_ability;
 trigger gt_TechLabWarpItalisCost;
 trigger gt_TechLabChargeApply;
 trigger gt_IonCannonNotification;
@@ -16057,6 +16058,39 @@ void gt_Skinmarshallgotselected_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: use_tank_ability
+//--------------------------------------------------------------------------------------------------
+bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 30)) {
+        if ((TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
+            TechTreeUpgradeAddLevel(EventPlayer(), "TankExpertise", 2);
+        }
+        else {
+            TechTreeUpgradeAddLevel(EventPlayer(), "TankExpertise", 1);
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_use_tank_ability_Init () {
+    gt_use_tank_ability = TriggerCreate("gt_use_tank_ability_Func");
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("SiegeTankModulate", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannon", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT2", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT3", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlast", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlastT2", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Tech Lab Warp Italis Cost
 //--------------------------------------------------------------------------------------------------
 bool gt_TechLabWarpItalisCost_Func (bool testConds, bool runActions) {
@@ -23523,6 +23557,7 @@ void InitTriggers () {
     gt_SkinMadaxegotselected_Init();
     gt_SkinUltimategotselected_Init();
     gt_Skinmarshallgotselected_Init();
+    gt_use_tank_ability_Init();
     gt_TechLabWarpItalisCost_Init();
     gt_TechLabChargeApply_Init();
     gt_IonCannonNotification_Init();
