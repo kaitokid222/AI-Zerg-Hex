@@ -16067,7 +16067,7 @@ bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 30)) {
+    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 30)) {
         if ((TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
             TechTreeUpgradeAddLevel(EventPlayer(), "TankExpertise", 2);
         }

@@ -5218,7 +5218,7 @@
         <LifeStart value="150"/>
         <LifeMax value="150"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossPlating"/>
-        <EnergyMax value="25000"/>
+        <EnergyMax value="15000"/>
         <ShieldRegenDelay value="10"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <Speed value="4"/>
@@ -5274,7 +5274,7 @@
         <GlossaryPriority value="120"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
-        <EnergyStart value="25000"/>
+        <EnergyStart value="15000"/>
     </CUnit>
     <CUnit id="BrutaliskSpawner" parent="NydusNetwork">
         <Name value="Unit/Name/BrutaliskSpawner"/>

@@ -123,7 +123,7 @@
         <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
         <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
         <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
         <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Vital[Energy]" Value="20"/>
         <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Vital[Energy]" Value="20"/>
         <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Vital[Energy]" Value="20"/>
