@@ -1337,7 +1337,6 @@
         <EnergyRegenRate value="0"/>
     </CUnit>
     <CUnit id="SiegeTankFragmentBlastFire">
-        <EditorCategories value=""/>
         <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <LifeStart value="50000"/>
@@ -1345,6 +1344,7 @@
         <Sight value="3"/>
         <BehaviorArray Link="SiegeTankFragmentBlastFireTimedLife"/>
         <BehaviorArray Link="SiegeTankFragmentBlastFireDamage"/>
+        <EditorCategories value=""/>
     </CUnit>
     <CUnit id="Spirit">
         <Description value="Button/Tooltip/WarpInSpirit"/>

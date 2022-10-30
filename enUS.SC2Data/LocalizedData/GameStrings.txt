@@ -466,6 +466,7 @@ Behavior/Name/Radiating=Radiating
 Behavior/Name/RavatorStructureBurning=Burning
 Behavior/Name/RoachTarRushSpeed=Roach - Tar Rush Speed
 Behavior/Name/SiegeTankCooldown=Cooldown
+Behavior/Name/SiegeTankFragmentBlastFireDamage=Siege Tank - Fragment Blast (Fire Damage)
 Behavior/Name/SpawnProtection=Spawn Protection
 Behavior/Name/StalkerSpeedBuff=Stalker Speed Buff
 Behavior/Name/StaticDischarge=Static Discharge
@@ -1106,7 +1107,7 @@ Button/Tooltip/FirelingIgnite=Setting itself ablaze, doubling its attack and mov
 Button/Tooltip/Flight2=Flies cloaked over obstacles to a nearby target location.
 Button/Tooltip/Flower=
 Button/Tooltip/Fortification=Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val="E8E191">Walls and Gates</c>: +30% health and +1 armor.<n/><c val="E8E191">Tech Structures</c>: +35 hp.<n/><c val="E8E191">Other</c>: +20 hp. <c val="C0C0C0">(Fruit Farm excluded)</c><n/><n/>Can be upgraded 30 times.
-Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage to enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
+Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
 Button/Tooltip/FruitFarm=
 Button/Tooltip/GainBounty=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
 Button/Tooltip/GainBountyTextKicker=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
@@ -1233,9 +1234,9 @@ Button/Tooltip/PickupMinerals1Text=<s val="MercDescription">+1</s><IMG path="Ass
 Button/Tooltip/PickupNovaTechnologyText=Something happend!
 Button/Tooltip/PlantFlower=Unstucks Builders and is decorative.
 Button/Tooltip/PlasmaCannon=Powerful siege weapon used to destroy enemies from a long distance.<n/><n/>Requires manual targeting to fire.<n/><n/>Weapon uses 200 energy per shot.
-Button/Tooltip/PlasmaCannonT1=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> <c val="F0E2AC">225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> 275/170 damage, radius 3.5/6.5.<n/><c val="ffff8a">(2)</c> 300/190 damage, radius 4.0/10.0.
-Button/Tooltip/PlasmaCannonT2=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> <c val="F0E2AC">275/170 damage, radius 3.5/6.5.</c><n/><c val="ffff8a">(2)</c> 300/190 damage, radius 4.0/10.0.
-Button/Tooltip/PlasmaCannonT3=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> 275/170 damage, radius 3.5/6.5.</c><n/><c val="ffff8a">(2)</c> <c val="F0E2AC">300/190 damage, radius 4.0/10.0.</c>
+Button/Tooltip/PlasmaCannonT1=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> <c val="F0E2AC">225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> 325/210 damage, radius 3.5/6.5.<n/><c val="ffff8a">(2)</c> 375/240 damage, radius 4.0/10.0.
+Button/Tooltip/PlasmaCannonT2=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> <c val="F0E2AC">325/210 damage, radius 3.5/6.5.</c><n/><c val="ffff8a">(2)</c> 375/240 damage, radius 4.0/10.0.
+Button/Tooltip/PlasmaCannonT3=Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val="ffff8a">Plasma Shards</c> to include the outer impact area.<n/><n/><c val="ffff8a">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val="ffff8a">(1)</c> 325/210 damage, radius 3.5/6.5.</c><n/><c val="ffff8a">(2)</c> <c val="F0E2AC">375/240 damage, radius 4.0/10.0.</c>
 Button/Tooltip/PlasmaShards=Upgrades the Siege Tank to allow launching blasts that lose integrity. Enables <c val="ffff8a">Fragment Blast</c> and empowers the <c val="ffff8a">Plasma Cannon</c> with its outer impact area.
 Button/Tooltip/PlasmaShardsInfo=Enables <c val="ffff8a">Fragment Blast</c> and empowers the <c val="ffff8a">Plasma Cannon</c> with its outer impact area.
 Button/Tooltip/PoorVespeneGeyser=Workers can harvest vespene gas from this Vespene Geyser.
@@ -2658,6 +2659,7 @@ Effect/Name/SiegeTankDeathRevertUpgradesTrigger=Siege Tank - Death (Revert Upgra
 Effect/Name/SiegeTankFragmentBlastApplyShardLauncherLong=Siege Tank Fragment Blast (Apply Shard Launcher Long)
 Effect/Name/SiegeTankFragmentBlastApplyShardLauncherShort=Siege Tank Fragment Blast (Apply Shard Launcher Short)
 Effect/Name/SiegeTankFragmentBlastApplyShardLauncherSwitch=Siege Tank Fragment Blast (Apply Shard Launcher Switch)
+Effect/Name/SiegeTankFragmentBlastFireDamage=Siege Tank - Fragment Blast (Fire Damage)
 Effect/Name/SiegeTankFragmentBlastInitialSet=Siege Tank Fragment Blast (Initial Set)
 Effect/Name/SiegeTankFragmentBlastLaunchMissile=Siege Tank Fragment Blast (Launch Missile)
 Effect/Name/SiegeTankFragmentBlastLaunchShardMover1=Siege Tank - Fragment Blast (Launch Shard) (Mover 1)
@@ -2670,6 +2672,8 @@ Effect/Name/SiegeTankFragmentBlastLaunchShardT2RightPersistent=Siege Tank - Frag
 Effect/Name/SiegeTankFragmentBlastMissileDelayed=Siege Tank Fragment Blast (Missile Delayed)
 Effect/Name/SiegeTankFragmentBlastSet=Siege Tank Fragment Blast (Set)
 Effect/Name/SiegeTankFragmentBlastShardDamage=Siege Tank - Fragment Blast (Shard Damage)
+Effect/Name/SiegeTankFragmentBlastShardImpactFire=Siege Tank - Fragment Blast (Shard Impact Fire)
+Effect/Name/SiegeTankFragmentBlastShardImpactSet=Siege Tank - Fragment Blast (Shard Impact Set)
 Effect/Name/SiegeTankFragmentBlastTurretStart=Siege Tank Fragment Blast (Turret Start)
 Effect/Name/SiegeTankModulateApply=Siege Tank Modulate (Apply)
 Effect/Name/SiegeTankModulateSet=Siege Tank Modulate (Set)
@@ -3541,6 +3545,7 @@ Unit/Name/ShockTrooper=Shock Trooper
 Unit/Name/ShockTrooperInstantDischargeWeapon=Shock Trooper - Instant Discharge Weapon
 Unit/Name/SiegeTank2=Siege Tank
 Unit/Name/SiegeTank22=Siege Tank
+Unit/Name/SiegeTankFragmentBlastFire=Siege Tank Fragment Blast Fire
 Unit/Name/SiegeTankSiegedZergHex=Siege Tank
 Unit/Name/SiegeTankSiegedZergHex2=Siege Tank
 Unit/Name/SiegeTankZergHex=Siege Tank
@@ -3654,6 +3659,7 @@ Upgrade/Name/PlasmaCannons=Plasma Cannons
 Upgrade/Name/PrimalRapidRespawn=Primal Rapid Respawn
 Upgrade/Name/ShockBeam=Shock Beam
 Upgrade/Name/ShockOverload=Shock Overload
+Upgrade/Name/SiegeTankBetterVersion=Siege Tank Better Version
 Upgrade/Name/SiegeTankModulation=Siege Tank Modulation
 Upgrade/Name/SiegeTankPlasmaShards=Siege Tank Plasma Shards
 Upgrade/Name/SiegeTankRange=Siege Tank Range
