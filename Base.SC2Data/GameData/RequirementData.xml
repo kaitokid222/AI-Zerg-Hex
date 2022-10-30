@@ -24,6 +24,12 @@
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>
+    <CRequirement id="PlasmaCannonsRequirementBetterTank">
+        <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="SiegeTankBetterVersion">
+        <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="SpawnBanelingsDelay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3861650221GTE3759116CountUnitTerrazineTankCompleteOnly3"/>
     </CRequirement>
