@@ -58,15 +58,11 @@
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT3,Amount" Value="375"/>
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonShardDamageT2,Amount" Value="210"/>
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonShardDamageT3,Amount" Value="240"/>
-        <EffectArray Operation="Set" Reference="Button,PlasmaCannonT1,AlertTooltip" Value="Button/Tooltip/PlasmaCannonT1"/>
-        <EffectArray Operation="Set" Reference="Button,PlasmaCannonT2,AlertTooltip" Value="Button/Tooltip/PlasmaCannonT2"/>
-        <EffectArray Operation="Set" Reference="Button,PlasmaCannonT3,AlertTooltip" Value="Button/Tooltip/PlasmaCannonT3"/>
         <EffectArray Operation="Set" Reference="Abil,ConstructionYardTrain,InfoArray[Train1].Time" Value="20.000000"/>
         <EffectArray Operation="Set" Reference="Abil,SiegeTankUpgrade,InfoArray[Research1].Time" Value="10.000000"/>
         <EffectArray Operation="Set" Reference="Abil,SiegeTankUpgrade,InfoArray[Research2].Time" Value="10.000000"/>
         <EffectArray Operation="Set" Reference="Abil,SiegeTankUpgrade,InfoArray[Research3].Time" Value="10.000000"/>
         <EffectArray Operation="Set" Reference="Abil,ConstructionYardResearch,InfoArray[Research3].Button.Requirements" Value="PlasmaCannonsRequirementBetterTank"/>
-        <EffectArray Operation="Set" Reference="Button,FragmentBlast,AlertTooltip" Value="Button/Tooltip/FragmentBlast"/>
     </CUpgrade>
     <CUpgrade id="SuperEnergyGeneration">
         <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
