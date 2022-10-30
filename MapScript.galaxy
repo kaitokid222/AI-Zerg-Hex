@@ -509,6 +509,7 @@ int gf_get_random_free_position ();
 void gf_settle_player (int lp_player);
 void gf_handle_collection_skins ();
 void gf_Handle_Elite_Skins ();
+void gf_better_tank_upgrade ();
 void gf_handle_player_tutorial_stages ();
 bool gf_is_stage_done (int lp_player, int lp_stage);
 bool gf_is_bonus_objective_done (int lp_goal_id, int lp_player);
@@ -3818,6 +3819,22 @@ void gf_Handle_Elite_Skins () {
             TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 4), true);
         }
 
+    }
+}
+
+void gf_better_tank_upgrade () {
+    // Automatic Variable Declarations
+    playergroup auto657C0B98_g;
+    int auto657C0B98_var;
+
+    // Implementation
+    auto657C0B98_g = gv_terrans;
+    auto657C0B98_var = -1;
+    while (true) {
+        auto657C0B98_var = PlayerGroupNextPlayer(auto657C0B98_g, auto657C0B98_var);
+        if (auto657C0B98_var < 0) { break; }
+        TechTreeUpgradeAddLevel(auto657C0B98_var, "SiegeTankBetterVersion", 1);
+        CatalogReferenceSet("Button,FragmentBlast,AlertTooltip", auto657C0B98_var, IntToString(200));
     }
 }
 
@@ -23094,6 +23111,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     if ((GameAttributeGameValue("1") != "0002")) {
         gf_apply_smod();
         gf_apply_support();
+        gf_better_tank_upgrade();
     }
     else {
         gf_restore_ranked_vanilla();
