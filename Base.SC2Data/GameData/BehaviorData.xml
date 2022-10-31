@@ -150,6 +150,15 @@
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
         <DisableValidatorArray value="PlayerHasGTE4Terrazine"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankFragmentBlastFireDamage">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.2"/>
+        <PeriodicEffect value="SiegeTankFragmentBlastFireDamage"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankFragmentBlastFireTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TorraliskRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>

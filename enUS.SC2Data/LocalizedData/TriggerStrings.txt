@@ -331,6 +331,7 @@ FunctionDef/Name/770C61B8=Select Zerg
 FunctionDef/Name/78560EA3=Enable Practice Commands
 FunctionDef/Name/796CEC97=Major_rock_exploit
 FunctionDef/Name/7AD37915=3v3_get_hatchery_position_closest_to_target
+FunctionDef/Name/7C0D0509=better_tank_upgrade
 FunctionDef/Name/7C856979=distribute_players_based_on_their_elo
 FunctionDef/Name/7CA5415B=attack_neighbour
 FunctionDef/Name/7D4D60C7=update_income_for_player

@@ -315,6 +315,10 @@
         <Compare value="LE"/>
         <Value value="2"/>
     </CValidatorLocationCompareCliffLevel>
+    <CValidatorPlayerRequirement id="SiegeTankBetterVersion">
+        <Find value="1"/>
+        <Value value="SiegeTankBetterVersion"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareBehaviorCount id="SiegeTankHasModulation2">
         <WhichUnit Value="Caster"/>
         <Value value="2"/>

@@ -133,6 +133,10 @@
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly1892408692"/>
         <OperandArray value="OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10">
         <OperandArray value="GTE3277778316CountUnitTerrazineTankCompleteOnly2"/>
         <OperandArray value="LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10"/>
@@ -173,7 +177,6 @@
         <OperandArray value="GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot660069371CountUpgradeSuperEnergyGenerationQueuedOrBetterGTE1346723988CountUpgradeEnergyGenerationCompleteOnly30">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="Not660069371CountUpgradeSuperEnergyGenerationQueuedOrBetter"/>
         <OperandArray value="GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30"/>
     </CRequirementAnd>
@@ -866,6 +869,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ShockOverload" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeSiegeTankBetterVersionCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SiegeTankBetterVersion" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSiegeTankModulationCompleteOnly3535617815">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SiegeTankModulation" State="CompleteOnly"/>
@@ -916,7 +924,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSuperEnergyGenerationQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SuperEnergyGeneration" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTarInfectionCompleteOnly699063533">
@@ -1146,6 +1153,11 @@
     <CRequirementEq id="EqCountBehaviorSpawnerUpgradedCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorSpawnerUpgradedCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSiegeTankBetterVersionCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
     </CRequirementEq>
     <CRequirementGT id="GTCountBehaviorProbiusPylonBuffAuraAttackQueuedOrBetterAtUnit0">
         <OperandArray index="0" value="CountBehaviorProbiusPylonBuffAuraAttackQueuedOrBetterAtUnit"/>

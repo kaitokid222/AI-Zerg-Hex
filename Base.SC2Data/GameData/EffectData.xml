@@ -23,6 +23,36 @@
         <ResourcesCollected index="Vespene" value="1"/>
         <ResourcesCollected index="Terrazine" value="1"/>
     </CEffectModifyPlayer>
+    <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
+        <EditorCategories value=""/>
+        <AttributeBonus index="Structure" value="-5"/>
+        <Visibility value="Visible"/>
+        <Amount value="5"/>
+        <Death value="Fire"/>
+        <AreaArray Radius="1" Fraction="1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="SiegeTankFragmentBlastShardImpactFire">
+        <ValidatorArray value="SiegeTankBetterVersion"/>
+        <EditorCategories value=""/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="Birth" value="0"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="PlacementIgnoreCliffTest" value="1"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <CreateFlags index="NormalizeSpawnOffset" value="0"/>
+        <SpawnUnit value="SiegeTankFragmentBlastFire"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SiegeTankFragmentBlastShardImpactSet">
+        <EditorCategories value=""/>
+        <EffectArray value="SiegeTankFragmentBlastShardDamage"/>
+        <EffectArray value="SiegeTankFragmentBlastShardImpactFire"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="VdayLoveBuffAB">
         <EditorCategories value=""/>
         <Behavior value="VdayLoveBuff"/>
@@ -392,7 +422,7 @@
         <EditorCategories value="Race:Terran"/>
         <LaunchLocation Value="SourcePoint"/>
         <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="SiegeTankFragmentBlastShardDamage"/>
+        <ImpactEffect value="SiegeTankFragmentBlastShardImpactSet"/>
         <AmmoUnit value="FragmentBlastShardMissile"/>
     </CEffectLaunchMissile>
     <CEffectSet id="SiegeTankFragmentBlastLaunchShardSet">
@@ -651,7 +681,7 @@
         <EditorCategories value="Race:Terran"/>
         <LaunchLocation Value="SourcePoint"/>
         <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="SiegeTankFragmentBlastShardDamage"/>
+        <ImpactEffect value="SiegeTankFragmentBlastShardImpactSet"/>
         <AmmoUnit value="FragmentBlastShardMissile"/>
         <Movers Link="SiegeTankFragmentBlastShardUp" IfRangeLTE="-1"/>
     </CEffectLaunchMissile>
@@ -660,7 +690,7 @@
         <EditorCategories value="Race:Terran"/>
         <LaunchLocation Value="SourcePoint"/>
         <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="SiegeTankFragmentBlastShardDamage"/>
+        <ImpactEffect value="SiegeTankFragmentBlastShardImpactSet"/>
         <AmmoUnit value="FragmentBlastShardMissile"/>
         <Movers Link="SiegeTankFragmentBlastShardMid" IfRangeLTE="-1"/>
     </CEffectLaunchMissile>
