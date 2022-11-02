@@ -527,6 +527,12 @@
             <Description Value="Attribute005/Value011/Desc"/>
             <Icon Value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
         </Value>
+        <Value>
+            <Id Value="13"/>
+            <Name Value="Attribute005/Value013/Name"/>
+            <Description Value="Attribute005/Value013/Desc"/>
+            <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
+        </Value>
         <Default>
             <Slot Id="0"/>
             <Value Id="12"/>

@@ -3138,6 +3138,7 @@ Unit/EditorSuffix/TrafficTower=(Zerg Hex)
 Unit/EditorSuffix/Transporter=(Zerg Hex Transport)
 Unit/EditorSuffix/VespeneGeyser=(Zerg Hex)
 Unit/EditorSuffix/Viper=- Torment 3
+Unit/EditorSuffix/Wall2=hex
 Unit/EditorSuffix/WizardMinion=Hell
 Unit/EditorSuffix/ZerglingCarbot=(Carbot)  Small
 Unit/EditorSuffix/ZerglingCarbot2=(Carbot)

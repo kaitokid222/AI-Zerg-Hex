@@ -463,6 +463,9 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
 string gf_create_bank_data_csum (int lp_player);
 void gf_create_clean_bank (int lp_player);
 void gf_save_csum (int lp_player);
+bool gf_player_selected_prebuilt (int lp_player);
+void gf_Apply_or_remove_base (int lp_player);
+void gf_clean_bases ();
 void gf_remove_transmission_units ();
 void gf_apply_support ();
 void gf_create_special_forces_for_player (int lp_player);
@@ -1404,6 +1407,344 @@ void gf_save_csum (int lp_player) {
     BankSave(gv_players[lp_player].lv_bank);
 }
 
+bool gf_player_selected_prebuilt (int lp_player) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if (((GameAttributePlayerValue("5", lp_player) == "0013") || ((GameAttributePlayerValue("5", lp_player) == "0012") && (gv_players[lp_player].lv_support_type == "Prebuilt")))) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+void gf_Apply_or_remove_base (int lp_player) {
+    // Variable Declarations
+    int lv_cowfarm_cnt;
+    unitgroup lv_ug;
+    unitgroup lv_tug;
+
+    // Automatic Variable Declarations
+    unitgroup autoF7F77DD2_g;
+    int autoF7F77DD2_u;
+    unit autoF7F77DD2_var;
+    unitgroup auto34568FAA_g;
+    int auto34568FAA_u;
+    unit auto34568FAA_var;
+    unitgroup autoB36E851C_g;
+    int autoB36E851C_u;
+    unit autoB36E851C_var;
+    unitgroup auto7D1F62D0_g;
+    int auto7D1F62D0_u;
+    unit auto7D1F62D0_var;
+    unitgroup auto84ED5014_g;
+    int auto84ED5014_u;
+    unit auto84ED5014_var;
+    unitgroup auto9DDA0DBC_g;
+    int auto9DDA0DBC_u;
+    unit auto9DDA0DBC_var;
+    unitgroup autoB93E2363_g;
+    int autoB93E2363_u;
+    unit autoB93E2363_var;
+    unitgroup autoB09AE083_g;
+    int autoB09AE083_u;
+    unit autoB09AE083_var;
+    unitgroup auto67133A14_g;
+    int auto67133A14_u;
+    unit auto67133A14_var;
+    unitgroup autoCCAFDBC2_g;
+    int autoCCAFDBC2_u;
+    unit autoCCAFDBC2_var;
+    unitgroup auto511ED979_g;
+    int auto511ED979_u;
+    unit auto511ED979_var;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+    lv_tug = UnitGroupEmpty();
+
+    // Implementation
+    lv_ug = UnitGroup("Wall2", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoF7F77DD2_g = lv_ug;
+    autoF7F77DD2_u = UnitGroupCount(autoF7F77DD2_g, c_unitCountAll);
+    for (;; autoF7F77DD2_u -= 1) {
+        autoF7F77DD2_var = UnitGroupUnitFromEnd(autoF7F77DD2_g, autoF7F77DD2_u);
+        if (autoF7F77DD2_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(autoF7F77DD2_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, autoF7F77DD2_var);
+        }
+
+    }
+    lv_ug = UnitGroup("TerranAdvancedGate", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto34568FAA_g = lv_ug;
+    auto34568FAA_u = UnitGroupCount(auto34568FAA_g, c_unitCountAll);
+    for (;; auto34568FAA_u -= 1) {
+        auto34568FAA_var = UnitGroupUnitFromEnd(auto34568FAA_g, auto34568FAA_u);
+        if (auto34568FAA_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(auto34568FAA_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, auto34568FAA_var);
+        }
+
+    }
+    lv_ug = UnitGroup("FruitFarm", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoB36E851C_g = lv_ug;
+    autoB36E851C_u = UnitGroupCount(autoB36E851C_g, c_unitCountAll);
+    for (;; autoB36E851C_u -= 1) {
+        autoB36E851C_var = UnitGroupUnitFromEnd(autoB36E851C_g, autoB36E851C_u);
+        if (autoB36E851C_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(autoB36E851C_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, autoB36E851C_var);
+        }
+
+    }
+    lv_ug = UnitGroup("ConstructionYard", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto7D1F62D0_g = lv_ug;
+    auto7D1F62D0_u = UnitGroupCount(auto7D1F62D0_g, c_unitCountAll);
+    for (;; auto7D1F62D0_u -= 1) {
+        auto7D1F62D0_var = UnitGroupUnitFromEnd(auto7D1F62D0_g, auto7D1F62D0_u);
+        if (auto7D1F62D0_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(auto7D1F62D0_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, auto7D1F62D0_var);
+        }
+
+    }
+    lv_ug = UnitGroup("Armory2", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto84ED5014_g = lv_ug;
+    auto84ED5014_u = UnitGroupCount(auto84ED5014_g, c_unitCountAll);
+    for (;; auto84ED5014_u -= 1) {
+        auto84ED5014_var = UnitGroupUnitFromEnd(auto84ED5014_g, auto84ED5014_u);
+        if (auto84ED5014_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(auto84ED5014_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, auto84ED5014_var);
+        }
+
+    }
+    lv_ug = UnitGroup("TechLab3", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto9DDA0DBC_g = lv_ug;
+    auto9DDA0DBC_u = UnitGroupCount(auto9DDA0DBC_g, c_unitCountAll);
+    for (;; auto9DDA0DBC_u -= 1) {
+        auto9DDA0DBC_var = UnitGroupUnitFromEnd(auto9DDA0DBC_g, auto9DDA0DBC_u);
+        if (auto9DDA0DBC_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(auto9DDA0DBC_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, auto9DDA0DBC_var);
+        }
+
+    }
+    lv_ug = UnitGroup("CowFarm", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoB93E2363_g = lv_ug;
+    autoB93E2363_u = UnitGroupCount(autoB93E2363_g, c_unitCountAll);
+    for (;; autoB93E2363_u -= 1) {
+        autoB93E2363_var = UnitGroupUnitFromEnd(autoB93E2363_g, autoB93E2363_u);
+        if (autoB93E2363_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(autoB93E2363_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, autoB93E2363_var);
+        }
+
+    }
+    lv_ug = UnitGroup("PowerPylon", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoB09AE083_g = lv_ug;
+    autoB09AE083_u = UnitGroupCount(autoB09AE083_g, c_unitCountAll);
+    for (;; autoB09AE083_u -= 1) {
+        autoB09AE083_var = UnitGroupUnitFromEnd(autoB09AE083_g, autoB09AE083_u);
+        if (autoB09AE083_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(autoB09AE083_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, autoB09AE083_var);
+        }
+
+    }
+    lv_ug = UnitGroup("Defender", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto67133A14_g = lv_ug;
+    auto67133A14_u = UnitGroupCount(auto67133A14_g, c_unitCountAll);
+    for (;; auto67133A14_u -= 1) {
+        auto67133A14_var = UnitGroupUnitFromEnd(auto67133A14_g, auto67133A14_u);
+        if (auto67133A14_var == null) { break; }
+        if ((gf_get_closest_position(UnitGetPosition(auto67133A14_var)) == gv_players[lp_player].lv_position)) {
+            UnitGroupAdd(lv_tug, auto67133A14_var);
+        }
+
+    }
+    if ((gf_player_selected_prebuilt(lp_player) == true)) {
+        autoCCAFDBC2_g = lv_tug;
+        autoCCAFDBC2_u = UnitGroupCount(autoCCAFDBC2_g, c_unitCountAll);
+        for (;; autoCCAFDBC2_u -= 1) {
+            autoCCAFDBC2_var = UnitGroupUnitFromEnd(autoCCAFDBC2_g, autoCCAFDBC2_u);
+            if (autoCCAFDBC2_var == null) { break; }
+            UnitSetOwner(autoCCAFDBC2_var, lp_player, true);
+            if ((UnitGetType(autoCCAFDBC2_var) == "CowFarm")) {
+                lv_cowfarm_cnt = (lv_cowfarm_cnt + 1);
+            }
+
+            if ((UnitGetType(autoCCAFDBC2_var) == "ConstructionYard")) {
+                UnitBehaviorAdd(autoCCAFDBC2_var, "CanExtractGas", autoCCAFDBC2_var, 1);
+            }
+
+        }
+    }
+    else {
+        auto511ED979_g = lv_tug;
+        auto511ED979_u = UnitGroupCount(auto511ED979_g, c_unitCountAll);
+        for (;; auto511ED979_u -= 1) {
+            auto511ED979_var = UnitGroupUnitFromEnd(auto511ED979_g, auto511ED979_u);
+            if (auto511ED979_var == null) { break; }
+            UnitRemove(auto511ED979_var);
+        }
+    }
+}
+
+void gf_clean_bases () {
+    // Variable Declarations
+    unitgroup lv_ug;
+    unitgroup lv_tug;
+
+    // Automatic Variable Declarations
+    unitgroup auto2241C8FB_g;
+    int auto2241C8FB_u;
+    unit auto2241C8FB_var;
+    unitgroup autoE8B01293_g;
+    int autoE8B01293_u;
+    unit autoE8B01293_var;
+    unitgroup auto72D6D290_g;
+    int auto72D6D290_u;
+    unit auto72D6D290_var;
+    unitgroup autoADE019D7_g;
+    int autoADE019D7_u;
+    unit autoADE019D7_var;
+    unitgroup auto8ABF13BE_g;
+    int auto8ABF13BE_u;
+    unit auto8ABF13BE_var;
+    unitgroup auto0FB59699_g;
+    int auto0FB59699_u;
+    unit auto0FB59699_var;
+    unitgroup autoFB1F5D19_g;
+    int autoFB1F5D19_u;
+    unit autoFB1F5D19_var;
+    unitgroup auto68C167DA_g;
+    int auto68C167DA_u;
+    unit auto68C167DA_var;
+    unitgroup auto6BF0462F_g;
+    int auto6BF0462F_u;
+    unit auto6BF0462F_var;
+    unitgroup autoDADFF07B_g;
+    int autoDADFF07B_u;
+    unit autoDADFF07B_var;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+    lv_tug = UnitGroupEmpty();
+
+    // Implementation
+    lv_ug = UnitGroup("Wall2", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto2241C8FB_g = lv_ug;
+    auto2241C8FB_u = UnitGroupCount(auto2241C8FB_g, c_unitCountAll);
+    for (;; auto2241C8FB_u -= 1) {
+        auto2241C8FB_var = UnitGroupUnitFromEnd(auto2241C8FB_g, auto2241C8FB_u);
+        if (auto2241C8FB_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto2241C8FB_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto2241C8FB_var);
+        }
+
+    }
+    lv_ug = UnitGroup("TerranAdvancedGate", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoE8B01293_g = lv_ug;
+    autoE8B01293_u = UnitGroupCount(autoE8B01293_g, c_unitCountAll);
+    for (;; autoE8B01293_u -= 1) {
+        autoE8B01293_var = UnitGroupUnitFromEnd(autoE8B01293_g, autoE8B01293_u);
+        if (autoE8B01293_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(autoE8B01293_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, autoE8B01293_var);
+        }
+
+    }
+    lv_ug = UnitGroup("FruitFarm", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto72D6D290_g = lv_ug;
+    auto72D6D290_u = UnitGroupCount(auto72D6D290_g, c_unitCountAll);
+    for (;; auto72D6D290_u -= 1) {
+        auto72D6D290_var = UnitGroupUnitFromEnd(auto72D6D290_g, auto72D6D290_u);
+        if (auto72D6D290_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto72D6D290_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto72D6D290_var);
+        }
+
+    }
+    lv_ug = UnitGroup("ConstructionYard", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoADE019D7_g = lv_ug;
+    autoADE019D7_u = UnitGroupCount(autoADE019D7_g, c_unitCountAll);
+    for (;; autoADE019D7_u -= 1) {
+        autoADE019D7_var = UnitGroupUnitFromEnd(autoADE019D7_g, autoADE019D7_u);
+        if (autoADE019D7_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(autoADE019D7_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, autoADE019D7_var);
+        }
+
+    }
+    lv_ug = UnitGroup("Armory2", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto8ABF13BE_g = lv_ug;
+    auto8ABF13BE_u = UnitGroupCount(auto8ABF13BE_g, c_unitCountAll);
+    for (;; auto8ABF13BE_u -= 1) {
+        auto8ABF13BE_var = UnitGroupUnitFromEnd(auto8ABF13BE_g, auto8ABF13BE_u);
+        if (auto8ABF13BE_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto8ABF13BE_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto8ABF13BE_var);
+        }
+
+    }
+    lv_ug = UnitGroup("TechLab3", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto0FB59699_g = lv_ug;
+    auto0FB59699_u = UnitGroupCount(auto0FB59699_g, c_unitCountAll);
+    for (;; auto0FB59699_u -= 1) {
+        auto0FB59699_var = UnitGroupUnitFromEnd(auto0FB59699_g, auto0FB59699_u);
+        if (auto0FB59699_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto0FB59699_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto0FB59699_var);
+        }
+
+    }
+    lv_ug = UnitGroup("CowFarm", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoFB1F5D19_g = lv_ug;
+    autoFB1F5D19_u = UnitGroupCount(autoFB1F5D19_g, c_unitCountAll);
+    for (;; autoFB1F5D19_u -= 1) {
+        autoFB1F5D19_var = UnitGroupUnitFromEnd(autoFB1F5D19_g, autoFB1F5D19_u);
+        if (autoFB1F5D19_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(autoFB1F5D19_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, autoFB1F5D19_var);
+        }
+
+    }
+    lv_ug = UnitGroup("PowerPylon", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto68C167DA_g = lv_ug;
+    auto68C167DA_u = UnitGroupCount(auto68C167DA_g, c_unitCountAll);
+    for (;; auto68C167DA_u -= 1) {
+        auto68C167DA_var = UnitGroupUnitFromEnd(auto68C167DA_g, auto68C167DA_u);
+        if (auto68C167DA_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto68C167DA_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto68C167DA_var);
+        }
+
+    }
+    lv_ug = UnitGroup("Defender", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto6BF0462F_g = lv_ug;
+    auto6BF0462F_u = UnitGroupCount(auto6BF0462F_g, c_unitCountAll);
+    for (;; auto6BF0462F_u -= 1) {
+        auto6BF0462F_var = UnitGroupUnitFromEnd(auto6BF0462F_g, auto6BF0462F_u);
+        if (auto6BF0462F_var == null) { break; }
+        if ((gv_players[gf_get_player_at_position(gf_get_closest_position(UnitGetPosition(auto6BF0462F_var)))].lv_alive == false)) {
+            UnitGroupAdd(lv_tug, auto6BF0462F_var);
+        }
+
+    }
+    autoDADFF07B_g = lv_tug;
+    autoDADFF07B_u = UnitGroupCount(autoDADFF07B_g, c_unitCountAll);
+    for (;; autoDADFF07B_u -= 1) {
+        autoDADFF07B_var = UnitGroupUnitFromEnd(autoDADFF07B_g, autoDADFF07B_u);
+        if (autoDADFF07B_var == null) { break; }
+        UnitRemove(autoDADFF07B_var);
+    }
+}
+
 void gf_remove_transmission_units () {
     // Automatic Variable Declarations
     unitgroup auto6E3BB46A_g;
@@ -1507,6 +1848,9 @@ void gf_apply_support () {
         }
         else if (auto847BAF84_val == "0010") {
             lv_picked_bonus_int = 11;
+        }
+        else if (auto847BAF84_val == "0013") {
+            lv_picked_bonus_int = 12;
         }
         else {
         }
@@ -1669,6 +2013,9 @@ void gf_apply_support () {
             TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/B8D1297B"), StringExternal("Param/Value/98E2784B"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 7), true);
             gv_players[autoD7252B7F_var].lv_support_type = "Probius";
+        }
+        else if (auto8CF24BD7_val == 12) {
+            gv_players[autoD7252B7F_var].lv_support_type = "Prebuilt";
         }
         else {
         }
@@ -6494,6 +6841,11 @@ void gf_Create_game () {
         gf_settle_3v3_player();
     }
 
+    while ((lv_i <= 6)) {
+        gf_Apply_or_remove_base(lv_i);
+        lv_i += 1;
+    }
+    gf_clean_bases();
     PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperSetTo, 306);
     PlayerModifyPropertyInt(7, c_playerPropSuppliesMade, c_playerPropOperSetTo, 306);
     PlayerModifyPropertyInt(7, c_playerPropSuppliesLimit, c_playerPropOperAdd, (gv_player_count * 7));
@@ -21530,7 +21882,7 @@ bool gt_infestorgetsattacked_Func (bool testConds, bool runActions) {
     }
     else {
         if ((gv_difficulty >= 5)) {
-            if ((UnitGetPropertyInt(lv_unit, c_unitPropLife, c_unitPropCurrent) <= 112)) {
+            if ((UnitGetPropertyInt(lv_unit, c_unitPropLife, c_unitPropCurrent) <= 165)) {
                 gf_send_infestor_home(lv_unit, lv_attacker_pos);
             }
 

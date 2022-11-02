@@ -513,7 +513,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8928" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
+    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8903" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -1056,7 +1056,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.3505" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
+    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.355" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
@@ -1584,10 +1584,17 @@
     <ObjectUnit Id="1101845559" Position="147,160,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="1851011241" Position="114,88,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1745375551" Position="112,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="2015312263" Position="34.5,84.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="511364641" Position="141,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1800119728" Position="92,170,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="966875477" Position="143,166,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1706522326" Position="101,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="300726797" Position="188,178,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1260138128" Position="172.5,180.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="9950405" Position="130,86,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="904088702" Position="105,86,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="67582782" Position="128,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -1595,9 +1602,12 @@
     <ObjectUnit Id="686989003" Position="106,126,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="652867403" Position="83,97,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1445217247" Position="87,169,0" Rotation="5.5185" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="764675561" Position="169.5,183.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1138189335" Position="176.5,96.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="521500249" Position="126,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1745826803" Position="160,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1961777675" Position="37.5,174.5,0" Rotation="1.2756" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="1042182501" Position="62.5,158.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="944070736" Position="89,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="763991109" Position="78,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1143730009" Position="115.5,19.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks2"/>
@@ -1605,8 +1615,10 @@
     <ObjectUnit Id="116475846" Position="120,182,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="654364709" Position="141,113,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1528266816" Position="129.5,129.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="194210548" Position="182,156,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1213376884" Position="151,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="288106945" Position="106,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="771078136" Position="71.5,69.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1544250375" Position="181,86,0" Rotation="5.964" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="59711452" Position="79,161,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="478746957" Position="128,94,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1614,12 +1626,18 @@
     <ObjectUnit Id="1839746003" Position="141,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="800190647" Position="160,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="256355303" Position="147,111,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="43043432" Position="104,205,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1897863468" Position="57.5114,97.6035,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="2034945820" Position="139,93,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2110677500" Position="124.5,236.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks2"/>
+    <ObjectUnit Id="605967024" Position="203,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="235542597" Position="129,75,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1204450752" Position="122,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="225603686" Position="143,90,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="856730604" Position="91,107,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="132738155" Position="175.5,94.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="431198507" Position="102.5,209.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1596758234" Position="118,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1087239785" Position="87,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -1633,9 +1651,13 @@
     <ObjectUnit Id="430044979" Position="25.5,60.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1762803366" Position="91,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="118085089" Position="97,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="391954562" Position="62,71,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1678991472" Position="79,95,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1226303981" Position="102,107,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="1204881607" Position="202.5,78.5,0" Rotation="3.4406" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="1716418369" Position="107.7307,198.3322,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="99241394" Position="77,95,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="807263205" Position="110,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="271316768" Position="123,50,0" Rotation="2.658" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
@@ -1650,13 +1672,21 @@
     </ObjectUnit>
     <ObjectUnit Id="571376688" Position="114,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="888655256" Position="80,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1239574090" Position="71.5,185.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1910745772" Position="66.5,65.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="1048590525" Position="30.5,170.5,0" Scale="1,1,1" UnitType="TechLab3"/>
     <ObjectUnit Id="795137232" Position="100,171,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1635434742" Position="133,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1196173929" Position="106,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="219762445" Position="172.5,75.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1837432190" Position="132.2636,57.755,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="164076" Position="159,159,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="2133245021" Position="118.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="88337193" Position="112,168,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1674258567" Position="207,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
+    <ObjectUnit Id="1123082487" Position="173.5,179.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="815610953" Position="93,145,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="2532567" Position="64,89,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="191711003" Position="91,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="381694948" Position="202.5,177.5,0" Rotation="2.7802" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1735642250" Position="145,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1665,18 +1695,23 @@
     <ObjectUnit Id="1951079588" Position="145,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1559202850" Position="91,135,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="317238831" Position="134,164,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="327286523" Position="175.5,163.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1161255619" Position="141,158,0" Rotation="3.3371" Scale="1,1,1" UnitType="LargeSpineCrawler">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="358967470" Position="143,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="294834933" Position="168.5,69.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1179904455" Position="113,79,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="767821674" Position="129,237,0" Rotation="0.8107" Scale="1,1,1" UnitType="RocksBE"/>
+    <ObjectUnit Id="1423706970" Position="31,80,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
     <ObjectUnit Id="1460337890" Position="110,94,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1389865067" Position="45,174,0" Rotation="0.505" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="478382806" Position="64.5,90.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="900434342" Position="153,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="592778670" Position="126,86,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1861850355" Position="168.5,184.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="655221245" Position="153,109,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1593541595" Position="110,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="245238182" Position="152,97,0" Scale="1,1,1" UnitType="Nest2"/>
@@ -1686,10 +1721,16 @@
         <Flag Index="UnitHidden" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="2125216192" Position="96.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="559412320" Position="140,126,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="777657011" Position="89,113,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="860718645" Position="178.5,157.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="2098859792" Position="132,120,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="2132670041" Position="61.5,157.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="147856376" Position="107,167,0" Rotation="2.1533" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="1968604593" Position="205.5,84.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1112813457" Position="110,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="117998153" Position="120,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1713,11 +1754,17 @@
     <ObjectUnit Id="578322471" Position="108,50,0" Rotation="1.3801" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="941425300" Position="202.5,80,0" Rotation="4.4443" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="413272048" Position="202.5,176,0" Rotation="1.0136" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="1516892135" Position="182,77,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="861172803" Position="127.5,57.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="976669494" Position="169,188,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1376870586" Position="214.5,60.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1843741878" Position="87,111,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2139084480" Position="27.5,171.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Generator"/>
     <ObjectUnit Id="1822586536" Position="39,177,0" Rotation="1.796" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1773007067" Position="102,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1320305048" Position="176,87,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="485973306" Position="98,132,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1008859887" Position="100.5,17.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="689335155" Position="153,147,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1743,6 +1790,9 @@
     <ObjectUnit Id="226248773" Position="98,171,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1309591299" Position="212.5,171.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Generator"/>
     <ObjectUnit Id="479220574" Position="113,75,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1697466689" Position="108,211,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1910925203" Position="95,93,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1599156657" Position="118,37,0" Rotation="3.4667" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1750,27 +1800,38 @@
     <ObjectUnit Id="1209190491" Position="141,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1473657435" Position="148,86,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="698213732" Position="140,134,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="692359618" Position="122.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="760340221" Position="105.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1435882468" Position="182,164,0" Rotation="5.7763" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="2075652019" Position="114,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="353000763" Position="134,94,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="596792493" Position="149,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="387686767" Position="173.5,185.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="1629461616" Position="145,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="654224784" Position="112,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1044148516" Position="92,86,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1640826003" Position="114,170,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="243630536" Position="145,113,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="917074309" Position="182,100,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1054314206" Position="117,76,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="2061727490" Position="66.5,76.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="426582696" Position="82,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="854162570" Position="120,72,0" Rotation="4.3117" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="188434818" Position="153,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1234666513" Position="105,149,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1171441280" Position="137,166,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="2016877229" Position="106,162,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1610985782" Position="142.3723,197.8908,0" Scale="1,1,1" UnitType="Defender"/>
+    <ObjectUnit Id="771285207" Position="171.182,186.7558,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1279548569" Position="91,143,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="17463145" Position="133.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="704852859" Position="163,97,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1595625112" Position="98,122,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="744267598" Position="68.8242,184.3564,0" Scale="1,1,1" UnitType="Defender"/>
+    <ObjectUnit Id="2122197162" Position="97.5898,58.1462,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="534066071" Position="108,132,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="696928959" Position="101,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1370525085" Position="109.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1514403012" Position="154,129,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1166277985" Position="126,206,0" Rotation="2.8256" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="765758217" Position="91,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -1786,14 +1847,22 @@
     <ObjectUnit Id="663903672" Position="105,24,0" Rotation="2.714" Scale="1,1,1" UnitType="DynamicNearbyResource6x6"/>
     <ObjectUnit Id="378504653" Position="114,94,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="785134832" Position="59,72,0" Rotation="6.0141" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="1101941048" Position="68.873,68.9958,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1127104821" Position="89,135,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1711487299" Position="66.5,179.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="185883577" Position="81,159,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="882687961" Position="151,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="348584987" Position="64.5,93.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="344680625" Position="214,191,0" Rotation="2.4301" Scale="1,1,1" UnitType="DynamicNearbyResource6x6">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="285367755" Position="124,48,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1707331860" Position="62.5,97.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="378452181" Position="125,50,0" Rotation="1.048" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="935200754" Position="113,181,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1498509087" Position="94.5,57.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="637398499" Position="147,145,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1169021193" Position="78,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="517653542" Position="26,191,0" Rotation="2.7143" Scale="1,1,1" UnitType="DynamicNearbyResource6x6">
@@ -1802,13 +1871,23 @@
     <ObjectUnit Id="698526113" Position="86,135,0" Rotation="2.574" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="1469456096" Position="114,92,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1015881997" Position="103,90,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="649763269" Position="112,51,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="543629681" Position="212.5,84.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Generator"/>
     <ObjectUnit Id="1581549174" Position="143,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="693270563" Position="100,126,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1787153130" Position="103,98,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="72834887" Position="199,79,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
+    <ObjectUnit Id="814364117" Position="58,179,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1803892984" Position="52,178,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1365799095" Position="58,91,0" Rotation="4.6257" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1887568182" Position="89,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="646744011" Position="171.214,185.4777,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="13280885" Position="157.5,59.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
     <ObjectUnit Id="1449841060" Position="100,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1979347274" Position="156,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -1818,26 +1897,48 @@
     <ObjectUnit Id="1512186682" Position="140,169,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1393561232" Position="181,170,0" Rotation="4.5986" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1950492824" Position="107,89,0" Rotation="0.9877" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="613307187" Position="97.5,60.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="916468407" Position="181,72,0" Rotation="5.9821" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="333881597" Position="190,86,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="505642740" Position="110,205,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="715968725" Position="201,177,0" Rotation="1.1855" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1394536806" Position="110,162,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="791417462" Position="135,86,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1496777621" Position="97,90,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1756662553" Position="124.5,34.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="869801712" Position="97,163,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1558734934" Position="32,191,0" Rotation="0.669" Scale="1,1,1" UnitType="DynamicNearbyResource6x6">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1103400850" Position="41,79,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
+    <ObjectUnit Id="999345886" Position="61.5,98.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1728868659" Position="66.5,70.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="716396888" Position="155,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1158320707" Position="162,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1200836898" Position="82,162,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="116383738" Position="175.5,160.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1451378033" Position="39,175,0" Rotation="1.6413" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1883496380" Position="89,147,0" Rotation="4.4672" Scale="1,1,1" UnitType="LargeSpineCrawler">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="170508490" Position="50.5,173.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="537736883" Position="136,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="22326945" Position="69.5,73.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1921770384" Position="189.5,82.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="2100392368" Position="147,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1941664526" Position="68.842,186.7736,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="65228968" Position="78,92,0" Rotation="2.1166" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="2110121889" Position="64.5,170.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1613165580" Position="149,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1803146392" Position="149,147,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="840025781" Position="138,149,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
@@ -1845,9 +1946,14 @@
     <ObjectUnit Id="2033752333" Position="122,37,0" Rotation="3.744" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="550711576" Position="209.5,85.5,0" Scale="1,1,1" UnitType="TechLab3"/>
+    <ObjectUnit Id="1689308530" Position="37,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="476563218" Position="89,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1861312134" Position="134,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="96113165" Position="27,185,0" Rotation="3.6347" Scale="1,1,1" UnitType="RocksBE"/>
+    <ObjectUnit Id="398756476" Position="189.5,173.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1731734298" Position="49.5,110.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
     <ObjectUnit Id="72485414" Position="181,176,0" Rotation="5.103" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="102219704" Position="145,127,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1856,14 +1962,20 @@
     <ObjectUnit Id="1648711120" Position="126,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1747165029" Position="137,82,0" Rotation="0.822" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="2090817007" Position="114,164,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="284558456" Position="34.5,171.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1510234588" Position="127,75,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1572810565" Position="106.5,157.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="1579877266" Position="60.5,99.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1482272490" Position="117,182,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="134418660" Position="120,226.5,0" Rotation="4.4736" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1589996102" Position="99,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="652522912" Position="155,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="931111491" Position="106,128,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="1575584868" Position="110,86,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="2033943954" Position="176,89,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="475394127" Position="35,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1663328242" Position="202.5,81.5,0" Rotation="4.4174" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1974247222" Position="213,88,0" Rotation="0.902" Scale="1,1,1" UnitType="TrafficTower">
         <Flag Index="UnitHidden" Value="1"/>
@@ -1878,13 +1990,21 @@
     <ObjectUnit Id="331028726" Position="117,141,0" Rotation="4.7807" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="685026141" Position="129,79,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1101101130" Position="106.5,98.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="1709924575" Position="64.5,91.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="2138772126" Position="110,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1267982873" Position="77,161,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="774971031" Position="130,164,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="438140086" Position="154,135,0" Rotation="4.8752" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="295791936" Position="177.5,158.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="974012999" Position="86,127,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="91984761" Position="105,170,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="835853184" Position="103,158,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1475272170" Position="187,92,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="947054463" Position="120,218,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1012085448" Position="85,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="607460531" Position="45,78,0" Rotation="0.1237" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1893,7 +2013,11 @@
     <ObjectUnit Id="1721938776" Position="163,159,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2136615420" Position="158,162,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="685176427" Position="100,134,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1052186169" Position="116,208,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1525367521" Position="149,158,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="118681411" Position="59.5,100.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="444385560" Position="213,185,0" Rotation="2.6481" Scale="1,1,1" UnitType="RocksBE"/>
     <ObjectUnit Id="1927483603" Position="149,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="551999031" Position="159,97,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
@@ -1902,16 +2026,24 @@
     <ObjectUnit Id="735065683" Position="129,179,0" Rotation="3.673" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="788675831" Position="112,94,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2142907481" Position="139,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1633547820" Position="132.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1693090831" Position="91,113,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="385613058" Position="147,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1255984222" Position="117.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1166751167" Position="130.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1950001914" Position="178,71,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1832328839" Position="93,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="636406834" Position="162,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="497218137" Position="176,169,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1938739936" Position="113,77,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2077958203" Position="95,145,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1411551393" Position="121.5,226.5,0" Rotation="1.8198" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="661355014" Position="145,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="307305756" Position="122,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="186737015" Position="129,77,0" Rotation="5.7514" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="1950267985" Position="179.5,99.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="585689597" Position="83,91,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="1208095077" Position="161,161,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1056221296" Position="132,132,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
@@ -1927,12 +2059,16 @@
     <ObjectUnit Id="815798705" Position="130,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1815664765" Position="58,74,0" Rotation="2.7424" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1072829448" Position="134,132,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1540225838" Position="105.3891,198.4111,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="2087250944" Position="147,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1815338766" Position="147,121,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="380042099" Position="134,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1426972835" Position="137,163,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1546252884" Position="171.1337,70.2641,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="185967681" Position="95,158,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1951162285" Position="212.5,180.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks2"/>
+    <ObjectUnit Id="1243114372" Position="209,80,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
+    <ObjectUnit Id="1607050137" Position="106.5,200.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="1193953177" Position="118,158,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="155021605" Position="27,71,0" Rotation="5.7897" Scale="1,1,1" UnitType="RocksBE"/>
     <ObjectUnit Id="1463670364" Position="130,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1941,13 +2077,18 @@
     <ObjectUnit Id="1162753058" Position="89,107,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1973352825" Position="101,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="94515484" Position="108,126,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1819134318" Position="128,25,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
+    <ObjectUnit Id="1322274777" Position="112,227,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1388360194" Position="130,162,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1004972554" Position="173.5,70.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="1107335562" Position="115,206,0" Rotation="5.0742" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1753604170" Position="119,80,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="605467277" Position="112,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="124899316" Position="147,158,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
+    <ObjectUnit Id="371442912" Position="135.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1113700362" Position="120,178,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
     <ObjectUnit Id="526787263" Position="142,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="79880584" Position="117.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="317678471" Position="81,97,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="1184038290" Position="27.5,75.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks2"/>
     <ObjectUnit Id="2078754071" Position="157,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -1962,13 +2103,22 @@
     <ObjectUnit Id="1490022876" Position="95,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1784912428" Position="93,121,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="952349613" Position="153,149,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="234939514" Position="194,80,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1692262859" Position="130,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2035253803" Position="106,134,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="1106591366" Position="97,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="240786456" Position="188,78,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="533301459" Position="89,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1038681320" Position="156,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="545372653" Position="102.5,198.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1837999714" Position="64.5,85.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1930393692" Position="139,158,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1459438137" Position="208,65,0" Rotation="2.3432" Scale="1,1,1" UnitType="DynamicNearbyResource6x6"/>
+    <ObjectUnit Id="309297266" Position="207,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="996600628" Position="158,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="656369283" Position="145,129,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1403264171" Position="140,124,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -1976,34 +2126,69 @@
     <ObjectUnit Id="208760380" Position="37.5,176,0" Rotation="5.049" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="323005343" Position="91,160,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="794347311" Position="37.5,177.5,0" Rotation="0.299" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="1591414343" Position="144.5,197.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1412883316" Position="127.5,56.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="2122925997" Position="187,164,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1634080354" Position="58,77,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1101946140" Position="136.5,58.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="43443332" Position="155,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1076007618" Position="161,97,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1584538004" Position="87,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="922799202" Position="145.5,198.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1175013624" Position="117.5,213.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="324577132" Position="153,94,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="569058491" Position="105,207,0" Rotation="2.9833" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="1152809004" Position="182,179,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="298046074" Position="145,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1992469596" Position="118,50,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="2024257770" Position="117,180,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="1208082768" Position="181.5,90.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="323196844" Position="157,165,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="1532462447" Position="110.5,129.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="57247943" Position="141.5,195.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1824414216" Position="91,94,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="544568263" Position="122,206,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1574508242" Position="145,151,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="454038888" Position="59,184,0" Rotation="4.6335" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1587723353" Position="91,96,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1660135895" Position="126,94,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="908846390" Position="114,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="798029923" Position="176.5,159.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="505466322" Position="140,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="942080961" Position="58,100,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="1254644845" Position="33,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="2129339119" Position="106,130,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="100692881" Position="93,143,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1615899357" Position="134,134,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1390820706" Position="68.5,74.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1316236984" Position="118.5,29.5,0" Rotation="6.1176" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="561454062" Position="203,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1737473407" Position="87,87,0" Rotation="3.9057" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="131295830" Position="110,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="871888867" Position="112,61,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="904456128" Position="137.5,46.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1215867470" Position="118,219,0" Rotation="0.232" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1667453421" Position="130,92,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="220192769" Position="120,74,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1984052124" Position="50,86,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="108578502" Position="119,223,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
     <ObjectUnit Id="606605868" Position="91,145,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1069713266" Position="145,133,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2015,23 +2200,35 @@
     <ObjectUnit Id="1174018324" Position="101,96,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="1673466228" Position="118,44,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="987092119" Position="175.5,91.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="110445857" Position="110,50,0" Rotation="5.7541" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1651400410" Position="121,86,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1900132869" Position="80,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1965094080" Position="199,81,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
     <ObjectUnit Id="1642334950" Position="89,128,0" Rotation="4.3361" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="72090506" Position="143,93,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="647434429" Position="31,176,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
     <ObjectUnit Id="1128556222" Position="101,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="2038735166" Position="115.5,229.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="132687568" Position="201,175,0" Rotation="4.6416" Scale="1,1,1" UnitType="Builder"/>
+    <ObjectUnit Id="116789035" Position="124.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1548137488" Position="130,170,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1718057543" Position="112,98,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="639196192" Position="64.5,163.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="369870916" Position="83,159,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="470680315" Position="128,86,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1424728895" Position="171.5,181.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1698933945" Position="151,121,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="395282198" Position="112,158,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="1279522003" Position="103,100,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1041914360" Position="154,121,0" Rotation="3.6164" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="1836857898" Position="132,164,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="196883231" Position="122.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="453141979" Position="91,158,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1858815573" Position="151,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1233122820" Position="195,82,0" Rotation="4.3486" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
@@ -2042,13 +2239,24 @@
     <ObjectUnit Id="775771218" Position="99,145,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1742318233" Position="147,113,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1547487235" Position="132,126,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="2129953795" Position="58.5,165.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1419167465" Position="151,111,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1655726887" Position="102,149,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="1869732244" Position="132,130,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1797113034" Position="120.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1132024783" Position="64,167,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="912939344" Position="99,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2103976166" Position="108,134,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="881670505" Position="122,212,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="434247510" Position="180,182,0" Rotation="0.0288" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="641174923" Position="137,93,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1490211769" Position="205.5,171.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1161327926" Position="106,124,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="56123629" Position="134,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="25256711" Position="77,159,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2062,24 +2270,36 @@
     <ObjectUnit Id="381466711" Position="153,107,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2123689193" Position="148,128,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="1467558260" Position="128,162,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1492175281" Position="46,176,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1392924322" Position="144,170,0" Rotation="3.6914" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="62930134" Position="143.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1958201574" Position="149,109,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1865333604" Position="180,74,0" Rotation="0.2622" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1746639996" Position="80,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1134530432" Position="112,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1352470502" Position="35,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1803659480" Position="82,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1663062797" Position="106,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="935072296" Position="58,156,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="142803861" Position="156,127,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1947092209" Position="118,92,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1172418861" Position="181,184,0" Rotation="3.0732" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1107745723" Position="82,94,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="1606939319" Position="87,109,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="2088744634" Position="108.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="274193798" Position="118,98,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="917707952" Position="98,134,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="737582792" Position="134,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="157570501" Position="64,87,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="1305084140" Position="136,51,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1774948117" Position="101,154,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1387858042" Position="109.5,157.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="882171972" Position="130,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1313861365" Position="64.5,164.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="997351286" Position="142,122,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1417815369" Position="151,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="243599863" Position="132,122,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
@@ -2088,7 +2308,11 @@
     <ObjectUnit Id="703269771" Position="83,109,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="839369019" Position="135,149,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1329885122" Position="104,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="174841898" Position="64.5,92.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1513398960" Position="117.5,198.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1303817694" Position="171.1015,71.5422,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="589002828" Position="132,124,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="70979440" Position="68.923,70.135,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="981282876" Position="45,82,0" Rotation="3.2885" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -2104,18 +2328,34 @@
     </ObjectUnit>
     <ObjectUnit Id="1394575434" Position="151,128,0" Rotation="2.9631" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="244126325" Position="102,171,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1393879697" Position="122.5,42.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="2105183949" Position="133,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="955368166" Position="108,94,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1489163991" Position="128,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="818313880" Position="178,185,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1951510321" Position="160,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="809242078" Position="137,158,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1988095598" Position="71,188,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="630294505" Position="182,92,0" Rotation="3.5124" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="623123048" Position="64.5,160.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1094807391" Position="180.5,155.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="459319552" Position="121.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1407713962" Position="89,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1211224140" Position="143,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1394416292" Position="61.487,166.748,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="670039557" Position="142,87,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1973713678" Position="93,160,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
+    <ObjectUnit Id="10070862" Position="71.5,184.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="313268674" Position="80,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1086177716" Position="112.5,199.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1167403952" Position="151,145,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="2010916260" Position="56,172,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1357957551" Position="160,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="327463726" Position="147,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="3640135" Position="128,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2125,15 +2365,19 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1230976883" Position="139,163,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="260274692" Position="117.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="467692075" Position="101,102,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1535366889" Position="101,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="833783391" Position="139,102,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1529704619" Position="171.164,184.3386,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="586494679" Position="87,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="534022588" Position="148,152,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1360720401" Position="89,115,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="736655692" Position="125.5,22.5,0" Scale="1,1,1" UnitType="TechLab3"/>
     <ObjectUnit Id="1319179016" Position="59,80,0" Rotation="5.8645" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1896925044" Position="151,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1836803756" Position="126,158,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="1073901279" Position="175.5,170.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1303302893" Position="120,158,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="1527728740" Position="149,121,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="1882323988" Position="101,158,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2141,19 +2385,42 @@
     <ObjectUnit Id="409956867" Position="127,79,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="578972366" Position="153,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1760904452" Position="121,161,0" Scale="1,1,1" UnitType="Nest2"/>
+    <ObjectUnit Id="812602648" Position="71.5,186.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="25701195" Position="142,134,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1931248929" Position="121,170,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1032297576" Position="154,131,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1571163679" Position="128.5,58.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="754860276" Position="134.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="835234163" Position="160,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1245135035" Position="123.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="55274244" Position="52,78,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1417633913" Position="140,202,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="732544653" Position="126,98,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="1395168557" Position="99.5,60.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="326871223" Position="108,136,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="2069432929" Position="50,170,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1693914476" Position="116.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="129209731" Position="137,100,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="2089206788" Position="103.5,197.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="2122039275" Position="104.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="844643467" Position="63.5,159.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="2034124282" Position="209,176,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
+    <ObjectUnit Id="510883436" Position="111.5,197.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="735633263" Position="126,195,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="981391677" Position="128,206,0" Rotation="3.8732" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1054463667" Position="134,126,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1891622920" Position="122.5,60.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="925319988" Position="93,96,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="1161713953" Position="111,75,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1723648861" Position="83,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="956769915" Position="26,176,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter2"/>
+    <ObjectUnit Id="1906021187" Position="128,29,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1889094687" Position="117,206,0" Rotation="1.0888" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="2108978535" Position="128,170,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1299726198" Position="95,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2164,6 +2431,7 @@
     <ObjectUnit Id="726399788" Position="37.5,80,0" Rotation="0.4843" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="92830227" Position="149,149,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1248990798" Position="91,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="181130422" Position="178.5014,166.5871,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1684466300" Position="142,171,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="241990122" Position="91,147,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1584198586" Position="145,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2178,12 +2446,17 @@
     <ObjectUnit Id="815386307" Position="95,105,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="151333831" Position="115.5,236.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Generator"/>
     <ObjectUnit Id="1936117639" Position="141,163,0" Rotation="3.386" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="2073651319" Position="50.5,82.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1321436062" Position="128,164,0" Rotation="5.794" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="1949597888" Position="27.5,180.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Barracks2"/>
     <ObjectUnit Id="74691980" Position="122,92,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1312868427" Position="60,182,0" Rotation="4.8908" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1027156660" Position="132,136,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="11979067" Position="60.5,156.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1482430725" Position="151,115,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="233606312" Position="98.5,60.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="466156801" Position="151,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2089969348" Position="109.5,98.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="242049997" Position="151,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2192,8 +2465,10 @@
     </ObjectUnit>
     <ObjectUnit Id="1605707206" Position="118.5,226.5,0" Rotation="4.4631" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1656075275" Position="33.5,172.5,0" Rotation="2.1501" Scale="1,1,1" UnitType="Battery"/>
+    <ObjectUnit Id="459873251" Position="171.0837,69.125,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1187858718" Position="156,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="916711523" Position="94,75,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1158593016" Position="95.5,58.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="765505511" Position="133,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1724237448" Position="139,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="486999180" Position="186.5,159.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
@@ -2207,10 +2482,15 @@
     <ObjectUnit Id="1016327238" Position="102,169,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1789374542" Position="149,94,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2074590427" Position="153,87,0" Rotation="2.3771" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="718376434" Position="190,170,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="904174681" Position="84,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1716235980" Position="156,161,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
+    <ObjectUnit Id="2142561912" Position="119.3208,196.5502,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1770964099" Position="151,135,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="450793853" Position="140,130,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="751819850" Position="175.5,164.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1084090441" Position="123.5,25.5,0" Rotation="3.5751" Scale="1,1,1" UnitType="Battery"/>
     <ObjectUnit Id="1748199696" Position="90,152,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1826399051" Position="92,152,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2218,17 +2498,24 @@
     <ObjectUnit Id="477942274" Position="59,176,0" Rotation="0.396" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1435081259" Position="147,135,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1202374298" Position="113,179,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="2007547758" Position="68.8742,185.4956,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1905786270" Position="118,164,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="805426299" Position="89,109,0" Rotation="0.264" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
+    <ObjectUnit Id="383571983" Position="169,68,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1012311039" Position="143,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1832702630" Position="106,132,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="962128173" Position="209.5,170.5,0" Scale="1,1,1" UnitType="TechLab3"/>
     <ObjectUnit Id="1450435964" Position="127,179,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="188566661" Position="108,120,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="1932516409" Position="127,50,0" Rotation="2.7275" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1553051443" Position="119,31,0" Rotation="1.5141" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1490663067" Position="153,111,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="524029114" Position="124.5,26.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1127335259" Position="119,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="1398134774" Position="119,206,0" Rotation="4.1232" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="1490441079" Position="61.4885,89.3703,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="675980509" Position="97,158,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="31157894" Position="53.5,159.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1399577972" Position="91,98,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2240,21 +2527,26 @@
     <ObjectUnit Id="2862349" Position="133,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2015578037" Position="99,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1949588206" Position="103,163,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1819424734" Position="112.5,198.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="462739679" Position="139,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1435450155" Position="80,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1718406720" Position="98,87,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="56457233" Position="64.5,95.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1143334961" Position="93,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1848437454" Position="137,156,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="752330808" Position="157,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1193306032" Position="99,113,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1204530489" Position="107,87,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1834090473" Position="99,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="789978318" Position="110.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="2056599441" Position="132,162,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1743498079" Position="69.5,182.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1254252289" Position="126,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="50160775" Position="147,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="442686457" Position="120,78,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
     <ObjectUnit Id="1063620852" Position="91,133,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1581788852" Position="120,180,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="1712080213" Position="71,68,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="2142811406" Position="124.5,19.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Generator"/>
     <ObjectUnit Id="119231077" Position="108,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1482867452" Position="100,132,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2270,6 +2562,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1897489410" Position="149,96,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1315583791" Position="58.5,90.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1039981287" Position="181.5,165.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1218019394" Position="181,80,0" Rotation="3.2583" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1403036014" Position="41,81,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
     <ObjectUnit Id="403606072" Position="140,128,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2280,10 +2578,20 @@
     <ObjectUnit Id="1724391851" Position="118,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="1378694755" Position="121.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1022873501" Position="115.5,221.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="21919851" Position="128,88,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="763149550" Position="104,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1152947491" Position="126,199,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="767594524" Position="134,92,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="547640959" Position="202.5,174.5,0" Rotation="1.1711" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="482194640" Position="42.5,84.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1631522684" Position="94,182,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="615693938" Position="87,94,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1482934537" Position="121,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
@@ -2291,6 +2599,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="58560490" Position="132,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1486461566" Position="119.5,194.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1914750062" Position="134,122,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="997812695" Position="182,182,0" Rotation="0.2563" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1267280709" Position="139.5,206.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
@@ -2300,6 +2609,9 @@
     <ObjectUnit Id="780162875" Position="99,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1556437563" Position="146,74,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="2122852893" Position="143,163,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1723051958" Position="184,172,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="609145632" Position="80,106,0" Rotation="0.266" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="1956230185" Position="135,170,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1139371952" Position="156,129,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2307,6 +2619,7 @@
     <ObjectUnit Id="872206363" Position="208,191,0" Rotation="2.659" Scale="1,1,1" UnitType="DynamicNearbyResource6x6">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="1465545094" Position="131.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="780395968" Position="160,106,0" Rotation="6.0168" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="1028200475" Position="120,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1176981843" Position="93,98,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
@@ -2333,13 +2646,18 @@
     <ObjectUnit Id="1268012534" Position="151,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="888055094" Position="79,159,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="427609486" Position="110,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="320574338" Position="64.5,94.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="29537112" Position="123,115,0" Rotation="1.6394" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="2055229311" Position="100,169,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1942710193" Position="107.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1118875525" Position="132,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1413172792" Position="87,147,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="859784729" Position="93,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1914718920" Position="129.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="635451572" Position="134,130,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1332666449" Position="57.4865,158.6357,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1159206389" Position="108,164,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1419286513" Position="122.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1920462299" Position="112,96,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1003278492" Position="134,128,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="15374346" Position="129.5,126.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
@@ -2356,6 +2674,7 @@
     <ObjectUnit Id="1238434742" Position="92,128,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="983496939" Position="112,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="515253228" Position="168.5,115.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
+    <ObjectUnit Id="945267297" Position="170.5,73.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="388543578" Position="151,113,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2061624242" Position="95,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1613613010" Position="138,171,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2364,6 +2683,7 @@
     <ObjectUnit Id="676137264" Position="85,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="2067928494" Position="138,169,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1520540543" Position="59,86,0" Rotation="0.419" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="1366878460" Position="134.6052,57.676,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="459688499" Position="134,48,0" Rotation="4.0456" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1707666035" Position="83,165,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="319924744" Position="140,122,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2380,6 +2700,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1539100822" Position="91,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="396586685" Position="175.5,162.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="539744858" Position="168.5,140.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
     <ObjectUnit Id="804127533" Position="95,163,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1430267066" Position="91,165,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2392,15 +2713,19 @@
     </ObjectUnit>
     <ObjectUnit Id="1866506670" Position="103,156,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="2012986185" Position="26,65,0" Rotation="1.0097" Scale="1,1,1" UnitType="DynamicNearbyResource6x6"/>
+    <ObjectUnit Id="5020199" Position="114,61,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1987316263" Position="158,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="426628385" Position="103,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="603088316" Position="110,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1856228115" Position="110,170,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="275518131" Position="137,102,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1236278304" Position="180.5,100.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1230242207" Position="145,145,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1782803919" Position="120,98,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
     <ObjectUnit Id="469178316" Position="82.5,58.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
+    <ObjectUnit Id="925941761" Position="68.8908,71.413,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="2113361778" Position="128,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="549271455" Position="120,23,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
     <ObjectUnit Id="1215030086" Position="101,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1774358706" Position="152,159,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="140022460" Position="58,182,0" Rotation="2.7321" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
@@ -2412,14 +2737,23 @@
     <ObjectUnit Id="1292976010" Position="99,98,0" Rotation="0.8388" Scale="1,1,1" UnitType="LargeSpineCrawler">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="316049138" Position="168.5,71.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1921218380" Position="71.5,70.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1054885663" Position="175.5,85.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1903497969" Position="179.5,156.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="506911406" Position="117,115,0" Rotation="4.6435" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="902738283" Position="108,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1844151434" Position="101,93,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1033136618" Position="130,51,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="2113798646" Position="162,164,0" Rotation="5.258" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="752295842" Position="122,94,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2054032699" Position="140,87,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1945160266" Position="66.5,185.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="1769087825" Position="108,162,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="147700224" Position="95,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1256127398" Position="137.5,57.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="950080993" Position="153,91,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="144241473" Position="145,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="628208531" Position="91,115,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2429,22 +2763,41 @@
     <ObjectUnit Id="1829974411" Position="111,177,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1665927586" Position="82,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="989441296" Position="100,130,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="264985461" Position="205,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="550524033" Position="93,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="757293767" Position="117.5,195.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1904053465" Position="139,236,0" Rotation="3.491" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1383595111" Position="103,154,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="901146030" Position="120,38,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1771958868" Position="110.5,123.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="1513532337" Position="154,127,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1275766090" Position="42.5,171.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1537125129" Position="140,149,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="2044567282" Position="53,164,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1382999102" Position="151,133,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="718456862" Position="168.5,185.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="767935505" Position="138,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="888801554" Position="121,50,0" Rotation="3.555" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1016261240" Position="190.5,110.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
+    <ObjectUnit Id="355792142" Position="168.5,70.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1641420905" Position="87,162,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="915874025" Position="70.5,183.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="490797147" Position="113,206,0" Rotation="2.0537" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="113699515" Position="130,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="741944307" Position="71.5,71.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1992718948" Position="133.5,55.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ConstructionYard"/>
     <ObjectUnit Id="1147386282" Position="133,87,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="748425676" Position="114,57,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="241426992" Position="143,158,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="917206155" Position="126,92,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="661619592" Position="214,176,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter2"/>
@@ -2452,12 +2805,17 @@
     <ObjectUnit Id="373763447" Position="142,130,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1133353162" Position="132,106,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="1554125691" Position="111,179,0" Rotation="2.6098" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="471781435" Position="175.5,92.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1212298255" Position="145,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2057983420" Position="190.5,73.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1681310109" Position="126,166,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="48119254" Position="129.5,120.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="2065359284" Position="37.5,78.5,0" Rotation="2.842" Scale="1,1,1" UnitType="Marine2"/>
+    <ObjectUnit Id="285111948" Position="178.4401,89.465,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="1328537972" Position="139,111,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1369018612" Position="134,204,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="53943664" Position="84,127,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="55283189" Position="101,20,0" Rotation="6.0935" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2467,6 +2825,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="339263592" Position="156,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1948365712" Position="197.5,171.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1877611262" Position="119,88,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>
     <ObjectUnit Id="1259443940" Position="139,96,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2482,16 +2843,29 @@
     <ObjectUnit Id="1086950620" Position="107,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1448523839" Position="101,90,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="368566088" Position="80,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1638687644" Position="128,195,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1905956132" Position="149,115,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="284720592" Position="169.5,72.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="2114409773" Position="120,233,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm"/>
+    <ObjectUnit Id="1115453603" Position="114,214,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1192224859" Position="151,141,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="40542428" Position="49.5,182.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1358863740" Position="143,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1477258100" Position="45,178,0" Rotation="4.666" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="816334108" Position="122.5,58.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1396600783" Position="97,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="108412116" Position="117.5,197.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="279185651" Position="197.5,84.5,0" Scale="1,1,1" UnitType="PowerPylon">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="46352432" Position="106,50,0" Rotation="2.2216" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="529653251" Position="110,168,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="230908549" Position="173.5,76.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="378465308" Position="177.5,97.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="700893381" Position="112,86,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="841479308" Position="119,95,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="911070282" Position="107,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2503,7 +2877,11 @@
     <ObjectUnit Id="180880663" Position="126,173,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1428468100" Position="86,121,0" Rotation="5.0292" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="1859278213" Position="110.5,126.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="1572014172" Position="95,56,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="910275077" Position="138,55,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="824661727" Position="142.5,195.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="216114854" Position="186.5,96.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="188614037" Position="63.5,96.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1386232692" Position="89,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="450732282" Position="120,29.5,0" Rotation="3.37" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1340042487" Position="112,162,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2516,21 +2894,37 @@
     <ObjectUnit Id="735481830" Position="139,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="350478189" Position="41,175,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
     <ObjectUnit Id="1636604764" Position="122,98,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="1516131437" Position="106.5,196.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1315503908" Position="98,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="711129529" Position="118.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="449937468" Position="121,80,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="76671948" Position="156,95,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
     <ObjectUnit Id="441401556" Position="114,168,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="126659526" Position="101,145,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1944387742" Position="118.5,58.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="815631292" Position="175.5,161.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1349294746" Position="145,111,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="254220777" Position="64.5,161.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="2010996575" Position="149,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1477935105" Position="205,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1596679737" Position="96,170,0" Rotation="2.5915" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="673940401" Position="93,133,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="442530467" Position="206.5,172.5,0" Rotation="4.2465" Scale="1,1,1" UnitType="Battery"/>
     <ObjectUnit Id="1921816597" Position="129,181,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1112613300" Position="114,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="169430295" Position="103,166,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1977357666" Position="176,167,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="600140562" Position="184,84,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1542467465" Position="95,98,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="795477889" Position="150,104,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1837638661" Position="56,84,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="578621929" Position="64.5,162.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="904700513" Position="120,92,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="2049954345" Position="126,164,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1033096694" Position="149,113,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2560,21 +2954,32 @@
     <ObjectUnit Id="1776515290" Position="135,107,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="18943302" Position="139,109,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1482088726" Position="100.5,49.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="1103152984" Position="120.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="67087202" Position="149,141,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1175449541" Position="114,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1283379841" Position="175.5,95.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1351078284" Position="123,180,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="87882987" Position="151,147,0" Rotation="0.8835" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
+    <ObjectUnit Id="1636355723" Position="175.5,93.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="2046458890" Position="114,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1714662901" Position="32,65,0" Rotation="2.3557" Scale="1,1,1" UnitType="DynamicNearbyResource6x6"/>
     <ObjectUnit Id="2094514422" Position="25.5,195.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="739493587" Position="139,160,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1500449973" Position="59.5,155.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="112035524" Position="130.5,98.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="2052817108" Position="41,177,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
+    <ObjectUnit Id="121132237" Position="120.745,58.939,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="738300354" Position="158,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="936494322" Position="149,111,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="510913560" Position="126,42,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1953754082" Position="132,134,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="1818500124" Position="114,90,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1464310389" Position="141,98,0" Rotation="0.509" Scale="1,1,1" UnitType="LargeSpineCrawler">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="876796222" Position="100,54,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="511514693" Position="149,107,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
@@ -2601,35 +3006,60 @@
     <ObjectUnit Id="153733191" Position="190.5,182.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="1589869382" Position="153,145,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="546438286" Position="77,97,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="365507211" Position="112,229,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="2078585863" Position="130.5,157.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="688954984" Position="112,81,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="392051953" Position="132,128,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="80006319" Position="194,176,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="332008490" Position="120,76,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="1319504704" Position="37.5,81.5,0" Rotation="1.8654" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="614375131" Position="151,109,0" Rotation="0.1796" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
+    <ObjectUnit Id="734098346" Position="70.5,72.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1307486281" Position="39,81,0" Rotation="0.9677" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1571680888" Position="142,132,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="350671192" Position="106.634,198.327,0" Scale="1,1,1" UnitType="Defender"/>
+    <ObjectUnit Id="1654016180" Position="112,231,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="950548800" Position="119,33,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
+    <ObjectUnit Id="727904059" Position="175.5,90.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="2097792000" Position="102,201,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1459550541" Position="84,95,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
     <ObjectUnit Id="1108344611" Position="97,166,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="958549726" Position="142,128,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1247209867" Position="158,94,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
     <ObjectUnit Id="588307470" Position="114,166,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1273961133" Position="121.5,197.5,0" Scale="1,1,1" UnitType="Armory2">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="115758994" Position="46,80,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1675447272" Position="106,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="812061531" Position="115.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="920858634" Position="139,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1139892620" Position="101.5,199.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1264526237" Position="126,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1926083643" Position="162,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="664214952" Position="121,31,0" Rotation="3.307" Scale="1,1,1" UnitType="Builder"/>
     <ObjectUnit Id="1497389878" Position="139,145,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1624706494" Position="33,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="707166350" Position="110,175,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
+    <ObjectUnit Id="1095638887" Position="67.5,180.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="44164707" Position="128,205,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="676105572" Position="122,96,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1447669204" Position="84,161,0" Rotation="5.4975" Scale="1,1,1" UnitType="CreeperSpawner"/>
     <ObjectUnit Id="508243343" Position="134,124,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1699178682" Position="171.5,74.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1105231469" Position="151,149,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="833313458" Position="126,168,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1288453920" Position="123,76,0" Scale="1,1,1" UnitType="SlowlingSpawner"/>
+    <ObjectUnit Id="1823119424" Position="133.5085,57.6706,0" Scale="1,1,1" UnitType="Defender"/>
     <ObjectUnit Id="500854941" Position="112,164,0" Rotation="5.6945" Scale="1,1,1" UnitType="LargeSpineCrawler"/>
     <ObjectUnit Id="1780410310" Position="108,150,0" Scale="1,1,1" UnitType="Nest2"/>
+    <ObjectUnit Id="283786325" Position="64,169,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
     <ObjectUnit Id="1784730376" Position="87,156,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="635848416" Position="95,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1668826273" Position="183,94,0" Rotation="1.506" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
@@ -2642,7 +3072,9 @@
     <ObjectUnit Id="1705566705" Position="122,219,0" Rotation="5.6594" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="1457005942" Position="68.5,181.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1029996147" Position="108,122,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
+    <ObjectUnit Id="1951877760" Position="114.5,233.5,0" Scale="1,1,1" UnitType="TechLab3"/>
     <ObjectUnit Id="878778859" Position="58,165,0" Rotation="4.9753" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="43056984" Position="118,166,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="967646297" Position="139,113,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
@@ -2651,15 +3083,21 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="274920767" Position="162,92,0" Rotation="4.1662" Scale="1,1,1" UnitType="SpineCrawler"/>
+    <ObjectUnit Id="1740687071" Position="168.5,186.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="441658406" Position="71.5,140.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
     <ObjectUnit Id="1021519193" Position="93,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1185220960" Position="174.5,65.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
     <ObjectUnit Id="145685935" Position="95,111,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1237694007" Position="175.5,165.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="105777063" Position="149,160,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="711492083" Position="78,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1614654831" Position="85,89,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1927208353" Position="93,111,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
+    <ObjectUnit Id="1012833590" Position="182.5256,97.4353,0" Scale="1,1,1" UnitType="Defender"/>
+    <ObjectUnit Id="1935012510" Position="128,27,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="1985633452" Position="156,131,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1667073079" Position="182.499,158.6501,0" Scale="1,1,1" UnitType="Defender"/>
+    <ObjectUnit Id="61196164" Position="178.5,98.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="33588891" Position="120,238,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter2"/>
     <ObjectUnit Id="1822888511" Position="87,167,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="257119970" Position="156,100,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
@@ -2667,7 +3105,15 @@
     <ObjectUnit Id="204494372" Position="89,145,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1840253270" Position="121,223,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranGate"/>
     <ObjectUnit Id="127959790" Position="97,160,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="954395760" Position="140.5,195.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="50545560" Position="132,45,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1116853042" Position="62,185,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="1277929947" Position="128,158,0" Rotation="6.0207" Scale="1,1,1" UnitType="BrutaliskSpawner"/>
+    <ObjectUnit Id="209480709" Position="64.5,165.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="761805986" Position="60,74,0" Rotation="0.516" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="1817130433" Position="130,168,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1518405649" Position="59,170,0" Rotation="1.8024" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
@@ -2676,17 +3122,27 @@
     <ObjectUnit Id="256863816" Position="83,147,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1224198033" Position="108,130,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="2067882315" Position="126.5,214.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="186563443" Position="106,52,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="825427588" Position="28,195,0" Rotation="1.385" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1432136310" Position="107,207,0" Rotation="0.676" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
+    <ObjectUnit Id="555803052" Position="53,92,0" Rotation="3.1413" Scale="1,1,1" UnitType="FruitFarm">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1345469207" Position="30.5,85.5,0" Scale="1,1,1" UnitType="TechLab3"/>
     <ObjectUnit Id="1208370764" Position="127,181,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1266860549" Position="153,169,0" Rotation="0.7641" Scale="1,1,1" UnitType="SpineCrawler"/>
     <ObjectUnit Id="173794023" Position="95,147,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1443033017" Position="110.5,132.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="2128685889" Position="170.5,182.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="766202840" Position="128,92,0" Rotation="3.7893" Scale="1,1,1" UnitType="LargeSpineCrawler">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
+    <ObjectUnit Id="327669117" Position="145,200,0" Rotation="5.4975" Scale="1,1,1" UnitType="TerranAdvancedGate"/>
+    <ObjectUnit Id="1808586413" Position="138.5,56.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="8009172" Position="78,154,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="1076492866" Position="145,143,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="994049893" Position="101,113,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
@@ -2694,6 +3150,7 @@
     <ObjectUnit Id="1905512777" Position="110.5,135.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
     <ObjectUnit Id="424287550" Position="157,147,0" Rotation="5.707" Scale="1,1,1" UnitType="CreepTumor2"/>
     <ObjectUnit Id="1740153511" Position="91,149,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="730683433" Position="37,168,0" Rotation="5.4975" Scale="1,1,1" UnitType="CowFarm"/>
     <ObjectUnit Id="17" Position="120,18,0" Rotation="5.4975" Scale="1,1,1" UnitType="CommandCenter2"/>
     <ObjectUnit Id="1077618667" Position="95,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1800194088" Position="57,93,0" Rotation="4.9428" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
@@ -2702,8 +3159,11 @@
     <ObjectUnit Id="799451442" Position="145,105,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="1931005049" Position="121.5,29.5,0" Rotation="3.7204" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="1322881666" Position="133.5,157.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="RavatorSpawner"/>
+    <ObjectUnit Id="2143522518" Position="122.5,57.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
+    <ObjectUnit Id="1775701594" Position="119.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1258564346" Position="99,111,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
     <ObjectUnit Id="1316705561" Position="80,102,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="338883183" Position="107,83,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="558050901" Position="93,100,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="657159112" Position="67.5,75.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
 </PlacedObjects>

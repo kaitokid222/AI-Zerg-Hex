@@ -6294,6 +6294,7 @@
         <LifeStart value="175"/>
         <LifeMax value="175"/>
         <LifeArmor value="2"/>
+        <Sight value="13"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="2"/>
         <RepairTime value="23"/>
@@ -6316,14 +6317,13 @@
             <LayoutButtons index="3" Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.5"/>
-        <HotkeyAlias value="Wall2"/>
-        <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
-        <LeaderAlias value="Wall2"/>
-        <SelectAlias value="Wall2"/>
-        <SubgroupAlias value="Wall2"/>
         <Footprint value="Footprint1x1"/>
         <PlacementFootprint value="Footprint1x1"/>
-        <Sight value="13"/>
+        <LeaderAlias value="Wall2"/>
+        <HotkeyAlias value="Wall2"/>
+        <SelectAlias value="Wall2"/>
+        <SubgroupAlias value="Wall2"/>
+        <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
     </CUnit>
     <CUnit id="SlivanCreep">
         <AbilArray Link="attack"/>
