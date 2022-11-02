@@ -2014,6 +2014,7 @@ DocInfo/PatchNote524=In Casual and 3v3 the tank gets increasingly stronger the m
 DocInfo/PatchNote525=Buffed Tank more.
 DocInfo/PatchNote526=Added Bonus Prebuilt which gives you a functional base at the start of the game.
 DocInfo/PatchNote527=I keep an eye on it and likely have to change things later but for now enjoy. :)
+DocInfo/PatchNote528=Fixed Fruit Farm Issue.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

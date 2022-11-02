@@ -1427,6 +1427,9 @@ void gf_Apply_or_remove_base (int lp_player) {
     int lv_cowfarm_cnt;
     unitgroup lv_ug;
     unitgroup lv_tug;
+    point[21] lv_ffparr;
+    int lv_ffparr_cnt;
+    int lv_i;
 
     // Automatic Variable Declarations
     unitgroup autoF7F77DD2_g;
@@ -1466,6 +1469,7 @@ void gf_Apply_or_remove_base (int lp_player) {
     // Variable Initialization
     lv_ug = UnitGroupEmpty();
     lv_tug = UnitGroupEmpty();
+    lv_i = 1;
 
     // Implementation
     lv_ug = UnitGroup("Wall2", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
@@ -1574,6 +1578,12 @@ void gf_Apply_or_remove_base (int lp_player) {
             autoCCAFDBC2_var = UnitGroupUnitFromEnd(autoCCAFDBC2_g, autoCCAFDBC2_u);
             if (autoCCAFDBC2_var == null) { break; }
             UnitSetOwner(autoCCAFDBC2_var, lp_player, true);
+            if ((UnitGetType(autoCCAFDBC2_var) == "FruitFarm")) {
+                lv_ffparr_cnt = (lv_ffparr_cnt + 1);
+                lv_ffparr[lv_ffparr_cnt] = UnitGetPosition(autoCCAFDBC2_var);
+                UnitRemove(autoCCAFDBC2_var);
+            }
+
             if ((UnitGetType(autoCCAFDBC2_var) == "CowFarm")) {
                 lv_cowfarm_cnt = (lv_cowfarm_cnt + 1);
             }
@@ -1582,6 +1592,10 @@ void gf_Apply_or_remove_base (int lp_player) {
                 UnitBehaviorAdd(autoCCAFDBC2_var, "CanExtractGas", autoCCAFDBC2_var, 1);
             }
 
+        }
+        while ((lv_i <= lv_ffparr_cnt)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FruitFarm", 0, lp_player, lv_ffparr[lv_i]);
+            lv_i = (lv_i + 1);
         }
     }
     else {
