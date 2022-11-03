@@ -1424,11 +1424,12 @@ bool gf_player_selected_prebuilt (int lp_player) {
 
 void gf_Apply_or_remove_base (int lp_player) {
     // Variable Declarations
-    int lv_cowfarm_cnt;
     unitgroup lv_ug;
     unitgroup lv_tug;
     point[21] lv_ffparr;
     int lv_ffparr_cnt;
+    point[21] lv_cfparr;
+    int lv_cfparr_cnt;
     int lv_i;
 
     // Automatic Variable Declarations
@@ -1585,7 +1586,9 @@ void gf_Apply_or_remove_base (int lp_player) {
             }
 
             if ((UnitGetType(autoCCAFDBC2_var) == "CowFarm")) {
-                lv_cowfarm_cnt = (lv_cowfarm_cnt + 1);
+                lv_cfparr_cnt = (lv_cfparr_cnt + 1);
+                lv_cfparr[lv_cfparr_cnt] = UnitGetPosition(autoCCAFDBC2_var);
+                UnitRemove(autoCCAFDBC2_var);
             }
 
             if ((UnitGetType(autoCCAFDBC2_var) == "ConstructionYard")) {
@@ -1595,6 +1598,11 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
         while ((lv_i <= lv_ffparr_cnt)) {
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FruitFarm", 0, lp_player, lv_ffparr[lv_i]);
+            lv_i = (lv_i + 1);
+        }
+        lv_i = 1;
+        while ((lv_i <= lv_cfparr_cnt)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CowFarm", 0, lp_player, lv_cfparr[lv_i]);
             lv_i = (lv_i + 1);
         }
     }
