@@ -182,6 +182,7 @@
 <Unit id="TerranGate"/>
 <Unit id="Wall2"/>
 <Unit id="FruitFarm"/>
+<Unit id="SheepFarm"/>
 <Unit id="CowFarm"/>
 <Unit id="Armory2"/>
 <Unit id="ConstructionYard"/>
