@@ -2019,6 +2019,7 @@ DocInfo/PatchNote529=Fixed animal network issue.
 DocInfo/PatchNote530=Changed Animal Farms from 3 Cows to 6 Sheep.
 DocInfo/PatchNote531=Added a layer of walls and repositioned some defenders.
 DocInfo/PatchNote532=Players with less than 5 games will get Prebuilt Base on top of their selected bonus.
+DocInfo/PatchNote533=Chaos is no longer allowed to build firebats.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

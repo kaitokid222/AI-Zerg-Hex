@@ -1536,6 +1536,8 @@ void gf_apply_support () {
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 16), true);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 0), false);
             TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 1), false);
+            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 7), false);
             auto2574BD98_g = UnitGroup("Marine2", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             auto2574BD98_u = UnitGroupCount(auto2574BD98_g, c_unitCountAll);
             for (;; auto2574BD98_u -= 1) {
