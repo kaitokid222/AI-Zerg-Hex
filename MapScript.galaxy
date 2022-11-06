@@ -2624,7 +2624,7 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
 
     }
-    if ((gv_players[lp_player].lv_position == 2)) {
+    if (((gf_player_selected_prebuilt(lp_player) == true) || (gv_players[lp_player].lv_games < 5))) {
         autoCCAFDBC2_g = lv_tug;
         autoCCAFDBC2_u = UnitGroupCount(autoCCAFDBC2_g, c_unitCountAll);
         for (;; autoCCAFDBC2_u -= 1) {

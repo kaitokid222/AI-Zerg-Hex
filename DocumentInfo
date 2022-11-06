@@ -142,6 +142,7 @@
             <Value>1.53</Value>
             <Value>1.54</Value>
             <Value>1.55</Value>
+            <Value>1.56</Value>
         </Version>
         <Date>
             <Value>9/6/2021</Value>
@@ -260,6 +261,7 @@
             <Value>11/2/2022</Value>
             <Value>11/2/2022</Value>
             <Value>11/4/2022</Value>
+            <Value>11/6/2022</Value>
             <Value>11/6/2022</Value>
         </Date>
         <Notes>
@@ -380,6 +382,7 @@
             <Value>528</Value>
             <Value>529,530,531,532</Value>
             <Value>533</Value>
+            <Value>534</Value>
         </Notes>
     </PatchNote>
     <Preload>
