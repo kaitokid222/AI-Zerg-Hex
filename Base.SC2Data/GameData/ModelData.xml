@@ -17,6 +17,12 @@
         <Image value="Assets\Textures\MarinePortrait_Static.dds"/>
         <Lighting value="SCVPortrait"/>
     </CModel>
+    <CModel id="ChaosDefiler" parent="HydraliskBase">
+        <Model value="assets\units\Chaos Defiler.m3"/>
+        <RequiredAnims index="0" removed="1"/>
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
     <CModel id="LoveMorales" parent="Unit" Race="Terran">
         <Model value="assets\units\storm_hero_medic_love.m3"/>
         <RequiredAnims value="assets\units\storm_hero_medic_requiredanims.m3a"/>

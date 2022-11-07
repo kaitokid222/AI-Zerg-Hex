@@ -12447,9 +12447,6 @@ void gf_build_spawner (unit lp_drone, int lp_target_player) {
                 lv_type = "CreeperSpawner";
             }
 
-            if ((gv_difficulty > 2)) {
-            }
-
         }
 
         if ((gv_build == "roach") && ((lv_type == "PrimalRoachSpawner") || (lv_type == "UltraliskSpawner"))) {
@@ -13162,7 +13159,7 @@ int gf_get_position_of_alive_player_with_most_spawners () {
                 }
                 else {
                     if ((gv_spawner_distro[lv_i] == gv_spawner_distro[lv_pr])) {
-                        if ((RandomInt(1, 2) == 1)) {
+                        if ((gf_flip_coin() == 1)) {
                             lv_pr = lv_i;
                         }
 
@@ -22278,13 +22275,14 @@ bool gt_spawner_started_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_owner;
     point lv_position;
+    string lv_ut;
+    int lv_capp;
 
     // Automatic Variable Declarations
     string auto64493330_val;
 
     // Variable Initialization
     lv_owner = EventPlayer();
-    lv_position = UnitGetPosition(EventUnitProgressUnit());
 
     // Conditions
     if (testConds) {
@@ -22302,12 +22300,15 @@ bool gt_spawner_started_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_spawner_distro[gf_get_closest_alive_player_position(lv_position)] += 1;
-    if (((UnitGetType(EventUnitProgressUnit()) == "SlowlingSpawner") || (UnitGetType(EventUnitProgressUnit()) == "SlivanCreep") || (UnitGetType(EventUnitProgressUnit()) == "TanklingSpawner"))) {
-        gv_t1_spawner_distro[gf_get_closest_alive_player_position(lv_position)] += 1;
+    lv_position = UnitGetPosition(EventUnitProgressUnit());
+    lv_ut = UnitGetType(EventUnitProgressUnit());
+    lv_capp = gf_get_closest_alive_player_position(lv_position);
+    gv_spawner_distro[lv_capp] += 1;
+    if (((lv_ut == "SlowlingSpawner") || (lv_ut == "SlivanCreep") || (lv_ut == "TanklingSpawner"))) {
+        gv_t1_spawner_distro[lv_capp] += 1;
     }
 
-    if (((UnitGetType(EventUnitProgressUnit()) == "BeastlingSpawner") || (UnitGetType(EventUnitProgressUnit()) == "RavatorSpawner") || (UnitGetType(EventUnitProgressUnit()) == "InfusedRoachSpawner") || (UnitGetType(EventUnitProgressUnit()) == "TorraliskSpawner"))) {
+    if (((lv_ut == "BeastlingSpawner") || (lv_ut == "RavatorSpawner") || (lv_ut == "InfusedRoachSpawner") || (lv_ut == "TorraliskSpawner"))) {
         auto64493330_val = UnitGetType(EventUnitProgressUnit());
         if (auto64493330_val == "BeastlingSpawner") {
             gv_req_beastlings = (gv_req_beastlings - 1);
