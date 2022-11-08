@@ -2060,6 +2060,7 @@ Requirement/EditorSuffix/RequirementResearchMineralMining=(Operation Center)
 Requirement/EditorSuffix/RequirementResearchReaperSuitUpgrade=(Operation Center)
 Requirement/EditorSuffix/SpawnFirelings=3v3
 Requirement/EditorSuffix/TechLabRequireCharges25=(Italis)
+Requirement/EditorSuffix/TerrazineConverter=3v3
 Requirement/EditorSuffix/TerrazineDoubler2Requirement=3v3
 Requirement/EditorSuffix/TerrazineDoubler3Requirement=3v3
 Requirement/EditorSuffix/TerrazineDoublerRequirement=3v3
@@ -2265,6 +2266,7 @@ Requirement/Name/TechLabRequireCharges20=Tech Lab Require Charges 20
 Requirement/Name/TechLabRequireCharges25=Tech Lab Require Charges 25
 Requirement/Name/TechLabRequireCharges4=Tech Lab Require Charges 4
 Requirement/Name/TechLabRequireCharges40=Tech Lab Require Charges 40
+Requirement/Name/TerrazineConverter=Terrazine Converter
 Requirement/Name/TerrazineDoubler2Requirement=Terrazine Doubler 2 Requirement
 Requirement/Name/TerrazineDoubler3Requirement=Terrazine Doubler 3 Requirement
 Requirement/Name/TerrazineDoublerRequirement=Terrazine Doubler Requirement
@@ -2313,6 +2315,7 @@ RequirementNode/Name/AndCountBehaviorInfestorDigestingCompleteOnlyAtUnit24299482
 RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUnitArmory2CompleteOnly609241497=CountUnit(ConstructionYard,CompleteOnly){Construction Yard} && CountUnit(Armory2,CompleteOnly){Armory}
 RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeAdvancedBuildCompleteOnly3080158053=CountUnit(ConstructionYard,CompleteOnly){Construction Yard} && CountUpgrade(AdvancedBuild,CompleteOnly){Research Advanced Build}
 RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeChemicalPlantCompleteOnly1337995533=CountUnit(ConstructionYard,CompleteOnly){Construction Yard} && CountUpgrade(ChemicalPlant,CompleteOnly){Research Chemical Plant}
+RequirementNode/Name/AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3=CountUnit(HiveMindEmulator,CompleteOnly){Zerg Control Center} && CountUnit(TerrazineTank,QueuedOrBetter) <= {Maximum 4 Terrazine Converter}3
 RequirementNode/Name/AndCountUpgradeGasExtraction2CompleteOnly427659588=CountUpgrade(GasExtraction2,CompleteOnly){Complete Gas Extraction 2} && ()
 RequirementNode/Name/AndCountUpgradeGasExtractionCompleteOnly4054536818=CountUpgrade(GasExtraction,CompleteOnly){Complete Gas Extraction 1} && ()
 RequirementNode/Name/AndCountUpgradeImpossibleUpgradeNewCompleteOnly3785646695=CountUpgrade(ImpossibleUpgradeNew,CompleteOnly){You can't spawn this unit before 10 minutes.} && ()
@@ -2392,6 +2395,7 @@ RequirementNode/Name/CountUnitConstructionYardQueuedOrBetter=CountUnit(Construct
 RequirementNode/Name/CountUnitCow2CompleteOnly=CountUnit(Cow2,CompleteOnly)
 RequirementNode/Name/CountUnitCowFarmCompleteOnly=CountUnit(CowFarm,CompleteOnly)
 RequirementNode/Name/CountUnitGasVentQueuedOrBetter=CountUnit(GasVent,QueuedOrBetter)
+RequirementNode/Name/CountUnitHiveMindEmulatorCompleteOnly1351179563=CountUnit(HiveMindEmulator,CompleteOnly){Zerg Control Center}
 RequirementNode/Name/CountUnitHiveMindEmulatorQueuedOrBetter=CountUnit(HiveMindEmulator,QueuedOrBetter)
 RequirementNode/Name/CountUnitInfestedBunkerQueuedOrBetter=CountUnit(InfestedBunker,QueuedOrBetter)
 RequirementNode/Name/CountUnitLoveMoralesQueuedOrBetter=CountUnit(LoveMorales,QueuedOrBetter)
@@ -2411,6 +2415,7 @@ RequirementNode/Name/CountUnitTechLab3CompleteOnly=CountUnit(TechLab3,CompleteOn
 RequirementNode/Name/CountUnitTechLab3QueuedOrBetter=CountUnit(TechLab3,QueuedOrBetter)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly=CountUnit(TerrazineTank,CompleteOnly)
 RequirementNode/Name/CountUnitTerrazineTankCompleteOnly2803542675=CountUnit(TerrazineTank,CompleteOnly){You need at least 1 Terrazine Converter.}
+RequirementNode/Name/CountUnitTerrazineTankQueuedOrBetter=CountUnit(TerrazineTank,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeAdvancedBuildCompleteOnly3080158053=CountUpgrade(AdvancedBuild,CompleteOnly){Research Advanced Build}
 RequirementNode/Name/CountUpgradeAdvancedBuildQueuedOrBetter=CountUpgrade(AdvancedBuild,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeBase1DeadCompleteOnly=CountUpgrade(Base1Dead,CompleteOnly)
@@ -2632,6 +2637,7 @@ RequirementNode/Name/LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697145
 RequirementNode/Name/LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697=CountBehavior(ZergRallyMinus,CompleteOnlyAtUnit){ } < 1{ }
 RequirementNode/Name/LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697=CountBehavior(ZergRallyPlus,CompleteOnlyAtUnit){ } < 1{ }
 RequirementNode/Name/LTCountUpgradeGasExtractionQueuedOrBetter1=CountUpgrade(GasExtraction,QueuedOrBetter) < 1
+RequirementNode/Name/LTE2286789749CountUnitTerrazineTankQueuedOrBetter3=CountUnit(TerrazineTank,QueuedOrBetter) <= {Maximum 4 Terrazine Converter}3
 RequirementNode/Name/LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50=(CountUpgrade(EnergyGeneration,CompleteOnly) + (CountUpgrade(EnergyGeneration,QueuedOnly) || CountUpgrade(EnergyGeneration,InProgressOnly))) < 50
 RequirementNode/Name/LTSumCountUpgradeFirelingsCompleteOnlyOrCountUpgradeFirelingsQueuedOnlyCountUpgradeFirelingsInProgressOnly8=(CountUpgrade(Firelings,CompleteOnly) + (CountUpgrade(Firelings,QueuedOnly) || CountUpgrade(Firelings,InProgressOnly))) < 8
 RequirementNode/Name/LTSumCountUpgradeFortificationCompleteOnlyOrCountUpgradeFortificationQueuedOnlyCountUpgradeFortificationInProgressOnly30=(CountUpgrade(Fortification,CompleteOnly) + (CountUpgrade(Fortification,QueuedOnly) || CountUpgrade(Fortification,InProgressOnly))) < 30

@@ -350,6 +350,9 @@
     <CRequirement id="SpawnTier3Delay3v3">
         <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly561506490GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
     </CRequirement>
+    <CRequirement id="TerrazineConverter">
+        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
+    </CRequirement>
     <CRequirement id="TerrazineDoubler2Requirement">
         <NodeArray index="Use" Link="CountUpgradeTerrazineDoublerCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler2QueuedOrBetter"/>

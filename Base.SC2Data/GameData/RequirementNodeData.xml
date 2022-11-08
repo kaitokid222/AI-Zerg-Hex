@@ -77,6 +77,11 @@
         <OperandArray value="CountUnitConstructionYardCompleteOnly2255243434"/>
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
+        <OperandArray value="LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
     </CRequirementAnd>
@@ -134,7 +139,6 @@
         <OperandArray value="OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10">
@@ -389,6 +393,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GasVent" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitHiveMindEmulatorCompleteOnly1351179563">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HiveMindEmulator" State="CompleteOnly"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
@@ -464,6 +472,11 @@
     <CRequirementCountUnit id="CountUnitTerrazineTankCompleteOnly2803542675">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TerrazineTank" State="CompleteOnly"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitTerrazineTankQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="TerrazineTank" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeAdvancedBuildCompleteOnly3080158053">
         <Flags index="TechTreeCheat" value="0"/>
@@ -871,7 +884,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSiegeTankBetterVersionCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SiegeTankBetterVersion" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSiegeTankModulationCompleteOnly3535617815">
@@ -1155,7 +1167,6 @@
         <OperandArray index="1" value="0"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeSiegeTankBetterVersionCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementEq>
@@ -1355,6 +1366,10 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
+    <CRequirementLTE id="LTE2286789749CountUnitTerrazineTankQueuedOrBetter3">
+        <OperandArray index="0" value="CountUnitTerrazineTankQueuedOrBetter"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementLTE>
     <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50">
         <OperandArray index="0" value="SumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly"/>
         <OperandArray index="1" value="50"/>
