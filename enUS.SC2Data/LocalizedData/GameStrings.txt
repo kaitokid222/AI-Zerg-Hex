@@ -1413,9 +1413,9 @@ Button/Tooltip/TerranAdvancedGate=
 Button/Tooltip/TerranAdvancedGateLowered=
 Button/Tooltip/TerranGate=
 Button/Tooltip/TerranGateLowered=
-Button/Tooltip/TerrazineDoubler=Gain 2 times more Terrazine from killing zerg units.
-Button/Tooltip/TerrazineDoubler2=Gain 4 times more Terrazine from killing zerg units.
-Button/Tooltip/TerrazineDoubler3=Gain 8 times more Terrazine from killing zerg units.
+Button/Tooltip/TerrazineDoubler=Gain 2 times as much Terrazine from killing zerg units.
+Button/Tooltip/TerrazineDoubler2=Gain 4 times as much Terrazine from killing zerg units.
+Button/Tooltip/TerrazineDoubler3=Gain 8 times as much Terrazine from killing zerg units.
 Button/Tooltip/TerrazineTextKicker6=<s val="Kicker_Refinery">+2 </s><IMG path="Assets\Textures\icon-gas-terran.dds" height="28" width="28"/>
 Button/Tooltip/Torralisk=
 Button/Tooltip/TorraliskSpawner=
