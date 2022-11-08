@@ -83,6 +83,10 @@
         <HotkeyAlias value=""/>
     </CButton>
     <CButton id="HiveMindEmulator"/>
+    <CButton id="BuildChaosDefiler">
+        <Icon value="assets\icon\ICON Defiler.dds"/>
+        <AlertIcon value="assets\icon\ICON Defiler.dds"/>
+    </CButton>
     <CButton id="TrainLoveMorales">
         <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>

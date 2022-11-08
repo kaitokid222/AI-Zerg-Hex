@@ -21,6 +21,9 @@
     <CRequirement id="Have100Blood">
         <NodeArray index="Use" Link="GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100"/>
     </CRequirement>
+    <CRequirement id="HaveTier3andlessthan5defilers">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
+    </CRequirement>
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>

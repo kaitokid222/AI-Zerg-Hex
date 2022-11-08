@@ -18,6 +18,106 @@
         <HeightOffset value="3.500000"/>
         <Text value="Button/Tooltip/AutomatedRefineryTextKicker6"/>
     </CActorText>
+    <CActorUnit id="ChaosDefiler" parent="GenericUnitBase" unitName="ChaosDefiler">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.TwinBolter.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Ready,Attack,Superior"/>
+        <On Terms="WeaponStart.TwinBolter.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Ready,Attack,Inferior"/>
+        <On Terms="WeaponStart.ChaosPowerSword.AttackStart" Send="AnimPlay Attack Attack FullMatch,NoMismatchQueryProps"/>
+        <On Terms="WeaponStart.TwinBolter.AttackStart" Send="AnimBracketStart ReadyAttack Ready,Attack"/>
+        <On Terms="WeaponStop.TwinBolter.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.TwinBolter.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.TwinBolter.AttackStop" Send="AnimBracketStop ReadyAttack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="WeaponStart.ChaosPowerSword.AttackStart; AnimPlaying AttackCover Cover,00" Send="TimerSet 0.400000 MeleeAttackLaunch"/>
+        <On Terms="WeaponStart.ChaosPowerSword.AttackStart; AnimPlaying AttackCover Cover,01" Send="TimerSet 0.100000 MeleeAttackLaunch"/>
+        <On Terms="TimerExpired; TimerName MeleeAttackLaunch" Send="Create HydraliskMeleeAttackLaunch"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
+        <On Terms="UnitBirth.ChaosDefiler" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="WeaponStart.ChaosPowerSword.AttackStart" Send="AnimGroupRemove Ready"/>
+        <On Terms="Behavior.LotsofBlood.On" Send="HaloStart"/>
+        <On Terms="Behavior.LotsofBlood.On" Send="HaloSetColor 255,0,0"/>
+        <On Terms="Behavior.LotsofBlood.Off" Send="HaloStop"/>
+        <Scale value="1.300000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
+        <DeathArray index="Normal" ModelLink="ChaosLordDeath" SoundLink="" VoiceLink="ChaosLord_DeathVO"/>
+        <DeathArray index="Disintegrate" ModelLink="ChaosLordDeath" SoundLink="Uni_DeathFXAcid" VoiceLink="ChaosLord_DeathVO"/>
+        <DeathArray index="Fire" ModelLink="ChaosLordDeath" SoundLink="Uni_DeathFXFire" VoiceLink="ChaosLord_DeathVO"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Spectre_KillerPhantasmDeath" Name="Hallucination"/>
+        <DeathCustoms ModelLink="ChaosLordDeath" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ModelLink="ChaosLordDeath" Name="Variation16"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PortraitModel value="ChaosLordPortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.086"/>
+        <BarOffset value="60"/>
+        <BarWidth value="48"/>
+        <GroupIcon>
+            <Image value="assets\icon\Wireframe Defiler.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Icon\ICON  Chaos Lord.dds"/>
+        <LifeArmorIcon value="Assets\Icon\ICON CSM Armor Lord.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="ChaosLord_Ready"/>
+        <SoundArray index="Help" value="ChaosLord_Help"/>
+        <SoundArray index="What" value="ChaosLord_What"/>
+        <SoundArray index="Yes" value="ChaosLord_Yes"/>
+        <SoundArray index="Attack" value="ChaosLord_Attack"/>
+        <SoundArray index="Pissed" value="ChaosLord_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="assets\icon\ICON Defiler.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="assets\icon\Wireframe Defiler.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorText id="GainBounty" parent="PickupTextDefault">
         <Filter index="Ally" value="1"/>
         <Filter index="Neutral" value="1"/>

@@ -78,7 +78,6 @@
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
         <OperandArray value="LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
     </CRequirementAnd>
@@ -137,6 +136,11 @@
     <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnly1892408692OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563">
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly1892408692"/>
         <OperandArray value="OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly"/>
+        <OperandArray value="LT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
         <OperandArray value="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
@@ -361,6 +365,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="BarracksTechReactor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitChaosDefilerQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ChaosDefiler" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitChaosLordQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ChaosLord" State="QueuedOrBetter"/>
@@ -475,7 +484,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitTerrazineTankQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="TerrazineTank" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeAdvancedBuildCompleteOnly3080158053">
@@ -990,6 +998,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Tier2Equipment" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTier3EquipmentCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="Tier3Equipment" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTier3EquipmentCompleteOnly1892408692">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Tier3Equipment" State="CompleteOnly"/>
@@ -1321,6 +1334,10 @@
     <CRequirementLT id="LT3437118427CountUnitLoveMoralesQueuedOrBetter2">
         <OperandArray index="0" value="CountUnitLoveMoralesQueuedOrBetter"/>
         <OperandArray index="1" value="2"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3699583646CountUnitChaosDefilerQueuedOrBetter5">
+        <OperandArray index="0" value="CountUnitChaosDefilerQueuedOrBetter"/>
+        <OperandArray index="1" value="5"/>
     </CRequirementLT>
     <CRequirementLT id="LT381415482CountUnitTarRoachQueuedOrBetter100">
         <OperandArray index="0" value="CountUnitTarRoachQueuedOrBetter"/>

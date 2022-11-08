@@ -469,6 +469,8 @@ void gf_create_clean_bank (int lp_player);
 void gf_save_csum (int lp_player);
 void gf_remove_transmission_units ();
 void gf_apply_support ();
+void gf_apply_support_casual ();
+void gf_apply_support_3v3 ();
 void gf_create_special_forces_for_player (int lp_player);
 void gf_create_tank_support_forplayer (int lp_player);
 void gf_disable_unit_pickup (unit lp_unit);
@@ -1433,6 +1435,17 @@ void gf_remove_transmission_units () {
 }
 
 void gf_apply_support () {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((GameAttributeGameValue("1") == "0001")) {
+        gf_apply_support_casual();
+    }
+    else {
+        gf_apply_support_3v3();
+    }
+}
+
+void gf_apply_support_casual () {
     // Variable Declarations
     int lv_picked_bonus_int;
     unit lv_generator;
@@ -1446,78 +1459,78 @@ void gf_apply_support () {
     unit lv_barracks;
 
     // Automatic Variable Declarations
-    playergroup autoD7252B7F_g;
-    int autoD7252B7F_var;
-    string auto847BAF84_val;
-    int auto8CF24BD7_val;
-    unitgroup auto2574BD98_g;
-    int auto2574BD98_u;
-    unit auto2574BD98_var;
-    unitgroup auto8828D2C3_g;
-    int auto8828D2C3_u;
-    unit auto8828D2C3_var;
-    unitgroup autoD530FF96_g;
-    int autoD530FF96_u;
-    unit autoD530FF96_var;
-    unitgroup auto6F1FBC82_g;
-    int auto6F1FBC82_u;
-    unit auto6F1FBC82_var;
-    unitgroup autoEBC46D4F_g;
-    int autoEBC46D4F_u;
-    unit autoEBC46D4F_var;
-    unitgroup autoAC253FAD_g;
-    int autoAC253FAD_u;
-    unit autoAC253FAD_var;
+    playergroup auto18D3D132_g;
+    int auto18D3D132_var;
+    string auto166FA2A2_val;
+    int auto4C710A49_val;
+    unitgroup auto376916DE_g;
+    int auto376916DE_u;
+    unit auto376916DE_var;
+    unitgroup autoDBE3DB51_g;
+    int autoDBE3DB51_u;
+    unit autoDBE3DB51_var;
+    unitgroup auto148588C3_g;
+    int auto148588C3_u;
+    unit auto148588C3_var;
+    unitgroup autoAF2ED8BB_g;
+    int autoAF2ED8BB_u;
+    unit autoAF2ED8BB_var;
+    unitgroup auto647456EF_g;
+    int auto647456EF_u;
+    unit auto647456EF_var;
+    unitgroup auto24C4542F_g;
+    int auto24C4542F_u;
+    unit auto24C4542F_var;
 
     // Variable Initialization
     lv_i = 1;
 
     // Implementation
-    autoD7252B7F_g = gv_terrans;
-    autoD7252B7F_var = -1;
+    auto18D3D132_g = gv_terrans;
+    auto18D3D132_var = -1;
     while (true) {
-        autoD7252B7F_var = PlayerGroupNextPlayer(autoD7252B7F_g, autoD7252B7F_var);
-        if (autoD7252B7F_var < 0) { break; }
-        lv_o_pen = gv_players[autoD7252B7F_var].lv_elopenalty;
-        auto847BAF84_val = GameAttributePlayerValue("5", autoD7252B7F_var);
-        if (auto847BAF84_val == "0001") {
+        auto18D3D132_var = PlayerGroupNextPlayer(auto18D3D132_g, auto18D3D132_var);
+        if (auto18D3D132_var < 0) { break; }
+        lv_o_pen = gv_players[auto18D3D132_var].lv_elopenalty;
+        auto166FA2A2_val = GameAttributePlayerValue("5", auto18D3D132_var);
+        if (auto166FA2A2_val == "0001") {
             lv_picked_bonus_int = 0;
         }
-        else if (auto847BAF84_val == "0012") {
+        else if (auto166FA2A2_val == "0012") {
             lv_picked_bonus_int = 1;
             lv_penalty = (1 * gv_difficulty);
         }
-        else if (auto847BAF84_val == "0009") {
+        else if (auto166FA2A2_val == "0009") {
             lv_picked_bonus_int = 2;
         }
-        else if (auto847BAF84_val == "0011") {
+        else if (auto166FA2A2_val == "0011") {
             lv_picked_bonus_int = 3;
         }
-        else if (auto847BAF84_val == "0006") {
+        else if (auto166FA2A2_val == "0006") {
             lv_picked_bonus_int = 4;
         }
-        else if (auto847BAF84_val == "0007") {
+        else if (auto166FA2A2_val == "0007") {
             lv_picked_bonus_int = 5;
         }
-        else if (auto847BAF84_val == "0008") {
+        else if (auto166FA2A2_val == "0008") {
             lv_picked_bonus_int = 6;
         }
-        else if (auto847BAF84_val == "0002") {
+        else if (auto166FA2A2_val == "0002") {
             lv_picked_bonus_int = 7;
         }
-        else if (auto847BAF84_val == "0004") {
+        else if (auto166FA2A2_val == "0004") {
             lv_picked_bonus_int = 8;
         }
-        else if (auto847BAF84_val == "0003") {
+        else if (auto166FA2A2_val == "0003") {
             lv_picked_bonus_int = 9;
         }
-        else if (auto847BAF84_val == "0005") {
+        else if (auto166FA2A2_val == "0005") {
             lv_picked_bonus_int = 10;
         }
-        else if (auto847BAF84_val == "0010") {
+        else if (auto166FA2A2_val == "0010") {
             lv_picked_bonus_int = 11;
         }
-        else if (auto847BAF84_val == "0013") {
+        else if (auto166FA2A2_val == "0013") {
             lv_picked_bonus_int = 12;
         }
         else {
@@ -1530,162 +1543,162 @@ void gf_apply_support () {
             lv_picked_bonus_int = RandomInt(2, 11);
         }
 
-        auto8CF24BD7_val = lv_picked_bonus_int;
-        if (auto8CF24BD7_val == 2) {
-            gv_players[autoD7252B7F_var].lv_support_type = "Army";
-            lv_barracks = UnitGroupUnit(UnitGroup("Barracks2", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+        auto4C710A49_val = lv_picked_bonus_int;
+        if (auto4C710A49_val == 2) {
+            gv_players[auto18D3D132_var].lv_support_type = "Army";
+            lv_barracks = UnitGroupUnit(UnitGroup("Barracks2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
             UnitBehaviorAdd(lv_barracks, "BloodStacks", lv_barracks, 10);
-            gf_update_blood_panel(autoD7252B7F_var);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 13), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 14), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 15), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 16), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 0), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 1), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 17), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 7), false);
-            auto2574BD98_g = UnitGroup("Marine2", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            auto2574BD98_u = UnitGroupCount(auto2574BD98_g, c_unitCountAll);
-            for (;; auto2574BD98_u -= 1) {
-                auto2574BD98_var = UnitGroupUnitFromEnd(auto2574BD98_g, auto2574BD98_u);
-                if (auto2574BD98_var == null) { break; }
-                lv_p = UnitGetPosition(auto2574BD98_var);
-                UnitRemove(auto2574BD98_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosCultist", 0, autoD7252B7F_var, lv_p);
+            gf_update_blood_panel(auto18D3D132_var);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 13), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 14), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 15), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 16), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 0), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 1), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 7), false);
+            auto376916DE_g = UnitGroup("Marine2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto376916DE_u = UnitGroupCount(auto376916DE_g, c_unitCountAll);
+            for (;; auto376916DE_u -= 1) {
+                auto376916DE_var = UnitGroupUnitFromEnd(auto376916DE_g, auto376916DE_u);
+                if (auto376916DE_var == null) { break; }
+                lv_p = UnitGetPosition(auto376916DE_var);
+                UnitRemove(auto376916DE_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosCultist", 0, auto18D3D132_var, lv_p);
             }
-            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, autoD7252B7F_var, PointFromName(("Zerg Rally " + IntToString(gv_players[autoD7252B7F_var].lv_position))));
-            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, autoD7252B7F_var, PointFromName(("Zerg Rally " + IntToString(gv_players[autoD7252B7F_var].lv_position))));
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, auto18D3D132_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position))));
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto18D3D132_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position))));
         }
-        else if (auto8CF24BD7_val == 3) {
-            gv_players[autoD7252B7F_var].lv_support_type = "Hightech";
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 8), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BuildBuilderScalingStructures", 4), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("UpgradeToAdvancedGate", 0), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 1), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 6), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 21), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("GeneratorResearch", 5), true);
-            auto8828D2C3_g = UnitGroup("Battery", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            auto8828D2C3_u = UnitGroupCount(auto8828D2C3_g, c_unitCountAll);
-            for (;; auto8828D2C3_u -= 1) {
-                auto8828D2C3_var = UnitGroupUnitFromEnd(auto8828D2C3_g, auto8828D2C3_u);
-                if (auto8828D2C3_var == null) { break; }
-                lv_p = UnitGetPosition(auto8828D2C3_var);
-                UnitRemove(auto8828D2C3_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, autoD7252B7F_var, lv_p);
+        else if (auto4C710A49_val == 3) {
+            gv_players[auto18D3D132_var].lv_support_type = "Hightech";
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 8), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 4), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("UpgradeToAdvancedGate", 0), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 1), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 6), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 21), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("GeneratorResearch", 5), true);
+            autoDBE3DB51_g = UnitGroup("Battery", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoDBE3DB51_u = UnitGroupCount(autoDBE3DB51_g, c_unitCountAll);
+            for (;; autoDBE3DB51_u -= 1) {
+                autoDBE3DB51_var = UnitGroupUnitFromEnd(autoDBE3DB51_g, autoDBE3DB51_u);
+                if (autoDBE3DB51_var == null) { break; }
+                lv_p = UnitGetPosition(autoDBE3DB51_var);
+                UnitRemove(autoDBE3DB51_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, auto18D3D132_var, lv_p);
             }
-            autoD530FF96_g = UnitGroup("Marine2", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            autoD530FF96_u = UnitGroupCount(autoD530FF96_g, c_unitCountAll);
-            for (;; autoD530FF96_u -= 1) {
-                autoD530FF96_var = UnitGroupUnitFromEnd(autoD530FF96_g, autoD530FF96_u);
-                if (autoD530FF96_var == null) { break; }
-                lv_p = UnitGetPosition(autoD530FF96_var);
-                UnitRemove(autoD530FF96_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ShockTrooper", 0, autoD7252B7F_var, lv_p);
+            auto148588C3_g = UnitGroup("Marine2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto148588C3_u = UnitGroupCount(auto148588C3_g, c_unitCountAll);
+            for (;; auto148588C3_u -= 1) {
+                auto148588C3_var = UnitGroupUnitFromEnd(auto148588C3_g, auto148588C3_u);
+                if (auto148588C3_var == null) { break; }
+                lv_p = UnitGetPosition(auto148588C3_var);
+                UnitRemove(auto148588C3_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ShockTrooper", 0, auto18D3D132_var, lv_p);
             }
-            auto6F1FBC82_g = UnitGroup("ShockTrooper", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1);
-            auto6F1FBC82_u = UnitGroupCount(auto6F1FBC82_g, c_unitCountAll);
-            for (;; auto6F1FBC82_u -= 1) {
-                auto6F1FBC82_var = UnitGroupUnitFromEnd(auto6F1FBC82_g, auto6F1FBC82_u);
-                if (auto6F1FBC82_var == null) { break; }
-                lv_p = UnitGetPosition(auto6F1FBC82_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, autoD7252B7F_var, lv_p);
+            autoAF2ED8BB_g = UnitGroup("ShockTrooper", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1);
+            autoAF2ED8BB_u = UnitGroupCount(autoAF2ED8BB_g, c_unitCountAll);
+            for (;; autoAF2ED8BB_u -= 1) {
+                autoAF2ED8BB_var = UnitGroupUnitFromEnd(autoAF2ED8BB_g, autoAF2ED8BB_u);
+                if (autoAF2ED8BB_var == null) { break; }
+                lv_p = UnitGetPosition(autoAF2ED8BB_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, auto18D3D132_var, lv_p);
             }
-            autoEBC46D4F_g = UnitGroup("Generator", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            autoEBC46D4F_u = UnitGroupCount(autoEBC46D4F_g, c_unitCountAll);
-            for (;; autoEBC46D4F_u -= 1) {
-                autoEBC46D4F_var = UnitGroupUnitFromEnd(autoEBC46D4F_g, autoEBC46D4F_u);
-                if (autoEBC46D4F_var == null) { break; }
-                UnitBehaviorAdd(autoEBC46D4F_var, "HighTechBuff", autoEBC46D4F_var, 1);
+            auto647456EF_g = UnitGroup("Generator", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto647456EF_u = UnitGroupCount(auto647456EF_g, c_unitCountAll);
+            for (;; auto647456EF_u -= 1) {
+                auto647456EF_var = UnitGroupUnitFromEnd(auto647456EF_g, auto647456EF_u);
+                if (auto647456EF_var == null) { break; }
+                UnitBehaviorAdd(auto647456EF_var, "HighTechBuff", auto647456EF_var, 1);
             }
         }
-        else if (auto8CF24BD7_val == 4) {
-            gv_players[autoD7252B7F_var].lv_support_type = "3x";
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ConstructionYardResearch", 4), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BuildBuilderScalingStructures", 3), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ConstructionYardResearch", 7), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ConstructionYardResearch", 8), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ConstructionYardResearch", 9), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ConstructionYardTrain", 0), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 6), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 17), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 7), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 11), true);
-            CatalogReferenceSet("Unit,Marine2,CostResource[Minerals]", autoD7252B7F_var, "15");
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropMinerals, c_playerPropOperSubtract, 1);
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(autoD7252B7F_var, c_playerPropMinerals) + 25));
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(autoD7252B7F_var, c_playerPropVespene) + 25));
+        else if (auto4C710A49_val == 4) {
+            gv_players[auto18D3D132_var].lv_support_type = "3x";
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 4), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 3), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 7), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 8), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 9), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardTrain", 0), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 6), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 7), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 11), true);
+            CatalogReferenceSet("Unit,Marine2,CostResource[Minerals]", auto18D3D132_var, "15");
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSubtract, 1);
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropMinerals) + 25));
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 25));
         }
-        else if (auto8CF24BD7_val == 5) {
+        else if (auto4C710A49_val == 5) {
             lv_i = 1;
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(autoD7252B7F_var, c_playerPropMinerals) + 400));
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(autoD7252B7F_var, c_playerPropVespene) + 400));
-            lv_target_middle = PointFromName(("Zerg Rally " + IntToString(gv_players[autoD7252B7F_var].lv_position)));
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropMinerals) + 400));
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 400));
+            lv_target_middle = PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position)));
         }
-        else if (auto8CF24BD7_val == 6) {
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 6), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 18), true);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 0), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("ArmoryResearch2", 17), false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("BarracksTrain2", 7), false);
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropMinerals, c_playerPropOperAdd, 180);
-            PlayerModifyPropertyInt(autoD7252B7F_var, c_playerPropVespene, c_playerPropOperAdd, 100);
-            gv_players[autoD7252B7F_var].lv_support_type = "Infested";
-            autoAC253FAD_g = UnitGroup("Builder", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            autoAC253FAD_u = UnitGroupCount(autoAC253FAD_g, c_unitCountAll);
-            for (;; autoAC253FAD_u -= 1) {
-                autoAC253FAD_var = UnitGroupUnitFromEnd(autoAC253FAD_g, autoAC253FAD_u);
-                if (autoAC253FAD_var == null) { break; }
-                lv_p = UnitGetPosition(autoAC253FAD_var);
-                UnitRemove(autoAC253FAD_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, autoD7252B7F_var, lv_p);
+        else if (auto4C710A49_val == 6) {
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 6), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 18), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 0), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 7), false);
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperAdd, 180);
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperAdd, 100);
+            gv_players[auto18D3D132_var].lv_support_type = "Infested";
+            auto24C4542F_g = UnitGroup("Builder", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto24C4542F_u = UnitGroupCount(auto24C4542F_g, c_unitCountAll);
+            for (;; auto24C4542F_u -= 1) {
+                auto24C4542F_var = UnitGroupUnitFromEnd(auto24C4542F_g, auto24C4542F_u);
+                if (auto24C4542F_var == null) { break; }
+                lv_p = UnitGetPosition(auto24C4542F_var);
+                UnitRemove(auto24C4542F_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, auto18D3D132_var, lv_p);
             }
-            UnitRemove(UnitGroupClosestToPoint(UnitGroup("RocksBE", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 6), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", autoD7252B7F_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1))));
+            UnitRemove(UnitGroupClosestToPoint(UnitGroup("RocksBE", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 6), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1))));
         }
-        else if (auto8CF24BD7_val == 7) {
-            gf_create_raynor_support_forplayer(autoD7252B7F_var);
+        else if (auto4C710A49_val == 7) {
+            gf_create_raynor_support_forplayer(auto18D3D132_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Raynor", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/C5E0910B"), StringExternal("Param/Value/A756B94B"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[autoD7252B7F_var].lv_support_type = "Raynor";
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/601B2700"), StringExternal("Param/Value/5E96B5E9"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto18D3D132_var].lv_support_type = "Raynor";
         }
-        else if (auto8CF24BD7_val == 8) {
-            gf_create_marauder_support_forplayer(autoD7252B7F_var);
+        else if (auto4C710A49_val == 8) {
+            gf_create_marauder_support_forplayer(auto18D3D132_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Marauder", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/F0DF2F78"), StringExternal("Param/Value/3BABF673"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[autoD7252B7F_var].lv_support_type = "Marauder";
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/1ABE11AF"), StringExternal("Param/Value/BC5DC004"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto18D3D132_var].lv_support_type = "Marauder";
         }
-        else if (auto8CF24BD7_val == 9) {
-            gf_create_artanis_support_forplayer(autoD7252B7F_var);
+        else if (auto4C710A49_val == 9) {
+            gf_create_artanis_support_forplayer(auto18D3D132_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Artanis", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/AD1135E9"), StringExternal("Param/Value/76365B99"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[autoD7252B7F_var].lv_support_type = "Artanis";
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/9FA748C7"), StringExternal("Param/Value/E1ED0B77"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto18D3D132_var].lv_support_type = "Artanis";
         }
-        else if (auto8CF24BD7_val == 10) {
-            gf_create_tank_support_forplayer(autoD7252B7F_var);
+        else if (auto4C710A49_val == 10) {
+            gf_create_tank_support_forplayer(auto18D3D132_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "SiegeTank2", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/F3F8FECA"), StringExternal("Param/Value/6DA54E8F"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[autoD7252B7F_var].lv_support_type = "Tank";
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/A6791F10"), StringExternal("Param/Value/B66CF96D"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto18D3D132_var].lv_support_type = "Tank";
         }
-        else if (auto8CF24BD7_val == 11) {
-            gf_create_probius_support_forplayer(autoD7252B7F_var);
+        else if (auto4C710A49_val == 11) {
+            gf_create_probius_support_forplayer(auto18D3D132_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Probius", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(autoD7252B7F_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/B8D1297B"), StringExternal("Param/Value/98E2784B"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            TechTreeAbilityAllow(autoD7252B7F_var, AbilityCommand("CommandCenterTrain2", 7), true);
-            gv_players[autoD7252B7F_var].lv_support_type = "Probius";
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/D8768EEA"), StringExternal("Param/Value/50F21B3E"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 7), true);
+            gv_players[auto18D3D132_var].lv_support_type = "Probius";
         }
-        else if (auto8CF24BD7_val == 12) {
-            gv_players[autoD7252B7F_var].lv_support_type = "Prebuilt";
+        else if (auto4C710A49_val == 12) {
+            gv_players[auto18D3D132_var].lv_support_type = "Prebuilt";
         }
         else {
         }
@@ -1694,7 +1707,280 @@ void gf_apply_support () {
             lv_penalty = (gv_difficulty * 10);
         }
 
-        gv_players[autoD7252B7F_var].lv_elopenalty = lv_penalty;
+        gv_players[auto18D3D132_var].lv_elopenalty = lv_penalty;
+    }
+}
+
+void gf_apply_support_3v3 () {
+    // Variable Declarations
+    int lv_picked_bonus_int;
+    unit lv_generator;
+    int lv_penalty;
+    int lv_o_pen;
+    unit lv_portrait_unit;
+    point lv_p;
+    point lv_target_middle;
+    point lv_target_middle2;
+    int lv_i;
+    unit lv_barracks;
+
+    // Automatic Variable Declarations
+    playergroup auto4A0E4D9D_g;
+    int auto4A0E4D9D_var;
+    string auto29B4316B_val;
+    int auto62D37381_val;
+    unitgroup auto5610767C_g;
+    int auto5610767C_u;
+    unit auto5610767C_var;
+    unitgroup autoBC011C41_g;
+    int autoBC011C41_u;
+    unit autoBC011C41_var;
+    unitgroup autoE414EAEC_g;
+    int autoE414EAEC_u;
+    unit autoE414EAEC_var;
+    unitgroup auto6FA3D4F4_g;
+    int auto6FA3D4F4_u;
+    unit auto6FA3D4F4_var;
+    unitgroup auto8B0EB86F_g;
+    int auto8B0EB86F_u;
+    unit auto8B0EB86F_var;
+    unitgroup autoA744CA74_g;
+    int autoA744CA74_u;
+    unit autoA744CA74_var;
+
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    auto4A0E4D9D_g = gv_terrans;
+    auto4A0E4D9D_var = -1;
+    while (true) {
+        auto4A0E4D9D_var = PlayerGroupNextPlayer(auto4A0E4D9D_g, auto4A0E4D9D_var);
+        if (auto4A0E4D9D_var < 0) { break; }
+        lv_o_pen = gv_players[auto4A0E4D9D_var].lv_elopenalty;
+        auto29B4316B_val = GameAttributePlayerValue("10", auto4A0E4D9D_var);
+        if (auto29B4316B_val == "0001") {
+            lv_picked_bonus_int = 0;
+        }
+        else if (auto29B4316B_val == "0012") {
+            lv_picked_bonus_int = 1;
+            lv_penalty = (1 * gv_difficulty);
+        }
+        else if (auto29B4316B_val == "0009") {
+            lv_picked_bonus_int = 2;
+        }
+        else if (auto29B4316B_val == "0011") {
+            lv_picked_bonus_int = 3;
+        }
+        else if (auto29B4316B_val == "0006") {
+            lv_picked_bonus_int = 4;
+        }
+        else if (auto29B4316B_val == "0007") {
+            lv_picked_bonus_int = 5;
+        }
+        else if (auto29B4316B_val == "0008") {
+            lv_picked_bonus_int = 6;
+        }
+        else if (auto29B4316B_val == "0002") {
+            lv_picked_bonus_int = 7;
+        }
+        else if (auto29B4316B_val == "0004") {
+            lv_picked_bonus_int = 8;
+        }
+        else if (auto29B4316B_val == "0003") {
+            lv_picked_bonus_int = 9;
+        }
+        else if (auto29B4316B_val == "0005") {
+            lv_picked_bonus_int = 10;
+        }
+        else if (auto29B4316B_val == "0010") {
+            lv_picked_bonus_int = 11;
+        }
+        else if (auto29B4316B_val == "0013") {
+            lv_picked_bonus_int = 12;
+        }
+        else if (auto29B4316B_val == "0014") {
+            lv_picked_bonus_int = 13;
+        }
+        else {
+        }
+        if ((lv_picked_bonus_int > 1)) {
+            lv_penalty = (3 * gv_difficulty);
+        }
+
+        if ((lv_picked_bonus_int == 1)) {
+            lv_picked_bonus_int = RandomInt(2, 13);
+            if ((lv_picked_bonus_int == 12)) {
+                lv_picked_bonus_int = RandomInt(2, 11);
+            }
+
+        }
+
+        auto62D37381_val = lv_picked_bonus_int;
+        if (auto62D37381_val == 2) {
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Army";
+            lv_barracks = UnitGroupUnit(UnitGroup("Barracks2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+            UnitBehaviorAdd(lv_barracks, "BloodStacks", lv_barracks, 10);
+            gf_update_blood_panel(auto4A0E4D9D_var);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 13), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 14), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 15), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 16), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 0), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 1), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 7), false);
+            auto5610767C_g = UnitGroup("Marine2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto5610767C_u = UnitGroupCount(auto5610767C_g, c_unitCountAll);
+            for (;; auto5610767C_u -= 1) {
+                auto5610767C_var = UnitGroupUnitFromEnd(auto5610767C_g, auto5610767C_u);
+                if (auto5610767C_var == null) { break; }
+                lv_p = UnitGetPosition(auto5610767C_var);
+                UnitRemove(auto5610767C_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosCultist", 0, auto4A0E4D9D_var, lv_p);
+            }
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
+        }
+        else if (auto62D37381_val == 3) {
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Hightech";
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 8), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BuildBuilderScalingStructures", 4), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("UpgradeToAdvancedGate", 0), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 1), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 6), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 21), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("GeneratorResearch", 5), true);
+            autoBC011C41_g = UnitGroup("Battery", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoBC011C41_u = UnitGroupCount(autoBC011C41_g, c_unitCountAll);
+            for (;; autoBC011C41_u -= 1) {
+                autoBC011C41_var = UnitGroupUnitFromEnd(autoBC011C41_g, autoBC011C41_u);
+                if (autoBC011C41_var == null) { break; }
+                lv_p = UnitGetPosition(autoBC011C41_var);
+                UnitRemove(autoBC011C41_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, auto4A0E4D9D_var, lv_p);
+            }
+            autoE414EAEC_g = UnitGroup("Marine2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoE414EAEC_u = UnitGroupCount(autoE414EAEC_g, c_unitCountAll);
+            for (;; autoE414EAEC_u -= 1) {
+                autoE414EAEC_var = UnitGroupUnitFromEnd(autoE414EAEC_g, autoE414EAEC_u);
+                if (autoE414EAEC_var == null) { break; }
+                lv_p = UnitGetPosition(autoE414EAEC_var);
+                UnitRemove(autoE414EAEC_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ShockTrooper", 0, auto4A0E4D9D_var, lv_p);
+            }
+            auto6FA3D4F4_g = UnitGroup("ShockTrooper", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1);
+            auto6FA3D4F4_u = UnitGroupCount(auto6FA3D4F4_g, c_unitCountAll);
+            for (;; auto6FA3D4F4_u -= 1) {
+                auto6FA3D4F4_var = UnitGroupUnitFromEnd(auto6FA3D4F4_g, auto6FA3D4F4_u);
+                if (auto6FA3D4F4_var == null) { break; }
+                lv_p = UnitGetPosition(auto6FA3D4F4_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, auto4A0E4D9D_var, lv_p);
+            }
+            auto8B0EB86F_g = UnitGroup("Generator", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto8B0EB86F_u = UnitGroupCount(auto8B0EB86F_g, c_unitCountAll);
+            for (;; auto8B0EB86F_u -= 1) {
+                auto8B0EB86F_var = UnitGroupUnitFromEnd(auto8B0EB86F_g, auto8B0EB86F_u);
+                if (auto8B0EB86F_var == null) { break; }
+                UnitBehaviorAdd(auto8B0EB86F_var, "HighTechBuff", auto8B0EB86F_var, 1);
+            }
+        }
+        else if (auto62D37381_val == 4) {
+            gv_players[auto4A0E4D9D_var].lv_support_type = "3x";
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ConstructionYardResearch", 4), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BuildBuilderScalingStructures", 3), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ConstructionYardResearch", 7), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ConstructionYardResearch", 8), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ConstructionYardResearch", 9), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ConstructionYardTrain", 0), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 6), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 7), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 11), true);
+            CatalogReferenceSet("Unit,Marine2,CostResource[Minerals]", auto4A0E4D9D_var, "15");
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperSubtract, 1);
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals) + 25));
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropVespene) + 25));
+        }
+        else if (auto62D37381_val == 5) {
+            lv_i = 1;
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals) + 400));
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropVespene) + 400));
+            lv_target_middle = PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position)));
+        }
+        else if (auto62D37381_val == 6) {
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 6), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 18), true);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 0), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 17), false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 7), false);
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperAdd, 180);
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperAdd, 100);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Infested";
+            autoA744CA74_g = UnitGroup("Builder", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoA744CA74_u = UnitGroupCount(autoA744CA74_g, c_unitCountAll);
+            for (;; autoA744CA74_u -= 1) {
+                autoA744CA74_var = UnitGroupUnitFromEnd(autoA744CA74_g, autoA744CA74_u);
+                if (autoA744CA74_var == null) { break; }
+                lv_p = UnitGetPosition(autoA744CA74_var);
+                UnitRemove(autoA744CA74_var);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, auto4A0E4D9D_var, lv_p);
+            }
+            UnitRemove(UnitGroupClosestToPoint(UnitGroup("RocksBE", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 6), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1))));
+        }
+        else if (auto62D37381_val == 7) {
+            gf_create_raynor_support_forplayer(auto4A0E4D9D_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Raynor", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/EC249A99"), StringExternal("Param/Value/BA3B975C"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Raynor";
+        }
+        else if (auto62D37381_val == 8) {
+            gf_create_marauder_support_forplayer(auto4A0E4D9D_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Marauder", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/BEFCC774"), StringExternal("Param/Value/6EA810E0"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Marauder";
+        }
+        else if (auto62D37381_val == 9) {
+            gf_create_artanis_support_forplayer(auto4A0E4D9D_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Artanis", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/EF4330DB"), StringExternal("Param/Value/BC764C77"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Artanis";
+        }
+        else if (auto62D37381_val == 10) {
+            gf_create_tank_support_forplayer(auto4A0E4D9D_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "SiegeTank2", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/051D4070"), StringExternal("Param/Value/70429A66"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Tank";
+        }
+        else if (auto62D37381_val == 11) {
+            gf_create_probius_support_forplayer(auto4A0E4D9D_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Probius", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
+            lv_portrait_unit = UnitLastCreated();
+            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
+            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/03FAEE65"), StringExternal("Param/Value/37EA8BE1"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
+            TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 7), true);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Probius";
+        }
+        else if (auto62D37381_val == 12) {
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Prebuilt";
+        }
+        else {
+        }
+        lv_penalty = (lv_penalty + lv_o_pen);
+        if ((lv_penalty > (gv_difficulty * 10))) {
+            lv_penalty = (gv_difficulty * 10);
+        }
+
+        gv_players[auto4A0E4D9D_var].lv_elopenalty = lv_penalty;
     }
 }
 

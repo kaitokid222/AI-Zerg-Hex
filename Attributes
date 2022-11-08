@@ -453,7 +453,6 @@
         <Requirement>
             <Attribute Id="1"/>
             <Value Id="1"/>
-            <Value Id="3"/>
         </Requirement>
         <Value>
             <Id Value="1"/>
@@ -532,6 +531,130 @@
             <Name Value="Attribute005/Value013/Name"/>
             <Description Value="Attribute005/Value013/Desc"/>
             <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
+        </Value>
+        <Default>
+            <Slot Id="0"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="1"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="2"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="3"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="4"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="5"/>
+            <Value Id="12"/>
+        </Default>
+        <Default>
+            <Slot Id="6"/>
+            <Value Id="1"/>
+            <Locked/>
+        </Default>
+    </Attribute>
+    <Attribute>
+        <Id Value="10"/>
+        <Type Value="Player"/>
+        <Name Value="Attribute010/Name"/>
+        <Availability Value="All"/>
+        <Visibility Value="Self"/>
+        <Access Value="Self"/>
+        <Requirement>
+            <Attribute Id="1"/>
+            <Value Id="3"/>
+        </Requirement>
+        <Value>
+            <Id Value="1"/>
+            <Name Value="Attribute010/Value001/Name"/>
+            <Description Value="Attribute010/Value001/Desc"/>
+            <Icon Value="Assets\Textures\btn-ability-alarak-reliquaryofsouls.dds"/>
+        </Value>
+        <Value>
+            <Id Value="12"/>
+            <Name Value="Attribute010/Value012/Name"/>
+            <Description Value="Attribute010/Value012/Desc"/>
+            <Icon Value="Assets\Textures\ui_emoticons_random.dds"/>
+        </Value>
+        <Value>
+            <Id Value="5"/>
+            <Name Value="Attribute010/Value005/Name"/>
+            <Description Value="Attribute010/Value005/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        </Value>
+        <Value>
+            <Id Value="6"/>
+            <Name Value="Attribute010/Value006/Name"/>
+            <Description Value="Attribute010/Value006/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        </Value>
+        <Value>
+            <Id Value="8"/>
+            <Name Value="Attribute010/Value008/Name"/>
+            <Description Value="Attribute010/Value008/Desc"/>
+            <Icon Value="Assets\Textures\btn-ability-zerg-fireroach-increasefiredamage.dds"/>
+        </Value>
+        <Value>
+            <Id Value="3"/>
+            <Name Value="Attribute010/Value003/Name"/>
+            <Description Value="Attribute010/Value003/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-protoss-zealot-aiur.dds"/>
+        </Value>
+        <Value>
+            <Id Value="4"/>
+            <Name Value="Attribute010/Value004/Name"/>
+            <Description Value="Attribute010/Value004/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        </Value>
+        <Value>
+            <Id Value="7"/>
+            <Name Value="Attribute010/Value007/Name"/>
+            <Description Value="Attribute010/Value007/Desc"/>
+            <Icon Value="Assets\Textures\btn-ability-spearofadun-orbitalassimilator.dds"/>
+        </Value>
+        <Value>
+            <Id Value="2"/>
+            <Name Value="Attribute010/Value002/Name"/>
+            <Description Value="Attribute010/Value002/Desc"/>
+            <Icon Value="Assets\Textures\btn-ability-terran-calldownextrasupplies-color.dds"/>
+        </Value>
+        <Value>
+            <Id Value="9"/>
+            <Name Value="Attribute010/Value009/Name"/>
+            <Description Value="Attribute010/Value009/Desc"/>
+            <Icon Value="assets\icon\ICON Chaos Marine.dds"/>
+        </Value>
+        <Value>
+            <Id Value="10"/>
+            <Name Value="Attribute010/Value010/Name"/>
+            <Description Value="Attribute010/Value010/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-collection-probe-golden.dds"/>
+        </Value>
+        <Value>
+            <Id Value="11"/>
+            <Name Value="Attribute010/Value011/Name"/>
+            <Description Value="Attribute010/Value011/Desc"/>
+            <Icon Value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        </Value>
+        <Value>
+            <Id Value="13"/>
+            <Name Value="Attribute010/Value013/Name"/>
+            <Description Value="Attribute010/Value013/Desc"/>
+            <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
+        </Value>
+        <Value>
+            <Id Value="14"/>
+            <Name Value="Attribute010/Value014/Name"/>
+            <Description Value="Attribute010/Value014/Desc"/>
         </Value>
         <Default>
             <Slot Id="0"/>
