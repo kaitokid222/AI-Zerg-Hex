@@ -527,8 +527,14 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="175"/>
-            <Charge Link="Abil/SpawnBeastling3v3"/>
-            <Cooldown Link="Abil/SpawnBeastling3v3" TimeUse="5"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <Link value="Abil/SpawnBeastling3v3"/>
+                <TimeStart value="10"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Link="Abil/SpawnBeastling3v3"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>

@@ -77,10 +77,10 @@
         <OperandArray value="CountUnitConstructionYardCompleteOnly2255243434"/>
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE22867897494CountUnitTerrazineTankQueuedOrBetter">
+    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
-        <OperandArray value="LTE22867897494CountUnitTerrazineTankQueuedOrBetter"/>
+        <OperandArray value="LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
@@ -1366,9 +1366,9 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
-    <CRequirementLTE id="LTE22867897494CountUnitTerrazineTankQueuedOrBetter">
-        <OperandArray index="0" value="4"/>
-        <OperandArray index="1" value="CountUnitTerrazineTankQueuedOrBetter"/>
+    <CRequirementLTE id="LTE2286789749CountUnitTerrazineTankQueuedOrBetter3">
+        <OperandArray index="0" value="CountUnitTerrazineTankQueuedOrBetter"/>
+        <OperandArray index="1" value="3"/>
     </CRequirementLTE>
     <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50">
         <OperandArray index="0" value="SumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly"/>
