@@ -441,7 +441,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="500"/>
+            <Resource index="Terrazine" value="300"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -455,7 +455,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="500"/>
+            <Resource index="Terrazine" value="300"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -474,7 +474,7 @@
         <Cost>
             <Resource index="Terrazine" value="700"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="10"/>
@@ -491,7 +491,7 @@
         <Cost>
             <Resource index="Terrazine" value="700"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <Link value="Abil/SpawnBruta3v3"/>
                 <TimeStart value="10"/>
@@ -510,7 +510,12 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="175"/>
-            <Cooldown TimeUse="5"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <TimeStart value="10"/>
+                <TimeUse value="10"/>
+            </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -537,7 +542,7 @@
         <Cost>
             <Resource index="Terrazine" value="260"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <Link value="Abil/SpawnUltra3v3"/>
                 <TimeStart value="10"/>
@@ -557,7 +562,7 @@
         <Cost>
             <Resource index="Terrazine" value="260"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="10"/>
@@ -574,7 +579,7 @@
         <Cost>
             <Resource index="Terrazine" value="155"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="10"/>
@@ -591,7 +596,7 @@
         <Cost>
             <Resource index="Terrazine" value="210"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="10"/>
@@ -607,8 +612,14 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="210"/>
-            <Charge Link="Abil/SpawnPrimal3v3"/>
-            <Cooldown Link="Abil/SpawnPrimal3v3" TimeUse="8"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <Link value="Abil/SpawnPrimal3v3"/>
+                <TimeStart value="10"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Link="Abil/SpawnPrimal3v3"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -622,7 +633,7 @@
         <Cost>
             <Resource index="Terrazine" value="100"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="10"/>
@@ -638,7 +649,7 @@
         <Cost>
             <Resource index="Terrazine" value="155"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <Link value="Abil/SpawnRoach3v3"/>
                 <TimeStart value="10"/>
@@ -2614,17 +2625,17 @@
             <Button DefaultButtonFace="ResearchGasExtraction3" Requirements="GasExtraction3Requirement"/>
         </InfoArray>
         <InfoArray index="Research11" Time="15" Upgrade="TerrazineDoubler">
-            <Resource index="Vespene" value="125"/>
+            <Resource index="Vespene" value="100"/>
             <Resource index="Terrazine" value="500"/>
             <Button DefaultButtonFace="TerrazineDoubler" Requirements="TerrazineDoublerRequirement"/>
         </InfoArray>
         <InfoArray index="Research12" Time="15" Upgrade="TerrazineDoubler2">
-            <Resource index="Vespene" value="250"/>
+            <Resource index="Vespene" value="200"/>
             <Resource index="Terrazine" value="1000"/>
             <Button DefaultButtonFace="TerrazineDoubler2" Requirements="TerrazineDoubler2Requirement"/>
         </InfoArray>
         <InfoArray index="Research13" Time="15" Upgrade="TerrazineDoubler3">
-            <Resource index="Vespene" value="500"/>
+            <Resource index="Vespene" value="400"/>
             <Resource index="Terrazine" value="2000"/>
             <Button DefaultButtonFace="TerrazineDoubler3" Requirements="TerrazineDoubler3Requirement"/>
         </InfoArray>
@@ -2818,7 +2829,7 @@
             <Button DefaultButtonFace="BuildEventTechCenter" Requirements="OnlyOneEventTechCenter"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="TerrazineTank" Time="45">
-            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements=""/>
+            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements="TerrazineConverter"/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>
     </CAbilBuild>

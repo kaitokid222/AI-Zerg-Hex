@@ -5208,6 +5208,8 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_zerg_vision_3v3, lv_on_off);
     TriggerEnable(gt_prevent_bottom_from_going_top, lv_on_off);
     TriggerEnable(gt_prevent_top_from_going_bottom, lv_on_off);
+    TriggerEnable(gt_prevent_top_zerg_from_going_bottom, lv_on_off);
+    TriggerEnable(gt_prevent_bottom_zerg_from_going_top, lv_on_off);
     TriggerEnable(gt_TerrazineDoublerfinished, lv_on_off);
     TriggerEnable(gt_Terrazineonkill, lv_on_off);
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
