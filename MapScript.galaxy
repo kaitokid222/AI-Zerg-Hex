@@ -105,6 +105,13 @@ struct gs_hazard_zone {
     bool lv_deprecated;
 };
 
+struct gs_egg_cluster {
+    unitgroup lv_ug_all;
+    unitgroup lv_ug_spawners;
+    point[4][4] lv_position_sets;
+    int lv_state;
+};
+
 struct gs_bonus_gasses {
     string lv_status;
     point lv_position;
@@ -256,6 +263,8 @@ gs_hazard_zone[17] gv_hazard_zones;
 int gv_hazard_zones_count;
 int gv_deprecated_hazard_zones_count;
 bool gv_ai_building_drone;
+gs_egg_cluster[9] gv_egg_clusters;
+int gv_egg_cluster_count;
 int gv_f2_cooldown;
 unitgroup gv_f2_unit_group;
 int gv_cloud_cd;
@@ -408,6 +417,10 @@ void InitGlobals () {
     gv_extra_tumors = UnitGroupEmpty();
     gv_outer_tumors = UnitGroupEmpty();
     gv_outer_nests = UnitGroupEmpty();
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_egg_clusters[init_i].lv_ug_all = UnitGroupEmpty();
+        gv_egg_clusters[init_i].lv_ug_spawners = UnitGroupEmpty();
+    }
     gv_f2_unit_group = UnitGroupEmpty();
     for (init_i = 0; init_i <= 12; init_i += 1) {
         gv_bonus_gasses[init_i].lv_status = "blocked";
@@ -654,6 +667,8 @@ void gf_build_drone ();
 unit gf_get_drone ();
 int gf_get_number_of_ready_drones ();
 unitgroup gf_get_all_ready_drones ();
+void gf_add_egg_cluster_set (unit lp_creep_source);
+void gf_create_new_egg_cluster ();
 void gf_f2_point (point lp_point, bool lp_force);
 void gf_scout_bonus_gasses ();
 void gf_attack_a_bonus_gas ();
@@ -897,6 +912,7 @@ trigger gt_creepsourcerebuildstarted;
 trigger gt_checkhazardzones;
 trigger gt_stasisgotused;
 trigger gt_drone_finished;
+trigger gt_test;
 trigger gt_Checkbridgesevery45s;
 trigger gt_spinegetsattacked;
 trigger gt_buildinggetsattacked;
@@ -9846,6 +9862,81 @@ unitgroup gf_get_all_ready_drones () {
     return lv_return;
 }
 
+void gf_add_egg_cluster_set (unit lp_creep_source) {
+    // Variable Declarations
+    unitgroup lv_local_ug;
+    int lv_spawner_count;
+
+    // Automatic Variable Declarations
+    unitgroup auto0B36CA3E_g;
+    int auto0B36CA3E_u;
+    unit auto0B36CA3E_var;
+
+    // Variable Initialization
+    lv_local_ug = UnitGroupEmpty();
+
+    // Implementation
+    gv_egg_cluster_count = (gv_egg_cluster_count + 1);
+    gv_egg_clusters[gv_egg_cluster_count].lv_position_sets[1][1] = UnitGetPosition(lp_creep_source);
+    lv_local_ug = UnitGroup(null, 0, RegionCircle(gv_egg_clusters[gv_egg_cluster_count].lv_position_sets[1][1], 4.5), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto0B36CA3E_g = lv_local_ug;
+    auto0B36CA3E_u = UnitGroupCount(auto0B36CA3E_g, c_unitCountAll);
+    for (;; auto0B36CA3E_u -= 1) {
+        auto0B36CA3E_var = UnitGroupUnitFromEnd(auto0B36CA3E_g, auto0B36CA3E_u);
+        if (auto0B36CA3E_var == null) { break; }
+        if (((UnitGetType(auto0B36CA3E_var) == "ShieldBattery") || (UnitGetType(auto0B36CA3E_var) == "RoboticsBay"))) {
+            if ((UnitGetType(auto0B36CA3E_var) == "ShieldBattery")) {
+                gv_egg_clusters[gv_egg_cluster_count].lv_position_sets[2][1] = UnitGetPosition(auto0B36CA3E_var);
+                UnitRemove(auto0B36CA3E_var);
+            }
+            else {
+                lv_spawner_count = (lv_spawner_count + 1);
+                gv_egg_clusters[gv_egg_cluster_count].lv_position_sets[3][lv_spawner_count] = UnitGetPosition(auto0B36CA3E_var);
+                UnitRemove(auto0B36CA3E_var);
+            }
+        }
+
+    }
+    UnitRemove(lp_creep_source);
+}
+
+void gf_create_new_egg_cluster () {
+    // Variable Declarations
+    int lv_egg_cluster_id;
+    int lv_done;
+    int lv_rand;
+    int lv_cap;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    while ((lv_done == 0)) {
+        lv_rand = RandomInt(1, 8);
+        if ((gv_egg_clusters[lv_rand].lv_state == 0)) {
+            lv_egg_cluster_id = lv_rand;
+            lv_done = 1;
+        }
+
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CreepTumor2", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[1][1]);
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpineCrawler", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[2][1]);
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][1]);
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][2]);
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][3]);
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+    lv_cap = gf_get_closest_alive_player_position_from_group(UnitGroupCenterOfGroup(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners), gv_terrans);
+    UnitGroupIssueOrder(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueReplace);
+    gv_egg_clusters[lv_egg_cluster_id].lv_state = 1;
+}
+
 void gf_f2_point (point lp_point, bool lp_force) {
     // Variable Declarations
     region lv_region;
@@ -12942,7 +13033,7 @@ void gf_get_possible_positions () {
     for (;; auto641AD434_u -= 1) {
         auto641AD434_var = UnitGroupUnitFromEnd(auto641AD434_g, auto641AD434_u);
         if (auto641AD434_var == null) { break; }
-        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2"))) {
+        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon"))) {
             auto1469AB90_val = UnitGetType(auto641AD434_var);
             if (auto1469AB90_val == "StrikelingSpawner") {
                 gv_possible_positions_t1_count += 1;
@@ -12969,11 +13060,18 @@ void gf_get_possible_positions () {
                 gv_extra_t1_positions_counts[lv_cp] += 1;
                 gv_extra_t1_positions[lv_cp][gv_extra_t1_positions_counts[lv_cp]] = UnitGetPosition(auto641AD434_var);
             }
+            else if (auto1469AB90_val == "Pylon") {
+                gf_add_egg_cluster_set(auto641AD434_var);
+            }
             else if (auto1469AB90_val == "AiurRockDebris2x2") {
             }
             else {
             }
-            UnitRemove(auto641AD434_var);
+            if (((UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "ShieldBattery") || (UnitGetType(auto641AD434_var) == "RoboticsBay"))) {
+            }
+            else {
+                UnitRemove(auto641AD434_var);
+            }
         }
 
     }
@@ -21015,6 +21113,44 @@ void gt_drone_finished_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -test
+//--------------------------------------------------------------------------------------------------
+bool gt_test_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_create_new_egg_cluster();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_test_Init () {
+    gt_test = TriggerCreate("gt_test_Func");
+    TriggerAddEventChatMessage(gt_test, c_playerAny, "-test", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Check bridges every 45s
 //--------------------------------------------------------------------------------------------------
 bool gt_Checkbridgesevery45s_Func (bool testConds, bool runActions) {
@@ -22867,6 +23003,10 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         if (!((UnitGetType(EventUnitProgressUnit()) != "GreaterMineralExtractor"))) {
             return false;
         }
+
+        if (!((UnitGetType(EventUnitProgressUnit()) != "CharEggSackTwoEgg"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -24436,6 +24576,7 @@ void InitTriggers () {
     gt_checkhazardzones_Init();
     gt_stasisgotused_Init();
     gt_drone_finished_Init();
+    gt_test_Init();
     gt_Checkbridgesevery45s_Init();
     gt_spinegetsattacked_Init();
     gt_buildinggetsattacked_Init();

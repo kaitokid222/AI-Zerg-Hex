@@ -30,6 +30,12 @@
             <LayoutButtons Face="DoubledRewards" Type="AbilCmd" AbilCmd="TechLabResearch2,Research8" Row="0" Column="1"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="BlightbringerEgg">
+        <AbilArray Link="Rally"/>
+    </CUnit>
+    <CUnit id="BlightbringerLargeEgg">
+        <AbilArray Link="Rally"/>
+    </CUnit>
     <CUnit id="Blood2" parent="ITEM">
         <Race value="Terr"/>
         <Mob value="Campaign"/>
@@ -202,6 +208,12 @@
         </Fidget>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="CharEggSackTwoEgg">
+        <AbilArray Link="Rally"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <DeadFootprint value=""/>
+        <PlacementFootprint value="Footprint3x3"/>
     </CUnit>
     <CUnit id="EliteMarineSkin4">
         <DeathRevealRadius value="3"/>
@@ -2263,6 +2275,9 @@
         <RankDisplay value="Never"/>
         <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
         <PushPriority value="11"/>
+    </CUnit>
+    <CUnit id="SwarmQueenMorphing">
+        <AbilArray index="0" Link="Rally"/>
     </CUnit>
     <CUnit id="TechReactor">
         <CostResource index="Minerals" value="50"/>

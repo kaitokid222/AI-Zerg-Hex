@@ -126,12 +126,15 @@
 <Terrain id="HavenEx1"/>
 <Unit id="Marauder"/>
 <Unit id="Medivac"/>
+<Unit id="Pylon"/>
+<Unit id="RoboticsBay"/>
 <Unit id="Zealot"/>
 <Unit id="WarpPrism"/>
 <Unit id="Probe"/>
 <Unit id="SpineCrawler"/>
 <Unit id="Overlord"/>
 <Unit id="Viper"/>
+<Unit id="ShieldBattery"/>
 <Unit id="VespeneGeyser"/>
 <Unit id="ShapeHeart"/>
 <Unit id="PickupScrapSalvage1x1"/>
@@ -148,6 +151,7 @@
 <Unit id="FireworksRed"/>
 <Unit id="FireworksYellow"/>
 <Unit id="KerriganReviveCocoon"/>
+<Unit id="CharEggSackTwoEgg"/>
 <Unit id="KaraxChampion"/>
 <Unit id="ZerglingCarbot"/>
 <Unit id="KerriganVoid"/>
