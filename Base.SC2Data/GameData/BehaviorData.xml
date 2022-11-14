@@ -150,6 +150,14 @@
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
         <DisableValidatorArray value="PlayerHasGTE4Terrazine"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="EggClusterB">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="45"/>
+        <PeriodicEffect value="EggClusterDummy"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Period value="0.2"/>

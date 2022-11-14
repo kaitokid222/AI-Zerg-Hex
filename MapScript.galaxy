@@ -667,6 +667,7 @@ void gf_build_drone ();
 unit gf_get_drone ();
 int gf_get_number_of_ready_drones ();
 unitgroup gf_get_all_ready_drones ();
+void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target);
 void gf_add_egg_cluster_set (unit lp_creep_source);
 void gf_create_new_egg_cluster ();
 void gf_f2_point (point lp_point, bool lp_force);
@@ -913,6 +914,7 @@ trigger gt_checkhazardzones;
 trigger gt_stasisgotused;
 trigger gt_drone_finished;
 trigger gt_test;
+trigger gt_EggClusterTriggerDummy;
 trigger gt_Checkbridgesevery45s;
 trigger gt_spinegetsattacked;
 trigger gt_buildinggetsattacked;
@@ -9860,6 +9862,182 @@ unitgroup gf_get_all_ready_drones () {
 
     }
     return lv_return;
+}
+
+void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target) {
+    // Variable Declarations
+    int[9] lv_us;
+    int lv_up;
+    int lv_rand;
+    int lv_i;
+    unitgroup lv_result_ug;
+
+    // Automatic Variable Declarations
+    int auto4930659F_val;
+    int auto45E07B0A_val;
+
+    // Variable Initialization
+    lv_i = 1;
+    lv_result_ug = UnitGroupEmpty();
+
+    // Implementation
+    while (((lp_pool - lv_up) > 0)) {
+        if (((lp_pool - lv_up) > 1)) {
+            lv_rand = RandomInt(1, 100);
+            if ((gv_difficulty < 8)) {
+                if ((lv_rand >= 0) && (lv_rand < 20)) {
+                    lv_us[1] = (lv_us[1] + 2);
+                    lv_up = (lv_up + 1);
+                }
+                else if ((lv_rand >= 20) && (lv_rand < 40)) {
+                    lv_us[2] = (lv_us[2] + 2);
+                    lv_up = (lv_up + 1);
+                }
+                else if ((lv_rand >= 40) && (lv_rand < 50)) {
+                    lv_us[3] = (lv_us[3] + 5);
+                    lv_up = (lv_up + 3);
+                }
+                else if ((lv_rand >= 50) && (lv_rand < 70)) {
+                    lv_us[4] = (lv_us[4] + 1);
+                    lv_up = (lv_up + 4);
+                }
+                else if ((lv_rand >= 70) && (lv_rand < 85)) {
+                    lv_us[5] = (lv_us[5] + 1);
+                    lv_up = (lv_up + 5);
+                }
+                else if ((lv_rand >= 85) && (lv_rand < 95)) {
+                    lv_us[6] = (lv_us[6] + 1);
+                    lv_up = (lv_up + 6);
+                }
+                else if ((lv_rand >= 95)) {
+                    lv_us[7] = (lv_us[7] + 1);
+                    lv_up = (lv_up + 7);
+                }
+            }
+            else {
+                if ((lv_rand >= 0) && (lv_rand < 10)) {
+                    lv_us[1] = (lv_us[1] + 2);
+                    lv_up = (lv_up + 1);
+                }
+                else if ((lv_rand >= 10) && (lv_rand < 20)) {
+                    lv_us[2] = (lv_us[2] + 2);
+                    lv_up = (lv_up + 1);
+                }
+                else if ((lv_rand >= 20) && (lv_rand < 50)) {
+                    lv_us[3] = (lv_us[3] + 5);
+                    lv_up = (lv_up + 3);
+                }
+                else if ((lv_rand >= 50) && (lv_rand < 70)) {
+                    lv_us[5] = (lv_us[5] + 1);
+                    lv_up = (lv_up + 5);
+                }
+                else if ((lv_rand >= 70) && (lv_rand < 80)) {
+                    lv_us[6] = (lv_us[6] + 1);
+                    lv_up = (lv_up + 6);
+                }
+                else if ((lv_rand >= 80) && (lv_rand < 95)) {
+                    lv_us[7] = (lv_us[7] + 1);
+                    lv_up = (lv_up + 7);
+                }
+                else if ((lv_rand >= 95)) {
+                    lv_us[8] = (lv_us[8] + 1);
+                    lv_up = (lv_up + 8);
+                }
+            }
+        }
+        else {
+            if ((gv_difficulty > 6)) {
+                if ((gf_flip_coin() == 1)) {
+                    lv_us[8] = (lv_us[8] + 1);
+                }
+                else {
+                    lv_us[3] = (lv_us[3] + 5);
+                }
+                lv_up = (lv_up + 1);
+            }
+            else {
+                lv_us[3] = (lv_us[3] + 5);
+                lv_up = (lv_up + 1);
+            }
+        }
+    }
+    while ((lv_i <= 8)) {
+        if ((lv_us[lv_i] > 0)) {
+            if ((lv_i >= 1) && (lv_i <= 4)) {
+                auto4930659F_val = lv_i;
+                if (auto4930659F_val == 1) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Slowling", 0, 7, lp_origin);
+                }
+                else if (auto4930659F_val == 2) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Creeper", 0, 7, lp_origin);
+                }
+                else if (auto4930659F_val == 3) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Strikeling", 0, 7, lp_origin);
+                }
+                else if (auto4930659F_val == 4) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Tankling", 0, 7, lp_origin);
+                }
+                else {
+                }
+            }
+            else if ((lv_i == 5)) {
+                if ((gv_armor_level >= 2)) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Roach2", 0, 7, lp_origin);
+                }
+                else {
+                    libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "Strikeling", 0, 7, lp_origin);
+                }
+            }
+            else if ((lv_i == 6)) {
+                if ((gv_armor_level >= 3)) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "PrimalRoach2", 0, 7, lp_origin);
+                }
+                else {
+                    libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 7), "Strikeling", 0, 7, lp_origin);
+                }
+            }
+            else if ((lv_i == 7)) {
+                if ((gv_armor_level >= 4)) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Ultralisk2", 0, 7, lp_origin);
+                }
+                else {
+                    libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 12), "Strikeling", 0, 7, lp_origin);
+                }
+            }
+            else if ((lv_i == 8)) {
+                if ((gv_armor_level >= 5)) {
+                    auto45E07B0A_val = gf_roll_dice();
+                    if (auto45E07B0A_val == 1) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else if (auto45E07B0A_val == 2) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else if (auto45E07B0A_val == 3) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else if (auto45E07B0A_val == 4) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else if (auto45E07B0A_val == 5) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else if (auto45E07B0A_val == 6) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "MeleeMinionHell", 0, 7, lp_origin);
+                    }
+                    else {
+                    }
+                }
+                else {
+                    libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 15), "Strikeling", 0, 7, lp_origin);
+                }
+            }
+        }
+
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+        lv_i = (lv_i + 1);
+    }
+    UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueReplace);
 }
 
 void gf_add_egg_cluster_set (unit lp_creep_source) {
@@ -21151,6 +21329,53 @@ void gt_test_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Egg Cluster Trigger Dummy
+//--------------------------------------------------------------------------------------------------
+bool gt_EggClusterTriggerDummy_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_type;
+    unit lv_unit;
+    point lv_pos;
+    point lv_rt_pos;
+    int lv_pool;
+
+    // Automatic Variable Declarations
+    string auto568EEEB1_val;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_unit = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_type = UnitGetType(lv_unit);
+    lv_pos = UnitGetPosition(lv_unit);
+    lv_rt_pos = UnitRallyPointTargetPoint(lv_unit, 1, 1);
+    auto568EEEB1_val = lv_type;
+    if (auto568EEEB1_val == "CharEggSackOneEgg") {
+        lv_pool = 12;
+    }
+    else if (auto568EEEB1_val == "CharEggSackTwoEgg") {
+        lv_pool = 24;
+    }
+    else if (auto568EEEB1_val == "CharEggSackThreeEgg") {
+        lv_pool = 36;
+    }
+    else {
+    }
+    gf_Create_wave_and_send_from_to(lv_pool, lv_pos, lv_rt_pos);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_EggClusterTriggerDummy_Init () {
+    gt_EggClusterTriggerDummy = TriggerCreate("gt_EggClusterTriggerDummy_Func");
+    TriggerAddEventPlayerEffectUsed(gt_EggClusterTriggerDummy, 7, "EggClusterDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Check bridges every 45s
 //--------------------------------------------------------------------------------------------------
 bool gt_Checkbridgesevery45s_Func (bool testConds, bool runActions) {
@@ -24577,6 +24802,7 @@ void InitTriggers () {
     gt_stasisgotused_Init();
     gt_drone_finished_Init();
     gt_test_Init();
+    gt_EggClusterTriggerDummy_Init();
     gt_Checkbridgesevery45s_Init();
     gt_spinegetsattacked_Init();
     gt_buildinggetsattacked_Init();

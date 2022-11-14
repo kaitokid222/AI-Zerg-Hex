@@ -23,6 +23,9 @@
         <ResourcesCollected index="Vespene" value="1"/>
         <ResourcesCollected index="Terrazine" value="1"/>
     </CEffectModifyPlayer>
+    <CEffectSet id="EggClusterDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>
