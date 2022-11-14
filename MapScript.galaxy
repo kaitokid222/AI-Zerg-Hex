@@ -265,6 +265,7 @@ int gv_deprecated_hazard_zones_count;
 bool gv_ai_building_drone;
 gs_egg_cluster[9] gv_egg_clusters;
 int gv_egg_cluster_count;
+point[7] gv_defensive_egg_cluster_positions;
 int gv_f2_cooldown;
 unitgroup gv_f2_unit_group;
 int gv_cloud_cd;
@@ -667,9 +668,11 @@ void gf_build_drone ();
 unit gf_get_drone ();
 int gf_get_number_of_ready_drones ();
 unitgroup gf_get_all_ready_drones ();
+void gf_handle_egg_cluster_creation ();
 void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target);
 void gf_add_egg_cluster_set (unit lp_creep_source);
 void gf_create_new_egg_cluster ();
+void gf_create_defensive_egg_cluster (int lp_position);
 void gf_f2_point (point lp_point, bool lp_force);
 void gf_scout_bonus_gasses ();
 void gf_attack_a_bonus_gas ();
@@ -9864,6 +9867,61 @@ unitgroup gf_get_all_ready_drones () {
     return lv_return;
 }
 
+void gf_handle_egg_cluster_creation () {
+    // Variable Declarations
+    int lv_time;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_time = FixedToInt(GameGetMissionTime());
+
+    // Implementation
+    if ((lv_time == (15 * 60))) {
+        if ((gv_difficulty >= 5)) {
+            gf_create_new_egg_cluster();
+            gf_create_new_egg_cluster();
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+    if ((lv_time == (16 * 60))) {
+        if ((gv_difficulty >= 6)) {
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+    if ((lv_time == (17 * 60))) {
+        if ((gv_difficulty >= 6)) {
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+    if ((lv_time == (18 * 60))) {
+        if ((gv_difficulty >= 7)) {
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+    if ((lv_time == (19 * 60))) {
+        if ((gv_difficulty >= 8)) {
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+    if ((lv_time == (20 * 60))) {
+        if ((gv_difficulty >= 8)) {
+            gf_create_new_egg_cluster();
+        }
+
+    }
+
+}
+
 void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target) {
     // Variable Declarations
     int[9] lv_us;
@@ -10084,9 +10142,11 @@ void gf_create_new_egg_cluster () {
     int lv_done;
     int lv_rand;
     int lv_cap;
+    int lv_sci;
 
     // Automatic Variable Declarations
     // Variable Initialization
+    lv_sci = 1;
 
     // Implementation
     while ((lv_done == 0)) {
@@ -10099,20 +10159,91 @@ void gf_create_new_egg_cluster () {
     }
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "CreepTumor2", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[1][1]);
     UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpineCrawler", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[2][1]);
+    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
+    if ((gv_difficulty >= 7)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "LargeSpineCrawler", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[2][1]);
+    }
+    else {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpineCrawler", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[2][1]);
+    }
     UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][1]);
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][2]);
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][3]);
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+    UnitGroupAdd(gv_outer_smallspines, UnitLastCreated());
+    while ((lv_sci <= 3)) {
+        if ((gv_difficulty == 5)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][1]);
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        else if ((gv_difficulty == 6)) {
+            if ((lv_sci > 1)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][2]);
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][1]);
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+        }
+        else if ((gv_difficulty == 7)) {
+            if ((lv_sci > 1)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][2]);
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][1]);
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+        }
+        else if ((gv_difficulty >= 8) && (gv_difficulty <= 11)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        else if ((gv_difficulty >= 12)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_egg_clusters[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        if ((gv_difficulty <= 5)) {
+            lv_sci = (lv_sci + 2);
+        }
+
+        if ((gv_difficulty <= 7) && (gv_difficulty >= 6)) {
+            lv_sci = (lv_sci + 1);
+        }
+
+        lv_sci = (lv_sci + 1);
+    }
+    if ((gv_difficulty <= 5)) {
+    }
     lv_cap = gf_get_closest_alive_player_position_from_group(UnitGroupCenterOfGroup(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners), gv_terrans);
     UnitGroupIssueOrder(gv_egg_clusters[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueReplace);
     gv_egg_clusters[lv_egg_cluster_id].lv_state = 1;
+}
+
+void gf_create_defensive_egg_cluster (int lp_position) {
+    // Variable Declarations
+    string lv_t;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gv_difficulty == 5)) {
+        lv_t = "CharEggSackOneEgg";
+    }
+    else if ((gv_difficulty > 5) && (gv_difficulty <= 7)) {
+        lv_t = "CharEggSackTwoEgg";
+    }
+    else if ((gv_difficulty >= 8)) {
+        lv_t = "CharEggSackThreeEgg";
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_t, c_unitCreateIgnorePlacement, 7, gv_defensive_egg_cluster_positions[lp_position]);
+    UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_position)))), c_orderQueueReplace);
 }
 
 void gf_f2_point (point lp_point, bool lp_force) {
@@ -13211,7 +13342,7 @@ void gf_get_possible_positions () {
     for (;; auto641AD434_u -= 1) {
         auto641AD434_var = UnitGroupUnitFromEnd(auto641AD434_g, auto641AD434_u);
         if (auto641AD434_var == null) { break; }
-        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon"))) {
+        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "Stargate"))) {
             auto1469AB90_val = UnitGetType(auto641AD434_var);
             if (auto1469AB90_val == "StrikelingSpawner") {
                 gv_possible_positions_t1_count += 1;
@@ -13240,6 +13371,10 @@ void gf_get_possible_positions () {
             }
             else if (auto1469AB90_val == "Pylon") {
                 gf_add_egg_cluster_set(auto641AD434_var);
+            }
+            else if (auto1469AB90_val == "Stargate") {
+                lv_cp = gf_get_closest_position(UnitGetPosition(auto641AD434_var));
+                gv_defensive_egg_cluster_positions[lv_cp] = UnitGetPosition(auto641AD434_var);
             }
             else if (auto1469AB90_val == "AiurRockDebris2x2") {
             }
@@ -22503,6 +22638,10 @@ bool gt_nestdied_Func (bool testConds, bool runActions) {
     }
 
     if ((UnitGroupHasUnit(gv_outer_nests, lv_unit) == true)) {
+        if ((gv_difficulty >= 5)) {
+            gf_create_defensive_egg_cluster(lv_index);
+        }
+
         gv_hydra_groups[lv_index].lv_nest = gv_hydra_groups[lv_index].lv_nestb;
         gv_hydra_groups[lv_index].lv_point = gv_hydra_groups[lv_index].lv_pointb;
         gv_hydra_groups[lv_index].lv_stock = (gv_hydra_groups[lv_index].lv_stock + gf_outer_nest_death_stock_increase());
@@ -23052,6 +23191,18 @@ bool gt_spawner_started_Func (bool testConds, bool runActions) {
         }
 
         if (!((UnitAbilityExists(EventUnitProgressUnit(), "Rally") == true))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitProgressUnit()) != "CharEggSackOneEgg"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitProgressUnit()) != "CharEggSackTwoEgg"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitProgressUnit()) != "CharEggSackThreeEgg"))) {
             return false;
         }
     }
@@ -24338,6 +24489,7 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
     gf_enable_3v3_spawn();
     gf_attack_highground_invaders();
     gf_timer_terran_death();
+    gf_handle_egg_cluster_creation();
     if ((gf_is_game_over() == true)) {
         gf_end_game(gf_get_winning_team());
     }

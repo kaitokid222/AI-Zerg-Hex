@@ -127,6 +127,7 @@
 <Unit id="Marauder"/>
 <Unit id="Medivac"/>
 <Unit id="Pylon"/>
+<Unit id="Stargate"/>
 <Unit id="RoboticsBay"/>
 <Unit id="Zealot"/>
 <Unit id="WarpPrism"/>
@@ -151,7 +152,9 @@
 <Unit id="FireworksRed"/>
 <Unit id="FireworksYellow"/>
 <Unit id="KerriganReviveCocoon"/>
+<Unit id="CharEggSackOneEgg"/>
 <Unit id="CharEggSackTwoEgg"/>
+<Unit id="CharEggSackThreeEgg"/>
 <Unit id="KaraxChampion"/>
 <Unit id="ZerglingCarbot"/>
 <Unit id="KerriganVoid"/>
