@@ -3043,6 +3043,9 @@ void gf_clean_bases () {
     unitgroup auto6BF0462F_g;
     int auto6BF0462F_u;
     unit auto6BF0462F_var;
+    unitgroup auto23EFCBC2_g;
+    int auto23EFCBC2_u;
+    unit auto23EFCBC2_var;
     unitgroup autoDADFF07B_g;
     int autoDADFF07B_u;
     unit autoDADFF07B_var;
@@ -3150,6 +3153,14 @@ void gf_clean_bases () {
             UnitGroupAdd(lv_tug, auto6BF0462F_var);
         }
 
+    }
+    lv_ug = UnitGroup("Fruit", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, 0, 0), 0);
+    auto23EFCBC2_g = lv_ug;
+    auto23EFCBC2_u = UnitGroupCount(auto23EFCBC2_g, c_unitCountAll);
+    for (;; auto23EFCBC2_u -= 1) {
+        auto23EFCBC2_var = UnitGroupUnitFromEnd(auto23EFCBC2_g, auto23EFCBC2_u);
+        if (auto23EFCBC2_var == null) { break; }
+        UnitGroupAdd(lv_tug, auto23EFCBC2_var);
     }
     autoDADFF07B_g = lv_tug;
     autoDADFF07B_u = UnitGroupCount(autoDADFF07B_g, c_unitCountAll);
