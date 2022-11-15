@@ -365,8 +365,6 @@ Attribute010/Value012/Desc=You will start with a random bonus with lower bonus e
 Attribute010/Value012/Name=Random!
 Attribute010/Value013/Desc=You start the game with a large base.
 Attribute010/Value013/Name=Prebuilt!
-Attribute010/Value014/Desc=14
-Attribute010/Value014/Name=Test 3v3 Option
 Behavior/Name/AbsorbingCloud=Absorbing Cloud
 Behavior/Name/AdeptWeaponRedirect=Adept Weapon Redirect
 Behavior/Name/Afterburner=Afterburner
@@ -1065,6 +1063,9 @@ Button/Tooltip/ChaosDefiler=Lord of the armies of chaos.<n/><n/><c val="ffff8a">
 Button/Tooltip/ChaosLord=Lord of the armies of chaos.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/ChaosSlave=Basic units. Slaves gather blood and can sacrifice itself to heal more worthy Chaos Units.
 Button/Tooltip/ChaosSpaceMarine=General-purpose Choas Warrior.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CharEggSackOneEgg=Spawns Zerg Units every 45 seconds.
+Button/Tooltip/CharEggSackThreeEgg=Spawns Zerg Units every 45 seconds.
+Button/Tooltip/CharEggSackTwoEgg=Spawns Zerg Units every 45 seconds.
 Button/Tooltip/ChargeUp=Increase the amount of charges by one. Charges can be spent on abilities.<n/><n/>Each charge held increases the Tech Labs damage by +1 and shield regen by +1 hp/s.<n/><n/>Can hold a maximum of 40 charges.
 Button/Tooltip/ChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/ChooseAsh=Select Having Ash Weather Effect!
@@ -2055,6 +2056,8 @@ DocInfo/PatchNote533=Chaos is no longer allowed to build firebats.
 DocInfo/PatchNote534=Fixed bug of nightly update.
 DocInfo/PatchNote535=Fixed Issues.
 DocInfo/PatchNote536=Rebalanced 3v3.
+DocInfo/PatchNote537=Fixed Issues.
+DocInfo/PatchNote538=Added Egg Cluster Spawners for Expert or higher difficulty. They periodically spawn waves of zerg units.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

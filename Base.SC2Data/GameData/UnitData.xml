@@ -215,6 +215,8 @@
         <Footprint value="Footprint3x3Contour"/>
         <DeadFootprint value=""/>
         <PlacementFootprint value="Footprint3x3"/>
+        <DeathTime value="5"/>
+        <LifeArmor value="12"/>
     </CUnit>
     <CUnit id="CharEggSackThreeEgg">
         <AbilArray Link="Rally"/>
@@ -222,6 +224,11 @@
         <DeadFootprint value=""/>
         <PlacementFootprint value="Footprint3x3"/>
         <BehaviorArray Link="EggClusterB"/>
+        <DeathTime value="5"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeArmor value="12"/>
+        <LifeRegenRate value="0.8007"/>
     </CUnit>
     <CUnit id="CharEggSackTwoEgg">
         <AbilArray Link="Rally"/>
@@ -229,6 +236,11 @@
         <DeadFootprint value=""/>
         <PlacementFootprint value="Footprint3x3"/>
         <BehaviorArray Link="EggClusterB"/>
+        <DeathTime value="5"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="12"/>
+        <LifeRegenRate value="0.5"/>
     </CUnit>
     <CUnit id="EliteMarineSkin4">
         <DeathRevealRadius value="3"/>

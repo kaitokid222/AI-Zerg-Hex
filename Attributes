@@ -651,11 +651,6 @@
             <Description Value="Attribute010/Value013/Desc"/>
             <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
         </Value>
-        <Value>
-            <Id Value="14"/>
-            <Name Value="Attribute010/Value014/Name"/>
-            <Description Value="Attribute010/Value014/Desc"/>
-        </Value>
         <Default>
             <Slot Id="0"/>
             <Value Id="12"/>
