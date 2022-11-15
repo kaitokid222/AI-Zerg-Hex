@@ -18,6 +18,14 @@
         <HeightOffset value="3.500000"/>
         <Text value="Button/Tooltip/AutomatedRefineryTextKicker6"/>
     </CActorText>
+    <CActorUnit id="BlightbringerEgg">
+        <StatusBarOn index="Progress" value="1"/>
+        <StatusBarOn index="Duration" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="BlightbringerLargeEgg">
+        <StatusBarOn index="Progress" value="1"/>
+        <StatusBarOn index="Duration" value="1"/>
+    </CActorUnit>
     <CActorUnit id="ChaosDefiler" parent="GenericUnitBase" unitName="ChaosDefiler">
         <Aliases value="_UnitMedium"/>
         <Macros value="ZergBurrowStandardAnimMacro"/>
@@ -117,6 +125,23 @@
             <Image value="assets\icon\Wireframe Defiler.dds"/>
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
+    <!--                                                                                         -->
+    <!-- Char01 - Char Egg Sacks ........................................................................ -->
+    <!--                                                                                         -->
+    <CActorUnit id="CharEggSackOneEgg">
+        <StatusBarOn index="Progress" value="1"/>
+        <StatusBarOn index="Duration" value="1"/>
+    </CActorUnit>
+    <!-- Three egg variation                                                                                         -->
+    <CActorUnit id="CharEggSackThreeEgg">
+        <StatusBarOn index="Progress" value="1"/>
+        <StatusBarOn index="Duration" value="1"/>
+    </CActorUnit>
+    <!-- Two egg variation                                                                                         -->
+    <CActorUnit id="CharEggSackTwoEgg">
+        <StatusBarOn index="Progress" value="1"/>
+        <StatusBarOn index="Duration" value="1"/>
     </CActorUnit>
     <CActorText id="GainBounty" parent="PickupTextDefault">
         <Filter index="Ally" value="1"/>
@@ -401,6 +426,17 @@
         <ModelFlags index="UseSyncSeed" value="0"/>
         <EventDataFootprint index="0" removed="1"/>
         <EventDataSound index="0" removed="1"/>
+    </CActorUnit>
+    <CActorUnit id="SwarmQueenMorphing">
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Custom" value="0"/>
+        <StatusBarFlags index="Charges" value="1"/>
+        <StatusBarOn index="Shields" value="0"/>
+        <StatusBarOn index="Life" value="0"/>
+        <StatusBarOn index="Energy" value="0"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="0"/>
     </CActorUnit>
     <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>

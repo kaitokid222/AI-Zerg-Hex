@@ -72,6 +72,24 @@
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="EggSpawnBehaviour">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="10"/>
+        <PeriodicEffect value="EggSpawnDummy"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EggSpawnCooldown">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="10"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfusedRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>
@@ -157,6 +175,16 @@
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="45"/>
         <PeriodicEffect value="EggClusterDummy"/>
+        <DisplayDuration index="Enemy" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EggClusterCooldown">
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="45"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -918,6 +918,7 @@ trigger gt_stasisgotused;
 trigger gt_drone_finished;
 trigger gt_test;
 trigger gt_EggClusterTriggerDummy;
+trigger gt_EggSpawnTriggerDummy;
 trigger gt_Checkbridgesevery45s;
 trigger gt_spinegetsattacked;
 trigger gt_buildinggetsattacked;
@@ -21453,7 +21454,9 @@ bool gt_test_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_create_new_egg_cluster();
+    libNtve_gf_CreateUnitsWithDefaultFacing(3, "BlightbringerEgg", 0, 7, PointFromId(118748518));
+    libNtve_gf_CreateUnitsWithDefaultFacing(3, "SwarmQueenMorphing", 0, 7, PointFromId(118748518));
+    libNtve_gf_CreateUnitsWithDefaultFacing(3, "BlightbringerLargeEgg", 0, 7, PointFromId(118748518));
     return true;
 }
 
@@ -21508,6 +21511,53 @@ bool gt_EggClusterTriggerDummy_Func (bool testConds, bool runActions) {
 void gt_EggClusterTriggerDummy_Init () {
     gt_EggClusterTriggerDummy = TriggerCreate("gt_EggClusterTriggerDummy_Func");
     TriggerAddEventPlayerEffectUsed(gt_EggClusterTriggerDummy, 7, "EggClusterDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Egg Spawn Trigger Dummy
+//--------------------------------------------------------------------------------------------------
+bool gt_EggSpawnTriggerDummy_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_type;
+    unit lv_unit;
+    point lv_pos;
+    point lv_rt_pos;
+    int lv_pool;
+
+    // Automatic Variable Declarations
+    string autoC25255F6_val;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_unit = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_type = UnitGetType(lv_unit);
+    lv_pos = UnitGetPosition(lv_unit);
+    lv_rt_pos = UnitRallyPointTargetPoint(lv_unit, 1, 1);
+    autoC25255F6_val = lv_type;
+    if (autoC25255F6_val == "BlightbringerEgg") {
+        lv_pool = 12;
+    }
+    else if (autoC25255F6_val == "SwarmQueenMorphing") {
+        lv_pool = 24;
+    }
+    else if (autoC25255F6_val == "BlightbringerLargeEgg") {
+        lv_pool = 36;
+    }
+    else {
+    }
+    gf_Create_wave_and_send_from_to(lv_pool, lv_pos, lv_rt_pos);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_EggSpawnTriggerDummy_Init () {
+    gt_EggSpawnTriggerDummy = TriggerCreate("gt_EggSpawnTriggerDummy_Func");
+    TriggerAddEventPlayerEffectUsed(gt_EggSpawnTriggerDummy, 7, "EggSpawnDummy");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -24955,6 +25005,7 @@ void InitTriggers () {
     gt_drone_finished_Init();
     gt_test_Init();
     gt_EggClusterTriggerDummy_Init();
+    gt_EggSpawnTriggerDummy_Init();
     gt_Checkbridgesevery45s_Init();
     gt_spinegetsattacked_Init();
     gt_buildinggetsattacked_Init();

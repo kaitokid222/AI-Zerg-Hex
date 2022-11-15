@@ -14,6 +14,10 @@
     <CEffectSet id="AddProbiusPylonAttackAura">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectSet id="EggSpawnDummy">
+        <EditorCategories value=""/>
+        <EffectArray value="DemolishDamage"/>
+    </CEffectSet>
     <CEffectModifyPlayer id="GainBounty">
         <EditorCategories value=""/>
         <Resources index="Minerals" value="1"/>
@@ -25,7 +29,12 @@
     </CEffectModifyPlayer>
     <CEffectSet id="EggClusterDummy">
         <EditorCategories value=""/>
+        <EffectArray value="EggClusterCooldownAB"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="EggClusterCooldownAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EggClusterCooldown"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>
