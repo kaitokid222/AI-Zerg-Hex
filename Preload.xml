@@ -151,15 +151,12 @@
 <Unit id="FireworksBlue"/>
 <Unit id="FireworksRed"/>
 <Unit id="FireworksYellow"/>
-<Unit id="SwarmQueenMorphing"/>
 <Unit id="KerriganReviveCocoon"/>
 <Unit id="CharEggSackOneEgg"/>
 <Unit id="CharEggSackTwoEgg"/>
 <Unit id="CharEggSackThreeEgg"/>
 <Unit id="KaraxChampion"/>
 <Unit id="ZerglingCarbot"/>
-<Unit id="BlightbringerEgg"/>
-<Unit id="BlightbringerLargeEgg"/>
 <Unit id="KerriganVoid"/>
 <Unit id="AiurRockDebris2x2"/>
 <Unit id="PickupNovaTechnology"/>
