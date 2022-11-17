@@ -675,7 +675,7 @@ int gf_get_egg_spawn_unit_set_multiplier ();
 int gf_get_egg_spawn_egg_type ();
 int gf_get_egg_spawn_egg_value (int lp_et);
 int gf_get_egg_spawn_egg_amount (int lp_et);
-void gf_spawn_eggs (int lp_position, int lp_value);
+void gf_spawn_eggs (int lp_position, int lp_value, int lp_front);
 void gf_define_egg_spawn_points ();
 void gf_handle_egg_cluster_creation ();
 void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target);
@@ -925,7 +925,6 @@ trigger gt_creepsourcerebuildstarted;
 trigger gt_checkhazardzones;
 trigger gt_stasisgotused;
 trigger gt_drone_finished;
-trigger gt_test;
 trigger gt_EggSpawnTriggerDummy;
 trigger gt_EggClusterTriggerDummy;
 trigger gt_Checkbridgesevery45s;
@@ -2993,7 +2992,6 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
         lv_i = 1;
         while ((lv_i <= lv_cfparr_cnt)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "SheepFarm", 0, lp_player, lv_cfparr[lv_i]);
             lv_i = (lv_i + 1);
         }
         lv_i = 1;
@@ -10053,7 +10051,7 @@ int gf_get_egg_spawn_egg_amount (int lp_et) {
     return lv_r;
 }
 
-void gf_spawn_eggs (int lp_position, int lp_value) {
+void gf_spawn_eggs (int lp_position, int lp_value, int lp_front) {
     // Variable Declarations
     point lv_spawn_point;
     int lv_et;
@@ -10104,7 +10102,12 @@ void gf_spawn_eggs (int lp_position, int lp_value) {
             }
             else {
             }
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_type, 0, 7, gv_defensive_egg_spawn_points[lp_position][gf_flip_coin()]);
+            if ((lp_front == 1)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_type, 0, 7, gv_front_egg_spawn_points[lp_position][gf_flip_coin()]);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_type, 0, 7, gv_defensive_egg_spawn_points[lp_position][gf_flip_coin()]);
+            }
             UnitGroupAdd(lv_ug, UnitLastCreated());
             lv_j = (lv_j + 1);
         }
@@ -21697,44 +21700,6 @@ void gt_drone_finished_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: -test
-//--------------------------------------------------------------------------------------------------
-bool gt_test_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_player;
-    point lv_p;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_player = EventPlayer();
-
-    // Conditions
-    if (testConds) {
-        if (!((gv_players[lv_player].lv_alive == true))) {
-            return false;
-        }
-
-        if (!((gv_practice_mode == true))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_spawn_eggs(2, 5);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_test_Init () {
-    gt_test = TriggerCreate("gt_test_Func");
-    TriggerAddEventChatMessage(gt_test, c_playerAny, "-test", true);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Egg Spawn Trigger Dummy
 //--------------------------------------------------------------------------------------------------
 bool gt_EggSpawnTriggerDummy_Func (bool testConds, bool runActions) {
@@ -22072,11 +22037,9 @@ bool gt_spinegetsattacked_Func (bool testConds, bool runActions) {
     gf_infestor_heal(lv_infestor, lv_unit);
     lv_infestor = gf_get_ready_infestor(lv_infestors);
     gf_infestor_heal(lv_infestor, lv_unit);
-    if ((GameGetMissionTime() > 150.0) && (gv_f2_cooldown == 0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm") && (EventUnitDamageEffect() != "ZergBuildingNotOnCreepDamage")) {
-        if (true) {
-            gf_f2_point(EventUnitDamageSourcePoint(), true);
-        }
-
+    if ((gv_f2_cooldown == 0) && (GameGetMissionTime() > 150.0) && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponLeft") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonCannonsWeapon") && (UnitGetType(EventUnitDamageSourceUnit()) != "UrunWeaponRight") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam") && (UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm") && (EventUnitDamageEffect() != "ZergBuildingNotOnCreepDamage")) {
+        gf_f2_point(EventUnitDamageSourcePoint(), true);
+        gf_spawn_eggs(gf_get_closest_position(lv_unit_position), 5, 1);
     }
     else {
         gv_f2_cooldown = (gv_f2_cooldown - 1);
@@ -22135,6 +22098,14 @@ bool gt_buildinggetsattacked_Func (bool testConds, bool runActions) {
         }
 
         if (!((EventUnitDamageEffect() != "ZergBuildingNotOnCreepDamage"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitDamageSourceUnit()) != "IonBeam"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnitDamageSourceUnit()) != "IonStorm"))) {
             return false;
         }
 
@@ -25064,6 +25035,10 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
     }
 
     gf_update_terrandata();
+    if ((FixedToInt(GameGetMissionTime()) >= (60 * 13))) {
+        gf_spawn_eggs(gv_players[gf_ai_get_strongest_player()].lv_position, 5, 0);
+    }
+
     if ((gv_placement_mode == 2)) {
         gv_supply_target_player_position = gf_get_rr_target_position();
     }
@@ -25273,7 +25248,6 @@ void InitTriggers () {
     gt_checkhazardzones_Init();
     gt_stasisgotused_Init();
     gt_drone_finished_Init();
-    gt_test_Init();
     gt_EggSpawnTriggerDummy_Init();
     gt_EggClusterTriggerDummy_Init();
     gt_Checkbridgesevery45s_Init();
