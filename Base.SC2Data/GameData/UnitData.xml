@@ -32,8 +32,8 @@
     </CUnit>
     <CUnit id="BlightbringerEgg">
         <AbilArray Link="Rally"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeArmor value="20"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
@@ -44,8 +44,8 @@
     </CUnit>
     <CUnit id="BlightbringerLargeEgg">
         <AbilArray Link="Rally"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeArmor value="20"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
@@ -2326,8 +2326,8 @@
     </CUnit>
     <CUnit id="SwarmQueenMorphing">
         <AbilArray index="0" Link="Rally"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeArmor value="20"/>
         <LifeRegenRate value="0.2734"/>
         <Food value="0"/>
