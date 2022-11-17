@@ -16,7 +16,6 @@
     </CEffectSet>
     <CEffectSet id="EggSpawnDummy">
         <EditorCategories value=""/>
-        <EffectArray value="DemolishDamage"/>
     </CEffectSet>
     <CEffectModifyPlayer id="GainBounty">
         <EditorCategories value=""/>

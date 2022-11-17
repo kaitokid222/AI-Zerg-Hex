@@ -37,6 +37,10 @@
         <LifeArmor value="20"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="NoScore" value="0"/>
+        <FlagArray index="AILifetime" value="0"/>
+        <FlagArray index="Unstoppable" value="0"/>
     </CUnit>
     <CUnit id="BlightbringerLargeEgg">
         <AbilArray Link="Rally"/>
@@ -45,6 +49,10 @@
         <LifeArmor value="20"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="NoScore" value="0"/>
+        <FlagArray index="AILifetime" value="0"/>
+        <FlagArray index="Unstoppable" value="0"/>
     </CUnit>
     <CUnit id="Blood2" parent="ITEM">
         <Race value="Terr"/>
@@ -2325,6 +2333,11 @@
         <Food value="0"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
+        <FlagArray index="NoScore" value="0"/>
+        <FlagArray index="AILifetime" value="0"/>
     </CUnit>
     <CUnit id="TechReactor">
         <CostResource index="Minerals" value="50"/>
