@@ -34,6 +34,12 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="EggClusterCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="HydraliskNeedleSpinesRangedDamageEdit3v3" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Structure" value="-1"/>
+        <Kind value="Ranged"/>
+        <Amount value="5"/>
+    </CEffectDamage>
     <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>

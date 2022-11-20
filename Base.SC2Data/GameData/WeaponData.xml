@@ -134,6 +134,17 @@
         <RandomDelayMin value="0"/>
         <RandomDelayMax value="0"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="NeedleSpinesDefender3v3">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="HydraliskNeedleSpinesRangedDamageEdit3v3"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="4"/>
+        <Range value="4"/>
+        <Period value="0.4"/>
+        <DamagePoint value="0.208"/>
+        <Effect value="NeedleSpinesLaunchMissile"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PhotonCannon">
         <TargetFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>

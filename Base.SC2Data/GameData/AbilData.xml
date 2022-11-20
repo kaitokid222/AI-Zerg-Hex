@@ -8,33 +8,7 @@
             <Resource index="Terrazine" value="550"/>
             <Cooldown TimeUse="25"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnInfusedTerrazine"/>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="3v3SpawnRavatorDummy">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnRavDummy"/>
-        <Cost>
-            <Resource index="Terrazine" value="225"/>
-            <Charge Link="Abil/3v3SpawnRavator2"/>
-            <Cooldown Link="Abil/3v3SpawnRavator2" TimeUse="10"/>
-        </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRavator3v3" Requirements="SpawnTier2Delay3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="3v3SpawnInfusedRoachDummy">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnInfusedDummy"/>
-        <Cost>
-            <Resource index="Terrazine" value="550"/>
-            <Charge Link="Abil/3v3SpawnInfusedRoach2"/>
-            <Cooldown Link="Abil/3v3SpawnInfusedRoach2" TimeUse="25"/>
-        </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="SpawnTier3Delay3v3"/>
-        <Flags index="AutoCast" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="ResearchZergArmor3"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
@@ -48,7 +22,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRavator3v3" Requirements="SpawnTier23v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRavator3v3" Requirements="ResearchZergArmor2"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="3v3SpawnTorralisk2">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -58,7 +32,7 @@
             <Resource index="Terrazine" value="1200"/>
             <Cooldown TimeUse="40"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTorraliskTerrazine"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="ResearchZergArmor5"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
@@ -386,19 +360,6 @@
         <AINotifyEffect value="PickupBlood"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
     </CAbilEffectTarget>
-    <CAbilEffectInstant id="3v3SpawnTorraliskDummy">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnTorraDummy"/>
-        <Cost>
-            <Resource index="Terrazine" value="1200"/>
-            <Charge Link="Abil/3v3SpawnTorralisk2"/>
-            <Cooldown Link="Abil/3v3SpawnTorralisk2" TimeUse="40"/>
-        </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="SpawnTier5Delay3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-    </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBanelingGroup">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
@@ -411,28 +372,7 @@
                 <TimeUse value="60"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsTerrazine3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnBanelingGroupDummy">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DataCollection value="SpawnBanelingGroup"/>
-        <Effect index="0" value="SpawnBanelingsDummy"/>
-        <Cost>
-            <Resource index="Terrazine" value="600"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnBanelingGroup"/>
-                <TimeStart value="60"/>
-                <TimeUse value="60"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnBanelingGroup"/>
-        </Cost>
-        <AINotifyEffect value="SpawnBanelingGroup"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="SpawnBanelingsDelay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="ResearchZergArmor4"/>
         <Flags index="AutoCast" value="1"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -449,23 +389,7 @@
                 <TimeUse value="60"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnInfestorDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnInfestorDummy"/>
-        <Cost>
-            <Resource index="Terrazine" value="300"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnInfestor3v3"/>
-                <TimeStart value="60"/>
-                <TimeUse value="60"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnInfestor3v3"/>
-        </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="SpawnTier1Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="ResearchZergArmor1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBruta3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -482,27 +406,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBruta3v3" Requirements="SpawnTier53v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnBrutaDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnRoachDummy3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <Cost>
-            <Resource index="Terrazine" value="700"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnBruta3v3"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnBruta3v3"/>
-        </Cost>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-        <AINotifyEffect value="SpawnRoachDummy3v3"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBruta3v3" Requirements="SpawnTier5Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBruta3v3" Requirements="ResearchZergArmor5"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnBeastling3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -519,47 +423,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBeastling3v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnBeastlingDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnRoachDummy3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <Cost>
-            <Resource index="Terrazine" value="175"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnBeastling3v3"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnBeastling3v3"/>
-        </Cost>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-        <AINotifyEffect value="SpawnRoachDummy3v3"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBeastling3v3" Requirements="SpawnTier1Delay3v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnUltraDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnRoachDummy3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <Cost>
-            <Resource index="Terrazine" value="260"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnUltra3v3"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnUltra3v3"/>
-        </Cost>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-        <AINotifyEffect value="SpawnRoachDummy3v3"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnUltra3v3" Requirements="SpawnTier4Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBeastling3v3" Requirements="ResearchZergArmor1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnUltra3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -576,7 +440,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnUltra3v3" Requirements="SpawnTier43v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnUltra3v3" Requirements="ResearchZergArmor4"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnRoach3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -593,7 +457,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRoach3v3" Requirements="SpawnTier23v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRoach3v3" Requirements="ResearchZergArmor2"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnPrimal3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -610,27 +474,7 @@
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnPrimalRoach3v3" Requirements="SpawnTier33v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnPrimalDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="SpawnRoachDummy3v3"/>
-        <Flags index="AutoCast" value="1"/>
-        <Cost>
-            <Resource index="Terrazine" value="210"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnPrimal3v3"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnPrimal3v3"/>
-        </Cost>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-        <AINotifyEffect value="SpawnRoachDummy3v3"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnPrimalRoach3v3" Requirements="SpawnTier3Delay3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnPrimalRoach3v3" Requirements="ResearchZergArmor3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnTankling3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -648,24 +492,6 @@
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTankling3v3"/>
-    </CAbilEffectInstant>
-    <CAbilEffectInstant id="SpawnRoachDummy3v3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Flags index="AutoCast" value="1"/>
-        <Cost>
-            <Resource index="Terrazine" value="155"/>
-            <Charge>
-                <CountMax value="5"/>
-                <CountUse value="1"/>
-                <Link value="Abil/SpawnRoach3v3"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
-            </Charge>
-            <Cooldown Link="Abil/SpawnRoach3v3"/>
-        </Cost>
-        <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="-;-"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnRoach3v3" Requirements="SpawnTier2Delay3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="Stimpack">
         <Cost index="0">
@@ -1719,6 +1545,29 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RefreshNetwork"/>
     </CAbilEffectTarget>
+    <CAbilResearch id="ZCCResearch">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Research1" Upgrade="ZergArmor1">
+            <Resource index="Minerals" value="240"/>
+            <Button DefaultButtonFace="ResearchZergArmor1" Requirements="ResearchZergArmor1"/>
+        </InfoArray>
+        <InfoArray index="Research2" Upgrade="ZergArmor2">
+            <Resource index="Minerals" value="760"/>
+            <Button DefaultButtonFace="ResearchZergArmor2" Requirements="ResearchZergArmor2"/>
+        </InfoArray>
+        <InfoArray index="Research3" Upgrade="ZergArmor3">
+            <Resource index="Minerals" value="1720"/>
+            <Button DefaultButtonFace="ResearchZergArmor3" Requirements="ResearchZergArmor3"/>
+        </InfoArray>
+        <InfoArray index="Research4" Upgrade="ZergArmor4">
+            <Resource index="Minerals" value="2120"/>
+            <Button DefaultButtonFace="ResearchZergArmor4" Requirements="ResearchZergArmor4"/>
+        </InfoArray>
+        <InfoArray index="Research5" Upgrade="ZergArmor5">
+            <Resource index="Minerals" value="3200"/>
+            <Button DefaultButtonFace="ResearchZergArmor5" Requirements="ResearchZergArmor5"/>
+        </InfoArray>
+    </CAbilResearch>
     <!--CAbilTransport id="MedivacTransport">-->
     <!--        <LoadValidatorArray value="NoNP"/>-->
     <!--    </CAbilTransport>-->
@@ -2383,6 +2232,12 @@
         <InfoArray index="Train18" Time="2">
             <Button DefaultButtonFace="TrainLoveMorales" Requirements="Only2Morales"/>
             <Unit value="LoveMorales"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
+        <InfoArray index="Train19" Time="2">
+            <Resource index="Terrazine" value="150"/>
+            <Button DefaultButtonFace="HydraliskImpaler" Requirements="ZergControlCenter"/>
+            <Unit value="HydraliskDefender3v3"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
     </CAbilTrain>

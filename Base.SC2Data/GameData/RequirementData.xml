@@ -33,41 +33,8 @@
     <CRequirement id="SiegeTankBetterVersion">
         <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
     </CRequirement>
-    <CRequirement id="SpawnBanelingsDelay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3861650221GTE3759116CountUnitTerrazineTankCompleteOnly3"/>
-    </CRequirement>
     <CRequirement id="SpawnFirelings">
         <NodeArray index="Use" Link="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80"/>
-    </CRequirement>
-    <CRequirement id="SpawnTorraliskTerrazine">
-        <NodeArray index="Use" Link="AndGTE654834784CountUnitTerrazineTankCompleteOnly4LT2063414812CountBehaviorTorraliskRoachCountDummyStackQueuedOrBetter5"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier1Delay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3785646695"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier23v3">
-        <NodeArray index="Use" Link="GTE2803542675CountUnitTerrazineTankCompleteOnly1"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier33v3">
-        <NodeArray index="Use" Link="GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
-    </CRequirement>
-    <CRequirement id="SpawnInfusedTerrazine">
-        <NodeArray index="Use" Link="AndGTE3277778316CountUnitTerrazineTankCompleteOnly2LT45549421CountBehaviorInfusedRoachCountDummyStackQueuedOrBetter10"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier4Delay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly3917906240GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier43v3">
-        <NodeArray index="Use" Link="GTE2896091431CountUnitTerrazineTankCompleteOnly3"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier53v3">
-        <NodeArray index="Use" Link="GTE4046891914CountUnitTerrazineTankCompleteOnly4"/>
-    </CRequirement>
-    <CRequirement id="SpawnBanelingsTerrazine3v3">
-        <NodeArray index="Use" Link="AndGTE3759116CountUnitTerrazineTankCompleteOnly3LT4111728467CountBehaviorBanelingCountDummyStackQueuedOrBetter20"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier5Delay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly736508412GTE4046891914CountUnitTerrazineTankCompleteOnly4"/>
     </CRequirement>
     <CRequirement id="HaveTier2and10Blood">
         <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnlyGTE3699583646CountBehaviorBloodStacksQueuedOrBetter10"/>
@@ -346,12 +313,6 @@
     </CRequirement>
     <CRequirement id="NotHavelotsofbloodreq">
         <NodeArray index="Use" Link="NotCountUpgradeLotsofBloodCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier2Delay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly736614594GTE2803542675CountUnitTerrazineTankCompleteOnly280354267512803542675"/>
-    </CRequirement>
-    <CRequirement id="SpawnTier3Delay3v3">
-        <NodeArray index="Use" Link="AndCountUpgradeImpossibleUpgradeNewCompleteOnly561506490GTE2816376595CountUnitTerrazineTankCompleteOnly2"/>
     </CRequirement>
     <CRequirement id="TerrazineConverter">
         <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
@@ -736,6 +697,9 @@
     </CRequirement>
     <CRequirement id="TerrazineDoublerRequirement">
         <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoublerQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ZergControlCenter">
+        <NodeArray index="Use" Link="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZergRallyEqual">
         <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>
