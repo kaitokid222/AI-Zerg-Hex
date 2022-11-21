@@ -150,7 +150,7 @@
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="13"/>
         <RangeSlop value="0"/>
-        <Period value="0.75"/>
+        <Period value="0.35"/>
         <Effect value="PhotonCannonLM"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ServitorStrike">

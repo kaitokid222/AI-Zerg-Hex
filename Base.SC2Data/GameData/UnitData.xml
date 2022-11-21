@@ -32,9 +32,9 @@
     </CUnit>
     <CUnit id="BlightbringerEgg">
         <AbilArray Link="Rally"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
-        <LifeArmor value="20"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="15"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
         <FlagArray index="PreventDestroy" value="1"/>
@@ -44,9 +44,9 @@
     </CUnit>
     <CUnit id="BlightbringerLargeEgg">
         <AbilArray Link="Rally"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
-        <LifeArmor value="20"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="15"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
         <BehaviorArray Link="EggSpawnCooldown"/>
         <FlagArray index="PreventDestroy" value="1"/>
@@ -235,7 +235,9 @@
         <DeadFootprint value=""/>
         <PlacementFootprint value="Footprint3x3"/>
         <DeathTime value="5"/>
-        <LifeArmor value="12"/>
+        <LifeArmor value="15"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
     </CUnit>
     <CUnit id="CharEggSackThreeEgg">
         <AbilArray Link="Rally"/>
@@ -245,9 +247,9 @@
         <BehaviorArray Link="EggClusterB"/>
         <BehaviorArray Link="EggClusterCooldown"/>
         <DeathTime value="5"/>
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
-        <LifeArmor value="12"/>
+        <LifeStart value="800"/>
+        <LifeMax value="800"/>
+        <LifeArmor value="15"/>
         <LifeRegenRate value="0.8007"/>
     </CUnit>
     <CUnit id="CharEggSackTwoEgg">
@@ -258,9 +260,9 @@
         <BehaviorArray Link="EggClusterB"/>
         <BehaviorArray Link="EggClusterCooldown"/>
         <DeathTime value="5"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
-        <LifeArmor value="12"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeArmor value="15"/>
         <LifeRegenRate value="0.5"/>
     </CUnit>
     <CUnit id="EliteMarineSkin4">
@@ -2051,8 +2053,8 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Economy"/>
-        <CostResource index="Minerals" value="30"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Minerals" value="20"/>
+        <CostResource index="Vespene" value="20"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="attackProtossPylon"/>
@@ -2326,9 +2328,9 @@
     </CUnit>
     <CUnit id="SwarmQueenMorphing">
         <AbilArray index="0" Link="Rally"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
-        <LifeArmor value="20"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="15"/>
         <LifeRegenRate value="0.2734"/>
         <Food value="0"/>
         <BehaviorArray Link="EggSpawnBehaviour"/>
