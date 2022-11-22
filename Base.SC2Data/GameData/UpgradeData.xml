@@ -145,10 +145,10 @@
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="40"/>
         <MaxLevel value="30"/>
     </CUpgrade>
-    <CUpgrade id="TerrazineDoubler2">
+    <CUpgrade id="TerrazineIncomex3">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
-    <CUpgrade id="TerrazineDoubler3">
+    <CUpgrade id="TerrazineIncomex4">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
     <CUpgrade id="WeaponCapacity">
@@ -373,7 +373,7 @@
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
     </CUpgrade>
-    <CUpgrade id="TerrazineDoubler">
+    <CUpgrade id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
     <CUpgrade id="ZergAttack">

@@ -318,12 +318,12 @@
         <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563LTE2286789749CountUnitTerrazineTankQueuedOrBetter3"/>
     </CRequirement>
     <CRequirement id="TerrazineDoubler2Requirement">
-        <NodeArray index="Use" Link="CountUpgradeTerrazineDoublerCompleteOnly"/>
-        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler2QueuedOrBetter"/>
+        <NodeArray index="Use" Link="CountUpgradeTerrazineIncomex2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineIncomex3QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="TerrazineDoubler3Requirement">
-        <NodeArray index="Use" Link="CountUpgradeTerrazineDoubler2CompleteOnly"/>
-        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoubler3QueuedOrBetter"/>
+        <NodeArray index="Use" Link="CountUpgradeTerrazineIncomex3CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineIncomex4QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="UpgradeSuperEnergyGeneration">
         <NodeArray index="Use" Link="AndNot660069371CountUpgradeSuperEnergyGenerationQueuedOrBetterGTE1346723988CountUpgradeEnergyGenerationCompleteOnly30"/>
@@ -696,7 +696,7 @@
         <NodeArray index="Show" Link="CountUpgradePlasmaCannonsCompleteOnly"/>
     </CRequirement>
     <CRequirement id="TerrazineDoublerRequirement">
-        <NodeArray index="Show" Link="NotCountUpgradeTerrazineDoublerQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeTerrazineIncomex2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ZergControlCenter">
         <NodeArray index="Use" Link="CountUnitHiveMindEmulatorCompleteOnly"/>

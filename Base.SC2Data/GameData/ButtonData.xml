@@ -147,7 +147,7 @@
     <CButton id="SpawnUltra3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
     </CButton>
-    <CButton id="TerrazineDoubler">
+    <CButton id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
     <CButton id="SpawnInfusedRoach3v3">
@@ -165,10 +165,10 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="TerrazineDoubler2">
+    <CButton id="TerrazineIncomex3">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
-    <CButton id="TerrazineDoubler3">
+    <CButton id="TerrazineIncomex4">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
     <CButton id="UpgradeSuperEnergyGeneration">
