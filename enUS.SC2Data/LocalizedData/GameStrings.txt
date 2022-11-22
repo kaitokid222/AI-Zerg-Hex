@@ -863,10 +863,15 @@ Button/Name/ResearchTier3Equipment=Research Tier 3 Equipment
 Button/Name/ResearchUnifiedArmor=Research Unified Armor
 Button/Name/ResearchWeaponCapacity=Research Weapon Capacity
 Button/Name/ResearchZergArmor1=Research Zerg Armor 1
+Button/Name/ResearchZergArmor13v3=Research Zerg Armor 1
 Button/Name/ResearchZergArmor2=Research Zerg Armor 2
+Button/Name/ResearchZergArmor23v3=Research Zerg Armor 2
 Button/Name/ResearchZergArmor3=Research Zerg Armor 3
+Button/Name/ResearchZergArmor33v3=Research Zerg Armor 3
 Button/Name/ResearchZergArmor4=Research Zerg Armor 4
+Button/Name/ResearchZergArmor43v3=Research Zerg Armor 4
 Button/Name/ResearchZergArmor5=Research Zerg Armor 5
+Button/Name/ResearchZergArmor53v3=Research Zerg Armor 5
 Button/Name/ResearchZergAttack=Research Zerg Attack
 Button/Name/ResearchZergMovement=Research Zerg Movement
 Button/Name/ResetRally=Reset Rally
@@ -1340,10 +1345,15 @@ Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
 Button/Tooltip/ResearchWeaponCapacity=Increases the capacity of energy weapons by 200%.
 Button/Tooltip/ResearchZergArmor1=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergArmor13v3=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.
 Button/Tooltip/ResearchZergArmor2=- Enables spawning of <c val="ffff8a">Roaches</c>.<n/>- Enables spawning of <c val="D95200">Ravators</c>.<n/>- Enables spawning of <c val="D95200">Banelings</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergArmor23v3=- Enables spawning of <c val="ffff8a">Roaches</c>.<n/>- Enables spawning of <c val="D95200">Ravators</c>.
 Button/Tooltip/ResearchZergArmor3=- Enables spawning of <c val="ffff8a">Primal Roaches</c>.<n/>- Enables spawning of <c val="D95200">Infused Roaches</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergArmor33v3=- Enables spawning of <c val="ffff8a">Primal Roaches</c>.<n/>- Enables spawning of <c val="D95200">Infused Roaches</c>.
 Button/Tooltip/ResearchZergArmor4=- Enables spawning of <c val="ffff8a">Ultralisks</c>.<n/>- Enables construction of <c val="ffff8a">Mineral Containers</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergArmor43v3=- Enables spawning of <c val="ffff8a">Ultralisks</c>.<n/>- Enables spawning of <c val="D95200">Banelings</c>.
 Button/Tooltip/ResearchZergArmor5=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/>- Enables spawning of the <c val="8761F8">Omegalisk</c>. <n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.
 Button/Tooltip/ResearchZergAttack=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergMovement=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResetRally=Sets the rally point to the closest Terran base.

@@ -393,11 +393,11 @@
             </LayoutButtons>
         </CardLayouts>
         <CardLayouts CardId="0002">
-            <LayoutButtons Face="ResearchZergArmor1" Type="AbilCmd" AbilCmd="ZCCResearch,Research1" Row="0" Column="4"/>
-            <LayoutButtons Face="ResearchZergArmor2" Type="AbilCmd" AbilCmd="ZCCResearch,Research2" Row="0" Column="4"/>
-            <LayoutButtons Face="ResearchZergArmor3" Type="AbilCmd" AbilCmd="ZCCResearch,Research3" Row="0" Column="4"/>
-            <LayoutButtons Face="ResearchZergArmor4" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="0" Column="4"/>
-            <LayoutButtons Face="ResearchZergArmor5" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchZergArmor13v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research1" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchZergArmor23v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research2" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchZergArmor33v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research3" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchZergArmor43v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchZergArmor53v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="0" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">

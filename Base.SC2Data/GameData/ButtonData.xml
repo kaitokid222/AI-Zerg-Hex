@@ -87,6 +87,30 @@
         <Icon value="assets\icon\ICON Defiler.dds"/>
         <AlertIcon value="assets\icon\ICON Defiler.dds"/>
     </CButton>
+    <CButton id="ResearchZergArmor13v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="ResearchZergArmor23v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor33v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor43v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor53v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
     <CButton id="TrainLoveMorales">
         <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
