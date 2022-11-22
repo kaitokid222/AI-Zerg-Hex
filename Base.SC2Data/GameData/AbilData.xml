@@ -1089,8 +1089,8 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="PlasmaCannonT1" Requirements="SiegeTankShowModulate2"/>
     </CAbilEffectTarget>
     <CAbilBuild id="ProtossBuild">
-        <InfoArray index="Build2" Unit="ProbiusPylon" Time="30">
-            <Cooldown TimeUse="30"/>
+        <InfoArray index="Build2" Unit="ProbiusPylon" Time="20">
+            <Cooldown TimeUse="20"/>
             <Button Requirements="nothave3pylons"/>
         </InfoArray>
         <InfoArray index="Build3" Unit="AutomatedAssimilator" Time="15">

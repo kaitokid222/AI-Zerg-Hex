@@ -78,7 +78,7 @@
         <DisplayDuration index="Enemy" value="1"/>
         <BuffFlags index="Extend" value="1"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
-        <Period value="10"/>
+        <Period value="15"/>
         <PeriodicEffect value="EggSpawnDummy"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EggSpawnCooldown">
@@ -88,7 +88,7 @@
         <DisplayDuration index="Ally" value="1"/>
         <DisplayDuration index="Neutral" value="1"/>
         <DisplayDuration index="Enemy" value="1"/>
-        <Duration value="10"/>
+        <Duration value="15"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfusedRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
