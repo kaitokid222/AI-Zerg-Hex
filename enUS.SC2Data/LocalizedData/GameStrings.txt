@@ -2072,6 +2072,7 @@ DocInfo/PatchNote545=Increased Egg Spawn Pool Points 2/4/8 -> 3/5/10.
 DocInfo/PatchNote546=Decreased Chance of Strikeling spawns from any eggs.
 DocInfo/PatchNote547=Fixed Issue.
 DocInfo/PatchNote548=Changed Egg Behaviour again.
+DocInfo/PatchNote549=Fixed another Egg issue.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior
