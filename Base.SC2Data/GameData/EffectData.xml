@@ -34,11 +34,21 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="EggClusterCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="HydraliskDefenderDamageSet">
+        <EditorCategories value=""/>
+        <EffectArray value="HydraliskNeedleSpinesRangedDamageEdit3v3"/>
+        <EffectArray value="NeedleSpinesLaunchMissile"/>
+    </CEffectSet>
     <CEffectDamage id="HydraliskNeedleSpinesRangedDamageEdit3v3" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <AttributeFactor index="Structure" value="-1"/>
         <Kind value="Ranged"/>
         <Amount value="5"/>
+        <AreaArray Radius="0.6" Fraction="0.5"/>
+        <AreaArray Radius="0.9" Fraction="0.25"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Dead,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectDamage>
     <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value=""/>

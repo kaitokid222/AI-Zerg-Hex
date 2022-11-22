@@ -2434,6 +2434,7 @@ Effect/Name/HiveSpineCrawlerLaunchMissileZergHex=Hive Spine Crawler (Launch Miss
 Effect/Name/HotSBanelingExplodeLargeTarget2=Hot SBaneling Explode Large Target
 Effect/Name/HydraliskAddInitialLevel=Hydralisk Add Initial Level
 Effect/Name/HydraliskAddLevel=Hydralisk Add Level
+Effect/Name/HydraliskDefenderDamageSet=Hydralisk Defender Damage Set
 Effect/Name/HydraliskIncreaseLevelSet=Hydralisk Increase Level (Set)
 Effect/Name/HydraliskIncreaseResetGrowTimer=Hydralisk Increase Reset Grow Timer
 Effect/Name/HydraliskInitialEffectSet=Hydralisk Initial Effects (Set)

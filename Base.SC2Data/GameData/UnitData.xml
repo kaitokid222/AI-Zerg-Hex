@@ -415,9 +415,9 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="40"/>
-        <LifeMax value="40"/>
-        <LifeRegenRate value="2"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
+        <LifeRegenRate value="4"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="2.25"/>
@@ -439,7 +439,6 @@
         <AbilArray Link="BurrowHydraliskImpalerDown"/>
         <AbilArray Link="MorphRoachToImpaler"/>
         <AbilArray Link="HydraliskFrenzy"/>
-        <WeaponArray Link="HydraliskMelee"/>
         <WeaponArray Link="NeedleSpinesDefender3v3"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>

@@ -530,6 +530,7 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
+        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor2">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
@@ -540,6 +541,7 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
@@ -551,6 +553,7 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor4">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
@@ -561,6 +564,7 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor5">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
@@ -571,6 +575,7 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="HydraliskSpawnSize">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-regenrate.dds"/>
