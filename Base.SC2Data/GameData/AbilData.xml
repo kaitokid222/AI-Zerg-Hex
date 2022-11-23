@@ -483,10 +483,11 @@
         <Cost>
             <Resource index="Terrazine" value="100"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="10"/>
+                <CountStart value="10"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>

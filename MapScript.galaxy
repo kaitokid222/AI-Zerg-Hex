@@ -83,6 +83,12 @@ struct gs_terrandata {
     fixed lv_tech_value;
 };
 
+struct gs_zcc_spawn {
+    fixed lv_current_spawn_amount;
+    fixed lv_spawn_rate;
+    string lv_unit_type;
+};
+
 struct gs_zcc_stack_backup {
     int lv_firelings;
     int lv_infused;
@@ -206,6 +212,7 @@ playergroup gv_terrans_team_top_open_access_units;
 playergroup gv_terrans_team_bottom_open_access_units;
 int[7][3] gv__3v3_player_elo_scores;
 int gv__3v3_player_elo_scores_cnt;
+gs_zcc_spawn[7][31] gv_zcc_spawn;
 gs_zcc_stack_backup[7] gv_zcc_stack_backup;
 int gv_top_bruta;
 int gv_bottom_bruta;
@@ -565,9 +572,10 @@ int gf_get_team_average_elo_rating (int lp_player1, int lp_player2, int lp_playe
 int gf_get_average_elo_rating ();
 void gf_distribute_players_based_on_their_elo ();
 void gf_magic ();
+void gf_periodic_zcc_spawn ();
+void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 int gf_get_terran_id_from_zpid (int lp_zpid);
-void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
 point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
@@ -867,24 +875,10 @@ trigger gt_prevent_bottom_from_going_top;
 trigger gt_prevent_top_from_going_bottom;
 trigger gt_TerrazineIncome;
 trigger gt_TerrazineDoublerfinished;
-trigger gt_SpawnFireling3v3;
-trigger gt_SpawnInfestor3v3;
-trigger gt_SpawnTankling3v3;
-trigger gt_SpawnRoach3v3;
-trigger gt_SpawnPrimal3v3;
-trigger gt_SpawnUltra3v3;
-trigger gt_SpawnBruta3v3;
-trigger gt_SpawnBeastling3v3;
-trigger gt_SpawnRavator3v3;
-trigger gt_SpawnInfused3v3;
-trigger gt_SpawnBaneling3v3;
-trigger gt_SpawnTorra3v3;
+trigger gt_SpawnZCCUnit3v3;
 trigger gt_zccdies;
 trigger gt_zccbuilt;
 trigger gt_FirelingDies;
-trigger gt_BanelingDies;
-trigger gt_InfusedRoachDies;
-trigger gt_TorraliskDies;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_Firelingsgotupgraded;
 trigger gt_zerg_rally_equal_on;
@@ -5565,18 +5559,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
     TriggerEnable(gt_FirelingDies, lv_on_off);
     TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
-    TriggerEnable(gt_SpawnFireling3v3, lv_on_off);
-    TriggerEnable(gt_SpawnInfestor3v3, lv_on_off);
-    TriggerEnable(gt_SpawnTankling3v3, lv_on_off);
-    TriggerEnable(gt_SpawnRoach3v3, lv_on_off);
-    TriggerEnable(gt_SpawnPrimal3v3, lv_on_off);
-    TriggerEnable(gt_SpawnUltra3v3, lv_on_off);
-    TriggerEnable(gt_SpawnBruta3v3, lv_on_off);
-    TriggerEnable(gt_SpawnBeastling3v3, lv_on_off);
-    TriggerEnable(gt_SpawnRavator3v3, lv_on_off);
-    TriggerEnable(gt_SpawnBaneling3v3, lv_on_off);
-    TriggerEnable(gt_SpawnInfused3v3, lv_on_off);
-    TriggerEnable(gt_SpawnTorra3v3, lv_on_off);
+    TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
     TriggerEnable(gt_Firelingsgotupgraded, lv_on_off);
     TriggerEnable(gt_zerg_rally_equal_on, lv_on_off);
     TriggerEnable(gt_zerg_rally_minus_on, lv_on_off);
@@ -5584,9 +5567,6 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_relocate_spawners_rally_action, lv_on_off);
     TriggerEnable(gt_zccdies, lv_on_off);
     TriggerEnable(gt_zccbuilt, lv_on_off);
-    TriggerEnable(gt_BanelingDies, lv_on_off);
-    TriggerEnable(gt_InfusedRoachDies, lv_on_off);
-    TriggerEnable(gt_TorraliskDies, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -6140,6 +6120,100 @@ void gf_magic () {
     }
 }
 
+void gf_periodic_zcc_spawn () {
+    // Variable Declarations
+    string lv_unit_type;
+    fixed lv_spawn_rate;
+    fixed lv_current_spawn_amount;
+
+    // Automatic Variable Declarations
+    playergroup auto009A1E25_g;
+    int auto009A1E25_var;
+    const int auto95C3E9DF_ae = 30;
+    int auto95C3E9DF_var;
+    const int autoB0ED1477_ae = 10;
+    int autoB0ED1477_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto009A1E25_g = gv_terrans;
+    auto009A1E25_var = -1;
+    while (true) {
+        auto009A1E25_var = PlayerGroupNextPlayer(auto009A1E25_g, auto009A1E25_var);
+        if (auto009A1E25_var < 0) { break; }
+        auto95C3E9DF_var = 1;
+        for ( ; auto95C3E9DF_var <= auto95C3E9DF_ae; auto95C3E9DF_var += 1 ) {
+            lv_unit_type = gv_zcc_spawn[auto009A1E25_var][auto95C3E9DF_var].lv_unit_type;
+            lv_spawn_rate = gv_zcc_spawn[auto009A1E25_var][auto95C3E9DF_var].lv_spawn_rate;
+            lv_current_spawn_amount = gv_zcc_spawn[auto009A1E25_var][auto95C3E9DF_var].lv_current_spawn_amount;
+            lv_current_spawn_amount += lv_spawn_rate;
+            while ((lv_unit_type != "") && (lv_current_spawn_amount >= 1)) {
+                gf_spawn_3v3_zerg_unit(auto009A1E25_var, 1, lv_unit_type);
+                lv_current_spawn_amount -= 1.0;
+            }
+            gv_zcc_spawn[auto009A1E25_var][auto95C3E9DF_var].lv_current_spawn_amount = lv_current_spawn_amount;
+        }
+    }
+}
+
+void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type) {
+    // Variable Declarations
+    int lv_zerg_unit_owner;
+    int lv_target_player_position;
+    point lv_spawn_point;
+    point lv_attack_point;
+    unit lv_zcc;
+
+    // Automatic Variable Declarations
+    unitgroup auto69714ADC_g;
+    int auto69714ADC_u;
+    unit auto69714ADC_var;
+    string auto49616E6E_val;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_target_player_position = gf__3v3_get_target_or_random_enemy_terran_position(lp_player_id);
+    lv_spawn_point = PointFromName(("3v3_spawn_" + IntToString(lv_target_player_position)));
+    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
+        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
+        lv_attack_point = PointFromName(("Hydra " + IntToString(lv_target_player_position)));
+    }
+    else {
+        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
+        lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
+    if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3")) {
+        auto69714ADC_g = UnitLastCreatedGroup();
+        auto69714ADC_u = UnitGroupCount(auto69714ADC_g, c_unitCountAll);
+        for (;; auto69714ADC_u -= 1) {
+            auto69714ADC_var = UnitGroupUnitFromEnd(auto69714ADC_g, auto69714ADC_u);
+            if (auto69714ADC_var == null) { break; }
+            UnitBehaviorAdd(auto69714ADC_var, "ZCCTimedLife", auto69714ADC_var, 1);
+        }
+    }
+
+    if (((lp_unit_type == "Fireling"))) {
+        auto49616E6E_val = lp_unit_type;
+        if (auto49616E6E_val == "Fireling") {
+            UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
+        }
+        else {
+        }
+    }
+
+    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
+        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
+    }
+    else {
+        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
+        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
+    }
+}
+
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
     // Variable Declarations
     unit lv_zcc;
@@ -6239,72 +6313,6 @@ int gf_get_terran_id_from_zpid (int lp_zpid) {
         lv_i = (lv_i + 1);
     }
     return lv_return;
-}
-
-void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type) {
-    // Variable Declarations
-    int lv_zerg_unit_owner;
-    int lv_target_player_position;
-    point lv_spawn_point;
-    point lv_attack_point;
-    unit lv_zcc;
-
-    // Automatic Variable Declarations
-    unitgroup auto69714ADC_g;
-    int auto69714ADC_u;
-    unit auto69714ADC_var;
-    string auto49616E6E_val;
-
-    // Variable Initialization
-
-    // Implementation
-    lv_target_player_position = gf__3v3_get_target_or_random_enemy_terran_position(lp_player_id);
-    lv_spawn_point = PointFromName(("3v3_spawn_" + IntToString(lv_target_player_position)));
-    lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
-        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
-        lv_attack_point = PointFromName(("Hydra " + IntToString(lv_target_player_position)));
-    }
-    else {
-        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
-        lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
-    }
-    libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
-    if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3")) {
-        auto69714ADC_g = UnitLastCreatedGroup();
-        auto69714ADC_u = UnitGroupCount(auto69714ADC_g, c_unitCountAll);
-        for (;; auto69714ADC_u -= 1) {
-            auto69714ADC_var = UnitGroupUnitFromEnd(auto69714ADC_g, auto69714ADC_u);
-            if (auto69714ADC_var == null) { break; }
-            UnitBehaviorAdd(auto69714ADC_var, "ZCCTimedLife", auto69714ADC_var, 1);
-        }
-    }
-
-    if (((lp_unit_type == "Fireling") || (lp_unit_type == "BanelingZergHex") || (lp_unit_type == "InfusedRoach") || (lp_unit_type == "Torralisk"))) {
-        auto49616E6E_val = lp_unit_type;
-        if (auto49616E6E_val == "Fireling") {
-            UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
-        }
-        else if (auto49616E6E_val == "BanelingZergHex") {
-            UnitBehaviorAdd(lv_zcc, "BanelingCountDummyStack", lv_zcc, lp_unit_count);
-        }
-        else if (auto49616E6E_val == "InfusedRoach") {
-            UnitBehaviorAdd(lv_zcc, "InfusedRoachCountDummyStack", lv_zcc, lp_unit_count);
-        }
-        else if (auto49616E6E_val == "Torralisk") {
-            UnitBehaviorAdd(lv_zcc, "TorraliskRoachCountDummyStack", lv_zcc, lp_unit_count);
-        }
-        else {
-        }
-    }
-
-    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
-    }
-    else {
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
-    }
 }
 
 point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position) {
@@ -18599,255 +18607,75 @@ void gt_TerrazineDoublerfinished_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Fireling 3v3
+// Trigger: Spawn ZCC Unit 3v3
 //--------------------------------------------------------------------------------------------------
-bool gt_SpawnFireling3v3_Func (bool testConds, bool runActions) {
+bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    string auto011C7887_val;
+
     // Actions
     if (!runActions) {
         return true;
     }
 
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 5, "Fireling");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnFireling3v3_Init () {
-    gt_SpawnFireling3v3 = TriggerCreate("gt_SpawnFireling3v3_Func");
-    TriggerEnable(gt_SpawnFireling3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnFireling3v3, c_playerAny, "SpawnFirelingsDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Infestor 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnInfestor3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    auto011C7887_val = EventPlayerEffectUsed();
+    if (auto011C7887_val == "SpawnBanelingsDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 4, "BanelingZergHex");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfestorZergHex3v3");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnInfestor3v3_Init () {
-    gt_SpawnInfestor3v3 = TriggerCreate("gt_SpawnInfestor3v3_Func");
-    TriggerEnable(gt_SpawnInfestor3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnInfestor3v3, c_playerAny, "SpawnInfestorDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Tankling 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnTankling3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnBeastlingDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Beastling");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Tankling");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnTankling3v3_Init () {
-    gt_SpawnTankling3v3 = TriggerCreate("gt_SpawnTankling3v3_Func");
-    TriggerEnable(gt_SpawnTankling3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnTankling3v3, c_playerAny, "SpawnTanklingDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Roach 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnRoach3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnBrutaDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Brutalisk2");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Roach2");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnRoach3v3_Init () {
-    gt_SpawnRoach3v3 = TriggerCreate("gt_SpawnRoach3v3_Func");
-    TriggerEnable(gt_SpawnRoach3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnRoach3v3, c_playerAny, "SpawnRoachDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Primal 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnPrimal3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnFirelingsDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 5, "Fireling");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "PrimalRoach2");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnPrimal3v3_Init () {
-    gt_SpawnPrimal3v3 = TriggerCreate("gt_SpawnPrimal3v3_Func");
-    TriggerEnable(gt_SpawnPrimal3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnPrimal3v3, c_playerAny, "SpawnPrimalDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Ultra 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnUltra3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnInfestorDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfestorZergHex3v3");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Ultralisk2");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnUltra3v3_Init () {
-    gt_SpawnUltra3v3 = TriggerCreate("gt_SpawnUltra3v3_Func");
-    TriggerEnable(gt_SpawnUltra3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnUltra3v3, c_playerAny, "SpawnUltraDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Bruta 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnBruta3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnInfusedDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfusedRoach");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Brutalisk2");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnBruta3v3_Init () {
-    gt_SpawnBruta3v3 = TriggerCreate("gt_SpawnBruta3v3_Func");
-    TriggerEnable(gt_SpawnBruta3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnBruta3v3, c_playerAny, "SpawnBrutaDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Beastling 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnBeastling3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnPrimalDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "PrimalRoach2");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Beastling");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnBeastling3v3_Init () {
-    gt_SpawnBeastling3v3 = TriggerCreate("gt_SpawnBeastling3v3_Func");
-    TriggerEnable(gt_SpawnBeastling3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnBeastling3v3, c_playerAny, "SpawnBeastlingDummy3v3");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Ravator 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnRavator3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnRavDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Ravator");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Ravator");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnRavator3v3_Init () {
-    gt_SpawnRavator3v3 = TriggerCreate("gt_SpawnRavator3v3_Func");
-    TriggerEnable(gt_SpawnRavator3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnRavator3v3, c_playerAny, "SpawnRavDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Infused 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnInfused3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnRoachDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Roach2");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfusedRoach");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnInfused3v3_Init () {
-    gt_SpawnInfused3v3 = TriggerCreate("gt_SpawnInfused3v3_Func");
-    TriggerEnable(gt_SpawnInfused3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnInfused3v3, c_playerAny, "SpawnInfusedDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Baneling 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnBaneling3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnTanklingDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Tankling");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 4, "BanelingZergHex");
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SpawnBaneling3v3_Init () {
-    gt_SpawnBaneling3v3 = TriggerCreate("gt_SpawnBaneling3v3_Func");
-    TriggerEnable(gt_SpawnBaneling3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnBaneling3v3, c_playerAny, "SpawnBanelingsDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Spawn Torra 3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_SpawnTorra3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
+    else if (auto011C7887_val == "SpawnTorraDummy") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Torralisk");
     }
-
-    gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "Torralisk");
+    else if (auto011C7887_val == "SpawnUltraDummy3v3") {
+        gf_spawn_3v3_zerg_unit(EventPlayer(), 3, "Ultralisk2");
+    }
+    else {
+    }
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_SpawnTorra3v3_Init () {
-    gt_SpawnTorra3v3 = TriggerCreate("gt_SpawnTorra3v3_Func");
-    TriggerEnable(gt_SpawnTorra3v3, false);
-    TriggerAddEventPlayerEffectUsed(gt_SpawnTorra3v3, c_playerAny, "SpawnTorraDummy");
+void gt_SpawnZCCUnit3v3_Init () {
+    gt_SpawnZCCUnit3v3 = TriggerCreate("gt_SpawnZCCUnit3v3_Func");
+    TriggerEnable(gt_SpawnZCCUnit3v3, false);
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBanelingsDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBeastlingDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBrutaDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnFirelingsDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnInfestorDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnInfusedDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnPrimalDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnRavDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnRoachDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTanklingDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTorraDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnUltraDummy3v3");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18876,9 +18704,6 @@ bool gt_zccdies_Func (bool testConds, bool runActions) {
 
     lv_zcc = EventUnit();
     gv_zcc_stack_backup[lv_terran_id].lv_firelings = UnitBehaviorCount(lv_zcc, "FirelingCountDummyStack");
-    gv_zcc_stack_backup[lv_terran_id].lv_banelings = UnitBehaviorCount(lv_zcc, "BanelingCountDummyStack");
-    gv_zcc_stack_backup[lv_terran_id].lv_infused = UnitBehaviorCount(lv_zcc, "InfusedRoachCountDummyStack");
-    gv_zcc_stack_backup[lv_terran_id].lv_torras = UnitBehaviorCount(lv_zcc, "TorraliskRoachCountDummyStack");
     return true;
 }
 
@@ -18982,126 +18807,6 @@ void gt_FirelingDies_Init () {
     gt_FirelingDies = TriggerCreate("gt_FirelingDies_Func");
     TriggerEnable(gt_FirelingDies, false);
     TriggerAddEventUnitDied(gt_FirelingDies, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Baneling Dies
-//--------------------------------------------------------------------------------------------------
-bool gt_BanelingDies_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_owner;
-    int lv_terran_id;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
-
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((UnitGetType(EventUnit()) == "BanelingZergHex"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_BanelingDies_Init () {
-    gt_BanelingDies = TriggerCreate("gt_BanelingDies_Func");
-    TriggerEnable(gt_BanelingDies, false);
-    TriggerAddEventUnitDied(gt_BanelingDies, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Infused Roach Dies
-//--------------------------------------------------------------------------------------------------
-bool gt_InfusedRoachDies_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_owner;
-    int lv_terran_id;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
-
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((UnitGetType(EventUnit()) == "InfusedRoach"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_InfusedRoachDies_Init () {
-    gt_InfusedRoachDies = TriggerCreate("gt_InfusedRoachDies_Func");
-    TriggerEnable(gt_InfusedRoachDies, false);
-    TriggerAddEventUnitDied(gt_InfusedRoachDies, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Torralisk Dies
-//--------------------------------------------------------------------------------------------------
-bool gt_TorraliskDies_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_owner;
-    int lv_terran_id;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
-
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((UnitGetType(EventUnit()) == "Torralisk"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TorraliskDies_Init () {
-    gt_TorraliskDies = TriggerCreate("gt_TorraliskDies_Func");
-    TriggerEnable(gt_TorraliskDies, false);
-    TriggerAddEventUnitDied(gt_TorraliskDies, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -25191,24 +24896,10 @@ void InitTriggers () {
     gt_prevent_top_from_going_bottom_Init();
     gt_TerrazineIncome_Init();
     gt_TerrazineDoublerfinished_Init();
-    gt_SpawnFireling3v3_Init();
-    gt_SpawnInfestor3v3_Init();
-    gt_SpawnTankling3v3_Init();
-    gt_SpawnRoach3v3_Init();
-    gt_SpawnPrimal3v3_Init();
-    gt_SpawnUltra3v3_Init();
-    gt_SpawnBruta3v3_Init();
-    gt_SpawnBeastling3v3_Init();
-    gt_SpawnRavator3v3_Init();
-    gt_SpawnInfused3v3_Init();
-    gt_SpawnBaneling3v3_Init();
-    gt_SpawnTorra3v3_Init();
+    gt_SpawnZCCUnit3v3_Init();
     gt_zccdies_Init();
     gt_zccbuilt_Init();
     gt_FirelingDies_Init();
-    gt_BanelingDies_Init();
-    gt_InfusedRoachDies_Init();
-    gt_TorraliskDies_Init();
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_Firelingsgotupgraded_Init();
     gt_zerg_rally_equal_on_Init();
