@@ -10017,10 +10017,6 @@ void gf_spawn_eggs (int lp_position, int lp_egg_count, int lp_front) {
         lv_defined_eggs = (lv_defined_eggs + lv_egg_value);
     }
     if ((lp_front == 0)) {
-        while ((lv_i <= 3)) {
-            lv_us[lv_i] = (lv_us[lv_i] * lv_tm);
-            lv_i = (lv_i + 1);
-        }
     }
 
     lv_i = 1;
