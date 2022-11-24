@@ -6,7 +6,12 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="550"/>
-            <Cooldown TimeUse="25"/>
+            <Charge>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
+                <CountUse value="1"/>
+                <TimeUse value="-1"/>
+            </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="RequirementArmor3"/>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -18,7 +23,12 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="225"/>
-            <Cooldown TimeUse="10"/>
+            <Charge>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
+                <CountUse value="1"/>
+                <TimeUse value="-1"/>
+            </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -30,7 +40,12 @@
         <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Terrazine" value="1200"/>
-            <Cooldown TimeUse="40"/>
+            <Charge>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
+                <CountUse value="1"/>
+                <TimeUse value="-1"/>
+            </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="RequirementArmor5"/>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -398,10 +413,11 @@
         <Cost>
             <Resource index="Terrazine" value="700"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -415,10 +431,11 @@
         <Cost>
             <Resource index="Terrazine" value="175"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -432,10 +449,11 @@
         <Cost>
             <Resource index="Terrazine" value="260"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -449,10 +467,11 @@
         <Cost>
             <Resource index="Terrazine" value="155"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -466,10 +485,11 @@
         <Cost>
             <Resource index="Terrazine" value="210"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -483,8 +503,8 @@
         <Cost>
             <Resource index="Terrazine" value="100"/>
             <Charge>
-                <CountMax value="10"/>
-                <CountStart value="10"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
