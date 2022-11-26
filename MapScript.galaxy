@@ -5562,6 +5562,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
     TriggerEnable(gt_FirelingDies, lv_on_off);
     TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
+    TriggerEnable(gt_PeriodicZCCSpawn, lv_on_off);
     TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
     TriggerEnable(gt_Firelingsgotupgraded, lv_on_off);
     TriggerEnable(gt_zerg_rally_equal_on, lv_on_off);
@@ -6246,6 +6247,12 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
         }
 
     }
+    if (((lp_unit_type == "Torralisk") || (lp_unit_type == "InfusedRoach") || (lp_unit_type == "Ravator") || (lp_unit_type == "Beastling"))) {
+        gv_players[lp_player_id].lv__3v3_terrazine_income += 5;
+    }
+    else {
+        gv_players[lp_player_id].lv__3v3_terrazine_income += 1;
+    }
 }
 
 void gf_initialize_zcc_spawn () {
@@ -6301,6 +6308,10 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
     }
+    if ((gf_is_3v3_local_test() == true)) {
+        lv_zerg_unit_owner = 7;
+    }
+
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
     if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3")) {
         auto69714ADC_g = UnitLastCreatedGroup();
@@ -18444,6 +18455,10 @@ bool gt_prevent_top_zerg_from_going_bottom_Func (bool testConds, bool runActions
             return false;
         }
 
+        if (!((gf_is_3v3_local_test() == false))) {
+            return false;
+        }
+
         if (!((PlayerGroupHasPlayer(gv_zerg_team_bottom, UnitGetOwner(EventUnit())) == true))) {
             return false;
         }
@@ -18477,6 +18492,10 @@ bool gt_prevent_bottom_zerg_from_going_top_Func (bool testConds, bool runActions
     // Conditions
     if (testConds) {
         if (!((gf_is_3v3() == true))) {
+            return false;
+        }
+
+        if (!((gf_is_3v3_local_test() == false))) {
             return false;
         }
 
