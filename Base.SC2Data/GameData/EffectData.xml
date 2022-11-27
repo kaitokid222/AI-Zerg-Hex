@@ -80,6 +80,15 @@
         <EffectArray value="SiegeTankFragmentBlastShardDamage"/>
         <EffectArray value="SiegeTankFragmentBlastShardImpactFire"/>
     </CEffectSet>
+    <CEffectSet id="SpawnCreeperDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnSlowlingDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnStrikelingDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectApplyBehavior id="VdayLoveBuffAB">
         <EditorCategories value=""/>
         <Behavior value="VdayLoveBuff"/>

@@ -6270,13 +6270,16 @@ void gf_initialize_zcc_spawn () {
         if (autoC4FC25A6_var < 0) { break; }
         gv_zcc_spawn[autoC4FC25A6_var][1].lv_unit_type = "Beastling";
         gv_zcc_spawn[autoC4FC25A6_var][2].lv_unit_type = "Brutalisk2";
-        gv_zcc_spawn[autoC4FC25A6_var][3].lv_unit_type = "InfusedRoach";
-        gv_zcc_spawn[autoC4FC25A6_var][4].lv_unit_type = "PrimalRoach2";
-        gv_zcc_spawn[autoC4FC25A6_var][5].lv_unit_type = "Ravator";
-        gv_zcc_spawn[autoC4FC25A6_var][6].lv_unit_type = "Roach2";
-        gv_zcc_spawn[autoC4FC25A6_var][7].lv_unit_type = "Tankling";
-        gv_zcc_spawn[autoC4FC25A6_var][8].lv_unit_type = "Torralisk";
-        gv_zcc_spawn[autoC4FC25A6_var][9].lv_unit_type = "Ultralisk2";
+        gv_zcc_spawn[autoC4FC25A6_var][3].lv_unit_type = "Creeper";
+        gv_zcc_spawn[autoC4FC25A6_var][4].lv_unit_type = "InfusedRoach";
+        gv_zcc_spawn[autoC4FC25A6_var][5].lv_unit_type = "PrimalRoach2";
+        gv_zcc_spawn[autoC4FC25A6_var][6].lv_unit_type = "Ravator";
+        gv_zcc_spawn[autoC4FC25A6_var][7].lv_unit_type = "Roach2";
+        gv_zcc_spawn[autoC4FC25A6_var][8].lv_unit_type = "Slowling";
+        gv_zcc_spawn[autoC4FC25A6_var][9].lv_unit_type = "Strikeling";
+        gv_zcc_spawn[autoC4FC25A6_var][10].lv_unit_type = "Tankling";
+        gv_zcc_spawn[autoC4FC25A6_var][11].lv_unit_type = "Torralisk";
+        gv_zcc_spawn[autoC4FC25A6_var][12].lv_unit_type = "Ultralisk2";
     }
 }
 
@@ -18866,6 +18869,9 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     else if (auto011C7887_val == "SpawnBrutaDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "Brutalisk2");
     }
+    else if (auto011C7887_val == "SpawnCreeperDummy") {
+        gf_update_zcc_spawn(EventPlayer(), "Creeper");
+    }
     else if (auto011C7887_val == "SpawnFirelingsDummy") {
         gf_spawn_3v3_zerg_unit(EventPlayer(), 5, "Fireling");
     }
@@ -18883,6 +18889,12 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     }
     else if (auto011C7887_val == "SpawnRoachDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "Roach2");
+    }
+    else if (auto011C7887_val == "SpawnSlowlingDummy") {
+        gf_update_zcc_spawn(EventPlayer(), "Slowling");
+    }
+    else if (auto011C7887_val == "SpawnStrikelingDummy") {
+        gf_update_zcc_spawn(EventPlayer(), "Strikeling");
     }
     else if (auto011C7887_val == "SpawnTanklingDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "Tankling");
@@ -18905,12 +18917,15 @@ void gt_SpawnZCCUnit3v3_Init () {
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBanelingsDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBeastlingDummy3v3");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnBrutaDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnCreeperDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnFirelingsDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnInfestorDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnInfusedDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnPrimalDummy3v3");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnRavDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnRoachDummy3v3");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnSlowlingDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnStrikelingDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTanklingDummy3v3");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTorraDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnUltraDummy3v3");

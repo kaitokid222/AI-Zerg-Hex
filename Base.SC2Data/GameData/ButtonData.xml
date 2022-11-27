@@ -111,6 +111,21 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
         <HotkeyAlias value="ResearchZergArmor1"/>
     </CButton>
+    <CButton id="SpawnCreeper3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="SpawnSlowling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="SpawnStrikeling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="TrainLoveMorales">
         <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>

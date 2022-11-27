@@ -355,7 +355,6 @@
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
-        <AbilArray Link="ResearchDynamic"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>
         <AbilArray Link="3v3SpawnRavator2"/>
         <AbilArray Link="3v3SpawnInfusedRoach2"/>
@@ -368,14 +367,15 @@
         <AbilArray Link="SpawnUltra3v3"/>
         <AbilArray Link="SpawnBruta3v3"/>
         <AbilArray Link="ZCCResearch"/>
+        <AbilArray Link="SpawnCreeper"/>
+        <AbilArray Link="SpawnSlowling"/>
+        <AbilArray Link="SpawnStrikeling"/>
         <BehaviorArray index="0" removed="1"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Spawn5Firelings" AbilCmd="SpawnFirelings,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="1" Face="SpawnTorralisk3v3" AbilCmd="3v3SpawnTorralisk2,Execute" Column="4"/>
-            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
-            <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ResearchDynamic,Research10" Row="0" Column="3"/>
-            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="0" Face="SpawnTorralisk3v3" AbilCmd="3v3SpawnTorralisk2,Execute"/>
+            <LayoutButtons index="1" Face="Cancel" AbilCmd="BuildInProgress,Cancel" Column="4"/>
+            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoach3v3,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="2" Column="0"/>
@@ -393,6 +393,9 @@
                 <Row value="0"/>
                 <Column value="4"/>
             </LayoutButtons>
+            <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="SpawnCreeper3v3" Type="AbilCmd" AbilCmd="SpawnCreeper,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="SpawnStrikeling3v3" Type="AbilCmd" AbilCmd="SpawnStrikeling,Execute" Row="0" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="ResearchZergArmor13v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research1" Row="0" Column="4"/>
@@ -400,6 +403,11 @@
             <LayoutButtons Face="ResearchZergArmor33v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research3" Row="0" Column="4"/>
             <LayoutButtons Face="ResearchZergArmor43v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="0" Column="4"/>
             <LayoutButtons Face="ResearchZergArmor53v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="0" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" SubmenuIsSticky="1" Row="2" Column="4"/>
+            <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ZCCResearch,Research6" Row="0" Column="3"/>
+        </CardLayouts>
+        <CardLayouts CardId="0003">
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
