@@ -2305,8 +2305,7 @@
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train19" Time="2">
-            <Resource index="Terrazine" value="150"/>
-            <Button DefaultButtonFace="HydraliskImpaler" Requirements="ZergControlCenter"/>
+            <Button DefaultButtonFace="HydraliskDefender3v3" Requirements="ZergControlCenter"/>
             <Unit value="HydraliskDefender3v3"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>

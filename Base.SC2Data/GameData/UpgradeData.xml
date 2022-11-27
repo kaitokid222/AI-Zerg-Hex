@@ -528,7 +528,7 @@
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="20"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
-        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
@@ -540,7 +540,7 @@
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
-        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor3">
@@ -552,7 +552,7 @@
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
-        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor4">
@@ -563,7 +563,7 @@
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="20"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
-        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor5">
@@ -574,7 +574,7 @@
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
-        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
+        <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
     </CUpgrade>
     <CUpgrade id="HydraliskSpawnSize">

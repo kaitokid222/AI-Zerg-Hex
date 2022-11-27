@@ -425,9 +425,9 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="80"/>
-        <LifeMax value="80"/>
-        <LifeRegenRate value="4"/>
+        <LifeStart value="60"/>
+        <LifeMax value="60"/>
+        <LifeRegenRate value="3"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="2.25"/>
@@ -479,6 +479,8 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
+        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Terrazine" value="50"/>
     </CUnit>
     <CUnit id="InfestorZergHex3v3">
         <DeathRevealRadius value="3"/>

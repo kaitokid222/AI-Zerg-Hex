@@ -745,6 +745,7 @@ Button/Name/GliderAutotarget=Glider Autotarget
 Button/Name/GroundPulse=Ground Pulse
 Button/Name/HardenedShieldItalis=Hardened Shield
 Button/Name/HiveMindEmulator=Build Zerg Control Center
+Button/Name/HydraliskDefender3v3=Hydralisk Defender
 Button/Name/ImmortalShakurasShadowCannon2=Stasis Cannon
 Button/Name/IncreaseGas50=Increase 50
 Button/Name/IncreaseMinerals50=Increase 50
@@ -1187,7 +1188,7 @@ Button/Tooltip/Hive2=
 Button/Tooltip/HiveMindEmulator=Tech Structure. Allows you to buy zerg support and therefore indirectly attack the other team.
 Button/Tooltip/HotSRaptor=
 Button/Tooltip/Hydralisk=
-Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. Can morph into an Impaler.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <n/><n/><c val="ffff8a">Cannot attack zerg buildings.</c>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
 Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
@@ -2461,7 +2462,6 @@ Effect/Name/HiveSpineCrawlerLaunchMissileZergHex=Hive Spine Crawler (Launch Miss
 Effect/Name/HotSBanelingExplodeLargeTarget2=Hot SBaneling Explode Large Target
 Effect/Name/HydraliskAddInitialLevel=Hydralisk Add Initial Level
 Effect/Name/HydraliskAddLevel=Hydralisk Add Level
-Effect/Name/HydraliskDefenderDamageSet=Hydralisk Defender Damage Set
 Effect/Name/HydraliskIncreaseLevelSet=Hydralisk Increase Level (Set)
 Effect/Name/HydraliskIncreaseResetGrowTimer=Hydralisk Increase Reset Grow Timer
 Effect/Name/HydraliskInitialEffectSet=Hydralisk Initial Effects (Set)
@@ -2618,6 +2618,7 @@ Effect/Name/NapalmChargeRemovePayload=Napalm Charge Remove Payload
 Effect/Name/NapalmChargeSearchArea=Napalm Charge Search Area
 Effect/Name/NeedleSpinesDamage=Hydralisk - Needle Spines Melee Damage (Edit)
 Effect/Name/NeedleSpinesLaunchMissile2=Needle Spines Copy
+Effect/Name/NeedleSpinesLaunchMissile3v3=Needle Spines
 Effect/Name/Nuke2=Nuke Copy
 Effect/Name/NukePersistent2=Nuke Copy
 Effect/Name/OmegaliskEnhancePlatingApply=Omegalisk - Enhance Plating (Apply)
