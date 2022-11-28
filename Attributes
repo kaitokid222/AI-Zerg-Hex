@@ -189,7 +189,6 @@
         <Requirement>
             <Attribute Id="1"/>
             <Value Id="1"/>
-            <Value Id="3"/>
         </Requirement>
         <Value>
             <Id Value="2"/>
@@ -1076,6 +1075,7 @@
         <AttributeHidden Namespace="999" Id="3111"/>
         <AttributeHidden Namespace="0" Id="2"/>
         <AttributeHidden Namespace="0" Id="9"/>
+        <AttributeHidden Namespace="0" Id="8"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>
@@ -1249,6 +1249,7 @@
         <AttributeHidden Namespace="999" Id="3111"/>
         <AttributeHidden Namespace="0" Id="2"/>
         <AttributeHidden Namespace="0" Id="9"/>
+        <AttributeHidden Namespace="0" Id="8"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>
