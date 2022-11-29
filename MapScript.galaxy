@@ -19166,12 +19166,18 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     point lv_initial_rally_point;
 
     // Automatic Variable Declarations
+    unitgroup auto9ABFC84A_g;
+    int auto9ABFC84A_u;
+    unit auto9ABFC84A_var;
     unitgroup auto86980782_g;
     int auto86980782_u;
     unit auto86980782_var;
     unitgroup autoC56FBD89_g;
     int autoC56FBD89_u;
     unit autoC56FBD89_var;
+    unitgroup autoF9E9E436_g;
+    int autoF9E9E436_u;
+    unit autoF9E9E436_var;
 
     // Variable Initialization
 
@@ -19200,6 +19206,16 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
     PointSet(gf_get_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
     PointSet(gf_get_pre_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
+    auto9ABFC84A_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto9ABFC84A_u = UnitGroupCount(auto9ABFC84A_g, c_unitCountAll);
+    for (;; auto9ABFC84A_u -= 1) {
+        auto9ABFC84A_var = UnitGroupUnitFromEnd(auto9ABFC84A_g, auto9ABFC84A_u);
+        if (auto9ABFC84A_var == null) { break; }
+        if ((gf_is_spawner_unit(auto9ABFC84A_var) == true) && (libNtve_gf_UnitInRegion(auto9ABFC84A_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
+            UnitIssueOrder(auto9ABFC84A_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
+        }
+
+    }
     auto86980782_g = UnitGroup(null, 7, RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto86980782_u = UnitGroupCount(auto86980782_g, c_unitCountAll);
     for (;; auto86980782_u -= 1) {
@@ -19212,15 +19228,25 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         }
 
     }
-    autoC56FBD89_g = UnitGroup(null, 7, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoC56FBD89_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoC56FBD89_u = UnitGroupCount(autoC56FBD89_g, c_unitCountAll);
     for (;; autoC56FBD89_u -= 1) {
         autoC56FBD89_var = UnitGroupUnitFromEnd(autoC56FBD89_g, autoC56FBD89_u);
         if (autoC56FBD89_var == null) { break; }
         if ((gf_is_spawner_unit(autoC56FBD89_var) == true) && (libNtve_gf_UnitInRegion(autoC56FBD89_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
             UnitIssueOrder(autoC56FBD89_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-            lv_unit_group_index = gf_get_observed_unit_index(autoC56FBD89_var);
-            UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoC56FBD89_var);
+        }
+
+    }
+    autoF9E9E436_g = UnitGroup(null, 7, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoF9E9E436_u = UnitGroupCount(autoF9E9E436_g, c_unitCountAll);
+    for (;; autoF9E9E436_u -= 1) {
+        autoF9E9E436_var = UnitGroupUnitFromEnd(autoF9E9E436_g, autoF9E9E436_u);
+        if (autoF9E9E436_var == null) { break; }
+        if ((gf_is_spawner_unit(autoF9E9E436_var) == true) && (libNtve_gf_UnitInRegion(autoF9E9E436_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
+            UnitIssueOrder(autoF9E9E436_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
+            lv_unit_group_index = gf_get_observed_unit_index(autoF9E9E436_var);
+            UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoF9E9E436_var);
         }
 
     }
