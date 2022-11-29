@@ -5,13 +5,16 @@
         <Effect index="0" value="SpawnInfusedDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="550"/>
+            <Resource index="Minerals" value="200"/>
+            <Resource index="Vespene" value="70"/>
+            <Resource index="Terrazine" value="850"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown TimeUse="6"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfusedRoach3v3" Requirements="RequirementArmor3"/>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -22,13 +25,16 @@
         <Effect index="0" value="SpawnRavDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="225"/>
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="40"/>
+            <Resource index="Terrazine" value="550"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown TimeUse="6"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -39,13 +45,16 @@
         <Effect index="0" value="SpawnTorraDummy"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="1200"/>
+            <Resource index="Minerals" value="540"/>
+            <Resource index="Vespene" value="100"/>
+            <Resource index="Terrazine" value="3000"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown TimeUse="6"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnTorralisk3v3" Requirements="RequirementArmor5"/>
         <AutoCastAcquireLevel value="Defensive"/>
@@ -379,7 +388,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="600"/>
+            <Resource index="Terrazine" value="650"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -395,6 +404,7 @@
     <CAbilEffectInstant id="SpawnCreeper">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnCreeperDummy"/>
+        <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Minerals" value="16"/>
             <Resource index="Terrazine" value="85"/>
@@ -404,19 +414,21 @@
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="6"/>
         </Cost>
+        <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnCreeper3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnInfestor3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="300"/>
+            <Resource index="Terrazine" value="150"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="60"/>
-                <TimeUse value="60"/>
+                <TimeStart value="20"/>
+                <TimeUse value="20"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="RequirementArmor1"/>
@@ -426,7 +438,8 @@
         <Effect index="0" value="SpawnBrutaDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="700"/>
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Terrazine" value="800"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -434,6 +447,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -444,7 +458,8 @@
         <Effect index="0" value="SpawnBeastlingDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="175"/>
+            <Resource index="Minerals" value="80"/>
+            <Resource index="Terrazine" value="400"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -452,6 +467,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown TimeUse="6"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -460,6 +476,7 @@
     <CAbilEffectInstant id="SpawnSlowling">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnSlowlingDummy"/>
+        <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Minerals" value="16"/>
             <Resource index="Terrazine" value="70"/>
@@ -469,12 +486,15 @@
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="5"/>
         </Cost>
+        <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnSlowling3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnStrikeling">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnStrikelingDummy"/>
+        <Flags index="AutoCast" value="1"/>
         <Cost>
             <Resource index="Minerals" value="12"/>
             <Resource index="Terrazine" value="90"/>
@@ -484,7 +504,9 @@
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="6"/>
         </Cost>
+        <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnStrikeling3v3"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnUltra3v3">
@@ -492,7 +514,8 @@
         <Effect index="0" value="SpawnUltraDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="260"/>
+            <Resource index="Minerals" value="72"/>
+            <Resource index="Terrazine" value="320"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -500,6 +523,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="8"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -510,7 +534,8 @@
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="155"/>
+            <Resource index="Minerals" value="35"/>
+            <Resource index="Terrazine" value="170"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -518,6 +543,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="8"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -528,7 +554,8 @@
         <Effect index="0" value="SpawnPrimalDummy3v3"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="210"/>
+            <Resource index="Minerals" value="45"/>
+            <Resource index="Terrazine" value="240"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -536,6 +563,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="8"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
@@ -544,8 +572,10 @@
     <CAbilEffectInstant id="SpawnTankling3v3">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnTanklingDummy3v3"/>
+        <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Terrazine" value="100"/>
+            <Resource index="Minerals" value="20"/>
+            <Resource index="Terrazine" value="110"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -553,6 +583,7 @@
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
             </Charge>
+            <Cooldown Location="Unit" TimeUse="7"/>
         </Cost>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
