@@ -1408,7 +1408,7 @@ Button/Tooltip/SpawnCow=Cows eat fruit to gain <c val="58BEF5">(+<d ref="Effect,
 Button/Tooltip/SpawnCowUpgraded=Cows eat fruit to gain <c val="58BEF5">(+5)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCowUpgraded2=Cows eat fruit to gain <c val="58BEF5">(+7)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCreeper=
-Button/Tooltip/SpawnCreeper3v3=
+Button/Tooltip/SpawnCreeper3v3=Can attack with short range.<c val="E2E087"> (+1 terrazine income)</c><n/>
 Button/Tooltip/SpawnDrone=Unit capable morphing into structures.
 Button/Tooltip/SpawnHydralisk=Durable ranged unit. Generates additional lives every 50 seconds, every additional life grants a +1 range bonus. Maximum of +2 lives, starting with +1 when created.<n/><n/>Loses life rapidly and moves slowly while off creep.
 Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. Gains energy while attacking, energy is required to mutate into Large Spawners.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
@@ -1427,12 +1427,12 @@ Button/Tooltip/SpawnSheep=Sheep eat fruit to gain <c val="58BEF5">(+<d ref="Effe
 Button/Tooltip/SpawnSheepUpgraded=Sheep eat fruit to gain <c val="58BEF5">(+3)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSheepUpgraded2=Sheep eat fruit to gain <c val="58BEF5">(+4)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSlowling=Slow melee creature.
-Button/Tooltip/SpawnSlowling3v3=Slow melee creature.
+Button/Tooltip/SpawnSlowling3v3=Basic unit.<c val="E2E087"> (+1 terrazine income)</c><n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Double the health while reducing movement speed by 40%</c><n/>
 Button/Tooltip/SpawnSporeCrawler=Creates a structure capable of attacking from long distances.<n/><n/>Generates a small area of creep.
 Button/Tooltip/SpawnStrikeling=Slow melee creature.
-Button/Tooltip/SpawnStrikeling3v3=Slow melee creature.
+Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack. <c val="E2E087">(+1 terrazine income)</c><n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/>
 Button/Tooltip/SpawnTanker=Tanky melee creature. Deals additional damage to structures and always attacks closest target. Deals true damage.
-Button/Tooltip/SpawnTankling3v3=Tanky melee creature. Deals additional damage to structures and always attacks closest target. Deals true damage. Spawns 3 Units.
+Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage. <c val="E2E087">(+1 terrazine income)</c><n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 2 minerals upon creation.</c><n/>
 Button/Tooltip/SpawnTarRoach=Small unit capable of attacking structures only.<n/><n/>Can have a maximum of 100.
 Button/Tooltip/SpawnTorralisk=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/>
 Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/>
