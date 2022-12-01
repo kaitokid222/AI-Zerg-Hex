@@ -553,7 +553,6 @@ void gf_Remove_weather (int lp_player_position);
 void gf_fill_fw_grid ();
 void gf_shot_fireworks (int lp_waves);
 void gf_end_game_3v3 ();
-void gf__3v3_player_died (int lp_player_id);
 void gf_flush_privileges_3v3_OAU ();
 bool gf_is_terrans_team_bottom_dead ();
 bool gf_is_terrans_team_top_dead ();
@@ -5350,33 +5349,6 @@ void gf_end_game_3v3 () {
         }
     }
 
-}
-
-void gf__3v3_player_died (int lp_player_id) {
-    // Variable Declarations
-    int lv_player_position;
-
-    // Automatic Variable Declarations
-    unitgroup auto3D46C3AE_g;
-    int auto3D46C3AE_u;
-    unit auto3D46C3AE_var;
-
-    // Variable Initialization
-
-    // Implementation
-    lv_player_position = gv_players[lp_player_id].lv_position;
-    auto3D46C3AE_g = gv_flying_rally_group;
-    auto3D46C3AE_u = UnitGroupCount(auto3D46C3AE_g, c_unitCountAll);
-    for (;; auto3D46C3AE_u -= 1) {
-        auto3D46C3AE_var = UnitGroupUnitFromEnd(auto3D46C3AE_g, auto3D46C3AE_u);
-        if (auto3D46C3AE_var == null) { break; }
-        if ((FixedToInt(UnitGetCustomValue(auto3D46C3AE_var, 0)) == lp_player_id)) {
-            UnitGroupRemove(gv_flying_rally_group, auto3D46C3AE_var);
-            PingDestroy(libHots_gf_PingStoredForUnit(auto3D46C3AE_var, 1));
-            UnitRemove(auto3D46C3AE_var);
-        }
-
-    }
 }
 
 void gf_flush_privileges_3v3_OAU () {
@@ -19364,7 +19336,6 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
         UnitBehaviorAdd(libNtve_gf_LastReplacedUnit(), "InvulnerableBlockers", libNtve_gf_LastReplacedUnit(), 1);
     }
     gf_remove_tutorial_after_death(lv_owner);
-    gf__3v3_player_died(lv_owner);
     if ((gf_is_game_over() == true)) {
         gf_end_game(gf_get_winning_team());
     }
