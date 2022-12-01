@@ -295,10 +295,10 @@
         <CombineArray value="NotHiddenSelf"/>
         <CombineArray value="IsChaosMarine"/>
     </CValidatorCombine>
-    <CValidatorPlayerCompareResource id="PlayerHasGTE4Terrazine">
+    <CValidatorPlayerCompareResource id="PlayerHasGTE40Terrazine">
         <Compare value="GE"/>
         <Resource value="Terrazine"/>
-        <Value value="4"/>
+        <Value value="40"/>
     </CValidatorPlayerCompareResource>
     <CValidatorCombine id="ReactorIsDetached">
         <CombineArray index="0" value="IsNotConstructing"/>

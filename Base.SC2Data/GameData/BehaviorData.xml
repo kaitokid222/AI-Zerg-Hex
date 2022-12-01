@@ -161,12 +161,12 @@
         <MaxStackCount value="1000"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="GenerateTerrazine">
-        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <InfoIcon value="Assets\Textures\icon-mineral.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="PlayerHasGTE40Terrazine"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="5"/>
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
-        <DisableValidatorArray value="PlayerHasGTE4Terrazine"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EggClusterB">
         <InfoFlags index="Hidden" value="1"/>

@@ -518,6 +518,19 @@
         <StatusBarOn index="Energy" value="0"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="0"/>
     </CActorUnit>
+    <!--                                                                                         -->
+    <!-- Terrazine Tank ........................................................................ -->
+    <!--                                                                                         -->
+    <CActorUnit id="TerrazineTank">
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="Create TerrazineTextKicker6"/>
+        <On Terms="Behavior.GenerateTerrazine.Off" Send="AnimClear Work"/>
+        <On Terms="Behavior.GenerateTerrazine.Off" Send="TimerKill Stop"/>
+        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupApply A"/>
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="AnimPlay Work Stand,Work"/>
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
+        <BarOffset value="140"/>
+    </CActorUnit>
     <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <On Terms="Effect.VdayLoveDummy.Start; At Target" Send="Create"/>
@@ -2183,19 +2196,6 @@
         <On index="69" Terms="AbilMorph.*.Finish; MorphTo SiegeTank22"/>
         <On index="70" Terms="AbilMorph.*.Start; MorphFrom SiegeTank22"/>
         <HighlightTooltip value="Unit/Name/SiegeTankZergHex"/>
-    </CActorUnit>
-    <!--                                                                                         -->
-    <!-- Terrazine Tank ........................................................................ -->
-    <!--                                                                                         -->
-    <CActorUnit id="TerrazineTank">
-        <BarOffset value="140"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="Create TerrazineTextKicker6"/>
-        <On Terms="Behavior.GenerateTerrazine.Off" Send="AnimClear Work"/>
-        <On Terms="Behavior.GenerateTerrazine.Off" Send="TimerKill Stop"/>
-        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupRemove B"/>
-        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupApply A"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="AnimPlay Work Stand,Work"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
     </CActorUnit>
     <CActorSound id="UI_Pickup_NovaEquipment_ActorSound">
         <Sound value="UI_Pickup_NovaEquipment_ActorSound"/>

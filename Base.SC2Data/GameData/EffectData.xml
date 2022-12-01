@@ -101,12 +101,12 @@
     </CEffectSet>
     <CEffectModifyPlayer id="ConvertTerrazineConverterText">
         <EditorCategories value=""/>
-        <Marker Link="Effect/GasExtractionGainGas3"/>
+        <Marker Link="Effect/GainMineralsMineralMining20Text"/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Vespene" value="2"/>
-        <Resources index="Terrazine" value="-4"/>
-        <ResourcesCollected index="Vespene" value="2"/>
-        <ResourcesCollected index="Terrazine" value="-4"/>
+        <Resources index="Minerals" value="20"/>
+        <Resources index="Terrazine" value="-40"/>
+        <ResourcesCollected index="Minerals" value="20"/>
+        <ResourcesCollected index="Terrazine" value="-40"/>
     </CEffectModifyPlayer>
     <CEffectSet id="SpawnBeastlingDummy3v3">
         <EditorCategories value=""/>
