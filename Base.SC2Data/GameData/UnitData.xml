@@ -4589,7 +4589,7 @@
                 <Column value="0"/>
             </LayoutButtons>
             <LayoutButtons index="18" Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
-            <LayoutButtons Face="HydraliskImpaler" Type="AbilCmd" AbilCmd="BarracksTrain2,Train19" Row="0" Column="4"/>
+            <LayoutButtons Face="HydraliskDefender3v3" Type="AbilCmd" AbilCmd="BarracksTrain2,Train19" Row="0" Column="4"/>
         </CardLayouts>
         <CardLayouts index="1" removed="1"/>
         <LifeStart value="750"/>
