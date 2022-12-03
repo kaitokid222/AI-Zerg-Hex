@@ -149,6 +149,19 @@
         <Filter index="Enemy" value="1"/>
         <FixedSize value="12"/>
     </CActorText>
+    <CActorAction id="HydraliskAttack3v3" parent="GenericAttack" effectImpact="HydraliskNeedleSpinesRangedDamageEdit3v3" effectLaunch="NeedleSpinesLaunchMissile3v3">
+        <On index="2" Terms="Effect.HydraliskNeedleSpinesRangedDamageEdit3v3.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
+        <LaunchSiteOps Ops="SOpAttachHarness SOpForwardImpactGuide"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
+        <LaunchAssets Sound="Hydralisk_GroundAttackLaunch"/>
+        <Missile value="HydraliskAttackMissile"/>
+        <ImpactMap index="None" Model="HydraliskAttackImpact" Sound="Hydralisk_AttackImpactRanged"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="NeedleSpinesImpact" MatchKeys="Basic" Physics="HydraliskAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="20.000000"/>
+        <AcquisitionPitchHalfArc value="20.000000"/>
+        <AccuracyHalfArc value="25.000000"/>
+    </CActorAction>
     <CActorUnit id="HydraliskDefender3v3" parent="GenericUnitBase" unitName="HydraliskDefender3v3">
         <Macros value="ZergBurrowStandardAnimMacro"/>
         <Macros value="ZergMediumBurrowEffects"/>

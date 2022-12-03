@@ -446,9 +446,6 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="que1"/>
-        <AbilArray Link="BurrowHydraliskImpalerDown"/>
-        <AbilArray Link="MorphRoachToImpaler"/>
-        <AbilArray Link="HydraliskFrenzy"/>
         <WeaponArray Link="NeedleSpinesDefender3v3"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
