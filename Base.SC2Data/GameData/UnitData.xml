@@ -425,9 +425,9 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
-        <LifeRegenRate value="3"/>
+        <LifeStart value="40"/>
+        <LifeMax value="40"/>
+        <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="2.25"/>
