@@ -6234,8 +6234,6 @@ void gf_initialize_zcc_spawn () {
     // Automatic Variable Declarations
     playergroup autoC4FC25A6_g;
     int autoC4FC25A6_var;
-    const int auto5F1AF903_ae = 10;
-    int auto5F1AF903_var;
 
     // Implementation
     autoC4FC25A6_g = gv_terrans;
@@ -18789,8 +18787,6 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     int auto0C595BDC_var;
     const int auto6D139C0C_ae = 30;
     int auto6D139C0C_var;
-    const int auto037011DC_ae = 10;
-    int auto037011DC_var;
 
     // Variable Initialization
 
