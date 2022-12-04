@@ -582,6 +582,7 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type);
 void gf_initialize_zcc_spawn ();
 void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
+int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
 point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
@@ -887,7 +888,7 @@ trigger gt_zccbuilt;
 trigger gt_zccdies;
 trigger gt_PeriodicZCCSpawn;
 trigger gt_SpawnZCCUnit3v3;
-trigger gt_Firelingsgotupgraded;
+trigger gt_ZCCupgrades;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_zerg_rally_equal_on;
 trigger gt_zerg_rally_minus_on;
@@ -5560,7 +5561,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
     TriggerEnable(gt_PeriodicZCCSpawn, lv_on_off);
     TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
-    TriggerEnable(gt_Firelingsgotupgraded, lv_on_off);
+    TriggerEnable(gt_ZCCupgrades, lv_on_off);
     TriggerEnable(gt_zerg_rally_equal_on, lv_on_off);
     TriggerEnable(gt_zerg_rally_minus_on, lv_on_off);
     TriggerEnable(gt_zerg_rally_plus_on, lv_on_off);
@@ -6238,10 +6239,10 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
                     }
                     else {
                         if ((lp_unit_type == "Strikeling")) {
-                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 16.0);
+                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                         }
                         else {
-                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 20.0);
+                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / (20.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                         }
                     }
                 }
@@ -6357,6 +6358,29 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
     }
+}
+
+int gf_get_spawn_cooldown_reduction (int lp_player_id) {
+    // Variable Declarations
+    int lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 1)) {
+        lv_result = 2;
+    }
+
+    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 2)) {
+        lv_result = 4;
+    }
+
+    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 3)) {
+        lv_result = 6;
+    }
+
+    return lv_result;
 }
 
 int gf_get_terran_id_from_zpid (int lp_zpid) {
@@ -16037,24 +16061,10 @@ void gf_get_speed () {
     // Implementation
     if (((lv_time == (1000 - (gv_difficulty * 30))) || (lv_time == (1300 - (gv_difficulty * 30))) || (lv_time == (1600 - (gv_difficulty * 30)))) && (TechTreeUpgradeCount(7, "ZergMovement", c_techCountQueuedOrBetter) < 3)) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
-        if ((gf_is_3v3() == true)) {
-            while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel((lv_i + 7), "ZergMovement", 1);
-                lv_i = (lv_i + 1);
-            }
-        }
-
     }
 
     if ((gv_difficulty >= 10) && (lv_time == (1800 - (gv_difficulty * 30)))) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
-        if ((gf_is_3v3() == true)) {
-            while ((lv_i <= 6)) {
-                TechTreeUpgradeAddLevel(gv_players[lv_i].lv__3v3_zerg_pid, "ZergMovement", 1);
-                lv_i = (lv_i + 1);
-            }
-        }
-
     }
 
 }
@@ -18951,17 +18961,18 @@ void gt_SpawnZCCUnit3v3_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Firelings got upgraded
+// Trigger: ZCC upgrades
 //--------------------------------------------------------------------------------------------------
-bool gt_Firelingsgotupgraded_Func (bool testConds, bool runActions) {
+bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_zerg_player;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
     // Conditions
     if (testConds) {
         if (!((UnitGetType(EventUnit()) == "HiveMindEmulator"))) {
-            return false;
-        }
-
-        if (!((libNtve_gf_TriggeringProgressUpgrade() == "Firelings"))) {
             return false;
         }
     }
@@ -18971,15 +18982,16 @@ bool gt_Firelingsgotupgraded_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libNtve_gf_SetUpgradeLevelForPlayer(gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid, "Firelings", (TechTreeUpgradeCount(gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid, "Firelings", c_techCountCompleteOnly) + 1));
+    lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
+    TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_Firelingsgotupgraded_Init () {
-    gt_Firelingsgotupgraded = TriggerCreate("gt_Firelingsgotupgraded_Func");
-    TriggerEnable(gt_Firelingsgotupgraded, false);
-    TriggerAddEventUnitResearchProgress(gt_Firelingsgotupgraded, null, c_unitProgressStageComplete);
+void gt_ZCCupgrades_Init () {
+    gt_ZCCupgrades = TriggerCreate("gt_ZCCupgrades_Func");
+    TriggerEnable(gt_ZCCupgrades, false);
+    TriggerAddEventUnitResearchProgress(gt_ZCCupgrades, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -25067,7 +25079,7 @@ void InitTriggers () {
     gt_zccdies_Init();
     gt_PeriodicZCCSpawn_Init();
     gt_SpawnZCCUnit3v3_Init();
-    gt_Firelingsgotupgraded_Init();
+    gt_ZCCupgrades_Init();
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_zerg_rally_equal_on_Init();
     gt_zerg_rally_minus_on_Init();

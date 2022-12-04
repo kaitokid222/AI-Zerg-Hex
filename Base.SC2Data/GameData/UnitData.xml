@@ -404,7 +404,8 @@
             <LayoutButtons Face="ResearchZergArmor43v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="0" Column="4"/>
             <LayoutButtons Face="ResearchZergArmor53v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="0" Column="4"/>
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" SubmenuIsSticky="1" Row="2" Column="4"/>
-            <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ZCCResearch,Research6" Row="0" Column="3"/>
+            <LayoutButtons Face="ResearchZergMovement3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research7" Row="0" Column="3"/>
+            <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ZCCResearch,Research6" Row="0" Column="0"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>

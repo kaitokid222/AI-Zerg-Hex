@@ -878,6 +878,7 @@ Button/Name/ResearchZergArmor5=Research Zerg Armor 5
 Button/Name/ResearchZergArmor53v3=Research Zerg Armor 5
 Button/Name/ResearchZergAttack=Research Zerg Attack
 Button/Name/ResearchZergMovement=Research Zerg Movement
+Button/Name/ResearchZergMovement3v3=Research Zerg Movement
 Button/Name/ResetRally=Reset Rally
 Button/Name/Retarget=Retarget
 Button/Name/ScannerSweep=Scanner Sweep
@@ -1363,6 +1364,7 @@ Button/Tooltip/ResearchZergArmor5=- Enables spawning of <c val="ffff8a">Brutalis
 Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
 Button/Tooltip/ResearchZergAttack=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergMovement=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergMovement3v3=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)</n></n><c val="D95200">Recude spawn time of ZCC units by 2 seconds.</c>
 Button/Tooltip/ResetRally=Sets the rally point to the closest Terran base.
 Button/Tooltip/Retarget=Attacks fired are redirected to a nearby enemy if the target has died before impact.<n/><n/>Redirects to enemies within 5 range of impact if it does not exceed a range of 16 from the Italis.
 Button/Tooltip/Roach=

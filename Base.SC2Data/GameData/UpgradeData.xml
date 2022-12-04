@@ -604,6 +604,8 @@
         <EffectArray Reference="Unit,Ravator,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,TarRoach,Speed" Value="0.449200"/>
         <EffectArray Operation="Subtract" Reference="Behavior,RoachTarRushSpeed,Modification.MoveSpeedBonus" Value="0.449200"/>
+        <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Vespene]" Value="100"/>
+        <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Charge.CountMax" Value="1"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

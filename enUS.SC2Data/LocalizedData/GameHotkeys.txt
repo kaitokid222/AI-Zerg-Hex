@@ -214,6 +214,7 @@ Button/Hotkey/ResearchZergArmor5=X
 Button/Hotkey/ResearchZergArmor53v3=X
 Button/Hotkey/ResearchZergAttack=C
 Button/Hotkey/ResearchZergMovement=
+Button/Hotkey/ResearchZergMovement3v3=
 Button/Hotkey/ResetRally=R
 Button/Hotkey/Roach=E
 Button/Hotkey/ScannerSweep=C

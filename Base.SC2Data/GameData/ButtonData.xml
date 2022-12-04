@@ -117,6 +117,11 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
         <HotkeyAlias value="ResearchZergArmor1"/>
     </CButton>
+    <CButton id="ResearchZergMovement3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <HotkeyAlias value="ResearchZergMovement"/>
+    </CButton>
     <CButton id="SpawnCreeper3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>

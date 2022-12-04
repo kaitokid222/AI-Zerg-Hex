@@ -1668,6 +1668,11 @@
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="UpgradeFirelings" Requirements="UpgradeZergFireling"/>
         </InfoArray>
+        <InfoArray index="Research7" Upgrade="ZergMovement">
+            <Resource index="Vespene" value="175"/>
+            <Charge CountMax="1"/>
+            <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
+        </InfoArray>
     </CAbilResearch>
     <!--CAbilTransport id="MedivacTransport">-->
     <!--        <LoadValidatorArray value="NoNP"/>-->
