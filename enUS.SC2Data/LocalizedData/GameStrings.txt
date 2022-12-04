@@ -3201,6 +3201,7 @@ Param/Value/7ED3BFEA=0
 Param/Value/7F5FF93F=Send Amount
 Param/Value/80C4C460=People voted to play this event!
 Param/Value/815C22D6=It allows you to get Tier 2 and 3 equipment and to support your army when pushing.
+Param/Value/8189B2A2=0
 Param/Value/822DFA50=Issuing Zerg balancing cost of: 
 Param/Value/8245E6B9=Build a second Battery!
 Param/Value/82C21B45=Voting got started for a different event!

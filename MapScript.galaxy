@@ -191,6 +191,7 @@ int[7] gv_reward;
 int[7] gv_dialog_terranIncome;
 int[7] gv_dialog_terranIncome_minerals;
 int[7] gv_dialog_terranIncome_vespene;
+int[7] gv_dialog_terranIncome_terrazine;
 gs_TerranIncomeData[7] gv_TerranIncome;
 int[7] gv_terran_score_playerranking;
 gs_terrandata[7] gv_terrandata;
@@ -395,6 +396,9 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 6; init_i += 1) {
         gv_dialog_terranIncome_vespene[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 6; init_i += 1) {
+        gv_dialog_terranIncome_terrazine[init_i] = c_invalidDialogControlId;
     }
     gv_leaderboard = c_boardNone;
     for (init_i = 0; init_i <= 6; init_i += 1) {
@@ -3385,14 +3389,20 @@ void gf_create_income_dialog () {
         DialogCreate(330, 78, c_anchorTop, 0, 0, true);
         gv_dialog_terranIncome[auto4227153C_var] = DialogLastCreated();
         DialogSetImageVisible(DialogLastCreated(), false);
-        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTop, -20, 6, StringExternal("Param/Value/1591E1A1"), "Assets\\Textures\\ui_emoticons_minerals.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
-        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTop, 20, 6, StringExternal("Param/Value/47F4A801"), "Assets\\Textures\\ui_emoticons_gas.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
+        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 0, 6, StringExternal("Param/Value/1591E1A1"), "Assets\\Textures\\ui_emoticons_minerals.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
+        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 170, 6, StringExternal("Param/Value/47F4A801"), "Assets\\Textures\\ui_emoticons_gas.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 0, 0, StringExternal("Param/Value/BBDA8209"), ColorWithAlpha(0,0,0,0), false, 2.0);
-        libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModRightSize16Bold", PlayerGroupAll());
+        libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
         gv_dialog_terranIncome_minerals[auto4227153C_var] = DialogControlLastCreated();
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 210, 0, StringExternal("Param/Value/F6D337EE"), ColorWithAlpha(0,0,0,0), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
         gv_dialog_terranIncome_vespene[auto4227153C_var] = DialogControlLastCreated();
+        if ((gf_is_3v3() == true)) {
+            libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 300, 0, StringExternal("Param/Value/8189B2A2"), ColorWithAlpha(0,0,0,0), false, 2.0);
+            libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
+            gv_dialog_terranIncome_terrazine[auto4227153C_var] = DialogControlLastCreated();
+        }
+
         DialogSetVisible(DialogLastCreated(), PlayerGroupSingle(auto4227153C_var), true);
         if ((gv_difficulty <= 7)) {
             DialogCreate(330, 78, c_anchorTop, 180, 0, true);
@@ -3453,6 +3463,7 @@ void gf_update_income_for_player (int lp_player) {
     int lv_collect_vespene_old;
     int lv_calculated_reward;
     text lv_indicator_string_text;
+    int lv_terrazine_income;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -3468,6 +3479,11 @@ void gf_update_income_for_player (int lp_player) {
     libNtve_gf_SetDialogItemText(gv_dialog_terranIncome_vespene[lp_player], IntToText((gv_TerranIncome[lp_player].lv_vespene_diff * 6)), PlayerGroupSingle(lp_player));
     gv_TerranIncome[lp_player].lv_collected_minerals_last = lv_collect_minerals;
     gv_TerranIncome[lp_player].lv_collected_vespene_last = lv_collect_vespene;
+    if ((gf_is_3v3() == true)) {
+        lv_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income * 10);
+        libNtve_gf_SetDialogItemText(gv_dialog_terranIncome_terrazine[lp_player], IntToText(lv_terrazine_income), PlayerGroupSingle(lp_player));
+    }
+
 }
 
 void gf_update_reward_panel (int lp_player) {
