@@ -91,6 +91,7 @@ struct gs_zcc_stack_backup {
 };
 
 struct gs_zcc_spawn {
+    int lv_spawn_count;
     fixed lv_current_spawn_amount;
     fixed lv_spawn_rate;
     string lv_unit_type;
@@ -3386,19 +3387,20 @@ void gf_create_income_dialog () {
     while (true) {
         auto4227153C_var = PlayerGroupNextPlayer(auto4227153C_g, auto4227153C_var);
         if (auto4227153C_var < 0) { break; }
-        DialogCreate(330, 78, c_anchorTop, 0, 0, true);
+        DialogCreate(330, 78, c_anchorTop, -20, 0, true);
         gv_dialog_terranIncome[auto4227153C_var] = DialogLastCreated();
         DialogSetImageVisible(DialogLastCreated(), false);
         libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 0, 6, StringExternal("Param/Value/1591E1A1"), "Assets\\Textures\\ui_emoticons_minerals.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
-        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 170, 6, StringExternal("Param/Value/47F4A801"), "Assets\\Textures\\ui_emoticons_gas.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
-        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 0, 0, StringExternal("Param/Value/BBDA8209"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 100, 6, StringExternal("Param/Value/47F4A801"), "Assets\\Textures\\ui_emoticons_gas.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 35, 0, StringExternal("Param/Value/BBDA8209"), ColorWithAlpha(0,0,0,0), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
         gv_dialog_terranIncome_minerals[auto4227153C_var] = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 210, 0, StringExternal("Param/Value/F6D337EE"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 135, 0, StringExternal("Param/Value/F6D337EE"), ColorWithAlpha(0,0,0,0), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
         gv_dialog_terranIncome_vespene[auto4227153C_var] = DialogControlLastCreated();
         if ((gf_is_3v3() == true)) {
-            libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 300, 0, StringExternal("Param/Value/8189B2A2"), ColorWithAlpha(0,0,0,0), false, 2.0);
+            libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 30, 30, c_anchorTopLeft, 200, 6, StringExternal("Param/Value/68FAA8E1"), "Assets\\Textures\\ui_emoticons_zerg.dds", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
+            libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 120, 50, c_anchorTopLeft, 235, 0, StringExternal("Param/Value/8189B2A2"), ColorWithAlpha(0,0,0,0), false, 2.0);
             libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModLeftSize16Bold", PlayerGroupAll());
             gv_dialog_terranIncome_terrazine[auto4227153C_var] = DialogControlLastCreated();
         }
@@ -5488,6 +5490,8 @@ void gf_init_3v3 () {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 11), true);
                 TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 12), true);
                 TechTreeAbilityAllow(gv_players[lv_index].lv__3v3_zerg_pid, AbilityCommand("DestroyStructure", 0), false);
+                TechTreeAbilityAllow(lv_index, AbilityCommand("BarracksTrain2", 18), true);
+                PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 115);
             }
 
         }
@@ -6219,6 +6223,7 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
         lv_spawn_rate = gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate;
         lv_current_spawn_amount = gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_current_spawn_amount;
         if ((lv_record_unit_type == lp_unit_type)) {
+            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_count += 1;
             if ((lp_unit_type == "Torralisk")) {
                 gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 150.0);
             }
@@ -6231,7 +6236,12 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
                         gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 50.0);
                     }
                     else {
-                        gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 20.0);
+                        if ((lp_unit_type == "Strikeling")) {
+                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 16.0);
+                        }
+                        else {
+                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 20.0);
+                        }
                     }
                 }
             }
