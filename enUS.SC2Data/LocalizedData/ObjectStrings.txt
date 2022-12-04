@@ -1729,6 +1729,7 @@ Effect/EditorSuffix/ChaosSwordEffectSet=- Effect
 Effect/EditorSuffix/ChemicalPlantUseCalldown=(Napalm Bomb)
 Effect/EditorSuffix/Consume=(Create Persistent)
 Effect/EditorSuffix/ConsumeDamage2=(Damage)
+Effect/EditorSuffix/ConvertTerrazineConverterText=3v3
 Effect/EditorSuffix/DefenderNanoRepair=(Create Healer)
 Effect/EditorSuffix/DesecratedBolter=- Damage
 Effect/EditorSuffix/EatFruitCowSet=(Cow) (Set)

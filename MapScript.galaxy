@@ -380,6 +380,7 @@ void InitGlobals () {
         gv_players[init_i].lv_tutorial_stage = 1;
         gv_players[init_i].lv_tutorial_stage_state = "";
         gv_players[init_i].lv_wants_tutorial = 1;
+        gv_players[init_i].lv__3v3_terrazine_doubler = 1;
         gv_players[init_i].lv__3v3_terrazine_income = 10;
     }
     gv_transmission_units = UnitGroupEmpty();
@@ -3482,7 +3483,7 @@ void gf_update_income_for_player (int lp_player) {
     gv_TerranIncome[lp_player].lv_collected_minerals_last = lv_collect_minerals;
     gv_TerranIncome[lp_player].lv_collected_vespene_last = lv_collect_vespene;
     if ((gf_is_3v3() == true)) {
-        lv_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income * 10);
+        lv_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income * (gv_players[lp_player].lv__3v3_terrazine_doubler * 10));
         libNtve_gf_SetDialogItemText(gv_dialog_terranIncome_terrazine[lp_player], IntToText(lv_terrazine_income), PlayerGroupSingle(lp_player));
     }
 
@@ -18624,7 +18625,8 @@ bool gt_TerrazineIncome_Func (bool testConds, bool runActions) {
         if ((gv_players[autoB2C4F675_var].lv_alive == true)) {
         }
 
-        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazine, c_playerPropOperAdd, (gv_players[autoB2C4F675_var].lv__3v3_terrazine_income * (gv_players[autoB2C4F675_var].lv__3v3_terrazine_doubler + 1)));
+        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazine, c_playerPropOperAdd, (gv_players[autoB2C4F675_var].lv__3v3_terrazine_income * gv_players[autoB2C4F675_var].lv__3v3_terrazine_doubler));
+        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazineCollected, c_playerPropOperAdd, (gv_players[autoB2C4F675_var].lv__3v3_terrazine_income * gv_players[autoB2C4F675_var].lv__3v3_terrazine_doubler));
     }
     return true;
 }

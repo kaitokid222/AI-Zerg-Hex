@@ -103,9 +103,9 @@
         <EditorCategories value=""/>
         <Marker Link="Effect/GainMineralsMineralMining20Text"/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Minerals" value="20"/>
+        <Resources index="Minerals" value="10"/>
         <Resources index="Terrazine" value="-40"/>
-        <ResourcesCollected index="Minerals" value="20"/>
+        <ResourcesCollected index="Minerals" value="10"/>
         <ResourcesCollected index="Terrazine" value="-40"/>
     </CEffectModifyPlayer>
     <CEffectSet id="SpawnBeastlingDummy3v3">

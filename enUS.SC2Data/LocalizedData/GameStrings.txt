@@ -537,7 +537,7 @@ Behavior/Tooltip/GenerateMineral=Generates 1 mineral every 5 seconds.
 Behavior/Tooltip/GenerateMineralHive=Generates 80 minerals per minute.
 Behavior/Tooltip/GenerateMinerals=Generates 1 mineral every 10 seconds
 Behavior/Tooltip/GenerateMineralsCowFarm=Generates 2 mineral every 10 seconds
-Behavior/Tooltip/GenerateTerrazine=Convert 40 Terrazine into 20 Minerals every 5 seconds.
+Behavior/Tooltip/GenerateTerrazine=Convert 40 Terrazine into 10 Minerals every 5 seconds.
 Behavior/Tooltip/GeneratorUpgrades0=0 Generator Upgrades
 Behavior/Tooltip/GeneratorUpgrades1=1 Generator Upgrade
 Behavior/Tooltip/GeneratorUpgrades10=10 Generator Upgrades
@@ -1052,7 +1052,7 @@ Button/Tooltip/BuildSiegeTank=Powerful siege weapon used to destroy enemies from
 Button/Tooltip/BuildSiegeTank2=Powerful siege weapon used to destroy enemies from a long distance.<n/><n/>Requires manual targeting to fire.<n/><n/>Weapon uses 200 energy per shot.
 Button/Tooltip/BuildTechLab=Deals damage to nearby enemies.<n/><n/>Can research better equipment and perform several abilities, requires manual energy charging by default.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildTechStructure=A list of technological structures.
-Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 20 Gas every 5 seconds.
+Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 10 minerals every 5 seconds.
 Button/Tooltip/BuildWall=Protects against enemies.<n/><n/>Has 175 HP and 2 armor. (Can be upgraded at Construction Yard)
 Button/Tooltip/Builder=Can build and repair structures.
 Button/Tooltip/Candy=Contains a gift!
@@ -1465,7 +1465,7 @@ Button/Tooltip/TerranGateLowered=
 Button/Tooltip/TerrazineIncomex2=Gain 2 times as much Terrazine.
 Button/Tooltip/TerrazineIncomex3=Gain 3 times as much Terrazine.
 Button/Tooltip/TerrazineIncomex4=Gain 4 times as much Terrazine.
-Button/Tooltip/TerrazineTextKicker6=<s val="Kicker_Minerals">+20</s> <IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
+Button/Tooltip/TerrazineTextKicker6=<s val="Kicker_Minerals">+10</s> <IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
 Button/Tooltip/Torralisk=
 Button/Tooltip/TorraliskSpawner=
 Button/Tooltip/TradeGas100Text=<s val="Kicker_Gas">+100 </s><IMG path="Assets\Textures\icon-gas-terran.dds" height="28" width="28"/>
