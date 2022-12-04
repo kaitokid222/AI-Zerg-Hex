@@ -115,6 +115,9 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
+<Behavior id="ZCCRavatorTimedLife"/>
+<Behavior id="ZCCInfusedTimedLife"/>
+<Behavior id="ZCCTorraliskTimedLife"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

@@ -1782,6 +1782,18 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="100"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCTorraliskTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="340"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCRavatorTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="140"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCInfusedTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="240"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ZergIncomeExtractorGreater">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
