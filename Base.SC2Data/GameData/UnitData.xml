@@ -386,7 +386,7 @@
             <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltra3v3,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBruta3v3,Execute" Row="1" Column="4"/>
             <LayoutButtons>
-                <Face value="PrimalEggPower1"/>
+                <Face value="ZergUpgrades"/>
                 <Type value="Submenu"/>
                 <SubmenuCardId value="0002"/>
                 <SubmenuIsSticky value="1"/>

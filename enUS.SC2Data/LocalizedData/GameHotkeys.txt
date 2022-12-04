@@ -309,3 +309,4 @@ Button/Hotkey/UpgradeSuperEnergyGeneration=T
 Button/Hotkey/UpgradeToAdvancedGate=Q
 Button/Hotkey/Vortex=Q
 Button/Hotkey/WeatherSelection=
+Button/Hotkey/ZergUpgrades=T

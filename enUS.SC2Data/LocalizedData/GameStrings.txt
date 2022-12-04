@@ -995,6 +995,7 @@ Button/Name/YourBaseLocation=Your Base Location
 Button/Name/ZergRallyEqual=Zerg Rally Equal
 Button/Name/ZergRallyMinus=Zerg Rally Minus
 Button/Name/ZergRallyPlus=Zerg Rally Plus
+Button/Name/ZergUpgrades=Zerg Upgrades
 Button/Name/heXnab=<heXnab>
 Button/Tooltip/AbsorbingCloud=Creates a cloud that slows movement and causing enemies to leak 3 energy per second. Provides vision of target area.<n/><n/>Lasts for <d ref="(Effect,AbsorbingCloud,PeriodCount + 1) * Effect,AbsorbingCloud,PeriodicPeriodArray[0]"/> seconds.
 Button/Tooltip/AcidSpores=Launches 3 Acid Spores in random directions upon detonation. Acid Spores deal <d ref="Effect,BanelingAcidSporeDamage,Amount"/> damage to impact radius.
@@ -1524,6 +1525,7 @@ Button/Tooltip/YourBaseLocation=This location is yours.
 Button/Tooltip/ZergRallyEqual=50% of zerg units move toward this rally point.
 Button/Tooltip/ZergRallyMinus=25% of zerg units move toward this rally points.
 Button/Tooltip/ZergRallyPlus=75% of zerg units move toward this rally point.
+Button/Tooltip/ZergUpgrades=Various upgrades for zerg units.
 Button/Tooltip/heXnab=
 DOCSTR_0000=Die with one hit and move fast to engage with a suicide attack. Limited to 60 spawners.<n/><n/><c val="338FF7">Spawner upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="94D1D1">Re-spawns 3 units (upgraded 4)</c>
 DOCSTR_0001=Die with one hit and move fast to engage with a suicide attack. Limited to 60 spawners.<n/><n/><c val="338FF7">Spawner upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="94D1D1">Re-spawns 3 units (upgraded 4)</c>

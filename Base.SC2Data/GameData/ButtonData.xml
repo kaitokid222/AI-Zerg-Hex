@@ -93,6 +93,10 @@
         <Hotkey value="Button/Hotkey/Hydralisk"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="ZergUpgrades">
+        <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="ResearchZergArmor13v3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
