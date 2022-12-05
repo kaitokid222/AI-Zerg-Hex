@@ -2574,18 +2574,15 @@
             <Button DefaultButtonFace="ResearchGasExtraction3" Requirements="GasExtraction3Requirement"/>
         </InfoArray>
         <InfoArray index="Research11" Time="15" Upgrade="TerrazineIncomex2">
-            <Resource index="Vespene" value="100"/>
-            <Resource index="Terrazine" value="500"/>
+            <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="TerrazineIncomex2" Requirements="TerrazineDoublerRequirement"/>
         </InfoArray>
         <InfoArray index="Research12" Time="15" Upgrade="TerrazineIncomex3">
-            <Resource index="Vespene" value="200"/>
-            <Resource index="Terrazine" value="1000"/>
+            <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerrazineIncomex3" Requirements="TerrazineDoubler2Requirement"/>
         </InfoArray>
         <InfoArray index="Research13" Time="15" Upgrade="TerrazineIncomex4">
-            <Resource index="Vespene" value="300"/>
-            <Resource index="Terrazine" value="1500"/>
+            <Resource index="Vespene" value="350"/>
             <Button DefaultButtonFace="TerrazineIncomex4" Requirements="TerrazineDoubler3Requirement"/>
         </InfoArray>
     </CAbilResearch>
