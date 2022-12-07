@@ -2425,7 +2425,6 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="TerrazineTank">
-        <CostResource index="Minerals" value="75"/>
         <CostResource index="Vespene" value="75"/>
         <AbilArray Link="Demolish"/>
         <BehaviorArray Link="GenerateTerrazine"/>
