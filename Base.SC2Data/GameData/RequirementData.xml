@@ -314,6 +314,15 @@
     <CRequirement id="NotHavelotsofbloodreq">
         <NodeArray index="Use" Link="NotCountUpgradeLotsofBloodCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="SpawnFromLeft">
+        <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="SpawnFromCenter">
+        <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1"/>
+    </CRequirement>
+    <CRequirement id="SpawnFromRight">
+        <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
+    </CRequirement>
     <CRequirement id="TerrazineConverter">
         <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563"/>
     </CRequirement>

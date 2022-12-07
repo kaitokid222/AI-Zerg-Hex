@@ -75,7 +75,6 @@
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
@@ -126,6 +125,18 @@
         <OperandArray value="LT2011835200CountUnitChaosLordQueuedOrBetter1"/>
         <OperandArray value="GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100"/>
         <OperandArray value="CountUpgradeTier2EquipmentCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndLTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
@@ -257,6 +268,21 @@
     <CRequirementCountBehavior id="CountBehaviorSolidFoundationCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SolidFoundation" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSpawnFromCenterCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpawnFromCenter" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSpawnFromLeftCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpawnFromLeft" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSpawnFromRightCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpawnFromRight" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSpawnerUpgradedCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1233,6 +1259,21 @@
     <CRequirementLT id="LT831937892CountUnitProbiusPylonQueuedOrBetter3">
         <OperandArray index="0" value="CountUnitProbiusPylonQueuedOrBetter"/>
         <OperandArray index="1" value="3"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorSpawnFromCenterCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorSpawnFromLeftCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorSpawnFromRightCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray index="0" value="CountBehaviorSpawnsBombersQueuedOrBetterAtUnit"/>

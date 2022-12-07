@@ -118,6 +118,9 @@
 <Behavior id="ZCCRavatorTimedLife"/>
 <Behavior id="ZCCInfusedTimedLife"/>
 <Behavior id="ZCCTorraliskTimedLife"/>
+<Behavior id="SpawnFromLeft"/>
+<Behavior id="SpawnFromCenter"/>
+<Behavior id="SpawnFromRight"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

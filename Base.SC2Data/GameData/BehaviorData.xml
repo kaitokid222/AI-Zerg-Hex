@@ -195,6 +195,18 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="10"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromCenter">
+        <InfoIcon value="Assets\Textures\btn-building-zerg-hive.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromLeft">
+        <InfoIcon value="Assets\Textures\cursor-edgescroll-left-zerg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromRight">
+        <InfoIcon value="Assets\Textures\cursor-edgescroll-right-zerg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TorraliskRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>

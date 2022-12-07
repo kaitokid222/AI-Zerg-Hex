@@ -185,6 +185,15 @@
     <CEffectEnumArea id="VortexSearchArea">
         <SearchFilters value="-;Self,Ally,Structure,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
+    <CEffectSet id="ZCCCenter">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="ZCCLeft">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="ZCCRight">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="ZergRallyEqualON">
         <ValidatorArray value="ZergRallyEqualONTargetFilters"/>
         <EditorCategories value=""/>

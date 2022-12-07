@@ -1624,6 +1624,14 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RefreshNetwork"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="ZCCCenter">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnFromCenter" Requirements="SpawnFromCenter"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="ZCCLeft">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnFromLeft" Requirements="SpawnFromLeft"/>
+    </CAbilEffectInstant>
     <CAbilResearch id="ZCCResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Upgrade="ZergArmor1">
@@ -1657,6 +1665,10 @@
             <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
         </InfoArray>
     </CAbilResearch>
+    <CAbilEffectInstant id="ZCCRight">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnFromRight" Requirements="SpawnFromRight"/>
+    </CAbilEffectInstant>
     <!--CAbilTransport id="MedivacTransport">-->
     <!--        <LoadValidatorArray value="NoNP"/>-->
     <!--    </CAbilTransport>-->

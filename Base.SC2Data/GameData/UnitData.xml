@@ -1538,18 +1538,24 @@
         <FlagArray index="Untargetable" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="Unstoppable" value="1"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
         <Sight value="0"/>
         <AbilArray index="3" Link="ZergRallyPlusON"/>
         <AbilArray Link="ZergRallyMinusON"/>
         <AbilArray Link="ZergRallyEqualON"/>
+        <AbilArray Link="ZCCCenter"/>
+        <AbilArray Link="ZCCLeft"/>
+        <AbilArray Link="ZCCRight"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="ZergRallyPlus" AbilCmd="ZergRallyPlusON,Execute"/>
-            <LayoutButtons index="7" Face="ZergRallyMinus" Type="AbilCmd" AbilCmd="ZergRallyMinusON,Execute" Column="2"/>
-            <LayoutButtons index="8" Face="ZergRallyEqual" AbilCmd="ZergRallyEqualON,Execute"/>
+            <LayoutButtons index="6" Face="ZergRallyPlus" AbilCmd="ZergRallyPlusON,Execute" Column="1"/>
+            <LayoutButtons index="7" Face="ZergRallyMinus" Type="AbilCmd" AbilCmd="ZergRallyMinusON,Execute"/>
+            <LayoutButtons index="8" Face="ZergRallyEqual" AbilCmd="ZergRallyEqualON,Execute" Column="2"/>
+            <LayoutButtons Face="SpawnFromLeft" Type="AbilCmd" AbilCmd="ZCCLeft,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="SpawnFromCenter" Type="AbilCmd" AbilCmd="ZCCCenter,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="SpawnFromRight" Type="AbilCmd" AbilCmd="ZCCRight,Execute" Row="1" Column="3"/>
         </CardLayouts>
-        <EnergyStart value="0"/>
-        <EnergyMax value="0"/>
-        <EnergyRegenRate value="0"/>
     </CUnit>
     <CUnit id="SiegeTankFragmentBlastFire">
         <FlagArray index="Unselectable" value="1"/>
