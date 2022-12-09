@@ -8235,7 +8235,7 @@ void gf_init_event () {
     int auto30C181EE_var;
 
     // Implementation
-    if ((gf_get_lobby_event_setting() == 0)) {
+    if ((gf_get_lobby_event_setting() == 0) && (gf_is_3v3() == false)) {
         gv_is_halloween = gf_is_halloween();
         gv_is_xmas = gf_is_xmas();
         gv_is_hny = gf_is_hny();
