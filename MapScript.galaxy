@@ -93,7 +93,6 @@ struct gs_zcc_stack_backup {
 struct gs_zcc_spawn {
     int lv_spawn_count;
     fixed lv_current_spawn_amount;
-    fixed lv_spawn_rate;
     string lv_unit_type;
 };
 
@@ -582,6 +581,8 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type);
 void gf_initialize_zcc_spawn ();
 void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
+point gf_get_zcc_spawn_point (int lp_player_id);
+fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
 point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position);
@@ -590,7 +591,6 @@ bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
 int gf_where_to_build_next_spawner_3v3 ();
 void gf_update_start_spawners_3v3 ();
-string gf_get_zcc_spawn_point (int lp_player_position);
 void gf_init_3v3_flying_rally ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 void gf_manage_spawners_3v3 (int lp_player_position);
@@ -6211,7 +6211,6 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
 void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
     // Variable Declarations
     string lv_record_unit_type;
-    fixed lv_spawn_rate;
     fixed lv_current_spawn_amount;
 
     // Automatic Variable Declarations
@@ -6229,31 +6228,9 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
     autoAEF4FBEC_var = 1;
     for ( ; autoAEF4FBEC_var <= autoAEF4FBEC_ae; autoAEF4FBEC_var += 1 ) {
         lv_record_unit_type = gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_unit_type;
-        lv_spawn_rate = gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate;
         lv_current_spawn_amount = gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_current_spawn_amount;
         if ((lv_record_unit_type == lp_unit_type)) {
             gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_count += 1;
-            if ((lp_unit_type == "Torralisk")) {
-                gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 150.0);
-            }
-            else {
-                if ((lp_unit_type == "InfusedRoach")) {
-                    gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 100.0);
-                }
-                else {
-                    if ((lp_unit_type == "Ravator")) {
-                        gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / 50.0);
-                    }
-                    else {
-                        if ((lp_unit_type == "Strikeling")) {
-                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                        else {
-                            gv_zcc_spawn[lp_player_id][autoAEF4FBEC_var].lv_spawn_rate += (1.0 / (20.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                    }
-                }
-            }
         }
 
     }
@@ -6309,7 +6286,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
 
     // Implementation
     lv_target_player_position = gf__3v3_get_target_or_random_enemy_terran_position(lp_player_id);
-    lv_spawn_point = PointFromName(("3v3_spawn_" + IntToString(lv_target_player_position)));
+    lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id);
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
         lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
@@ -6365,6 +6342,81 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
     }
+}
+
+point gf_get_zcc_spawn_point (int lp_player_id) {
+    // Variable Declarations
+    unit lv_overseer;
+    string lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_result = "";
+
+    // Implementation
+    lv_overseer = UnitGroupRandomUnit(UnitGroup("Overseer", gv_players[lp_player_id].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAll);
+    if ((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true)) {
+        lv_result = "Center";
+    }
+
+    if ((UnitHasBehavior2(lv_overseer, "SpawnFromLeft") == true)) {
+        lv_result = "Left";
+    }
+
+    if ((UnitHasBehavior2(lv_overseer, "SpawnFromRight") == true)) {
+        lv_result = "Right";
+    }
+
+    if ((gv_players[lp_player_id].lv_position <= 3)) {
+        if ((gf_is_3v3_local_test() == true)) {
+            lv_result = ("Top " + lv_result);
+        }
+        else {
+            lv_result = ("Bottom " + lv_result);
+        }
+    }
+    else {
+        if ((gf_is_3v3_local_test() == true)) {
+            lv_result = ("Bottom " + lv_result);
+        }
+        else {
+            lv_result = ("Top " + lv_result);
+        }
+    }
+    lv_result = ("ZCC " + lv_result);
+    return RegionRandomPoint(RegionFromName(lv_result));
+}
+
+fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_unit_type == "Torralisk")) {
+        lv_result = (lp_spawn_count / 150.0);
+    }
+    else {
+        if ((lp_unit_type == "InfusedRoach")) {
+            lv_result = (lp_spawn_count / 100.0);
+        }
+        else {
+            if ((lp_unit_type == "Ravator")) {
+                lv_result = (lp_spawn_count / 50.0);
+            }
+            else {
+                if ((lp_unit_type == "Strikeling")) {
+                    lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                }
+                else {
+                    lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                }
+            }
+        }
+    }
+    return lv_result;
 }
 
 int gf_get_spawn_cooldown_reduction (int lp_player_id) {
@@ -6580,32 +6632,6 @@ void gf_update_start_spawners_3v3 () {
         PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperSubtract, 40);
     }
     gv_upgrade_sets_left = 0;
-}
-
-string gf_get_zcc_spawn_point (int lp_player_position) {
-    // Variable Declarations
-    unit lv_overseer;
-    string lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_result = "";
-
-    // Implementation
-    lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_position(lp_player_position), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true)) {
-        lv_result = "center";
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "SpawnFromLeft") == true)) {
-        lv_result = "left";
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "SpawnFromRight") == true)) {
-        lv_result = "right";
-    }
-
-    return lv_result;
 }
 
 void gf_init_3v3_flying_rally () {
@@ -18868,6 +18894,7 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     string lv_unit_type;
     fixed lv_spawn_rate;
     fixed lv_current_spawn_amount;
+    int lv_spawn_count;
 
     // Automatic Variable Declarations
     playergroup auto0C595BDC_g;
@@ -18890,7 +18917,8 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
         auto6D139C0C_var = 1;
         for ( ; auto6D139C0C_var <= auto6D139C0C_ae; auto6D139C0C_var += 1 ) {
             lv_unit_type = gv_zcc_spawn[auto0C595BDC_var][auto6D139C0C_var].lv_unit_type;
-            lv_spawn_rate = gv_zcc_spawn[auto0C595BDC_var][auto6D139C0C_var].lv_spawn_rate;
+            lv_spawn_count = gv_zcc_spawn[auto0C595BDC_var][auto6D139C0C_var].lv_spawn_count;
+            lv_spawn_rate = gf_get_zcc_spawn_rate(auto0C595BDC_var, lv_unit_type, lv_spawn_count);
             lv_current_spawn_amount = gv_zcc_spawn[auto0C595BDC_var][auto6D139C0C_var].lv_current_spawn_amount;
             lv_current_spawn_amount += lv_spawn_rate;
             while ((lv_unit_type != "") && (lv_current_spawn_amount >= 1)) {
@@ -19098,7 +19126,7 @@ bool gt_zerg_rally_center_Func (bool testConds, bool runActions) {
 void gt_zerg_rally_center_Init () {
     gt_zerg_rally_center = TriggerCreate("gt_zerg_rally_center_Func");
     TriggerEnable(gt_zerg_rally_center, false);
-    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_center, c_playerAny, "ZergRallyEqualON");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_center, c_playerAny, "ZCCCenter");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19138,7 +19166,7 @@ bool gt_zerg_rally_left_Func (bool testConds, bool runActions) {
 void gt_zerg_rally_left_Init () {
     gt_zerg_rally_left = TriggerCreate("gt_zerg_rally_left_Func");
     TriggerEnable(gt_zerg_rally_left, false);
-    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_left, c_playerAny, "ZergRallyEqualON");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_left, c_playerAny, "ZCCLeft");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19178,7 +19206,7 @@ bool gt_zerg_rally_right_Func (bool testConds, bool runActions) {
 void gt_zerg_rally_right_Init () {
     gt_zerg_rally_right = TriggerCreate("gt_zerg_rally_right_Func");
     TriggerEnable(gt_zerg_rally_right, false);
-    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_right, c_playerAny, "ZergRallyEqualON");
+    TriggerAddEventPlayerEffectUsed(gt_zerg_rally_right, c_playerAny, "ZCCRight");
 }
 
 //--------------------------------------------------------------------------------------------------
