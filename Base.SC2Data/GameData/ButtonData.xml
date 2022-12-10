@@ -93,6 +93,33 @@
         <Hotkey value="Button/Hotkey/Hydralisk"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="ResearchBankling3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+    </CButton>
+    <CButton id="ResearchDualHit3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-swarmseeds-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-swarmseeds-color.dds"/>
+    </CButton>
+    <CButton id="ResearchFerocity3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+    </CButton>
+    <CButton id="ResearchPackedMass3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+    </CButton>
+    <CButton id="ResearchPrimalRapidRespawn3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-deeptunnel.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-deeptunnel.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchTarInfection3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
+    </CButton>
+    <CButton id="ResearchTarSpawn3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+    </CButton>
     <CButton id="SpawnFromCenter">
         <Icon value="Assets\Textures\btn-building-zerg-hive.dds"/>
     </CButton>
