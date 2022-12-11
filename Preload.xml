@@ -115,6 +115,7 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
+<Behavior id="StrikelingShielded"/>
 <Behavior id="ZCCRavatorTimedLife"/>
 <Behavior id="ZCCInfusedTimedLife"/>
 <Behavior id="ZCCTorraliskTimedLife"/>
