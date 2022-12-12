@@ -4616,7 +4616,7 @@ void gf_handle_player_tutorial_stages () {
     lv_t_stage_state = "";
 
     // Implementation
-    if ((GameGetMissionTime() > 5.0)) {
+    if ((GameGetMissionTime() > 5.0) && (gf_is_3v3() == false)) {
         autoBB0CD46E_g = gv_terrans;
         autoBB0CD46E_var = -1;
         while (true) {
@@ -5594,7 +5594,12 @@ void gf_init_3v3 () {
             }
 
         }
-        Wait(20.0, c_timeGame);
+        Wait(5.0, c_timeGame);
+        ObjectiveCreateForPlayers(StringExternal("Param/Value/742223F8"), StringExternal("Param/Value/42921656"), c_objectiveStateActive, true, gv_terrans);
+        ObjectiveCreateForPlayers(StringExternal("Param/Value/9B8F1F13"), StringExternal("Param/Value/CFDB47DF"), c_objectiveStateActive, true, gv_terrans);
+        ObjectiveCreateForPlayers(StringExternal("Param/Value/668677FF"), StringExternal("Param/Value/FA8B1C02"), c_objectiveStateActive, true, gv_terrans);
+        ObjectiveCreateForPlayers(StringExternal("Param/Value/04E3CD12"), StringExternal("Param/Value/86F0386E"), c_objectiveStateActive, true, gv_terrans);
+        Wait(15.0, c_timeGame);
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/639B940A"));
         Wait(2.0, c_timeGame);
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/D3211D20"));
