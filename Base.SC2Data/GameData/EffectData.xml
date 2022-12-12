@@ -188,6 +188,12 @@
     <CEffectSet id="ZCCCenter">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectApplyBehavior id="ZCCCreeperTimeldLifeStop">
+        <ValidatorArray index="0" value="ZCCCreeperUpgrade"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ZCCTimedLifeStop"/>
+    </CEffectApplyBehavior>
     <CEffectSet id="ZCCLeft">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -4824,6 +4830,7 @@
         <EditorCategories value=""/>
         <EffectArray value="CreeperSpinesDamage"/>
         <EffectArray value="CreeperSpinesApply"/>
+        <EffectArray value="ZCCCreeperTimeldLifeStop"/>
     </CEffectSet>
     <CEffectDamage id="FruitRemove">
         <Flags index="Kill" value="1"/>

@@ -1793,6 +1793,12 @@
     <CBehaviorBuff id="ZCCTimedLife" parent="TimedLife">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="100"/>
+        <DisableValidatorArray value="ZCCNoTimedLifeStop"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCTimedLifeStop">
+        <InfoIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZCCTorraliskTimedLife" parent="TimedLife">
         <EditorCategories value="AbilityorEffectType:Units"/>

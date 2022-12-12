@@ -1535,6 +1535,12 @@
         <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorLocationInPlayableMapArea id="AnimalMoveLocationValidator"/>
+    <CValidatorPlayerRequirement id="ZCCCreeperUpgrade">
+        <Value value="ZCCHasCreeperFerocity"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="ZCCNoTimedLifeStop">
+        <Behavior value="ZCCTimedLifeStop"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="ZergProtectiveBaseCanTargetLowerRamp">
         <CombineArray value="ZergProtectiveBaseTargetIsNotOnRamp"/>
         <CombineArray value="ZergProtectiveBaseTargetCliffLevelLT2"/>

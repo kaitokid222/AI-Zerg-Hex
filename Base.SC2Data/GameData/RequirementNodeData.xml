@@ -1653,6 +1653,10 @@
     <CRequirementNot id="NotCountUpgradeZergMovementQueuedOnly">
         <OperandArray index="0" value="CountUpgradeZergMovementQueuedOnly"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeZergSupplyIncreaseInProgressOnly">
         <OperandArray index="0" value="CountUpgradeZergSupplyIncreaseInProgressOnly"/>
     </CRequirementNot>

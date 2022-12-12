@@ -707,6 +707,9 @@
     <CRequirement id="TerrazineDoublerRequirement">
         <NodeArray index="Show" Link="NotCountUpgradeTerrazineIncomex2QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ZCCHasCreeperFerocity">
+        <NodeArray index="Use" Link="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="ZergControlCenter">
         <NodeArray index="Use" Link="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirement>

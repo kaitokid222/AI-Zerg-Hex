@@ -512,6 +512,7 @@ Behavior/Name/UpgradedVespeneHarvestingUnlimited=Upgraded Vespene Harvesting
 Behavior/Name/VdayLoveBuff=Vday Love Buff
 Behavior/Name/VespeneHarvestingUnlimited=Vespene Harvesting
 Behavior/Name/WeaponDisabled=Weapon Disabled
+Behavior/Name/ZCCTimedLifeStop=ZCC Timed Life Stop
 Behavior/Name/ZergRallyEqual=Zerg Rally Equal
 Behavior/Name/ZergRallyMinus=Zerg Rally Minus
 Behavior/Name/ZergRallyPlus=Zerg Rally Plus
@@ -642,6 +643,7 @@ Behavior/Tooltip/UnifiedArmor=Walls share health with one another to protect the
 Behavior/Tooltip/UnlimitedEnergy=This unit has unlimited energy
 Behavior/Tooltip/UpgradedVespeneHarvestingUnlimited=Generates 2 gas every 3 seconds.
 Behavior/Tooltip/VespeneHarvestingUnlimited=Generates 1 gas every 3 seconds.
+Behavior/Tooltip/ZCCTimedLifeStop=Stop timed life for 2 seconds
 Behavior/Tooltip/ZergRallyEqual=50% of zerg units will move toward this rally point.
 Behavior/Tooltip/ZergRallyMinus=25% of zerg units will move toward this rally point.
 Behavior/Tooltip/ZergRallyPlus=75% of zerg units will move toward this rally point.
@@ -1336,7 +1338,7 @@ Button/Tooltip/RecruitSlave=Slaves gather blood and can kill themselves to gener
 Button/Tooltip/Refinery2=
 Button/Tooltip/ResearchAdvancedBuild=Eliminates the cost of walls.<n/><n/><c val="ffff8a">Enables:</c><n/>- Structure: Converter
 Button/Tooltip/ResearchBankling=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
-Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
+Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon creation.
 Button/Tooltip/ResearchBomberSpawns=Allows to upgrade bunkers to make them spawn bombers.
 Button/Tooltip/ResearchChemicalPlant=Enables building of the Chemical Plant, a structure producing gas and enabling the Firebat unit at Barracks.
 Button/Tooltip/ResearchCombatShield=<c val="ffff8a">Marines</c> gain +10 life.<n/><n/>Required for <c val="ffff8a">Veteran Marines</c>.
@@ -1365,16 +1367,16 @@ Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">S
 Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a">Shock Troopers</c> to become paralyzed, decreasing their damage and speed by 50% for 2 seconds.
 Button/Tooltip/ResearchPenetratingLaser=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases the train time from 8 to 4 seconds for Primal Roaches.
 Button/Tooltip/ResearchShatteringLaser=Upgrades all <c val="ffff8a">Marines</c> lasers to shatter upon impact, dealing 1/3/5 damage (depending on tier) to 2 nearby enemy units. Damage applies bonuses from the Armory and Penetrating Laser research.
 Button/Tooltip/ResearchShockBeam=Enables <c val="ffff8a">Shock Troopers</c> to fire in a constant beam, effectively increasing attack speed by 100%.
 Button/Tooltip/ResearchShockOverload=More than doubles the impact radius of <c val="ffff8a">Shock Trooper</c> weapons.
 Button/Tooltip/ResearchSolarWeapons=Allows Terran Energy Weapons to passively generate energy on days.
 Button/Tooltip/ResearchSpikedWalls=Creates spikes on Walls and Gates to return 4 damage back to a melee attacker. Does not have an effect when Gates are lowered.
 Button/Tooltip/ResearchTarInfection=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchTarInfection3v3=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchTarInfection3v3=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.
 Button/Tooltip/ResearchTarSpawn=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.
 Button/Tooltip/ResearchTier2Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Veteran Marine<n/>- Firebat<n/>- Italis
 Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Elite Marine<n/>- Siege Tank
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
@@ -1428,16 +1430,16 @@ Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and at
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
 Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
-Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
 Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.
-Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBrutalisk=Tanky melee creature.
 Button/Tooltip/SpawnCherry=Spawn cherry every 6 seconds.
 Button/Tooltip/SpawnCow=Cows eat fruit to gain <c val="58BEF5">(+<d ref="Effect,CowMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than cows.</c>
 Button/Tooltip/SpawnCowUpgraded=Cows eat fruit to gain <c val="58BEF5">(+5)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCowUpgraded2=Cows eat fruit to gain <c val="58BEF5">(+7)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCreeper=
-Button/Tooltip/SpawnCreeper3v3=Can attack with short range.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnCreeper3v3=Can attack with short range.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnDrone=Unit capable morphing into structures.
 Button/Tooltip/SpawnFromCenter=Zerg units appear from the center.
 Button/Tooltip/SpawnFromLeft=Zerg units will appear from the left side.
@@ -1446,29 +1448,29 @@ Button/Tooltip/SpawnHydralisk=Durable ranged unit. Generates additional lives ev
 Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. Gains energy while attacking, energy is required to mutate into Large Spawners.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
-Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit per 100 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
-Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
 Button/Tooltip/SpawnRavator=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/>
-Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit per 50 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit lasting 140 seconds every 50 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
 Button/Tooltip/SpawnRoach=Tanky melee creature.
-Button/Tooltip/SpawnRoach3v3=Durable armor unit.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnRoach3v3=Durable armor unit.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnSheep=Sheep eat fruit to gain <c val="58BEF5">(+<d ref="Effect,SheepMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than sheep.</c>
 Button/Tooltip/SpawnSheepUpgraded=Sheep eat fruit to gain <c val="58BEF5">(+3)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSheepUpgraded2=Sheep eat fruit to gain <c val="58BEF5">(+4)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSlowling=Slow melee creature.
-Button/Tooltip/SpawnSlowling3v3=Basic unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Double the health while reducing movement speed by 40%</c><n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnSlowling3v3=Basic unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Double the health while reducing movement speed by 40%</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnSporeCrawler=Creates a structure capable of attacking from long distances.<n/><n/>Generates a small area of creep.
 Button/Tooltip/SpawnStrikeling=Slow melee creature.
-Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="D95200">Spawn 1 unit per 16 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 16 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTanker=Tanky melee creature. Deals additional damage to structures and always attacks closest target. Deals true damage.
-Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 2 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 2 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTarRoach=Small unit capable of attacking structures only.<n/><n/>Can have a maximum of 100.
 Button/Tooltip/SpawnTorralisk=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/>
-Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit per 150 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
-Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit per 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit lasting 340 seconds every 150 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnUltralisk2=Tanky melee creature.
 Button/Tooltip/SpawnerIncomeInfo=Adding a spawner would currently give:<n/><c val="83D5E2">+6 minerals </c>per minute to yourself.<n/>and<n/><c val="83D5E2">+6 minerals </c>per minute to your ally.
 Button/Tooltip/SpineCrawler3=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
@@ -3025,6 +3027,7 @@ Effect/Name/UpgradeKarax=Upgrade Karax
 Effect/Name/VdayLoveBuffAB=Vday Love Buff AB
 Effect/Name/VdayLoveDummy=Vday Love Dummy
 Effect/Name/ZCCCenter=ZCC Center
+Effect/Name/ZCCCreeperTimeldLifeStop=ZCC Creeper Timeld Life Stop
 Effect/Name/ZCCLeft=ZCC Left
 Effect/Name/ZCCRight=ZCC Right
 Effect/Name/ZergRallyEqualON=Zerg Rally Equal - ON
