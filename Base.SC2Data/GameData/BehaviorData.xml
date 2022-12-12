@@ -1796,6 +1796,7 @@
         <DisableValidatorArray value="ZCCNoTimedLifeStop"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZCCTimedLifeStop">
+        <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-command-cancel.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="2"/>
