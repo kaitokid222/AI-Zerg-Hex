@@ -5542,6 +5542,8 @@ void gf_init_3v3 () {
     int lv_index;
 
     // Automatic Variable Declarations
+    playergroup auto01033108_g;
+    int auto01033108_var;
     const int auto46451FDA_ae = 6;
     const int auto46451FDA_ai = 1;
     unitgroup auto90631DD0_g;
@@ -5609,6 +5611,13 @@ void gf_init_3v3 () {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/9C0F1924"));
     }
     else {
+        auto01033108_g = PlayerGroupAll();
+        auto01033108_var = -1;
+        while (true) {
+            auto01033108_var = PlayerGroupNextPlayer(auto01033108_g, auto01033108_var);
+            if (auto01033108_var < 0) { break; }
+            TechTreeAbilityAllow(auto01033108_var, AbilityCommand("BarracksTrain2", 18), false);
+        }
         libNtve_gf_RemoveDoodadsinRegion(RegionEntireMap(), "DOM_Fire_Large_Long");
     }
 }
