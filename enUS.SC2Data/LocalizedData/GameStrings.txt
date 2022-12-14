@@ -1315,7 +1315,7 @@ Button/Tooltip/ProduceMineralText02=<s val="MercDescription">+2</s><IMG path="As
 Button/Tooltip/ProduceMineralText04=<s val="Kicker_Minerals">+4</s>
 Button/Tooltip/ProduceMineralText06=<s val="Kicker_Minerals">+6</s>
 Button/Tooltip/ProduceMineralText08=<s val="Kicker_Minerals">+8</s>
-Button/Tooltip/Pylon=Provides a powerful buffs, creates a powerfield for photon cannons and generates resources when no aura is selected.
+Button/Tooltip/Pylon=Provides powerful buffs, creates a powerfield for photon cannons and generates resources when no aura is selected.
 Button/Tooltip/PylonOvercharge=Turns pylon into a long range turret.
 Button/Tooltip/Raise2=Raises the structure, preventing ground units from moving across it.
 Button/Tooltip/RangedMinionHell=
@@ -2114,6 +2114,7 @@ DocInfo/PatchNote546=Decreased Chance of Strikeling spawns from any eggs.
 DocInfo/PatchNote547=Fixed Issue.
 DocInfo/PatchNote548=Changed Egg Behaviour again.
 DocInfo/PatchNote549=Fixed another Egg issue.
+DocInfo/PatchNote550=Reworked 3v3 Mode.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

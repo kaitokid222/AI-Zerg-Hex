@@ -1669,7 +1669,7 @@
             <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="ZergSpecializationCreeperFerocity">
-            <Resource index="Vespene" value="88"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchFerocity3v3" Requirements="ResearchZergSpecialtyCreeperFerocity"/>
         </InfoArray>
         <InfoArray index="Research10" Upgrade="ZergSpecializationStrikelingDualHit">

@@ -233,7 +233,7 @@
             <WeaponDisableArray value="LaserPistol"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="UnknownBehavior2">
+    <CBehaviorBuff id="ProbiusPylon3v3">
         <BehaviorFlags index="Permanent" value="1"/>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
