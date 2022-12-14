@@ -149,6 +149,99 @@
         <Filter index="Enemy" value="1"/>
         <FixedSize value="12"/>
     </CActorText>
+    <CActorAction id="HydraliskAttack3v3" parent="GenericAttack" effectImpact="HydraliskNeedleSpinesRangedDamageEdit3v3" effectLaunch="NeedleSpinesLaunchMissile3v3">
+        <On index="2" Terms="Effect.HydraliskNeedleSpinesRangedDamageEdit3v3.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
+        <LaunchSiteOps Ops="SOpAttachHarness SOpForwardImpactGuide"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
+        <LaunchAssets Sound="Hydralisk_GroundAttackLaunch"/>
+        <Missile value="HydraliskAttackMissile"/>
+        <ImpactMap index="None" Model="HydraliskAttackImpact" Sound="Hydralisk_AttackImpactRanged"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="NeedleSpinesImpact" MatchKeys="Basic" Physics="HydraliskAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="20.000000"/>
+        <AcquisitionPitchHalfArc value="20.000000"/>
+        <AccuracyHalfArc value="25.000000"/>
+    </CActorAction>
+    <CActorUnit id="HydraliskDefender3v3" parent="GenericUnitBase" unitName="HydraliskDefender3v3">
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.NeedleSpinesDefender3v3.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
+        <On Terms="WeaponStart.NeedleSpinesDefender3v3.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart" Send="AnimPlay AttackCover Attack,Cover"/>
+        <On Terms="WeaponStart.NeedleSpinesDefender3v3.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.NeedleSpinesDefender3v3.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.NeedleSpinesDefender3v3.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.NeedleSpinesDefender3v3.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,00" Send="TimerSet 0.400000 MeleeAttackLaunch"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,01" Send="TimerSet 0.100000 MeleeAttackLaunch"/>
+        <On Terms="TimerExpired; TimerName MeleeAttackLaunch" Send="Create HydraliskMeleeAttackLaunch"/>
+        <On Terms="AbilMorph.MorphRoachToImpaler.Finish; MorphTo HydraliskImpaler; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphRoachToImpaler.Start; MorphFrom HydraliskImpaler; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.MorphRoachBurrowedToImpalerBurrowed.Finish; MorphTo HydraliskImpalerBurrowed; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphRoachBurrowedToImpalerBurrowed.Start; MorphFrom HydraliskImpalerBurrowed; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpalerBurrowed; !AbilKey BurrowDown" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpalerBurrowed; !AbilKey BurrowDown" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom HydraliskImpaler; MorphTo HydraliskImpalerBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpaler; MorphFrom HydraliskImpalerBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpaler; MorphFrom HydraliskImpalerBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="UnitBirth.HydraliskImpalerBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.HydraliskImpalerBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="UnitBirth.HydraliskDefender3v3" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpaler" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpalerBurrowed" Send="TerrainSquibDeactivate"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Hydra_Land"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <Model value="HydraliskImpaler"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
+        <BuildModel value="HydraliskImpaler"/>
+        <DeathArray index="Normal" ModelLink="HydraliskImpalerDeath" SoundLink="Hydralisk_Explode"/>
+        <DeathArray index="Disintegrate" ModelLink="HydraliskDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="HydraliskDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <PlacementModel value="HydraliskImpaler"/>
+        <PortraitModel value="HydraliskImpalerPortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.086"/>
+        <BarOffset value="60"/>
+        <BarWidth value="48"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-HydraliskEx1A.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-Zerg-Hydralisk-impaler.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="Hydralisk_Ready"/>
+        <SoundArray index="Help" value="Hydralisk_Help"/>
+        <SoundArray index="What" value="Hydralisk_What"/>
+        <SoundArray index="Yes" value="Hydralisk_Yes"/>
+        <SoundArray index="Attack" value="Hydralisk_Attack"/>
+        <SoundArray index="Pissed" value="Hydralisk_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-Zerg-Hydralisk-impaler.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-HydraliskEx1A.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorUnit id="InfestorZergHex22" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
         <Aliases value="_UnitLarge"/>
         <Macros value="ZergBurrowMobileAnimMacro"/>
@@ -437,6 +530,19 @@
         <StatusBarOn index="Life" value="0"/>
         <StatusBarOn index="Energy" value="0"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="0"/>
+    </CActorUnit>
+    <!--                                                                                         -->
+    <!-- Terrazine Tank ........................................................................ -->
+    <!--                                                                                         -->
+    <CActorUnit id="TerrazineTank">
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="Create TerrazineTextKicker6"/>
+        <On Terms="Behavior.GenerateTerrazine.Off" Send="AnimClear Work"/>
+        <On Terms="Behavior.GenerateTerrazine.Off" Send="TimerKill Stop"/>
+        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupApply A"/>
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="AnimPlay Work Stand,Work"/>
+        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
+        <BarOffset value="140"/>
     </CActorUnit>
     <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
@@ -2103,19 +2209,6 @@
         <On index="69" Terms="AbilMorph.*.Finish; MorphTo SiegeTank22"/>
         <On index="70" Terms="AbilMorph.*.Start; MorphFrom SiegeTank22"/>
         <HighlightTooltip value="Unit/Name/SiegeTankZergHex"/>
-    </CActorUnit>
-    <!--                                                                                         -->
-    <!-- Terrazine Tank ........................................................................ -->
-    <!--                                                                                         -->
-    <CActorUnit id="TerrazineTank">
-        <BarOffset value="140"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="Create TerrazineTextKicker6"/>
-        <On Terms="Behavior.GenerateTerrazine.Off" Send="AnimClear Work"/>
-        <On Terms="Behavior.GenerateTerrazine.Off" Send="TimerKill Stop"/>
-        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupRemove B"/>
-        <On Terms="Behavior.GenerateTerrazine.On" Send="AnimGroupApply A"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="AnimPlay Work Stand,Work"/>
-        <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
     </CActorUnit>
     <CActorSound id="UI_Pickup_NovaEquipment_ActorSound">
         <Sound value="UI_Pickup_NovaEquipment_ActorSound"/>

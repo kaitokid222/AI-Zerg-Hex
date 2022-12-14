@@ -512,4 +512,40 @@
             <quad value="82.5893,120.071,101.582,136.0671"/>
         </shape>
     </region>
+    <region id="86">
+        <name value="ZCC Bottom Left"/>
+        <shape type="rect">
+            <quad value="84.9897,117.0422,96.9897,118.0136"/>
+        </shape>
+    </region>
+    <region id="87">
+        <name value="ZCC Top Left"/>
+        <shape type="rect">
+            <quad value="84.9821,138.074,96.9821,139.0454"/>
+        </shape>
+    </region>
+    <region id="88">
+        <name value="ZCC Top Right"/>
+        <shape type="rect">
+            <quad value="142.979,138.0964,154.979,139.0678"/>
+        </shape>
+    </region>
+    <region id="89">
+        <name value="ZCC Bottom Right"/>
+        <shape type="rect">
+            <quad value="143.0175,117.03,155.0175,118.0014"/>
+        </shape>
+    </region>
+    <region id="90">
+        <name value="ZCC Bottom Center"/>
+        <shape type="rect">
+            <quad value="109.0151,126.0576,130.9543,127.0483"/>
+        </shape>
+    </region>
+    <region id="91">
+        <name value="ZCC Top Center"/>
+        <shape type="rect">
+            <quad value="109.004,129.1547,130.9992,130.12"/>
+        </shape>
+    </region>
 </Regions>

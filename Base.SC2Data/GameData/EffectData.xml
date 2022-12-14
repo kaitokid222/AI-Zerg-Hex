@@ -34,6 +34,22 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="EggClusterCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="HydraliskNeedleSpinesRangedDamageEdit3v3" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="3"/>
+        <AreaArray Radius="0.6" Fraction="0.5"/>
+        <AreaArray Radius="0.9" Fraction="0.25"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Dead,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="OffsetAreaByAngle" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="NeedleSpinesLaunchMissile3v3">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="HydraliskNeedleSpinesRangedDamageEdit3v3"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
     <CEffectDamage id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>
@@ -64,6 +80,15 @@
         <EffectArray value="SiegeTankFragmentBlastShardDamage"/>
         <EffectArray value="SiegeTankFragmentBlastShardImpactFire"/>
     </CEffectSet>
+    <CEffectSet id="SpawnCreeperDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnSlowlingDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="SpawnStrikelingDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectApplyBehavior id="VdayLoveBuffAB">
         <EditorCategories value=""/>
         <Behavior value="VdayLoveBuff"/>
@@ -76,12 +101,12 @@
     </CEffectSet>
     <CEffectModifyPlayer id="ConvertTerrazineConverterText">
         <EditorCategories value=""/>
-        <Marker Link="Effect/GasExtractionGainGas3"/>
+        <Marker Link="Effect/GainMineralsMineralMining20Text"/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Vespene" value="2"/>
-        <Resources index="Terrazine" value="-4"/>
-        <ResourcesCollected index="Vespene" value="2"/>
-        <ResourcesCollected index="Terrazine" value="-4"/>
+        <Resources index="Minerals" value="10"/>
+        <Resources index="Terrazine" value="-40"/>
+        <ResourcesCollected index="Minerals" value="10"/>
+        <ResourcesCollected index="Terrazine" value="-40"/>
     </CEffectModifyPlayer>
     <CEffectSet id="SpawnBeastlingDummy3v3">
         <EditorCategories value=""/>
@@ -160,6 +185,21 @@
     <CEffectEnumArea id="VortexSearchArea">
         <SearchFilters value="-;Self,Ally,Structure,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
+    <CEffectSet id="ZCCCenter">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="ZCCCreeperTimeldLifeStop">
+        <ValidatorArray index="0" value="ZCCCreeperUpgrade"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ZCCTimedLifeStop"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ZCCLeft">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="ZCCRight">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectSet id="ZergRallyEqualON">
         <ValidatorArray value="ZergRallyEqualONTargetFilters"/>
         <EditorCategories value=""/>
@@ -4790,6 +4830,7 @@
         <EditorCategories value=""/>
         <EffectArray value="CreeperSpinesDamage"/>
         <EffectArray value="CreeperSpinesApply"/>
+        <EffectArray value="ZCCCreeperTimeldLifeStop"/>
     </CEffectSet>
     <CEffectDamage id="FruitRemove">
         <Flags index="Kill" value="1"/>

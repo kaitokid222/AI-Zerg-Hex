@@ -2,6 +2,7 @@
 <Preload>
 <Asset path="assets\textures\ui_emoticons_gas.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_theart.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_zerg.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_infested.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_locust.dds" Type="Image"/>
 <Asset path="assets\textures\hud_bg_mechanicicon_coin.dds" Type="Image"/>
@@ -114,6 +115,13 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
+<Behavior id="StrikelingShielded"/>
+<Behavior id="ZCCRavatorTimedLife"/>
+<Behavior id="ZCCInfusedTimedLife"/>
+<Behavior id="ZCCTorraliskTimedLife"/>
+<Behavior id="SpawnFromLeft"/>
+<Behavior id="SpawnFromCenter"/>
+<Behavior id="SpawnFromRight"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

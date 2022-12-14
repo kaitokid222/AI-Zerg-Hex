@@ -189,7 +189,6 @@
         <Requirement>
             <Attribute Id="1"/>
             <Value Id="1"/>
-            <Value Id="3"/>
         </Requirement>
         <Value>
             <Id Value="2"/>
@@ -610,22 +609,10 @@
             <Icon Value="Assets\Textures\btn-unit-protoss-zealot-aiur.dds"/>
         </Value>
         <Value>
-            <Id Value="4"/>
-            <Name Value="Attribute010/Value004/Name"/>
-            <Description Value="Attribute010/Value004/Desc"/>
-            <Icon Value="Assets\Textures\btn-unit-terran-marauder.dds"/>
-        </Value>
-        <Value>
             <Id Value="7"/>
             <Name Value="Attribute010/Value007/Name"/>
             <Description Value="Attribute010/Value007/Desc"/>
             <Icon Value="Assets\Textures\btn-ability-spearofadun-orbitalassimilator.dds"/>
-        </Value>
-        <Value>
-            <Id Value="2"/>
-            <Name Value="Attribute010/Value002/Name"/>
-            <Description Value="Attribute010/Value002/Desc"/>
-            <Icon Value="Assets\Textures\btn-ability-terran-calldownextrasupplies-color.dds"/>
         </Value>
         <Value>
             <Id Value="9"/>
@@ -1076,6 +1063,7 @@
         <AttributeHidden Namespace="999" Id="3111"/>
         <AttributeHidden Namespace="0" Id="2"/>
         <AttributeHidden Namespace="0" Id="9"/>
+        <AttributeHidden Namespace="0" Id="8"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>
@@ -1249,6 +1237,7 @@
         <AttributeHidden Namespace="999" Id="3111"/>
         <AttributeHidden Namespace="0" Id="2"/>
         <AttributeHidden Namespace="0" Id="9"/>
+        <AttributeHidden Namespace="0" Id="8"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>

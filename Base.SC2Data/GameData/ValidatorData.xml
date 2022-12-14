@@ -222,6 +222,9 @@
         <Find value="1"/>
         <Value value="HaveGasExtraction3"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="Is3v3">
+        <Value value="Is3v3"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitType id="IsChemplantLarge">
         <Value value="LargeChemicalPlant"/>
     </CValidatorUnitType>
@@ -280,6 +283,9 @@
     <CValidatorUnitType id="IsTechlabHex">
         <Value value="TechLab3"/>
     </CValidatorUnitType>
+    <CValidatorPlayerRequirement id="Isnot3v3">
+        <Value value="Isnot3v3"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitType id="NotBomber">
         <Value value="InfestedExploder"/>
         <Find value="0"/>
@@ -295,10 +301,10 @@
         <CombineArray value="NotHiddenSelf"/>
         <CombineArray value="IsChaosMarine"/>
     </CValidatorCombine>
-    <CValidatorPlayerCompareResource id="PlayerHasGTE4Terrazine">
+    <CValidatorPlayerCompareResource id="PlayerHasGTE40Terrazine">
         <Compare value="GE"/>
         <Resource value="Terrazine"/>
-        <Value value="4"/>
+        <Value value="40"/>
     </CValidatorPlayerCompareResource>
     <CValidatorCombine id="ReactorIsDetached">
         <CombineArray index="0" value="IsNotConstructing"/>
@@ -1535,6 +1541,12 @@
         <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorLocationInPlayableMapArea id="AnimalMoveLocationValidator"/>
+    <CValidatorPlayerRequirement id="ZCCCreeperUpgrade">
+        <Value value="ZCCHasCreeperFerocity"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="ZCCNoTimedLifeStop">
+        <Behavior value="ZCCTimedLifeStop"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="ZergProtectiveBaseCanTargetLowerRamp">
         <CombineArray value="ZergProtectiveBaseTargetIsNotOnRamp"/>
         <CombineArray value="ZergProtectiveBaseTargetCliffLevelLT2"/>

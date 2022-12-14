@@ -161,12 +161,12 @@
         <MaxStackCount value="1000"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="GenerateTerrazine">
-        <InfoIcon value="Assets\Textures\icon-gas-terran.dds"/>
+        <InfoIcon value="Assets\Textures\icon-mineral.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="PlayerHasGTE40Terrazine"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="5"/>
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
-        <DisableValidatorArray value="PlayerHasGTE4Terrazine"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EggClusterB">
         <InfoFlags index="Hidden" value="1"/>
@@ -195,6 +195,18 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="10"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromCenter">
+        <InfoIcon value="Assets\Textures\btn-building-zerg-hive.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromLeft">
+        <InfoIcon value="Assets\Textures\cursor-edgescroll-left-zerg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnFromRight">
+        <InfoIcon value="Assets\Textures\cursor-edgescroll-right-zerg.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TorraliskRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
@@ -219,6 +231,16 @@
         <DisableValidatorArray value="CasterEnergyis0"/>
         <Modification>
             <WeaponDisableArray value="LaserPistol"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnknownBehavior2">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="Is3v3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="GenerateMinerals"/>
+            <BehaviorLinkDisableArray value="VespeneHarvestingUnlimited"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="VdayLoveBuff">
@@ -1781,6 +1803,25 @@
     <CBehaviorBuff id="ZCCTimedLife" parent="TimedLife">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="100"/>
+        <DisableValidatorArray value="ZCCNoTimedLifeStop"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCTimedLifeStop">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCTorraliskTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="340"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCRavatorTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="140"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZCCInfusedTimedLife" parent="TimedLife">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="240"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZergIncomeExtractorGreater">
         <InfoFlags index="Hidden" value="1"/>

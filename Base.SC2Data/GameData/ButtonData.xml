@@ -87,6 +87,96 @@
         <Icon value="assets\icon\ICON Defiler.dds"/>
         <AlertIcon value="assets\icon\ICON Defiler.dds"/>
     </CButton>
+    <CButton id="HydraliskDefender3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <Hotkey value="Button/Hotkey/Hydralisk"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchBankling3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
+    </CButton>
+    <CButton id="ResearchDualHit3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-swarmseeds-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-swarmseeds-color.dds"/>
+    </CButton>
+    <CButton id="ResearchFerocity3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-abathur-locustinjection.dds"/>
+    </CButton>
+    <CButton id="ResearchPackedMass3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+    </CButton>
+    <CButton id="ResearchPrimalRapidRespawn3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-deeptunnel.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-deeptunnel.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchTarInfection3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
+    </CButton>
+    <CButton id="ResearchTarSpawn3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-vile.dds"/>
+    </CButton>
+    <CButton id="SpawnFromCenter">
+        <Icon value="Assets\Textures\btn-building-zerg-hive.dds"/>
+    </CButton>
+    <CButton id="SpawnFromLeft">
+        <Icon value="Assets\Textures\cursor-edgescroll-left-zerg.dds"/>
+    </CButton>
+    <CButton id="SpawnFromRight">
+        <Icon value="Assets\Textures\cursor-edgescroll-right-zerg.dds"/>
+    </CButton>
+    <CButton id="ZergUpgrades">
+        <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchZergArmor13v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="ResearchZergArmor23v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor33v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor43v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergArmor53v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+        <HotkeyAlias value="ResearchZergArmor1"/>
+    </CButton>
+    <CButton id="ResearchZergMovement3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <HotkeyAlias value="ResearchZergMovement"/>
+    </CButton>
+    <CButton id="SpawnCreeper3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="SpawnSlowling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="SpawnStrikeling3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="TrainLoveMorales">
         <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
@@ -123,7 +213,7 @@
     <CButton id="SpawnUltra3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
     </CButton>
-    <CButton id="TerrazineDoubler">
+    <CButton id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
     <CButton id="SpawnInfusedRoach3v3">
@@ -141,10 +231,10 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="TerrazineDoubler2">
+    <CButton id="TerrazineIncomex3">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
-    <CButton id="TerrazineDoubler3">
+    <CButton id="TerrazineIncomex4">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
     <CButton id="UpgradeSuperEnergyGeneration">
