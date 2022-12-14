@@ -609,22 +609,10 @@
             <Icon Value="Assets\Textures\btn-unit-protoss-zealot-aiur.dds"/>
         </Value>
         <Value>
-            <Id Value="4"/>
-            <Name Value="Attribute010/Value004/Name"/>
-            <Description Value="Attribute010/Value004/Desc"/>
-            <Icon Value="Assets\Textures\btn-unit-terran-marauder.dds"/>
-        </Value>
-        <Value>
             <Id Value="7"/>
             <Name Value="Attribute010/Value007/Name"/>
             <Description Value="Attribute010/Value007/Desc"/>
             <Icon Value="Assets\Textures\btn-ability-spearofadun-orbitalassimilator.dds"/>
-        </Value>
-        <Value>
-            <Id Value="2"/>
-            <Name Value="Attribute010/Value002/Name"/>
-            <Description Value="Attribute010/Value002/Desc"/>
-            <Icon Value="Assets\Textures\btn-ability-terran-calldownextrasupplies-color.dds"/>
         </Value>
         <Value>
             <Id Value="9"/>

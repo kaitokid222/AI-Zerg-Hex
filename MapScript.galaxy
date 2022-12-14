@@ -1820,23 +1820,17 @@ void gf_apply_support_3v3 () {
         else if (auto29B4316B_val == "0008") {
             lv_picked_bonus_int = 6;
         }
-        else if (auto29B4316B_val == "0002") {
+        else if (auto29B4316B_val == "0003") {
             lv_picked_bonus_int = 7;
         }
-        else if (auto29B4316B_val == "0004") {
+        else if (auto29B4316B_val == "0005") {
             lv_picked_bonus_int = 8;
         }
-        else if (auto29B4316B_val == "0003") {
+        else if (auto29B4316B_val == "0010") {
             lv_picked_bonus_int = 9;
         }
-        else if (auto29B4316B_val == "0005") {
-            lv_picked_bonus_int = 10;
-        }
-        else if (auto29B4316B_val == "0010") {
-            lv_picked_bonus_int = 11;
-        }
         else if (auto29B4316B_val == "0013") {
-            lv_picked_bonus_int = 12;
+            lv_picked_bonus_int = 10;
         }
         else {
         }
@@ -1845,11 +1839,7 @@ void gf_apply_support_3v3 () {
         }
 
         if ((lv_picked_bonus_int == 1)) {
-            lv_picked_bonus_int = RandomInt(2, 13);
-            if ((lv_picked_bonus_int == 12)) {
-                lv_picked_bonus_int = RandomInt(2, 11);
-            }
-
+            lv_picked_bonus_int = RandomInt(2, 9);
         }
 
         auto62D37381_val = lv_picked_bonus_int;
@@ -1873,9 +1863,8 @@ void gf_apply_support_3v3 () {
                 if (auto5610767C_var == null) { break; }
                 lv_p = UnitGetPosition(auto5610767C_var);
                 UnitRemove(auto5610767C_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosCultist", 0, auto4A0E4D9D_var, lv_p);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosSpaceMarine", 0, auto4A0E4D9D_var, lv_p);
             }
-            libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
             libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
         }
         else if (auto62D37381_val == 3) {
@@ -1956,22 +1945,6 @@ void gf_apply_support_3v3 () {
             }
         }
         else if (auto62D37381_val == 7) {
-            gf_create_raynor_support_forplayer(auto4A0E4D9D_var);
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Raynor", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
-            lv_portrait_unit = UnitLastCreated();
-            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/EC249A99"), StringExternal("Param/Value/BA3B975C"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[auto4A0E4D9D_var].lv_support_type = "Raynor";
-        }
-        else if (auto62D37381_val == 8) {
-            gf_create_marauder_support_forplayer(auto4A0E4D9D_var);
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Marauder", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
-            lv_portrait_unit = UnitLastCreated();
-            UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
-            TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/BEFCC774"), StringExternal("Param/Value/6EA810E0"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
-            gv_players[auto4A0E4D9D_var].lv_support_type = "Marauder";
-        }
-        else if (auto62D37381_val == 9) {
             gf_create_artanis_support_forplayer(auto4A0E4D9D_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Artanis", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
@@ -1979,7 +1952,7 @@ void gf_apply_support_3v3 () {
             TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/EF4330DB"), StringExternal("Param/Value/BC764C77"), 15.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
             gv_players[auto4A0E4D9D_var].lv_support_type = "Artanis";
         }
-        else if (auto62D37381_val == 10) {
+        else if (auto62D37381_val == 8) {
             gf_create_tank_support_forplayer(auto4A0E4D9D_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "SiegeTank2", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
@@ -1987,7 +1960,7 @@ void gf_apply_support_3v3 () {
             TransmissionSendForPlayerSelect(PlayerGroupSingle(auto4A0E4D9D_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/051D4070"), StringExternal("Param/Value/70429A66"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
             gv_players[auto4A0E4D9D_var].lv_support_type = "Tank";
         }
-        else if (auto62D37381_val == 11) {
+        else if (auto62D37381_val == 9) {
             gf_create_probius_support_forplayer(auto4A0E4D9D_var);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Probius", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
@@ -1996,7 +1969,7 @@ void gf_apply_support_3v3 () {
             TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 7), true);
             gv_players[auto4A0E4D9D_var].lv_support_type = "Probius";
         }
-        else if (auto62D37381_val == 12) {
+        else if (auto62D37381_val == 10) {
             gv_players[auto4A0E4D9D_var].lv_support_type = "Prebuilt";
         }
         else {
