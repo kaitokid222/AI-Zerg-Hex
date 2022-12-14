@@ -1476,12 +1476,12 @@ void gf_remove_transmission_units () {
 void gf_apply_support () {
     // Automatic Variable Declarations
     // Implementation
-    if ((GameAttributeGameValue("1") == "0001")) {
-        gf_apply_support_casual();
+    if ((gf_is_3v3() == true)) {
+        gf_apply_support_3v3();
     }
     else {
-        if ((GameAttributeGameValue("1") == "0003")) {
-            gf_apply_support_3v3();
+        if ((GameAttributeGameValue("1") == "0001")) {
+            gf_apply_support_casual();
         }
 
     }
