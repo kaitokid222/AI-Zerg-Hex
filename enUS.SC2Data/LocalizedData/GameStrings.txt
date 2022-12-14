@@ -3788,6 +3788,7 @@ Upgrade/Name/MarineOvercharge=Marine Overcharge
 Upgrade/Name/MarinePenetratingLaser=Marine Penetrating Laser
 Upgrade/Name/MarineShatteringLaser=Marine Shattering Laser
 Upgrade/Name/MarineShatteringLaserUpgrade=Marine Shattering Laser Upgrade
+Upgrade/Name/Mode3v3=Mode 3v3
 Upgrade/Name/OperationCenterEmpoweredWarp=Operation Center - Empowered Warp
 Upgrade/Name/OperationCenterMineralMining=Operation Center - Mineral Mining
 Upgrade/Name/OperationCenterReaperSuitUpgrade=Operation Center - Reaper Suit Upgrade

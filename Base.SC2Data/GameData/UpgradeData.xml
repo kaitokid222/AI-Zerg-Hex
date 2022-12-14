@@ -53,6 +53,7 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="Mode3v3"/>
     <CUpgrade id="SiegeTankBetterVersion">
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT2,Amount" Value="325"/>
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT3,Amount" Value="375"/>

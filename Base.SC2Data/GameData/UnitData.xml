@@ -2154,6 +2154,7 @@
         <BehaviorArray Link="MatrixOverload"/>
         <BehaviorArray Link="GenerateMinerals"/>
         <BehaviorArray Link="VespeneHarvestingUnlimited"/>
+        <BehaviorArray Link="UnknownBehavior2"/>
         <TurretArray value="PylonCrystalRotate"/>
         <TurretArray value="PylonRingRotate"/>
         <CardLayouts>

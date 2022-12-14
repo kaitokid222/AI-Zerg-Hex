@@ -233,6 +233,16 @@
             <WeaponDisableArray value="LaserPistol"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="UnknownBehavior2">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="Is3v3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="GenerateMinerals"/>
+            <BehaviorLinkDisableArray value="VespeneHarvestingUnlimited"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="VdayLoveBuff">
         <InfoIcon value="Assets\Textures\ui_emoticons_theart.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

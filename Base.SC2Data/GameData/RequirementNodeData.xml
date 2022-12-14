@@ -768,6 +768,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MarineShatteringLaserUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeMode3v3CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="Mode3v3" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeOperationCenterEmpoweredWarpCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="OperationCenterEmpoweredWarp" State="CompleteOnly"/>
@@ -1550,6 +1555,10 @@
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeMode3v3CompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeMode3v3CompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter"/>

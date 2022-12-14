@@ -24,6 +24,12 @@
     <CRequirement id="HaveTier3andlessthan5defilers">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
     </CRequirement>
+    <CRequirement id="Is3v3">
+        <NodeArray index="Use" Link="CountUpgradeMode3v3CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Isnot3v3">
+        <NodeArray index="Use" Link="NotCountUpgradeMode3v3CompleteOnly"/>
+    </CRequirement>
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>

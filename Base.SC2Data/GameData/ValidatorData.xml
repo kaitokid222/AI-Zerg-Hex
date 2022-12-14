@@ -222,6 +222,9 @@
         <Find value="1"/>
         <Value value="HaveGasExtraction3"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="Is3v3">
+        <Value value="Is3v3"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitType id="IsChemplantLarge">
         <Value value="LargeChemicalPlant"/>
     </CValidatorUnitType>
@@ -280,6 +283,9 @@
     <CValidatorUnitType id="IsTechlabHex">
         <Value value="TechLab3"/>
     </CValidatorUnitType>
+    <CValidatorPlayerRequirement id="Isnot3v3">
+        <Value value="Isnot3v3"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitType id="NotBomber">
         <Value value="InfestedExploder"/>
         <Find value="0"/>
