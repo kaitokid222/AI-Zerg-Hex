@@ -5314,7 +5314,7 @@ void gf_end_game_3v3 () {
         }
     }
 
-    Wait(12.0, c_timeGame);
+    Wait(7.0, c_timeGame);
     if (((gf_is_terran_dead() == true) || (gf_is_zerg_dead() == true))) {
         auto2433D401_g = gv_terrans;
         auto2433D401_var = -1;
