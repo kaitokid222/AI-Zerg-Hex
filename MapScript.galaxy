@@ -7241,7 +7241,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 bool gf_is_overseer (unit lp_unit) {
