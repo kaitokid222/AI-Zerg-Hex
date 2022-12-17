@@ -2405,7 +2405,7 @@ bool gf_player_is_chaos (int lp_player) {
     // Variable Initialization
 
     // Implementation
-    if (((GameAttributePlayerValue("5", lp_player) == "0009") || ((GameAttributePlayerValue("5", lp_player) == "0012") && (gv_players[lp_player].lv_support_type == "Army")))) {
+    if (((GameAttributePlayerValue("5", lp_player) == "0009") || (GameAttributePlayerValue("10", lp_player) == "0009") || (gv_players[lp_player].lv_support_type == "Army") || ((GameAttributePlayerValue("5", lp_player) == "0012") && (gv_players[lp_player].lv_support_type == "Army")))) {
         lv_r = true;
     }
 
@@ -2758,7 +2758,7 @@ bool gf_player_selected_prebuilt (int lp_player) {
     // Variable Initialization
 
     // Implementation
-    if (((GameAttributePlayerValue("5", lp_player) == "0013") || ((GameAttributePlayerValue("5", lp_player) == "0012") && (gv_players[lp_player].lv_support_type == "Prebuilt")))) {
+    if (((GameAttributePlayerValue("5", lp_player) == "0013") || (GameAttributePlayerValue("10", lp_player) == "0013") || (gv_players[lp_player].lv_support_type == "Prebuilt"))) {
         lv_r = true;
     }
 
