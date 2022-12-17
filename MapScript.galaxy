@@ -5227,12 +5227,14 @@ void gf_shot_fireworks (int lp_waves) {
         VisRevealArea(autoE6C34CE4_var, RegionEntireMap(), 0.0, false);
         CameraPan(autoE6C34CE4_var, PointFromId(1910508930), 0.0, -1, 10.0, false);
     }
-    if ((gf_is_terrans_team_top_dead() == false)) {
+    if ((gf_did_top_win() == true)) {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/0305384B"));
     }
-    else {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/988D17A7"));
+
+    if ((gf_did_bottom_win() == true)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/5997546D"));
     }
+
     while ((lv_i < lp_waves)) {
         lv_used_points[1] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
         lv_used_points[2] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
@@ -5286,7 +5288,10 @@ void gf_end_game_3v3 () {
     int auto2433D401_var;
 
     // Implementation
-    gf_shot_fireworks(15);
+    if (((gf_did_top_win() == true) || (gf_did_bottom_win() == true))) {
+        gf_shot_fireworks(15);
+    }
+
     if ((gf_did_bottom_win() == true)) {
         auto459C5D99_g = gv_terrans_team_bottom;
         auto459C5D99_var = -1;
