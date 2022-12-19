@@ -3186,6 +3186,7 @@ Param/Value/53186217=Player
 Param/Value/579D07E4=<c val="FFFFC4">A </c><c val="FAED4B">
 Param/Value/5815D306=Timer mode switched!
 Param/Value/5962097F=-
+Param/Value/5997546D=The bottom team has won!
 Param/Value/5A88A4D0=Signal Count: 
 Param/Value/5B5C09AA=Play 1 game to enable
 Param/Value/5DA83870=Terran death before 11 minutes..
@@ -3270,7 +3271,6 @@ Param/Value/94E41F97=Valentines Day Event is active!
 Param/Value/95792C97=Rock the vote started by player 
 Param/Value/95869415=:
 Param/Value/96E1241D=Exploit Turned Off: 
-Param/Value/988D17A7=The bottom team has won!
 Param/Value/999A3F6F=
 Param/Value/9A19E1ED=Use the overseers to move the zerg rally points for the opposing team.
 Param/Value/9A38497E=<c val="FF5959">Note:</c> <c val="FF9797">Must have 1 Zerg when playing with 5 or less players</c>
