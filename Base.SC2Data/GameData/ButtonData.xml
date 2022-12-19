@@ -13,6 +13,11 @@
     <CButton id="AnimalRequestFarm">
         <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-zealotchampionengage.dds"/>
     </CButton>
+    <CButton id="BuildCreepTumor3v3">
+        <Icon value="Assets\Textures\btn-building-zerg-creeptumor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-creeptumor.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="BuildTerrazineGenerator">
         <Icon value="Assets\Textures\btn-building-terran-terrazinerefinery.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-terrazinerefinery.dds"/>
@@ -128,6 +133,11 @@
     </CButton>
     <CButton id="SpawnFromRight">
         <Icon value="Assets\Textures\cursor-edgescroll-right-zerg.dds"/>
+    </CButton>
+    <CButton id="TransfusionZagara3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="ZergUpgrades">
         <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>

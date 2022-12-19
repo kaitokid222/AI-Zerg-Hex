@@ -907,6 +907,7 @@ trigger gt_zerg_rally_minus_on;
 trigger gt_zerg_rally_plus_on;
 trigger gt_relocate_spawners_rally_action;
 trigger gt_zerg_vision_3v3;
+trigger gt__3v3test;
 trigger gt_CCdestroyed;
 trigger gt_playerleavesgame;
 trigger gt_spawnheart;
@@ -7241,7 +7242,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 bool gf_is_overseer (unit lp_unit) {
@@ -19684,6 +19685,43 @@ void gt_zerg_vision_3v3_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -3v3test
+//--------------------------------------------------------------------------------------------------
+bool gt__3v3test_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[1].lv__3v3_zerg_pid, gf__3v3_get_hatchery_position_closest_to_target(6));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt__3v3test_Init () {
+    gt__3v3test = TriggerCreate("gt__3v3test_Func");
+    TriggerAddEventChatMessage(gt__3v3test, c_playerAny, "-3v3test", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: CC destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
@@ -25456,6 +25494,7 @@ void InitTriggers () {
     gt_zerg_rally_plus_on_Init();
     gt_relocate_spawners_rally_action_Init();
     gt_zerg_vision_3v3_Init();
+    gt__3v3test_Init();
     gt_CCdestroyed_Init();
     gt_playerleavesgame_Init();
     gt_spawnheart_Init();

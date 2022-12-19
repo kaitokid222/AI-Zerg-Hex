@@ -661,6 +661,7 @@ Button/Name/BuildChemicalPlant=Build Chemical Plant
 Button/Name/BuildConstructionYard=Build Construction Yard
 Button/Name/BuildConverter=Build Converter
 Button/Name/BuildCowFarm=Build Cow Farm
+Button/Name/BuildCreepTumor3v3=Spawn Creep Tumor
 Button/Name/BuildDefender=Build Defender
 Button/Name/BuildEventTechCenter=Build Event Tech Center
 Button/Name/BuildFruitFarm=Build Fruit Farm
@@ -982,6 +983,7 @@ Button/Name/TrainShockTrooper=Train Shock Trooper
 Button/Name/TrainVeteranMarine=Train Veteran Marine
 Button/Name/TransferringResources=Transferring Resources
 Button/Name/TransfusionInfestor=Transfusion
+Button/Name/TransfusionZagara3v3=Transfusion
 Button/Name/TransportVertical=Transport Vertical
 Button/Name/TransporterMenu=Transporter Menu
 Button/Name/Unstoppable=Unstoppable
@@ -1047,6 +1049,7 @@ Button/Tooltip/BuildChemicalPlant=Generates gas and allows training of Firebats.
 Button/Tooltip/BuildConstructionYard=Nearby structures take 40% less damage and regenerate slowly.<n/><n/>Contains various defense and economy upgrades.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildConverter=Converts minerals into gas or the other way around. Turns 4 into 2 of the other resource every 5 seconds. Process can be turned off.<n/><n/>Produces <c val="6CEA4D">gas</c> by default.
 Button/Tooltip/BuildCowFarm=Generates 2 minerals every 10 seconds.<n/><n/>Allows spawning of one more cow from any cow farm. Cows eat fruit from a fruit farm to gain minerals.
+Button/Tooltip/BuildCreepTumor3v3=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/BuildDefender=Can repair from a distance. Able to link to structures to enhance defensive capabilities.
 Button/Tooltip/BuildEventTechCenter=Allows to research special technologies.
 Button/Tooltip/BuildFruitFarm=Provides fruit to generate minerals. Produces one fruit every 6 seconds. Enough for 3 farm animals.<n/><n/><c val="ffff8a">Effects of fruit:</c><n/>- Left decayed <c val="58BEF5">(+1)</c><n/>- Eaten by sheep <c val="58BEF5">(+<d ref="Effect,SheepMineralGainDisplay,Resources[Minerals]"/>)</c><n/>- Eaten by cow <c val="58BEF5">(+<d ref="Effect,CowMineralGainDisplay,Resources[Minerals]"/>)</c><n/><n/>Mineral gain from animals can be upgraded at the Construction Yard.
@@ -1511,6 +1514,7 @@ Button/Tooltip/TrainReaper=Short range mobile unit capable of flying over terrai
 Button/Tooltip/TrainShockTrooper=Unit dealing splash damage in a small area. Has an ability to fire a long range blast.<n/><n/>Weapon uses 2 energy per shot.
 Button/Tooltip/TrainVeteranMarine=More durable marine dealing more damage.<n/><n/>Weapon uses 2 energy per shot.
 Button/Tooltip/TransfusionInfestor=Instantly restores 300 life to target biological unit or structure. Structures gain 200 maximum health, up to a maximum of 1600.<n/><n/>Will be cast on itself to prevent death when the Infestor has enough energy.<n/><n/>Cannot be cast on the Hive or Omegalisk.
+Button/Tooltip/TransfusionZagara3v3=Instantly restores 300 life to target biological unit or structure. Structures gain 200 maximum health, up to a maximum of 1600.<n/><n/>Will be cast on itself to prevent death when Zagara has enough energy.<n/><n/>Cannot be cast on the Hive or Omegalisk.
 Button/Tooltip/TransportVertical=Vertical travel distance is only 75% of regular diagonal travel distance.
 Button/Tooltip/Transporter=
 Button/Tooltip/TransporterMenu=Click to select a transport unit.

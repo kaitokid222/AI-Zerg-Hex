@@ -378,6 +378,14 @@
         <AINotifyEffect value="PickupBlood"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
     </CAbilEffectTarget>
+    <!--                                                                                        -->
+    <!-- End Of New Zerg Upgrade                                                                -->
+    <!--                                                                                        -->
+    <CAbilBuild id="QueenBuild">
+        <InfoArray index="Build1">
+            <Cooldown TimeUse="10"/>
+        </InfoArray>
+    </CAbilBuild>
     <CAbilEffectInstant id="SpawnBanelingGroup">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
@@ -1697,6 +1705,12 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnFromRight" Requirements="SpawnFromRight"/>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="ZaGaraDeepTunnel">
+        <Cost>
+            <Charge Link="Abil/ZaGaraDeepTunnel"/>
+            <Cooldown Link="Abil/ZaGaraDeepTunnel" TimeUse="30"/>
+        </Cost>
+    </CAbilEffectTarget>
     <!--CAbilTransport id="MedivacTransport">-->
     <!--        <LoadValidatorArray value="NoNP"/>-->
     <!--    </CAbilTransport>-->
