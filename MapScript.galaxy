@@ -11934,6 +11934,7 @@ int gf_get_hive_g_int (unit lp_unit) {
 void gf_HiveDamageRecieved (fixed lp_damage, unit lp_hive) {
     // Variable Declarations
     fixed lv_hive_max_hp;
+    int lv_total_damage;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -11942,6 +11943,11 @@ void gf_HiveDamageRecieved (fixed lp_damage, unit lp_hive) {
     // Implementation
     gv_hives[gf_get_hive_g_int(lp_hive)].lv_damage += lp_damage;
     UnitSetPropertyFixed(lp_hive, c_unitPropLifeMax, (lv_hive_max_hp - lp_damage));
+    if ((gf_is_3v3() == true) && (gv_hives[gf_get_hive_g_int(lp_hive)].lv_damage >= 2500.0) && (UnitGetPropertyInt(lp_hive, c_unitPropLife, c_unitPropCurrent) == 1) && (UnitGetPropertyInt(lp_hive, c_unitPropLifeMax, c_unitPropCurrent) == 1)) {
+        UnitSetPropertyFixed(lp_hive, c_unitPropLife, 0.0);
+        UnitSetPropertyFixed(lp_hive, c_unitPropLifeMax, 0.0);
+    }
+
 }
 
 void gf_define_hydra_variables () {
@@ -22935,12 +22941,10 @@ void gt_f2triggerevery5s_Init () {
 bool gt_IonCannonApplyPermaDamage_Func (bool testConds, bool runActions) {
     // Variable Declarations
     fixed lv_damage;
-    fixed lv_damage_real;
 
     // Automatic Variable Declarations
     // Variable Initialization
     lv_damage = 6.0;
-    lv_damage_real = CatalogReferenceGetAsInt("Effect,IonBeamDirectDamage,Amount", c_playerAny);
 
     // Conditions
     if (testConds) {
