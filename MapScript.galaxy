@@ -5216,6 +5216,10 @@ void gf__3v3_player_died (int lp_player) {
         gf_create_zagara(lp_player);
     }
 
+    if (((gf_is_terrans_team_bottom_dead() == true) || (gf_is_terrans_team_top_dead() == true))) {
+        gv_req_torra = 4;
+    }
+
     if ((gf_is_terrans_team_bottom_dead() == true)) {
         autoEA06CB41_g = gv_flying_rally_group;
         autoEA06CB41_u = UnitGroupCount(autoEA06CB41_g, c_unitCountAll);
@@ -16263,16 +16267,21 @@ void gf_get_attackup () {
     lv_i = 1;
 
     // Implementation
-    if ((gv_difficulty < 4)) {
-        lv_max_upgrade = (10 + (gv_difficulty * 10));
+    if ((gf_is_3v3() == true)) {
+        lv_interval = 95;
     }
     else {
-        if ((gv_difficulty >= 7)) {
-            lv_max_upgrade = (lv_max_upgrade + 10);
+        if ((gv_difficulty < 4)) {
+            lv_max_upgrade = (10 + (gv_difficulty * 10));
         }
+        else {
+            if ((gv_difficulty >= 7)) {
+                lv_max_upgrade = (lv_max_upgrade + 10);
+            }
 
+        }
     }
-    if ((lv_time > (20 * 60)) && (gv_difficulty >= 5)) {
+    if ((lv_time > (20 * 60)) && ((gv_difficulty >= 5) || (gf_is_3v3() == true))) {
         lv_upcnt = (lv_upcnt + 1);
     }
 
