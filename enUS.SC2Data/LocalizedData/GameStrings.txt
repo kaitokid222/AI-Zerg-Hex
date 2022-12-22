@@ -3092,6 +3092,7 @@ Param/Expression/E83DB38F=Terran: <c val="03DA74">~A~W</c> / <c val="DD0005">~B~
 Param/Expression/ECF36BA8=Large Spawner Added: ~A~
 Param/Expression/EE276F01=Research <c val="E1848D">~A~ ~B~</c> completed
 Param/Expression/F1559DB1=Spawner Removed: ~A~
+Param/Value/008594BF=Zagara will respawn in 10 seconds!
 Param/Value/01EE3A16=Voting got started for a different event!
 Param/Value/01F40F98=Artanis
 Param/Value/02A43A7E=Play 1 game to enable
@@ -3193,6 +3194,7 @@ Param/Value/5962097F=-
 Param/Value/5997546D=The bottom team has won!
 Param/Value/5A88A4D0=Signal Count: 
 Param/Value/5B5C09AA=Play 1 game to enable
+Param/Value/5C311BD0=Zagara will respawn in 20 seconds!
 Param/Value/5DA83870=Terran death before 11 minutes..
 Param/Value/5DB3E85A=You have 
 Param/Value/5DCE7EAF=Deploy
@@ -3293,6 +3295,7 @@ Param/Value/A2BA7C6A=10 Minutes left before Zerg wins!
 Param/Value/A44E9949=label test name
 Param/Value/A5BD5F19=You need the Construction Yard for advanced structures.
 Param/Value/A6791F10=Hammer
+Param/Value/A7634E7C=Zagara will respawn in 30 seconds!
 Param/Value/A7776EFA=<c val="FF9797">Rock exploits have been terminated.</c>
 Param/Value/A78F37AC=Extractor Remove Notice
 Param/Value/A8BB9DD4=Send Amount
