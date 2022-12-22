@@ -2119,6 +2119,7 @@ DocInfo/PatchNote547=Fixed Issue.
 DocInfo/PatchNote548=Changed Egg Behaviour again.
 DocInfo/PatchNote549=Fixed another Egg issue.
 DocInfo/PatchNote550=Reworked 3v3 Mode.
+DocInfo/PatchNote551=Fixed Issues.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior
