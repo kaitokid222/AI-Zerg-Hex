@@ -425,6 +425,7 @@
         <CardLayouts CardId="0003">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
+        <FlagArray index="Unstoppable" value="1"/>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
         <Subtitle value="UnitSubtitle/HydraliskDefender3v3"/>

@@ -560,8 +560,8 @@
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="60"/>
-                <TimeUse value="60"/>
+                <TimeStart value="45"/>
+                <TimeUse value="45"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="RequirementArmor1"/>

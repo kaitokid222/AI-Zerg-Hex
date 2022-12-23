@@ -4396,7 +4396,7 @@
     </CEffectSet>
     <CEffectEnumArea id="TechLabWarpEnergySearch">
         <EditorCategories value=""/>
-        <SearchFilters value="Ground,CanHaveEnergy;Self,Neutral,Enemy,Missile,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="Ground,CanHaveEnergy;Self,Neutral,Enemy,Missile,Dead,Hidden,Invulnerable,Unstoppable"/>
         <TargetSorts>
             <SortArray value="TSEnergyFraction"/>
         </TargetSorts>
