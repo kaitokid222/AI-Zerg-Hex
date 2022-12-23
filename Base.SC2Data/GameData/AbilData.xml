@@ -3255,7 +3255,7 @@
             <Charge Link="Abil/EnergyDisperse"/>
             <Cooldown Link="Abil/EnergyDisperse"/>
         </Cost>
-        <TargetFilters index="0" value="-;Self,Neutral,Enemy"/>
+        <TargetFilters index="0" value="-;Self,Neutral,Enemy,Unstoppable"/>
         <TargetSorts>
             <SortArray index="0" value="TSEnergyFractionMost"/>
             <SortArray index="1" removed="1"/>
