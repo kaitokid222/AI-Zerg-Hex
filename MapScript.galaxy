@@ -19306,6 +19306,7 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     }
     else if (auto011C7887_val == "SpawnInfestorDummy") {
         gf_spawn_3v3_zerg_unit(EventPlayer(), 1, "InfestorZergHex3v3");
+        TechTreeUpgradeAddLevel(EventPlayer(), "ZCCEnergyUpgrade", 1);
     }
     else if (auto011C7887_val == "SpawnInfusedDummy") {
         gf_update_zcc_spawn(EventPlayer(), "InfusedRoach");

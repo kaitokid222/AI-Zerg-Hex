@@ -1212,7 +1212,7 @@ Button/Tooltip/Hive2=
 Button/Tooltip/HiveMindEmulator=Tech Structure. Allows you to buy zerg support and therefore indirectly attack the other team.
 Button/Tooltip/HotSRaptor=
 Button/Tooltip/Hydralisk=
-Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="D95200">Cannot attack zerg buildings.</c><n/><n/><c val="ffff8a">Zerg Armor</c> <c val="85BCFA">upgrades increase attack damage, attack range, max health and health regen.</c>
+Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="ffff8a">Zerg Armor</c> upgrades increase attack damage, attack range, max health and health regen.<n/><n/><c val="D95200">Cannot attack zerg buildings.</c><n/>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
 Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
@@ -1447,12 +1447,12 @@ Button/Tooltip/SpawnFromLeft=Zerg units will appear from the left side.
 Button/Tooltip/SpawnFromRight=Zerg units appear from the right side.
 Button/Tooltip/SpawnHydralisk=Durable ranged unit. Generates additional lives every 50 seconds, every additional life grants a +1 range bonus. Maximum of +2 lives, starting with +1 when created.<n/><n/>Loses life rapidly and moves slowly while off creep.
 Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. Gains energy while attacking, energy is required to mutate into Large Spawners.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
-Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
+Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
 Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
-Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds<n/><n/><c val="94D1D1"><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
 Button/Tooltip/SpawnRavator=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/>
 Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit lasting 140 seconds every 50 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
@@ -3826,6 +3826,7 @@ Upgrade/Name/Tier3Equipment=Tier 3 Equipment
 Upgrade/Name/UnifiedArmor=Unified Armor
 Upgrade/Name/UpgradedCombatShield=Upgraded Combat Shield
 Upgrade/Name/WeaponCapacity=Weapon Capacity
+Upgrade/Name/ZCCEnergyUpgrade=ZCC Energy Upgrade
 Upgrade/Name/ZergArmor1=Zerg Armor 1
 Upgrade/Name/ZergArmor2=Zerg Armor 2
 Upgrade/Name/ZergArmor3=Zerg Armor 3

@@ -3316,6 +3316,7 @@ Upgrade/EditorSuffix/TerrazineIncomex2=3v3
 Upgrade/EditorSuffix/TerrazineIncomex3=3v3
 Upgrade/EditorSuffix/TerrazineIncomex4=3v3
 Upgrade/EditorSuffix/WeaponCapacity=long night hex
+Upgrade/EditorSuffix/ZCCEnergyUpgrade=3v3
 Upgrade/EditorSuffix/ZergAttack=(+25%)
 Upgrade/EditorSuffix/ZergMovement=(+20%)
 Validator/EditorPrefix/CasterAvailableValidatorSet=Energy Network -

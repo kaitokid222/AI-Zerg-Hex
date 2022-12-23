@@ -358,7 +358,7 @@
     </CUnit>
     <CUnit id="HiveMindEmulator">
         <EnergyStart value="0"/>
-        <EnergyMax value="0"/>
+        <EnergyMax value="1000"/>
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>

@@ -381,6 +381,10 @@
     <CUpgrade id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
+    <CUpgrade id="ZCCEnergyUpgrade">
+        <EffectArray Reference="Unit,HiveMindEmulator,EnergyRegenRate" Value="1.000000"/>
+        <MaxLevel value="60"/>
+    </CUpgrade>
     <CUpgrade id="ZergAttack">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <EffectArray Reference="Effect,TanklingMeleeDamage,Amount" Value="0.75"/>

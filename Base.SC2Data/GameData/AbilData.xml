@@ -5,8 +5,8 @@
         <Effect index="0" value="SpawnInfusedDummy"/>
         <Cost>
             <Resource index="Minerals" value="200"/>
-            <Resource index="Vespene" value="70"/>
             <Resource index="Terrazine" value="850"/>
+            <Vital index="Energy" value="700"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -23,8 +23,8 @@
         <Effect index="0" value="SpawnRavDummy"/>
         <Cost>
             <Resource index="Minerals" value="100"/>
-            <Resource index="Vespene" value="40"/>
             <Resource index="Terrazine" value="550"/>
+            <Vital index="Energy" value="400"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -41,8 +41,8 @@
         <Effect index="0" value="SpawnTorraDummy"/>
         <Cost>
             <Resource index="Minerals" value="540"/>
-            <Resource index="Vespene" value="100"/>
             <Resource index="Terrazine" value="3000"/>
+            <Vital index="Energy" value="1000"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
