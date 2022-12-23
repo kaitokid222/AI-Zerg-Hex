@@ -149,6 +149,91 @@
         <Filter index="Enemy" value="1"/>
         <FixedSize value="12"/>
     </CActorText>
+    <CActorUnit id="Hydralisk22" parent="GenericUnitBase" unitName="HydraliskLevel23v3">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.HydraliskNeedleSpines2.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
+        <On Terms="WeaponStart.HydraliskNeedleSpines2.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
+        <On Terms="WeaponStart.HydraliskMelee2.AttackStart" Send="AnimPlay AttackCover Attack,Cover"/>
+        <On Terms="WeaponStart.HydraliskNeedleSpines2.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.HydraliskNeedleSpines2.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.HydraliskNeedleSpines2.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.HydraliskNeedleSpines2.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="WeaponStart.HydraliskMelee2.AttackStart; AnimPlaying AttackCover Cover,00" Send="TimerSet 0.400000 MeleeAttackLaunch"/>
+        <On Terms="WeaponStart.HydraliskMelee2.AttackStart; AnimPlaying AttackCover Cover,01" Send="TimerSet 0.100000 MeleeAttackLaunch"/>
+        <On Terms="TimerExpired; TimerName MeleeAttackLaunch" Send="Create HydraliskMeleeAttackLaunch"/>
+        <On Terms="WeaponStart.PrimalHydralisk.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
+        <On Terms="WeaponStart.PrimalHydralisk.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
+        <On Terms="WeaponStart.PrimalHydralisk.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.PrimalHydralisk.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.PrimalHydralisk.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.PrimalHydralisk.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitBirth.PrimalHydraliskBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.PrimalHydraliskBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="Effect.HydraliskAddLevel.Stop; ValidateUnit HydraliskIsLevel2" Send="SetScale 0.900000 0.400000"/>
+        <On Terms="Effect.HydraliskAddLevel.Stop; ValidateUnit HydraliskIsLevel3" Send="SetScale 1.000000 0.400000"/>
+        <On Terms="Effect.HydraliskAddLevel.Stop; ValidateUnit HydraliskIsLevel4" Send="SetScale 1.100000 0.400000"/>
+        <On Terms="Effect.HydraliskRemoveLevel.Stop; ValidateUnit HydraliskIsLevel1" Send="SetScale 0.800000"/>
+        <On Terms="Effect.HydraliskRemoveLevel.Stop; ValidateUnit HydraliskIsLevel2" Send="SetScale 0.900000"/>
+        <On Terms="Effect.HydraliskRemoveLevel.Stop; ValidateUnit HydraliskIsLevel3" Send="SetScale"/>
+        <On Terms="Effect.HydraliskAddInitialLevel.Stop; ValidateUnit HydraliskIsLevel2" Send="SetScale 0.900000"/>
+        <On Terms="Effect.HydraliskAddInitialLevel.Stop; ValidateUnit HydraliskIsLevel3" Send="SetScale"/>
+        <On Terms="Effect.HydraliskAddInitialLevel.Stop; ValidateUnit HydraliskIsLevel4" Send="SetScale 1.100000"/>
+        <On Terms="Effect.HydraliskRemoveLevel.Stop; ValidateUnit HydraliskIsLevel1" Send="ModelSwap HydraliskOriginalScale"/>
+        <On Terms="Effect.HydraliskAddLevel.Stop; ValidateUnit HydraliskIsLevel2" Send="ModelSwap PrimalHydralisk"/>
+        <Model value="PrimalHydralisk"/>
+        <Scale value="0.800000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
+        <BuildModel value="PrimalHydralisk"/>
+        <DeathArray index="Normal" ModelLink="PrimalHydraliskDeath" SoundLink="Hydralisk_Explode"/>
+        <DeathArray index="Disintegrate" ModelLink="HydraliskDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="HydraliskDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <PlacementModel value="PrimalHydralisk"/>
+        <PortraitModel value="PrimalHydraliskPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.500000"/>
+            <RangeDown value="1.500000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium25"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1.3984"/>
+        <BarOffset value="70"/>
+        <BarWidth value="48"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-PrimalHydralisk.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-Zerg-PrimalHydralisk.dds"/>
+        <HighlightTooltip value="Unit/Name/Hydralisk22"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="Hydralisk_Ready"/>
+        <SoundArray index="What" value="Hydralisk_What"/>
+        <SoundArray index="Yes" value="Hydralisk_Yes"/>
+        <SoundArray index="Attack" value="Hydralisk_Attack"/>
+        <SoundArray index="Pissed" value="Hydralisk_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-Zerg-PrimalHydralisk.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-PrimalHydralisk.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorAction id="HydraliskAttack3v3" parent="GenericAttack" effectImpact="HydraliskNeedleSpinesRangedDamageEdit3v3" effectLaunch="NeedleSpinesLaunchMissile3v3">
         <On index="2" Terms="Effect.HydraliskNeedleSpinesRangedDamageEdit3v3.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
         <LaunchSiteOps Ops="SOpAttachHarness SOpForwardImpactGuide"/>
