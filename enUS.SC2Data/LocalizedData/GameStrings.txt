@@ -1208,7 +1208,7 @@ Button/Tooltip/Hive2=
 Button/Tooltip/HiveMindEmulator=Tech Structure. Allows you to buy zerg support and therefore indirectly attack the other team.
 Button/Tooltip/HotSRaptor=
 Button/Tooltip/Hydralisk=
-Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="D95200">Cannot attack zerg buildings.</c><n/>
+Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="D95200">Cannot attack zerg buildings.</c><n/><n/><c val="ffff8a">Zerg Armor</c> <c val="85BCFA">upgrades increase attack damage, attack range, max health and health regen.</c>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
 Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
