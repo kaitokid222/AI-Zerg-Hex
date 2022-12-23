@@ -555,7 +555,9 @@ void gf_init_weather ();
 bool gf_is_player_donor (int lp_player);
 void gf_Create_weather (int lp_player_position, int lp_type);
 void gf_Remove_weather (int lp_player_position);
+void gf__3v3_player_left (int lp_player);
 void gf__3v3_player_died (int lp_player);
+int gf_number_alive_player_in_group (playergroup lp_player_group);
 void gf_fill_fw_grid ();
 void gf_shot_fireworks (int lp_waves);
 void gf_end_game_3v3 ();
@@ -5187,11 +5189,38 @@ void gf_Remove_weather (int lp_player_position) {
     }
 }
 
+void gf__3v3_player_left (int lp_player) {
+    // Automatic Variable Declarations
+    unitgroup auto249555DF_g;
+    int auto249555DF_u;
+    unit auto249555DF_var;
+
+    // Implementation
+    if ((PlayerGroupHasPlayer(gv_terrans_team_top, lp_player) == true)) {
+        PlayerGroupAdd(gv_terrans_team_top_open_access_units, gv_players[lp_player].lv__3v3_zerg_pid);
+    }
+    else {
+        PlayerGroupAdd(gv_terrans_team_bottom_open_access_units, gv_players[lp_player].lv__3v3_zerg_pid);
+    }
+    gf_flush_privileges_3v3_OAU();
+    auto249555DF_g = UnitGroup("ZaGara", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto249555DF_u = UnitGroupCount(auto249555DF_g, c_unitCountAll);
+    for (;; auto249555DF_u -= 1) {
+        auto249555DF_var = UnitGroupUnitFromEnd(auto249555DF_g, auto249555DF_u);
+        if (auto249555DF_var == null) { break; }
+        UnitRemove(auto249555DF_var);
+    }
+}
+
 void gf__3v3_player_died (int lp_player) {
     // Variable Declarations
-    int lv_player_position;
+    playergroup lv_team_group;
+    int lv_number_of_alive_ally;
+    int lv_zerg_rally_player_position;
 
     // Automatic Variable Declarations
+    playergroup auto39A90B85_g;
+    int auto39A90B85_var;
     unitgroup autoEA06CB41_g;
     int autoEA06CB41_u;
     unit autoEA06CB41_var;
@@ -5210,8 +5239,32 @@ void gf__3v3_player_died (int lp_player) {
     int auto366DDB79_var;
 
     // Variable Initialization
+    lv_team_group = PlayerGroupEmpty();
 
     // Implementation
+    if ((gv_players[lp_player].lv_position <= 3)) {
+        lv_team_group = gv_terrans_team_top;
+    }
+    else {
+        lv_team_group = gv_terrans_team_bottom;
+    }
+    lv_number_of_alive_ally = gf_number_alive_player_in_group(lv_team_group);
+    if ((lv_number_of_alive_ally > 0)) {
+        auto39A90B85_g = lv_team_group;
+        auto39A90B85_var = -1;
+        while (true) {
+            auto39A90B85_var = PlayerGroupNextPlayer(auto39A90B85_g, auto39A90B85_var);
+            if (auto39A90B85_var < 0) { break; }
+            if ((gv_players[auto39A90B85_var].lv_alive == true)) {
+                PlayerModifyPropertyInt(auto39A90B85_var, c_playerPropTerrazine, c_playerPropOperAdd, (PlayerGetPropertyInt(lp_player, c_playerPropTerrazine) / lv_number_of_alive_ally));
+                gv_players[auto39A90B85_var].lv__3v3_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
+            }
+
+        }
+    }
+
+    PlayerModifyPropertyInt(lp_player, c_playerPropTerrazine, c_playerPropOperSetTo, 0);
+    gv_players[lp_player].lv__3v3_terrazine_income = 0;
     if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
         gf_create_zagara(lp_player);
     }
@@ -5226,8 +5279,8 @@ void gf__3v3_player_died (int lp_player) {
         for (;; autoEA06CB41_u -= 1) {
             autoEA06CB41_var = UnitGroupUnitFromEnd(autoEA06CB41_g, autoEA06CB41_u);
             if (autoEA06CB41_var == null) { break; }
-            lv_player_position = FixedToInt(UnitGetCustomValue(autoEA06CB41_var, 1));
-            if ((lv_player_position >= 4)) {
+            lv_zerg_rally_player_position = FixedToInt(UnitGetCustomValue(autoEA06CB41_var, 1));
+            if ((lv_zerg_rally_player_position >= 4)) {
                 PingDestroy(libHots_gf_PingStoredForUnit(autoEA06CB41_var, 1));
                 UnitRemove(autoEA06CB41_var);
             }
@@ -5254,8 +5307,8 @@ void gf__3v3_player_died (int lp_player) {
         for (;; autoC766BFFC_u -= 1) {
             autoC766BFFC_var = UnitGroupUnitFromEnd(autoC766BFFC_g, autoC766BFFC_u);
             if (autoC766BFFC_var == null) { break; }
-            lv_player_position = FixedToInt(UnitGetCustomValue(autoC766BFFC_var, 1));
-            if ((lv_player_position <= 3)) {
+            lv_zerg_rally_player_position = FixedToInt(UnitGetCustomValue(autoC766BFFC_var, 1));
+            if ((lv_zerg_rally_player_position <= 3)) {
                 PingDestroy(libHots_gf_PingStoredForUnit(autoC766BFFC_var, 1));
                 UnitRemove(autoC766BFFC_var);
             }
@@ -5276,6 +5329,30 @@ void gf__3v3_player_died (int lp_player) {
         }
     }
 
+}
+
+int gf_number_alive_player_in_group (playergroup lp_player_group) {
+    // Variable Declarations
+    int lv_result;
+
+    // Automatic Variable Declarations
+    playergroup autoA3E0A720_g;
+    int autoA3E0A720_var;
+
+    // Variable Initialization
+
+    // Implementation
+    autoA3E0A720_g = PlayerGroupAll();
+    autoA3E0A720_var = -1;
+    while (true) {
+        autoA3E0A720_var = PlayerGroupNextPlayer(autoA3E0A720_g, autoA3E0A720_var);
+        if (autoA3E0A720_var < 0) { break; }
+        if ((gv_players[autoA3E0A720_var].lv_alive == true)) {
+            lv_result += 1;
+        }
+
+    }
+    return lv_result;
 }
 
 void gf_fill_fw_grid () {
@@ -19942,9 +20019,6 @@ bool gt_playerleavesgame_Func (bool testConds, bool runActions) {
     unitgroup autoEEF32174_g;
     int autoEEF32174_u;
     unit autoEEF32174_var;
-    unitgroup autoC0B278A5_g;
-    int autoC0B278A5_u;
-    unit autoC0B278A5_var;
 
     // Variable Initialization
     lv_player = EventPlayer();
@@ -19991,25 +20065,8 @@ bool gt_playerleavesgame_Func (bool testConds, bool runActions) {
     }
     PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperSetTo, 0);
     PlayerModifyPropertyInt(lv_player, c_playerPropVespene, c_playerPropOperSetTo, 0);
-    PlayerModifyPropertyInt(lv_player, c_playerPropTerrazine, c_playerPropOperSetTo, 0);
     if ((gf_is_3v3() == true) && (lv_player <= 6) && (lv_player >= 1)) {
-        autoC0B278A5_g = UnitGroup(null, gv_players[lv_player].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoC0B278A5_u = UnitGroupCount(autoC0B278A5_g, c_unitCountAll);
-        for (;; autoC0B278A5_u -= 1) {
-            autoC0B278A5_var = UnitGroupUnitFromEnd(autoC0B278A5_g, autoC0B278A5_u);
-            if (autoC0B278A5_var == null) { break; }
-            if ((gf_is_overseer(autoC0B278A5_var) == false)) {
-                UnitKill(autoC0B278A5_var);
-            }
-
-        }
-        if ((PlayerGroupHasPlayer(gv_terrans_team_top, lv_player) == true)) {
-            PlayerGroupAdd(gv_terrans_team_top_open_access_units, gv_players[lv_player].lv__3v3_zerg_pid);
-        }
-        else {
-            PlayerGroupAdd(gv_terrans_team_bottom_open_access_units, gv_players[lv_player].lv__3v3_zerg_pid);
-        }
-        gf_flush_privileges_3v3_OAU();
+        gf__3v3_player_left(lv_player);
     }
 
     if ((gf_is_pvp() == true) && (lv_player == 7)) {
