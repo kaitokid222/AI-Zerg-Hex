@@ -2155,7 +2155,7 @@
         <ScoreMake value="50"/>
         <ScoreKill value="50"/>
         <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="3"/>
+        <SubgroupPriority value="17"/>
         <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ProtossUnits"/>
@@ -4286,7 +4286,7 @@
         <ScoreMake value="100"/>
         <ScoreKill value="100"/>
         <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="40"/>
+        <SubgroupPriority value="14"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <TacticalAIThink value="AIThinkAdept"/>
         <GlossaryCategory value="Unit/Category/ProtossUnits"/>
@@ -4897,7 +4897,7 @@
         <CargoSize value="4"/>
         <ScoreMake value="100"/>
         <ScoreKill value="100"/>
-        <SubgroupPriority value="17"/>
+        <SubgroupPriority value="1"/>
         <MinimapRadius value="0"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <TacticalAIThink value="AIThinkDisruptorPhased"/>
@@ -4991,6 +4991,7 @@
         <SelectAlias value="Reaper2"/>
         <SubgroupAlias value="Reaper2"/>
         <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
+        <SubgroupPriority value="8"/>
     </CUnit>
     <CUnit id="Defender">
         <DeathRevealRadius value="3"/>
@@ -5049,7 +5050,7 @@
         <ScoreMake value="100"/>
         <ScoreKill value="100"/>
         <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="21"/>
+        <SubgroupPriority value="5"/>
         <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <KillDisplay value="Never"/>
@@ -6254,6 +6255,7 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
         <FlagArray index="ArmySelect" value="0"/>
+        <SubgroupPriority value="4"/>
     </CUnit>
     <CUnit id="ConstructionYard" parent="Starport">
         <Name value="Unit/Name/ConstructionYard"/>
@@ -7451,6 +7453,7 @@
         <SubgroupAlias value="Battery"/>
         <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
         <FlagArray index="ArmySelect" value="0"/>
+        <SubgroupPriority value="4"/>
     </CUnit>
     <CUnit id="Sheep2" parent="Critter">
         <Description value="Button/Tooltip/CritterSheep2"/>
@@ -8286,7 +8289,7 @@
         <ScoreMake value="50"/>
         <ScoreKill value="50"/>
         <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="15"/>
+        <SubgroupPriority value="17"/>
         <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <TacticalAI value="Marine"/>
