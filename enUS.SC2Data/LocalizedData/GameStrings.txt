@@ -18,6 +18,7 @@ Abil/Name/BombMissile=Bomb Missile
 Abil/Name/BuildBuilder=Build (Builder)
 Abil/Name/BuildBuilderScalingStructures=Build (Builder Scaling Structures)
 Abil/Name/BuildSporeCrawler=Build Spore Crawler
+Abil/Name/BuildSporeCrawler3v3=Build Spore Crawler
 Abil/Name/BurrowFireling=Burrow (Fireling)
 Abil/Name/CCSkinSwitcher=CC - Skin Switcher
 Abil/Name/CCWeatherSwitcher=CC - Weather Switcher
@@ -215,6 +216,7 @@ Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
 Abil/Name/ZergResetRally=Zerg Reset Rally
 Abil/Name/ZergTrain=Zerg - Train
 Abil/TargetMessage/BuildSporeCrawler=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
+Abil/TargetMessage/BuildSporeCrawler3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 AbilitiesTargetInnerBase=Cannot target Zerg inner base
 Activity/Trading=Trading
@@ -3451,6 +3453,7 @@ RequirementNode/Tooltip/GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2=You
 RequirementNode/Tooltip/GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100=Have 100 Blood
 RequirementNode/Tooltip/GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=Generator Level 30
 RequirementNode/Tooltip/GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20=20 charges
+RequirementNode/Tooltip/GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1=Need to wait 12 minutes
 RequirementNode/Tooltip/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=4 charges
 RequirementNode/Tooltip/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=25 Charges
 RequirementNode/Tooltip/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=Generator Level 5
@@ -3789,6 +3792,7 @@ Upgrade/Name/MarineOvercharge=Marine Overcharge
 Upgrade/Name/MarinePenetratingLaser=Marine Penetrating Laser
 Upgrade/Name/MarineShatteringLaser=Marine Shattering Laser
 Upgrade/Name/MarineShatteringLaserUpgrade=Marine Shattering Laser Upgrade
+Upgrade/Name/MinuteUpgrade=Minute Upgrade
 Upgrade/Name/Mode3v3=Mode 3v3
 Upgrade/Name/OperationCenterEmpoweredWarp=Operation Center - Empowered Warp
 Upgrade/Name/OperationCenterMineralMining=Operation Center - Mineral Mining

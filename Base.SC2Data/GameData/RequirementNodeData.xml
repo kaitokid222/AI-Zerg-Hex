@@ -127,15 +127,12 @@
         <OperandArray value="CountUpgradeTier2EquipmentCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
@@ -271,17 +268,14 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSpawnFromCenterCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SpawnFromCenter" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSpawnFromLeftCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SpawnFromLeft" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSpawnFromRightCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SpawnFromRight" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSpawnerUpgradedCompleteOnlyAtUnit">
@@ -768,9 +762,13 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MarineShatteringLaserUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeMode3v3CompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeMinuteUpgradeCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MinuteUpgrade" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeMode3v3CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Mode3v3" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeOperationCenterEmpoweredWarpCompleteOnly">
@@ -1169,6 +1167,10 @@
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="20"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeMinuteUpgradeCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
     <CRequirementGTE id="GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4">
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="4"/>
@@ -1266,17 +1268,14 @@
         <OperandArray index="1" value="3"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorSpawnFromCenterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorSpawnFromLeftCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorSpawnFromRightCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
@@ -1557,7 +1556,6 @@
         <OperandArray index="0" value="CountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMode3v3CompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMode3v3CompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter">
@@ -1663,7 +1661,6 @@
         <OperandArray index="0" value="CountUpgradeZergMovementQueuedOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeZergSupplyIncreaseInProgressOnly">

@@ -7863,7 +7863,7 @@
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
         <AbilArray index="5" Link="ZaGaraDeepTunnel"/>
-        <AbilArray index="6" Link="BuildSporeCrawler"/>
+        <AbilArray index="6" Link="BuildSporeCrawler3v3"/>
         <AbilArray index="7" Link="AbsorbingCloud"/>
         <AbilArray Link="TransfusionInfestor"/>
         <BehaviorArray index="0" Link="InfestorAutoTransfuse"/>
@@ -7872,9 +7872,9 @@
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="BuildCreepTumor3v3" AbilCmd="QueenBuild,Build1" Column="0"/>
             <LayoutButtons index="6" Face="DeepTunnel" AbilCmd="ZaGaraDeepTunnel,Execute" Column="1"/>
-            <LayoutButtons index="7" Face="SpawnSporeCrawler" AbilCmd="BuildSporeCrawler,Build1" Column="4"/>
-            <LayoutButtons index="8" Face="TransfusionZagara3v3" AbilCmd="TransfusionInfestor,Execute" Column="2"/>
-            <LayoutButtons index="9" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute"/>
+            <LayoutButtons index="7" Face="TransfusionZagara3v3" AbilCmd="TransfusionInfestor,Execute"/>
+            <LayoutButtons index="8" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Column="3"/>
+            <LayoutButtons index="9" Face="SpawnSporeCrawler" AbilCmd="BuildSporeCrawler3v3,Build1" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Zealot">

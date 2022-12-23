@@ -618,7 +618,6 @@ void gf_reveal_top_hide_bottom (unit lp_unit);
 void gf_reveal_bottom_hide_top (unit lp_unit);
 bool gf_is_3v3 ();
 bool gf_is_3v3_local_test ();
-bool gf_is_human_zerg_forces (string lp_type);
 region gf_get_region_of_influence_3v3 (int lp_player_position);
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit);
 int gf_get_position_of_random_alive_player_from_group (playergroup lp_player_group);
@@ -5670,7 +5669,7 @@ bool gf_can_cross_middle_in_3v3 (unit lp_unit_param) {
     lv_unit_type = UnitGetType(lp_unit_param);
 
     // Implementation
-    if ((lv_unit_type != "ImmortalShakurasStasisCannonMissile") && (lv_unit_type != "IonStorm") && (lv_unit_type != "IonBeam") && ((UnitTypeTestFlag(UnitGetType(lp_unit_param), c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer") || (gf_is_human_zerg_forces(lv_unit_type) == true) || ((GameGetMissionTime() < 120.0) && ((lv_unit_type == "EliteMarine") || (lv_unit_type == "EliteMarineSkin1") || (lv_unit_type == "EliteMarineSkin2") || (lv_unit_type == "EliteMarineSkin3") || (lv_unit_type == "EliteMarineSkin4"))))) {
+    if ((lv_unit_type != "ImmortalShakurasStasisCannonMissile") && (lv_unit_type != "IonStorm") && (lv_unit_type != "IonBeam") && ((UnitTypeTestFlag(UnitGetType(lp_unit_param), c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer") || ((GameGetMissionTime() < 120.0) && ((lv_unit_type == "EliteMarine") || (lv_unit_type == "EliteMarineSkin1") || (lv_unit_type == "EliteMarineSkin2") || (lv_unit_type == "EliteMarineSkin3") || (lv_unit_type == "EliteMarineSkin4"))))) {
         lv_result = true;
     }
 
@@ -7384,17 +7383,6 @@ bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
     return true;
-}
-
-bool gf_is_human_zerg_forces (string lp_type) {
-    // Automatic Variable Declarations
-    // Implementation
-    if (((lp_type == "ZaGara") || (lp_type == "CreepTumorZagara"))) {
-        return true;
-    }
-    else {
-        return false;
-    }
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -19070,7 +19058,6 @@ bool gt_zagara_death_timer_Func (bool testConds, bool runActions) {
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_owner = gf_get_owner_of_zerg_pid(EventPlayer());
 
     // Conditions
     if (testConds) {
@@ -19084,6 +19071,7 @@ bool gt_zagara_death_timer_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    lv_owner = gf_get_owner_of_zerg_pid(EventPlayer());
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/A7634E7C"));
     Wait(10.0, c_timeGame);
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/5C311BD0"));
@@ -19878,7 +19866,7 @@ bool gt__3v3test_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[1].lv__3v3_zerg_pid, PointFromId(1910508930));
+    gf_create_zagara(EventPlayer());
     return true;
 }
 
@@ -25460,6 +25448,9 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
     int lv_random_position;
 
     // Automatic Variable Declarations
+    playergroup auto7A9744BF_g;
+    int auto7A9744BF_var;
+
     // Variable Initialization
 
     // Actions
@@ -25484,6 +25475,17 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
         }
     }
 
+    auto7A9744BF_g = gv_terrans;
+    auto7A9744BF_var = -1;
+    while (true) {
+        auto7A9744BF_var = PlayerGroupNextPlayer(auto7A9744BF_g, auto7A9744BF_var);
+        if (auto7A9744BF_var < 0) { break; }
+        TechTreeUpgradeAddLevel(auto7A9744BF_var, "MinuteUpgrade", 1);
+        if ((gf_is_3v3() == true)) {
+            TechTreeUpgradeAddLevel(gv_players[auto7A9744BF_var].lv__3v3_zerg_pid, "MinuteUpgrade", 1);
+        }
+
+    }
     return true;
 }
 

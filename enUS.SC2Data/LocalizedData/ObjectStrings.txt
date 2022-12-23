@@ -7,6 +7,7 @@ Abil/EditorPrefix/BombMissile=Bomber -
 Abil/EditorPrefix/BuildBuilder=SCV -
 Abil/EditorPrefix/BuildBuilderScalingStructures=SCV -
 Abil/EditorPrefix/BuildSporeCrawler=Infestor -
+Abil/EditorPrefix/BuildSporeCrawler3v3=Zagara -
 Abil/EditorPrefix/BurrowFireling=Fireling -
 Abil/EditorPrefix/CargoClearGas=Transport -
 Abil/EditorPrefix/CargoClearMinerals=Transport -
@@ -103,6 +104,7 @@ Abil/EditorSuffix/BanelingExplodeZergHex=(ZergHex)
 Abil/EditorSuffix/BarracksTrain2=(Edit)
 Abil/EditorSuffix/BombMissile=(Seeker)
 Abil/EditorSuffix/BuildSporeCrawler=(Zerg Hex)
+Abil/EditorSuffix/BuildSporeCrawler3v3=(Zerg Hex) 3v3
 Abil/EditorSuffix/CCSkinSwitcher=(Zerg Hex)
 Abil/EditorSuffix/CCWeatherSwitcher=(Zerg Hex)
 Abil/EditorSuffix/CommandCenterTrain2=(Edit)
@@ -2167,6 +2169,7 @@ Requirement/EditorSuffix/ZergControlCenter=3v3
 Requirement/EditorSuffix/ZergRallyEqual=3v3
 Requirement/EditorSuffix/ZergRallyMinusON=3v3
 Requirement/EditorSuffix/ZergRallyPlusON=3v3
+Requirement/Name/12minutes=12 minutes
 Requirement/Name/20Vents=20Vents
 Requirement/Name/40Bunkers=40Bunkers
 Requirement/Name/ArmNapalmBomb=Arm Napalm Bomb
@@ -2586,6 +2589,7 @@ RequirementNode/Name/CountUpgradeMarineShatteringLaserCompleteOnly=CountUpgrade(
 RequirementNode/Name/CountUpgradeMarineShatteringLaserCompleteOnly4238821561=CountUpgrade(MarineShatteringLaser,CompleteOnly){Complete Shattering Laser}
 RequirementNode/Name/CountUpgradeMarineShatteringLaserQueuedOrBetter=CountUpgrade(MarineShatteringLaser,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter=CountUpgrade(MarineShatteringLaserUpgrade,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeMinuteUpgradeCompleteOnly=CountUpgrade(MinuteUpgrade,CompleteOnly)
 RequirementNode/Name/CountUpgradeMode3v3CompleteOnly=CountUpgrade(Mode3v3,CompleteOnly)
 RequirementNode/Name/CountUpgradeOperationCenterEmpoweredWarpCompleteOnly=CountUpgrade(OperationCenterEmpoweredWarp,CompleteOnly)
 RequirementNode/Name/CountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter=CountUpgrade(OperationCenterEmpoweredWarp,QueuedOrBetter)
@@ -2684,6 +2688,7 @@ RequirementNode/Name/GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2=CountB
 RequirementNode/Name/GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100=CountBehavior(BloodStacks,QueuedOrBetter) >= {Have 100 Blood}100
 RequirementNode/Name/GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 30}30
 RequirementNode/Name/GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {20 charges}20
+RequirementNode/Name/GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1=CountUpgrade(MinuteUpgrade,CompleteOnly) >= {Need to wait 12 minutes}1
 RequirementNode/Name/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {4 charges}4
 RequirementNode/Name/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
 RequirementNode/Name/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5

@@ -9158,6 +9158,7 @@
         <On Terms="Abil.MorphUnitDroneZergBuildings.BuiltStart" Send="Create"/>
         <On Terms="Abil.BuildSporeCrawler.BuiltStart" Send="Create"/>
         <On Terms="Abil.InfestorMorphUnitZergLargeBuildings.BuiltStart" Send="Create"/>
+        <On Terms="Abil.BuildSporeCrawler3v3.BuiltStart" Send="Create"/>
     </CActorProgress>
     <CActorDoodad id="ZergWallDecorTwoHigh">
         <ModelFlags index="OutlineOccluder" value="1"/>
