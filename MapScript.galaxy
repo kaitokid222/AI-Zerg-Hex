@@ -584,6 +584,7 @@ int gf_get_team_average_elo_rating (int lp_player1, int lp_player2, int lp_playe
 int gf_get_average_elo_rating ();
 void gf_distribute_players_based_on_their_elo ();
 void gf_magic ();
+int gf_get_owner_of_zerg_pid (int lp_zerg_pid);
 void gf_create_zagara (int lp_player);
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type);
@@ -599,6 +600,7 @@ bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
 int gf_where_to_build_next_spawner_3v3 ();
 void gf_update_start_spawners_3v3 ();
+bool gf_is_overseer (unit lp_unit);
 void gf_init_3v3_flying_rally ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 void gf_manage_spawners_3v3 (int lp_player_position);
@@ -616,7 +618,6 @@ void gf_reveal_top_hide_bottom (unit lp_unit);
 void gf_reveal_bottom_hide_top (unit lp_unit);
 bool gf_is_3v3 ();
 bool gf_is_3v3_local_test ();
-bool gf_is_overseer (unit lp_unit);
 bool gf_is_human_zerg_forces (string lp_type);
 region gf_get_region_of_influence_3v3 (int lp_player_position);
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit);
@@ -5265,10 +5266,7 @@ void gf__3v3_player_died (int lp_player) {
 
     PlayerModifyPropertyInt(lp_player, c_playerPropTerrazine, c_playerPropOperSetTo, 0);
     gv_players[lp_player].lv__3v3_terrazine_income = 0;
-    if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
-        gf_create_zagara(lp_player);
-    }
-
+    gf_create_zagara(lp_player);
     if (((gf_is_terrans_team_bottom_dead() == true) || (gf_is_terrans_team_top_dead() == true))) {
         gv_req_torra = 4;
     }
@@ -6343,17 +6341,44 @@ void gf_magic () {
     }
 }
 
+int gf_get_owner_of_zerg_pid (int lp_zerg_pid) {
+    // Variable Declarations
+    int lv_result;
+
+    // Automatic Variable Declarations
+    playergroup auto38E26422_g;
+    int auto38E26422_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto38E26422_g = PlayerGroupAll();
+    auto38E26422_var = -1;
+    while (true) {
+        auto38E26422_var = PlayerGroupNextPlayer(auto38E26422_g, auto38E26422_var);
+        if (auto38E26422_var < 0) { break; }
+        if ((gv_players[auto38E26422_var].lv__3v3_zerg_pid == lp_zerg_pid)) {
+            lv_result = auto38E26422_var;
+        }
+
+    }
+    return lv_result;
+}
+
 void gf_create_zagara (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
-    if ((gv_players[lp_player].lv_position <= 3)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(20243859));
-        CameraPan(lp_player, PointFromId(20243859), 0.0, -1, 10.0, false);
+    if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
+        if ((gv_players[lp_player].lv_position <= 3)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(20243859));
+            CameraPan(lp_player, PointFromId(20243859), 0.0, -1, 10.0, false);
+        }
+        else {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(1177115991));
+            CameraPan(lp_player, PointFromId(1177115991), 0.0, -1, 10.0, false);
+        }
     }
-    else {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(1177115991));
-        CameraPan(lp_player, PointFromId(1177115991), 0.0, -1, 10.0, false);
-    }
+
 }
 
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
@@ -6901,6 +6926,21 @@ void gf_update_start_spawners_3v3 () {
     gv_upgrade_sets_left = 0;
 }
 
+bool gf_is_overseer (unit lp_unit) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitGetType(lp_unit) == "Overseer")) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
 void gf_init_3v3_flying_rally () {
     // Variable Declarations
     int lv_index;
@@ -7344,21 +7384,6 @@ bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
     return true;
-}
-
-bool gf_is_overseer (unit lp_unit) {
-    // Variable Declarations
-    bool lv_r;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((UnitGetType(lp_unit) == "Overseer")) {
-        lv_r = true;
-    }
-
-    return lv_r;
 }
 
 bool gf_is_human_zerg_forces (string lp_type) {
@@ -19040,7 +19065,13 @@ void gt_TerrazineDoublerfinished_Init () {
 // Trigger: zagara_death_timer
 //--------------------------------------------------------------------------------------------------
 bool gt_zagara_death_timer_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = gf_get_owner_of_zerg_pid(EventPlayer());
+
     // Conditions
     if (testConds) {
         if (!((UnitGetType(EventUnit()) == "ZaGara"))) {
@@ -19053,13 +19084,13 @@ bool gt_zagara_death_timer_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, StringExternal("Param/Value/A7634E7C"));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/A7634E7C"));
     Wait(10.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, StringExternal("Param/Value/5C311BD0"));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/5C311BD0"));
     Wait(10.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, StringExternal("Param/Value/008594BF"));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/008594BF"));
     Wait(10.0, c_timeGame);
-    gf_create_zagara(EventPlayer());
+    gf_create_zagara(lv_owner);
     return true;
 }
 
