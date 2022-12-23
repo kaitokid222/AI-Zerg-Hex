@@ -54,7 +54,8 @@
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
-        <MaxLevel value="200"/>
+        <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.000000"/>
+        <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3"/>
     <CUpgrade id="SiegeTankBetterVersion">

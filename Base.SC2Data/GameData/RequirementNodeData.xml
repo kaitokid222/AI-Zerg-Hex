@@ -762,10 +762,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MarineShatteringLaserUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeMinuteUpgradeCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeMinuteUpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="MinuteUpgrade" State="CompleteOnly"/>
+        <Count Link="MinuteUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMode3v3CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1167,9 +1167,9 @@
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="20"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1">
-        <OperandArray index="0" value="CountUpgradeMinuteUpgradeCompleteOnly"/>
-        <OperandArray index="1" value="1"/>
+    <CRequirementGTE id="GTE1640925980CountUpgradeMinuteUpgradeQueuedOrBetter12">
+        <OperandArray index="0" value="CountUpgradeMinuteUpgradeQueuedOrBetter"/>
+        <OperandArray index="1" value="12"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4">
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>

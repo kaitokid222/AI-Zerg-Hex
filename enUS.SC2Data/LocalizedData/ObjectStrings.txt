@@ -1054,6 +1054,8 @@ Behavior/EditorSuffix/ZCCRavatorTimedLife=3v3
 Behavior/EditorSuffix/ZCCTimedLife=3v3
 Behavior/EditorSuffix/ZCCTimedLifeStop=3v3
 Behavior/EditorSuffix/ZCCTorraliskTimedLife=3v3
+Behavior/EditorSuffix/ZagaraAutoTransfuse3v3=3v3
+Behavior/EditorSuffix/ZagaraNotOnCreep3v3=3v3
 Behavior/EditorSuffix/ZergRallyEqual=3v3
 Behavior/EditorSuffix/ZergRallyMinus=3v3
 Behavior/EditorSuffix/ZergRallyPlus=3v3
@@ -1227,6 +1229,7 @@ Behavior/Name/ZCCRavatorTimedLife=ZCC Ravator Timed Life
 Behavior/Name/ZCCTimedLife=ZCC Timed Life
 Behavior/Name/ZCCTimedLifeStop=ZCC Timed Life Stop
 Behavior/Name/ZCCTorraliskTimedLife=ZCC Torralisk Timed Life
+Behavior/Name/ZagaraNotOnCreep3v3=Zagara Not On Creep
 Behavior/Name/ZergIncomeContainer=Zerg Income Container
 Behavior/Name/ZergIncomeExtractorGreater=Zerg Income Extractor (Greater)
 Behavior/Name/ZergIncomeExtractorRemoveNotice=Zerg Income Extractor (Remove Notice)
@@ -1877,6 +1880,7 @@ Effect/EditorSuffix/ZCCCenter=3v3
 Effect/EditorSuffix/ZCCCreeperTimeldLifeStop=3v3
 Effect/EditorSuffix/ZCCLeft=3v3
 Effect/EditorSuffix/ZCCRight=3v3
+Effect/EditorSuffix/ZagaraNotOnCreepDamage3v3=3v3
 Effect/EditorSuffix/heal=Vday mod
 Footprint/EditorSuffix/Footprint2x2CreepTumor=(Creep Tumor)
 Footprint/EditorSuffix/Footprint3x3OutsideBaseContour=(Contour)
@@ -2589,7 +2593,7 @@ RequirementNode/Name/CountUpgradeMarineShatteringLaserCompleteOnly=CountUpgrade(
 RequirementNode/Name/CountUpgradeMarineShatteringLaserCompleteOnly4238821561=CountUpgrade(MarineShatteringLaser,CompleteOnly){Complete Shattering Laser}
 RequirementNode/Name/CountUpgradeMarineShatteringLaserQueuedOrBetter=CountUpgrade(MarineShatteringLaser,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter=CountUpgrade(MarineShatteringLaserUpgrade,QueuedOrBetter)
-RequirementNode/Name/CountUpgradeMinuteUpgradeCompleteOnly=CountUpgrade(MinuteUpgrade,CompleteOnly)
+RequirementNode/Name/CountUpgradeMinuteUpgradeQueuedOrBetter=CountUpgrade(MinuteUpgrade,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeMode3v3CompleteOnly=CountUpgrade(Mode3v3,CompleteOnly)
 RequirementNode/Name/CountUpgradeOperationCenterEmpoweredWarpCompleteOnly=CountUpgrade(OperationCenterEmpoweredWarp,CompleteOnly)
 RequirementNode/Name/CountUpgradeOperationCenterEmpoweredWarpQueuedOrBetter=CountUpgrade(OperationCenterEmpoweredWarp,QueuedOrBetter)
@@ -2688,7 +2692,7 @@ RequirementNode/Name/GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2=CountB
 RequirementNode/Name/GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100=CountBehavior(BloodStacks,QueuedOrBetter) >= {Have 100 Blood}100
 RequirementNode/Name/GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 30}30
 RequirementNode/Name/GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {20 charges}20
-RequirementNode/Name/GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1=CountUpgrade(MinuteUpgrade,CompleteOnly) >= {Need to wait 12 minutes}1
+RequirementNode/Name/GTE1640925980CountUpgradeMinuteUpgradeQueuedOrBetter12=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 12 minutes}12
 RequirementNode/Name/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {4 charges}4
 RequirementNode/Name/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
 RequirementNode/Name/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5

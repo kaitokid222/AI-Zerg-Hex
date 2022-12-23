@@ -90,6 +90,34 @@
         <DisplayDuration index="Enemy" value="1"/>
         <Duration value="15"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ZagaraAutoTransfuse3v3">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="InfestorEnoughEnergyToTransfuse"/>
+        <DamageResponse Fatal="1" Handled="InfestorAutoTransfuseHeal">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ZagaraNotOnCreep3v3">
+        <Cost>
+            <Charge Link="Behavior/ZergBuildingNotOnCreep"/>
+            <Cooldown Link="Behavior/ZergBuildingNotOnCreep"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <DisableValidatorArray value="HydraliskNotOnCreep"/>
+        <Period value="0.1"/>
+        <PeriodicEffect value="ZagaraNotOnCreepDamage3v3"/>
+        <Modification>
+            <VitalRegenMultiplier index="Life" value="-1"/>
+        </Modification>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/ZergBuildingNotOnCreep"/>
+                <Cooldown Link="Behavior/ZergBuildingNotOnCreep"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfusedRoachCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-roach-corpser.dds"/>

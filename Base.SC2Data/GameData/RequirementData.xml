@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CRequirement id="12minutes">
-        <NodeArray index="Use" Link="GTE1640925980CountUpgradeMinuteUpgradeCompleteOnly1"/>
+        <NodeArray index="Use" Link="GTE1640925980CountUpgradeMinuteUpgradeQueuedOrBetter12"/>
     </CRequirement>
     <CRequirement id="40Bunkers">
         <NodeArray index="Use" Link="LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60"/>

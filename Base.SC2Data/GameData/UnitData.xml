@@ -7850,10 +7850,8 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="ZaGara">
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
         <LifeArmor value="1"/>
-        <LifeRegenRate value="1"/>
+        <LifeRegenRate value="5"/>
         <EnergyStart value="0"/>
         <EnergyMax value="1200"/>
         <EnergyRegenRate value="12"/>
@@ -7866,7 +7864,8 @@
         <AbilArray index="6" Link="BuildSporeCrawler3v3"/>
         <AbilArray index="7" Link="AbsorbingCloud"/>
         <AbilArray Link="TransfusionInfestor"/>
-        <BehaviorArray index="0" Link="InfestorAutoTransfuse"/>
+        <BehaviorArray index="0" Link="ZagaraNotOnCreep3v3"/>
+        <BehaviorArray Link="ZagaraAutoTransfuse3v3"/>
         <WeaponArray index="0" Link="ZaGaraTalons"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">

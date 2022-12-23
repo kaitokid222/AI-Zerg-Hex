@@ -516,7 +516,7 @@
     <!--                                                                                        -->
     <CAbilBuild id="QueenBuild">
         <InfoArray index="Build1">
-            <Cooldown TimeUse="10"/>
+            <Cooldown TimeUse="8"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectInstant id="SpawnBanelingGroup">
