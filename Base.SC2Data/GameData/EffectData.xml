@@ -3655,6 +3655,7 @@
         <VitalArray index="Energy">
             <Change value="5"/>
         </VitalArray>
+        <ValidatorArray value="IstargetnotZCC"/>
     </CEffectModifyUnit>
     <CEffectIssueOrder id="FirelingIgniteIssueUnburrow">
         <EditorCategories value=""/>
@@ -4396,7 +4397,7 @@
     </CEffectSet>
     <CEffectEnumArea id="TechLabWarpEnergySearch">
         <EditorCategories value=""/>
-        <SearchFilters value="Ground,CanHaveEnergy;Self,Neutral,Enemy,Missile,Dead,Hidden,Invulnerable,Unstoppable"/>
+        <SearchFilters value="Ground,CanHaveEnergy;Self,Neutral,Enemy,Missile,Dead,Hidden,Invulnerable"/>
         <TargetSorts>
             <SortArray value="TSEnergyFraction"/>
         </TargetSorts>

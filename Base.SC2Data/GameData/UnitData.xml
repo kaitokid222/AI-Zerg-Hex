@@ -377,7 +377,7 @@
         <AbilArray Link="SpawnCreeper"/>
         <AbilArray Link="SpawnSlowling"/>
         <AbilArray Link="SpawnStrikeling"/>
-        <BehaviorArray index="0" removed="1"/>
+        <BehaviorArray index="0" Link="IsZCC"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="SpawnTorralisk3v3" AbilCmd="3v3SpawnTorralisk2,Execute"/>
@@ -425,7 +425,6 @@
         <CardLayouts CardId="0003">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
-        <FlagArray index="Unstoppable" value="1"/>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
         <Subtitle value="UnitSubtitle/HydraliskDefender3v3"/>

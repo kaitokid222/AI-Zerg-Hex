@@ -3255,7 +3255,7 @@
             <Charge Link="Abil/EnergyDisperse"/>
             <Cooldown Link="Abil/EnergyDisperse"/>
         </Cost>
-        <TargetFilters index="0" value="-;Self,Neutral,Enemy,Unstoppable"/>
+        <TargetFilters index="0" value="-;Self,Neutral,Enemy"/>
         <TargetSorts>
             <SortArray index="0" value="TSEnergyFractionMost"/>
             <SortArray index="1" removed="1"/>
@@ -3264,7 +3264,7 @@
         <Range index="0" value="6"/>
         <Arc value="360"/>
         <SmartValidatorArray index="0" value="TargetEnergyNotFull"/>
-        <SmartValidatorArray index="1" removed="1"/>
+        <SmartValidatorArray index="1" value="IstargetnotZCC"/>
         <SmartValidatorArray index="2" removed="1"/>
         <AutoCastFilters value="-;Neutral,Enemy"/>
         <AutoCastValidatorArray index="0" value="CasterEnergyGE20"/>
