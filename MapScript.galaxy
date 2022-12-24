@@ -202,6 +202,7 @@ int[7][14] gv_objectives;
 int[7][6] gv_bonus_objectives;
 actor[7][10] gv_weather_data_array;
 int[7] gv_weather_region_settings;
+bool gv_first_time_a_team_is_dead;
 point[9][9] gv_fw_grid;
 int gv__3v3_objective_created;
 int[7] gv__3v3_objective_stay_alive;
@@ -417,6 +418,7 @@ void InitGlobals () {
             gv_bonus_objectives[init_i][init_j] = c_invalidObjectiveId;
         }
     }
+    gv_first_time_a_team_is_dead = true;
     for (init_i = 0; init_i <= 6; init_i += 1) {
         gv__3v3_objective_stay_alive[init_i] = c_invalidObjectiveId;
     }
@@ -5284,8 +5286,9 @@ void gf__3v3_player_died (int lp_player) {
     PlayerModifyPropertyInt(lp_player, c_playerPropTerrazine, c_playerPropOperSetTo, 0);
     gv_players[lp_player].lv__3v3_terrazine_income = 0;
     gf_create_zagara(lp_player);
-    if (((gf_is_terrans_team_bottom_dead() == true) || (gf_is_terrans_team_top_dead() == true))) {
+    if ((gv_first_time_a_team_is_dead == true) && ((gf_is_terrans_team_bottom_dead() == true) || (gf_is_terrans_team_top_dead() == true))) {
         gv_req_torra = 4;
+        gv_first_time_a_team_is_dead = false;
     }
 
     if ((gf_is_terrans_team_bottom_dead() == true)) {

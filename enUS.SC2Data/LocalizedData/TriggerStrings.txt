@@ -1260,6 +1260,7 @@ Variable/Name/08A58DD9=position
 Variable/Name/08D21F1F=i
 Variable/Name/08D7B6BC=result
 Variable/Name/08EA7877=pr
+Variable/Name/08EB3A45=first_time_a_team_is_dead
 Variable/Name/0915C5BD=i
 Variable/Name/09595F55=tug
 Variable/Name/09605DD7=ncnt
