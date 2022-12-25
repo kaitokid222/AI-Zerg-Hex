@@ -7909,7 +7909,7 @@
         <LifeRegenRate value="5"/>
         <EnergyStart value="0"/>
         <EnergyMax value="1200"/>
-        <EnergyRegenRate value="12"/>
+        <EnergyRegenRate value="0"/>
         <Speed value="1.1992"/>
         <SpeedMultiplierCreep value="4"/>
         <Sight value="20"/>
