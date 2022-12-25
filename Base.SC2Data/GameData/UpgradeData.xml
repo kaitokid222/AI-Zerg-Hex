@@ -53,6 +53,10 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="MinuteUpgrade">
+        <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.000000"/>
+        <MaxLevel value="60"/>
+    </CUpgrade>
     <CUpgrade id="Mode3v3"/>
     <CUpgrade id="SiegeTankBetterVersion">
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT2,Amount" Value="325"/>
@@ -376,6 +380,10 @@
     </CUpgrade>
     <CUpgrade id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CUpgrade>
+    <CUpgrade id="ZCCEnergyUpgrade">
+        <EffectArray Reference="Unit,HiveMindEmulator,EnergyRegenRate" Value="1.000000"/>
+        <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="ZergAttack">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>

@@ -45,6 +45,11 @@
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="ZagaraNotOnCreepDamage3v3">
+        <EditorCategories value="Race:Zerg"/>
+        <Flags index="NoKillCredit" value="1"/>
+        <Amount value="10"/>
+    </CEffectDamage>
     <CEffectLaunchMissile id="NeedleSpinesLaunchMissile3v3">
         <EditorCategories value="Race:Zerg"/>
         <ImpactEffect value="HydraliskNeedleSpinesRangedDamageEdit3v3"/>
@@ -3650,6 +3655,7 @@
         <VitalArray index="Energy">
             <Change value="5"/>
         </VitalArray>
+        <ValidatorArray value="IstargetnotZCC"/>
     </CEffectModifyUnit>
     <CEffectIssueOrder id="FirelingIgniteIssueUnburrow">
         <EditorCategories value=""/>

@@ -286,6 +286,9 @@
     <CValidatorPlayerRequirement id="Isnot3v3">
         <Value value="Isnot3v3"/>
     </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="IstargetnotZCC">
+        <Behavior value="IsZCC"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="NotBomber">
         <Value value="InfestedExploder"/>
         <Find value="0"/>

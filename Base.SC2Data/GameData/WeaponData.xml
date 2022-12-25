@@ -596,4 +596,7 @@
         <Effect value="Clordweaponset"/>
         <Range value="6"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="ZaGaraTalons">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
 </Catalog>
