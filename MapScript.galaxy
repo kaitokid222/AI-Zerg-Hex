@@ -5360,7 +5360,7 @@ int gf_number_alive_player_in_group (playergroup lp_player_group) {
     // Variable Initialization
 
     // Implementation
-    autoA3E0A720_g = PlayerGroupAll();
+    autoA3E0A720_g = lp_player_group;
     autoA3E0A720_var = -1;
     while (true) {
         autoA3E0A720_var = PlayerGroupNextPlayer(autoA3E0A720_g, autoA3E0A720_var);
