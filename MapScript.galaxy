@@ -6123,7 +6123,6 @@ void gf_set_3v3_alliances () {
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_top, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_bottom, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     if ((gf_is_3v3_local_test() == true)) {
-        libNtve_gf_SetAlliance(1, gv_players[1].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_EnemyWithSharedVision);
     }
 
 }
@@ -6660,11 +6659,16 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     else {
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_player(lp_player_id));
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
-        if ((gv_players[lp_player_id].lv_position <= 3)) {
-            lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_bottom);
+        if ((gf_is_3v3_local_test() == true)) {
+            lv_target_player_position = gv_players[1].lv_position;
         }
         else {
-            lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_top);
+            if ((gv_players[lp_player_id].lv_position <= 3)) {
+                lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_bottom);
+            }
+            else {
+                lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_top);
+            }
         }
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
     }
@@ -7082,7 +7086,6 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     lv_flying_rally = UnitLastCreated();
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
-    UnitSetTeamColorIndex(lv_flying_rally, PlayerGetColorIndex(gv_players[lp_player_id].lv__3v3_nemesis_terran, false));
     UnitSetInfoText2(lv_flying_rally, StringExternal("Param/Value/4FEC16CE"));
     UnitSetCustomValue(lv_flying_rally, 0, lp_player_id);
     UnitSetCustomValue(lv_flying_rally, 1, lv_player_position);
@@ -7465,7 +7468,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -13153,7 +13156,7 @@ bool gf_is_spawner (unit lp_local_unit) {
 bool gf_is_spawner_unit (unit lp_local_unit) {
     // Automatic Variable Declarations
     // Implementation
-    if ((UnitGetOwner(lp_local_unit) == 7) && ((UnitGetType(lp_local_unit) == "Slowling") || (UnitGetType(lp_local_unit) == "Strikeling") || (UnitGetType(lp_local_unit) == "Creeper") || (UnitGetType(lp_local_unit) == "Tankling") || (UnitGetType(lp_local_unit) == "Roach2") || (UnitGetType(lp_local_unit) == "PrimalRoach2") || (UnitGetType(lp_local_unit) == "Ultralisk2") || (UnitGetType(lp_local_unit) == "Brutalisk2") || (UnitGetType(lp_local_unit) == "BanelingZergHex") || (UnitGetType(lp_local_unit) == "Beastling") || (UnitGetType(lp_local_unit) == "InfusedRoach") || (UnitGetType(lp_local_unit) == "Ravator") || (UnitGetType(lp_local_unit) == "Torralisk") || (UnitGetType(lp_local_unit) == "MeleeMinionHell") || (UnitGetType(lp_local_unit) == "RangedMinionHell") || (UnitGetType(lp_local_unit) == "ZerglingCarbot"))) {
+    if (((UnitGetType(lp_local_unit) == "Slowling") || (UnitGetType(lp_local_unit) == "Strikeling") || (UnitGetType(lp_local_unit) == "Creeper") || (UnitGetType(lp_local_unit) == "Tankling") || (UnitGetType(lp_local_unit) == "Roach2") || (UnitGetType(lp_local_unit) == "PrimalRoach2") || (UnitGetType(lp_local_unit) == "Ultralisk2") || (UnitGetType(lp_local_unit) == "Brutalisk2") || (UnitGetType(lp_local_unit) == "BanelingZergHex") || (UnitGetType(lp_local_unit) == "Beastling") || (UnitGetType(lp_local_unit) == "InfusedRoach") || (UnitGetType(lp_local_unit) == "Ravator") || (UnitGetType(lp_local_unit) == "Torralisk") || (UnitGetType(lp_local_unit) == "MeleeMinionHell") || (UnitGetType(lp_local_unit) == "RangedMinionHell") || (UnitGetType(lp_local_unit) == "ZerglingCarbot"))) {
         return true;
     }
     else {
@@ -19885,15 +19888,9 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     point lv_initial_rally_point;
 
     // Automatic Variable Declarations
-    unitgroup auto9ABFC84A_g;
-    int auto9ABFC84A_u;
-    unit auto9ABFC84A_var;
     unitgroup auto86980782_g;
     int auto86980782_u;
     unit auto86980782_var;
-    unitgroup autoC56FBD89_g;
-    int autoC56FBD89_u;
-    unit autoC56FBD89_var;
     unitgroup autoF9E9E436_g;
     int autoF9E9E436_u;
     unit autoF9E9E436_var;
@@ -19925,17 +19922,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
     PointSet(gf_get_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
     PointSet(gf_get_pre_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
-    auto9ABFC84A_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    auto9ABFC84A_u = UnitGroupCount(auto9ABFC84A_g, c_unitCountAll);
-    for (;; auto9ABFC84A_u -= 1) {
-        auto9ABFC84A_var = UnitGroupUnitFromEnd(auto9ABFC84A_g, auto9ABFC84A_u);
-        if (auto9ABFC84A_var == null) { break; }
-        if ((gf_is_spawner_unit(auto9ABFC84A_var) == true) && (libNtve_gf_UnitInRegion(auto9ABFC84A_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
-            UnitIssueOrder(auto9ABFC84A_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-        }
-
-    }
-    auto86980782_g = UnitGroup(null, 7, RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto86980782_g = UnitGroup(null, c_playerAny, RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto86980782_u = UnitGroupCount(auto86980782_g, c_unitCountAll);
     for (;; auto86980782_u -= 1) {
         auto86980782_var = UnitGroupUnitFromEnd(auto86980782_g, auto86980782_u);
@@ -19947,17 +19934,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         }
 
     }
-    autoC56FBD89_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoC56FBD89_u = UnitGroupCount(autoC56FBD89_g, c_unitCountAll);
-    for (;; autoC56FBD89_u -= 1) {
-        autoC56FBD89_var = UnitGroupUnitFromEnd(autoC56FBD89_g, autoC56FBD89_u);
-        if (autoC56FBD89_var == null) { break; }
-        if ((gf_is_spawner_unit(autoC56FBD89_var) == true) && (libNtve_gf_UnitInRegion(autoC56FBD89_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
-            UnitIssueOrder(autoC56FBD89_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-        }
-
-    }
-    autoF9E9E436_g = UnitGroup(null, 7, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoF9E9E436_g = UnitGroup(null, c_playerAny, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoF9E9E436_u = UnitGroupCount(autoF9E9E436_g, c_unitCountAll);
     for (;; autoF9E9E436_u -= 1) {
         autoF9E9E436_var = UnitGroupUnitFromEnd(autoF9E9E436_g, autoF9E9E436_u);
