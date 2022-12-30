@@ -614,7 +614,6 @@ point gf_get_zcc_spawn_point (int lp_player_id);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
-point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
@@ -6121,6 +6120,10 @@ void gf_set_3v3_alliances () {
     libNtve_gf_SetPlayerGroupAlliance(lv_lgt[2], libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_top, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_bottom, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
+    if ((gf_is_3v3_local_test() == true)) {
+        libNtve_gf_SetAlliance(1, gv_players[1].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_EnemyWithSharedVision);
+    }
+
 }
 
 int gf__3v3_get_alternative_terran_if_nemesis_doesnt_exist (int lp_pid) {
@@ -6602,10 +6605,6 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
     }
-    if ((gf_is_3v3_local_test() == true) && (lp_unit_type != "InfestorZergHex3v3")) {
-        lv_zerg_unit_owner = 7;
-    }
-
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
     if ((lp_unit_type == "Strikeling") && (TechTreeUpgradeCount(lp_player_id, "ZergSpecializationStrikelingDualHit", c_techCountCompleteOnly) == 1)) {
         auto4A0CB598_g = UnitLastCreatedGroup();
@@ -6613,7 +6612,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         for (;; auto4A0CB598_u -= 1) {
             auto4A0CB598_var = UnitGroupUnitFromEnd(auto4A0CB598_g, auto4A0CB598_u);
             if (auto4A0CB598_var == null) { break; }
-            UnitBehaviorAdd(auto4A0CB598_var, "StrikelingShielded", auto4A0CB598_var, 1);
+            UnitBehaviorAdd(auto4A0CB598_var, "StrikelingShielded3v3", auto4A0CB598_var, 1);
         }
     }
 
@@ -6792,27 +6791,6 @@ int gf_get_terran_id_from_zpid (int lp_zpid) {
         lv_i = (lv_i + 1);
     }
     return lv_return;
-}
-
-point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position) {
-    // Variable Declarations
-    point lv_target_position_cc_point;
-    unit lv_closest_hatch;
-    point lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_target_position_cc_point = gf_get_command_center_point_from_player_position(lp_target_position);
-
-    // Implementation
-    lv_closest_hatch = UnitGroupClosestToPoint(UnitGroup("Nest2", 7, gf_get_region_of_influence_3v3(lp_target_position), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_target_position_cc_point);
-    if ((lv_closest_hatch != null)) {
-        lv_result = UnitGetPosition(lv_closest_hatch);
-    }
-    else {
-        lv_result = PointFromId(1910508930);
-    }
-    return lv_result;
 }
 
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid) {
@@ -7063,10 +7041,6 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     lv_player_position = gv_players[lp_player_id].lv_position;
     libNtve_gf_CreateUnitsWithDefaultFacing(1, gf_get_zerg_rally_point_unit_type(), 0, gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv__3v3_zerg_pid, PointFromName(("Zerg Rally " + IntToString(lv_player_position))));
     lv_flying_rally = UnitLastCreated();
-    if ((gf_is_3v3_local_test() == true)) {
-        libNtve_gf_SetAlliance(lp_player_id, gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
-    }
-
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
     UnitSetTeamColorIndex(lv_flying_rally, PlayerGetColorIndex(gv_players[lp_player_id].lv__3v3_nemesis_terran, false));
@@ -7430,7 +7404,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -14778,7 +14752,7 @@ int gf_where_toplace_next_spawner () {
     lv_offset = 5;
 
     // Implementation
-    if ((gf_is_3v3() == true) && (gf_is_game_over() == false) && (gf_is_3v3_local_test() == false)) {
+    if ((gf_is_3v3() == true) && (gf_is_game_over() == false)) {
         lv_return = gf_where_to_build_next_spawner_3v3();
     }
     else {
@@ -19525,10 +19499,6 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
 
     lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
     TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
-    if ((gf_is_3v3_local_test() == true)) {
-        TechTreeUpgradeAddLevel(7, libNtve_gf_TriggeringProgressUpgrade(), 1);
-    }
-
     return true;
 }
 
@@ -24203,7 +24173,7 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((gf_is_3v3() == true) && (gf_is_3v3_local_test() == false) && (gf_is_terrans_team_bottom_dead() == false) && (gf_is_terrans_team_top_dead() == false))) {
+    if (((gf_is_3v3() == true) && (gf_is_terrans_team_bottom_dead() == false) && (gf_is_terrans_team_top_dead() == false))) {
         if ((libNtve_gf_UnitInRegion(EventUnit(), gf_get_region_of_influence_3v3(1)) == true)) {
             lv_player_group = gv_terrans_team_top;
         }
