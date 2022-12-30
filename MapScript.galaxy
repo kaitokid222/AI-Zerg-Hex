@@ -620,17 +620,19 @@ bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
 int gf_where_to_build_next_spawner_3v3 ();
 void gf_update_start_spawners_3v3 ();
+int gf_get_max_spawners_of_rally (unit lp_rally, int lp_number_of_spawners, int lp_number_of_rally);
+unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_group);
+unitgroup gf_get_flying_rally_of_team (int lp_player_position);
+void gf_manage_spawners_3v3_new (int lp_player_position);
 bool gf_is_overseer (unit lp_unit);
 void gf_init_3v3_flying_rally ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
-void gf_manage_spawners_3v3 (int lp_player_position);
 point gf_get_point_of_flying_rally (unit lp_unit);
 point gf_get_pre_point_of_flying_rally (unit lp_unit);
-fixed gf_get_left_zerg_ratio_of_position (int lp_player_position);
 fixed gf_get_left_zerg_ratio_of_player (int lp_player);
-unitgroup gf_get_flying_rally_group_of_position (int lp_player_position);
 unitgroup gf_get_flying_rally_group_of_player (int lp_player);
 string gf_get_zerg_rally_point_unit_type ();
+fixed gf_get_rally_ratio (unit lp_overseer);
 void gf_init_3v3_vision ();
 void gf_give_3v3_vision (unit lp_unit);
 bool gf_can_share_zerg_vision (unit lp_unit);
@@ -6994,6 +6996,186 @@ void gf_update_start_spawners_3v3 () {
     gv_upgrade_sets_left = 0;
 }
 
+int gf_get_max_spawners_of_rally (unit lp_rally, int lp_number_of_spawners, int lp_number_of_rally) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_result = (lp_number_of_spawners * 2);
+    lv_result = (lv_result / lp_number_of_rally);
+    lv_result = (lv_result * gf_get_rally_ratio(lp_rally));
+    return FixedToInt(lv_result);
+}
+
+unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_group) {
+    // Variable Declarations
+    fixed lv_distance;
+    int lv_current_amount;
+    int lv_max_amount;
+    unit lv_result;
+
+    // Automatic Variable Declarations
+    unitgroup auto159F76C6_g;
+    int auto159F76C6_u;
+    unit auto159F76C6_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto159F76C6_g = lp_flying_rally_group;
+    auto159F76C6_u = UnitGroupCount(auto159F76C6_g, c_unitCountAll);
+    for (;; auto159F76C6_u -= 1) {
+        auto159F76C6_var = UnitGroupUnitFromEnd(auto159F76C6_g, auto159F76C6_u);
+        if (auto159F76C6_var == null) { break; }
+        lv_current_amount = FixedToInt(UnitGetCustomValue(auto159F76C6_var, 3));
+        lv_max_amount = FixedToInt(UnitGetCustomValue(auto159F76C6_var, 4));
+        if ((lv_current_amount < lv_max_amount)) {
+            if ((lv_distance == 0.0)) {
+                lv_distance = DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var));
+                lv_result = auto159F76C6_var;
+            }
+            else {
+                if ((DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var)) < lv_distance)) {
+                    lv_distance = DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var));
+                    lv_result = auto159F76C6_var;
+                }
+
+            }
+        }
+
+    }
+    return lv_result;
+}
+
+unitgroup gf_get_flying_rally_of_team (int lp_player_position) {
+    // Variable Declarations
+    int lv_flying_rally_player_position;
+    unitgroup lv_group_top;
+    unitgroup lv_group_bottom;
+    unitgroup lv_result;
+
+    // Automatic Variable Declarations
+    unitgroup auto986075E3_g;
+    int auto986075E3_u;
+    unit auto986075E3_var;
+
+    // Variable Initialization
+    lv_group_top = UnitGroupEmpty();
+    lv_group_bottom = UnitGroupEmpty();
+    lv_result = UnitGroupEmpty();
+
+    // Implementation
+    auto986075E3_g = gv_flying_rally_group;
+    auto986075E3_u = UnitGroupCount(auto986075E3_g, c_unitCountAll);
+    for (;; auto986075E3_u -= 1) {
+        auto986075E3_var = UnitGroupUnitFromEnd(auto986075E3_g, auto986075E3_u);
+        if (auto986075E3_var == null) { break; }
+        lv_flying_rally_player_position = FixedToInt(UnitGetCustomValue(auto986075E3_var, 1));
+        if ((lv_flying_rally_player_position <= 3)) {
+            UnitGroupAdd(lv_group_top, auto986075E3_var);
+        }
+        else {
+            UnitGroupAdd(lv_group_bottom, auto986075E3_var);
+        }
+    }
+    if ((lp_player_position <= 3)) {
+        lv_result = lv_group_top;
+    }
+    else {
+        lv_result = lv_group_bottom;
+    }
+    return lv_result;
+}
+
+void gf_manage_spawners_3v3_new (int lp_player_position) {
+    // Variable Declarations
+    int lv_number_of_spawners;
+    int lv_number_of_rally;
+    unitgroup lv_rally_group;
+    unit lv_rally;
+    int lv_cc_player_position;
+    point lv_cc_point;
+    playergroup lv_player_group;
+    int lv_current_amount;
+
+    // Automatic Variable Declarations
+    unitgroup autoAE58A41E_g;
+    int autoAE58A41E_u;
+    unit autoAE58A41E_var;
+    unitgroup auto907FDFD9_g;
+    int auto907FDFD9_u;
+    unit auto907FDFD9_var;
+    unitgroup auto4718AEF2_g;
+    int auto4718AEF2_u;
+    unit auto4718AEF2_var;
+    unitgroup auto3FE8DB30_g;
+    int auto3FE8DB30_u;
+    unit auto3FE8DB30_var;
+
+    // Variable Initialization
+    lv_rally_group = gf_get_flying_rally_of_team(lp_player_position);
+    lv_player_group = PlayerGroupEmpty();
+
+    // Implementation
+    if ((lp_player_position <= 3)) {
+        lv_player_group = gv_terrans_team_top;
+    }
+    else {
+        lv_player_group = gv_terrans_team_bottom;
+    }
+    autoAE58A41E_g = lv_rally_group;
+    autoAE58A41E_u = UnitGroupCount(autoAE58A41E_g, c_unitCountAll);
+    for (;; autoAE58A41E_u -= 1) {
+        autoAE58A41E_var = UnitGroupUnitFromEnd(autoAE58A41E_g, autoAE58A41E_u);
+        if (autoAE58A41E_var == null) { break; }
+        lv_number_of_rally += 1;
+        UnitSetCustomValue(autoAE58A41E_var, 3, 0.0);
+    }
+    auto907FDFD9_g = UnitGroup(null, 7, gf_get_region_of_influence_3v3(lp_player_position), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto907FDFD9_u = UnitGroupCount(auto907FDFD9_g, c_unitCountAll);
+    for (;; auto907FDFD9_u -= 1) {
+        auto907FDFD9_var = UnitGroupUnitFromEnd(auto907FDFD9_g, auto907FDFD9_u);
+        if (auto907FDFD9_var == null) { break; }
+        if ((gf_is_spawner(auto907FDFD9_var) == true)) {
+            lv_number_of_spawners += 1;
+        }
+
+    }
+    auto4718AEF2_g = lv_rally_group;
+    auto4718AEF2_u = UnitGroupCount(auto4718AEF2_g, c_unitCountAll);
+    for (;; auto4718AEF2_u -= 1) {
+        auto4718AEF2_var = UnitGroupUnitFromEnd(auto4718AEF2_g, auto4718AEF2_u);
+        if (auto4718AEF2_var == null) { break; }
+        UnitSetCustomValue(auto4718AEF2_var, 4, gf_get_max_spawners_of_rally(auto4718AEF2_var, lv_number_of_spawners, lv_number_of_rally));
+    }
+    auto3FE8DB30_g = UnitGroup(null, 7, gf_get_region_of_influence_3v3(lp_player_position), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto3FE8DB30_u = UnitGroupCount(auto3FE8DB30_g, c_unitCountAll);
+    for (;; auto3FE8DB30_u -= 1) {
+        auto3FE8DB30_var = UnitGroupUnitFromEnd(auto3FE8DB30_g, auto3FE8DB30_u);
+        if (auto3FE8DB30_var == null) { break; }
+        if ((gf_is_spawner(auto3FE8DB30_var) == true)) {
+            lv_rally = gf_get_closest_not_full_rally(UnitGetPosition(auto3FE8DB30_var), lv_rally_group);
+            if ((lv_rally != null)) {
+                lv_current_amount = FixedToInt(UnitGetCustomValue(lv_rally, 3));
+                UnitSetCustomValue(lv_rally, 3, (lv_current_amount + 1));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), UnitGetPosition(lv_rally)), c_orderQueueReplace);
+                lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(lv_rally), lv_player_group);
+                lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_cc_point), c_orderQueueAddToEnd);
+            }
+            else {
+                lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(auto3FE8DB30_var), lv_player_group);
+                lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_cc_point), c_orderQueueReplace);
+            }
+        }
+
+    }
+}
+
 bool gf_is_overseer (unit lp_unit) {
     // Variable Declarations
     bool lv_r;
@@ -7066,7 +7248,7 @@ void gf_init_3v3_flying_rally () {
     lv_index = 1;
     for ( ; ( (autoCC8F4E94_ai >= 0 && lv_index <= autoCC8F4E94_ae) || (autoCC8F4E94_ai < 0 && lv_index >= autoCC8F4E94_ae) ) ; lv_index += autoCC8F4E94_ai ) {
         if ((gv_players[lv_index].lv_alive == true)) {
-            gf_manage_spawners_3v3(gv_players[lv_index].lv_position);
+            gf_manage_spawners_3v3_new(gv_players[lv_index].lv_position);
         }
 
     }
@@ -7094,46 +7276,6 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     PointSet(gf_get_pre_point_of_flying_rally(lv_flying_rally), UnitGetPosition(lv_flying_rally));
     libNtve_gf_SetBehaviorCount(lv_flying_rally, "ZergRallyEqual", lv_flying_rally, 1);
     libNtve_gf_SetBehaviorCount(lv_flying_rally, "SpawnFromCenter", lv_flying_rally, 1);
-}
-
-void gf_manage_spawners_3v3 (int lp_player_position) {
-    // Variable Declarations
-    int lv_left_count;
-    int lv_right_count;
-    fixed lv_current_ratio;
-    fixed lv_desired_ratio;
-
-    // Automatic Variable Declarations
-    unitgroup autoB758041D_g;
-    int autoB758041D_u;
-    unit autoB758041D_var;
-
-    // Variable Initialization
-    lv_desired_ratio = 0.5;
-
-    // Implementation
-    lv_desired_ratio = gf_get_left_zerg_ratio_of_position(lp_player_position);
-    autoB758041D_g = gv_spawnergroups[lp_player_position].lv_all;
-    autoB758041D_u = UnitGroupCount(autoB758041D_g, c_unitCountAll);
-    for (;; autoB758041D_u -= 1) {
-        autoB758041D_var = UnitGroupUnitFromEnd(autoB758041D_g, autoB758041D_u);
-        if (autoB758041D_var == null) { break; }
-        if ((lv_left_count == 0)) {
-            gf_add_spawner_to_left(autoB758041D_var, lp_player_position);
-            lv_left_count = (lv_left_count + 1);
-        }
-        else {
-            lv_current_ratio = (IntToFixed(lv_left_count) / (IntToFixed(lv_left_count) + IntToFixed(lv_right_count)));
-            if ((lv_current_ratio <= lv_desired_ratio)) {
-                gf_add_spawner_to_left(autoB758041D_var, lp_player_position);
-                lv_left_count = (lv_left_count + 1);
-            }
-            else {
-                gf_add_spawner_to_right(autoB758041D_var, lp_player_position);
-                lv_right_count = (lv_right_count + 1);
-            }
-        }
-    }
 }
 
 point gf_get_point_of_flying_rally (unit lp_unit) {
@@ -7182,38 +7324,6 @@ point gf_get_pre_point_of_flying_rally (unit lp_unit) {
     return lv_result;
 }
 
-fixed gf_get_left_zerg_ratio_of_position (int lp_player_position) {
-    // Variable Declarations
-    unit lv_overseer;
-    int lv_rally_position;
-    fixed lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_position(lp_player_position), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyEqual") == true)) {
-        lv_result = 0.5;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyMinus") == true)) {
-        lv_result = 0.25;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyPlus") == true)) {
-        lv_result = 0.75;
-    }
-
-    lv_rally_position = FixedToInt(UnitGetCustomValue(lv_overseer, 2));
-    if ((lv_rally_position == -1)) {
-    }
-    else {
-        lv_result = (1.0 - lv_result);
-    }
-    return lv_result;
-}
-
 fixed gf_get_left_zerg_ratio_of_player (int lp_player) {
     // Variable Declarations
     unit lv_overseer;
@@ -7225,51 +7335,12 @@ fixed gf_get_left_zerg_ratio_of_player (int lp_player) {
 
     // Implementation
     lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_player(lp_player), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyEqual") == true)) {
-        lv_result = 0.5;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyMinus") == true)) {
-        lv_result = 0.25;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyPlus") == true)) {
-        lv_result = 0.75;
-    }
-
+    lv_result = gf_get_rally_ratio(lv_overseer);
     lv_rally_position = FixedToInt(UnitGetCustomValue(lv_overseer, 2));
     if ((lv_rally_position == -1)) {
     }
     else {
         lv_result = (1.0 - lv_result);
-    }
-    return lv_result;
-}
-
-unitgroup gf_get_flying_rally_group_of_position (int lp_player_position) {
-    // Variable Declarations
-    int lv_unit_player_position;
-    unitgroup lv_result;
-
-    // Automatic Variable Declarations
-    unitgroup auto9E53CB09_g;
-    int auto9E53CB09_u;
-    unit auto9E53CB09_var;
-
-    // Variable Initialization
-    lv_result = UnitGroupEmpty();
-
-    // Implementation
-    auto9E53CB09_g = gv_flying_rally_group;
-    auto9E53CB09_u = UnitGroupCount(auto9E53CB09_g, c_unitCountAll);
-    for (;; auto9E53CB09_u -= 1) {
-        auto9E53CB09_var = UnitGroupUnitFromEnd(auto9E53CB09_g, auto9E53CB09_u);
-        if (auto9E53CB09_var == null) { break; }
-        lv_unit_player_position = FixedToInt(UnitGetCustomValue(auto9E53CB09_var, 1));
-        if ((lv_unit_player_position == lp_player_position)) {
-            UnitGroupAdd(lv_result, auto9E53CB09_var);
-        }
-
     }
     return lv_result;
 }
@@ -7306,6 +7377,29 @@ string gf_get_zerg_rally_point_unit_type () {
     // Automatic Variable Declarations
     // Implementation
     return "Overseer";
+}
+
+fixed gf_get_rally_ratio (unit lp_overseer) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyEqual") == true)) {
+        lv_result = 0.5;
+    }
+
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyMinus") == true)) {
+        lv_result = 0.25;
+    }
+
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyPlus") == true)) {
+        lv_result = 0.75;
+    }
+
+    return lv_result;
 }
 
 void gf_init_3v3_vision () {
@@ -13145,7 +13239,7 @@ bool gf_is_spawner (unit lp_local_unit) {
     lv_type = UnitGetType(lp_local_unit);
 
     // Implementation
-    if ((UnitGetOwner(lp_local_unit) == 7) && ((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "StrikelingSpawner") || (lv_type == "TanklingSpawner") || (lv_type == "RoachSpawner") || (lv_type == "PrimalRoachSpawner") || (lv_type == "UltraliskSpawner") || (lv_type == "BrutaliskSpawner") || (lv_type == "BanelingSpawner") || (lv_type == "BeastlingSpawner") || (lv_type == "InfusedRoachSpawner") || (lv_type == "RavatorSpawner") || (lv_type == "TorraliskSpawner"))) {
+    if (((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "StrikelingSpawner") || (lv_type == "TanklingSpawner") || (lv_type == "RoachSpawner") || (lv_type == "PrimalRoachSpawner") || (lv_type == "UltraliskSpawner") || (lv_type == "BrutaliskSpawner") || (lv_type == "BanelingSpawner") || (lv_type == "BeastlingSpawner") || (lv_type == "InfusedRoachSpawner") || (lv_type == "RavatorSpawner") || (lv_type == "TorraliskSpawner"))) {
         return true;
     }
     else {
@@ -15076,7 +15170,7 @@ void gf_manage_spawners (int lp_player_position) {
 
     // Implementation
     if ((gf_is_3v3() == true)) {
-        gf_manage_spawners_3v3(lp_player_position);
+        gf_manage_spawners_3v3_new(lp_player_position);
     }
     else {
         autoDE0DC902_g = gv_spawnergroups[lp_player_position].lv_all;
@@ -19763,7 +19857,7 @@ bool gt_zerg_rally_equal_on_Func (bool testConds, bool runActions) {
             UnitSetScale(autoBCE818F8_var, 100.0, 100.0, 100.0);
         }
     }
-    gf_manage_spawners_3v3(lv_player_position);
+    gf_manage_spawners_3v3_new(lv_player_position);
     return true;
 }
 
@@ -19815,7 +19909,7 @@ bool gt_zerg_rally_minus_on_Func (bool testConds, bool runActions) {
             UnitSetScale(autoA8500579_var, 145.0, 145.0, 145.0);
         }
     }
-    gf_manage_spawners_3v3(lv_player_position);
+    gf_manage_spawners_3v3_new(lv_player_position);
     return true;
 }
 
@@ -19867,7 +19961,7 @@ bool gt_zerg_rally_plus_on_Func (bool testConds, bool runActions) {
             UnitSetScale(auto57753B17_var, 70.0, 70.0, 70.0);
         }
     }
-    gf_manage_spawners_3v3(lv_player_position);
+    gf_manage_spawners_3v3_new(lv_player_position);
     return true;
 }
 
@@ -19946,7 +20040,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         }
 
     }
-    gf_manage_spawners_3v3(lv_player_position);
+    gf_manage_spawners_3v3_new(lv_player_position);
     return true;
 }
 
@@ -24227,7 +24321,7 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
     UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_all, EventUnitProgressUnit());
     UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_front, EventUnitProgressUnit());
     if ((gf_is_3v3() == true)) {
-        gf_manage_spawners_3v3(lv_target_position);
+        gf_manage_spawners_3v3_new(lv_target_position);
     }
 
     return true;
