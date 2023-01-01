@@ -8358,6 +8358,7 @@
         <On index="5" Terms="UnitConstruction.Strikeling.Finish"/>
         <On index="65" Terms="Behavior.StrikelingShielded.On" Send="SetTintColor {138,150,255 2.500000}"/>
         <On index="66" Terms="Behavior.StrikelingShielded.Off" Send="SetTintColor 255,255,255"/>
+        <On Terms="Behavior.StrikelingShielded3v3" Send="SetTintColor {138,150,255 2.500000}"/>
         <HighlightTooltip value="Unit/Name/Strikeling"/>
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>

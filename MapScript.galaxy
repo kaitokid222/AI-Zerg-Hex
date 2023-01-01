@@ -585,6 +585,8 @@ bool gf_did_top_win ();
 bool gf_did_bottom_win ();
 bool gf_is_terrans_team_bottom_dead ();
 bool gf_is_terrans_team_top_dead ();
+bool gf_is_terrans_team_top_playing ();
+bool gf_is_terrans_team_bottom_playing ();
 bool gf_is_top_hive_dead ();
 bool gf_is_bottom_hive_dead ();
 bool gf_can_cross_middle_in_3v3 (unit lp_unit_param);
@@ -614,22 +616,25 @@ point gf_get_zcc_spawn_point (int lp_player_id);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
-point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position);
+unit gf_get_random_flying_rally_of_player (int lp_player);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
 int gf_get_position_of_alive_player_with_least_spawners_from_group (playergroup lp_player_group);
 int gf_where_to_build_next_spawner_3v3 ();
 void gf_update_start_spawners_3v3 ();
+int gf_get_max_spawners_of_rally (unit lp_rally, int lp_number_of_spawners, int lp_number_of_rally);
+unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_group);
+void gf_manage_spawners_3v3 (int lp_player_position);
 bool gf_is_overseer (unit lp_unit);
 void gf_init_3v3_flying_rally ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
-void gf_manage_spawners_3v3 (int lp_player_position);
 point gf_get_point_of_flying_rally (unit lp_unit);
-point gf_get_pre_point_of_flying_rally (unit lp_unit);
-fixed gf_get_left_zerg_ratio (int lp_player_position);
-unit gf_get_random_flying_rally_of_position (int lp_player_position);
-unitgroup gf_get_flying_rally_group_of_position (int lp_player_position);
+fixed gf_get_left_zerg_ratio_of_player (int lp_player);
+unitgroup gf_get_flying_rally_group_of_player (int lp_player);
 string gf_get_zerg_rally_point_unit_type ();
+fixed gf_get_rally_ratio (unit lp_overseer);
+bool gf_is_left_rally (unit lp_rally);
+unitgroup gf_get_flying_rally_of_team (int lp_player_position);
 void gf_init_3v3_vision ();
 void gf_give_3v3_vision (unit lp_unit);
 bool gf_can_share_zerg_vision (unit lp_unit);
@@ -5210,10 +5215,19 @@ void gf_Remove_weather (int lp_player_position) {
 }
 
 void gf__3v3_player_left (int lp_player) {
+    // Variable Declarations
+    int lv_rally_player_position;
+    point lv_rally_point;
+
     // Automatic Variable Declarations
     unitgroup auto249555DF_g;
     int auto249555DF_u;
     unit auto249555DF_var;
+    unitgroup auto03CF04C4_g;
+    int auto03CF04C4_u;
+    unit auto03CF04C4_var;
+
+    // Variable Initialization
 
     // Implementation
     if ((PlayerGroupHasPlayer(gv_terrans_team_top, lp_player) == true)) {
@@ -5229,6 +5243,25 @@ void gf__3v3_player_left (int lp_player) {
         auto249555DF_var = UnitGroupUnitFromEnd(auto249555DF_g, auto249555DF_u);
         if (auto249555DF_var == null) { break; }
         UnitRemove(auto249555DF_var);
+    }
+    if ((gf_is_terrans_team_bottom_playing() == true) && (gf_is_terrans_team_bottom_playing() == true)) {
+    }
+    else {
+        auto03CF04C4_g = gf_get_flying_rally_of_team(gv_players[lp_player].lv_position);
+        auto03CF04C4_u = UnitGroupCount(auto03CF04C4_g, c_unitCountAll);
+        for (;; auto03CF04C4_u -= 1) {
+            auto03CF04C4_var = UnitGroupUnitFromEnd(auto03CF04C4_g, auto03CF04C4_u);
+            if (auto03CF04C4_var == null) { break; }
+            UnitSetPosition(auto03CF04C4_var, gf_get_point_of_flying_rally(auto03CF04C4_var), false);
+            UnitBehaviorRemove(auto03CF04C4_var, "SpawnFromCenter", c_unitBehaviorCountAll);
+            UnitBehaviorRemove(auto03CF04C4_var, "SpawnFromLeft", c_unitBehaviorCountAll);
+            UnitBehaviorRemove(auto03CF04C4_var, "SpawnFromRight", c_unitBehaviorCountAll);
+            UnitBehaviorAdd(auto03CF04C4_var, "SpawnFromCenter", auto03CF04C4_var, 1);
+            UnitBehaviorRemove(auto03CF04C4_var, "ZergRallyEqual", c_unitBehaviorCountAll);
+            UnitBehaviorRemove(auto03CF04C4_var, "ZergRallyMinus", c_unitBehaviorCountAll);
+            UnitBehaviorRemove(auto03CF04C4_var, "ZergRallyPlus", c_unitBehaviorCountAll);
+            UnitBehaviorAdd(auto03CF04C4_var, "ZergRallyEqual", auto03CF04C4_var, 1);
+        }
     }
 }
 
@@ -5360,7 +5393,7 @@ int gf_number_alive_player_in_group (playergroup lp_player_group) {
     // Variable Initialization
 
     // Implementation
-    autoA3E0A720_g = PlayerGroupAll();
+    autoA3E0A720_g = lp_player_group;
     autoA3E0A720_var = -1;
     while (true) {
         autoA3E0A720_var = PlayerGroupNextPlayer(autoA3E0A720_g, autoA3E0A720_var);
@@ -5595,13 +5628,13 @@ bool gf_did_bottom_win () {
 bool gf_is_terrans_team_bottom_dead () {
     // Variable Declarations
     bool lv_return;
-    int lv_cnt;
 
     // Automatic Variable Declarations
     playergroup auto3979AC9F_g;
     int auto3979AC9F_var;
 
     // Variable Initialization
+    lv_return = true;
 
     // Implementation
     auto3979AC9F_g = gv_terrans_team_bottom;
@@ -5610,27 +5643,23 @@ bool gf_is_terrans_team_bottom_dead () {
         auto3979AC9F_var = PlayerGroupNextPlayer(auto3979AC9F_g, auto3979AC9F_var);
         if (auto3979AC9F_var < 0) { break; }
         if ((gv_players[auto3979AC9F_var].lv_alive == true)) {
-            lv_cnt = (lv_cnt + 1);
+            lv_return = false;
         }
 
     }
-    if ((lv_cnt == 0)) {
-        lv_return = true;
-    }
-
     return lv_return;
 }
 
 bool gf_is_terrans_team_top_dead () {
     // Variable Declarations
     bool lv_return;
-    int lv_cnt;
 
     // Automatic Variable Declarations
     playergroup auto6E4CCA92_g;
     int auto6E4CCA92_var;
 
     // Variable Initialization
+    lv_return = true;
 
     // Implementation
     auto6E4CCA92_g = gv_terrans_team_top;
@@ -5639,14 +5668,58 @@ bool gf_is_terrans_team_top_dead () {
         auto6E4CCA92_var = PlayerGroupNextPlayer(auto6E4CCA92_g, auto6E4CCA92_var);
         if (auto6E4CCA92_var < 0) { break; }
         if ((gv_players[auto6E4CCA92_var].lv_alive == true)) {
-            lv_cnt = (lv_cnt + 1);
+            lv_return = false;
         }
 
     }
-    if ((lv_cnt == 0)) {
-        lv_return = true;
-    }
+    return lv_return;
+}
 
+bool gf_is_terrans_team_top_playing () {
+    // Variable Declarations
+    bool lv_return;
+
+    // Automatic Variable Declarations
+    playergroup auto0DE653F0_g;
+    int auto0DE653F0_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0DE653F0_g = gv_terrans_team_top;
+    auto0DE653F0_var = -1;
+    while (true) {
+        auto0DE653F0_var = PlayerGroupNextPlayer(auto0DE653F0_g, auto0DE653F0_var);
+        if (auto0DE653F0_var < 0) { break; }
+        if ((PlayerStatus(auto0DE653F0_var) == c_playerStatusActive)) {
+            lv_return = true;
+        }
+
+    }
+    return lv_return;
+}
+
+bool gf_is_terrans_team_bottom_playing () {
+    // Variable Declarations
+    bool lv_return;
+
+    // Automatic Variable Declarations
+    playergroup auto17C6E44C_g;
+    int auto17C6E44C_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto17C6E44C_g = gv_terrans_team_bottom;
+    auto17C6E44C_var = -1;
+    while (true) {
+        auto17C6E44C_var = PlayerGroupNextPlayer(auto17C6E44C_g, auto17C6E44C_var);
+        if (auto17C6E44C_var < 0) { break; }
+        if ((PlayerStatus(auto17C6E44C_var) == c_playerStatusActive)) {
+            lv_return = true;
+        }
+
+    }
     return lv_return;
 }
 
@@ -5737,12 +5810,6 @@ void gf_init_3v3 () {
 
         }
         gf_init_3v3_flying_rally();
-        libNtve_gf_SetPlayerGroupAlliance(gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-        libNtve_gf_SetPlayerGroupAlliance(gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-        libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_Neutral);
-        libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom, gv_terrans_team_top, libNtve_ge_AllianceSetting_Neutral);
-        libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top_open_access_units, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
-        libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom_open_access_units, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
         gf_init_3v3_vision();
         gf_manage_3v3_triggers(true);
         gf_disable_uneeded_triggers_for_3v3();
@@ -6121,6 +6188,14 @@ void gf_set_3v3_alliances () {
     libNtve_gf_SetPlayerGroupAlliance(lv_lgt[2], libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_top, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_bottom, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_Neutral);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom, gv_terrans_team_top, libNtve_ge_AllianceSetting_Neutral);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top_open_access_units, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom_open_access_units, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
+    if ((gf_is_3v3_local_test() == true)) {
+        libNtve_gf_SetAlliance(1, gv_players[1].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_EnemyWithSharedVision);
+    }
+
 }
 
 int gf__3v3_get_alternative_terran_if_nemesis_doesnt_exist (int lp_pid) {
@@ -6535,7 +6610,7 @@ void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type) {
 
     }
     if (((lp_unit_type == "Torralisk") || (lp_unit_type == "InfusedRoach") || (lp_unit_type == "Ravator") || (lp_unit_type == "Beastling"))) {
-        gv_players[lp_player_id].lv__3v3_terrazine_income += 5;
+        gv_players[lp_player_id].lv__3v3_terrazine_income += 4;
     }
     else {
         gv_players[lp_player_id].lv__3v3_terrazine_income += 1;
@@ -6586,26 +6661,13 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     unitgroup auto69714ADC_g;
     int auto69714ADC_u;
     unit auto69714ADC_var;
-    string auto49616E6E_val;
 
     // Variable Initialization
 
     // Implementation
-    lv_target_player_position = gf__3v3_get_target_or_random_enemy_terran_position(lp_player_id);
     lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id);
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
-        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
-        lv_attack_point = PointFromName(("Hydra " + IntToString(lv_target_player_position)));
-    }
-    else {
-        lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
-        lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_position(lv_target_player_position));
-    }
-    if ((gf_is_3v3_local_test() == true) && (lp_unit_type != "InfestorZergHex3v3")) {
-        lv_zerg_unit_owner = 7;
-    }
-
+    lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
     if ((lp_unit_type == "Strikeling") && (TechTreeUpgradeCount(lp_player_id, "ZergSpecializationStrikelingDualHit", c_techCountCompleteOnly) == 1)) {
         auto4A0CB598_g = UnitLastCreatedGroup();
@@ -6613,7 +6675,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         for (;; auto4A0CB598_u -= 1) {
             auto4A0CB598_var = UnitGroupUnitFromEnd(auto4A0CB598_g, auto4A0CB598_u);
             if (auto4A0CB598_var == null) { break; }
-            UnitBehaviorAdd(auto4A0CB598_var, "StrikelingShielded", auto4A0CB598_var, 1);
+            UnitBehaviorAdd(auto4A0CB598_var, "StrikelingShielded3v3", auto4A0CB598_var, 1);
         }
     }
 
@@ -6623,7 +6685,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         for (;; autoCEEA2453_u -= 1) {
             autoCEEA2453_var = UnitGroupUnitFromEnd(autoCEEA2453_g, autoCEEA2453_u);
             if (autoCEEA2453_var == null) { break; }
-            PlayerModifyPropertyFixed(lp_player_id, c_playerPropMinerals, c_playerPropOperAdd, 2.0);
+            PlayerModifyPropertyFixed(lp_player_id, c_playerPropMinerals, c_playerPropOperAdd, 1.0);
         }
     }
 
@@ -6652,20 +6714,33 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         }
     }
 
-    if (((lp_unit_type == "Fireling"))) {
-        auto49616E6E_val = lp_unit_type;
-        if (auto49616E6E_val == "Fireling") {
-            UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
-        }
-        else {
-        }
+    if ((lp_unit_type == "Fireling")) {
+        UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
     }
 
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3"))) {
+        if ((gv_players[lp_player_id].lv_position <= 3)) {
+            lv_attack_point = PointFromName("3v3_spawn_5");
+        }
+        else {
+            lv_attack_point = PointFromName("3v3_spawn_2");
+        }
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
     }
     else {
+        lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_player(lp_player_id));
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
+        if ((gf_is_3v3_local_test() == true)) {
+            lv_target_player_position = gv_players[1].lv_position;
+        }
+        else {
+            if ((gv_players[lp_player_id].lv_position <= 3)) {
+                lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_bottom);
+            }
+            else {
+                lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_top);
+            }
+        }
         UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
     }
 }
@@ -6794,23 +6869,40 @@ int gf_get_terran_id_from_zpid (int lp_zpid) {
     return lv_return;
 }
 
-point gf__3v3_get_hatchery_position_closest_to_target (int lp_target_position) {
+unit gf_get_random_flying_rally_of_player (int lp_player) {
     // Variable Declarations
-    point lv_target_position_cc_point;
-    unit lv_closest_hatch;
-    point lv_result;
+    int lv_unit_player_position;
+    int lv_unit_rally_position;
+    unit lv_result;
+    bool lv_pick_left;
 
     // Automatic Variable Declarations
+    unitgroup auto698BA267_g;
+    int auto698BA267_u;
+    unit auto698BA267_var;
+
     // Variable Initialization
-    lv_target_position_cc_point = gf_get_command_center_point_from_player_position(lp_target_position);
 
     // Implementation
-    lv_closest_hatch = UnitGroupClosestToPoint(UnitGroup("Nest2", 7, gf_get_region_of_influence_3v3(lp_target_position), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_target_position_cc_point);
-    if ((lv_closest_hatch != null)) {
-        lv_result = UnitGetPosition(lv_closest_hatch);
-    }
-    else {
-        lv_result = PointFromId(1910508930);
+    lv_pick_left = (gf_get_left_zerg_ratio_of_player(lp_player) > RandomFixed(0.0, 1.0));
+    auto698BA267_g = gf_get_flying_rally_group_of_player(lp_player);
+    auto698BA267_u = UnitGroupCount(auto698BA267_g, c_unitCountAll);
+    for (;; auto698BA267_u -= 1) {
+        auto698BA267_var = UnitGroupUnitFromEnd(auto698BA267_g, auto698BA267_u);
+        if (auto698BA267_var == null) { break; }
+        lv_unit_rally_position = FixedToInt(UnitGetCustomValue(auto698BA267_var, 2));
+        if ((lv_pick_left == true)) {
+            if ((lv_unit_rally_position == -1)) {
+                lv_result = auto698BA267_var;
+            }
+
+        }
+        else {
+            if ((lv_unit_rally_position == 1)) {
+                lv_result = auto698BA267_var;
+            }
+
+        }
     }
     return lv_result;
 }
@@ -6973,6 +7065,154 @@ void gf_update_start_spawners_3v3 () {
     gv_upgrade_sets_left = 0;
 }
 
+int gf_get_max_spawners_of_rally (unit lp_rally, int lp_number_of_spawners, int lp_number_of_rally) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_result = (lp_number_of_spawners * 2);
+    lv_result = (lv_result / lp_number_of_rally);
+    lv_result = (lv_result * gf_get_rally_ratio(lp_rally));
+    return FixedToInt(lv_result);
+}
+
+unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_group) {
+    // Variable Declarations
+    fixed lv_distance;
+    int lv_current_amount;
+    int lv_max_amount;
+    unit lv_result;
+
+    // Automatic Variable Declarations
+    unitgroup auto159F76C6_g;
+    int auto159F76C6_u;
+    unit auto159F76C6_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto159F76C6_g = lp_flying_rally_group;
+    auto159F76C6_u = UnitGroupCount(auto159F76C6_g, c_unitCountAll);
+    for (;; auto159F76C6_u -= 1) {
+        auto159F76C6_var = UnitGroupUnitFromEnd(auto159F76C6_g, auto159F76C6_u);
+        if (auto159F76C6_var == null) { break; }
+        lv_current_amount = FixedToInt(UnitGetCustomValue(auto159F76C6_var, 3));
+        lv_max_amount = FixedToInt(UnitGetCustomValue(auto159F76C6_var, 4));
+        if ((lv_current_amount < lv_max_amount)) {
+            if ((lv_distance == 0.0)) {
+                lv_distance = DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var));
+                lv_result = auto159F76C6_var;
+            }
+            else {
+                if ((DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var)) < lv_distance)) {
+                    lv_distance = DistanceBetweenPoints(lp_point, UnitGetPosition(auto159F76C6_var));
+                    lv_result = auto159F76C6_var;
+                }
+
+            }
+        }
+
+    }
+    return lv_result;
+}
+
+void gf_manage_spawners_3v3 (int lp_player_position) {
+    // Variable Declarations
+    region lv_region;
+    int lv_number_of_spawners;
+    int lv_number_of_rally;
+    unitgroup lv_rally_group;
+    unit lv_rally;
+    int lv_cc_player_position;
+    point lv_cc_point;
+    playergroup lv_player_group;
+    int lv_current_amount;
+
+    // Automatic Variable Declarations
+    unitgroup autoAE58A41E_g;
+    int autoAE58A41E_u;
+    unit autoAE58A41E_var;
+    unitgroup auto907FDFD9_g;
+    int auto907FDFD9_u;
+    unit auto907FDFD9_var;
+    unitgroup auto4718AEF2_g;
+    int auto4718AEF2_u;
+    unit auto4718AEF2_var;
+    unitgroup auto3FE8DB30_g;
+    int auto3FE8DB30_u;
+    unit auto3FE8DB30_var;
+
+    // Variable Initialization
+    lv_rally_group = gf_get_flying_rally_of_team(lp_player_position);
+    lv_player_group = PlayerGroupEmpty();
+
+    // Implementation
+    if ((gf_is_terrans_team_top_dead() == false) && (gf_is_terrans_team_bottom_dead() == false)) {
+        lv_region = gf_get_region_of_influence_3v3(lp_player_position);
+        if ((lp_player_position <= 3)) {
+            lv_player_group = gv_terrans_team_top;
+        }
+        else {
+            lv_player_group = gv_terrans_team_bottom;
+        }
+    }
+    else {
+        lv_region = RegionEntireMap();
+        lv_player_group = gv_terrans;
+    }
+    autoAE58A41E_g = lv_rally_group;
+    autoAE58A41E_u = UnitGroupCount(autoAE58A41E_g, c_unitCountAll);
+    for (;; autoAE58A41E_u -= 1) {
+        autoAE58A41E_var = UnitGroupUnitFromEnd(autoAE58A41E_g, autoAE58A41E_u);
+        if (autoAE58A41E_var == null) { break; }
+        lv_number_of_rally += 1;
+        UnitSetCustomValue(autoAE58A41E_var, 3, 0.0);
+    }
+    auto907FDFD9_g = UnitGroup(null, 7, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto907FDFD9_u = UnitGroupCount(auto907FDFD9_g, c_unitCountAll);
+    for (;; auto907FDFD9_u -= 1) {
+        auto907FDFD9_var = UnitGroupUnitFromEnd(auto907FDFD9_g, auto907FDFD9_u);
+        if (auto907FDFD9_var == null) { break; }
+        if ((gf_is_spawner(auto907FDFD9_var) == true)) {
+            lv_number_of_spawners += 1;
+        }
+
+    }
+    auto4718AEF2_g = lv_rally_group;
+    auto4718AEF2_u = UnitGroupCount(auto4718AEF2_g, c_unitCountAll);
+    for (;; auto4718AEF2_u -= 1) {
+        auto4718AEF2_var = UnitGroupUnitFromEnd(auto4718AEF2_g, auto4718AEF2_u);
+        if (auto4718AEF2_var == null) { break; }
+        UnitSetCustomValue(auto4718AEF2_var, 4, gf_get_max_spawners_of_rally(auto4718AEF2_var, lv_number_of_spawners, lv_number_of_rally));
+    }
+    auto3FE8DB30_g = UnitGroup(null, 7, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto3FE8DB30_u = UnitGroupCount(auto3FE8DB30_g, c_unitCountAll);
+    for (;; auto3FE8DB30_u -= 1) {
+        auto3FE8DB30_var = UnitGroupUnitFromEnd(auto3FE8DB30_g, auto3FE8DB30_u);
+        if (auto3FE8DB30_var == null) { break; }
+        if ((gf_is_spawner(auto3FE8DB30_var) == true)) {
+            lv_rally = gf_get_closest_not_full_rally(UnitGetPosition(auto3FE8DB30_var), lv_rally_group);
+            if ((lv_rally != null)) {
+                lv_current_amount = FixedToInt(UnitGetCustomValue(lv_rally, 3));
+                UnitSetCustomValue(lv_rally, 3, (lv_current_amount + 1));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), UnitGetPosition(lv_rally)), c_orderQueueReplace);
+                lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(lv_rally), lv_player_group);
+                lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_cc_point), c_orderQueueAddToEnd);
+            }
+            else {
+                lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(auto3FE8DB30_var), lv_player_group);
+                lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+                UnitIssueOrder(auto3FE8DB30_var, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_cc_point), c_orderQueueReplace);
+            }
+        }
+
+    }
+}
+
 bool gf_is_overseer (unit lp_unit) {
     // Variable Declarations
     bool lv_r;
@@ -6998,9 +7238,6 @@ void gf_init_3v3_flying_rally () {
     // Automatic Variable Declarations
     const int auto5254911E_ae = 6;
     const int auto5254911E_ai = 1;
-    unitgroup autoF317C659_g;
-    int autoF317C659_u;
-    unit autoF317C659_var;
     const int autoCC8F4E94_ae = 6;
     const int autoCC8F4E94_ai = 1;
 
@@ -7016,32 +7253,6 @@ void gf_init_3v3_flying_rally () {
         }
 
     }
-    autoF317C659_g = gv_flying_rally_group;
-    autoF317C659_u = UnitGroupCount(autoF317C659_g, c_unitCountAll);
-    for (;; autoF317C659_u -= 1) {
-        autoF317C659_var = UnitGroupUnitFromEnd(autoF317C659_g, autoF317C659_u);
-        if (autoF317C659_var == null) { break; }
-        lv_player_id = FixedToInt(UnitGetCustomValue(autoF317C659_var, 0));
-        lv_player_position = FixedToInt(UnitGetCustomValue(autoF317C659_var, 1));
-        if ((lv_player_position <= 3)) {
-            if ((gf_is_3v3_local_test() == true)) {
-                PingCreateWithPlayerId(gv_terrans_team_top, "PingObjective", UnitGetPosition(autoF317C659_var), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_player_id, false)), 0.0, 0);
-            }
-            else {
-                PingCreateWithPlayerId(gv_terrans_team_bottom, "PingObjective", UnitGetPosition(autoF317C659_var), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_player_id, false)), 0.0, 0);
-            }
-        }
-        else {
-            if ((gf_is_3v3_local_test() == true)) {
-                PingCreateWithPlayerId(gv_terrans_team_bottom, "PingObjective", UnitGetPosition(autoF317C659_var), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_player_id, false)), 0.0, 0);
-            }
-            else {
-                PingCreateWithPlayerId(gv_terrans_team_top, "PingObjective", UnitGetPosition(autoF317C659_var), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_player_id, false)), 0.0, 0);
-            }
-        }
-        PingSetUnit(PingLastCreated(), autoF317C659_var);
-        libHots_gf_StorePingForUnit(autoF317C659_var, 1, PingLastCreated());
-    }
     lv_index = 1;
     for ( ; ( (autoCC8F4E94_ai >= 0 && lv_index <= autoCC8F4E94_ae) || (autoCC8F4E94_ai < 0 && lv_index >= autoCC8F4E94_ae) ) ; lv_index += autoCC8F4E94_ai ) {
         if ((gv_players[lv_index].lv_alive == true)) {
@@ -7053,144 +7264,69 @@ void gf_init_3v3_flying_rally () {
 
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     // Variable Declarations
-    int lv_player_position;
+    int lv_opponent_player_position;
     unit lv_flying_rally;
+    playergroup lv_ping_player_group;
 
     // Automatic Variable Declarations
     // Variable Initialization
+    lv_ping_player_group = PlayerGroupEmpty();
 
     // Implementation
-    lv_player_position = gv_players[lp_player_id].lv_position;
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, gf_get_zerg_rally_point_unit_type(), 0, gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv__3v3_zerg_pid, PointFromName(("Zerg Rally " + IntToString(lv_player_position))));
+    lv_opponent_player_position = gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv_position;
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, gf_get_zerg_rally_point_unit_type(), 0, gv_players[lp_player_id].lv__3v3_zerg_pid, PointFromName(("Zerg Rally " + IntToString(lv_opponent_player_position))));
     lv_flying_rally = UnitLastCreated();
-    if ((gf_is_3v3_local_test() == true)) {
-        libNtve_gf_SetAlliance(lp_player_id, gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
-    }
-
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
-    UnitSetTeamColorIndex(lv_flying_rally, PlayerGetColorIndex(gv_players[lp_player_id].lv__3v3_nemesis_terran, false));
     UnitSetInfoText2(lv_flying_rally, StringExternal("Param/Value/4FEC16CE"));
-    UnitSetCustomValue(lv_flying_rally, 0, lp_player_id);
-    UnitSetCustomValue(lv_flying_rally, 1, lv_player_position);
+    UnitSetCustomValue(lv_flying_rally, 0, gv_players[lp_player_id].lv__3v3_nemesis_terran);
+    UnitSetCustomValue(lv_flying_rally, 1, lv_opponent_player_position);
     UnitSetCustomValue(lv_flying_rally, 2, lp_rally_position);
     UnitSetPosition(lv_flying_rally, gf_get_point_of_flying_rally(lv_flying_rally), false);
-    PointSet(gf_get_pre_point_of_flying_rally(lv_flying_rally), UnitGetPosition(lv_flying_rally));
     libNtve_gf_SetBehaviorCount(lv_flying_rally, "ZergRallyEqual", lv_flying_rally, 1);
     libNtve_gf_SetBehaviorCount(lv_flying_rally, "SpawnFromCenter", lv_flying_rally, 1);
-}
-
-void gf_manage_spawners_3v3 (int lp_player_position) {
-    // Variable Declarations
-    int lv_left_count;
-    int lv_right_count;
-    fixed lv_current_ratio;
-    fixed lv_desired_ratio;
-
-    // Automatic Variable Declarations
-    unitgroup autoB758041D_g;
-    int autoB758041D_u;
-    unit autoB758041D_var;
-
-    // Variable Initialization
-    lv_desired_ratio = 0.5;
-
-    // Implementation
-    lv_desired_ratio = gf_get_left_zerg_ratio(lp_player_position);
-    autoB758041D_g = gv_spawnergroups[lp_player_position].lv_all;
-    autoB758041D_u = UnitGroupCount(autoB758041D_g, c_unitCountAll);
-    for (;; autoB758041D_u -= 1) {
-        autoB758041D_var = UnitGroupUnitFromEnd(autoB758041D_g, autoB758041D_u);
-        if (autoB758041D_var == null) { break; }
-        if ((lv_left_count == 0)) {
-            gf_add_spawner_to_left(autoB758041D_var, lp_player_position);
-            lv_left_count = (lv_left_count + 1);
-        }
-        else {
-            lv_current_ratio = (IntToFixed(lv_left_count) / (IntToFixed(lv_left_count) + IntToFixed(lv_right_count)));
-            if ((lv_current_ratio <= lv_desired_ratio)) {
-                gf_add_spawner_to_left(autoB758041D_var, lp_player_position);
-                lv_left_count = (lv_left_count + 1);
-            }
-            else {
-                gf_add_spawner_to_right(autoB758041D_var, lp_player_position);
-                lv_right_count = (lv_right_count + 1);
-            }
-        }
+    if ((gv_players[lp_player_id].lv_position <= 3)) {
+        lv_ping_player_group = gv_terrans_team_top;
     }
+    else {
+        lv_ping_player_group = gv_terrans_team_bottom;
+    }
+    PingCreateWithPlayerId(lv_ping_player_group, "PingObjective", UnitGetPosition(lv_flying_rally), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lp_player_id, false)), 0.0, 0);
+    PingSetUnit(PingLastCreated(), lv_flying_rally);
+    libHots_gf_StorePingForUnit(lv_flying_rally, 1, PingLastCreated());
 }
 
 point gf_get_point_of_flying_rally (unit lp_unit) {
     // Variable Declarations
-    int lv_player_id;
-    int lv_player_position;
-    int lv_rally_position;
+    int lv_rally_player_position;
     point lv_result;
 
     // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
-    lv_player_id = FixedToInt(UnitGetCustomValue(lp_unit, 0));
-    lv_player_position = FixedToInt(UnitGetCustomValue(lp_unit, 1));
-    lv_rally_position = FixedToInt(UnitGetCustomValue(lp_unit, 2));
-    if ((lv_rally_position == -1)) {
-        lv_result = PointFromName(("Zerg Flank Rally Left " + IntToString(lv_player_position)));
+    lv_rally_player_position = FixedToInt(UnitGetCustomValue(lp_unit, 1));
+    if ((gf_is_left_rally(lp_unit) == true)) {
+        lv_result = PointFromName(("Zerg Flank Rally Left " + IntToString(lv_rally_player_position)));
     }
     else {
-        lv_result = PointFromName(("Zerg Flank Rally Right " + IntToString(lv_player_position)));
+        lv_result = PointFromName(("Zerg Flank Rally Right " + IntToString(lv_rally_player_position)));
     }
     return lv_result;
 }
 
-point gf_get_pre_point_of_flying_rally (unit lp_unit) {
-    // Variable Declarations
-    int lv_player_id;
-    int lv_player_position;
-    int lv_rally_position;
-    point lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    lv_player_id = FixedToInt(UnitGetCustomValue(lp_unit, 0));
-    lv_player_position = FixedToInt(UnitGetCustomValue(lp_unit, 1));
-    lv_rally_position = FixedToInt(UnitGetCustomValue(lp_unit, 2));
-    if ((lv_rally_position == -1)) {
-        lv_result = PointFromName(("Zerg Flank Rally Left Pre " + IntToString(lv_player_position)));
-    }
-    else {
-        lv_result = PointFromName(("Zerg Flank Rally Right Pre " + IntToString(lv_player_position)));
-    }
-    return lv_result;
-}
-
-fixed gf_get_left_zerg_ratio (int lp_player_position) {
+fixed gf_get_left_zerg_ratio_of_player (int lp_player) {
     // Variable Declarations
     unit lv_overseer;
-    int lv_rally_position;
     fixed lv_result;
 
     // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
-    lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_position(lp_player_position), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyEqual") == true)) {
-        lv_result = 0.5;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyMinus") == true)) {
-        lv_result = 0.25;
-    }
-
-    if ((UnitHasBehavior2(lv_overseer, "ZergRallyPlus") == true)) {
-        lv_result = 0.75;
-    }
-
-    lv_rally_position = FixedToInt(UnitGetCustomValue(lv_overseer, 2));
-    if ((lv_rally_position == -1)) {
+    lv_overseer = UnitGroupRandomUnit(gf_get_flying_rally_group_of_player(lp_player), c_unitCountAll);
+    lv_result = gf_get_rally_ratio(lv_overseer);
+    if ((gf_is_left_rally(lv_overseer) == true)) {
     }
     else {
         lv_result = (1.0 - lv_result);
@@ -7198,66 +7334,28 @@ fixed gf_get_left_zerg_ratio (int lp_player_position) {
     return lv_result;
 }
 
-unit gf_get_random_flying_rally_of_position (int lp_player_position) {
+unitgroup gf_get_flying_rally_group_of_player (int lp_player) {
     // Variable Declarations
-    int lv_unit_player_position;
-    int lv_unit_rally_position;
-    unit lv_result;
-    bool lv_pick_left;
-
-    // Automatic Variable Declarations
-    unitgroup auto83EE81B3_g;
-    int auto83EE81B3_u;
-    unit auto83EE81B3_var;
-
-    // Variable Initialization
-
-    // Implementation
-    lv_pick_left = (gf_get_left_zerg_ratio(lp_player_position) > RandomFixed(0.0, 1.0));
-    auto83EE81B3_g = gf_get_flying_rally_group_of_position(lp_player_position);
-    auto83EE81B3_u = UnitGroupCount(auto83EE81B3_g, c_unitCountAll);
-    for (;; auto83EE81B3_u -= 1) {
-        auto83EE81B3_var = UnitGroupUnitFromEnd(auto83EE81B3_g, auto83EE81B3_u);
-        if (auto83EE81B3_var == null) { break; }
-        lv_unit_rally_position = FixedToInt(UnitGetCustomValue(auto83EE81B3_var, 2));
-        if ((lv_pick_left == true)) {
-            if ((lv_unit_rally_position == -1)) {
-                lv_result = auto83EE81B3_var;
-            }
-
-        }
-        else {
-            if ((lv_unit_rally_position == 1)) {
-                lv_result = auto83EE81B3_var;
-            }
-
-        }
-    }
-    return lv_result;
-}
-
-unitgroup gf_get_flying_rally_group_of_position (int lp_player_position) {
-    // Variable Declarations
-    int lv_unit_player_position;
+    int lv_unit_player;
     unitgroup lv_result;
 
     // Automatic Variable Declarations
-    unitgroup auto9E53CB09_g;
-    int auto9E53CB09_u;
-    unit auto9E53CB09_var;
+    unitgroup autoE0432A6B_g;
+    int autoE0432A6B_u;
+    unit autoE0432A6B_var;
 
     // Variable Initialization
     lv_result = UnitGroupEmpty();
 
     // Implementation
-    auto9E53CB09_g = gv_flying_rally_group;
-    auto9E53CB09_u = UnitGroupCount(auto9E53CB09_g, c_unitCountAll);
-    for (;; auto9E53CB09_u -= 1) {
-        auto9E53CB09_var = UnitGroupUnitFromEnd(auto9E53CB09_g, auto9E53CB09_u);
-        if (auto9E53CB09_var == null) { break; }
-        lv_unit_player_position = FixedToInt(UnitGetCustomValue(auto9E53CB09_var, 1));
-        if ((lv_unit_player_position == lp_player_position)) {
-            UnitGroupAdd(lv_result, auto9E53CB09_var);
+    autoE0432A6B_g = gv_flying_rally_group;
+    autoE0432A6B_u = UnitGroupCount(autoE0432A6B_g, c_unitCountAll);
+    for (;; autoE0432A6B_u -= 1) {
+        autoE0432A6B_var = UnitGroupUnitFromEnd(autoE0432A6B_g, autoE0432A6B_u);
+        if (autoE0432A6B_var == null) { break; }
+        lv_unit_player = FixedToInt(UnitGetCustomValue(autoE0432A6B_var, 0));
+        if ((lv_unit_player == lp_player)) {
+            UnitGroupAdd(lv_result, autoE0432A6B_var);
         }
 
     }
@@ -7268,6 +7366,81 @@ string gf_get_zerg_rally_point_unit_type () {
     // Automatic Variable Declarations
     // Implementation
     return "Overseer";
+}
+
+fixed gf_get_rally_ratio (unit lp_overseer) {
+    // Variable Declarations
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyEqual") == true)) {
+        lv_result = 0.5;
+    }
+
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyMinus") == true)) {
+        lv_result = 0.25;
+    }
+
+    if ((UnitHasBehavior2(lp_overseer, "ZergRallyPlus") == true)) {
+        lv_result = 0.75;
+    }
+
+    return lv_result;
+}
+
+bool gf_is_left_rally (unit lp_rally) {
+    // Variable Declarations
+    int lv_rally_position;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_rally_position = FixedToInt(UnitGetCustomValue(lp_rally, 2));
+    return (lv_rally_position == -1);
+}
+
+unitgroup gf_get_flying_rally_of_team (int lp_player_position) {
+    // Variable Declarations
+    int lv_flying_rally_player_position;
+    unitgroup lv_group_top;
+    unitgroup lv_group_bottom;
+    unitgroup lv_result;
+
+    // Automatic Variable Declarations
+    unitgroup auto986075E3_g;
+    int auto986075E3_u;
+    unit auto986075E3_var;
+
+    // Variable Initialization
+    lv_group_top = UnitGroupEmpty();
+    lv_group_bottom = UnitGroupEmpty();
+    lv_result = UnitGroupEmpty();
+
+    // Implementation
+    auto986075E3_g = gv_flying_rally_group;
+    auto986075E3_u = UnitGroupCount(auto986075E3_g, c_unitCountAll);
+    for (;; auto986075E3_u -= 1) {
+        auto986075E3_var = UnitGroupUnitFromEnd(auto986075E3_g, auto986075E3_u);
+        if (auto986075E3_var == null) { break; }
+        lv_flying_rally_player_position = FixedToInt(UnitGetCustomValue(auto986075E3_var, 1));
+        if ((lv_flying_rally_player_position <= 3)) {
+            UnitGroupAdd(lv_group_top, auto986075E3_var);
+        }
+        else {
+            UnitGroupAdd(lv_group_bottom, auto986075E3_var);
+        }
+    }
+    if ((lp_player_position <= 3)) {
+        lv_result = lv_group_top;
+    }
+    else {
+        lv_result = lv_group_bottom;
+    }
+    return lv_result;
 }
 
 void gf_init_3v3_vision () {
@@ -13107,7 +13280,7 @@ bool gf_is_spawner (unit lp_local_unit) {
     lv_type = UnitGetType(lp_local_unit);
 
     // Implementation
-    if ((UnitGetOwner(lp_local_unit) == 7) && ((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "StrikelingSpawner") || (lv_type == "TanklingSpawner") || (lv_type == "RoachSpawner") || (lv_type == "PrimalRoachSpawner") || (lv_type == "UltraliskSpawner") || (lv_type == "BrutaliskSpawner") || (lv_type == "BanelingSpawner") || (lv_type == "BeastlingSpawner") || (lv_type == "InfusedRoachSpawner") || (lv_type == "RavatorSpawner") || (lv_type == "TorraliskSpawner"))) {
+    if (((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "StrikelingSpawner") || (lv_type == "TanklingSpawner") || (lv_type == "RoachSpawner") || (lv_type == "PrimalRoachSpawner") || (lv_type == "UltraliskSpawner") || (lv_type == "BrutaliskSpawner") || (lv_type == "BanelingSpawner") || (lv_type == "BeastlingSpawner") || (lv_type == "InfusedRoachSpawner") || (lv_type == "RavatorSpawner") || (lv_type == "TorraliskSpawner"))) {
         return true;
     }
     else {
@@ -13118,7 +13291,7 @@ bool gf_is_spawner (unit lp_local_unit) {
 bool gf_is_spawner_unit (unit lp_local_unit) {
     // Automatic Variable Declarations
     // Implementation
-    if ((UnitGetOwner(lp_local_unit) == 7) && ((UnitGetType(lp_local_unit) == "Slowling") || (UnitGetType(lp_local_unit) == "Strikeling") || (UnitGetType(lp_local_unit) == "Creeper") || (UnitGetType(lp_local_unit) == "Tankling") || (UnitGetType(lp_local_unit) == "Roach2") || (UnitGetType(lp_local_unit) == "PrimalRoach2") || (UnitGetType(lp_local_unit) == "Ultralisk2") || (UnitGetType(lp_local_unit) == "Brutalisk2") || (UnitGetType(lp_local_unit) == "BanelingZergHex") || (UnitGetType(lp_local_unit) == "Beastling") || (UnitGetType(lp_local_unit) == "InfusedRoach") || (UnitGetType(lp_local_unit) == "Ravator") || (UnitGetType(lp_local_unit) == "Torralisk") || (UnitGetType(lp_local_unit) == "MeleeMinionHell") || (UnitGetType(lp_local_unit) == "RangedMinionHell") || (UnitGetType(lp_local_unit) == "ZerglingCarbot"))) {
+    if (((UnitGetType(lp_local_unit) == "Slowling") || (UnitGetType(lp_local_unit) == "Strikeling") || (UnitGetType(lp_local_unit) == "Creeper") || (UnitGetType(lp_local_unit) == "Tankling") || (UnitGetType(lp_local_unit) == "Roach2") || (UnitGetType(lp_local_unit) == "PrimalRoach2") || (UnitGetType(lp_local_unit) == "Ultralisk2") || (UnitGetType(lp_local_unit) == "Brutalisk2") || (UnitGetType(lp_local_unit) == "BanelingZergHex") || (UnitGetType(lp_local_unit) == "Beastling") || (UnitGetType(lp_local_unit) == "InfusedRoach") || (UnitGetType(lp_local_unit) == "Ravator") || (UnitGetType(lp_local_unit) == "Torralisk") || (UnitGetType(lp_local_unit) == "MeleeMinionHell") || (UnitGetType(lp_local_unit) == "RangedMinionHell") || (UnitGetType(lp_local_unit) == "ZerglingCarbot"))) {
         return true;
     }
     else {
@@ -14778,7 +14951,7 @@ int gf_where_toplace_next_spawner () {
     lv_offset = 5;
 
     // Implementation
-    if ((gf_is_3v3() == true) && (gf_is_game_over() == false) && (gf_is_3v3_local_test() == false)) {
+    if ((gf_is_3v3() == true) && (gf_is_game_over() == false)) {
         lv_return = gf_where_to_build_next_spawner_3v3();
     }
     else {
@@ -19077,7 +19250,12 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto2BE65F3E_var], c_objectiveStateActive);
         }
         if ((gf_is_bottom_hive_dead() == false)) {
-            ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto2BE65F3E_var], c_objectiveStateActive);
+            if ((gf_is_terrans_team_bottom_dead() == true)) {
+                ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto2BE65F3E_var], c_objectiveStateCompleted);
+            }
+            else {
+                ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto2BE65F3E_var], c_objectiveStateActive);
+            }
         }
         else {
             ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto2BE65F3E_var], c_objectiveStateFailed);
@@ -19107,7 +19285,12 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto7964F223_var], c_objectiveStateActive);
         }
         if ((gf_is_top_hive_dead() == false)) {
-            ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto7964F223_var], c_objectiveStateActive);
+            if ((gf_is_terrans_team_top_dead() == true)) {
+                ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto7964F223_var], c_objectiveStateCompleted);
+            }
+            else {
+                ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto7964F223_var], c_objectiveStateActive);
+            }
         }
         else {
             ObjectiveSetState(gv__3v3_objective_protect_other_hive[auto7964F223_var], c_objectiveStateFailed);
@@ -19525,10 +19708,6 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
 
     lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
     TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
-    if ((gf_is_3v3_local_test() == true)) {
-        TechTreeUpgradeAddLevel(7, libNtve_gf_TriggeringProgressUpgrade(), 1);
-    }
-
     return true;
 }
 
@@ -19854,15 +20033,9 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     point lv_initial_rally_point;
 
     // Automatic Variable Declarations
-    unitgroup auto9ABFC84A_g;
-    int auto9ABFC84A_u;
-    unit auto9ABFC84A_var;
     unitgroup auto86980782_g;
     int auto86980782_u;
     unit auto86980782_var;
-    unitgroup autoC56FBD89_g;
-    int autoC56FBD89_u;
-    unit autoC56FBD89_var;
     unitgroup autoF9E9E436_g;
     int autoF9E9E436_u;
     unit autoF9E9E436_var;
@@ -19892,19 +20065,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     }
 
     UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
-    PointSet(gf_get_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
-    PointSet(gf_get_pre_point_of_flying_rally(EventUnit()), UnitGetPosition(EventUnit()));
-    auto9ABFC84A_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    auto9ABFC84A_u = UnitGroupCount(auto9ABFC84A_g, c_unitCountAll);
-    for (;; auto9ABFC84A_u -= 1) {
-        auto9ABFC84A_var = UnitGroupUnitFromEnd(auto9ABFC84A_g, auto9ABFC84A_u);
-        if (auto9ABFC84A_var == null) { break; }
-        if ((gf_is_spawner_unit(auto9ABFC84A_var) == true) && (libNtve_gf_UnitInRegion(auto9ABFC84A_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
-            UnitIssueOrder(auto9ABFC84A_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-        }
-
-    }
-    auto86980782_g = UnitGroup(null, 7, RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto86980782_g = UnitGroup(null, c_playerAny, RegionCircle(lv_initial_rally_point, 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto86980782_u = UnitGroupCount(auto86980782_g, c_unitCountAll);
     for (;; auto86980782_u -= 1) {
         auto86980782_var = UnitGroupUnitFromEnd(auto86980782_g, auto86980782_u);
@@ -19916,17 +20077,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         }
 
     }
-    autoC56FBD89_g = UnitGroup(null, UnitGetOwner(EventUnit()), RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoC56FBD89_u = UnitGroupCount(autoC56FBD89_g, c_unitCountAll);
-    for (;; autoC56FBD89_u -= 1) {
-        autoC56FBD89_var = UnitGroupUnitFromEnd(autoC56FBD89_g, autoC56FBD89_u);
-        if (autoC56FBD89_var == null) { break; }
-        if ((gf_is_spawner_unit(autoC56FBD89_var) == true) && (libNtve_gf_UnitInRegion(autoC56FBD89_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
-            UnitIssueOrder(autoC56FBD89_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-        }
-
-    }
-    autoF9E9E436_g = UnitGroup(null, 7, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoF9E9E436_g = UnitGroup(null, c_playerAny, RegionCircle(UnitGetPosition(EventUnit()), 20.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoF9E9E436_u = UnitGroupCount(autoF9E9E436_g, c_unitCountAll);
     for (;; autoF9E9E436_u -= 1) {
         autoF9E9E436_var = UnitGroupUnitFromEnd(autoF9E9E436_g, autoF9E9E436_u);
@@ -24203,7 +24354,7 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((gf_is_3v3() == true) && (gf_is_3v3_local_test() == false) && (gf_is_terrans_team_bottom_dead() == false) && (gf_is_terrans_team_top_dead() == false))) {
+    if (((gf_is_3v3() == true) && (gf_is_terrans_team_bottom_dead() == false) && (gf_is_terrans_team_top_dead() == false))) {
         if ((libNtve_gf_UnitInRegion(EventUnit(), gf_get_region_of_influence_3v3(1)) == true)) {
             lv_player_group = gv_terrans_team_top;
         }

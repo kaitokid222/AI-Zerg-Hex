@@ -94,6 +94,16 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="StrikelingShielded3v3">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-regenerativebile.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="1"/>
+        </Modification>
+        <DamageResponse ClampMaximum="1" Minimum="1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ZagaraAutoTransfuse3v3">
         <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

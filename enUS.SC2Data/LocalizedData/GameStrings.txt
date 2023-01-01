@@ -501,6 +501,7 @@ Behavior/Name/SpawnProtection=Spawn Protection
 Behavior/Name/StalkerSpeedBuff=Stalker Speed Buff
 Behavior/Name/StaticDischarge=Static Discharge
 Behavior/Name/StrikelingShielded=Shielded
+Behavior/Name/StrikelingShielded3v3=Shielded
 Behavior/Name/TarRoachInfection=Tar Roach Infection
 Behavior/Name/TarRoachSpawn=Tar Roach Spawn
 Behavior/Name/Test=Test
@@ -636,6 +637,7 @@ Behavior/Tooltip/SpawnFromRight=Zerg units appear from the right side.
 Behavior/Tooltip/SpawnProtection=Unit is invulnerable for 30 seconds.
 Behavior/Tooltip/StaticDischarge=Deals damage based on stored charges to nearby enemy units.
 Behavior/Tooltip/StrikelingShielded=Absorbs one additional hit
+Behavior/Tooltip/StrikelingShielded3v3=Absorbs one additional hit
 Behavior/Tooltip/TarRoachInfection=This unit is infected and will spawn a Tar Roach on dying.
 Behavior/Tooltip/TarRoachSpawn=Spawns a Tar Roach upon death.
 Behavior/Tooltip/UnifiedArmor=Walls share health with one another to protect the weakest areas.
@@ -1340,7 +1342,7 @@ Button/Tooltip/RecruitSlave=Slaves gather blood and can kill themselves to gener
 Button/Tooltip/Refinery2=
 Button/Tooltip/ResearchAdvancedBuild=Eliminates the cost of walls.<n/><n/><c val="ffff8a">Enables:</c><n/>- Structure: Converter
 Button/Tooltip/ResearchBankling=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
-Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon creation.
+Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 1 minerals upon creation.
 Button/Tooltip/ResearchBomberSpawns=Allows to upgrade bunkers to make them spawn bombers.
 Button/Tooltip/ResearchChemicalPlant=Enables building of the Chemical Plant, a structure producing gas and enabling the Firebat unit at Barracks.
 Button/Tooltip/ResearchCombatShield=<c val="ffff8a">Marines</c> gain +10 life.<n/><n/>Required for <c val="ffff8a">Veteran Marines</c>.
@@ -1432,7 +1434,7 @@ Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and at
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
 Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
-Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.
 Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBrutalisk=Tanky melee creature.
@@ -1450,13 +1452,13 @@ Button/Tooltip/SpawnHydralisk=Durable ranged unit. Generates additional lives ev
 Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. Gains energy while attacking, energy is required to mutate into Large Spawners.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
-Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
 Button/Tooltip/SpawnRavator=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/>
-Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit lasting 140 seconds every 50 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit lasting 140 seconds every 50 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnRoach=Tanky melee creature.
 Button/Tooltip/SpawnRoach3v3=Durable armor unit.<n/><n/><c val="338FF7">Upgrades:</c><n/><c val="85BCFA">- Tar Infection: infected units spawn a Tar Roach on death<n/>- Tar Spawn: Roaches spawn a Tar Roach upon death</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnSheep=Sheep eat fruit to gain <c val="58BEF5">(+<d ref="Effect,SheepMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than sheep.</c>
@@ -1468,10 +1470,10 @@ Button/Tooltip/SpawnSporeCrawler=Creates a structure capable of attacking from l
 Button/Tooltip/SpawnStrikeling=Slow melee creature.
 Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 16 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTanker=Tanky melee creature. Deals additional damage to structures and always attacks closest target. Deals true damage.
-Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 2 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 1 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTarRoach=Small unit capable of attacking structures only.<n/><n/>Can have a maximum of 100.
 Button/Tooltip/SpawnTorralisk=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/>
-Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit lasting 340 seconds every 150 seconds</c><n/><n/><c val="E2E087">+50 terrazine income per minute</c>
+Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit lasting 340 seconds every 150 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnUltralisk2=Tanky melee creature.
 Button/Tooltip/SpawnerIncomeInfo=Adding a spawner would currently give:<n/><c val="83D5E2">+6 minerals </c>per minute to yourself.<n/>and<n/><c val="83D5E2">+6 minerals </c>per minute to your ally.
@@ -3147,10 +3149,8 @@ Param/Value/27322B92=<s val="FilePanelDetailsHyphen">sss</s>
 Param/Value/276336A3=reward indicator
 Param/Value/2C247614=Issuing Zerg balancing cost of: 
 Param/Value/2D30F9F1=<c val="F88D4E">The Zerg has left the game!</c>
-Param/Value/2D940467= - Count: 
 Param/Value/2E438B93=Voting got started for a different event!
 Param/Value/2F3CF83B=Crazy Minions event is enabled!
-Param/Value/2F5DDF9F=Desired Ratio: 
 Param/Value/2F627A07=<c val="FF9797">Rock exploits have been terminated. Here is 30 gas for your efforts.</c>
 Param/Value/302805B1=Usable Supply
 Param/Value/309BF701=We are done here! Good Luck!
@@ -3184,6 +3184,7 @@ Param/Value/41EEE019=/3 Plasma Charges
 Param/Value/4399D1F2= 
 Param/Value/461D12D8=Transporter Spawned
 Param/Value/46CD4CAE=Player 
+Param/Value/46CFD070=Max value:
 Param/Value/4714AF2C=. <n/>Type "-rtv" or "-rtv hny" if you also want to play the HNY event! <n/>3 more votes needed!
 Param/Value/47F4A801=gas income per minute
 Param/Value/48B133B4=Sentries are very good at scaring Infestors away.
@@ -3227,6 +3228,7 @@ Param/Value/672D0B24=Build 20 Walls!
 Param/Value/67547099=
 Param/Value/68EED64B=1000
 Param/Value/68FAA8E1=terrazine income per minute
+Param/Value/691ED895=Number of rally: 
 Param/Value/694737D4=empty null text
 Param/Value/6AABEA78=Zerg destroyed pumpkin! 
 Param/Value/6B925B3D=%)</c>
@@ -3237,7 +3239,6 @@ Param/Value/6ECD78AD= more votes needed!
 Param/Value/70429A66=I will come and support you!
 Param/Value/70CF1FCC=Valentines Day Event active!
 Param/Value/7164857E=0
-Param/Value/732A0ECC=/
 Param/Value/740F8555=Kill the Hive on your side of the map.
 Param/Value/74473846=Kill every terran in the other team.
 Param/Value/74552BF8=Your team must stay alive!
@@ -3371,7 +3372,6 @@ Param/Value/DED78987=Halloween event is disabled!
 Param/Value/DEE1CE0C=Build 2 Sentry Guns at your side walls!
 Param/Value/DF116317=Revealing Tank
 Param/Value/E07D26ED=!
-Param/Value/E0E1D0C7=Current Ratio: 
 Param/Value/E130816B=Gas is needed for everything. The more you have the better it is for you in the long run.
 Param/Value/E1ED0B77=I heard you need some help! We will take care about some of the zerg spawners. Good Luck!
 Param/Value/E372FAEE= more votes needed!
@@ -3384,6 +3384,7 @@ Param/Value/EBD7812F=Rock the vote started by player
 Param/Value/EC047E91=Removing Zerg resources accordingly
 Param/Value/EEBA0F70=More minerals - more stuff!
 Param/Value/EF4330DB=Artanis
+Param/Value/F08F264B=Number of spawners: 
 Param/Value/F13DECF6=You dont want to run out of energy!
 Param/Value/F2693779=Terran
 Param/Value/F280773D=0

@@ -410,7 +410,6 @@
             <LayoutButtons Face="ResearchBankling3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research11" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchPackedMass3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research8" Row="0" Column="0"/>
             <LayoutButtons Face="ResearchFerocity3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research9" Row="0" Column="1"/>
-            <LayoutButtons Face="ResearchDualHit3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research10" Row="0" Column="2"/>
             <LayoutButtons Face="ResearchTarInfection3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research12" Row="1" Column="0"/>
             <LayoutButtons Face="ResearchTarSpawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research13" Row="1" Column="1"/>
             <LayoutButtons Face="ResearchPrimalRapidRespawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research14" Row="1" Column="2"/>
@@ -421,6 +420,7 @@
             <LayoutButtons Face="ResearchZergArmor43v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergArmor53v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergMovement3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research7" Row="2" Column="1"/>
+            <LayoutButtons Face="ResearchDualHit3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research10" Row="0" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>

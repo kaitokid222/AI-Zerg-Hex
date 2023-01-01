@@ -1777,22 +1777,27 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Upgrade="ZergArmor1">
             <Resource index="Minerals" value="200"/>
+            <Resource index="Terrazine" value="800"/>
             <Button DefaultButtonFace="ResearchZergArmor13v3" Requirements="ResearchZergArmor1"/>
         </InfoArray>
         <InfoArray index="Research2" Upgrade="ZergArmor2">
             <Resource index="Minerals" value="475"/>
+            <Resource index="Terrazine" value="1900"/>
             <Button DefaultButtonFace="ResearchZergArmor23v3" Requirements="ResearchZergArmor2"/>
         </InfoArray>
         <InfoArray index="Research3" Upgrade="ZergArmor3">
             <Resource index="Minerals" value="1075"/>
+            <Resource index="Terrazine" value="4300"/>
             <Button DefaultButtonFace="ResearchZergArmor33v3" Requirements="ResearchZergArmor3"/>
         </InfoArray>
         <InfoArray index="Research4" Upgrade="ZergArmor4">
             <Resource index="Minerals" value="1325"/>
+            <Resource index="Terrazine" value="5300"/>
             <Button DefaultButtonFace="ResearchZergArmor43v3" Requirements="ResearchZergArmor4"/>
         </InfoArray>
         <InfoArray index="Research5" Upgrade="ZergArmor5">
             <Resource index="Minerals" value="2000"/>
+            <Resource index="Terrazine" value="8000"/>
             <Button DefaultButtonFace="ResearchZergArmor53v3" Requirements="ResearchZergArmor5"/>
         </InfoArray>
         <InfoArray index="Research6" Upgrade="Firelings">
@@ -2770,7 +2775,7 @@
             <Button DefaultButtonFace="ResearchGasExtraction3" Requirements="GasExtraction3Requirement"/>
         </InfoArray>
         <InfoArray index="Research11" Time="15" Upgrade="TerrazineIncomex2">
-            <Resource index="Vespene" value="150"/>
+            <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="TerrazineIncomex2" Requirements="TerrazineDoublerRequirement"/>
         </InfoArray>
         <InfoArray index="Research12" Time="15" Upgrade="TerrazineIncomex3">
@@ -2778,7 +2783,7 @@
             <Button DefaultButtonFace="TerrazineIncomex3" Requirements="TerrazineDoubler2Requirement"/>
         </InfoArray>
         <InfoArray index="Research13" Time="15" Upgrade="TerrazineIncomex4">
-            <Resource index="Vespene" value="350"/>
+            <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="TerrazineIncomex4" Requirements="TerrazineDoubler3Requirement"/>
         </InfoArray>
     </CAbilResearch>
