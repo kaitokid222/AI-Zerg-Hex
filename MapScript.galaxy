@@ -5247,7 +5247,7 @@ void gf__3v3_player_left (int lp_player) {
     if ((gf_is_terrans_team_bottom_playing() == true) && (gf_is_terrans_team_bottom_playing() == true)) {
     }
     else {
-        auto03CF04C4_g = gf_get_flying_rally_of_team(gv_players[lp_player].lv_position);
+        auto03CF04C4_g = gv_flying_rally_group;
         auto03CF04C4_u = UnitGroupCount(auto03CF04C4_g, c_unitCountAll);
         for (;; auto03CF04C4_u -= 1) {
             auto03CF04C4_var = UnitGroupUnitFromEnd(auto03CF04C4_g, auto03CF04C4_u);
@@ -5333,6 +5333,7 @@ void gf__3v3_player_died (int lp_player) {
             lv_zerg_rally_player_position = FixedToInt(UnitGetCustomValue(autoEA06CB41_var, 1));
             if ((lv_zerg_rally_player_position >= 4)) {
                 PingDestroy(libHots_gf_PingStoredForUnit(autoEA06CB41_var, 1));
+                UnitGroupRemove(gv_flying_rally_group, autoEA06CB41_var);
                 UnitRemove(autoEA06CB41_var);
             }
 
@@ -5361,6 +5362,7 @@ void gf__3v3_player_died (int lp_player) {
             lv_zerg_rally_player_position = FixedToInt(UnitGetCustomValue(autoC766BFFC_var, 1));
             if ((lv_zerg_rally_player_position <= 3)) {
                 PingDestroy(libHots_gf_PingStoredForUnit(autoC766BFFC_var, 1));
+                UnitGroupRemove(gv_flying_rally_group, autoC766BFFC_var);
                 UnitRemove(autoC766BFFC_var);
             }
 
@@ -7279,7 +7281,7 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
     UnitSetInfoText2(lv_flying_rally, StringExternal("Param/Value/4FEC16CE"));
-    UnitSetCustomValue(lv_flying_rally, 0, gv_players[lp_player_id].lv__3v3_nemesis_terran);
+    UnitSetCustomValue(lv_flying_rally, 0, lp_player_id);
     UnitSetCustomValue(lv_flying_rally, 1, lv_opponent_player_position);
     UnitSetCustomValue(lv_flying_rally, 2, lp_rally_position);
     UnitSetPosition(lv_flying_rally, gf_get_point_of_flying_rally(lv_flying_rally), false);
