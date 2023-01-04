@@ -68,6 +68,8 @@
         <EffectArray Operation="Set" Reference="Abil,SiegeTankUpgrade,InfoArray[Research2].Time" Value="10.000000"/>
         <EffectArray Operation="Set" Reference="Abil,SiegeTankUpgrade,InfoArray[Research3].Time" Value="10.000000"/>
         <EffectArray Operation="Set" Reference="Abil,ConstructionYardResearch,InfoArray[Research3].Button.Requirements" Value="PlasmaCannonsRequirementBetterTank"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,CastIntroTime[0]" Value="2.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Cooldown.TimeUse" Value="2.000000"/>
     </CUpgrade>
     <CUpgrade id="SuperEnergyGeneration">
         <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
@@ -135,19 +137,19 @@
     <CUpgrade id="DoubledRewards">
         <Icon value="Assets\Textures\btn-ability-hornerhan-salvagebonus.dds"/>
     </CUpgrade>
-    <CUpgrade id="TankExpertise">
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+    <CUpgrade id="SiegeTankExpertise">
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
         <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Cooldown.TimeUse" Value="0.600000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Vital[Energy]" Value="20"/>
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Vital[Energy]" Value="20"/>
-        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Vital[Energy]" Value="20"/>
-        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Vital[Energy]" Value="20"/>
-        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Cooldown.TimeUse" Value="0.750000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Cooldown.TimeUse" Value="0.750000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="40"/>
-        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="40"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannon,Cost[0].Vital[Energy]" Value="25"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT2,Cost[0].Vital[Energy]" Value="25"/>
+        <EffectArray Operation="Subtract" Reference="Abil,SiegeTankModulate,Cost[0].Vital[Energy]" Value="25"/>
+        <EffectArray Operation="Subtract" Reference="Abil,PlasmaCannonT3,Cost[0].Vital[Energy]" Value="25"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Cooldown.TimeUse" Value="0.900000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Cooldown.TimeUse" Value="0.900000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="50"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="50"/>
         <MaxLevel value="30"/>
     </CUpgrade>
     <CUpgrade id="TerrazineIncomex3">
