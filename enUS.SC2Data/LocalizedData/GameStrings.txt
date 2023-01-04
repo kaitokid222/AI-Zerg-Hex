@@ -2141,6 +2141,7 @@ DocInfo/PatchNote562=- Overseer Improvements
 DocInfo/PatchNote563=   - Moving the Overseer F2 all closed by spawner units from AI and ZCC
 DocInfo/PatchNote564=   - Dynamically reorganizing the AI spawners rally points based on the closest Overseer
 DocInfo/PatchNote565=   - If the opposing team completely left, place their Overseers back to their original positions
+DocInfo/PatchNote566=Fixed Issues.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior
