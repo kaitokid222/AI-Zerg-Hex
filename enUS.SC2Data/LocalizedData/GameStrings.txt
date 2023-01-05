@@ -681,6 +681,7 @@ Button/Name/BuildLargeChemicalPlant=Build Large Chemical Plant
 Button/Name/BuildMineralTrader=Build Mineral Trader
 Button/Name/BuildOperationCenter=Build Operation Center
 Button/Name/BuildPowerPylon=Build Power Pylon
+Button/Name/BuildProbe=Build Probe
 Button/Name/BuildRefinery=Build Refinery
 Button/Name/BuildSensorTower=Build Sensor Tower
 Button/Name/BuildSentryGun=Build Sentry Gun
@@ -811,6 +812,7 @@ Button/Name/MutateintoTorraliskSpawner=Mutate into Torralisk Spawner
 Button/Name/MutateintoUltraliskSpawner=Mutate into Ultralisk Spawner
 Button/Name/NanoRepair2=Nano Repair
 Button/Name/NapalmBomb=Napalm Bomb
+Button/Name/NydusCanal=Mutate into Zerg Unit Spawner
 Button/Name/OptionGlider=Option Glider
 Button/Name/OptionTrader=Option Trader
 Button/Name/OptionTransporter=Option Transporter
@@ -831,6 +833,8 @@ Button/Name/PlasmaShardsInfo=Plasma Shards
 Button/Name/PowerField=Power Field
 Button/Name/PreConnectWithTarget=Pre Connect With Target
 Button/Name/Probe=Build Probius
+Button/Name/Pylon=Warp In Probius Pylon
+Button/Name/PylonClassic=Warp In Pylon
 Button/Name/PylonOvercharge=Overcharge
 Button/Name/Raise2=Raise
 Button/Name/ReaperSuitUpgrade=Reaper Suit Upgrade
@@ -1014,6 +1018,7 @@ Button/Name/UpgradeSpawnerStrikeling=Upgrade Spawner
 Button/Name/UpgradeSuperEnergyGeneration=Upgrade Super Energy Generation
 Button/Name/UpgradeToAdvancedGate=Upgrade To Advanced Gate
 Button/Name/WarpInItalis=Warp In Italis
+Button/Name/WarpInMineralGenerator=Warp In Mineral Generator
 Button/Name/WeatherSelection=Weather Selection
 Button/Name/YourBaseLocation=Your Base Location
 Button/Name/ZergRallyEqual=Zerg Rally Equal
@@ -1071,6 +1076,7 @@ Button/Tooltip/BuildLargeChemicalPlant=Generates 6 gas every 5 seconds.
 Button/Tooltip/BuildMineralTrader=Gives an ally 100 minerals upon reaching their Command Center. Right click a Command Center to issue the effect.
 Button/Tooltip/BuildOperationCenter=The Operation Center allows to upgrade Reapers, Energy Warp and Mineral Mining.
 Button/Tooltip/BuildPowerPylon=Automatically transfers energy to nearby batteries, defense structures and other pylons.<n/><n/>Should be placed in range of the Generator or another Pylon to connect.
+Button/Tooltip/BuildProbe=A builder unit.
 Button/Tooltip/BuildRefinery=Must be built on top of a Vespene Geyser.<n/><n/>Generates 1 gas every 3 seconds.
 Button/Tooltip/BuildSensorTower=Grants vision at night!
 Button/Tooltip/BuildSentryGun=Rapid fire sentry gun providing strong defense in a large area. Deals less damage versus massive (The Omegalisk).<n/><n/>Weapon uses <d ref="Weapon,SentryGun2,Cost.Vital[Energy]"/> energy per shot.
@@ -1246,6 +1252,7 @@ Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
+Button/Tooltip/Larva3v3=Can mutate into a Unit Spawner.
 Button/Tooltip/LoveMorales=Support trooper. Heals nearby biological units.
 Button/Tooltip/Lower2=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/Marine2=
@@ -1256,6 +1263,7 @@ Button/Tooltip/MeleeMinionHell=
 Button/Tooltip/MineralContainer=
 Button/Tooltip/MineralContainerPassiveInfo=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MineralExtractor=
+Button/Tooltip/MineralGenerator=Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<n/><n/><c val="ffff8a">Enables:</c><n/>- Photon Cannons from Probes
 Button/Tooltip/MineralMining=Upgrades the Operation Center to produce +20 minerals every 5 seconds. Remains effective when rebuilt.
 Button/Tooltip/MineralTrader=
 Button/Tooltip/MobileMode=Reverts to Mobile Mode to allow the Siege Tank to move.
@@ -1288,6 +1296,7 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
+Button/Tooltip/NydusCanal=Spawns Zerg Units and grows creep used to feed nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/OmegaliskCocoon2=
 Button/Tooltip/OmegaliskZergHex=
 Button/Tooltip/OperationCenter=
@@ -1317,8 +1326,8 @@ Button/Tooltip/Present=Contains a gift!
 Button/Tooltip/Present2=Contains a gift!
 Button/Tooltip/Present3=Contains a gift!
 Button/Tooltip/PrimalRoachSpawnerImpaler=
-Button/Tooltip/Probe=Heroic Probe Probius!
-Button/Tooltip/Probius=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/Probe=A builder unit.
+Button/Tooltip/Probius=Heroic Probe Probius!
 Button/Tooltip/ProbiusPylon=Provides supply.<n/>Supply allows you to warp in more units.<n/>Creates power for nearby structures.
 Button/Tooltip/ProduceMineralText01=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
 Button/Tooltip/ProduceMineralText02=<s val="MercDescription">+2</s><IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
@@ -1326,6 +1335,7 @@ Button/Tooltip/ProduceMineralText04=<s val="Kicker_Minerals">+4</s>
 Button/Tooltip/ProduceMineralText06=<s val="Kicker_Minerals">+6</s>
 Button/Tooltip/ProduceMineralText08=<s val="Kicker_Minerals">+8</s>
 Button/Tooltip/Pylon=Provides powerful buffs, creates a powerfield for photon cannons and generates resources when no aura is selected.
+Button/Tooltip/PylonClassic=Creates a field that powers other structures.
 Button/Tooltip/PylonOvercharge=Turns pylon into a long range turret.
 Button/Tooltip/Raise2=Raises the structure, preventing ground units from moving across it.
 Button/Tooltip/RangedMinionHell=
@@ -1554,6 +1564,7 @@ Button/Tooltip/UpgradedRefinery=
 Button/Tooltip/VeteranMarine=
 Button/Tooltip/Wall2=
 Button/Tooltip/WarpInItalis=Superior ranged unit. Deals high damage with minor splash and is capable of teleporting across the map. Does not require energy to fire its weapon.<n/><n/><c val="49D3F1">Costs 25 charges</c>
+Button/Tooltip/WarpInMineralGenerator=Rapidly generates minerals.<n/>Can be overcharged.
 Button/Tooltip/WarpInSpirit=Superior ranged unit. Deals high damage with minor splash and is capable of teleporting across the map. Does not require energy to fire its weapon.<n/><n/><c val="49D3F1">Costs 25 charges</c>
 Button/Tooltip/WeatherSelection=You can select Weather Effects here!
 Button/Tooltip/WizardMinion=
@@ -3651,14 +3662,17 @@ Unit/Name/Jaina=Jaina
 Unit/Name/LargeChemicalPlant=Large Chemical Plant
 Unit/Name/LargePresent=Large Present
 Unit/Name/LargeSpineCrawler=Large Spine Crawler
+Unit/Name/Larva3v3=Larva
 Unit/Name/LoveMorales=Love Morales
 Unit/Name/Marine2=Marine
 Unit/Name/MeleeMinionHell=Melee Minion
 Unit/Name/MineralContainer=Mineral Container
 Unit/Name/MineralExtractor=Mineral Extractor
+Unit/Name/MineralGenerator=Mineral Generator
 Unit/Name/MineralTrader=Mineral Trader
 Unit/Name/NapalmBomb=Nuke
 Unit/Name/Nest2=Nest
+Unit/Name/NydusCanal=Zerg Unit Spawner
 Unit/Name/Observer=Observer
 Unit/Name/OmegaliskCocoon2=Omegalisk Cocoon
 Unit/Name/OmegaliskCocoonBuilding=Omegalisk Cocoon
@@ -3752,6 +3766,7 @@ Unit/ShieldArmorName/CommandoShields=Psi Shield
 Unit/ShieldArmorName/StaticShield=Static Shield
 Unit/Subtitle/ChaosUndivided=Chaos Undivided
 UnitKillRank/Commando=Spectre Leader
+UnitKillRank/Larva3v3=Broodmother Larva
 UnitSubtitle/Beastling=Primal Strain
 UnitSubtitle/HydraliskDefender3v3=Impaler Strain
 UnitSubtitle/HydraliskLevel2=

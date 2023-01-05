@@ -4203,6 +4203,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 17), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("GeneratorResearch", 5), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 18), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("CommandCenterTrain2", 9), false);
 }
 
 void gf_apply_smod () {

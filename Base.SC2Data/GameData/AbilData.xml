@@ -1324,8 +1324,10 @@
                 <CountUse value="1"/>
                 <TimeUse value="30"/>
             </Charge>
-            <Cooldown TimeUse="1"/>
             <Button Requirements=""/>
+        </InfoArray>
+        <InfoArray index="Build9" Unit="Pylon" Time="15">
+            <Button DefaultButtonFace="PylonClassic"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectInstant id="ReaperAfterburner">
@@ -2608,6 +2610,10 @@
             <Button DefaultButtonFace="Oracle"/>
             <Unit value="Oracle"/>
         </InfoArray>
+        <InfoArray index="Train10" Time="2">
+            <Button DefaultButtonFace="BuildProbe"/>
+            <Unit value="Probe"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilEffectInstant id="ConvertMinerals">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3332,6 +3338,9 @@
         </InfoArray>
         <InfoArray index="Build19" Unit="CreepTumor2" Time="20">
             <Button DefaultButtonFace="MutateintoCreepTumor" Requirements="RequirementArmor1"/>
+        </InfoArray>
+        <InfoArray index="Build22" Unit="NydusCanal" Time="20">
+            <Button DefaultButtonFace="NydusCanal"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">

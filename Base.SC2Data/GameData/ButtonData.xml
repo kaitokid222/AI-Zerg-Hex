@@ -87,6 +87,23 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value=""/>
     </CButton>
+    <CButton id="BuildProbe">
+        <Icon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="NydusCanal"/>
+    <CButton id="Pylon"/>
+    <CButton id="PylonClassic">
+        <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="WarpInMineralGenerator">
+        <Icon value="Assets\Textures\btn-building-protoss-forge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-forge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="HiveMindEmulator"/>
     <CButton id="BuildChaosDefiler">
         <Icon value="assets\icon\ICON Defiler.dds"/>
