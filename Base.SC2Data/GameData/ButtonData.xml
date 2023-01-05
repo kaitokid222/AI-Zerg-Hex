@@ -92,6 +92,11 @@
         <AlertIcon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="MutateintoLargeSpineCrawler">
+        <Icon value="Assets\Textures\btn-building-zerg-spinecrawler.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-spinecrawler.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="NydusCanal"/>
     <CButton id="Pylon"/>
     <CButton id="PylonClassic">
@@ -99,6 +104,19 @@
         <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="SpawnLarva3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
+    </CButton>
+    <CButton id="SpawnMenuLarge">
+        <Icon value="Assets\Textures\btn-unit-zerg-primalzergling.dds"/>
+    </CButton>
+    <CButton id="SpawnMenuSmall">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="SummonNydusCanalCreeper"/>
     <CButton id="WarpInMineralGenerator">
         <Icon value="Assets\Textures\btn-building-protoss-forge.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-forge.dds"/>

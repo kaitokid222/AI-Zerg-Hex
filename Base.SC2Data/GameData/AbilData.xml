@@ -603,6 +603,20 @@
         <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBeastling3v3" Requirements="RequirementArmor1"/>
     </CAbilEffectInstant>
+    <CAbilEffectInstant id="SpawnLarva3v3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="SpawnLarvaDummy"/>
+        <Cost>
+            <Resource index="Terrazine" value="500"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <TimeStart value="45"/>
+                <TimeUse value="45"/>
+            </Charge>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3" Requirements="RequirementArmor1"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnSlowling">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnSlowlingDummy"/>
@@ -3341,6 +3355,12 @@
         </InfoArray>
         <InfoArray index="Build22" Unit="NydusCanal" Time="20">
             <Button DefaultButtonFace="NydusCanal"/>
+        </InfoArray>
+        <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
+            <Button DefaultButtonFace="SummonNydusCanalCreeper"/>
+        </InfoArray>
+        <InfoArray index="Build24" Unit="LargeSpineCrawler" Time="180">
+            <Button DefaultButtonFace="MutateintoLargeSpineCrawler"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">

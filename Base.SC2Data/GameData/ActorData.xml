@@ -622,6 +622,9 @@
     <CActorUnit id="NydusCanal">
         <Scale value="0.600000"/>
     </CActorUnit>
+    <CActorUnit id="NydusCanalCreeper">
+        <PortraitModel value="CreepTurmorPortrait"/>
+    </CActorUnit>
     <CActorUnit id="SiegeTankFragmentBlastFire" parent="GenericUnitStandard">
         <CopySource value=""/>
         <Aliases index="0" removed="1"/>

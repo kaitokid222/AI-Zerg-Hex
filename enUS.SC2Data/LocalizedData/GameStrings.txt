@@ -147,6 +147,7 @@ Abil/Name/SpawnBruta3v3=Spawn Bruta
 Abil/Name/SpawnCreeper=Spawn Creeper
 Abil/Name/SpawnFirelings=Spawn Firelings
 Abil/Name/SpawnInfestor3v3=Spawn Infestor 3v3
+Abil/Name/SpawnLarva3v3=Spawn Larva 3v3
 Abil/Name/SpawnOmgaliskCocoon=Spawn Omgalisk Cocoon
 Abil/Name/SpawnPrimal3v3=Spawn Primal
 Abil/Name/SpawnRoach3v3=Spawn Roach
@@ -798,6 +799,7 @@ Button/Name/MutateintoCreeperSpawner=Mutate into Creeper Spawner
 Button/Name/MutateintoGeyserBlocker=Mutate into Geyser Blocker
 Button/Name/MutateintoGreaterMineralExtractor=Mutate into Greater Mineral Extractor
 Button/Name/MutateintoInfusedRoachSpawner=Mutate into Infused Roach Spawner
+Button/Name/MutateintoLargeSpineCrawler=Mutate into Large Spine Crawler
 Button/Name/MutateintoMineralContainer=Mutate into Mineral Container
 Button/Name/MutateintoMineralExtractor=Mutate into Mineral Extractor
 Button/Name/MutateintoNest=Mutate into Nest
@@ -946,6 +948,9 @@ Button/Name/SpawnInfestor=Spawn Infestor
 Button/Name/SpawnInfestor3v3=Spawn Infestor
 Button/Name/SpawnInfusedRoach=Spawn Infused Roach
 Button/Name/SpawnInfusedRoach3v3=Spawn Infused Roach
+Button/Name/SpawnLarva3v3=Spawn Larva
+Button/Name/SpawnMenuLarge=Spawn Menu
+Button/Name/SpawnMenuSmall=Spawn Menu
 Button/Name/SpawnOmegaliskCocoon=Spawn Omegalisk Cocoon
 Button/Name/SpawnPrimalRoach=Spawn Primal Roach
 Button/Name/SpawnPrimalRoach3v3=Spawn Primal Roach
@@ -973,6 +978,7 @@ Button/Name/StaticDischarge2=Static Discharge
 Button/Name/StopArtillery=Stop Artillery
 Button/Name/StructureBurn=Structure Burn
 Button/Name/Suicide=Suicide
+Button/Name/SummonNydusCanalCreeper=Mutate into Creep Tower
 Button/Name/TarInfection=Tar Infection
 Button/Name/TarRush=Tar Rush
 Button/Name/Teardown=Teardown
@@ -1280,6 +1286,7 @@ Button/Tooltip/MutateintoCreeperSpawner=Can attack with short range.<n/><n/><c v
 Button/Tooltip/MutateintoGeyserBlocker=Mutated over a Vespene Geyser to deny terrans harvesting from it.
 Button/Tooltip/MutateintoGreaterMineralExtractor=Upgrades the extractor to give four times as much minerals per minute.<n/><n/>Has 250 more hp and 3 armor.
 Button/Tooltip/MutateintoInfusedRoachSpawner=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="94D1D1">Re-spawns 1 unit</c> <c val="E8E191">(100 sec spawn time)</c>
+Button/Tooltip/MutateintoLargeSpineCrawler=Primary defense structure.
 Button/Tooltip/MutateintoMineralContainer=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MutateintoMineralExtractor=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/MutateintoNest=Grows creep in a large area. Can spawn several units.
@@ -1463,6 +1470,9 @@ Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. 
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
 Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
+Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Spawn Point for your Zerg Control Center spawns<n/><n/>- Creep Tower <n/><n/>- Large Spine Crawler to fortify positions.
+Button/Tooltip/SpawnMenuLarge=Special Units
+Button/Tooltip/SpawnMenuSmall=Regular Units
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
@@ -2890,6 +2900,7 @@ Effect/Name/SpawnCreeperDummy=Spawn Creeper Dummy
 Effect/Name/SpawnFirelingsDummy=Spawn Firelings Dummy
 Effect/Name/SpawnInfestorDummy=Spawn Infestor Dummy
 Effect/Name/SpawnInfusedDummy=Spawn Infused Dummy
+Effect/Name/SpawnLarvaDummy=Spawn Larva Dummy
 Effect/Name/SpawnPrimalDummy3v3=Spawn Primal Dummy
 Effect/Name/SpawnRavDummy=Spawn Rav Dummy
 Effect/Name/SpawnRavagerEggCU=Spawn Ravager Egg (CU)
