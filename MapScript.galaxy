@@ -599,6 +599,7 @@ void gf_settle_3v3_player ();
 int gf_get_lobby_setting_player_distro ();
 int gf_get_random_free_3v3_position (int lp_player);
 void gf_set_3v3_alliances ();
+void gf_first_group_give_control_to_second_group (playergroup lp_group1, playergroup lp_group2);
 int gf__3v3_get_alternative_terran_if_nemesis_doesnt_exist (int lp_pid);
 void gf_set_elo_based_team ();
 int gf_get_player_elo_rating (int lp_player_id);
@@ -6236,20 +6237,49 @@ void gf_set_3v3_alliances () {
     libNtve_gf_AddPlayerGroupToPlayerGroup(lv_lgt[1], lv_all_zerg_pid_group);
     libNtve_gf_AddPlayerGroupToPlayerGroup(lv_lgt[2], lv_all_zerg_pid_group);
     libNtve_gf_SetPlayerGroupAlliance(lv_all_zerg_pid_group, libNtve_ge_AllianceSetting_Ally);
-    libNtve_gf_AddPlayerGroupToPlayerGroup(gv_terrans_team_top, lv_lgt[1]);
-    libNtve_gf_AddPlayerGroupToPlayerGroup(gv_terrans_team_bottom, lv_lgt[2]);
-    libNtve_gf_SetPlayerGroupAlliance(lv_lgt[1], libNtve_ge_AllianceSetting_AllyWithSharedVision);
-    libNtve_gf_SetPlayerGroupAlliance(lv_lgt[2], libNtve_ge_AllianceSetting_AllyWithSharedVision);
-    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_top, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
-    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_bottom, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
+    libNtve_gf_SetPlayerGroupAlliance(gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    libNtve_gf_SetPlayerGroupAlliance(gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_top, gv_terrans_team_top, libNtve_ge_AllianceSetting_NeutralWithSharedVision);
+    gf_first_group_give_control_to_second_group(gv_zerg_team_top, gv_terrans_team_top);
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg_team_bottom, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_NeutralWithSharedVision);
+    gf_first_group_give_control_to_second_group(gv_zerg_team_bottom, gv_terrans_team_bottom);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_Neutral);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom, gv_terrans_team_top, libNtve_ge_AllianceSetting_Neutral);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_top_open_access_units, gv_terrans_team_top, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans_team_bottom_open_access_units, gv_terrans_team_bottom, libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
     if ((gf_is_3v3_local_test() == true)) {
         libNtve_gf_SetAlliance(1, gv_players[1].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_EnemyWithSharedVision);
+        PlayerSetAlliance(gv_players[1].lv__3v3_zerg_pid, c_allianceIdControl, 1, true);
+        PlayerSetAlliance(gv_players[1].lv__3v3_zerg_pid, c_allianceIdSpend, 1, true);
     }
 
+}
+
+void gf_first_group_give_control_to_second_group (playergroup lp_group1, playergroup lp_group2) {
+    // Variable Declarations
+    int lv_first_player;
+    int lv_second_player;
+
+    // Automatic Variable Declarations
+    playergroup autoAED21347_g;
+    playergroup autoAF2B4D88_g;
+
+    // Variable Initialization
+
+    // Implementation
+    autoAED21347_g = lp_group1;
+    lv_first_player = -1;
+    while (true) {
+        lv_first_player = PlayerGroupNextPlayer(autoAED21347_g, lv_first_player);
+        if (lv_first_player < 0) { break; }
+        autoAF2B4D88_g = lp_group2;
+        lv_second_player = -1;
+        while (true) {
+            lv_second_player = PlayerGroupNextPlayer(autoAF2B4D88_g, lv_second_player);
+            if (lv_second_player < 0) { break; }
+            PlayerSetAlliance(lv_first_player, c_allianceIdControl, lv_second_player, true);
+        }
+    }
 }
 
 int gf__3v3_get_alternative_terran_if_nemesis_doesnt_exist (int lp_pid) {
@@ -7657,7 +7687,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -18267,12 +18297,12 @@ bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 30)) {
-        if ((TechTreeUpgradeCount(EventPlayer(), "TankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
-            TechTreeUpgradeAddLevel(EventPlayer(), "TankExpertise", 2);
+    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+        if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
+            TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 2);
         }
         else {
-            TechTreeUpgradeAddLevel(EventPlayer(), "TankExpertise", 1);
+            TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
         }
     }
 
@@ -25440,10 +25470,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         gf_restore_ranked_vanilla();
     }
     gf_create_income_dialog();
-    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     GameSetPauseable(false);
     gf_spawn_spaceballs();
     gf_init_3v3();
+    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     return true;
 }
 

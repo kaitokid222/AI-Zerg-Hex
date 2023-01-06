@@ -224,6 +224,7 @@
 <Unit id="BrutaliskSpawner"/>
 <Unit id="MineralExtractor"/>
 <Unit id="CreepTumor2"/>
+<Unit id="LargeSpineCrawler"/>
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
 <Unit id="Larva3v3"/>
@@ -252,7 +253,6 @@
 <Unit id="TrafficTower"/>
 <Unit id="RocksBE"/>
 <Unit id="DestructibleRock6x6I"/>
-<Unit id="LargeSpineCrawler"/>
 <Unit id="Hive2"/>
 <Unit id="CommandCenter2"/>
 <Unit id="Generator"/>
