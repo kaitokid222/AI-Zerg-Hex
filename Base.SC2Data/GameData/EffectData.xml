@@ -45,6 +45,9 @@
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectDamage>
+    <CEffectSet id="SpawnLarvaDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectDamage id="ZagaraNotOnCreepDamage3v3">
         <EditorCategories value="Race:Zerg"/>
         <Flags index="NoKillCredit" value="1"/>

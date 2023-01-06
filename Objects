@@ -509,7 +509,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8842" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
+    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8793" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -1052,7 +1052,7 @@
     <ObjectDoodad Id="1174084271" Variation="14" Position="128.6208,148.9692,7.9965" Rotation="1.8408" Scale="1.2,1,1" Type="ZergWallDecorTwoHigh" Roll="0.1743">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.366" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
+    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.3747" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>

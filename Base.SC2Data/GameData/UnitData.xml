@@ -356,6 +356,125 @@
             <Cooldown Link="Marine/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="Larva3v3">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="130"/>
+        <LifeMax value="130"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="10"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="3"/>
+        <SpeedMultiplierCreep value="1.5"/>
+        <Acceleration value="1000"/>
+        <Sight value="15"/>
+        <CostCategory value="Army"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="que1"/>
+        <AbilArray Link="MorphUnitDroneZergBuildings"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
+            <LayoutButtons Face="NydusCanal" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build22" Row="2" Column="0"/>
+            <LayoutButtons Face="SummonNydusCanalCreeper" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build23" Row="2" Column="1"/>
+            <LayoutButtons Face="MutateintoLargeSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
+        </CardLayouts>
+        <Radius value="0.25"/>
+        <SubgroupPriority value="20"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <HotkeyAlias value="SwarmQueen"/>
+        <GlossaryCategory value="Unit/Category/ZergCharacter"/>
+        <HotkeyCategory value="Unit/Category/ZergStory"/>
+        <RankDisplay value="Never"/>
+    </CUnit>
+    <CUnit id="MineralGenerator">
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="Prot"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
+        <ShieldsStart value="400"/>
+        <ShieldsMax value="400"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Vespene" value="80"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5"/>
+        <AbilArray Link="ForgeResearch"/>
+        <BehaviorArray Link="PowerUserQueue"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="ProtossGroundWeaponsLevel1" Type="AbilCmd" AbilCmd="ForgeResearch,Research1" Row="0" Column="0"/>
+            <LayoutButtons Face="ProtossGroundWeaponsLevel2" Type="AbilCmd" AbilCmd="ForgeResearch,Research2" Row="0" Column="0"/>
+            <LayoutButtons Face="ProtossGroundWeaponsLevel3" Type="AbilCmd" AbilCmd="ForgeResearch,Research3" Row="0" Column="0"/>
+            <LayoutButtons Face="ProtossGroundArmorLevel1" Type="AbilCmd" AbilCmd="ForgeResearch,Research4" Row="0" Column="1"/>
+            <LayoutButtons Face="ProtossGroundArmorLevel2" Type="AbilCmd" AbilCmd="ForgeResearch,Research5" Row="0" Column="1"/>
+            <LayoutButtons Face="ProtossGroundArmorLevel3" Type="AbilCmd" AbilCmd="ForgeResearch,Research6" Row="0" Column="1"/>
+            <LayoutButtons Face="ProtossShieldsLevel1" Type="AbilCmd" AbilCmd="ForgeResearch,Research7" Row="0" Column="2"/>
+            <LayoutButtons Face="ProtossShieldsLevel2" Type="AbilCmd" AbilCmd="ForgeResearch,Research8" Row="0" Column="2"/>
+            <LayoutButtons Face="ProtossShieldsLevel3" Type="AbilCmd" AbilCmd="ForgeResearch,Research9" Row="0" Column="2"/>
+            <LayoutButtons Face="SOAQuatro" Type="Passive" Requirements="HaveSOAQuatro" Row="2" Column="0"/>
+            <LayoutButtons Face="PhotonCannonPassive" Type="Passive" Requirements="HavePhotonCannon" Row="1" Column="0"/>
+            <LayoutButtons Face="KhaydarinMonolithPassive" Type="Passive" Requirements="HaveKhaydarinMonolith" Row="1" Column="1"/>
+        </CardLayouts>
+        <Radius value="1.5"/>
+        <SeparationRadius value="1.5"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3"/>
+        <ScoreMake value="150"/>
+        <ScoreKill value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <GlossaryPriority value="26"/>
+        <HotkeyCategory value="Unit/Category/ProtossUnits"/>
+    </CUnit>
     <CUnit id="HiveMindEmulator">
         <EnergyStart value="0"/>
         <EnergyMax value="1000"/>
@@ -377,32 +496,24 @@
         <AbilArray Link="SpawnCreeper"/>
         <AbilArray Link="SpawnSlowling"/>
         <AbilArray Link="SpawnStrikeling"/>
+        <AbilArray Link="SpawnLarva3v3"/>
         <BehaviorArray index="0" Link="IsZCC"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="SpawnTorralisk3v3" AbilCmd="3v3SpawnTorralisk2,Execute"/>
-            <LayoutButtons index="1" Face="Cancel" AbilCmd="BuildInProgress,Cancel" Column="4"/>
-            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="3"/>
-            <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoach3v3,Execute" Row="1" Column="1"/>
-            <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="SpawnPrimalRoach3v3" Type="AbilCmd" AbilCmd="SpawnPrimal3v3,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltra3v3,Execute" Row="1" Column="3"/>
-            <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBruta3v3,Execute" Row="1" Column="4"/>
-            <LayoutButtons>
+            <LayoutButtons index="1">
                 <Face value="ZergUpgrades"/>
                 <Type value="Submenu"/>
+                <AbilCmd value=""/>
                 <SubmenuCardId value="0002"/>
                 <SubmenuIsSticky value="1"/>
                 <Row value="0"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="SpawnCreeper3v3" Type="AbilCmd" AbilCmd="SpawnCreeper,Execute" Row="0" Column="1"/>
-            <LayoutButtons Face="SpawnStrikeling3v3" Type="AbilCmd" AbilCmd="SpawnStrikeling,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="SpawnMenuSmall" Type="Submenu" SubmenuCardId="0003" Row="0" Column="0"/>
+            <LayoutButtons Face="SpawnMenuLarge" Type="Submenu" SubmenuCardId="0004" Row="0" Column="1"/>
+            <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="1" Column="0"/>
+            <LayoutButtons Face="SpawnLarva3v3" Type="AbilCmd" AbilCmd="SpawnLarva3v3,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="Spawn5Firelings" Type="AbilCmd" AbilCmd="SpawnFirelings,Execute" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ZCCResearch,Research6" Row="0" Column="4"/>
@@ -413,7 +524,6 @@
             <LayoutButtons Face="ResearchTarInfection3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research12" Row="1" Column="0"/>
             <LayoutButtons Face="ResearchTarSpawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research13" Row="1" Column="1"/>
             <LayoutButtons Face="ResearchPrimalRapidRespawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research14" Row="1" Column="2"/>
-            <LayoutButtons Face="Spawn5Firelings" Type="AbilCmd" AbilCmd="SpawnFirelings,Execute" Row="1" Column="4"/>
             <LayoutButtons Face="ResearchZergArmor13v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research1" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergArmor23v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research2" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergArmor33v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research3" Row="2" Column="0"/>
@@ -423,7 +533,23 @@
             <LayoutButtons Face="ResearchDualHit3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research10" Row="0" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
-            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+            <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoach3v3,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="SpawnPrimalRoach3v3" Type="AbilCmd" AbilCmd="SpawnPrimal3v3,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltra3v3,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBruta3v3,Execute" Row="1" Column="4"/>
+            <LayoutButtons Face="SpawnCreeper3v3" Type="AbilCmd" AbilCmd="SpawnCreeper,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="SpawnStrikeling3v3" Type="AbilCmd" AbilCmd="SpawnStrikeling,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="0004">
+            <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorralisk2,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
@@ -1568,6 +1694,25 @@
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
     </CUnit>
+    <CUnit id="NydusCanal">
+        <CostResource index="Minerals" value="50"/>
+        <AbilArray index="2" removed="1"/>
+        <AbilArray index="3" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="SetRallyPoint" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="1" removed="1"/>
+            <LayoutButtons index="2" removed="1"/>
+            <LayoutButtons index="3" removed="1"/>
+        </CardLayouts>
+        <Footprint value="Footprint2x2IgnoreCreepContour"/>
+        <PlacementFootprint value="Footprint2x2IgnoreCreepContour"/>
+    </CUnit>
+    <CUnit id="NydusCanalCreeper">
+        <LifeStart value="3000"/>
+        <LifeMax value="3000"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="100"/>
+    </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>
         <FlagArray index="ArmySelect" value="0"/>
@@ -1622,6 +1767,30 @@
             <LayoutButtons Face="SpawnFromLeft" Type="AbilCmd" AbilCmd="ZCCLeft,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="SpawnFromCenter" Type="AbilCmd" AbilCmd="ZCCCenter,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="SpawnFromRight" Type="AbilCmd" AbilCmd="ZCCRight,Execute" Row="1" Column="3"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="Probe">
+        <CardLayouts index="1">
+            <LayoutButtons index="0" Column="1"/>
+            <LayoutButtons index="1" Face="PylonClassic" AbilCmd="ProtossBuild,Build9" Column="0"/>
+            <LayoutButtons index="2" Face="Gateway" AbilCmd="ProtossBuild,Build4" Row="1" Column="0"/>
+            <LayoutButtons index="3" Face="Forge" AbilCmd="ProtossBuild,Build5" Column="1"/>
+            <LayoutButtons index="4" Face="CyberneticsCore" AbilCmd="ProtossBuild,Build15" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="Cancel" Type="CancelSubmenu" AbilCmd="" Column="4"/>
+            <LayoutButtons index="6" Face="PhotonCannon" Type="AbilCmd" AbilCmd="ProtossBuild,Build8" Column="1"/>
+            <LayoutButtons index="7" Face="WarpInWarpGate" AbilCmd="ProtossBuild,Build26" Row="1" Column="0"/>
+            <LayoutButtons index="8" Face="ShieldBattery" AbilCmd="ProtossBuild,Build22" Row="1" Column="2"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+        </CardLayouts>
+        <CardLayouts index="2">
+            <LayoutButtons index="3" Face="Cancel" Type="CancelSubmenu" AbilCmd="" Row="2" Column="4"/>
+            <LayoutButtons index="4" removed="1"/>
+            <LayoutButtons index="5" removed="1"/>
+            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="SiegeTankFragmentBlastFire">
@@ -2052,29 +2221,6 @@
         <FlagArray index="ArmorDisabledWhileConstructing" value="0"/>
         <PlaneArray index="Ground" value="0"/>
         <Collide index="Structure" value="0"/>
-    </CUnit>
-    <CUnit id="Probe">
-        <CardLayouts index="1">
-            <LayoutButtons index="1" Face="Pylon" AbilCmd="ProtossBuild,Build2" Column="2"/>
-            <LayoutButtons index="2" Face="Gateway" AbilCmd="ProtossBuild,Build4" Row="1" Column="0"/>
-            <LayoutButtons index="3" Face="Forge" AbilCmd="ProtossBuild,Build5" Column="1"/>
-            <LayoutButtons index="4" Face="CyberneticsCore" AbilCmd="ProtossBuild,Build15" Row="2" Column="0"/>
-            <LayoutButtons index="5" Face="Cancel" Type="CancelSubmenu" AbilCmd="" Column="4"/>
-            <LayoutButtons index="6" Face="PhotonCannon" Type="AbilCmd" AbilCmd="ProtossBuild,Build8" Column="1"/>
-            <LayoutButtons index="7" Face="WarpInWarpGate" AbilCmd="ProtossBuild,Build26" Row="1" Column="0"/>
-            <LayoutButtons index="8" Face="ShieldBattery" AbilCmd="ProtossBuild,Build22" Row="1" Column="2"/>
-            <LayoutButtons index="9" removed="1"/>
-            <LayoutButtons index="10" removed="1"/>
-            <LayoutButtons index="11" removed="1"/>
-        </CardLayouts>
-        <CardLayouts index="2">
-            <LayoutButtons index="3" Face="Cancel" Type="CancelSubmenu" AbilCmd="" Row="2" Column="4"/>
-            <LayoutButtons index="4" removed="1"/>
-            <LayoutButtons index="5" removed="1"/>
-            <LayoutButtons index="6" removed="1"/>
-            <LayoutButtons index="7" removed="1"/>
-            <LayoutButtons index="8" removed="1"/>
-        </CardLayouts>
     </CUnit>
     <CUnit id="Probius">
         <DeathRevealRadius value="3"/>
@@ -6413,7 +6559,9 @@
         <LifeStart value="1300"/>
         <LifeMax value="1300"/>
         <LifeRegenRate value="4"/>
-        <CostResource index="Minerals" value="500"/>
+        <CostResource index="Minerals" value="1000"/>
+        <CostResource index="Vespene" value="300"/>
+        <CostResource index="Terrazine" value="500"/>
         <WeaponArray index="0" Link="ImpalerTentacle2"/>
         <Sight value="12"/>
         <LifeArmor value="2"/>
@@ -7164,6 +7312,7 @@
             <LayoutButtons index="10" Face="TrainInfestedBuilder" AbilCmd="CommandCenterTrain2,Train7" Row="0" Column="0"/>
             <LayoutButtons index="11" Face="Probe" AbilCmd="CommandCenterTrain2,Train8" Row="0"/>
             <LayoutButtons index="12" Face="WeatherSelection" Type="Submenu" AbilCmd="" Requirements="ReqWeatherDonor" SubmenuCardId="0004"/>
+            <LayoutButtons Face="BuildProbe" Type="AbilCmd" AbilCmd="CommandCenterTrain2,Train10" Row="0" Column="0"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="SelfDestruct2" Type="AbilCmd" AbilCmd="SelfDestruct,Execute" Row="0" Column="0"/>
