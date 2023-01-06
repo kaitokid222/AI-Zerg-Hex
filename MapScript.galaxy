@@ -25470,10 +25470,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         gf_restore_ranked_vanilla();
     }
     gf_create_income_dialog();
-    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     GameSetPauseable(false);
     gf_spawn_spaceballs();
     gf_init_3v3();
+    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     return true;
 }
 
