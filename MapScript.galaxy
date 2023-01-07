@@ -4329,7 +4329,7 @@ void gf_Major_rock_exploit () {
             for (;; autoC4575226_u -= 1) {
                 autoC4575226_var = UnitGroupUnitFromEnd(autoC4575226_g, autoC4575226_u);
                 if (autoC4575226_var == null) { break; }
-                if (((UnitGetOwner(autoC4575226_var) == 0) || (UnitGetOwner(autoC4575226_var) == 7) || (UnitGetOwner(autoC4575226_var) > 7) || (gf_is_overseer(autoC4575226_var) == true) || (UnitGetType(autoC4575226_var) == "Medivac") || (UnitGetType(autoC4575226_var) == "Hercules") || (UnitGetType(autoC4575226_var) == "WarpPrism"))) {
+                if (((UnitGetOwner(autoC4575226_var) == 0) || (UnitGetOwner(autoC4575226_var) == 7) || (UnitGetOwner(autoC4575226_var) > 7) || (gf_is_overseer(autoC4575226_var) == true) || (UnitGetType(autoC4575226_var) == "Medivac") || (UnitGetType(autoC4575226_var) == "Hercules") || (UnitGetType(autoC4575226_var) == "WarpPrism") || (UnitGetType(autoC4575226_var) == "Italis"))) {
                 }
                 else {
                     UnitKill(autoC4575226_var);
@@ -6881,26 +6881,26 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
 
     // Implementation
     if ((lp_unit_type == "Torralisk")) {
-        lv_result = (lp_spawn_count / 150.0);
+        lv_result = (lp_spawn_count / 300.0);
     }
     else {
         if ((lp_unit_type == "InfusedRoach")) {
-            lv_result = (lp_spawn_count / 100.0);
+            lv_result = (lp_spawn_count / 200.0);
         }
         else {
             if ((lp_unit_type == "Ravator")) {
-                lv_result = (lp_spawn_count / 50.0);
+                lv_result = (lp_spawn_count / 100.0);
             }
             else {
                 if ((lp_unit_type == "Strikeling")) {
-                    lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                    lv_result = (lp_spawn_count / (32.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                 }
                 else {
                     if ((lp_unit_type == "PrimalRoach2") && (TechTreeUpgradeCount(lp_player_id, "PrimalRapidRespawn", c_techCountCompleteOnly) == 1)) {
-                        lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        lv_result = (lp_spawn_count / (36.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                     }
                     else {
-                        lv_result = (lp_spawn_count / (20.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                     }
                 }
             }
@@ -20277,7 +20277,7 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     for (;; auto1F8A9550_u -= 1) {
         auto1F8A9550_var = UnitGroupUnitFromEnd(auto1F8A9550_g, auto1F8A9550_u);
         if (auto1F8A9550_var == null) { break; }
-        if ((UnitGetOwner(auto1F8A9550_var) != 7) && (UnitGetOwner(auto1F8A9550_var) != 0) && (gf_is_overseer(auto1F8A9550_var) == false) && (UnitGetType(auto1F8A9550_var) != "Medivac") && (UnitGetType(auto1F8A9550_var) != "Hercules") && (UnitGetType(auto1F8A9550_var) != "WarpPrism")) {
+        if ((UnitGetOwner(auto1F8A9550_var) != 7) && (UnitGetOwner(auto1F8A9550_var) != 0) && (gf_is_overseer(auto1F8A9550_var) == false) && (UnitGetType(auto1F8A9550_var) != "Medivac") && (UnitGetType(auto1F8A9550_var) != "Hercules") && (UnitGetType(auto1F8A9550_var) != "WarpPrism") && (UnitGetType(auto1F8A9550_var) != "Italis")) {
             UnitKill(auto1F8A9550_var);
         }
 

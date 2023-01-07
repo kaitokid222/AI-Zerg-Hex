@@ -1844,7 +1844,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="ZCCTimedLife" parent="TimedLife">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="100"/>
+        <Duration value="75"/>
         <DisableValidatorArray value="ZCCNoTimedLifeStop"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZCCTimedLifeStop">
