@@ -1817,73 +1817,22 @@
         <BehaviorArray Link="SiegeTankFragmentBlastFireDamage"/>
         <EditorCategories value=""/>
     </CUnit>
-    <CUnit id="SpineCrawlerMecha">
-        <DeathRevealRadius value="3"/>
-        <Facing value="315"/>
-        <Race value="Zerg"/>
-        <Mob value="Multiplayer"/>
-        <FlagArray index="Turnable" value="0"/>
-        <FlagArray index="PreventDefeat" value="1"/>
-        <FlagArray index="PreventDestroy" value="1"/>
-        <FlagArray index="PenaltyRevealed" value="1"/>
-        <FlagArray index="UseLineOfSight" value="1"/>
-        <FlagArray index="TownAlert" value="1"/>
-        <FlagArray index="NoPortraitTalk" value="1"/>
-        <FlagArray index="AIThreatGround" value="1"/>
-        <FlagArray index="AIDefense" value="1"/>
-        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
-        <FlagArray index="AIPressForwardDisabled" value="1"/>
-        <FogVisibility value="Snapshot"/>
-        <PlaneArray index="Ground" value="1"/>
-        <Collide index="Burrow" value="1"/>
-        <Collide index="Structure" value="1"/>
-        <Collide index="RoachBurrow" value="1"/>
-        <Attributes index="Armored" value="1"/>
-        <Attributes index="Biological" value="1"/>
-        <Attributes index="Structure" value="1"/>
-        <LifeStart value="750"/>
-        <LifeMax value="750"/>
+    <CUnit id="SpineCrawler">
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Collide index="Small" value="0"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
         <LifeArmor value="1"/>
         <LifeRegenRate value="1"/>
-        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
-        <StationaryTurningRate value="719.4726"/>
-        <TurningRate value="719.4726"/>
-        <Sight value="11"/>
-        <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="80"/>
-        <AttackTargetPriority value="20"/>
-        <AbilArray Link="BuildInProgress"/>
-        <AbilArray Link="stop"/>
-        <AbilArray Link="attack"/>
-        <BehaviorArray Link="OnCreep"/>
-        <BehaviorArray Link="ZergBuildingNotOnCreep"/>
+        <CostResource index="Minerals" value="220"/>
+        <AbilArray index="3" removed="1"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
-        <WeaponArray Link="ImpalerTentacle" Turret="SpineCrawler"/>
-        <CardLayouts>
-            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
-            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
-        <Radius value="0.875"/>
-        <SeparationRadius value="0.875"/>
-        <Footprint value="Footprint2x2ZergSpineCrawler"/>
-        <PlacementFootprint value="Footprint2x2Creep2"/>
-        <ScoreMake value="100"/>
-        <ScoreKill value="150"/>
-        <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="2"/>
-        <MinimapRadius value="0.875"/>
-        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
-        <TacticalAIThink value="AIThinkCrawler"/>
-        <AIEvalFactor value="0.7"/>
-        <GlossaryCategory value="Unit/Category/ZergUnits"/>
-        <GlossaryPriority value="220"/>
-        <GlossaryStrongArray value="Marine"/>
-        <GlossaryStrongArray value="Roach"/>
-        <GlossaryStrongArray value="Zealot"/>
-        <GlossaryWeakArray value="Marauder"/>
-        <GlossaryWeakArray value="Baneling"/>
-        <GlossaryWeakArray value="Immortal"/>
+        <HotkeyCategory value=""/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
@@ -6618,25 +6567,6 @@
         <EnergyStart value="46"/>
         <RankDisplay value="Never"/>
     </CUnit>
-    <CUnit id="SpineCrawler">
-        <LifeArmor value="1"/>
-        <LifeRegenRate value="1"/>
-        <AbilArray index="3" removed="1"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="3" removed="1"/>
-        </CardLayouts>
-        <KillDisplay value="Never"/>
-        <RankDisplay value="Never"/>
-        <CostResource index="Minerals" value="220"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
-        <Collide index="Ground" value="0"/>
-        <Collide index="ForceField" value="0"/>
-        <Collide index="Locust" value="0"/>
-        <Collide index="Small" value="0"/>
-        <HotkeyCategory value=""/>
-        <BehaviorArray Link="NoAlliedAttacks"/>
-    </CUnit>
     <CUnit id="LargeSpineCrawler" parent="SpineCrawler">
         <Name value="Unit/Name/LargeSpineCrawler"/>
         <Description value="Button/Tooltip/LargeSpineCrawler"/>
@@ -6648,27 +6578,25 @@
         <CostResource index="Terrazine" value="500"/>
         <WeaponArray index="0" Link="ImpalerTentacle2"/>
         <Sight value="12"/>
-        <LifeArmor value="2"/>
-        <Collide index="Ground" value="1"/>
-        <Collide index="ForceField" value="1"/>
-        <Collide index="Locust" value="1"/>
-        <Collide index="Small" value="1"/>
         <LeaderAlias value="LargeSpineCrawler"/>
         <HotkeyAlias value="LargeSpineCrawler"/>
         <SelectAlias value="LargeSpineCrawler"/>
         <SubgroupAlias value="LargeSpineCrawler"/>
         <Attributes index="Heroic" value="1"/>
+        <AbilArray index="3" removed="1"/>
+        <BehaviorArray Link="NoAlliedAttacks"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" removed="1"/>
+        </CardLayouts>
+        <HotkeyCategory value=""/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
     </CUnit>
     <CUnit id="HiveSpineCrawler" parent="SpineCrawler">
         <Name value="Unit/Name/HiveSpineCrawler"/>
         <Description value="Button/Tooltip/HiveSpineCrawler"/>
-        <Collide index="Ground" value="1"/>
-        <Collide index="ForceField" value="1"/>
-        <Collide index="Locust" value="1"/>
-        <Collide index="Small" value="1"/>
         <LifeStart value="1500"/>
         <LifeMax value="1500"/>
-        <LifeArmor value="2"/>
         <LifeRegenRate value="4"/>
         <Sight value="12"/>
         <CostResource index="Minerals" value="0"/>
@@ -6677,7 +6605,13 @@
         <HotkeyAlias value="HiveSpineCrawler"/>
         <SelectAlias value="HiveSpineCrawler"/>
         <SubgroupAlias value="HiveSpineCrawler"/>
-        <BehaviorArray index="2" removed="1"/>
+        <AbilArray index="3" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" removed="1"/>
+        </CardLayouts>
+        <HotkeyCategory value=""/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
     </CUnit>
     <CUnit id="SpineCrawlerEdit" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -6710,6 +6644,22 @@
         <CostResource index="Vespene" value="500"/>
         <GlossaryWeakArray index="0" removed="1"/>
         <GlossaryWeakArray index="1" removed="1"/>
+    </CUnit>
+    <CUnit id="SpineCrawlerMecha" parent="SpineCrawler">
+        <Name value="Unit/Name/MechaSpineCrawler"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <LifeStart value="750"/>
+        <LifeMax value="750"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="0.2734"/>
+        <CostResource index="Minerals" value="80"/>
+        <BehaviorArray index="2" removed="1"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
     </CUnit>
     <CUnit id="Ultralisk2" parent="Ultralisk">
         <Name value="Unit/Name/Ultralisk2"/>

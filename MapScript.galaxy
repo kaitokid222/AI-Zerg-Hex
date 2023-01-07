@@ -66,6 +66,7 @@ struct gs_player {
     int lv__3v3_nemesis_terran;
     int lv__3v3_terrazine_doubler;
     int lv__3v3_terrazine_income;
+    bool lv__3v3_has_nydus;
 };
 
 struct gs_TerranIncomeData {
@@ -931,6 +932,8 @@ trigger gt_zccdies;
 trigger gt_PeriodicZCCSpawn;
 trigger gt_SpawnZCCUnit3v3;
 trigger gt_ZCCupgrades;
+trigger gt_Nydusfinished;
+trigger gt_Nydusdied;
 trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_zerg_rally_center;
 trigger gt_zerg_rally_left;
@@ -6840,14 +6843,12 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
 bool gf_player_has_nydus (int lp_player_id) {
     // Variable Declarations
     bool lv_r;
-    unit lv_u;
 
     // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
-    lv_u = UnitGroupUnit(UnitGroup("NydusCanal", gv_players[lp_player_id].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if ((lv_u != null)) {
+    if ((gv_players[lp_player_id].lv__3v3_has_nydus != true)) {
         lv_r = true;
     }
 
@@ -19836,6 +19837,78 @@ void gt_ZCCupgrades_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Nydus finished
+//--------------------------------------------------------------------------------------------------
+bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnitProgressUnit()) == "NydusCanal"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_players[gf_get_terran_id_from_zpid(UnitGetOwner(EventUnitProgressUnit()))].lv__3v3_has_nydus = true;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Nydusfinished_Init () {
+    gt_Nydusfinished = TriggerCreate("gt_Nydusfinished_Func");
+    TriggerAddEventUnitConstructProgress(gt_Nydusfinished, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Nydus died
+//--------------------------------------------------------------------------------------------------
+bool gt_Nydusdied_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+    string lv_type;
+    int lv_owner;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = EventUnit();
+    lv_type = UnitGetType(lv_unit);
+    lv_owner = UnitGetOwner(lv_unit);
+
+    // Conditions
+    if (testConds) {
+        if (!((lv_owner >= 8))) {
+            return false;
+        }
+
+        if (!((lv_owner <= 13))) {
+            return false;
+        }
+
+        if (!((lv_type == "NydusCanal"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_players[gf_get_terran_id_from_zpid(UnitGetOwner(lv_unit))].lv__3v3_has_nydus = false;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Nydusdied_Init () {
+    gt_Nydusdied = TriggerCreate("gt_Nydusdied_Func");
+    TriggerAddEventUnitDied(gt_Nydusdied, null);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: remove terrazine generator debris (actorfix)
 //--------------------------------------------------------------------------------------------------
 bool gt_removeterrazinegeneratordebrisactorfix_Func (bool testConds, bool runActions) {
@@ -26007,6 +26080,8 @@ void InitTriggers () {
     gt_PeriodicZCCSpawn_Init();
     gt_SpawnZCCUnit3v3_Init();
     gt_ZCCupgrades_Init();
+    gt_Nydusfinished_Init();
+    gt_Nydusdied_Init();
     gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_zerg_rally_center_Init();
     gt_zerg_rally_left_Init();

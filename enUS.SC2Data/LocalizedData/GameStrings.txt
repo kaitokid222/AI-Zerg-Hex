@@ -1470,7 +1470,7 @@ Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. 
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
 Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
-Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/>- Spawn Point for your Zerg Control Center spawns<n/>- Creep Tower<n/>- Large Spine Crawler to fortify positions.
+Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/>- Spawn Point for Zerg Control Center spawns<n/>- Creep Tower<n/>- Large Spine Crawler to fortify positions.
 Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Regular Units
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
@@ -3679,6 +3679,7 @@ Unit/Name/Larva3v3=Larva
 Unit/Name/LoveMorales=Love Morales
 Unit/Name/Marine2=Marine
 Unit/Name/MechaSlowling=Slowling
+Unit/Name/MechaSpineCrawler=Mecha Spine Crawler
 Unit/Name/MeleeMinionHell=Melee Minion
 Unit/Name/MineralContainer=Mineral Container
 Unit/Name/MineralExtractor=Mineral Extractor
@@ -3744,8 +3745,9 @@ Unit/Name/Slowling=Slowling
 Unit/Name/SlowlingSpawner=Slowling Spawner
 Unit/Name/SmallPresent=Small Present
 Unit/Name/SpaceBalls=SpaceBalls
+Unit/Name/SpineCrawler=Spine Crawler
 Unit/Name/SpineCrawlerEdit=Spine Crawler (Edit)
-Unit/Name/SpineCrawlerMecha=Spine Crawler
+Unit/Name/SpineCrawlerMecha=Mecha Spine Crawler
 Unit/Name/Spirit=Spirit
 Unit/Name/SporeCrawlerWeaponZergHex=Spore Crawler Weapon
 Unit/Name/SporeCrawlerZergHex=Spore Crawler
