@@ -9421,6 +9421,42 @@
         <On index="83" removed="1"/>
         <HighlightTooltip value="Unit/Name/Slowling"/>
     </CActorUnit>
+    <CActorUnit id="MechaSlowling" parent="Zergling" unitName="MechaSlowling">
+        <On index="0" Terms="UnitBirth.MechaSlowling"/>
+        <On index="1" Terms="UnitBirth.MechaSlowling"/>
+        <On index="2" Terms="UnitRevive.MechaSlowling"/>
+        <On index="3" Terms="UnitRevive.MechaSlowling"/>
+        <On index="4" Terms="UnitConstruction.MechaSlowling.Start"/>
+        <On index="5" Terms="UnitConstruction.MechaSlowling.Finish"/>
+        <On index="67" Terms="AbilMorph.*.Cancel; MorphFrom Zergling; MorphTo ZerglingBurrowed" Send="AnimClear Burrow"/>
+        <On index="68" Terms="AbilMorph.*.Finish; MorphTo Zergling; MorphFrom ZerglingBurrowed" Send="AnimBracketStop Burrow"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo Zergling; MorphFrom ZerglingBurrowed"/>
+        <On index="70" Terms="ActorCreation; ValidateUnit ZerglingUpgraded" Send="ModelSwap ZerglingUpgrade"/>
+        <On index="71" Terms="Upgrade.zerglingmovementspeed.Add" Send="ModelSwap ZerglingUpgrade"/>
+        <On index="72" Terms="Upgrade.zerglingmovementspeed.Add; ValidateUnit IsBuried" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On index="73" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByAcid" Send="DeathCustomize UpgradedAcid"/>
+        <On index="74" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByFire" Send="DeathCustomize UpgradedFire"/>
+        <On index="75" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByEviscerate" Send="DeathCustomize UpgradedEviscerate"/>
+        <On index="76" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgraded" Send="DeathCustomize Upgrade"/>
+        <On index="77" Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On index="78" Terms="UnitBirth.MechaSlowling" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On index="79" Terms="UnitHeightUpdate.*.Land" Send="Create Zergling_Land"/>
+        <On index="80" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On index="81" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On index="82" removed="1"/>
+        <On index="83" removed="1"/>
+        <HighlightTooltip value="Unit/Name/Slowling"/>
+        <Model value="Zergling_Mecha"/>
+        <BuildModel value="Zergling_Mecha"/>
+        <DeathArray index="Normal" ModelLink="Zergling_Mecha_Death"/>
+        <DeathArray index="Disintegrate" ModelLink="Zergling_Mecha_DeathAcid"/>
+        <DeathArray index="Eviscerate" ModelLink="Zergling_Mecha_DeathEviscerate"/>
+        <DeathArray index="Fire" ModelLink="Zergling_Mecha_DeathFire"/>
+        <PlacementModel value="Zergling_Mecha"/>
+        <PortraitModel value="Zergling_Mecha_Portrait"/>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+    </CActorUnit>
     <CActorAction id="TanklingAttack" parent="GenericAttack" effectAttack="TanklingMeleeDamage">
         <ImpactAttachQuery Methods="AMFilterTargetVolumes"/>
         <ImpactMap index="None" Sound="Zergling_AttackImpact"/>

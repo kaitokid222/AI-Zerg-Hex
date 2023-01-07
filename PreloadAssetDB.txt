@@ -3631,6 +3631,10 @@ Actor=Zergling_Land
 id=Fireling
 Actor=Zergling_Land
 Model=HotSRaptor
+id=MechaSlowling
+asset=Assets\Textures\btn-unit-zerg-zergling-mecha.dds
+Actor=Zergling_Land
+Model=Zergling_Mecha,Zergling_Mecha_Death,Zergling_Mecha_DeathAcid,Zergling_Mecha_DeathEviscerate,Zergling_Mecha_DeathFire,Zergling_Mecha_Portrait
 
 [Behavior]
 id=PowerUserWarpable
@@ -10276,6 +10280,9 @@ Abil=RavagerStartArtillery,RavagerStopArtillery,StopRavager
 Actor=##id##,RavagerArtilleryRange
 Button=StartArtillery,StopArtillery
 Unit=Ravager
+parent=Slowling
+id=MechaSlowling
+Actor
 
 [Upgrade]
 id=ChooseNoWeather

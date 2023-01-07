@@ -8143,6 +8143,7 @@
         <HotkeyAlias value="Slowling"/>
         <HotkeyCategory value=""/>
     </CUnit>
+    <CUnit id="MechaSlowling" parent="Slowling"/>
     <CUnit id="Fireling" parent="Zergling">
         <Name value="Unit/Name/Fireling"/>
         <Description value="Button/Tooltip/Fireling"/>

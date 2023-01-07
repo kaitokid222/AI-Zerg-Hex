@@ -6250,7 +6250,7 @@ void gf_set_3v3_alliances () {
     if ((gf_is_3v3_local_test() == true)) {
         libNtve_gf_SetAlliance(1, gv_players[1].lv__3v3_zerg_pid, libNtve_ge_AllianceSetting_EnemyWithSharedVision);
         PlayerSetAlliance(gv_players[1].lv__3v3_zerg_pid, c_allianceIdControl, 1, true);
-        PlayerSetAlliance(gv_players[1].lv__3v3_zerg_pid, c_allianceIdSpend, 1, true);
+        PlayerSetAlliance(1, c_allianceIdSpend, gv_players[1].lv__3v3_zerg_pid, true);
     }
 
 }
@@ -7687,7 +7687,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
