@@ -392,7 +392,7 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="NydusCanal" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build22" Row="2" Column="0"/>
             <LayoutButtons Face="SummonNydusCanalCreeper" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build23" Row="2" Column="1"/>
-            <LayoutButtons Face="MutateintoLargeSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
+            <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
         </CardLayouts>
         <Radius value="0.25"/>
         <SubgroupPriority value="20"/>
@@ -1816,6 +1816,76 @@
         <BehaviorArray Link="SiegeTankFragmentBlastFireTimedLife"/>
         <BehaviorArray Link="SiegeTankFragmentBlastFireDamage"/>
         <EditorCategories value=""/>
+    </CUnit>
+    <CUnit id="SpineCrawlerMecha">
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIDefense" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="750"/>
+        <LifeMax value="750"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="11"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="80"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <BehaviorArray Link="OnCreep"/>
+        <BehaviorArray Link="ZergBuildingNotOnCreep"/>
+        <BehaviorArray Link="NoAlliedAttacks"/>
+        <WeaponArray Link="ImpalerTentacle" Turret="SpineCrawler"/>
+        <CardLayouts>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.875"/>
+        <SeparationRadius value="0.875"/>
+        <Footprint value="Footprint2x2ZergSpineCrawler"/>
+        <PlacementFootprint value="Footprint2x2Creep2"/>
+        <ScoreMake value="100"/>
+        <ScoreKill value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="0.875"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <TacticalAIThink value="AIThinkCrawler"/>
+        <AIEvalFactor value="0.7"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="220"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryStrongArray value="Roach"/>
+        <GlossaryStrongArray value="Zealot"/>
+        <GlossaryWeakArray value="Marauder"/>
+        <GlossaryWeakArray value="Baneling"/>
+        <GlossaryWeakArray value="Immortal"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
     </CUnit>
     <CUnit id="Spirit">
         <Description value="Button/Tooltip/WarpInSpirit"/>

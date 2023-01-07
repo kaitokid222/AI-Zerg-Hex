@@ -3354,13 +3354,13 @@
             <Button DefaultButtonFace="MutateintoCreepTumor" Requirements="RequirementArmor1"/>
         </InfoArray>
         <InfoArray index="Build22" Unit="NydusCanal" Time="20">
-            <Button DefaultButtonFace="NydusCanal"/>
+            <Button DefaultButtonFace="NydusCanal" Requirements="OnlyOneNydus"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
             <Button DefaultButtonFace="SummonNydusCanalCreeper"/>
         </InfoArray>
-        <InfoArray index="Build24" Unit="LargeSpineCrawler" Time="180">
-            <Button DefaultButtonFace="MutateintoLargeSpineCrawler"/>
+        <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="30">
+            <Button DefaultButtonFace="MutateintoMechaSpineCrawler"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">

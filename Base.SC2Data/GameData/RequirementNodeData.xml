@@ -398,6 +398,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="QueuedOrBetterAtUnit"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitNydusCanalQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="NydusCanal" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitOperationCenterQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="OperationCenter" State="QueuedOrBetter"/>
@@ -764,7 +769,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMinuteUpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MinuteUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMode3v3CompleteOnly">
@@ -1347,6 +1351,9 @@
     </CRequirementNot>
     <CRequirementNot id="Not2070812554CountUnitBarracksTechReactorQueuedOrBetter">
         <OperandArray index="0" value="CountUnitBarracksTechReactorQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="Not225427478CountUnitNydusCanalQueuedOrBetter">
+        <OperandArray index="0" value="CountUnitNydusCanalQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="Not225427478CountUnitProbiusQueuedOrBetter">
         <OperandArray index="0" value="CountUnitProbiusQueuedOrBetter"/>

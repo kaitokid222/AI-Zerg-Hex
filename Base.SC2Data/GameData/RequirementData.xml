@@ -36,6 +36,9 @@
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>
+    <CRequirement id="OnlyOneNydus">
+        <NodeArray index="Use" Link="Not225427478CountUnitNydusCanalQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="PlasmaCannonsRequirementBetterTank">
         <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
     </CRequirement>

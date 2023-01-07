@@ -799,7 +799,7 @@ Button/Name/MutateintoCreeperSpawner=Mutate into Creeper Spawner
 Button/Name/MutateintoGeyserBlocker=Mutate into Geyser Blocker
 Button/Name/MutateintoGreaterMineralExtractor=Mutate into Greater Mineral Extractor
 Button/Name/MutateintoInfusedRoachSpawner=Mutate into Infused Roach Spawner
-Button/Name/MutateintoLargeSpineCrawler=Mutate into Large Spine Crawler
+Button/Name/MutateintoMechaSpineCrawler=Mutate into Mecha Spine Crawler
 Button/Name/MutateintoMineralContainer=Mutate into Mineral Container
 Button/Name/MutateintoMineralExtractor=Mutate into Mineral Extractor
 Button/Name/MutateintoNest=Mutate into Nest
@@ -1286,7 +1286,7 @@ Button/Tooltip/MutateintoCreeperSpawner=Can attack with short range.<n/><n/><c v
 Button/Tooltip/MutateintoGeyserBlocker=Mutated over a Vespene Geyser to deny terrans harvesting from it.
 Button/Tooltip/MutateintoGreaterMineralExtractor=Upgrades the extractor to give four times as much minerals per minute.<n/><n/>Has 250 more hp and 3 armor.
 Button/Tooltip/MutateintoInfusedRoachSpawner=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="94D1D1">Re-spawns 1 unit</c> <c val="E8E191">(100 sec spawn time)</c>
-Button/Tooltip/MutateintoLargeSpineCrawler=Primary defense structure.
+Button/Tooltip/MutateintoMechaSpineCrawler=Primary defense structure.
 Button/Tooltip/MutateintoMineralContainer=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MutateintoMineralExtractor=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/MutateintoNest=Grows creep in a large area. Can spawn several units.
@@ -1498,6 +1498,7 @@ Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/
 Button/Tooltip/SpawnUltralisk2=Tanky melee creature.
 Button/Tooltip/SpawnerIncomeInfo=Adding a spawner would currently give:<n/><c val="83D5E2">+6 minerals </c>per minute to yourself.<n/>and<n/><c val="83D5E2">+6 minerals </c>per minute to your ally.
 Button/Tooltip/SpineCrawler3=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/SpineCrawlerMecha=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/SporeCrawlerZergHex=
 Button/Tooltip/Stalker3=
 Button/Tooltip/StartArtillery=Launches 3 missiles every 20 seconds to a random position in target area, deals 40 damage to units and 16 damage to structures within a small impact radius.<n/><n/>Areas closer to the center are hit more often.
@@ -3527,6 +3528,7 @@ RequirementNode/Tooltip/Not1995351566CountBehaviorConvertModeGasCompleteOnlyAtUn
 RequirementNode/Tooltip/Not1995351566CountBehaviorConvertModeIdleCompleteOnlyAtUnit=Currently set
 RequirementNode/Tooltip/Not1995351566CountBehaviorConvertModeMineralsDefaultCompleteOnlyAtUnit=Currently set
 RequirementNode/Tooltip/Not2070812554CountUnitBarracksTechReactorQueuedOrBetter=Only one Event Tech Center
+RequirementNode/Tooltip/Not225427478CountUnitNydusCanalQueuedOrBetter=Only one Probius!
 RequirementNode/Tooltip/Not225427478CountUnitProbiusQueuedOrBetter=Only one Probius!
 RequirementNode/Tooltip/Not3435105652GTCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1=No double Modulation
 RequirementNode/Tooltip/Not3445088064OrCountUnitNapalmBombQueuedOrBetterAtUnitCountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit=No Napalm Bomb at this Chemical Plant
@@ -3684,7 +3686,7 @@ Unit/Name/MineralGenerator=Mineral Generator
 Unit/Name/MineralTrader=Mineral Trader
 Unit/Name/NapalmBomb=Nuke
 Unit/Name/Nest2=Nest
-Unit/Name/NydusCanal=Zerg Unit Spawner
+Unit/Name/NydusCanal=Nydus
 Unit/Name/Observer=Observer
 Unit/Name/OmegaliskCocoon2=Omegalisk Cocoon
 Unit/Name/OmegaliskCocoonBuilding=Omegalisk Cocoon
@@ -3743,6 +3745,7 @@ Unit/Name/SlowlingSpawner=Slowling Spawner
 Unit/Name/SmallPresent=Small Present
 Unit/Name/SpaceBalls=SpaceBalls
 Unit/Name/SpineCrawlerEdit=Spine Crawler (Edit)
+Unit/Name/SpineCrawlerMecha=Spine Crawler
 Unit/Name/Spirit=Spirit
 Unit/Name/SporeCrawlerWeaponZergHex=Spore Crawler Weapon
 Unit/Name/SporeCrawlerZergHex=Spore Crawler
