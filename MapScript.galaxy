@@ -20221,6 +20221,9 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     int lv_player_position;
     int lv_unit_group_index;
     point lv_initial_rally_point;
+    int lv_cc_player_position;
+    point lv_cc_point;
+    playergroup lv_player_group;
 
     // Automatic Variable Declarations
     unitgroup auto86980782_g;
@@ -20231,6 +20234,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     unit autoF9E9E436_var;
 
     // Variable Initialization
+    lv_player_group = PlayerGroupEmpty();
 
     // Conditions
     if (testConds) {
@@ -20246,6 +20250,12 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
 
     lv_player_position = FixedToInt(UnitGetCustomValue(EventUnit(), 1));
     lv_initial_rally_point = UnitGetPosition(EventUnit());
+    if ((lv_player_position <= 3)) {
+        lv_player_group = gv_terrans_team_top;
+    }
+    else {
+        lv_player_group = gv_terrans_team_bottom;
+    }
     if ((OrderGetTargetPoint(EventUnitOrder()) != null)) {
         UnitSetPosition(EventUnit(), OrderGetTargetPoint(EventUnitOrder()), false);
     }
@@ -20262,8 +20272,14 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         if (auto86980782_var == null) { break; }
         if ((gf_is_spawner_unit(auto86980782_var) == true) && (libNtve_gf_UnitInRegion(auto86980782_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
             UnitIssueOrder(auto86980782_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-            lv_unit_group_index = gf_get_observed_unit_index(auto86980782_var);
-            UnitGroupRemove(gv_observed_units[lv_unit_group_index], auto86980782_var);
+            lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(EventUnit()), lv_player_group);
+            lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+            UnitIssueOrder(auto86980782_var, OrderTargetingPoint(AbilityCommand("attack", 0), lv_cc_point), c_orderQueueAddToEnd);
+            if ((UnitGetOwner(auto86980782_var) == 7)) {
+                lv_unit_group_index = gf_get_observed_unit_index(auto86980782_var);
+                UnitGroupRemove(gv_observed_units[lv_unit_group_index], auto86980782_var);
+            }
+
         }
 
     }
@@ -20274,8 +20290,14 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         if (autoF9E9E436_var == null) { break; }
         if ((gf_is_spawner_unit(autoF9E9E436_var) == true) && (libNtve_gf_UnitInRegion(autoF9E9E436_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
             UnitIssueOrder(autoF9E9E436_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-            lv_unit_group_index = gf_get_observed_unit_index(autoF9E9E436_var);
-            UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoF9E9E436_var);
+            lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(EventUnit()), lv_player_group);
+            lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+            UnitIssueOrder(autoF9E9E436_var, OrderTargetingPoint(AbilityCommand("attack", 0), lv_cc_point), c_orderQueueAddToEnd);
+            if ((UnitGetOwner(autoF9E9E436_var) == 7)) {
+                lv_unit_group_index = gf_get_observed_unit_index(autoF9E9E436_var);
+                UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoF9E9E436_var);
+            }
+
         }
 
     }
