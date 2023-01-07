@@ -6881,26 +6881,26 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
 
     // Implementation
     if ((lp_unit_type == "Torralisk")) {
-        lv_result = (lp_spawn_count / 150.0);
+        lv_result = (lp_spawn_count / 300.0);
     }
     else {
         if ((lp_unit_type == "InfusedRoach")) {
-            lv_result = (lp_spawn_count / 100.0);
+            lv_result = (lp_spawn_count / 200.0);
         }
         else {
             if ((lp_unit_type == "Ravator")) {
-                lv_result = (lp_spawn_count / 50.0);
+                lv_result = (lp_spawn_count / 100.0);
             }
             else {
                 if ((lp_unit_type == "Strikeling")) {
-                    lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                    lv_result = (lp_spawn_count / (32.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                 }
                 else {
                     if ((lp_unit_type == "PrimalRoach2") && (TechTreeUpgradeCount(lp_player_id, "PrimalRapidRespawn", c_techCountCompleteOnly) == 1)) {
-                        lv_result = (lp_spawn_count / (16.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        lv_result = (lp_spawn_count / (36.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                     }
                     else {
-                        lv_result = (lp_spawn_count / (20.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                     }
                 }
             }

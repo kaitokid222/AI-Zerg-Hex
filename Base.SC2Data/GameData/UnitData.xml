@@ -477,7 +477,7 @@
     </CUnit>
     <CUnit id="HiveMindEmulator">
         <EnergyStart value="0"/>
-        <EnergyMax value="1000"/>
+        <EnergyMax value="10000"/>
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
@@ -509,8 +509,22 @@
                 <Row value="0"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="SpawnMenuSmall" Type="Submenu" SubmenuCardId="0003" Row="0" Column="0"/>
-            <LayoutButtons Face="SpawnMenuLarge" Type="Submenu" SubmenuCardId="0004" Row="0" Column="1"/>
+            <LayoutButtons>
+                <Face value="SpawnMenuSmall"/>
+                <Type value="Submenu"/>
+                <SubmenuCardId value="0003"/>
+                <SubmenuIsSticky value="1"/>
+                <Row value="0"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="SpawnMenuLarge"/>
+                <Type value="Submenu"/>
+                <SubmenuCardId value="0004"/>
+                <SubmenuIsSticky value="1"/>
+                <Row value="0"/>
+                <Column value="1"/>
+            </LayoutButtons>
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="SpawnLarva3v3" Type="AbilCmd" AbilCmd="SpawnLarva3v3,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="Spawn5Firelings" Type="AbilCmd" AbilCmd="SpawnFirelings,Execute" Row="1" Column="2"/>

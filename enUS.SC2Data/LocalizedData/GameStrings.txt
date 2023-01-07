@@ -1451,16 +1451,16 @@ Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and at
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
 Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
-Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
+Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.
-Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBrutalisk=Tanky melee creature.
 Button/Tooltip/SpawnCherry=Spawn cherry every 6 seconds.
 Button/Tooltip/SpawnCow=Cows eat fruit to gain <c val="58BEF5">(+<d ref="Effect,CowMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than cows.</c>
 Button/Tooltip/SpawnCowUpgraded=Cows eat fruit to gain <c val="58BEF5">(+5)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCowUpgraded2=Cows eat fruit to gain <c val="58BEF5">(+7)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCreeper=
-Button/Tooltip/SpawnCreeper3v3=Can attack with short range.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Increased attack damage and unit duration for each hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnCreeper3v3=Can attack with short range.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Increased attack damage and unit duration for each hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnDrone=Unit capable morphing into structures.
 Button/Tooltip/SpawnFromCenter=Zerg units appear from the center.
 Button/Tooltip/SpawnFromLeft=Zerg units will appear from the left side.
@@ -1475,26 +1475,26 @@ Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Regular Units
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
-Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
 Button/Tooltip/SpawnRavator=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/>
 Button/Tooltip/SpawnRavator3v3=Sets aflame structures launching plasma from a distance. (Can only attack structures)<n/><n/><c val="D95200">Spawn 1 unit lasting 140 seconds every 50 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnRoach=Tanky melee creature.
-Button/Tooltip/SpawnRoach3v3=Durable armor unit.<n/><n/><c val="338FF7">Upgrades:</c><n/><c val="85BCFA">- Tar Infection: infected units spawn a Tar Roach on death<n/>- Tar Spawn: Roaches spawn a Tar Roach upon death</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnRoach3v3=Durable armor unit.<n/><n/><c val="338FF7">Upgrades:</c><n/><c val="85BCFA">- Tar Infection: infected units spawn a Tar Roach on death<n/>- Tar Spawn: Roaches spawn a Tar Roach upon death</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnSheep=Sheep eat fruit to gain <c val="58BEF5">(+<d ref="Effect,SheepMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than sheep.</c>
 Button/Tooltip/SpawnSheepUpgraded=Sheep eat fruit to gain <c val="58BEF5">(+3)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSheepUpgraded2=Sheep eat fruit to gain <c val="58BEF5">(+4)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when sheep dies.</c>
 Button/Tooltip/SpawnSlowling=Slow melee creature.
-Button/Tooltip/SpawnSlowling3v3=Basic unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Double the health while reducing movement speed by 40%</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnSlowling3v3=Basic unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Double the health while reducing movement speed by 40%</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnSporeCrawler=Creates a structure capable of attacking from long distances.<n/><n/>Generates a small area of creep.
 Button/Tooltip/SpawnStrikeling=Slow melee creature.
-Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 16 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnStrikeling3v3=Die with one hit and move fast to engage with a suicide attack.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Take an additional hit</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 32 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTanker=Tanky melee creature. Deals additional damage to structures and always attacks closest target. Deals true damage.
-Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 1 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnTankling3v3=Lightly armored with scales. Deals additional damage to structures and always attacks closest target. Deals true damage.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Give 1 minerals upon creation.</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnTarRoach=Small unit capable of attacking structures only.<n/><n/>Can have a maximum of 100.
 Button/Tooltip/SpawnTorralisk=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/>
 Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit lasting 340 seconds every 150 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
-Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit lasting 100 seconds every 20 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnUltralisk2=Tanky melee creature.
 Button/Tooltip/SpawnerIncomeInfo=Adding a spawner would currently give:<n/><c val="83D5E2">+6 minerals </c>per minute to yourself.<n/>and<n/><c val="83D5E2">+6 minerals </c>per minute to your ally.
 Button/Tooltip/SpineCrawler3=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
