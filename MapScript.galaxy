@@ -622,7 +622,7 @@ void gf_initialize_zcc_spawn ();
 void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
 unitgroup gf_get_nydus_of_team (int lp_player_id);
 int gf_get_integer_of_unit_type (string lp_unit_type);
-point gf_get_zcc_spawn_point (int lp_player_id);
+point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
@@ -6768,7 +6768,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     lv_created_units = UnitGroupEmpty();
 
     // Implementation
-    lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id);
+    lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id, lp_unit_type);
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
@@ -6902,7 +6902,7 @@ int gf_get_integer_of_unit_type (string lp_unit_type) {
     return lv_result;
 }
 
-point gf_get_zcc_spawn_point (int lp_player_id) {
+point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type) {
     // Variable Declarations
     unit lv_overseer;
     string lv_result;
@@ -6913,16 +6913,16 @@ point gf_get_zcc_spawn_point (int lp_player_id) {
 
     // Implementation
     lv_overseer = UnitGroupRandomUnit(UnitGroup("Overseer", gv_players[lp_player_id].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true)) {
-        lv_result = "Center";
-    }
-
     if ((UnitHasBehavior2(lv_overseer, "SpawnFromLeft") == true)) {
         lv_result = "Left";
     }
 
     if ((UnitHasBehavior2(lv_overseer, "SpawnFromRight") == true)) {
         lv_result = "Right";
+    }
+
+    if (((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true) || (lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3") || (lp_unit_type == "Larva3v3"))) {
+        lv_result = "Center";
     }
 
     if ((gv_players[lp_player_id].lv_position <= 3)) {

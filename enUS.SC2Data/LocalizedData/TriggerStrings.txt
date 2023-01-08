@@ -628,6 +628,7 @@ ParamDef/Name/1D3B9509=region
 ParamDef/Name/1D58FFBE=clockwise
 ParamDef/Name/1EC06642=player
 ParamDef/Name/1FE39537=player
+ParamDef/Name/204EFC95=unit_type
 ParamDef/Name/20BA0E44=Base
 ParamDef/Name/20CC42AD=player1
 ParamDef/Name/21CB8D26=player

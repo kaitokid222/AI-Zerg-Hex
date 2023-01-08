@@ -44,6 +44,7 @@
         <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Dead,Invulnerable"/>
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
         <SearchFlags index="OffsetAreaByAngle" value="0"/>
+        <AttributeFactor index="Massive" value="-0.5"/>
     </CEffectDamage>
     <CEffectSet id="SpawnLarvaDummy">
         <EditorCategories value=""/>
