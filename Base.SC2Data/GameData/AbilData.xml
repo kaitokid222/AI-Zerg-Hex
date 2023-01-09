@@ -611,8 +611,8 @@
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="45"/>
-                <TimeUse value="45"/>
+                <TimeStart value="10"/>
+                <TimeUse value="10"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3" Requirements="RequirementArmor1"/>
@@ -3354,7 +3354,7 @@
             <Button DefaultButtonFace="MutateintoCreepTumor" Requirements="RequirementArmor1"/>
         </InfoArray>
         <InfoArray index="Build22" Unit="NydusCanal" Time="20">
-            <Button DefaultButtonFace="NydusCanal" Requirements="OnlyOneNydus"/>
+            <Button DefaultButtonFace="NydusCanal"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
             <Button DefaultButtonFace="SummonNydusCanalCreeper"/>

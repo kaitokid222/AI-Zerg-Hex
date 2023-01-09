@@ -66,7 +66,6 @@ struct gs_player {
     int lv__3v3_nemesis_terran;
     int lv__3v3_terrazine_doubler;
     int lv__3v3_terrazine_income;
-    bool lv__3v3_has_nydus;
 };
 
 struct gs_TerranIncomeData {
@@ -223,6 +222,9 @@ int gv__3v3_player_elo_scores_cnt;
 gs_zcc_stack_backup[7] gv_zcc_stack_backup;
 bool gv_zcc_spawn_intialized;
 gs_zcc_spawn[7][31] gv_zcc_spawn;
+int gv_nydus_zcc_ratio;
+unitgroup gv_nydus_team_top;
+unitgroup gv_nydus_team_bottom;
 int gv_top_bruta;
 int gv_bottom_bruta;
 bool gv_build_top_next;
@@ -438,6 +440,9 @@ void InitGlobals () {
     gv_zerg_team_bottom = PlayerGroupEmpty();
     gv_terrans_team_top_open_access_units = PlayerGroupEmpty();
     gv_terrans_team_bottom_open_access_units = PlayerGroupEmpty();
+    gv_nydus_zcc_ratio = 10;
+    gv_nydus_team_top = UnitGroupEmpty();
+    gv_nydus_team_bottom = UnitGroupEmpty();
     gv_flying_rally_group = UnitGroupEmpty();
     gv_sapper_level = 1;
     gv_hell_forces_north = UnitGroupEmpty();
@@ -609,14 +614,17 @@ int gf_get_team_average_elo_rating (int lp_player1, int lp_player2, int lp_playe
 int gf_get_average_elo_rating ();
 void gf_distribute_players_based_on_their_elo ();
 void gf_magic ();
+fixed gf_get_terrazine_income (int lp_player_id);
+fixed gf_get_terrazine_multiplier (int lp_player_id);
 int gf_get_owner_of_zerg_pid (int lp_zerg_pid);
 void gf_create_zagara (int lp_player);
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut);
 void gf_update_zcc_spawn (int lp_player_id, string lp_unit_type);
 void gf_initialize_zcc_spawn ();
 void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit_type);
-bool gf_player_has_nydus (int lp_player_id);
-point gf_get_zcc_spawn_point (int lp_player_id);
+unitgroup gf_get_nydus_of_team (int lp_player_id);
+int gf_get_integer_of_unit_type (string lp_unit_type);
+point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
 int gf_get_terran_id_from_zpid (int lp_zpid);
@@ -3479,7 +3487,7 @@ void gf_update_income_for_player (int lp_player) {
     int lv_collect_vespene_old;
     int lv_calculated_reward;
     text lv_indicator_string_text;
-    int lv_terrazine_income;
+    fixed lv_terrazine_income;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -3496,8 +3504,8 @@ void gf_update_income_for_player (int lp_player) {
     gv_TerranIncome[lp_player].lv_collected_minerals_last = lv_collect_minerals;
     gv_TerranIncome[lp_player].lv_collected_vespene_last = lv_collect_vespene;
     if ((gf_is_3v3() == true)) {
-        lv_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income * (gv_players[lp_player].lv__3v3_terrazine_doubler * 10));
-        libNtve_gf_SetDialogItemText(gv_dialog_terranIncome_terrazine[lp_player], IntToText(lv_terrazine_income), PlayerGroupSingle(lp_player));
+        lv_terrazine_income = (gf_get_terrazine_income(lp_player) * 10.0);
+        libNtve_gf_SetDialogItemText(gv_dialog_terranIncome_terrazine[lp_player], IntToText(FixedToInt(lv_terrazine_income)), PlayerGroupSingle(lp_player));
     }
 
 }
@@ -5940,6 +5948,8 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_zccbuilt, lv_on_off);
     TriggerEnable(gt_zagara_death_timer, lv_on_off);
     TriggerEnable(gt_update_3v3_objectives, lv_on_off);
+    TriggerEnable(gt_Nydusdied, lv_on_off);
+    TriggerEnable(gt_Nydusfinished, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -6551,6 +6561,27 @@ void gf_magic () {
     }
 }
 
+fixed gf_get_terrazine_income (int lp_player_id) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (gv_players[lp_player_id].lv__3v3_terrazine_income * gf_get_terrazine_multiplier(lp_player_id));
+}
+
+fixed gf_get_terrazine_multiplier (int lp_player_id) {
+    // Variable Declarations
+    unitgroup lv_creep_tower_group;
+    region lv_region;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_creep_tower_group = UnitGroupEmpty();
+
+    // Implementation
+    lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
+    lv_creep_tower_group = UnitGroup("NydusCanalCreeper", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    return (1.0 + (0.2001 * UnitGroupCount(lv_creep_tower_group, c_unitCountAlive)));
+}
+
 int gf_get_owner_of_zerg_pid (int lp_zerg_pid) {
     // Variable Declarations
     int lv_result;
@@ -6739,8 +6770,13 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     point lv_attack_point;
     unit lv_zcc;
     unit lv_nydus;
+    unitgroup lv_created_units;
+    int lv_nydus_amount;
 
     // Automatic Variable Declarations
+    unitgroup autoB5FACDD4_g;
+    int autoB5FACDD4_u;
+    unit autoB5FACDD4_var;
     unitgroup auto4A0CB598_g;
     int auto4A0CB598_u;
     unit auto4A0CB598_var;
@@ -6752,20 +6788,34 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     unit auto69714ADC_var;
 
     // Variable Initialization
+    lv_created_units = UnitGroupEmpty();
 
     // Implementation
-    lv_nydus = UnitGroupUnit(UnitGroup("NydusCanal", gv_players[lp_player_id].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
-    if ((lv_nydus != null) && (lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3") && (lp_unit_type != "Larva3v3")) {
-        lv_spawn_point = UnitGetPosition(lv_nydus);
-    }
-    else {
-        lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id);
-    }
+    lv_spawn_point = gf_get_zcc_spawn_point(lp_player_id, lp_unit_type);
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     lv_zerg_unit_owner = gv_players[lp_player_id].lv__3v3_zerg_pid;
     libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, lv_spawn_point);
+    UnitGroupAddUnitGroup(lv_created_units, UnitLastCreatedGroup());
+    if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3") && (lp_unit_type != "Larva3v3")) {
+        autoB5FACDD4_g = gf_get_nydus_of_team(lp_player_id);
+        autoB5FACDD4_u = UnitGroupCount(autoB5FACDD4_g, c_unitCountAll);
+        for (;; autoB5FACDD4_u -= 1) {
+            autoB5FACDD4_var = UnitGroupUnitFromEnd(autoB5FACDD4_g, autoB5FACDD4_u);
+            if (autoB5FACDD4_var == null) { break; }
+            lv_nydus_amount = FixedToInt(UnitGetCustomValue(autoB5FACDD4_var, gf_get_integer_of_unit_type(lp_unit_type)));
+            lv_nydus_amount = (lv_nydus_amount + 1);
+            if ((lv_nydus_amount == gv_nydus_zcc_ratio)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(lp_unit_count, lp_unit_type, 0, lv_zerg_unit_owner, UnitGetPosition(autoB5FACDD4_var));
+                UnitGroupAddUnitGroup(lv_created_units, UnitLastCreatedGroup());
+            }
+
+            lv_nydus_amount = ModI(lv_nydus_amount, gv_nydus_zcc_ratio);
+            UnitSetCustomValue(autoB5FACDD4_var, gf_get_integer_of_unit_type(lp_unit_type), lv_nydus_amount);
+        }
+    }
+
     if ((lp_unit_type == "Strikeling") && (TechTreeUpgradeCount(lp_player_id, "ZergSpecializationStrikelingDualHit", c_techCountCompleteOnly) == 1)) {
-        auto4A0CB598_g = UnitLastCreatedGroup();
+        auto4A0CB598_g = lv_created_units;
         auto4A0CB598_u = UnitGroupCount(auto4A0CB598_g, c_unitCountAll);
         for (;; auto4A0CB598_u -= 1) {
             auto4A0CB598_var = UnitGroupUnitFromEnd(auto4A0CB598_g, auto4A0CB598_u);
@@ -6775,7 +6825,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     }
 
     if ((lp_unit_type == "Tankling") && (TechTreeUpgradeCount(lp_player_id, "ZergSpecializationTanklingBankling", c_techCountCompleteOnly) == 1)) {
-        autoCEEA2453_g = UnitLastCreatedGroup();
+        autoCEEA2453_g = lv_created_units;
         autoCEEA2453_u = UnitGroupCount(autoCEEA2453_g, c_unitCountAll);
         for (;; autoCEEA2453_u -= 1) {
             autoCEEA2453_var = UnitGroupUnitFromEnd(autoCEEA2453_g, autoCEEA2453_u);
@@ -6785,7 +6835,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     }
 
     if ((lp_unit_type != "Fireling") && (lp_unit_type != "InfestorZergHex3v3") && (lp_unit_type != "Larva3v3")) {
-        auto69714ADC_g = UnitLastCreatedGroup();
+        auto69714ADC_g = lv_created_units;
         auto69714ADC_u = UnitGroupCount(auto69714ADC_g, c_unitCountAll);
         for (;; auto69714ADC_u -= 1) {
             auto69714ADC_var = UnitGroupUnitFromEnd(auto69714ADC_g, auto69714ADC_u);
@@ -6820,11 +6870,11 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         else {
             lv_attack_point = PointFromName("3v3_spawn_2");
         }
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_created_units, OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
     }
     else {
         lv_attack_point = UnitGetPosition(gf_get_random_flying_rally_of_player(lp_player_id));
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_created_units, OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
         if ((gf_is_3v3_local_test() == true)) {
             lv_target_player_position = gv_players[1].lv_position;
         }
@@ -6836,26 +6886,46 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
                 lv_target_player_position = gf_get_closest_alive_player_position_from_group(lv_attack_point, gv_terrans_team_top);
             }
         }
-        UnitGroupIssueOrder(UnitLastCreatedGroup(), OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
+        UnitGroupIssueOrder(lv_created_units, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_player_position)))), c_orderQueueAddToEnd);
     }
 }
 
-bool gf_player_has_nydus (int lp_player_id) {
+unitgroup gf_get_nydus_of_team (int lp_player_id) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((gv_players[lp_player_id].lv_position <= 3)) {
+        return gv_nydus_team_top;
+    }
+    else {
+        return gv_nydus_team_bottom;
+    }
+}
+
+int gf_get_integer_of_unit_type (string lp_unit_type) {
     // Variable Declarations
-    bool lv_r;
+    int lv_player_id;
+    int lv_index;
+    int lv_result;
 
     // Automatic Variable Declarations
+    const int auto7B385356_ae = 12;
+    const int auto7B385356_ai = 1;
+
     // Variable Initialization
 
     // Implementation
-    if ((gv_players[lp_player_id].lv__3v3_has_nydus != true)) {
-        lv_r = true;
-    }
+    lv_player_id = PlayerGroupPlayer(gv_terrans, 1);
+    lv_index = 1;
+    for ( ; ( (auto7B385356_ai >= 0 && lv_index <= auto7B385356_ae) || (auto7B385356_ai < 0 && lv_index >= auto7B385356_ae) ) ; lv_index += auto7B385356_ai ) {
+        if ((lp_unit_type == gv_zcc_spawn[lv_player_id][lv_index].lv_unit_type)) {
+            lv_result = lv_index;
+        }
 
-    return lv_r;
+    }
+    return lv_result;
 }
 
-point gf_get_zcc_spawn_point (int lp_player_id) {
+point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type) {
     // Variable Declarations
     unit lv_overseer;
     string lv_result;
@@ -6866,16 +6936,16 @@ point gf_get_zcc_spawn_point (int lp_player_id) {
 
     // Implementation
     lv_overseer = UnitGroupRandomUnit(UnitGroup("Overseer", gv_players[lp_player_id].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAll);
-    if ((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true)) {
-        lv_result = "Center";
-    }
-
     if ((UnitHasBehavior2(lv_overseer, "SpawnFromLeft") == true)) {
         lv_result = "Left";
     }
 
     if ((UnitHasBehavior2(lv_overseer, "SpawnFromRight") == true)) {
         lv_result = "Right";
+    }
+
+    if (((UnitHasBehavior2(lv_overseer, "SpawnFromCenter") == true) || (lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3") || (lp_unit_type == "Larva3v3"))) {
+        lv_result = "Center";
     }
 
     if ((gv_players[lp_player_id].lv_position <= 3)) {
@@ -6932,10 +7002,6 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
             }
         }
     }
-    if ((gf_player_has_nydus(lp_player_id) == false)) {
-        lv_result = (lv_result / 2.0);
-    }
-
     return lv_result;
 }
 
@@ -19424,9 +19490,14 @@ void gt_update_3v3_objectives_Init () {
 // Trigger: Terrazine Income
 //--------------------------------------------------------------------------------------------------
 bool gt_TerrazineIncome_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    fixed lv_terrazine_amount;
+
     // Automatic Variable Declarations
     playergroup autoB2C4F675_g;
     int autoB2C4F675_var;
+
+    // Variable Initialization
 
     // Actions
     if (!runActions) {
@@ -19439,10 +19510,11 @@ bool gt_TerrazineIncome_Func (bool testConds, bool runActions) {
         autoB2C4F675_var = PlayerGroupNextPlayer(autoB2C4F675_g, autoB2C4F675_var);
         if (autoB2C4F675_var < 0) { break; }
         if ((gv_players[autoB2C4F675_var].lv_alive == true)) {
+            lv_terrazine_amount = gf_get_terrazine_income(autoB2C4F675_var);
+            PlayerModifyPropertyFixed(autoB2C4F675_var, c_playerPropTerrazine, c_playerPropOperAdd, lv_terrazine_amount);
+            PlayerModifyPropertyFixed(autoB2C4F675_var, c_playerPropTerrazineCollected, c_playerPropOperAdd, lv_terrazine_amount);
         }
 
-        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazine, c_playerPropOperAdd, (gv_players[autoB2C4F675_var].lv__3v3_terrazine_income * gv_players[autoB2C4F675_var].lv__3v3_terrazine_doubler));
-        PlayerModifyPropertyInt(autoB2C4F675_var, c_playerPropTerrazineCollected, c_playerPropOperAdd, (gv_players[autoB2C4F675_var].lv__3v3_terrazine_income * gv_players[autoB2C4F675_var].lv__3v3_terrazine_doubler));
     }
     return true;
 }
@@ -19840,7 +19912,15 @@ void gt_ZCCupgrades_Init () {
 // Trigger: Nydus finished
 //--------------------------------------------------------------------------------------------------
 bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_terran_player_id;
+
     // Automatic Variable Declarations
+    const int autoB3C999BB_ae = 12;
+    int autoB3C999BB_var;
+
+    // Variable Initialization
+
     // Conditions
     if (testConds) {
         if (!((UnitGetType(EventUnitProgressUnit()) == "NydusCanal"))) {
@@ -19853,13 +19933,24 @@ bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_players[gf_get_terran_id_from_zpid(UnitGetOwner(EventUnitProgressUnit()))].lv__3v3_has_nydus = true;
+    lv_terran_player_id = gf_get_terran_id_from_zpid(UnitGetOwner(EventUnitProgressUnit()));
+    if ((gv_players[lv_terran_player_id].lv_position <= 3)) {
+        UnitGroupAdd(gv_nydus_team_top, EventUnitProgressUnit());
+    }
+    else {
+        UnitGroupAdd(gv_nydus_team_bottom, EventUnitProgressUnit());
+    }
+    autoB3C999BB_var = 1;
+    for ( ; autoB3C999BB_var <= autoB3C999BB_ae; autoB3C999BB_var += 1 ) {
+        UnitSetCustomValue(EventUnitProgressUnit(), autoB3C999BB_var, RandomInt(0, (gv_nydus_zcc_ratio - 1)));
+    }
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_Nydusfinished_Init () {
     gt_Nydusfinished = TriggerCreate("gt_Nydusfinished_Func");
+    TriggerEnable(gt_Nydusfinished, false);
     TriggerAddEventUnitConstructProgress(gt_Nydusfinished, null, c_unitProgressStageComplete);
 }
 
@@ -19871,6 +19962,7 @@ bool gt_Nydusdied_Func (bool testConds, bool runActions) {
     unit lv_unit;
     string lv_type;
     int lv_owner;
+    int lv_terran_player_id;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -19898,13 +19990,20 @@ bool gt_Nydusdied_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_players[gf_get_terran_id_from_zpid(UnitGetOwner(lv_unit))].lv__3v3_has_nydus = false;
+    lv_terran_player_id = gf_get_terran_id_from_zpid(UnitGetOwner(EventUnit()));
+    if ((gv_players[lv_terran_player_id].lv_position <= 3)) {
+        UnitGroupRemove(gv_nydus_team_top, EventUnit());
+    }
+    else {
+        UnitGroupRemove(gv_nydus_team_bottom, EventUnit());
+    }
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_Nydusdied_Init () {
     gt_Nydusdied = TriggerCreate("gt_Nydusdied_Func");
+    TriggerEnable(gt_Nydusdied, false);
     TriggerAddEventUnitDied(gt_Nydusdied, null);
 }
 
@@ -20221,6 +20320,9 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     int lv_player_position;
     int lv_unit_group_index;
     point lv_initial_rally_point;
+    int lv_cc_player_position;
+    point lv_cc_point;
+    playergroup lv_player_group;
 
     // Automatic Variable Declarations
     unitgroup auto86980782_g;
@@ -20231,6 +20333,7 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
     unit autoF9E9E436_var;
 
     // Variable Initialization
+    lv_player_group = PlayerGroupEmpty();
 
     // Conditions
     if (testConds) {
@@ -20246,6 +20349,12 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
 
     lv_player_position = FixedToInt(UnitGetCustomValue(EventUnit(), 1));
     lv_initial_rally_point = UnitGetPosition(EventUnit());
+    if ((lv_player_position <= 3)) {
+        lv_player_group = gv_terrans_team_top;
+    }
+    else {
+        lv_player_group = gv_terrans_team_bottom;
+    }
     if ((OrderGetTargetPoint(EventUnitOrder()) != null)) {
         UnitSetPosition(EventUnit(), OrderGetTargetPoint(EventUnitOrder()), false);
     }
@@ -20262,8 +20371,14 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         if (auto86980782_var == null) { break; }
         if ((gf_is_spawner_unit(auto86980782_var) == true) && (libNtve_gf_UnitInRegion(auto86980782_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
             UnitIssueOrder(auto86980782_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-            lv_unit_group_index = gf_get_observed_unit_index(auto86980782_var);
-            UnitGroupRemove(gv_observed_units[lv_unit_group_index], auto86980782_var);
+            lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(EventUnit()), lv_player_group);
+            lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+            UnitIssueOrder(auto86980782_var, OrderTargetingPoint(AbilityCommand("attack", 0), lv_cc_point), c_orderQueueAddToEnd);
+            if ((UnitGetOwner(auto86980782_var) == 7)) {
+                lv_unit_group_index = gf_get_observed_unit_index(auto86980782_var);
+                UnitGroupRemove(gv_observed_units[lv_unit_group_index], auto86980782_var);
+            }
+
         }
 
     }
@@ -20274,8 +20389,14 @@ bool gt_relocate_spawners_rally_action_Func (bool testConds, bool runActions) {
         if (autoF9E9E436_var == null) { break; }
         if ((gf_is_spawner_unit(autoF9E9E436_var) == true) && (libNtve_gf_UnitInRegion(autoF9E9E436_var, gf_get_region_of_influence_3v3(lv_player_position)) == true)) {
             UnitIssueOrder(autoF9E9E436_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(EventUnit())), c_orderQueueReplace);
-            lv_unit_group_index = gf_get_observed_unit_index(autoF9E9E436_var);
-            UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoF9E9E436_var);
+            lv_cc_player_position = gf_get_closest_alive_player_position_from_group(UnitGetPosition(EventUnit()), lv_player_group);
+            lv_cc_point = PointFromName(("Zerg Rally " + IntToString(lv_cc_player_position)));
+            UnitIssueOrder(autoF9E9E436_var, OrderTargetingPoint(AbilityCommand("attack", 0), lv_cc_point), c_orderQueueAddToEnd);
+            if ((UnitGetOwner(autoF9E9E436_var) == 7)) {
+                lv_unit_group_index = gf_get_observed_unit_index(autoF9E9E436_var);
+                UnitGroupRemove(gv_observed_units[lv_unit_group_index], autoF9E9E436_var);
+            }
+
         }
 
     }
