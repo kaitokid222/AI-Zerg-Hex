@@ -168,6 +168,134 @@
             <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
         </Shape>
     </CFootprint>
+    <CFootprint id="Footprint2x2NydusPlacement">
+        <Layers index="Check" Area="-10,-10,10,10">
+            <Sets index="0">
+                <Negative index="DropOff" value="1"/>
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Sets Character="o">
+                <Negative index="DropOff" value="1"/>
+            </Sets>
+            <Rows value="......oooooooo......"/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="......ooooooooo....."/>
+        </Layers>
+        <Layers index="Place" Area="-10,-10,10,10">
+            <Sets index="0">
+                <Positive index="DropOff" value="1"/>
+            </Sets>
+            <Sets Character="o">
+                <Positive index="DropOff" value="1"/>
+            </Sets>
+            <Rows value="......oooooooo......"/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="......oooooooo......"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.8286"/>
+            <Offsets value="-2,-2;2,-2;-2,2;2,2"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint2x2Nydus">
+        <Layers index="Check" Area="-10,-10,10,10">
+            <Sets index="0">
+                <Negative index="DropOff" value="1"/>
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Sets Character="o">
+                <Negative index="DropOff" value="1"/>
+            </Sets>
+            <Rows value="......oooooooo......"/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="......ooooooooo....."/>
+        </Layers>
+        <Layers index="Place" Area="-10,-10,10,10">
+            <Sets index="0">
+                <Positive index="DropOff" value="1"/>
+            </Sets>
+            <Sets Character="o">
+                <Positive index="DropOff" value="1"/>
+            </Sets>
+            <Rows value="......oooooooo......"/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooxxooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value=".oooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooo.."/>
+            <Rows value="...oooooooooooooo..."/>
+            <Rows value="....oooooooooooo...."/>
+            <Rows value="......oooooooo......"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.8286"/>
+            <Offsets value="-2,-2;2,-2;-2,2;2,2"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
     <CFootprint id="Footprint3x3OutsideBaseContour">
         <Layers index="Check" Area="-1,-1,2,2">
             <Sets index="0">
@@ -207,6 +335,94 @@
             <Offsets value="-1.5,-1.5;1.5,-1.5;-1.5,1.5;1.5,1.5"/>
             <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
         </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint4x4Nest">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Negative index="Creep" value="0"/>
+            </Sets>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="2.236"/>
+            <Offsets value="-1,-2;1,-2;-1,2;1,2;-2,-1;-2,1;2,-1;2,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint6x6Contour">
+        <Layers index="Check" Area="-14,-14,14,14">
+            <Rows index="0" value="............................"/>
+            <Rows index="1" value="............................"/>
+            <Rows index="2" value="............................"/>
+            <Rows index="3" value="............................"/>
+            <Rows index="4" value="............................"/>
+            <Rows index="5" value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="...........xxxxxx..........."/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+            <Rows value="............................"/>
+        </Layers>
+        <Layers index="Place" Area="-14,-14,14,14">
+            <Sets Character="o">
+                <Positive index="DropOff" value="1"/>
+            </Sets>
+            <Rows index="0" value="........oooooooooooo........"/>
+            <Rows index="1" value=".......oooooooooooooo......."/>
+            <Rows index="2" value="......oooooooooooooooo......"/>
+            <Rows index="3" value=".....oooooooooooooooooo....."/>
+            <Rows index="4" value="....oooooooooooooooooooo...."/>
+            <Rows index="5" value="...oooooooooooooooooooooo..."/>
+            <Rows value="..oooooooooooooooooooooooo.."/>
+            <Rows value=".oooooooooooooooooooooooooo."/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooxxxxxxooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value="oooooooooooooooooooooooooooo"/>
+            <Rows value=".oooooooooooooooooooooooooo."/>
+            <Rows value="..oooooooooooooooooooooooo.."/>
+            <Rows value="...oooooooooooooooooooooo..."/>
+            <Rows value="....oooooooooooooooooooo...."/>
+            <Rows value=".....oooooooooooooooooo....."/>
+            <Rows value="......oooooooooooooooo......"/>
+            <Rows value=".......oooooooooooooo......."/>
+            <Rows value="........oooooooooooo........"/>
+        </Layers>
+        <Layers index="Pathing" removed="1"/>
     </CFootprint>
     <CFootprint id="Footprint6x6NearResource">
         <Layers index="Check" Area="-3,-3,3,3">
@@ -470,28 +686,6 @@
         <Shape>
             <Radius value="2.5"/>
             <Offsets value="-1.5,-2;1.5,-2;-1.5,2;1.5,2;-2,-1.5;-2,1.5;2,-1.5;2,1.5"/>
-            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
-        </Shape>
-    </CFootprint>
-    <CFootprint id="Footprint4x4Nest">
-        <Layers index="Check" Area="-2,-2,2,2">
-            <Sets index="0">
-                <Negative index="Creep" value="0"/>
-            </Sets>
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-        </Layers>
-        <Layers index="Place" Area="-2,-2,2,2">
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-            <Rows value="xxxx"/>
-        </Layers>
-        <Shape>
-            <Radius value="2.236"/>
-            <Offsets value="-1,-2;1,-2;-1,2;1,2;-2,-1;-2,1;2,-1;2,1"/>
             <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
         </Shape>
     </CFootprint>

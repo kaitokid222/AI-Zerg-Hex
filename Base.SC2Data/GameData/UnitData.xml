@@ -1718,8 +1718,8 @@
             <LayoutButtons index="2" removed="1"/>
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2IgnoreCreepContour"/>
-        <PlacementFootprint value="Footprint2x2IgnoreCreepContour"/>
+        <Footprint value="Footprint2x2Nydus"/>
+        <PlacementFootprint value="Footprint2x2NydusPlacement"/>
     </CUnit>
     <CUnit id="NydusCanalCreeper">
         <LifeStart value="3000"/>

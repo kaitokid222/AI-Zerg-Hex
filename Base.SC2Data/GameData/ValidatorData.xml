@@ -41,6 +41,11 @@
         <AreaArray Compare="GT" Count="1" Radius="3"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorLocationCompareRange id="NydusMinimumDistance">
+        <Compare value="GE"/>
+        <Range value="15"/>
+        <Value Value="SourcePoint"/>
+    </CValidatorLocationCompareRange>
     <CValidatorCombine id="InfestorTransfusionTargetGainsMaxHealth">
         <Type value="And"/>
         <CombineArray value="IsStructureTarget"/>

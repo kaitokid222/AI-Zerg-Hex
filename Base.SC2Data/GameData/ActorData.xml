@@ -177,6 +177,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-LarvalQueen.dds"/>
         </Wireframe>
+        <Scale value="1.100000"/>
     </CActorUnit>
     <CActorUnit id="MineralGenerator" parent="ProtossBuildingEx" unitName="MineralGenerator">
         <Aliases value="_UnitHuge"/>
