@@ -1710,6 +1710,7 @@
     </CUnit>
     <CUnit id="NydusCanal">
         <CostResource index="Minerals" value="50"/>
+        <CostResource index="Terrazine" value="450"/>
         <AbilArray index="2" removed="1"/>
         <AbilArray index="3" removed="1"/>
         <CardLayouts index="0">
@@ -1720,12 +1721,15 @@
         </CardLayouts>
         <Footprint value="Footprint2x2Nydus"/>
         <PlacementFootprint value="Footprint2x2NydusPlacement"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
     </CUnit>
     <CUnit id="NydusCanalCreeper">
         <LifeStart value="3000"/>
         <LifeMax value="3000"/>
         <CostResource index="Minerals" value="50"/>
         <CostResource index="Vespene" value="100"/>
+        <CostResource index="Terrazine" value="450"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>
@@ -6639,7 +6643,7 @@
         <LifeMax value="750"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.2734"/>
-        <CostResource index="Minerals" value="80"/>
+        <CostResource index="Minerals" value="450"/>
         <BehaviorArray index="2" removed="1"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <KillDisplay value="Always"/>
