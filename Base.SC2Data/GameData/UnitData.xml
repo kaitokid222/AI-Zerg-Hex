@@ -480,6 +480,8 @@
         <EnergyMax value="10000"/>
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="50"/>
+        <CostResource index="Terrazine" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>
         <AbilArray Link="3v3SpawnRavator2"/>
@@ -632,7 +634,7 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Vespene" value="25"/>
         <CostResource index="Terrazine" value="50"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">

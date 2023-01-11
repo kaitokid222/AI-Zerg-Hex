@@ -2476,7 +2476,7 @@ RequirementNode/Name/AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1=CountB
 RequirementNode/Name/AndLTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1=CountBehavior(SpawnFromLeft,CompleteOnlyAtUnit) < 1 && ()
 RequirementNode/Name/AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1=CountBehavior(SpawnFromRight,CompleteOnlyAtUnit) < 1 && ()
 RequirementNode/Name/AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < 1 && ()
-RequirementNode/Name/AndLTE2788488928CountUnitNydusCanalCreeperQueuedOnly5=CountUnit(NydusCanalCreeper,QueuedOnly) <= {Maximum 5 Creep Tower}5 && ()
+RequirementNode/Name/AndLTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4=CountUnit(NydusCanalCreeper,QueuedOrBetter) <= {Maximum 5 Creep Tower}4 && ()
 RequirementNode/Name/AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit=!{Select Transport Unit}CountBehavior(TrafficTowerTransportUnitUndefined,CompleteOnlyAtUnit) && !{Select Cargo Value}CountBehavior(TrafficTowerCargoEmpty,CompleteOnlyAtUnit)
 RequirementNode/Name/AndNot3435105652GTCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1=!{No double Modulation}CountBehavior(SiegeTankModulation,CompleteOnlyAtUnit) > 1 && ()
 RequirementNode/Name/AndNot660069371CountUpgradeEnergyCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=!{Already Completed}CountUpgrade(EnergyCapacity,QueuedOrBetter) && CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5
@@ -2543,7 +2543,7 @@ RequirementNode/Name/CountUnitInfestedBunkerQueuedOrBetter=CountUnit(InfestedBun
 RequirementNode/Name/CountUnitLoveMoralesQueuedOrBetter=CountUnit(LoveMorales,QueuedOrBetter)
 RequirementNode/Name/CountUnitNapalmBombCompleteOnlyAtUnit=CountUnit(NapalmBomb,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitNapalmBombQueuedOrBetterAtUnit=CountUnit(NapalmBomb,QueuedOrBetterAtUnit)
-RequirementNode/Name/CountUnitNydusCanalCreeperQueuedOnly=CountUnit(NydusCanalCreeper,QueuedOnly)
+RequirementNode/Name/CountUnitNydusCanalCreeperQueuedOrBetter=CountUnit(NydusCanalCreeper,QueuedOrBetter)
 RequirementNode/Name/CountUnitNydusCanalQueuedOrBetter=CountUnit(NydusCanal,QueuedOrBetter)
 RequirementNode/Name/CountUnitOperationCenterQueuedOrBetter=CountUnit(OperationCenter,QueuedOrBetter)
 RequirementNode/Name/CountUnitProbiusPylonQueuedOrBetter=CountUnit(ProbiusPylon,QueuedOrBetter)
@@ -2769,7 +2769,7 @@ RequirementNode/Name/LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit455390697145
 RequirementNode/Name/LTCountBehaviorZergRallyMinusCompleteOnlyAtUnit4553906971455390697=CountBehavior(ZergRallyMinus,CompleteOnlyAtUnit){ } < 1{ }
 RequirementNode/Name/LTCountBehaviorZergRallyPlusCompleteOnlyAtUnit4553906971455390697=CountBehavior(ZergRallyPlus,CompleteOnlyAtUnit){ } < 1{ }
 RequirementNode/Name/LTCountUpgradeGasExtractionQueuedOrBetter1=CountUpgrade(GasExtraction,QueuedOrBetter) < 1
-RequirementNode/Name/LTE2788488928CountUnitNydusCanalCreeperQueuedOnly5=CountUnit(NydusCanalCreeper,QueuedOnly) <= {Maximum 5 Creep Tower}5
+RequirementNode/Name/LTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4=CountUnit(NydusCanalCreeper,QueuedOrBetter) <= {Maximum 5 Creep Tower}4
 RequirementNode/Name/LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50=(CountUpgrade(EnergyGeneration,CompleteOnly) + (CountUpgrade(EnergyGeneration,QueuedOnly) || CountUpgrade(EnergyGeneration,InProgressOnly))) < 50
 RequirementNode/Name/LTSumCountUpgradeFirelingsCompleteOnlyOrCountUpgradeFirelingsQueuedOnlyCountUpgradeFirelingsInProgressOnly8=(CountUpgrade(Firelings,CompleteOnly) + (CountUpgrade(Firelings,QueuedOnly) || CountUpgrade(Firelings,InProgressOnly))) < 8
 RequirementNode/Name/LTSumCountUpgradeFortificationCompleteOnlyOrCountUpgradeFortificationQueuedOnlyCountUpgradeFortificationInProgressOnly30=(CountUpgrade(Fortification,CompleteOnly) + (CountUpgrade(Fortification,QueuedOnly) || CountUpgrade(Fortification,InProgressOnly))) < 30
