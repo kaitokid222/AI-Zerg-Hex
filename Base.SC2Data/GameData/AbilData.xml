@@ -244,6 +244,9 @@
             <Button DefaultButtonFace="ChooseAsh" Requirements="ReqWeatherAsh"/>
         </InfoArray>
     </CAbilResearch>
+    <CAbilEffectTarget id="DigesterCreepSpray">
+        <CmdButtonArray index="Execute" Requirements="RequirementArmor4"/>
+    </CAbilEffectTarget>
     <CAbilResearch id="LordResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Time="20" Upgrade="MarineOvercharge">
@@ -607,12 +610,12 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnLarvaDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="50"/>
+            <Resource index="Terrazine" value="20"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="10"/>
-                <TimeUse value="10"/>
+                <TimeStart value="2"/>
+                <TimeUse value="2"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3"/>
@@ -3357,7 +3360,7 @@
             <Button DefaultButtonFace="NydusCanal" Requirements="RequirementArmor1"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
-            <Button DefaultButtonFace="SummonNydusCanalCreeper" Requirements="RequirementArmor4"/>
+            <Button DefaultButtonFace="SummonNydusCanalCreeper"/>
         </InfoArray>
         <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="30">
             <Button DefaultButtonFace="MutateintoMechaSpineCrawler" Requirements="RequirementArmor1"/>
