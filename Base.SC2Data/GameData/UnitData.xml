@@ -1720,7 +1720,7 @@
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
         <Footprint value="Footprint2x2Nydus"/>
-        <PlacementFootprint value="Footprint2x2NydusPlacement"/>
+        <PlacementFootprint value="Footprint2x2Nydus"/>
         <LifeStart value="500"/>
         <LifeMax value="500"/>
     </CUnit>
