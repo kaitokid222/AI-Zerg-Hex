@@ -480,6 +480,8 @@
         <EnergyMax value="10000"/>
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="50"/>
+        <CostResource index="Terrazine" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>
         <AbilArray Link="3v3SpawnRavator2"/>
@@ -632,7 +634,7 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Vespene" value="25"/>
         <CostResource index="Terrazine" value="50"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">
@@ -1710,6 +1712,7 @@
     </CUnit>
     <CUnit id="NydusCanal">
         <CostResource index="Minerals" value="50"/>
+        <CostResource index="Terrazine" value="450"/>
         <AbilArray index="2" removed="1"/>
         <AbilArray index="3" removed="1"/>
         <CardLayouts index="0">
@@ -1719,7 +1722,9 @@
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
         <Footprint value="Footprint2x2Nydus"/>
-        <PlacementFootprint value="Footprint2x2NydusPlacement"/>
+        <PlacementFootprint value="Footprint2x2Nydus"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
     </CUnit>
     <CUnit id="NydusCanalCreeper">
         <LifeStart value="3000"/>
@@ -6639,7 +6644,8 @@
         <LifeMax value="750"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.2734"/>
-        <CostResource index="Minerals" value="80"/>
+        <CostResource index="Minerals" value="125"/>
+        <CostResource index="Terrazine" value="480"/>
         <BehaviorArray index="2" removed="1"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <KillDisplay value="Always"/>
