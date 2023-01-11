@@ -3360,7 +3360,7 @@
             <Button DefaultButtonFace="NydusCanal" Requirements="RequirementArmor1"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
-            <Button DefaultButtonFace="SummonNydusCanalCreeper"/>
+            <Button DefaultButtonFace="SummonNydusCanalCreeper" Requirements="CreepTower"/>
         </InfoArray>
         <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="30">
             <Button DefaultButtonFace="MutateintoMechaSpineCrawler" Requirements="RequirementArmor1"/>

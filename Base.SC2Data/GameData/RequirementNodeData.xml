@@ -138,6 +138,10 @@
     <CRequirementAnd id="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndLTE2788488928CountUnitNydusCanalCreeperQueuedOnly5">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LTE2788488928CountUnitNydusCanalCreeperQueuedOnly5"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit">
         <OperandArray value="Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit"/>
         <OperandArray value="Not1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit"/>
@@ -398,9 +402,13 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="QueuedOrBetterAtUnit"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitNydusCanalQueuedOrBetter">
+    <CRequirementCountUnit id="CountUnitNydusCanalCreeperQueuedOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="NydusCanalCreeper"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitNydusCanalQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NydusCanal" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitOperationCenterQueuedOrBetter">
@@ -1303,6 +1311,10 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
+    <CRequirementLTE id="LTE2788488928CountUnitNydusCanalCreeperQueuedOnly5">
+        <OperandArray index="0" value="CountUnitNydusCanalCreeperQueuedOnly"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementLTE>
     <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50">
         <OperandArray index="0" value="SumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly"/>
         <OperandArray index="1" value="50"/>
