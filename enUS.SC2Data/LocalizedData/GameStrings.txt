@@ -1154,6 +1154,7 @@ Button/Tooltip/Demolish=Destroys the building.
 Button/Tooltip/DemolishNoHotkey=Destroys the building.
 Button/Tooltip/DestroyStructure=Destroys the structure and refunds 33% of its costs. Also refunds when being destroyed.
 Button/Tooltip/DestructibleRock6x6I=A barrier that cannot be destroyed.
+Button/Tooltip/DigesterCreepSpray=Sprays Creep in a long, straight line.
 Button/Tooltip/DisableAutomation=Disable automated control.
 Button/Tooltip/DisableWeapon=Halt weapon fire until re-enabled.
 Button/Tooltip/DoubledRewards=Doubles your pickup rewards.

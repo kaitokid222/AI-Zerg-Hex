@@ -65,6 +65,7 @@ Button/Hotkey/DefenderUnlink=R
 Button/Hotkey/Demolish=V
 Button/Hotkey/DemolishNoHotkey=
 Button/Hotkey/DestroyStructure=V
+Button/Hotkey/DigesterCreepSpray=Q
 Button/Hotkey/DisableAutomation=W
 Button/Hotkey/DisableWeapon=Z
 Button/Hotkey/EmpoweredWarp=W

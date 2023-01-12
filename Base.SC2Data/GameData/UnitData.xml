@@ -61,7 +61,6 @@
         <Attributes index="Summoned" value="1"/>
         <AbilArray Link="PickupBloodBig"/>
         <BehaviorArray Link="BloodDropTimedLife"/>
-        <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Item,ObjectFamily:Campaign"/>
     </CUnit>
     <CUnit id="ChaosCultist">
@@ -1762,7 +1761,6 @@
         <Attributes index="Summoned" value="1"/>
         <AbilArray Link="PickupBlood"/>
         <BehaviorArray Link="BloodDropTimedLife"/>
-        <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Item,ObjectFamily:Campaign"/>
     </CUnit>
     <CUnit id="Overseer">
@@ -1821,6 +1819,7 @@
         <BehaviorArray Link="SiegeTankFragmentBlastFireTimedLife"/>
         <BehaviorArray Link="SiegeTankFragmentBlastFireDamage"/>
         <EditorCategories value=""/>
+        <MinimapRadius value="0"/>
     </CUnit>
     <CUnit id="SpineCrawler">
         <Collide index="Ground" value="0"/>
