@@ -1259,7 +1259,7 @@ Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
-Button/Tooltip/Larva3v3=Can mutate into a Unit Spawner.
+Button/Tooltip/Larva3v3=Can mutate into Zerg structures.
 Button/Tooltip/LoveMorales=Support trooper. Heals nearby biological units.
 Button/Tooltip/Lower2=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/Marine2=
@@ -3519,6 +3519,7 @@ RequirementNode/Tooltip/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=You 
 RequirementNode/Tooltip/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=Bunker isnt upgraded already
 RequirementNode/Tooltip/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=Max Reached
 RequirementNode/Tooltip/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=Maxed
+RequirementNode/Tooltip/LT1859361626CountBehaviorLarvaCountDummyStackQueuedOrBetter3=You cant have more than 3 alive Larva!
 RequirementNode/Tooltip/LT2011835200CountUnitChaosLordQueuedOrBetter1=You can only have 1 Chaos Lord!
 RequirementNode/Tooltip/LT2473741311CountUnitRavager2QueuedOrBetter30=Have Less Than 30
 RequirementNode/Tooltip/LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60=Max 60

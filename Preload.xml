@@ -30,6 +30,7 @@
 <Actor id="XilSpireLarge" Variations="3"/>
 <Actor id="GainBountyTextKicker"/>
 <Behavior id="InfestedVisual"/>
+<Behavior id="LarvaCountDummyStack"/>
 <Behavior id="StrikelingShielded3v3"/>
 <Behavior id="InfusedRoachCountDummyStack"/>
 <Behavior id="FirelingCountDummyStack"/>
@@ -42,7 +43,7 @@
 <Behavior id="SpawnFromCenter"/>
 <Behavior id="SpawnFromLeft"/>
 <Behavior id="SpawnFromRight"/>
-<Behavior id="TorraliskRoachCountDummyStack"/>
+<Behavior id="TorraliskCountDummyStack"/>
 <Behavior id="EarlyDeathDebuff"/>
 <Behavior id="MedivacTimedLife"/>
 <Behavior id="GeneratorUpgrades1"/>

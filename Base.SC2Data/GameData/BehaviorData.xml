@@ -90,6 +90,12 @@
         <DisplayDuration index="Enemy" value="1"/>
         <Duration value="15"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="LarvaCountDummyStack">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="1000"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="IsZCC">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -249,7 +255,7 @@
         <InfoIcon value="Assets\Textures\cursor-edgescroll-right-zerg.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="TorraliskRoachCountDummyStack">
+    <CBehaviorBuff id="TorraliskCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-ultralisk-torrasque.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

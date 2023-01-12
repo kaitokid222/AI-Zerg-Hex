@@ -329,6 +329,9 @@
     <CRequirement id="NotHavelotsofbloodreq">
         <NodeArray index="Use" Link="NotCountUpgradeLotsofBloodCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="Only3Larva">
+        <NodeArray index="Use" Link="LT1859361626CountBehaviorLarvaCountDummyStackQueuedOrBetter3"/>
+    </CRequirement>
     <CRequirement id="SpawnFromLeft">
         <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromLeftCompleteOnlyAtUnit1"/>
     </CRequirement>

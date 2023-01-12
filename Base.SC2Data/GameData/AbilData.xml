@@ -612,13 +612,13 @@
         <Cost>
             <Resource index="Terrazine" value="20"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="3"/>
                 <CountUse value="1"/>
                 <TimeStart value="2"/>
                 <TimeUse value="2"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3" Requirements="Only3Larva"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnSlowling">
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -139,7 +139,6 @@
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit">
@@ -233,6 +232,11 @@
     <CRequirementCountBehavior id="CountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestorDigesting" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLarvaCountDummyStackQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="LarvaCountDummyStack" State="QueuedOrBetter"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -404,7 +408,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNydusCanalCreeperQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="NydusCanalCreeper" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNydusCanalQueuedOrBetter">
@@ -1242,6 +1245,10 @@
     <CRequirementLT id="LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40">
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="40"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT1859361626CountBehaviorLarvaCountDummyStackQueuedOrBetter3">
+        <OperandArray index="0" value="CountBehaviorLarvaCountDummyStackQueuedOrBetter"/>
+        <OperandArray index="1" value="3"/>
     </CRequirementLT>
     <CRequirementLT id="LT2011835200CountUnitChaosLordQueuedOrBetter1">
         <OperandArray index="0" value="CountUnitChaosLordQueuedOrBetter"/>

@@ -88,6 +88,7 @@ struct gs_zcc_stack_backup {
     int lv_infused;
     int lv_banelings;
     int lv_torras;
+    int lv_larva;
 };
 
 struct gs_zcc_spawn {
@@ -934,6 +935,8 @@ trigger gt_TerrazineIncome;
 trigger gt_TerrazineDoublerfinished;
 trigger gt_zagara_death_timer;
 trigger gt_FirelingDies;
+trigger gt_Larvadies;
+trigger gt_Larvamutatesintobuilding;
 trigger gt_zccbuilt;
 trigger gt_zccdies;
 trigger gt_PeriodicZCCSpawn;
@@ -6627,7 +6630,10 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
             UnitBehaviorRemove(lv_zcc, "InfusedRoachCountDummyStack", 1);
         }
         else if (auto4D713774_val == "Torralisk") {
-            UnitBehaviorRemove(lv_zcc, "TorraliskRoachCountDummyStack", 1);
+            UnitBehaviorRemove(lv_zcc, "TorraliskCountDummyStack", 1);
+        }
+        else if (auto4D713774_val == "Larva3v3") {
+            UnitBehaviorRemove(lv_zcc, "LarvaCountDummyStack", 1);
         }
         else {
         }
@@ -6674,6 +6680,17 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
                 }
                 else {
                     gv_zcc_stack_backup[lp_pid].lv_torras = (gv_zcc_stack_backup[lp_pid].lv_torras - 1);
+                }
+            }
+
+        }
+        else if (auto126C1DE1_val == "Larva3v3") {
+            if ((gv_zcc_stack_backup[lp_pid].lv_larva > 0)) {
+                if ((gv_zcc_stack_backup[lp_pid].lv_larva == 1)) {
+                    gv_zcc_stack_backup[lp_pid].lv_larva = 0;
+                }
+                else {
+                    gv_zcc_stack_backup[lp_pid].lv_larva = (gv_zcc_stack_backup[lp_pid].lv_larva - 1);
                 }
             }
 
@@ -6842,6 +6859,10 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
 
     if ((lp_unit_type == "Fireling")) {
         UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, lp_unit_count);
+    }
+
+    if ((lp_unit_type == "Larva3v3")) {
+        UnitBehaviorAdd(lv_zcc, "LarvaCountDummyStack", lv_zcc, lp_unit_count);
     }
 
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3") || (lp_unit_type == "Larva3v3"))) {
@@ -7764,7 +7785,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -19621,6 +19642,78 @@ void gt_FirelingDies_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Larva dies
+//--------------------------------------------------------------------------------------------------
+bool gt_Larvadies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+    int lv_terran_id;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = UnitGetOwner(EventUnit());
+    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
+
+    // Conditions
+    if (testConds) {
+        if (!((gf_is_3v3() == true))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnit()) == "Larva3v3"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Larvadies_Init () {
+    gt_Larvadies = TriggerCreate("gt_Larvadies_Func");
+    TriggerAddEventUnitDied(gt_Larvadies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Larva mutates into building
+//--------------------------------------------------------------------------------------------------
+bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_owner = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_remove_count_dummy_stack(gf_get_terran_id_from_zpid(lv_owner), "Larva3v3");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Larvamutatesintobuilding_Init () {
+    gt_Larvamutatesintobuilding = TriggerCreate("gt_Larvamutatesintobuilding_Func");
+    TriggerAddEventUnitConstructProgress(gt_Larvamutatesintobuilding, null, c_unitProgressStageStart);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: zcc built
 //--------------------------------------------------------------------------------------------------
 bool gt_zccbuilt_Func (bool testConds, bool runActions) {
@@ -19661,8 +19754,13 @@ bool gt_zccbuilt_Func (bool testConds, bool runActions) {
     }
 
     if ((gv_zcc_stack_backup[lv_terran_id].lv_torras > 0)) {
-        UnitBehaviorAdd(lv_zcc, "TorraliskRoachCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_torras);
+        UnitBehaviorAdd(lv_zcc, "TorraliskCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_torras);
         gv_zcc_stack_backup[lv_terran_id].lv_torras = 0;
+    }
+
+    if ((gv_zcc_stack_backup[lv_terran_id].lv_larva > 0)) {
+        UnitBehaviorAdd(lv_zcc, "LarvaCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_larva);
+        gv_zcc_stack_backup[lv_terran_id].lv_larva = 0;
     }
 
     return true;
@@ -19701,6 +19799,7 @@ bool gt_zccdies_Func (bool testConds, bool runActions) {
 
     lv_zcc = EventUnit();
     gv_zcc_stack_backup[lv_terran_id].lv_firelings = UnitBehaviorCount(lv_zcc, "FirelingCountDummyStack");
+    gv_zcc_stack_backup[lv_terran_id].lv_larva = UnitBehaviorCount(lv_zcc, "LarvaCountDummyStack");
     return true;
 }
 
@@ -26177,6 +26276,8 @@ void InitTriggers () {
     gt_TerrazineDoublerfinished_Init();
     gt_zagara_death_timer_Init();
     gt_FirelingDies_Init();
+    gt_Larvadies_Init();
+    gt_Larvamutatesintobuilding_Init();
     gt_zccbuilt_Init();
     gt_zccdies_Init();
     gt_PeriodicZCCSpawn_Init();
