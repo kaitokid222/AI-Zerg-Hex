@@ -179,6 +179,76 @@
         </Wireframe>
         <Scale value="1.100000"/>
     </CActorUnit>
+    <CActorUnit id="MechaMineralExtractor" parent="ZergBuildingEx" unitName="MechaMineralExtractor">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="InfestorMaxHealthMacroScale085"/>
+        <On index="0" Send="Create SoundEmitter Spire_Ambience"/>
+        <On index="65" Terms="UnitConstruction.MechaMineralExtractor.Start" Send="Create MechaMineralExtractorBuild"/>
+        <On index="66" Terms="UnitConstruction.MechaMineralExtractor.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="67" Terms="UnitConstruction.MechaMineralExtractor.Finish" Send="Destroy"/>
+        <On index="68" Terms="UnitBirth.MechaMineralExtractor.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="69" Terms="UnitBirth.MechaMineralExtractor.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="70" Terms="UnitBirth.MechaMineralExtractor.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="71" Terms="UnitDeath.MechaMineralExtractor" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="72" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="" Send="StatusSet Morphing 1"/>
+        <On index="73" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Send="Create SpireMorph"/>
+        <On index="74" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Started"/>
+        <On index="75" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Send="AnimPlay Morph Morph PlayForever 0.000000 0.000000 3.333000 AsDuration"/>
+        <On index="76" Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Target="" Send="StatusSet Morphing 0"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Finished"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimClear Morph"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimClear ::Progress"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimBaselineStart"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimPlay Rebirth Build,D,Start 0 0.000000 0.000000 2.000000 AsDuration"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Finished"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="Destroy"/>
+        <On Terms="UnitDeathCustomize; IsStatus Morphing 1" Send="DeathCustomize Upgrade"/>
+        <On Terms="Behavior.BuildingStasis.On" Send="TimerSet 0.330000 DelayCreation"/>
+        <On Terms="TimerExpired; TimerName DelayCreation" Target="SpireMorph" Send="AnimSetPausedAll"/>
+        <On Terms="Behavior.BuildingStasis.Off" Target="SpireMorph" Send="AnimSetPausedAll 0"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="Spire_Mecha"/>
+        <Scale value="0.850000"/>
+        <EventDataFootprint index="0" Model="SpireFootprint"/>
+        <BuildModel value="Spire_Mecha"/>
+        <DeathArray index="Normal" ModelLink="Spire_Mecha_Death" SoundLink="" VoiceLink="SpireDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="Spire_Mecha_DeathUnderConstruction" SoundLink="Spire_Explode"/>
+        <DeathCustoms ModelLink="SpireDeathUnderConstruction" SoundLink="Spire_Explode" Name="Upgrade"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PlacementModel value="Spire_Mecha_Build"/>
+        <PortraitModel value="Spire_Mecha_Portrait"/>
+        <BarOffset value="190"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Spire.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Spire_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Spire_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Spire_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Spire_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spire.dds"/>
+        <NameOffset value="70"/>
+        <SoundArray index="Birth" value="Spire_Birth"/>
+        <SoundArray index="Ready" value="Spire_Ready"/>
+        <SoundArray index="Help" value="Spire_Help"/>
+        <SoundArray index="What" value="Spire_What"/>
+        <SoundArray index="Yes" value="Spire_Yes"/>
+        <SoundArray index="Attack" value="Spire_Attack"/>
+        <SoundArray index="Pissed" value="Spire_Pissed"/>
+        <SoundArray index="Movement" value="Spire_Movement"/>
+        <SoundArray index="Turning" value="Spire_Turning"/>
+        <SoundArray index="Board" value="Spire_Board"/>
+        <SoundArray index="Click" value="Spire_Click"/>
+        <SoundArray index="ClickError" value="Spire_ClickError"/>
+        <SoundArray index="Highlight" value="Spire_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Spire.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="MechaMineralExtractorBuild" parent="ZergBuildingBuild">
+        <Model value="SpawningPool_Mecha_Build"/>
+    </CActorModel>
     <CActorUnit id="MineralGenerator" parent="ProtossBuildingEx" unitName="MineralGenerator">
         <Aliases value="_UnitHuge"/>
         <Macros value="ProtossBuildingPowerUp"/>
@@ -625,6 +695,141 @@
     </CActorUnit>
     <CActorUnit id="NydusCanalCreeper">
         <PortraitModel value="CreepTurmorPortrait"/>
+    </CActorUnit>
+    <CActorUnit id="MechaRoach" parent="GenericUnitBase" unitName="MechaRoach">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="ZergBurrowMobileAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On index="0" Send="Create SoundEmitter Roach_Ambience"/>
+        <On Terms="UnitMovementUpdate.RoachBurrowed.Stand" Send="Create RoachBurrowedSplat"/>
+        <On Terms="WeaponStart.NeedleSpines2.AttackStart" Target="RoachBurrowedSplat" Send="Destroy"/>
+        <On Terms="WeaponStop.NeedleSpines2.AttackStop" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.AcidSaliva.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.AcidSaliva.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.NeedleSpines2.AttackStart" Send="AnimBracketStart AttackCover Attack,Cover"/>
+        <On Terms="WeaponStop.NeedleSpines2.AttackStop" Send="AnimBracketStop AttackCover"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitBirth.RoachBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.RoachBurrowed" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
+        <On Terms="ActorCreation; ValidateUnit RoachUpgraded" Send="ModelSwap RoachUpgrade"/>
+        <On Terms="Upgrade.TunnelingClaws.Add" Send="ModelSwap RoachUpgrade"/>
+        <On Terms="Upgrade.TunnelingClaws.Add; ValidateUnit IsBuried" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
+        <On Terms="UnitBirth.MechaRoach" Send="AnimClear Fidget"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Roach; MorphTo RoachBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom RoachBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="UnitBirth.Roach" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom RoachBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo RoachBurrowed; MorphFrom Roach" Send="TerrainSquibDeactivate"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Roach_Land"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo RavagerCocoon" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RavagerCocoon; MorphTo Roach" Send="Create"/>
+        <On Terms="ActorCreation; ValidateUnit HasBurrowUpgrade" Send="ModelSwap RoachUpgrade"/>
+        <On Terms="Upgrade.Burrow.Add" Send="ModelSwap RoachUpgrade"/>
+        <On Terms="Upgrade.Burrow.Add; ValidateUnit IsBuried" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
+        <On Terms="UnitMovementUpdate.*.Walk; ValidateUnit IsBuried" Send="Create ZergUnit_BurrowedMoveLoopSound"/>
+        <On Terms="UnitMovementUpdate.*.Stand" Target="ZergUnit_BurrowedMoveLoopSound" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo Roach" Target="ZergUnit_BurrowedMoveLoopSound" Send="Destroy"/>
+        <On Terms="AbilMorph.MorphRoachToVile.Finish; MorphTo Roach; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphRoachToVile.Start; MorphFrom Roach; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.MorphRoachToCorpser.Finish; MorphTo Roach; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphRoachToCorpser.Start; MorphFrom Roach; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom HybridRoachEgg" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom HybridRoachEgg" Send="Create EggsplosionPurpleGeneric0"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom HybridRoachEgg" Target="EggsplosionPurpleGeneric0" Send="SetScale 0.900000"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom HybridRoachEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <On Terms="Behavior.RadiatedRoach.On" Send="ModelSwap RoachCorpser"/>
+        <On Terms="Behavior.RadiatedRoach.Off" Send="ModelSwap Roach"/>
+        <Model value="Roach_Mecha"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="RoachFootprint"/>
+        <BuildModel value="Roach_Mecha"/>
+        <DeathArray index="Normal" ModelLink="Roach_Mecha_Death" SoundLink="Roach_Explode" VoiceLink="RoachDeathVoice"/>
+        <DeathArray index="Disintegrate" ModelLink="Roach_Mecha_DeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="Roach_Mecha_DeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ModelLink="RoachDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Roach_Mecha"/>
+        <PortraitModel value="Roach_Mecha_Portrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="55"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Roach.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Roach_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Roach_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Roach_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Roach_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-roach-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Birth" value="Roach_Birth"/>
+        <SoundArray index="Ready" value="Roach_Ready"/>
+        <SoundArray index="Help" value="Roach_Help"/>
+        <SoundArray index="What" value="Roach_What"/>
+        <SoundArray index="Yes" value="Roach_Yes"/>
+        <SoundArray index="Attack" value="Roach_Attack"/>
+        <SoundArray index="Pissed" value="Roach_Pissed"/>
+        <SoundArray index="Movement" value="Roach_Movement"/>
+        <SoundArray index="Turning" value="Roach_Turning"/>
+        <SoundArray index="Board" value="Roach_Board"/>
+        <SoundArray index="Click" value="Roach_Click"/>
+        <SoundArray index="ClickError" value="Roach_ClickError"/>
+        <SoundArray index="Highlight" value="Roach_Highlight"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Roach.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
     <CActorUnit id="SiegeTankFragmentBlastFire" parent="GenericUnitStandard">
         <CopySource value=""/>

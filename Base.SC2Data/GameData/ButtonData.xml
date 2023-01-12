@@ -97,6 +97,11 @@
         <AlertIcon value="Assets\Textures\btn-building-zerg-spinecrawler-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="MutateintoMechaMineralExtractor">
+        <Icon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="NydusCanal"/>
     <CButton id="Pylon"/>
     <CButton id="PylonClassic">
@@ -114,6 +119,11 @@
     <CButton id="SpawnMenuSmall">
         <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="BuildMechaSlowling">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SummonNydusCanalCreeper"/>

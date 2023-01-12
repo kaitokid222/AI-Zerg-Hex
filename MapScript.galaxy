@@ -6577,17 +6577,17 @@ fixed gf_get_terrazine_income (int lp_player_id) {
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {
     // Variable Declarations
-    unitgroup lv_creep_tower_group;
+    unitgroup lv_mineral_extractors;
     region lv_region;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_creep_tower_group = UnitGroupEmpty();
+    lv_mineral_extractors = UnitGroupEmpty();
 
     // Implementation
     lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
-    lv_creep_tower_group = UnitGroup("NydusCanalCreeper", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    return (1.0 + (0.2001 * UnitGroupCount(lv_creep_tower_group, c_unitCountAlive)));
+    lv_mineral_extractors = UnitGroup("MechaMineralExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    return (1.0 + (0.2001 * UnitGroupCount(lv_mineral_extractors, c_unitCountAlive)));
 }
 
 void gf_create_zagara (int lp_player) {
@@ -19693,7 +19693,7 @@ bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha")))) {
+        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaMineralExtractor")))) {
             return false;
         }
     }

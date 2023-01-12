@@ -768,6 +768,27 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="Spawn5Firelings" Requirements="SpawnFirelings"/>
     </CAbilEffectInstant>
+    <CAbilTrain id="BuildMechaSlowling">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <InfoArray index="Train1" Time="4" Effect="ApplyPrecursorSpawner">
+            <Charge>
+                <CountMax value="4"/>
+                <CountStart value="2"/>
+                <CountUse value="1"/>
+                <Link value="Abil/TrainSpawner"/>
+                <Location value="Unit"/>
+            </Charge>
+            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Button DefaultButtonFace="BuildMechaSlowling"/>
+            <Unit value="MechaSlowling"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+        <Alert value="NoAlert"/>
+    </CAbilTrain>
     <CAbilEffectInstant id="UpgradeKarax">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Cost>
@@ -3359,11 +3380,14 @@
         <InfoArray index="Build22" Unit="NydusCanal" Time="20">
             <Button DefaultButtonFace="NydusCanal" Requirements="RequirementArmor1"/>
         </InfoArray>
-        <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="40">
-            <Button DefaultButtonFace="SummonNydusCanalCreeper" Requirements="CreepTower"/>
+        <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="20">
+            <Button DefaultButtonFace="SummonNydusCanalCreeper" Requirements="RequirementArmor1"/>
         </InfoArray>
-        <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="30">
+        <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="15">
             <Button DefaultButtonFace="MutateintoMechaSpineCrawler" Requirements="RequirementArmor1"/>
+        </InfoArray>
+        <InfoArray index="Build25" Unit="MechaMineralExtractor" Time="40">
+            <Button DefaultButtonFace="MutateintoMechaMineralExtractor" Requirements="CreepTower"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">
