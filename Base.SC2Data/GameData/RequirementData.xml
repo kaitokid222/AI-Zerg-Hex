@@ -342,7 +342,7 @@
         <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="TerrazineConverter">
-        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563"/>
+        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052"/>
     </CRequirement>
     <CRequirement id="TerrazineDoubler2Requirement">
         <NodeArray index="Use" Link="CountUpgradeTerrazineIncomex2CompleteOnly"/>

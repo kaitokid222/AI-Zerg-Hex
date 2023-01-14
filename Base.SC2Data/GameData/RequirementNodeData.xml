@@ -74,8 +74,10 @@
         <OperandArray value="CountUnitConstructionYardCompleteOnly2255243434"/>
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563">
+    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
+        <OperandArray value="CountUpgradeZergArmor2CompleteOnly2593968052"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
@@ -235,7 +237,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorLarvaCountDummyStackQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="LarvaCountDummyStack" State="QueuedOrBetter"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit">
@@ -1003,6 +1004,10 @@
         <Count Link="ZergArmor1" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeZergArmor2CompleteOnly1814853743">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergArmor2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZergArmor2CompleteOnly2593968052">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergArmor2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
