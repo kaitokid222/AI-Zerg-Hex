@@ -3387,7 +3387,7 @@
             <Button DefaultButtonFace="MutateintoMechaSpineCrawler" Requirements="RequirementArmor1"/>
         </InfoArray>
         <InfoArray index="Build25" Unit="MechaMineralExtractor" Time="40">
-            <Button DefaultButtonFace="MutateintoMechaMineralExtractor" Requirements="CreepTower"/>
+            <Button DefaultButtonFace="MutateintoMechaTerrazineExtractor" Requirements="CreepTower"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">
