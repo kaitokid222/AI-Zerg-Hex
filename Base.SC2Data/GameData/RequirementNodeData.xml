@@ -74,8 +74,10 @@
         <OperandArray value="CountUnitConstructionYardCompleteOnly2255243434"/>
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563">
+    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
+        <OperandArray value="CountUpgradeZergArmor2CompleteOnly2593968052"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
@@ -138,8 +140,9 @@
     <CRequirementAnd id="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndLTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4">
-        <OperandArray value="LTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4"/>
+    <CRequirementAnd id="AndLTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit">
         <OperandArray value="Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit"/>
@@ -235,7 +238,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorLarvaCountDummyStackQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="LarvaCountDummyStack" State="QueuedOrBetter"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit">
@@ -398,6 +400,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="LoveMorales" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitMechaMineralExtractorQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MechaMineralExtractor" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="CompleteOnlyAtUnit"/>
@@ -405,10 +412,6 @@
     <CRequirementCountUnit id="CountUnitNapalmBombQueuedOrBetterAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="QueuedOrBetterAtUnit"/>
-    </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitNydusCanalCreeperQueuedOrBetter">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="NydusCanalCreeper" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNydusCanalQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1006,6 +1009,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergArmor2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZergArmor2CompleteOnly2593968052">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ZergArmor2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeZergArmor2CompleteOnly3976443666">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergArmor2" State="CompleteOnly"/>
@@ -1318,8 +1325,8 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
-    <CRequirementLTE id="LTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4">
-        <OperandArray index="0" value="CountUnitNydusCanalCreeperQueuedOrBetter"/>
+    <CRequirementLTE id="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
+        <OperandArray index="0" value="CountUnitMechaMineralExtractorQueuedOrBetter"/>
         <OperandArray index="1" value="4"/>
     </CRequirementLTE>
     <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50">

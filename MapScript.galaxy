@@ -390,7 +390,7 @@ void InitGlobals () {
         gv_players[init_i].lv_tutorial_stage_state = "";
         gv_players[init_i].lv_wants_tutorial = 1;
         gv_players[init_i].lv__3v3_terrazine_doubler = 1;
-        gv_players[init_i].lv__3v3_terrazine_income = 10;
+        gv_players[init_i].lv__3v3_terrazine_income = 14;
     }
     gv_transmission_units = UnitGroupEmpty();
     for (init_i = 0; init_i <= 6; init_i += 1) {
@@ -5871,7 +5871,7 @@ void gf_init_3v3 () {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 12), true);
                 TechTreeAbilityAllow(gv_players[lv_index].lv__3v3_zerg_pid, AbilityCommand("DestroyStructure", 0), false);
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BarracksTrain2", 18), true);
-                PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 115);
+                PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 160);
                 TechTreeUpgradeAddLevel(lv_index, "Mode3v3", 1);
                 CatalogReferenceSet("Button,Pylon,AlertTooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
                 CatalogReferenceSet("Button,Pylon,Tooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
@@ -6577,17 +6577,22 @@ fixed gf_get_terrazine_income (int lp_player_id) {
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {
     // Variable Declarations
-    unitgroup lv_mineral_extractors;
+    unitgroup lv_own_mineral_extractors;
+    unitgroup lv_all_mineral_extractors;
+    int lv_other_mineral_extractors;
     region lv_region;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_mineral_extractors = UnitGroupEmpty();
+    lv_own_mineral_extractors = UnitGroupEmpty();
+    lv_all_mineral_extractors = UnitGroupEmpty();
 
     // Implementation
     lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
-    lv_mineral_extractors = UnitGroup("MechaMineralExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    return (1.0 + (0.2001 * UnitGroupCount(lv_mineral_extractors, c_unitCountAlive)));
+    lv_own_mineral_extractors = UnitGroup("MechaMineralExtractor", gv_players[lp_player_id].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_all_mineral_extractors = UnitGroup("MechaMineralExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_other_mineral_extractors = (UnitGroupCount(lv_all_mineral_extractors, c_unitCountAlive) - UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
+    return ((1.0 + (0.1001 * lv_other_mineral_extractors)) + (0.3001 * UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive)));
 }
 
 void gf_create_zagara (int lp_player) {

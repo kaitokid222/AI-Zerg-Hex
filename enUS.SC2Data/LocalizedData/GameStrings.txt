@@ -746,6 +746,7 @@ Button/Name/EnhanceProduction=Enhance Production
 Button/Name/EnhancedPlating=Enhanced Plating
 Button/Name/ExtractMinerals=Extract Minerals
 Button/Name/ExtractMineralsGreater=Extract Minerals x4
+Button/Name/ExtractTerrazine=Extract Terrazines
 Button/Name/FireAcid=Fire Acid
 Button/Name/FireNapalmBomb=Fire Napalm Bomb
 Button/Name/FirebatCharge=Firebat Charge
@@ -801,8 +802,8 @@ Button/Name/MutateintoCreeperSpawner=Mutate into Creeper Spawner
 Button/Name/MutateintoGeyserBlocker=Mutate into Geyser Blocker
 Button/Name/MutateintoGreaterMineralExtractor=Mutate into Greater Mineral Extractor
 Button/Name/MutateintoInfusedRoachSpawner=Mutate into Infused Roach Spawner
-Button/Name/MutateintoMechaMineralExtractor=Mutate into Mineral Extractor
 Button/Name/MutateintoMechaSpineCrawler=Mutate into Mecha Spine Crawler
+Button/Name/MutateintoMechaTerrazineExtractor=Mutate into Terrazine Extractor.
 Button/Name/MutateintoMineralContainer=Mutate into Mineral Container
 Button/Name/MutateintoMineralExtractor=Mutate into Mineral Extractor
 Button/Name/MutateintoNest=Mutate into Nest
@@ -1181,6 +1182,7 @@ Button/Tooltip/EnhanceProduction=Upgrades the Sheep Farm to produce double the m
 Button/Tooltip/EnhancedPlating=The Omegalisk health is increased by 15.000.
 Button/Tooltip/ExtractMinerals=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/ExtractMineralsGreater=Continuously generates minerals equal to <c val="83D5E2">160 + 4 per spawner </c>per minute.
+Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 30%, increase your allies Terrazine income by 10%.
 Button/Tooltip/FarmTextUsed0=<s val="ModLeftSize24Bold">          <c val="C0C0C0">0 / 3</c></s>
 Button/Tooltip/FarmTextUsed1=<s val="ModLeftSize24Bold">          1 / 3</s>
 Button/Tooltip/FarmTextUsed2=<s val="ModLeftSize24Bold">          2 / 3</s>
@@ -1293,8 +1295,8 @@ Button/Tooltip/MutateintoCreeperSpawner=Can attack with short range.<n/><n/><c v
 Button/Tooltip/MutateintoGeyserBlocker=Mutated over a Vespene Geyser to deny terrans harvesting from it.
 Button/Tooltip/MutateintoGreaterMineralExtractor=Upgrades the extractor to give four times as much minerals per minute.<n/><n/>Has 250 more hp and 3 armor.
 Button/Tooltip/MutateintoInfusedRoachSpawner=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="94D1D1">Re-spawns 1 unit</c> <c val="E8E191">(100 sec spawn time)</c>
-Button/Tooltip/MutateintoMechaMineralExtractor=Continuously generates Terrazine.
 Button/Tooltip/MutateintoMechaSpineCrawler=Primary defense structure.
+Button/Tooltip/MutateintoMechaTerrazineExtractor=Increase  your Terrazine Income by 30% and your allies Terrazine income by 10%.
 Button/Tooltip/MutateintoMineralContainer=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MutateintoMineralExtractor=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/MutateintoNest=Grows creep in a large area. Can spawn several units.
@@ -3503,6 +3505,7 @@ RequirementNode/Tooltip/CountUpgradeTier3EquipmentCompleteOnly1892408692=Tier 3 
 RequirementNode/Tooltip/CountUpgradeTier3EquipmentCompleteOnly3004331205=Tier 3 Equipment (Tech Lab)
 RequirementNode/Tooltip/CountUpgradeZergArmor1CompleteOnly1850040327=Armor 1 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly1814853743=Research Armor 2
+RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly2593968052=Zerg Armor 2
 RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly3976443666=Armor 2 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor3CompleteOnly3638424730=Armor 3 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor4CompleteOnly3065930054=Armor 4 Research
@@ -3536,7 +3539,7 @@ RequirementNode/Tooltip/LT381415482CountUnitTarRoachQueuedOrBetter100=Have Less 
 RequirementNode/Tooltip/LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80=You cant have more than 80 Firelings!
 RequirementNode/Tooltip/LT518456723SumCountUnitGasVentQueuedOrBetter20=Max 20
 RequirementNode/Tooltip/LT831937892CountUnitProbiusPylonQueuedOrBetter3=You can only have three pylons.
-RequirementNode/Tooltip/LTE2788488928CountUnitNydusCanalCreeperQueuedOrBetter4=Maximum 5 Creep Tower
+RequirementNode/Tooltip/LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4=Maximum 5 Terrazine Extractor
 RequirementNode/Tooltip/Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit=Select Transport Unit
 RequirementNode/Tooltip/Not1537753810CountUnitOperationCenterQueuedOrBetter=Only one Operation Center
 RequirementNode/Tooltip/Not1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit=Select Cargo Value
@@ -3694,7 +3697,7 @@ Unit/Name/LargeSpineCrawler=Large Spine Crawler
 Unit/Name/Larva3v3=Larva
 Unit/Name/LoveMorales=Love Morales
 Unit/Name/Marine2=Marine
-Unit/Name/MechaMineralExtractor=Mineral Extractor
+Unit/Name/MechaMineralExtractor=Terrazine Extractor
 Unit/Name/MechaRoach=Mecha Roach
 Unit/Name/MechaSlowling=Slowling
 Unit/Name/MechaSpineCrawler=Mecha Spine Crawler

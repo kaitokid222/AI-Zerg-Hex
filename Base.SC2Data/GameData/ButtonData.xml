@@ -92,12 +92,15 @@
         <AlertIcon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="ExtractTerrazine">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CButton>
     <CButton id="MutateintoMechaSpineCrawler">
         <Icon value="Assets\Textures\btn-building-zerg-spinecrawler-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-zerg-spinecrawler-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="MutateintoMechaMineralExtractor">
+    <CButton id="MutateintoMechaTerrazineExtractor">
         <Icon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
@@ -138,8 +141,8 @@
         <AlertIcon value="assets\icon\ICON Defiler.dds"/>
     </CButton>
     <CButton id="HydraliskDefender3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-rcz.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-rcz.dds"/>
         <Hotkey value="Button/Hotkey/Hydralisk"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
