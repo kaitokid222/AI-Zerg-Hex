@@ -112,6 +112,10 @@
         <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="ResearchMechaUltralisk">
+        <Icon value="Assets\Textures\btn-unit-collection-ultralisk-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-collection-ultralisk-mecha.dds"/>
+    </CButton>
     <CButton id="SpawnLarva3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>
@@ -127,6 +131,16 @@
     <CButton id="BuildMechaSlowling">
         <Icon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="BuildMechaUltralisk">
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="MechaUpgradeMenu">
+        <Icon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SummonNydusCanalCreeper"/>

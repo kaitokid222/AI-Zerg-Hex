@@ -8507,6 +8507,8 @@
         <On index="4" Terms="UnitConstruction.Ultralisk2.Start"/>
         <On index="5" Terms="UnitConstruction.Ultralisk2.Finish"/>
         <On index="73" Terms="UnitBirth.Ultralisk2"/>
+        <On Terms="Upgrade.PZergMechaUltraliskUpgrade.Add" Send="ModelSwap Ultralisk_Mecha"/>
+        <On Terms="ActorCreation; ValidatePlayer MechaUltraliskResearched" Send="ModelSwap Ultralisk_Mecha"/>
         <Scale value="0.750000"/>
         <BarOffset value="20"/>
         <BarWidth value="100"/>

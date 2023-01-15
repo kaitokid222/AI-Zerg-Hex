@@ -320,6 +320,10 @@
         <CombineArray index="2" removed="1"/>
         <CombineArray index="3" removed="1"/>
     </CValidatorCombine>
+    <CValidatorPlayerRequirement id="MechaUltraliskResearched">
+        <Find value="1"/>
+        <Value value="HaveMechaUltralisk"/>
+    </CValidatorPlayerRequirement>
     <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel0"/>
     <CValidatorLocationCompareCliffLevel id="ScannerSweepTargetCliffLevel1">
         <Compare value="LE"/>

@@ -58,6 +58,12 @@
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3"/>
+    <CUpgrade id="PZergMechaUltraliskUpgrade">
+        <EffectArray Operation="Set" Reference="Button,SpawnUltralisk2,AlertIcon" Value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
+        <EffectArray Operation="Set" Reference="Button,SpawnUltralisk2,Icon" Value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
+        <EffectArray Reference="Unit,Ultralisk2,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Ultralisk2,LifeArmor" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="SiegeTankBetterVersion">
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT2,Amount" Value="325"/>
         <EffectArray Operation="Set" Reference="Effect,SiegeTankPlasmaCannonDamageT3,Amount" Value="375"/>

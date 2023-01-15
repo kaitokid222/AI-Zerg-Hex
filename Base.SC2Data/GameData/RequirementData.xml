@@ -27,6 +27,9 @@
     <CRequirement id="Have100Blood">
         <NodeArray index="Use" Link="GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100"/>
     </CRequirement>
+    <CRequirement id="HaveMechaUltralisk">
+        <NodeArray index="Use" Link="CountUpgradePZergMechaUltraliskUpgradeCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="HaveTier3andlessthan5defilers">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
     </CRequirement>
@@ -44,6 +47,9 @@
     </CRequirement>
     <CRequirement id="PlasmaCannonsRequirementBetterTank">
         <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementMechaUltraliskUpgrade">
+        <NodeArray index="Show" Link="NotCountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="SiegeTankBetterVersion">
         <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>

@@ -481,6 +481,13 @@
         <AutoCastValidatorArray value="TargetisBloodCombined"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Eat"/>
     </CAbilEffectTarget>
+    <CAbilResearch id="PlayerZergResearch">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Research1" Time="30" Upgrade="PZergMechaUltraliskUpgrade">
+            <Resource index="Vespene" value="600"/>
+            <Button DefaultButtonFace="ResearchMechaUltralisk" Requirements="RequirementMechaUltraliskUpgrade"/>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilEffectTarget id="PickupBlood">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AutoCast" value="1"/>
@@ -784,6 +791,27 @@
             <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
             <Button DefaultButtonFace="BuildMechaSlowling"/>
             <Unit value="MechaSlowling"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+        <Alert value="NoAlert"/>
+    </CAbilTrain>
+    <CAbilTrain id="CreepTowerTrain">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <InfoArray index="Train1" Time="8" Effect="ApplyPrecursorSpawner">
+            <Charge>
+                <CountMax value="4"/>
+                <CountStart value="4"/>
+                <CountUse value="1"/>
+                <Link value="Abil/TrainSpawner"/>
+                <Location value="Unit"/>
+            </Charge>
+            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Button DefaultButtonFace="SpawnUltralisk2"/>
+            <Unit value="Ultralisk2"/>
             <Flags index="AutoCast" value="1"/>
             <Flags index="AutoCastOn" value="1"/>
         </InfoArray>
