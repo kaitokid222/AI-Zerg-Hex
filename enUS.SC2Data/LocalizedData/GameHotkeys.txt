@@ -88,6 +88,7 @@ Button/Hotkey/FragmentBlast=F
 Button/Hotkey/GapGenerator=
 Button/Hotkey/GroundPulse=E
 Button/Hotkey/HardenedShieldItalis=None
+Button/Hotkey/HiveMindEmulator=C
 Button/Hotkey/ImmortalShakurasShadowCannon2=E
 Button/Hotkey/IncreaseGas50=E
 Button/Hotkey/IncreaseMinerals50=W

@@ -53,6 +53,11 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="MechaZerg3v3">
+        <EffectArray Operation="Set" Reference="Actor,Slowling,BuildModel" Value="Zergling_Mecha"/>
+        <EffectArray Operation="Set" Reference="Actor,Slowling,PlacementModel" Value="Zergling_Mecha"/>
+        <EffectArray Reference="Unit,Slowling,LifeMax" Value="24"/>
+    </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
         <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.000000"/>
         <MaxLevel value="60"/>

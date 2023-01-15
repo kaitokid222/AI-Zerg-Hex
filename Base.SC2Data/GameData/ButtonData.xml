@@ -257,7 +257,7 @@
         <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
     </CButton>
     <CButton id="SpawnInfestor3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-infestor-mecha.dds"/>
     </CButton>
     <CButton id="SpawnPrimalRoach3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-primalroach.dds"/>

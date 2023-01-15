@@ -388,7 +388,7 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HiveMindEmulator" State="CompleteOnly"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
+    <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter2838389603">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
@@ -1396,8 +1396,8 @@
     <CRequirementNot id="Not4073818821CountUnitTechLab3QueuedOrBetter">
         <OperandArray index="0" value="CountUnitTechLab3QueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter">
-        <OperandArray index="0" value="CountUnitHiveMindEmulatorQueuedOrBetter"/>
+    <CRequirementNot id="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter2838389603">
+        <OperandArray index="0" value="CountUnitHiveMindEmulatorQueuedOrBetter2838389603"/>
     </CRequirementNot>
     <CRequirementNot id="Not445539353CountUpgradeZergSpecializationCreeperFerocityCompleteOnly">
         <OperandArray index="0" value="CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
