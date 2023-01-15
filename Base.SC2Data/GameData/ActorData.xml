@@ -457,15 +457,15 @@
         <On Terms="AbilMorph.*.Finish; MorphTo HydraliskImpalerBurrowed" Send="TerrainSquibDeactivate"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Hydra_Land"/>
         <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
-        <Model value="HydraliskImpaler"/>
+        <Model value="Hydralisk_RCZ"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
-        <BuildModel value="HydraliskImpaler"/>
+        <BuildModel value="Hydralisk_RCZ"/>
         <DeathArray index="Normal" ModelLink="HydraliskImpalerDeath" SoundLink="Hydralisk_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="HydraliskDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="HydraliskDeathFire" SoundLink="Uni_DeathFXFire"/>
-        <PlacementModel value="HydraliskImpaler"/>
-        <PortraitModel value="HydraliskImpalerPortrait"/>
+        <PlacementModel value="Hydralisk_RCZ"/>
+        <PortraitModel value="Hydralisk_RCZ_Portrait"/>
         <TerrainSquibs>
             <GroupName value="RippleStandard"/>
             <MovementDistance value="0.150000,0.150000"/>
@@ -493,7 +493,7 @@
         <StatusColors index="Shields">
             <ColorArray index="0" value="255,0,128,0"/>
         </StatusColors>
-        <UnitIcon value="Assets\Textures\btn-unit-Zerg-Hydralisk-impaler.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-hydralisk-rcz.dds"/>
         <VitalColors index="Shields">
             <ColorArray value="255,0,128,0"/>
         </VitalColors>
@@ -502,6 +502,7 @@
             <Image value="Assets\Textures\Wireframe-Zerg-HydraliskEx1A.dds"/>
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
+        <Scale value="0.800000"/>
     </CActorUnit>
     <CActorUnit id="InfestorZergHex22" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
         <Aliases value="_UnitLarge"/>

@@ -141,8 +141,8 @@
         <AlertIcon value="assets\icon\ICON Defiler.dds"/>
     </CButton>
     <CButton id="HydraliskDefender3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-impaler.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-rcz.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-rcz.dds"/>
         <Hotkey value="Button/Hotkey/Hydralisk"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
