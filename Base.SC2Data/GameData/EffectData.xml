@@ -5192,6 +5192,7 @@
         <Cost Abil="TrainBrutalisk,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainInfestedMarine,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainBomber,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="CreepTowerTrain,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

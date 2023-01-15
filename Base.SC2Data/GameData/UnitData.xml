@@ -568,6 +568,8 @@
         <AbilArray Link="SpawnSlowling"/>
         <AbilArray Link="SpawnStrikeling"/>
         <AbilArray Link="SpawnLarva3v3"/>
+        <AbilArray Link="PlayerZergResearch"/>
+        <AbilArray Link="que5"/>
         <BehaviorArray index="0" Link="IsZCC"/>
         <BehaviorArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -580,6 +582,7 @@
                 <Row value="0"/>
                 <Column value="4"/>
             </LayoutButtons>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons>
                 <Face value="SpawnMenuSmall"/>
                 <Type value="Submenu"/>
@@ -599,6 +602,7 @@
             <LayoutButtons Face="SpawnInfestor3v3" Type="AbilCmd" AbilCmd="SpawnInfestor3v3,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="SpawnLarva3v3" Type="AbilCmd" AbilCmd="SpawnLarva3v3,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="Spawn5Firelings" Type="AbilCmd" AbilCmd="SpawnFirelings,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="MechaUpgradeMenu" Type="Submenu" SubmenuCardId="0005" Row="0" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="UpgradeFirelings" Type="AbilCmd" AbilCmd="ZCCResearch,Research6" Row="0" Column="4"/>
@@ -635,6 +639,9 @@
             <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="0005">
+            <LayoutButtons Face="ResearchMechaUltralisk" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research1" Row="0" Column="0"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
@@ -1800,10 +1807,13 @@
         <LifeMax value="3000"/>
         <CostResource index="Minerals" value="50"/>
         <CostResource index="Vespene" value="100"/>
-        <AbilArray Link="BuildMechaSlowling"/>
+        <AbilArray Link="CreepTowerTrain"/>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="que5"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="BuildMechaSlowling" Type="AbilCmd" AbilCmd="BuildMechaSlowling,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="SpawnUltralisk2" Type="AbilCmd" AbilCmd="CreepTowerTrain,Train1" Row="0" Column="0"/>
         </CardLayouts>
+        <BehaviorArray Link="IsSpawner"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>

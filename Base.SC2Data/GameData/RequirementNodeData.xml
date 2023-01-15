@@ -75,7 +75,6 @@
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly1351179563"/>
         <OperandArray value="CountUpgradeZergArmor2CompleteOnly2593968052"/>
     </CRequirementAnd>
@@ -141,7 +140,6 @@
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit">
@@ -402,7 +400,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitMechaMineralExtractorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MechaMineralExtractor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
@@ -812,6 +809,16 @@
     <CRequirementCountUpgrade id="CountUpgradeOperationCenterReaperSuitUpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="OperationCenterReaperSuitUpgrade" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradePZergMechaUltraliskUpgradeCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="PZergMechaUltraliskUpgrade" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="PZergMechaUltraliskUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeParalyzingShockCompleteOnly2664485168">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1599,6 +1606,10 @@
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeOperationCenterReaperSuitUpgradeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeOperationCenterReaperSuitUpgradeQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeParalyzingShockQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeParalyzingShockQueuedOrBetter"/>

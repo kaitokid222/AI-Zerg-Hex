@@ -43,6 +43,7 @@ Abil/Name/ConvertGas=Convert Gas
 Abil/Name/ConvertMinerals=Convert Minerals
 Abil/Name/CopyRally=Copy Rally
 Abil/Name/CreateNapalmBomb=Create Napalm Bomb
+Abil/Name/CreepTowerTrain=Creep Tower Train
 Abil/Name/CritterEatFruit=Critter Eat Fruit
 Abil/Name/CritterSeekFruit=Critter Seek Fruit
 Abil/Name/D8Charge2=G-4 Charge Copy
@@ -112,6 +113,7 @@ Abil/Name/PlasmaCannon=Plasma Cannon
 Abil/Name/PlasmaCannonOld=Plasma Cannon
 Abil/Name/PlasmaCannonT2=Plasma Cannon T2
 Abil/Name/PlasmaCannonT3=Plasma Cannon T3
+Abil/Name/PlayerZergResearch=Player Zerg Research
 Abil/Name/PowerField=Power Field
 Abil/Name/PromoteToElite=Promote To Elite
 Abil/Name/PromoteToVeteran=Promote To Veteran
@@ -681,6 +683,7 @@ Button/Name/BuildHighDensityBattery=Build High Density Battery
 Button/Name/BuildInfestedBunker=Build Infested Bunker
 Button/Name/BuildLargeChemicalPlant=Build Large Chemical Plant
 Button/Name/BuildMechaSlowling=Build Mecha Slowling
+Button/Name/BuildMechaUltralisk=Build Mecha Ultralisk
 Button/Name/BuildMineralTrader=Build Mineral Trader
 Button/Name/BuildOperationCenter=Build Operation Center
 Button/Name/BuildPowerPylon=Build Power Pylon
@@ -786,6 +789,7 @@ Button/Name/Lower2=Lower
 Button/Name/MarineOvercharge=Overcharge
 Button/Name/MarinePromoteToElite=Promote to Elite
 Button/Name/MarinePromoteToVeteran=Promote to Veteran
+Button/Name/MechaUpgradeMenu=Mecha Upgrade Menu
 Button/Name/MineralContainerPassiveInfo=Mineral Container
 Button/Name/MineralMining=Mineral Mining
 Button/Name/MobileMode=Mobile Mode
@@ -875,6 +879,7 @@ Button/Name/ResearchHyperElectrodes=Research Hyper Electrodes
 Button/Name/ResearchImprovedFarming=Research Improved Farming
 Button/Name/ResearchImprovedFarming2=Research Improved Farming 2
 Button/Name/ResearchInstantDischarge=Research Instant Discharge
+Button/Name/ResearchMechaUltralisk=Research Mecha Ultralisk
 Button/Name/ResearchMobileSquadTraining=Research Mobile Squad Training
 Button/Name/ResearchOvercharge=Research Overcharge
 Button/Name/ResearchPackedMass=Research Packed Mass
@@ -1084,6 +1089,7 @@ Button/Tooltip/BuildHighDensityBattery=Holds up to 10.000 energy.
 Button/Tooltip/BuildInfestedBunker=Defensive structure. <n/>Regulary spawns units and blocks the path of Zerg units.
 Button/Tooltip/BuildLargeChemicalPlant=Generates 6 gas every 5 seconds.
 Button/Tooltip/BuildMechaSlowling=Slow melee creature.
+Button/Tooltip/BuildMechaUltralisk=Tanky melee creature.
 Button/Tooltip/BuildMineralTrader=Gives an ally 100 minerals upon reaching their Command Center. Right click a Command Center to issue the effect.
 Button/Tooltip/BuildOperationCenter=The Operation Center allows to upgrade Reapers, Energy Warp and Mineral Mining.
 Button/Tooltip/BuildPowerPylon=Automatically transfers energy to nearby batteries, defense structures and other pylons.<n/><n/>Should be placed in range of the Generator or another Pylon to connect.
@@ -1274,6 +1280,7 @@ Button/Tooltip/MarinePromoteToElite=Promotes the marine and applies new gear. Re
 Button/Tooltip/MarinePromoteToVeteran=Promotes the marine and applies new gear. Requires the remaining resources for the promoted unit.
 Button/Tooltip/MechaMineralExtractor=
 Button/Tooltip/MechaRoach=
+Button/Tooltip/MechaUpgradeMenu=Mecha Units
 Button/Tooltip/MeleeMinionHell=
 Button/Tooltip/MineralContainer=
 Button/Tooltip/MineralContainerPassiveInfo=Increases Mineral Extractors production by 4 per minute.
@@ -1391,6 +1398,7 @@ Button/Tooltip/ResearchHyperElectrodes=Allows <c val="ffff8a">Shock Troopers</c>
 Button/Tooltip/ResearchImprovedFarming=Improves mineral gain from animals eating fruit.<n/><n/><c val="ffff8a">Sheep</c> produce 3 minerals (+1)<n/><c val="ffff8a">Cows</c> produce 5 minerals (+1)
 Button/Tooltip/ResearchImprovedFarming2=Further improving mineral gain from animals eating fruit.<n/><n/><c val="ffff8a">Sheep</c> produce 4 minerals (+1)<n/><c val="ffff8a">Cows</c> produce 7 minerals (+2)
 Button/Tooltip/ResearchInstantDischarge=Enables <c val="ffff8a">Shock Troopers</c> to use the Instant Discharge ability, a long range single target ability dealing 80 damage.
+Button/Tooltip/ResearchMechaUltralisk=Upgrades Ultralisks to be Mecha Ultralisks instead and gain +1 Armor.
 Button/Tooltip/ResearchMobileSquadTraining=Allows <c val="ffff8a">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.
 Button/Tooltip/ResearchOvercharge=Enables <c val="ffff8a">Marines</c> to use the Overcharge ability. Overcharge doubles the attack speed for a short duration, can be used once every 30 seconds.
 Button/Tooltip/ResearchPackedMass=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.
@@ -3875,6 +3883,7 @@ Upgrade/Name/Mode3v3=Mode 3v3
 Upgrade/Name/OperationCenterEmpoweredWarp=Operation Center - Empowered Warp
 Upgrade/Name/OperationCenterMineralMining=Operation Center - Mineral Mining
 Upgrade/Name/OperationCenterReaperSuitUpgrade=Operation Center - Reaper Suit Upgrade
+Upgrade/Name/PZergMechaUltraliskUpgrade=PZerg Mecha Ultralisk Upgrade
 Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
 Upgrade/Name/PlasmaCannons=Plasma Cannons
