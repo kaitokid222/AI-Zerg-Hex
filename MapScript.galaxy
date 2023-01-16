@@ -6913,7 +6913,7 @@ void gf_zcc_model_swap (unitgroup lp_units) {
     lv_unit_type = UnitGetType(UnitGroupRandomUnit(lp_units, c_unitCountAlive));
 
     // Implementation
-    autoC88EA9BF_g = UnitLastCreatedGroup();
+    autoC88EA9BF_g = lp_units;
     autoC88EA9BF_u = UnitGroupCount(autoC88EA9BF_g, c_unitCountAll);
     for (;; autoC88EA9BF_u -= 1) {
         autoC88EA9BF_var = UnitGroupUnitFromEnd(autoC88EA9BF_g, autoC88EA9BF_u);
@@ -6923,7 +6923,6 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Creeper")) {
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha_Flyer");
         }
 
         if ((lv_unit_type == "Strikeling")) {

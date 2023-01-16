@@ -692,6 +692,9 @@
     </CActorText>
     <CActorUnit id="NydusCanal">
         <Scale value="0.700000"/>
+        <Model value="NydusCanal_Mecha"/>
+        <PlacementModel value="NydusCanal_Mecha_Placement"/>
+        <PortraitModel value="NydusNetwork_Mecha_Portrait"/>
     </CActorUnit>
     <CActorUnit id="NydusCanalCreeper">
         <PortraitModel value="CreepTurmorPortrait"/>
