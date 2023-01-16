@@ -6819,7 +6819,7 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
         }
     }
 
-    ActorSend(libNtve_gf_MainActorofUnit(UnitLastCreated()), "ModelSwap Zergling_Mecha");
+    gf_zcc_model_swap(lv_created_units);
     if ((lp_unit_type == "Strikeling") && (TechTreeUpgradeCount(lp_player_id, "ZergSpecializationStrikelingDualHit", c_techCountCompleteOnly) == 1)) {
         auto4A0CB598_g = lv_created_units;
         auto4A0CB598_u = UnitGroupCount(auto4A0CB598_g, c_unitCountAll);
@@ -6919,6 +6919,33 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         autoC88EA9BF_var = UnitGroupUnitFromEnd(autoC88EA9BF_g, autoC88EA9BF_u);
         if (autoC88EA9BF_var == null) { break; }
         if ((lv_unit_type == "Slowling")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Zergling_Mecha");
+        }
+
+        if ((lv_unit_type == "Creeper")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha_Flyer");
+        }
+
+        if ((lv_unit_type == "Strikeling")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Broodling_Mecha");
+        }
+
+        if ((lv_unit_type == "Tankling")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha");
+        }
+
+        if ((lv_unit_type == "Roach2")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Roach_Mecha");
+        }
+
+        if ((lv_unit_type == "PrimalRoach2")) {
+        }
+
+        if ((lv_unit_type == "Ultralisk2")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Ultralisk_Mecha");
+        }
+
+        if ((lv_unit_type == "Brutalisk2")) {
         }
 
     }
@@ -7490,6 +7517,7 @@ void gf_create_flying_rally (int lp_player_id, int lp_rally_position) {
     lv_opponent_player_position = gv_players[gv_players[lp_player_id].lv__3v3_nemesis_terran].lv_position;
     libNtve_gf_CreateUnitsWithDefaultFacing(1, gf_get_zerg_rally_point_unit_type(), 0, gv_players[lp_player_id].lv__3v3_zerg_pid, PointFromName(("Zerg Rally " + IntToString(lv_opponent_player_position))));
     lv_flying_rally = UnitLastCreated();
+    ActorSend(libNtve_gf_MainActorofUnit(UnitLastCreated()), "ModelSwap Overseer_Mecha");
     UnitGroupAdd(gv_flying_rally_group, lv_flying_rally);
     libNtve_gf_MakeUnitInvulnerable(lv_flying_rally, true);
     UnitSetInfoText2(lv_flying_rally, StringExternal("Param/Value/4FEC16CE"));
