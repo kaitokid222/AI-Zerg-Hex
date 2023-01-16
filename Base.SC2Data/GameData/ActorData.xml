@@ -504,7 +504,7 @@
         <WireframeShieldColor value="255,0,128,0"/>
         <Scale value="0.800000"/>
     </CActorUnit>
-    <CActorUnit id="InfestorZergHex22" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
+    <CActorUnit id="InfestorZergHex3v3" parent="GenericUnitBase" unitName="InfestorZergHex3v3">
         <Aliases value="_UnitLarge"/>
         <Macros value="ZergBurrowMobileAnimMacro"/>
         <Macros value="ZergMediumBurrowEffects"/>
@@ -545,10 +545,10 @@
         <On Terms="Abil.BuildSporeCrawler.BuiltStart" Send="AnimPlay Build Spell,A"/>
         <On Terms="Abil.FireAcid.SourceCastStart" Send="AnimPlay Attack Spell,A"/>
         <On Terms="Abil.TransfusionInfestor.SourceCastStart" Send="AnimPlay Attack Spell,A"/>
-        <Model value="Infestor"/>
+        <Model value="Infestor_Mecha"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <EventDataFootprint index="0" Actor="UnitFootprint" Model="InfestorFootprint"/>
-        <BuildModel value="Infestor"/>
+        <BuildModel value="Infestor_Mecha"/>
         <DeathArray index="Normal" ModelLink="InfestorDeath" SoundLink="" VoiceLink="InfestorDeathVoice"/>
         <DeathArray index="Disintegrate" ModelLink="InfestorDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="InfestorDeathFire" SoundLink="Uni_DeathFXFire"/>
@@ -570,8 +570,8 @@
         <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
-        <PlacementModel value="Infestor"/>
-        <PortraitModel value="InfestorPortrait"/>
+        <PlacementModel value="Infestor_Mecha"/>
+        <PortraitModel value="Infestor_Mecha_Portrait"/>
         <TerrainSquibs>
             <GroupName value="RippleStandard"/>
             <MovementDistance value="0.150000,0.150000"/>
@@ -591,7 +591,6 @@
         <GroupSoundArray index="Attack" value="Infestor_GroupAttack"/>
         <GroupSoundArray index="Board" value="Infestor_GroupBoard"/>
         <HeroIcon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
-        <HighlightTooltip value="Unit/Name/InfestorZergHex22"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
         <SelectAbilCmd value="FungalGrowth,Execute"/>
         <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
@@ -611,7 +610,7 @@
         <StatusColors index="Shields">
             <ColorArray index="0" value="255,0,128,0"/>
         </StatusColors>
-        <UnitIcon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-infestor-mecha.dds"/>
         <VitalColors index="Shields">
             <ColorArray value="255,0,128,0"/>
         </VitalColors>
@@ -693,6 +692,9 @@
     </CActorText>
     <CActorUnit id="NydusCanal">
         <Scale value="0.700000"/>
+        <Model value="NydusCanal_Mecha"/>
+        <PlacementModel value="NydusCanal_Mecha_Placement"/>
+        <PortraitModel value="NydusNetwork_Mecha_Portrait"/>
     </CActorUnit>
     <CActorUnit id="NydusCanalCreeper">
         <PortraitModel value="CreepTurmorPortrait"/>

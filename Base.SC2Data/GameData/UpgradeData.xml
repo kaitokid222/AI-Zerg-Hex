@@ -53,6 +53,14 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="MechaZerg3v3">
+        <EffectArray Operation="Set" Reference="Actor,Tankling,PortraitModel" Value="Locust_Mecha_Portrait"/>
+        <EffectArray Operation="Set" Reference="Actor,Slowling,PortraitModel" Value="Zergling_Mecha_Portrait"/>
+        <EffectArray Operation="Set" Reference="Actor,Roach2,PortraitModel" Value="Roach_Mecha_Portrait"/>
+        <EffectArray Operation="Set" Reference="Actor,Ultralisk2,PortraitModel" Value="Ultralisk_Mecha_Portrait"/>
+        <EffectArray Operation="Set" Reference="Actor,Strikeling,PortraitModel" Value="Broodling_Mecha_Portrait"/>
+        <EffectArray Operation="Set" Reference="Actor,Overseer,PortraitModel" Value="Overseer_Mecha_Portrait"/>
+    </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
         <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.000000"/>
         <MaxLevel value="60"/>

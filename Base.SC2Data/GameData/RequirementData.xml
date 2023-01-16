@@ -70,7 +70,7 @@
         <NodeArray index="Use" Link="GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10"/>
     </CRequirement>
     <CRequirement id="OnlyOneHiveMindEmulator">
-        <NodeArray index="Use" Link="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter"/>
+        <NodeArray index="Use" Link="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter2838389603"/>
     </CRequirement>
     <CRequirement id="OnlyOneProbius">
         <NodeArray index="Use" Link="Not225427478CountUnitProbiusQueuedOrBetter"/>

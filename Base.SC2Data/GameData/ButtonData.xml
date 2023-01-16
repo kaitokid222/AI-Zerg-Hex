@@ -124,8 +124,8 @@
         <Icon value="Assets\Textures\btn-unit-zerg-primalzergling.dds"/>
     </CButton>
     <CButton id="SpawnMenuSmall">
-        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="BuildMechaSlowling">
@@ -240,13 +240,13 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnSlowling3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnStrikeling3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-symbiote.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-symbiote-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-symbiote-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="TrainLoveMorales">
@@ -271,19 +271,19 @@
         <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
     </CButton>
     <CButton id="SpawnInfestor3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-infestor.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-infestor-mecha.dds"/>
     </CButton>
     <CButton id="SpawnPrimalRoach3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-primalroach.dds"/>
     </CButton>
     <CButton id="SpawnRoach3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-mecha.dds"/>
     </CButton>
     <CButton id="SpawnTankling3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-locust.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-creeperhostspawn-mecha.dds"/>
     </CButton>
     <CButton id="SpawnUltra3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
     </CButton>
     <CButton id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
