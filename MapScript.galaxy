@@ -19697,8 +19697,6 @@ bool gt_zagara_death_timer_Func (bool testConds, bool runActions) {
 
     lv_owner = gf_get_terran_id_from_zpid(EventPlayer());
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/052C5FDB"));
-    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/A7634E7C"));
-    Wait(10.0, c_timeGame);
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/5C311BD0"));
     Wait(10.0, c_timeGame);
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/008594BF"));

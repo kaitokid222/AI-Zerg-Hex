@@ -3365,7 +3365,6 @@ Param/Value/A2BA7C6A=10 Minutes left before Zerg wins!
 Param/Value/A44E9949=label test name
 Param/Value/A5BD5F19=You need the Construction Yard for advanced structures.
 Param/Value/A6791F10=Hammer
-Param/Value/A7634E7C=Zagara will respawn in 30 seconds!
 Param/Value/A7776EFA=<c val="FF9797">Rock exploits have been terminated.</c>
 Param/Value/A78F37AC=Extractor Remove Notice
 Param/Value/A8BB9DD4=Send Amount
