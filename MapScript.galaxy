@@ -935,6 +935,7 @@ trigger gt_update_3v3_objectives;
 trigger gt_TerrazineIncome;
 trigger gt_TerrazineDoublerfinished;
 trigger gt_zagara_death_timer;
+trigger gt_MechalingUpgradefinished;
 trigger gt_FirelingDies;
 trigger gt_Larvadies;
 trigger gt_Larvamutatesintobuilding;
@@ -19663,6 +19664,45 @@ void gt_zagara_death_timer_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Mechaling Upgrade finished
+//--------------------------------------------------------------------------------------------------
+bool gt_MechalingUpgradefinished_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_upgrade;
+    int lv_owner;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
+    lv_owner = UnitGetOwner(EventUnit());
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "HiveMindEmulator"))) {
+            return false;
+        }
+
+        if (!(((lv_upgrade == "MechalingDurability") || (lv_upgrade == "RecyclingProtocol") || (lv_upgrade == "RecylingProtocol2") || (lv_upgrade == "MetalbolicBoost")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TechTreeUpgradeAddLevel(gv_players[lv_owner].lv__3v3_zerg_pid, lv_upgrade, 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MechalingUpgradefinished_Init () {
+    gt_MechalingUpgradefinished = TriggerCreate("gt_MechalingUpgradefinished_Func");
+    TriggerAddEventUnitResearchProgress(gt_MechalingUpgradefinished, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Fireling Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_FirelingDies_Func (bool testConds, bool runActions) {
@@ -26336,6 +26376,7 @@ void InitTriggers () {
     gt_TerrazineIncome_Init();
     gt_TerrazineDoublerfinished_Init();
     gt_zagara_death_timer_Init();
+    gt_MechalingUpgradefinished_Init();
     gt_FirelingDies_Init();
     gt_Larvadies_Init();
     gt_Larvamutatesintobuilding_Init();

@@ -14,6 +14,10 @@
     <CEffectSet id="AddProbiusPylonAttackAura">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectDamage id="MechaClawsDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+    </CEffectDamage>
     <CEffectSet id="EggSpawnDummy">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -34,6 +38,13 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="EggClusterCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="MechaClawsSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ZerglingFrenzy"/>
+        <EffectArray value="ZerglingSunder"/>
+        <EffectArray value="ZerglingRangeReapply"/>
+        <EffectArray value="MechaClawsDamage"/>
+    </CEffectSet>
     <CEffectDamage id="HydraliskNeedleSpinesRangedDamageEdit3v3" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Kind value="Ranged"/>

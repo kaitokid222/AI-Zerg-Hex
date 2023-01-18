@@ -92,6 +92,26 @@
         <AlertIcon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="MetalbolicBoost">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-mechametabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechametabolicboost.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="MechalingDurability">
+        <Icon value="Assets\Textures\btn-progression-stetmann-15-supergarytransform.dds"/>
+    </CButton>
+    <CButton id="RecyclingProtocol2">
+        <Icon value="Assets\Textures\btn-progression-stetmann-13-zerglingscrapdropbonus.dds"/>
+        <Placeholder value="1"/>
+    </CButton>
+    <CButton id="MechaInfestorUpgradeCache">
+        <Icon value="Assets\Textures\btn-progression-stetmann-10-infestorupgradecache.dds"/>
+        <Placeholder value="1"/>
+    </CButton>
+    <CButton id="RecyclingProtocol">
+        <Icon value="Assets\Textures\btn-progression-stetmann-05-scrapdrop.dds"/>
+        <Placeholder value="1"/>
+    </CButton>
     <CButton id="ExtractTerrazine">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
@@ -139,6 +159,11 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="MechaUpgradeMenu">
+        <Icon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="BuildMechaling">
         <Icon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>

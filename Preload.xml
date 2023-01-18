@@ -170,7 +170,6 @@
 <Unit id="KerriganVoid"/>
 <Unit id="AiurRockDebris2x2"/>
 <Unit id="PickupNovaTechnology"/>
-<Unit id="Ultralisk2"/>
 <Unit id="SiegeTank2"/>
 <Unit id="RavatorSpawner"/>
 <Unit id="Torralisk"/>
@@ -207,6 +206,7 @@
 <Unit id="PrimalRoach2"/>
 <Unit id="MineralTrader"/>
 <Unit id="GasTrader"/>
+<Unit id="Ultralisk2"/>
 <Unit id="Sheep2"/>
 <Unit id="Cow2"/>
 <Unit id="Slowling"/>
