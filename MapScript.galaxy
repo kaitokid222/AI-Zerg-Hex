@@ -927,6 +927,8 @@ trigger gt_Raingotselected;
 trigger gt_Snowgotselected;
 trigger gt_Ashgotselected;
 trigger gt_testfw;
+trigger gt_protect_top_hive_from_allies;
+trigger gt_protect_bottom_hive_from_allies;
 trigger gt_prevent_top_zerg_from_going_bottom;
 trigger gt_prevent_bottom_zerg_from_going_top;
 trigger gt_prevent_bottom_from_going_top;
@@ -5954,6 +5956,8 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_update_3v3_objectives, lv_on_off);
     TriggerEnable(gt_Nydusdied, lv_on_off);
     TriggerEnable(gt_Nydusfinished, lv_on_off);
+    TriggerEnable(gt_protect_top_hive_from_allies, lv_on_off);
+    TriggerEnable(gt_protect_bottom_hive_from_allies, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -19296,6 +19300,54 @@ void gt_testfw_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: protect_top_hive_from_allies
+//--------------------------------------------------------------------------------------------------
+bool gt_protect_top_hive_from_allies_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((PlayerGroupHasPlayer(gv_terrans_team_bottom, EventUnitDamageSourcePlayer()) == true)) {
+        UnitSetPropertyFixed(EventUnit(), c_unitPropLife, (UnitGetPropertyFixed(EventUnit(), c_unitPropLife, c_unitPropCurrent) + EventUnitDamageAmount()));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_protect_top_hive_from_allies_Init () {
+    gt_protect_top_hive_from_allies = TriggerCreate("gt_protect_top_hive_from_allies_Func");
+    TriggerEnable(gt_protect_top_hive_from_allies, false);
+    TriggerAddEventUnitDamaged(gt_protect_top_hive_from_allies, UnitRefFromUnit(UnitFromId(706616818)), c_unitDamageTypeAny, c_unitDamageEither, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: protect_bottom_hive_from_allies
+//--------------------------------------------------------------------------------------------------
+bool gt_protect_bottom_hive_from_allies_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((PlayerGroupHasPlayer(gv_terrans_team_top, EventUnitDamageSourcePlayer()) == true)) {
+        UnitSetPropertyFixed(EventUnit(), c_unitPropLife, (UnitGetPropertyFixed(EventUnit(), c_unitPropLife, c_unitPropCurrent) + EventUnitDamageAmount()));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_protect_bottom_hive_from_allies_Init () {
+    gt_protect_bottom_hive_from_allies = TriggerCreate("gt_protect_bottom_hive_from_allies_Func");
+    TriggerEnable(gt_protect_bottom_hive_from_allies, false);
+    TriggerAddEventUnitDamaged(gt_protect_bottom_hive_from_allies, UnitRefFromUnit(UnitFromId(478555519)), c_unitDamageTypeAny, c_unitDamageEither, null);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: prevent_top_zerg_from_going_bottom
 //--------------------------------------------------------------------------------------------------
 bool gt_prevent_top_zerg_from_going_bottom_Func (bool testConds, bool runActions) {
@@ -26328,6 +26380,8 @@ void InitTriggers () {
     gt_Snowgotselected_Init();
     gt_Ashgotselected_Init();
     gt_testfw_Init();
+    gt_protect_top_hive_from_allies_Init();
+    gt_protect_bottom_hive_from_allies_Init();
     gt_prevent_top_zerg_from_going_bottom_Init();
     gt_prevent_bottom_zerg_from_going_top_Init();
     gt_prevent_bottom_from_going_top_Init();
