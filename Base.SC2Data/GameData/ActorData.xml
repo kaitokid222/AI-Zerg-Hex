@@ -143,6 +143,102 @@
         <StatusBarOn index="Progress" value="1"/>
         <StatusBarOn index="Duration" value="1"/>
     </CActorUnit>
+    <CActorUnit id="Mechaling" parent="GenericBurrowerStandard" unitName="Mechaling">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergSmallBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <On index="0" Send="Create SoundEmitter Zergling_Ambience"/>
+        <On index="67" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByAcid" Send="DeathCustomize UpgradedAcid"/>
+        <On index="68" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByFire" Send="DeathCustomize UpgradedFire"/>
+        <On index="69" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgradedDeathByEviscerate" Send="DeathCustomize UpgradedEviscerate"/>
+        <On index="70" Terms="UnitDeathCustomize; ValidateUnit ZerglingUpgraded" Send="DeathCustomize Upgrade"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="UnitBirth.Mechaling" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Zergling_Land"/>
+        <On Terms="Behavior.Burning.On" Send="SetTintColor 255,185,185"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <Model value="Zergling_Mecha_Upgrade"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Model="ZerglingFootprint"/>
+        <BuildModel value="Zergling_Mecha_Upgrade"/>
+        <DeathArray index="Normal" ModelLink="Zergling_Mecha_Death" SoundLink="Zergling_Explode" VoiceLink="ZerglingDeathVoice"/>
+        <DeathArray index="Disintegrate" ModelLink="Zergling_Mecha_DeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Eviscerate" ModelLink="Zergling_Mecha_DeathEviscerate" SoundLink="Zergling_DeathFXEviscerate"/>
+        <DeathArray index="Fire" ModelLink="Zergling_Mecha_DeathFire" SoundLink="Zergling_DeathFXFire"/>
+        <DeathCustoms ModelLink="Zergling_Mecha_Upgrade_Death" SoundLink="Zergling_Explode" Name="Upgrade"/>
+        <DeathCustoms ModelLink="Zergling_Mecha_Upgrade_DeathFire" SoundLink="Zergling_DeathFXFire" Name="UpgradedFire"/>
+        <DeathCustoms ModelLink="Zergling_Mecha_Upgrade_DeathAcid" SoundLink="Uni_DeathFXAcid" Name="UpgradedAcid"/>
+        <DeathCustoms ModelLink="Zergling_Mecha_Upgrade_DeathEviscerate" SoundLink="Zergling_DeathFXEviscerate" Name="UpgradedEviscerate"/>
+        <DeathCustoms ActorModel="ZerglingDeathRagdoll" ModelLink="Zergling_Mecha_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="Blood" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="ZerglingSpineCrawlerHurlDeathRagdoll" ModelLink="ZerglingDeathRagdoll" Name="RagdollSpineCrawlerHurl"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Zergling_Mecha_Upgrade"/>
+        <PortraitModel value="Zergling_Mecha_Portrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.250000,0.250000"/>
+            <IdlePeriod value="0.200000,0.400000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleTiny"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="30"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-zerg-zerglingupgrade.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Zergling_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Zergling_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Zergling_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Zergling_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level0.dds"/>
+        <MovementHerdNode value="HerdNode_ZergSmall"/>
+        <SoundArray index="Birth" value="Zergling_Birth"/>
+        <SoundArray index="Ready" value="Zergling_Ready"/>
+        <SoundArray index="Help" value="Zergling_Help"/>
+        <SoundArray index="What" value="Zergling_What"/>
+        <SoundArray index="Yes" value="Zergling_Yes"/>
+        <SoundArray index="Attack" value="Zergling_Attack"/>
+        <SoundArray index="Pissed" value="Zergling_Pissed"/>
+        <SoundArray index="Movement" value="Zergling_Movement"/>
+        <SoundArray index="Turning" value="Zergling_Turning"/>
+        <SoundArray index="Board" value="Zergling_Board"/>
+        <SoundArray index="Click" value="Zergling_Click"/>
+        <SoundArray index="ClickError" value="Zergling_ClickError"/>
+        <SoundArray index="Highlight" value="Zergling_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-zerglingupgrade-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-zerg-zerglingupgrade.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="Larva3v3" parent="GenericUnitMorph" unitName="Larva3v3">
         <Aliases value="_UnitSmall"/>
         <On Terms="Abil.ParasiticInvasion.SourceCastStart" Send="$Spell"/>
@@ -2769,6 +2865,11 @@
             <Image value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_wizard_hell.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorAction id="MechalingAttack" parent="GenericAttack" effectAttack="MechaClawsDamage">
+        <ImpactAttachQuery Methods="AMFilterTargetVolumes"/>
+        <ImpactMap index="None" Sound="Zergling_AttackImpact"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
     <CActorUnit id="ZerglingCarbot">
         <Scale value="1.100000"/>
     </CActorUnit>

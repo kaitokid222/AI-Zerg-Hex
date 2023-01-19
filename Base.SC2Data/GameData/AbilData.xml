@@ -487,6 +487,22 @@
             <Resource index="Vespene" value="600"/>
             <Button DefaultButtonFace="ResearchMechaUltralisk" Requirements="RequirementMechaUltraliskUpgrade"/>
         </InfoArray>
+        <InfoArray index="Research2" Time="30" Upgrade="MechalingDurability">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="MechalingDurability" Requirements="RequirementMechalingDurability"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="30" Upgrade="RecyclingProtocol">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="RecyclingProtocol" Requirements="RequirementRecyclingProtocol"/>
+        </InfoArray>
+        <InfoArray index="Research4" Time="30" Upgrade="RecylingProtocol2">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="RecyclingProtocol2" Requirements="RequirementRecyclingProtocol2"/>
+        </InfoArray>
+        <InfoArray index="Research5" Time="30" Upgrade="MetalbolicBoost">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="MetalbolicBoost" Requirements="RequirementMetalbolicBoost"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="PickupBlood">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -801,7 +817,7 @@
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Flags index="IgnoreUnitCost" value="1"/>
         <Flags index="WaitForFood" value="0"/>
-        <InfoArray index="Train1" Time="8" Effect="ApplyPrecursorSpawner">
+        <InfoArray index="Train1" Time="3" Effect="ApplyPrecursorSpawner">
             <Charge>
                 <CountMax value="4"/>
                 <CountStart value="4"/>
@@ -810,8 +826,8 @@
                 <Location value="Unit"/>
             </Charge>
             <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
-            <Button DefaultButtonFace="SpawnUltralisk2"/>
-            <Unit value="Ultralisk2"/>
+            <Button DefaultButtonFace="BuildMechaling"/>
+            <Unit value="Mechaling"/>
             <Flags index="AutoCast" value="1"/>
             <Flags index="AutoCastOn" value="1"/>
         </InfoArray>

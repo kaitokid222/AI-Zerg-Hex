@@ -61,11 +61,31 @@
         <EffectArray Operation="Set" Reference="Actor,Strikeling,PortraitModel" Value="Broodling_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Overseer,PortraitModel" Value="Overseer_Mecha_Portrait"/>
     </CUpgrade>
+    <CUpgrade id="MetalbolicBoost">
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="3.000000"/>
+    </CUpgrade>
+    <CUpgrade id="RecyclingProtocol">
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
+    </CUpgrade>
+    <CUpgrade id="RecylingProtocol2">
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
+        <LeaderAlias value="RecyclingProtocol"/>
+    </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
         <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.500000"/>
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3"/>
+    <CUpgrade id="MechalingDurability">
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,LifeMax" Value="100"/>
+        <EffectArray Operation="Set" Reference="Actor,Mechaling,Scale" Value="1.200000"/>
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,LifeStart" Value="100"/>
+        <EffectArray Operation="Set" Reference="Actor,Mechaling,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level1.dds"/>
+        <EffectArray Reference="Unit,Mechaling,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,Mechaling,LifeArmor" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="PZergMechaUltraliskUpgrade">
         <EffectArray Operation="Set" Reference="Button,SpawnUltralisk2,AlertIcon" Value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
         <EffectArray Operation="Set" Reference="Button,SpawnUltralisk2,Icon" Value="Assets\Textures\btn-unit-zerg-ultralisk-mecha.dds"/>
@@ -451,6 +471,8 @@
         <EffectArray Reference="Effect,TanklingMeleeDamage,AttributeBonus[Structure]" Value="0"/>
         <EffectArray Reference="Effect,BeastlingClawsWallAreaDamage,Amount" Value="1.5"/>
         <EffectArray Reference="Effect,BeastlingClawsMainWallDamage,Amount" Value="2.5"/>
+        <EffectArray Reference="Weapon,MechaClaws,Level" Value="1"/>
+        <EffectArray Reference="Effect,MechaClawsDamage,Amount" Value="2"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="100"/>
     </CUpgrade>
@@ -631,6 +653,7 @@
         <EffectArray Operation="Subtract" Reference="Behavior,RoachTarRushSpeed,Modification.MoveSpeedBonus" Value="0.449200"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Vespene]" Value="100"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

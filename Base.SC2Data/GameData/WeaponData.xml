@@ -32,6 +32,16 @@
         <PreswingBetweenAttacks value="0.5"/>
         <Effect value="FlameThrowerSetOld"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="MechaClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-mechameleeattacks-level0.dds"/>
+        <DisplayEffect value="MechaClawsDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="MechaClawsSet"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="InfestedTerranCampaign">
         <Range value="4.5"/>
         <Period value="0.7"/>
