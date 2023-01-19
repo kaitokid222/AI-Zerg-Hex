@@ -386,8 +386,9 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HiveMindEmulator" State="CompleteOnly"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter2838389603">
+    <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitInfestedBunkerQueuedOrBetter">
@@ -780,12 +781,10 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMechalingDurabilityQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MechalingDurability" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMetalbolicBoostQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MetalbolicBoost" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMinuteUpgradeQueuedOrBetter">
@@ -854,17 +853,14 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeRecyclingProtocolCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="RecyclingProtocol" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeRecyclingProtocolQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="RecyclingProtocol" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeRecylingProtocol2QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="RecylingProtocol2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeShockBeamCompleteOnly">
@@ -1387,6 +1383,9 @@
         <OperandArray value="30"/>
         <OperandArray value="CountUpgradeDoubleStrikelingsCompleteOnly"/>
     </CRequirementMul>
+    <CRequirementNot id="Not143893411CountUnitHiveMindEmulatorQueuedOrBetter">
+        <OperandArray index="0" value="CountUnitHiveMindEmulatorQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit"/>
     </CRequirementNot>
@@ -1425,9 +1424,6 @@
     </CRequirementNot>
     <CRequirementNot id="Not4073818821CountUnitTechLab3QueuedOrBetter">
         <OperandArray index="0" value="CountUnitTechLab3QueuedOrBetter"/>
-    </CRequirementNot>
-    <CRequirementNot id="Not4164847767CountUnitHiveMindEmulatorQueuedOrBetter2838389603">
-        <OperandArray index="0" value="CountUnitHiveMindEmulatorQueuedOrBetter2838389603"/>
     </CRequirementNot>
     <CRequirementNot id="Not445539353CountUpgradeZergSpecializationCreeperFerocityCompleteOnly">
         <OperandArray index="0" value="CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
@@ -1619,11 +1615,9 @@
         <OperandArray index="0" value="CountUpgradeMarineShatteringLaserUpgradeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMechalingDurabilityQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMechalingDurabilityQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMetalbolicBoostQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMetalbolicBoostQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMode3v3CompleteOnly">
@@ -1654,11 +1648,9 @@
         <OperandArray index="0" value="CountUpgradePrimalRapidRespawnQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeRecyclingProtocolQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeRecyclingProtocolQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeRecylingProtocol2QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeRecylingProtocol2QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeShockBeamQueuedOrBetter">
