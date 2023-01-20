@@ -1045,6 +1045,7 @@ Behavior/EditorSuffix/GeneratorUpgrades8=gu8
 Behavior/EditorSuffix/GeneratorUpgrades9=gu9
 Behavior/EditorSuffix/Grazing=(Info)
 Behavior/EditorSuffix/HardenedShieldItalis=(Zerg Hex)
+Behavior/EditorSuffix/HiveKilled=3v3
 Behavior/EditorSuffix/ImumeIonStorm=(Damage Response)
 Behavior/EditorSuffix/InfestorTransfusion=(Max Health Buff)
 Behavior/EditorSuffix/InfusedRoachCountDummyStack=3v3
