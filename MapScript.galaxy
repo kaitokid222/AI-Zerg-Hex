@@ -806,7 +806,7 @@ bool gf_is_spawner (unit lp_local_unit);
 bool gf_is_spawner_unit (unit lp_local_unit);
 int gf_get_closest_position (point lp_position);
 int gf_get_alive_player_count ();
-bool gf_is_area_around_point_save (point lp_position);
+bool gf_is_area_around_point_safe (point lp_position);
 int gf_ai_get_random_player ();
 int gf_ai_get_strongest_player ();
 int gf_ai_get_weakest_player ();
@@ -10276,7 +10276,7 @@ void gf_try_regrow_creep () {
     lv_result_position = lv_pre_result;
     lv_result_type = lv_pre_result_type;
     lv_drone = gf_get_drone();
-    if ((gf_is_area_around_point_save(lv_result_position) == true) && (lv_result_type != null) && (lv_drone != null) && ((lv_result_type == "Nest2") || (lv_result_type == "CreepTumor2"))) {
+    if ((gf_is_area_around_point_safe(lv_result_position) == true) && (lv_result_type != null) && (lv_drone != null) && ((lv_result_type == "Nest2") || (lv_result_type == "CreepTumor2"))) {
         if ((lv_result_type == "CreepTumor2")) {
             PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 160);
             UnitIssueOrder(lv_drone, OrderTargetingPoint(AbilityCommand("MorphUnitDroneZergBuildings", 18), lv_result_position), c_orderQueueReplace);
@@ -13519,7 +13519,7 @@ point gf_get_closest_possible_omega_spawn (int lp_terran) {
     }
     lv_i = 5;
     while ((lv_i <= 10)) {
-        if ((UnitTypePlacementTestsFromPoint("Hatchery", 7, lv_omega_position_set[lv_i], 0.5, c_placementTestCreepMask) != null) && (gf_is_area_around_point_save(lv_omega_position_set[lv_i]) == true)) {
+        if ((UnitTypePlacementTestsFromPoint("Hatchery", 7, lv_omega_position_set[lv_i], 0.5, c_placementTestCreepMask) != null) && (gf_is_area_around_point_safe(lv_omega_position_set[lv_i]) == true)) {
             lv_omega_possible_positions_size = (lv_omega_possible_positions_size + 1);
             lv_omega_possible_positions[lv_omega_possible_positions_size] = lv_omega_position_set[lv_i];
         }
@@ -13620,7 +13620,7 @@ int gf_get_alive_player_count () {
     return lv_r;
 }
 
-bool gf_is_area_around_point_save (point lp_position) {
+bool gf_is_area_around_point_safe (point lp_position) {
     // Variable Declarations
     bool lv_return;
     unitgroup lv_group;
@@ -13642,7 +13642,7 @@ bool gf_is_area_around_point_save (point lp_position) {
     for (;; auto2F85FE41_u -= 1) {
         auto2F85FE41_var = UnitGroupUnitFromEnd(auto2F85FE41_g, auto2F85FE41_u);
         if (auto2F85FE41_var == null) { break; }
-        if (((UnitGetOwner(auto2F85FE41_var) == 7) || (UnitGetOwner(auto2F85FE41_var) == 0) || ((UnitGetType(auto2F85FE41_var) == "Buggo") || (UnitGetType(auto2F85FE41_var) == "Builder") || (UnitGetType(auto2F85FE41_var) == "Battery") || (UnitGetType(auto2F85FE41_var) == "AdvancedBattery") || (UnitGetType(auto2F85FE41_var) == "ImmortalShakurasStasisCannonMissile")))) {
+        if (((UnitGetOwner(auto2F85FE41_var) >= 7) || (UnitGetOwner(auto2F85FE41_var) == 0) || ((UnitGetType(auto2F85FE41_var) == "Buggo") || (UnitGetType(auto2F85FE41_var) == "Builder") || (UnitGetType(auto2F85FE41_var) == "Battery") || (UnitGetType(auto2F85FE41_var) == "AdvancedBattery") || (UnitGetType(auto2F85FE41_var) == "ImmortalShakurasStasisCannonMissile")))) {
             UnitGroupRemove(lv_group, auto2F85FE41_var);
         }
 
@@ -14770,7 +14770,7 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
             }
         }
 
-        if ((gf_is_area_around_point_save(lv_point) == true) && (lv_taken == false)) {
+        if ((gf_is_area_around_point_safe(lv_point) == true) && (lv_taken == false)) {
             if ((lv_reverse == false)) {
                 if ((lv_pre_result_distance == 0.0)) {
                     lv_pre_result = lv_point;
@@ -14818,7 +14818,7 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
 
                 lv_j += 1;
             }
-            if ((gf_is_area_around_point_save(lv_point) == true) && (lv_taken == false)) {
+            if ((gf_is_area_around_point_safe(lv_point) == true) && (lv_taken == false)) {
                 if ((lv_pre_result_distance == 0.0)) {
                     lv_pre_result = lv_point;
                     lv_pre_result_distance = DistanceBetweenPoints(lv_point, UnitGetPosition(lv_closest_bigspine));
