@@ -19803,6 +19803,19 @@ bool gt_MechalingUpgradefinished_Func (bool testConds, bool runActions) {
     int lv_owner;
 
     // Automatic Variable Declarations
+    unitgroup auto24C15658_g;
+    int auto24C15658_u;
+    unit auto24C15658_var;
+    unitgroup auto4D0A4A7E_g;
+    int auto4D0A4A7E_u;
+    unit auto4D0A4A7E_var;
+    unitgroup auto1C9A3F6B_g;
+    int auto1C9A3F6B_u;
+    unit auto1C9A3F6B_var;
+    unitgroup auto23C05FB4_g;
+    int auto23C05FB4_u;
+    unit auto23C05FB4_var;
+
     // Variable Initialization
     lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
     lv_owner = UnitGetOwner(EventUnit());
@@ -19813,7 +19826,7 @@ bool gt_MechalingUpgradefinished_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((lv_upgrade == "MechalingDurability") || (lv_upgrade == "RecyclingProtocol") || (lv_upgrade == "RecylingProtocol2") || (lv_upgrade == "MetalbolicBoost")))) {
+        if (!(((lv_upgrade == "MechalingDurability") || (lv_upgrade == "RecyclingProtocol") || (lv_upgrade == "RecylingProtocol2") || (lv_upgrade == "MetalbolicBoost") || (lv_upgrade == "JUICEModule") || (lv_upgrade == "ImprovedLiquids") || (lv_upgrade == "SynteticAdrenalPumps") || (lv_upgrade == "UnstableCore")))) {
             return false;
         }
     }
@@ -19824,6 +19837,46 @@ bool gt_MechalingUpgradefinished_Func (bool testConds, bool runActions) {
     }
 
     TechTreeUpgradeAddLevel(gv_players[lv_owner].lv__3v3_zerg_pid, lv_upgrade, 1);
+    if ((lv_upgrade == "MechalingDurability")) {
+        auto24C15658_g = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto24C15658_u = UnitGroupCount(auto24C15658_g, c_unitCountAll);
+        for (;; auto24C15658_u -= 1) {
+            auto24C15658_var = UnitGroupUnitFromEnd(auto24C15658_g, auto24C15658_u);
+            if (auto24C15658_var == null) { break; }
+            UnitSetScale(auto24C15658_var, 120.0, 120.0, 120.0);
+        }
+    }
+
+    if ((lv_upgrade == "JUICEModule")) {
+        auto4D0A4A7E_g = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto4D0A4A7E_u = UnitGroupCount(auto4D0A4A7E_g, c_unitCountAll);
+        for (;; auto4D0A4A7E_u -= 1) {
+            auto4D0A4A7E_var = UnitGroupUnitFromEnd(auto4D0A4A7E_g, auto4D0A4A7E_u);
+            if (auto4D0A4A7E_var == null) { break; }
+            UnitSetPropertyFixed(auto4D0A4A7E_var, c_unitPropEnergy, 50.0);
+        }
+    }
+
+    if ((lv_upgrade == "ImprovedLiquids")) {
+        auto1C9A3F6B_g = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto1C9A3F6B_u = UnitGroupCount(auto1C9A3F6B_g, c_unitCountAll);
+        for (;; auto1C9A3F6B_u -= 1) {
+            auto1C9A3F6B_var = UnitGroupUnitFromEnd(auto1C9A3F6B_g, auto1C9A3F6B_u);
+            if (auto1C9A3F6B_var == null) { break; }
+            UnitSetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, (UnitGetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, c_unitPropCurrent) + 50.0));
+        }
+    }
+
+    if ((lv_upgrade == "UnstableCore")) {
+        auto23C05FB4_g = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto23C05FB4_u = UnitGroupCount(auto23C05FB4_g, c_unitCountAll);
+        for (;; auto23C05FB4_u -= 1) {
+            auto23C05FB4_var = UnitGroupUnitFromEnd(auto23C05FB4_g, auto23C05FB4_u);
+            if (auto23C05FB4_var == null) { break; }
+            UnitBehaviorAdd(auto23C05FB4_var, "UnstableCore", auto23C05FB4_var, 1);
+        }
+    }
+
     return true;
 }
 

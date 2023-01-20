@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="EnableJUICEModule">
+        <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+    </CButton>
+    <CButton id="ImprovedLiquids">
+        <Icon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
+    </CButton>
+    <CButton id="SynteticAdrenalPumps">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
+    </CButton>
+    <CButton id="UnstableCore">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
+    </CButton>
+    <CButton id="InstallHUGSAlgorythm">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
+        <HotkeyAlias value="UnstableCore"/>
+    </CButton>
     <CButton id="UseJUICEtoheal">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
     </CButton>

@@ -122,6 +122,17 @@
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="MechalingJuiceFix">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="HaveJUICEUpgrade"/>
+        <Period value="0.1"/>
+        <FinalEffect value="MechalingJUICEFix"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnstableCore">
+        <InfoIcon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ZagaraAutoTransfuse3v3">
         <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

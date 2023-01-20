@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectSet id="MechalingUnstableCoreExplode">
+        <EffectArray value="HotSBanelingExplodeLargeSearchAll"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="MechalingJUICEFix">
+        <EditorCategories value=""/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Energy">
+            <Change value="50"/>
+        </VitalArray>
+    </CEffectModifyUnit>
     <CEffectApplyBehavior id="UsingJUICEAB">
         <WhichUnit Value="Caster"/>
         <Behavior value="UsingJUICE"/>
@@ -64,6 +74,10 @@
     <CEffectSet id="SpawnLarvaDummy">
         <EditorCategories value=""/>
     </CEffectSet>
+    <CEffectApplyBehavior id="UnstableCoreAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="UnstableCore"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="ZagaraNotOnCreepDamage3v3">
         <EditorCategories value="Race:Zerg"/>
         <Flags index="NoKillCredit" value="1"/>
@@ -376,7 +390,7 @@
     </CEffectDamage>
     <CEffectDamage id="HotSBanelingExplodeLargeSearchDamage">
         <AttributeBonus index="Structure" value="0"/>
-        <Amount value="95"/>
+        <Amount value="30"/>
     </CEffectDamage>
     <CEffectEnumArea id="OracleStasisTrapActivate">
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>

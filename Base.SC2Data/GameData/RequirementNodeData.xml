@@ -388,7 +388,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitInfestedBunkerQueuedOrBetter">
@@ -675,6 +674,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ImprovedFarming" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeImprovedLiquidsQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ImprovedLiquids" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeInstantDischargeCompleteOnly2503394132">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InstantDischarge" State="CompleteOnly"/>
@@ -714,6 +718,16 @@
     <CRequirementCountUpgrade id="CountUpgradeInvestment7QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Investment7" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeJUICEModuleCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="JUICEModule" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeJUICEModuleQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="JUICEModule" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeLotsofBloodCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -935,6 +949,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SuperEnergyGeneration" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeSynteticAdrenalPumpsQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SynteticAdrenalPumps" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTarInfectionCompleteOnly699063533">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="TarInfection" State="CompleteOnly"/>
@@ -1010,6 +1029,16 @@
     <CRequirementCountUpgrade id="CountUpgradeUnifiedArmorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="UnifiedArmor" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnstableCoreCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="UnstableCore" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnstableCoreQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="UnstableCore" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeUpgradedCombatShieldQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1563,6 +1592,10 @@
     <CRequirementNot id="NotCountUpgradeImprovedFarmingQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeImprovedFarmingQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeImprovedLiquidsQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeImprovedLiquidsQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeInstantDischargeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeInstantDischargeQueuedOrBetter"/>
     </CRequirementNot>
@@ -1586,6 +1619,10 @@
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeInvestment7QueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeInvestment7QueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeJUICEModuleQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeJUICEModuleQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeLotsofBloodCompleteOnly">
         <OperandArray index="0" value="CountUpgradeLotsofBloodCompleteOnly"/>
@@ -1677,6 +1714,10 @@
     <CRequirementNot id="NotCountUpgradeSpawnBombersQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeSpawnBombersQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeSynteticAdrenalPumpsQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSynteticAdrenalPumpsQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTarInfectionQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeTarInfectionQueuedOrBetter"/>
     </CRequirementNot>
@@ -1700,6 +1741,10 @@
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeUnifiedArmorQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUnifiedArmorQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeUnstableCoreQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeUnstableCoreQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeUpgradedCombatShieldQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUpgradedCombatShieldQueuedOrBetter"/>

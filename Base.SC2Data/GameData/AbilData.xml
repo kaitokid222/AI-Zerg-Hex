@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CAbilEffectInstant id="UseJUICE">
+    <CAbilEffectInstant id="UseJUICEtoheal">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
         <Effect index="0" value="UsingJUICEAB"/>
@@ -14,7 +14,7 @@
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
         <AutoCastValidatorArray value="LifeLE50Perc"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="UseJUICEtoheal"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UseJUICEtoheal" Requirements="HaveMechalingJUICEModule"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="3v3SpawnInfusedRoach2">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -518,6 +518,22 @@
         <InfoArray index="Research5" Time="30" Upgrade="MetalbolicBoost">
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="MetalbolicBoost" Requirements="RequirementMetalbolicBoost"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="30" Upgrade="JUICEModule">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="EnableJUICEModule" Requirements="RequirementMechalingJUICEModule"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="30" Upgrade="ImprovedLiquids">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="ImprovedLiquids" Requirements="RequirementMechalingImprovedLiquids"/>
+        </InfoArray>
+        <InfoArray index="Research8" Time="30" Upgrade="SynteticAdrenalPumps">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="SynteticAdrenalPumps" Requirements="RequirementSynteticAdrenalPumps"/>
+        </InfoArray>
+        <InfoArray index="Research9" Time="30" Upgrade="UnstableCore">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="UnstableCore" Requirements="RequirementUnstableCore"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="PickupBlood">

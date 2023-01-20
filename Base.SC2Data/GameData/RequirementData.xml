@@ -30,6 +30,12 @@
     <CRequirement id="HaveMechaUltralisk">
         <NodeArray index="Use" Link="CountUpgradePZergMechaUltraliskUpgradeCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="HaveMechalingJUICEModule">
+        <NodeArray index="Use" Link="CountUpgradeJUICEModuleCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveUnstableCore">
+        <NodeArray index="Use" Link="CountUpgradeUnstableCoreCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="HaveTier3andlessthan5defilers">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
     </CRequirement>
@@ -54,6 +60,16 @@
     <CRequirement id="RequirementMechalingDurability">
         <NodeArray index="Show" Link="NotCountUpgradeMechalingDurabilityQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="RequirementSynteticAdrenalPumps">
+        <NodeArray index="Show" Link="NotCountUpgradeSynteticAdrenalPumpsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementMechalingJUICEModule">
+        <NodeArray index="Show" Link="NotCountUpgradeJUICEModuleQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementMechalingImprovedLiquids">
+        <NodeArray index="Use" Link="CountUpgradeJUICEModuleCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedLiquidsQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="RequirementMetalbolicBoost">
         <NodeArray index="Show" Link="NotCountUpgradeMetalbolicBoostQueuedOrBetter"/>
     </CRequirement>
@@ -63,6 +79,9 @@
     <CRequirement id="RequirementRecyclingProtocol2">
         <NodeArray index="Use" Link="CountUpgradeRecyclingProtocolCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRecylingProtocol2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementUnstableCore">
+        <NodeArray index="Show" Link="NotCountUpgradeUnstableCoreQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="SiegeTankBetterVersion">
         <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>

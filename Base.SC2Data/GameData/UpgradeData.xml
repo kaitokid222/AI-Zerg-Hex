@@ -53,6 +53,10 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="ImprovedLiquids">
+        <EffectArray Reference="Unit,Mechaling,EnergyStart" Value="50"/>
+        <EffectArray Reference="Unit,Mechaling,EnergyMax" Value="50"/>
+    </CUpgrade>
     <CUpgrade id="MechaZerg3v3">
         <EffectArray Operation="Set" Reference="Actor,Tankling,PortraitModel" Value="Locust_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Slowling,PortraitModel" Value="Zergling_Mecha_Portrait"/>
@@ -60,6 +64,15 @@
         <EffectArray Operation="Set" Reference="Actor,Ultralisk2,PortraitModel" Value="Ultralisk_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Strikeling,PortraitModel" Value="Broodling_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Overseer,PortraitModel" Value="Overseer_Mecha_Portrait"/>
+    </CUpgrade>
+    <CUpgrade id="JUICEModule">
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,EnergyStart" Value="50"/>
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,EnergyMax" Value="50"/>
+        <AffectedUnitArray value="Mechaling"/>
+    </CUpgrade>
+    <CUpgrade id="SynteticAdrenalPumps">
+        <EffectArray Operation="Set" Reference="Weapon,MechaClaws,Icon" Value="Assets\Textures\btn-upgrade-stetmann-mechameleeattacks-level3.dds"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,MechaClaws,Period" Value="0.356000"/>
     </CUpgrade>
     <CUpgrade id="MetalbolicBoost">
         <EffectArray Reference="Unit,Mechaling,Speed" Value="3.000000"/>
@@ -185,6 +198,11 @@
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="50"/>
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="50"/>
         <MaxLevel value="30"/>
+    </CUpgrade>
+    <CUpgrade id="UnstableCore">
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Birth]" Value="UnstableCoreAB"/>
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Create]" Value="UnstableCoreAB"/>
+        <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Death]" Value="MechalingUnstableCoreExplode"/>
     </CUpgrade>
     <CUpgrade id="TerrazineIncomex3">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>

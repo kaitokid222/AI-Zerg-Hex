@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorPlayerRequirement id="HaveUnstableCore">
+        <Find value="1"/>
+        <Value value="HaveMechalingJUICEModule"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="LifeLE50Perc">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>
@@ -47,6 +51,13 @@
         <AreaArray Compare="GT" Count="1" Radius="3"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorPlayerRequirement id="NotHaveJUICEUpgrade">
+        <Value value="HaveMechalingJUICEModule"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveJUICEUpgrade">
+        <Find value="1"/>
+        <Value value="HaveMechalingJUICEModule"/>
+    </CValidatorPlayerRequirement>
     <CValidatorLocationCompareRange id="NydusMinimumDistance">
         <Compare value="GE"/>
         <Range value="15"/>
@@ -559,6 +570,12 @@
         <CombineArray value="TargetIsBlood"/>
         <CombineArray value="TargetIsBloodBig"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="MechalinghasUnstableCore">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="UnstableCore"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="UnitisChaos">
         <CombineArray value="IsChaosMarine"/>
         <CombineArray value="IsChaosLord"/>
