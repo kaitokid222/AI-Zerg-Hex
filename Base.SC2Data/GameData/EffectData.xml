@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectApplyBehavior id="UsingJUICEAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="UsingJUICE"/>
+    </CEffectApplyBehavior>
     <CEffectModifyUnit id="Add1HP">
         <EditorCategories value="Race:Terran"/>
         <LaunchUnit Value="Caster"/>

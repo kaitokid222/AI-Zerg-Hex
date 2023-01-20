@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorUnitCompareVital id="LifeLE50Perc">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LE"/>
+        <Type value="Fraction"/>
+        <Value value="0.5"/>
+    </CValidatorUnitCompareVital>
     <CValidatorUnitFilters id="AdeptTargetIsNotDead">
         <WhichUnit Effect="ItalisLM"/>
         <Filters value="-;Dead"/>

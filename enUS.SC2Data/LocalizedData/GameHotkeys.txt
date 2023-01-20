@@ -336,6 +336,7 @@ Button/Hotkey/UpgradeSpawnerIssue=
 Button/Hotkey/UpgradeSpawnerStrikeling=E
 Button/Hotkey/UpgradeSuperEnergyGeneration=T
 Button/Hotkey/UpgradeToAdvancedGate=Q
+Button/Hotkey/UseJUICEtoheal=Q
 Button/Hotkey/Vortex=Q
 Button/Hotkey/WarpInMineralGenerator=F
 Button/Hotkey/WeatherSelection=

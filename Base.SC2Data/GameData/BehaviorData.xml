@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorBuff id="UsingJUICE">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="20"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AdeptWeaponRedirect">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DisableValidatorArray value="AdeptTargetIsDead"/>

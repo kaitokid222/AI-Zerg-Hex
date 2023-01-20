@@ -30,6 +30,7 @@
 <Actor id="XilSpireLarge" Variations="3"/>
 <Actor id="GainBountyTextKicker"/>
 <Behavior id="InfestedVisual"/>
+<Behavior id="HiveKilled"/>
 <Behavior id="LarvaCountDummyStack"/>
 <Behavior id="StrikelingShielded3v3"/>
 <Behavior id="InfusedRoachCountDummyStack"/>
@@ -123,7 +124,6 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
-<Behavior id="HiveKilled"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorModel id="UseJUICEHealBuffModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="$Birth PlayForever"/>
+        <On Terms="Behavior.UsingJUICE.On" Send="Create"/>
+        <On Terms="Behavior.UsingJUICE.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth" HoldRotation="1"/>
+        <Model value="MendBuff"/>
+    </CActorModel>
     <CActorUnit id="AutomatedAssimilator">
         <On Terms="Effect.GainGas6CasterText.Start" Send="Create AutomatedRefineryTextKicker6"/>
     </CActorUnit>

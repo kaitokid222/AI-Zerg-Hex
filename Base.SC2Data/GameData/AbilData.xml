@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectInstant id="UseJUICE">
+        <Alignment value="Positive"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <Effect index="0" value="UsingJUICEAB"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Cooldown TimeUse="5"/>
+        </Cost>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <AutoCastValidatorArray value="LifeLE50Perc"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UseJUICEtoheal"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="3v3SpawnInfusedRoach2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfusedDummy"/>

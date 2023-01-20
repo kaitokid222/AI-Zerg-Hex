@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="UseJUICEtoheal">
+        <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
+    </CButton>
     <CButton id="AcidSpores">
         <Icon value="Assets\Textures\btn-ability-zerg-corrosiveblast.dds"/>
     </CButton>
