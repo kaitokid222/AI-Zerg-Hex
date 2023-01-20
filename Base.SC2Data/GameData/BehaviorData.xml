@@ -90,6 +90,10 @@
         <DisplayDuration index="Enemy" value="1"/>
         <Duration value="15"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="HiveKilled">
+        <InfoIcon value="Assets\Textures\btn-research-zerg-hivemindemulator.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="LarvaCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-unit-zerg-larvalqueen.dds"/>

@@ -5900,6 +5900,7 @@ void gf_init_3v3 () {
                 UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShields, 5000.0);
                 UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsMax, 5000.0);
                 UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsRegen, 10.0);
+                UnitBehaviorAdd(auto90631DD0_var, "HiveKilled", auto90631DD0_var, 1);
             }
 
         }
