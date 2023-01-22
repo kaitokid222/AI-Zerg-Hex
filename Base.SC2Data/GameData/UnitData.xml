@@ -393,8 +393,8 @@
         <AbilArray Link="BurrowHydraliskDown"/>
         <AbilArray Link="HydraliskFrenzy"/>
         <AbilArray Link="RegenerateShields"/>
-        <WeaponArray Link="HydraliskMelee"/>
-        <WeaponArray Link="NeedleSpines"/>
+        <WeaponArray Link="HydraliskMelee2"/>
+        <WeaponArray Link="HydraliskNeedleSpines2"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
