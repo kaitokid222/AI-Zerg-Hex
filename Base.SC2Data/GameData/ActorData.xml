@@ -131,6 +131,15 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
+    <CActorModel id="UnstableCoreExplode" parent="ModelAnimationStyleOneShot">
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On index="0" Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On index="1" Terms="ActorOrphan" Send="Destroy"/>
+        <On index="2" Terms="AnimBracketState.*.AfterClosing; !AnimBracketExitReason ModelSwap; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Effect.UnstableCoreExplodeSearchArea.Start" Send="Create"/>
+        <Model value="NapalmModelExplosion"/>
+    </CActorModel>
     <CActorModel id="UseJUICEHealBuffModel" parent="ModelAnimationStyleContinuous">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
@@ -3468,6 +3477,7 @@
     <CActorForceSphere id="BanelingAttackForce">
         <On Terms="Effect.BanelingExplodeLargeSearchAllZergHex.Start; At Caster" Send="Create"/>
         <On Terms="Effect.BanelingExplodeLargeSearch2.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.UnstableCoreExplodeSearchArea.Start; At Caster" Send="Create"/>
     </CActorForceSphere>
     <CActorUnit id="BanelingZergHex" parent="GenericBurrowerStandard" unitName="BanelingZergHex">
         <Aliases value="_UnitSmall"/>
