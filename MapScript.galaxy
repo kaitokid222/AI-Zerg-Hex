@@ -19814,6 +19814,16 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
     unitgroup lv_ug;
 
     // Automatic Variable Declarations
+    string autoF493FD12_val;
+    unitgroup auto5B21AB29_g;
+    int auto5B21AB29_u;
+    unit auto5B21AB29_var;
+    unitgroup autoAC9DC226_g;
+    int autoAC9DC226_u;
+    unit autoAC9DC226_var;
+    unitgroup auto2AB97F38_g;
+    int auto2AB97F38_u;
+    unit auto2AB97F38_var;
     string auto1C59175E_val;
     unitgroup auto55C975D3_g;
     int auto55C975D3_u;
@@ -19853,6 +19863,40 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
     }
 
     TechTreeUpgradeAddLevel(gv_players[lv_owner].lv__3v3_zerg_pid, lv_upgrade, 1);
+    if (((lv_upgrade == "NydusUpgrade") || (lv_upgrade == "NydusUpgrade2") || (lv_upgrade == "NydusUpgrade3"))) {
+        lv_ug = UnitGroup("NydusCanal", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoF493FD12_val = lv_upgrade;
+        if (autoF493FD12_val == "NydusUpgrade") {
+            auto5B21AB29_g = lv_ug;
+            auto5B21AB29_u = UnitGroupCount(auto5B21AB29_g, c_unitCountAll);
+            for (;; auto5B21AB29_u -= 1) {
+                auto5B21AB29_var = UnitGroupUnitFromEnd(auto5B21AB29_g, auto5B21AB29_u);
+                if (auto5B21AB29_var == null) { break; }
+                UnitSetScale(auto5B21AB29_var, 120.0, 120.0, 120.0);
+            }
+        }
+        else if (autoF493FD12_val == "NydusUpgrade2") {
+            autoAC9DC226_g = lv_ug;
+            autoAC9DC226_u = UnitGroupCount(autoAC9DC226_g, c_unitCountAll);
+            for (;; autoAC9DC226_u -= 1) {
+                autoAC9DC226_var = UnitGroupUnitFromEnd(autoAC9DC226_g, autoAC9DC226_u);
+                if (autoAC9DC226_var == null) { break; }
+                UnitSetScale(autoAC9DC226_var, 110.0, 110.0, 110.0);
+            }
+        }
+        else if (autoF493FD12_val == "NydusUpgrade3") {
+            auto2AB97F38_g = lv_ug;
+            auto2AB97F38_u = UnitGroupCount(auto2AB97F38_g, c_unitCountAll);
+            for (;; auto2AB97F38_u -= 1) {
+                auto2AB97F38_var = UnitGroupUnitFromEnd(auto2AB97F38_g, auto2AB97F38_u);
+                if (auto2AB97F38_var == null) { break; }
+                UnitSetScale(auto2AB97F38_var, 110.0, 110.0, 110.0);
+            }
+        }
+        else {
+        }
+    }
+
     if (((lv_upgrade == "MechalingDurability") || (lv_upgrade == "JUICEModule") || (lv_upgrade == "ImprovedLiquids") || (lv_upgrade == "UnstableCore") || (lv_upgrade == "HUGSAlgorythm"))) {
         lv_ug = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto1C59175E_val = lv_upgrade;
