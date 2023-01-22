@@ -624,7 +624,7 @@
         <HotkeyCategory value="Unit/Category/ProtossUnits"/>
     </CUnit>
     <CUnit id="HiveMindEmulator">
-        <EnergyStart value="0"/>
+        <EnergyStart value="250"/>
         <EnergyMax value="5000"/>
         <EnergyRegenRate value="0"/>
         <CostResource index="Minerals" value="50"/>

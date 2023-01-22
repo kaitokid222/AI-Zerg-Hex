@@ -614,12 +614,13 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="300"/>
+            <Resource index="Terrazine" value="150"/>
+            <Vital index="Energy" value="50"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="45"/>
-                <TimeUse value="45"/>
+                <TimeStart value="5"/>
+                <TimeUse value="5"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="RequirementArmor1"/>
