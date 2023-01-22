@@ -33,6 +33,7 @@
 <Behavior id="HiveKilled"/>
 <Behavior id="LarvaCountDummyStack"/>
 <Behavior id="StrikelingShielded3v3"/>
+<Behavior id="UnstableCore"/>
 <Behavior id="InfusedRoachCountDummyStack"/>
 <Behavior id="FirelingCountDummyStack"/>
 <Behavior id="ChaosLordStacks"/>
@@ -124,7 +125,7 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
-<Behavior id="UnstableCore"/>
+<Behavior id="HUGSAlgorythm"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

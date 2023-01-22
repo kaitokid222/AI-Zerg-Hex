@@ -56,6 +56,30 @@
     <CUpgrade id="ImprovedLiquids">
         <EffectArray Reference="Unit,Mechaling,EnergyStart" Value="50"/>
         <EffectArray Reference="Unit,Mechaling,EnergyMax" Value="50"/>
+        <EffectArray Reference="Unit,MechaHydralisk,EnergyMax" Value="50"/>
+        <EffectArray Reference="Unit,MechaHydralisk,EnergyStart" Value="50"/>
+    </CUpgrade>
+    <CUpgrade id="NydusUpgrade2">
+        <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="4.000000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="1000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="1000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.100000"/>
+        <LeaderAlias value="SelfRecharchingBatteries"/>
+    </CUpgrade>
+    <CUpgrade id="NydusUpgrade3">
+        <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="3"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="2000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="2000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="3.000000"/>
+        <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.100000"/>
+        <LeaderAlias value="SelfRecharchingBatteries"/>
+    </CUpgrade>
+    <CUpgrade id="SelfRecharchingBatteries">
+        <EffectArray Reference="Unit,Mechaling,EnergyRegenRate" Value="1.000000"/>
+        <EffectArray Reference="Unit,MechaHydralisk,EnergyRegenRate" Value="1.000000"/>
     </CUpgrade>
     <CUpgrade id="MechaZerg3v3">
         <EffectArray Operation="Set" Reference="Actor,Tankling,PortraitModel" Value="Locust_Mecha_Portrait"/>
@@ -68,20 +92,35 @@
     <CUpgrade id="JUICEModule">
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EnergyStart" Value="50"/>
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EnergyMax" Value="50"/>
+        <EffectArray Operation="Set" Reference="Unit,MechaHydralisk,EnergyMax" Value="50"/>
+        <EffectArray Operation="Set" Reference="Unit,MechaHydralisk,EnergyStart" Value="50"/>
         <AffectedUnitArray value="Mechaling"/>
+    </CUpgrade>
+    <CUpgrade id="HydralicAugment">
+        <EffectArray Reference="Unit,MechaHydralisk,Speed" Value="0.250000"/>
+        <LeaderAlias value="MetalbolicBoost"/>
+    </CUpgrade>
+    <CUpgrade id="NydusUpgrade">
+        <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="3.000000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="700"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="700"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="1.000000"/>
+        <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.200000"/>
+        <LeaderAlias value="SelfRecharchingBatteries"/>
     </CUpgrade>
     <CUpgrade id="SynteticAdrenalPumps">
         <EffectArray Operation="Set" Reference="Weapon,MechaClaws,Icon" Value="Assets\Textures\btn-upgrade-stetmann-mechameleeattacks-level3.dds"/>
         <EffectArray Operation="Subtract" Reference="Weapon,MechaClaws,Period" Value="0.356000"/>
     </CUpgrade>
     <CUpgrade id="MetalbolicBoost">
-        <EffectArray Reference="Unit,Mechaling,Speed" Value="3.000000"/>
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.500000"/>
     </CUpgrade>
     <CUpgrade id="RecyclingProtocol">
         <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
         <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
     </CUpgrade>
-    <CUpgrade id="RecylingProtocol2">
+    <CUpgrade id="RecyclingProtocol2">
         <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
         <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
         <LeaderAlias value="RecyclingProtocol"/>
@@ -200,8 +239,6 @@
         <MaxLevel value="30"/>
     </CUpgrade>
     <CUpgrade id="UnstableCore">
-        <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Birth]" Value="UnstableCoreAB"/>
-        <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Create]" Value="UnstableCoreAB"/>
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Death]" Value="MechalingUnstableCoreExplode"/>
     </CUpgrade>
     <CUpgrade id="TerrazineIncomex3">
@@ -210,6 +247,7 @@
     <CUpgrade id="TerrazineIncomex4">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
+    <CUpgrade id="HUGSAlgorythm"/>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
         <EffectArray Reference="Unit,Marine2,EnergyMax" Value="120"/>

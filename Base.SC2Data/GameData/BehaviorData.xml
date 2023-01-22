@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorBuff id="HUGSAlgorythm">
+        <InfoIcon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechaShieldActive">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-banelingmanashield.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="HasShieldLeft"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="UsingJUICE">
         <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -132,6 +141,15 @@
     <CBehaviorBuff id="UnstableCore">
         <InfoIcon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechaShield">
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-banelingmanashield.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+        <FinalEffect value="ShieldActiveAB"/>
+        <Modification>
+            <VitalRegenArray index="Shields" value="110"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZagaraAutoTransfuse3v3">
         <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
