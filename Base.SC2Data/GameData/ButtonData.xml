@@ -2,19 +2,52 @@
 <Catalog>
     <CButton id="EnableJUICEModule">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
     </CButton>
     <CButton id="ImprovedLiquids">
         <Icon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
+        <AlertIcon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
+    </CButton>
+    <CButton id="BuildMechaHydralisk">
+        <Icon value="Assets\Textures\btn-unit-zerg-hydralisk-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk-mecha.dds"/>
+    </CButton>
+    <CButton id="HydralicAugment">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-mechamuscularaugments.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechamuscularaugments.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MetalbolicBoost"/>
+    </CButton>
+    <CButton id="NydusUpgrade2">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-lairstetellitebonus.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-lairstetellitebonus.dds"/>
+        <HotkeyAlias value="NydusUpgrade"/>
+    </CButton>
+    <CButton id="NydusUpgrade3">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
+        <HotkeyAlias value="NydusUpgrade"/>
+    </CButton>
+    <CButton id="SelfRechargingBatteries">
+        <Icon value="Assets\Textures\btn-ability-stetmann-garyattackandregen.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-stetmann-garyattackandregen.dds"/>
+    </CButton>
+    <CButton id="NydusUpgrade">
+        <Icon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
     </CButton>
     <CButton id="SynteticAdrenalPumps">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
     </CButton>
     <CButton id="UnstableCore">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
     </CButton>
     <CButton id="InstallHUGSAlgorythm">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
         <HotkeyAlias value="UnstableCore"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
     </CButton>
     <CButton id="UseJUICEtoheal">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
@@ -118,18 +151,22 @@
     </CButton>
     <CButton id="MechalingDurability">
         <Icon value="Assets\Textures\btn-progression-stetmann-15-supergarytransform.dds"/>
+        <AlertIcon value="Assets\Textures\btn-progression-stetmann-15-supergarytransform.dds"/>
     </CButton>
     <CButton id="RecyclingProtocol2">
         <Icon value="Assets\Textures\btn-progression-stetmann-13-zerglingscrapdropbonus.dds"/>
         <Placeholder value="1"/>
+        <AlertIcon value="Assets\Textures\btn-progression-stetmann-13-zerglingscrapdropbonus.dds"/>
     </CButton>
     <CButton id="MechaInfestorUpgradeCache">
         <Icon value="Assets\Textures\btn-progression-stetmann-10-infestorupgradecache.dds"/>
         <Placeholder value="1"/>
+        <AlertIcon value="Assets\Textures\btn-progression-stetmann-10-infestorupgradecache.dds"/>
     </CButton>
     <CButton id="RecyclingProtocol">
         <Icon value="Assets\Textures\btn-progression-stetmann-05-scrapdrop.dds"/>
         <Placeholder value="1"/>
+        <AlertIcon value="Assets\Textures\btn-progression-stetmann-05-scrapdrop.dds"/>
     </CButton>
     <CButton id="ExtractTerrazine">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
@@ -144,7 +181,10 @@
         <AlertIcon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="NydusCanal"/>
+    <CButton id="NydusCanal">
+        <Icon value="Assets\Textures\btn-building-zerg-nydusnetwork-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-nydusnetwork-mecha.dds"/>
+    </CButton>
     <CButton id="Pylon"/>
     <CButton id="PylonClassic">
         <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
@@ -188,6 +228,9 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SummonNydusCanalCreeper"/>
+    <CButton id="UseJUICEtoRegenerateShield">
+        <Icon value="Assets\Textures\btn-ability-stetmann-banelingmanashield.dds"/>
+    </CButton>
     <CButton id="WarpInMineralGenerator">
         <Icon value="Assets\Textures\btn-building-protoss-forge.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-forge.dds"/>

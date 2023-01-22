@@ -355,6 +355,78 @@
             <Cooldown Link="Marine/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="MechaHydralisk">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldsMax value="400"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="0.5"/>
+        <SpeedMultiplierCreep value="5"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="9"/>
+        <CostCategory value="Army"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="BurrowHydraliskDown"/>
+        <AbilArray Link="HydraliskFrenzy"/>
+        <AbilArray Link="RegenerateShields"/>
+        <WeaponArray Link="HydraliskMelee"/>
+        <WeaponArray Link="NeedleSpines"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="UseJUICEtoRegenerateShield" Type="AbilCmd" AbilCmd="RegenerateShields,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <InnerRadius value="0.375"/>
+        <CargoSize value="2"/>
+        <ScoreMake value="150"/>
+        <ScoreKill value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="16"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="Hydralisk"/>
+        <AIEvalFactor value="2"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="70"/>
+        <GlossaryStrongArray value="Banshee"/>
+        <GlossaryStrongArray value="Mutalisk"/>
+        <GlossaryStrongArray value="VoidRay"/>
+        <GlossaryWeakArray value="SiegeTankSieged"/>
+        <GlossaryWeakArray value="Zergling"/>
+        <GlossaryWeakArray value="Colossus"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
     <CUnit id="Mechaling">
         <DeathRevealRadius value="3"/>
         <ReviveType value="Zergling"/>
@@ -376,8 +448,8 @@
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
-        <Speed value="3"/>
-        <SpeedMultiplierCreep value="1.3"/>
+        <Speed value="0.5"/>
+        <SpeedMultiplierCreep value="6"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
@@ -433,6 +505,8 @@
             <Charge Link="Zergling/Revive"/>
             <Cooldown Link="Zergling/Revive"/>
         </ReviveInfoBase>
+        <EffectArray index="Create" value="MechalingApplyUpgradesSet"/>
+        <EffectArray index="Birth" value="MechalingApplyUpgradesSet"/>
     </CUnit>
     <CUnit id="Larva3v3">
         <DeathRevealRadius value="3"/>
@@ -470,7 +544,6 @@
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="NydusCanal" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build22" Row="2" Column="0"/>
-            <LayoutButtons Face="SummonNydusCanalCreeper" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build23" Row="2" Column="1"/>
             <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
             <LayoutButtons Face="MutateintoMechaTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build25" Row="2" Column="3"/>
         </CardLayouts>
@@ -731,6 +804,12 @@
             <LayoutButtons Face="ImprovedLiquids" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research7" Row="1" Column="0"/>
             <LayoutButtons Face="SynteticAdrenalPumps" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research8" Row="1" Column="1"/>
             <LayoutButtons Face="UnstableCore" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research9" Row="1" Column="2"/>
+            <LayoutButtons Face="InstallHUGSAlgorythm" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research10" Row="1" Column="3"/>
+            <LayoutButtons Face="HydralicAugment" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research11" Row="0" Column="3"/>
+            <LayoutButtons Face="SelfRechargingBatteries" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research12" Row="2" Column="1"/>
+            <LayoutButtons Face="NydusUpgrade" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research13" Row="2" Column="0"/>
+            <LayoutButtons Face="NydusUpgrade2" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research14" Row="2" Column="0"/>
+            <LayoutButtons Face="NydusUpgrade3" Type="AbilCmd" AbilCmd="PlayerZergResearch,Research15" Row="2" Column="0"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="HydraliskDefender3v3">
@@ -1877,18 +1956,27 @@
     </CUnit>
     <CUnit id="NydusCanal">
         <CostResource index="Vespene" value="50"/>
-        <AbilArray index="2" removed="1"/>
-        <AbilArray index="3" removed="1"/>
+        <AbilArray index="2" Link="CreepTowerTrain"/>
+        <AbilArray index="3" Link="ZergTrain"/>
+        <AbilArray Link="AbsorbingCloud"/>
+        <AbilArray Link="que5"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="SetRallyPoint" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
-            <LayoutButtons index="1" removed="1"/>
-            <LayoutButtons index="2" removed="1"/>
-            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="0" Face="BuildMechaling" AbilCmd="CreepTowerTrain,Train1" Column="0"/>
+            <LayoutButtons index="1" Face="BuildMechaHydralisk" AbilCmd="ZergTrain,Train7" Row="0" Column="1"/>
+            <LayoutButtons index="2" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Row="1" Column="3"/>
+            <LayoutButtons index="3" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
+        </CardLayouts>
+        <CardLayouts>
+            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
         </CardLayouts>
         <Footprint value="Footprint2x2Nydus"/>
         <PlacementFootprint value="Footprint2x2Nydus"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="2500"/>
+        <LifeMax value="2500"/>
+        <EnergyStart value="250"/>
+        <EnergyMax value="250"/>
+        <BehaviorArray index="1" Link="IsSpawner"/>
     </CUnit>
     <CUnit id="NydusCanalCreeper">
         <LifeStart value="3000"/>

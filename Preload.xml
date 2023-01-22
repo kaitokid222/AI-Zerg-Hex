@@ -125,6 +125,7 @@
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="SpawnProtection"/>
+<Behavior id="HUGSAlgorythm"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

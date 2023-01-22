@@ -39,11 +39,22 @@
     <CRequirement id="HaveTier3andlessthan5defilers">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5"/>
     </CRequirement>
+    <CRequirement id="HaveHUGS">
+        <NodeArray index="Use" Link="CountUpgradeHUGSAlgorythmCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="Is3v3">
         <NodeArray index="Use" Link="CountUpgradeMode3v3CompleteOnly"/>
     </CRequirement>
     <CRequirement id="Isnot3v3">
         <NodeArray index="Use" Link="NotCountUpgradeMode3v3CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="NydusUpgrade2">
+        <NodeArray index="Use" Link="CountUpgradeNydusUpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="NydusUpgrade3">
+        <NodeArray index="Use" Link="CountUpgradeNydusUpgrade2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade3QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
@@ -54,11 +65,21 @@
     <CRequirement id="PlasmaCannonsRequirementBetterTank">
         <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="RequirementSelfRechargingBatteries">
+        <NodeArray index="Use" Link="CountUpgradeJUICEModuleCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeSelfRecharchingBatteriesQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="RequirementMechaUltraliskUpgrade">
         <NodeArray index="Show" Link="NotCountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMechalingDurability">
         <NodeArray index="Show" Link="NotCountUpgradeMechalingDurabilityQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementHydralicAugment">
+        <NodeArray index="Show" Link="NotCountUpgradeHydralicAugmentQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="NydusUpgrade">
+        <NodeArray index="Show" Link="NotCountUpgradeNydusUpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementSynteticAdrenalPumps">
         <NodeArray index="Show" Link="NotCountUpgradeSynteticAdrenalPumpsQueuedOrBetter"/>
@@ -78,10 +99,13 @@
     </CRequirement>
     <CRequirement id="RequirementRecyclingProtocol2">
         <NodeArray index="Use" Link="CountUpgradeRecyclingProtocolCompleteOnly"/>
-        <NodeArray index="Show" Link="NotCountUpgradeRecylingProtocol2QueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeRecyclingProtocol2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementUnstableCore">
         <NodeArray index="Show" Link="NotCountUpgradeUnstableCoreQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="RequirementHUGS">
+        <NodeArray index="Show" Link="NotCountUpgradeHUGSAlgorythmQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="SiegeTankBetterVersion">
         <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>

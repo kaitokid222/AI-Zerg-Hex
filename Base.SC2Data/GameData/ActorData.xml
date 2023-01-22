@@ -1,5 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorUnit id="MechaHydralisk" parent="GenericUnitBase" unitName="MechaHydralisk">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.NeedleSpines.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
+        <On Terms="WeaponStart.NeedleSpines.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart" Send="AnimPlay AttackCover Attack,Cover"/>
+        <On Terms="WeaponStart.NeedleSpines.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,00" Send="TimerSet 0.400000 MeleeAttackLaunch"/>
+        <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,01" Send="TimerSet 0.100000 MeleeAttackLaunch"/>
+        <On Terms="TimerExpired; TimerName MeleeAttackLaunch" Send="Create HydraliskMeleeAttackLaunch"/>
+        <On Terms="AbilMorph.LurkerAspect.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspect.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.LurkerAspectFromHydraliskBurrowed.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspectFromHydraliskBurrowed.Finish; MorphTo HydraliskBurrowed; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspectFromHydraliskBurrowed.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Hydralisk; MorphTo HydraliskBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HydraliskBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HydraliskBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="UnitBirth.HydraliskBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.HydraliskBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="UnitBirth.MechaHydralisk" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HydraliskBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo HydraliskBurrowed; MorphFrom Hydralisk" Send="TerrainSquibDeactivate"/>
+        <On Terms="AbilMorph.LurkerAspectMP.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspectMP.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.LurkerAspectMPFromHydraliskBurrowed.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspectMPFromHydraliskBurrowed.Finish; MorphTo HydraliskBurrowed; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.LurkerAspectMPFromHydraliskBurrowed.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Hydra_Land"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo LurkerMPEgg" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom LurkerMPEgg; MorphTo Hydralisk" Send="Create"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
+        <On Terms="AbilMorph.MorphHydraliskToHydraliskLurker.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphHydraliskToHydraliskLurker.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.MorphHydraliskToHydraliskImpaler.Finish; MorphTo Hydralisk; !AbilKey BurrowUp" Send="Create"/>
+        <On Terms="AbilMorph.MorphHydraliskToHydraliskImpaler.Start; MorphFrom Hydralisk; !AbilKey BurrowDown" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HybridHydraliskEgg" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HybridHydraliskEgg" Send="Create EggsplosionPurpleGeneric0"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HybridHydraliskEgg" Target="EggsplosionPurpleGeneric0" Send="SetScale 1.330000"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hydralisk; MorphFrom HybridHydraliskEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsCelestialBurning" Send="DeathCustomize Variation16"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsCelestialBurning" Send="DeathCustomize RagdollFire"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Model value="Hydralisk_Mecha"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
+        <BuildModel value="Hydralisk_Mecha"/>
+        <DeathArray index="Normal" ModelLink="Hydralisk_Mecha_Death" SoundLink="Hydralisk_Explode"/>
+        <DeathArray index="Disintegrate" ModelLink="Hydralisk_Mecha_DeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="Hydralisk_Mecha_DeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ModelLink="Hydralisk_Mecha_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Spectre_KillerPhantasmDeath" Name="Hallucination"/>
+        <DeathCustoms ModelLink="Hydralisk_Mecha_DeathFire" Name="Variation16"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Hydralisk_Mecha"/>
+        <PortraitModel value="Hydralisk_Mecha_Portrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.086"/>
+        <BarOffset value="60"/>
+        <BarWidth value="48"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Hydralisk.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-hydralisk-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-stetmann-banelingmanashieldefficiency.dds"/>
+        <SoundArray index="Ready" value="Hydralisk_Ready"/>
+        <SoundArray index="What" value="Hydralisk_What"/>
+        <SoundArray index="Yes" value="Hydralisk_Yes"/>
+        <SoundArray index="Attack" value="Hydralisk_Attack"/>
+        <SoundArray index="Pissed" value="Hydralisk_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-hydralisk-mecha.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Hydralisk.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorModel id="UseJUICEHealBuffModel" parent="ModelAnimationStyleContinuous">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
@@ -1158,6 +1289,15 @@
         <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
         <BarOffset value="140"/>
     </CActorUnit>
+    <CActorModel id="UseJUICEShieldBuffModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="$Birth PlayForever"/>
+        <On Terms="Behavior.MechaShieldActive.On" Send="Create"/>
+        <On Terms="Behavior.MechaShieldActive.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachShield"/>
+        <Model value="MechaShield"/>
+    </CActorModel>
     <CActorModel id="VdayLoveBuff" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <On Terms="Effect.VdayLoveDummy.Start; At Target" Send="Create"/>

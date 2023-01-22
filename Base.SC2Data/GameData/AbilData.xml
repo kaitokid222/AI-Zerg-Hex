@@ -511,7 +511,7 @@
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="RecyclingProtocol" Requirements="RequirementRecyclingProtocol"/>
         </InfoArray>
-        <InfoArray index="Research4" Time="30" Upgrade="RecylingProtocol2">
+        <InfoArray index="Research4" Time="30" Upgrade="RecyclingProtocol2">
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="RecyclingProtocol2" Requirements="RequirementRecyclingProtocol2"/>
         </InfoArray>
@@ -534,6 +534,30 @@
         <InfoArray index="Research9" Time="30" Upgrade="UnstableCore">
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="UnstableCore" Requirements="RequirementUnstableCore"/>
+        </InfoArray>
+        <InfoArray index="Research10" Time="30" Upgrade="HUGSAlgorythm">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="InstallHUGSAlgorythm" Requirements="RequirementHUGS"/>
+        </InfoArray>
+        <InfoArray index="Research11" Time="30" Upgrade="HydralicAugment">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="HydralicAugment" Requirements="RequirementHydralicAugment"/>
+        </InfoArray>
+        <InfoArray index="Research12" Time="30" Upgrade="SelfRecharchingBatteries">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="SelfRechargingBatteries" Requirements="RequirementSelfRechargingBatteries"/>
+        </InfoArray>
+        <InfoArray index="Research13" Time="30" Upgrade="NydusUpgrade">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="NydusUpgrade" Requirements="NydusUpgrade"/>
+        </InfoArray>
+        <InfoArray index="Research14" Time="30" Upgrade="NydusUpgrade2">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="NydusUpgrade2" Requirements="NydusUpgrade2"/>
+        </InfoArray>
+        <InfoArray index="Research15" Time="30" Upgrade="NydusUpgrade3">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="NydusUpgrade3" Requirements="NydusUpgrade3"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="PickupBlood">
@@ -851,6 +875,7 @@
         <Flags index="IgnoreUnitCost" value="1"/>
         <Flags index="WaitForFood" value="0"/>
         <InfoArray index="Train1" Time="3" Effect="ApplyPrecursorSpawner">
+            <Vital index="Energy" value="50"/>
             <Charge>
                 <CountMax value="4"/>
                 <CountStart value="4"/>
@@ -858,11 +883,10 @@
                 <Link value="Abil/TrainSpawner"/>
                 <Location value="Unit"/>
             </Charge>
-            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Cooldown Link="Abil/TrainSpawner"/>
             <Button DefaultButtonFace="BuildMechaling"/>
             <Unit value="Mechaling"/>
             <Flags index="AutoCast" value="1"/>
-            <Flags index="AutoCastOn" value="1"/>
         </InfoArray>
         <Alert value="NoAlert"/>
     </CAbilTrain>
@@ -1882,6 +1906,22 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RefreshNetwork"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="RegenerateShields">
+        <Alignment value="Positive"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <Effect index="0" value="ShieldRegenAB"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Cooldown TimeUse="7"/>
+        </Cost>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <AutoCastValidatorArray value="MechaHydraliskhasnoMechaShieldactive"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UseJUICEtoRegenerateShield" Requirements="HaveMechalingJUICEModule"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="ZCCCenter">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnFromCenter" Requirements="SpawnFromCenter"/>
@@ -3887,6 +3927,11 @@
         <InfoArray index="Train6" Time="7">
             <Button DefaultButtonFace="SpawnInfestor" Requirements="RequirementInfestor"/>
             <Unit value="InfestorZergHex2"/>
+        </InfoArray>
+        <InfoArray index="Train7" Time="20">
+            <Vital index="Energy" value="75"/>
+            <Button DefaultButtonFace="BuildMechaHydralisk"/>
+            <Unit value="MechaHydralisk"/>
         </InfoArray>
         <RefundFraction Charge="0"/>
     </CAbilTrain>

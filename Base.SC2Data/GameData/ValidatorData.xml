@@ -2,7 +2,11 @@
 <Catalog>
     <CValidatorPlayerRequirement id="HaveUnstableCore">
         <Find value="1"/>
-        <Value value="HaveMechalingJUICEModule"/>
+        <Value value="HaveUnstableCore"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveHUGS">
+        <Find value="1"/>
+        <Value value="HaveHUGS"/>
     </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="LifeLE50Perc">
         <WhichUnit Value="Caster"/>
@@ -51,6 +55,17 @@
         <AreaArray Compare="GT" Count="1" Radius="3"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareVital id="HasShieldLeft">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Vital value="Shields"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="MechaHydraliskhasnoMechaShieldactive">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="1"/>
+        <Behavior value="MechaShieldActive"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorPlayerRequirement id="NotHaveJUICEUpgrade">
         <Value value="HaveMechalingJUICEModule"/>
     </CValidatorPlayerRequirement>

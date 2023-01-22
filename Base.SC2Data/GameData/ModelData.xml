@@ -3182,6 +3182,12 @@
             <Adaptions Slot="generic01"/>
         </TextureDeclares>
     </CModel>
+    <CModel id="MechaShield" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\ArcadeVikingShield\ArcadeVikingShield.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.700000,0.700000,1.200000"/>
+        <ScaleMin value="0.700000,0.700000,1.200000"/>
+    </CModel>
     <CModel id="VdayLoveBuff" parent="PersistentSpellFX">
         <Model value="assets\units\storm_fx_medic_love_healingbeam_buffactive.m3"/>
         <EditorCategories value="Race:Protoss"/>

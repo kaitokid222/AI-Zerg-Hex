@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectSet id="MechaShieldTick">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="HUGSAB">
+        <ValidatorArray index="0" value="HaveHUGS"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HUGSAlgorythm"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ShieldActiveAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="MechaShieldActive"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ShieldRegenAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="MechaShield"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="UnstableCoreExplodeSearchArea">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.2" Effect="UnstableCoreExplodeDamage"/>
+        <SearchFlags index="SameCliff" value="1"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="UnstableCoreExplodeDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Kind value="Splash"/>
+        <Amount value="30"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
     <CEffectSet id="MechalingUnstableCoreExplode">
-        <EffectArray value="HotSBanelingExplodeLargeSearchAll"/>
+        <EffectArray value="UnstableCoreExplodeSearchArea"/>
     </CEffectSet>
     <CEffectModifyUnit id="MechalingJUICEFix">
         <EditorCategories value=""/>
@@ -10,6 +41,10 @@
             <Change value="50"/>
         </VitalArray>
     </CEffectModifyUnit>
+    <CEffectSet id="MechalingApplyUpgradesSet">
+        <EffectArray value="UnstableCoreAB"/>
+        <EffectArray value="HUGSAB"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="UsingJUICEAB">
         <WhichUnit Value="Caster"/>
         <Behavior value="UsingJUICE"/>
@@ -77,6 +112,7 @@
     <CEffectApplyBehavior id="UnstableCoreAB">
         <WhichUnit Value="Caster"/>
         <Behavior value="UnstableCore"/>
+        <ValidatorArray index="0" value="HaveUnstableCore"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="ZagaraNotOnCreepDamage3v3">
         <EditorCategories value="Race:Zerg"/>
@@ -390,7 +426,7 @@
     </CEffectDamage>
     <CEffectDamage id="HotSBanelingExplodeLargeSearchDamage">
         <AttributeBonus index="Structure" value="0"/>
-        <Amount value="30"/>
+        <Amount value="95"/>
     </CEffectDamage>
     <CEffectEnumArea id="OracleStasisTrapActivate">
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
