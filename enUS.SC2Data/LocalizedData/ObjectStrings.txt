@@ -2247,6 +2247,7 @@ Requirement/EditorPrefix/NydusUpgrade=Mecha
 Requirement/EditorPrefix/NydusUpgrade2=Mecha
 Requirement/EditorPrefix/NydusUpgrade3=Mecha
 Requirement/EditorPrefix/Only3Larva=3v3
+Requirement/EditorPrefix/Only5Larva=3v3
 Requirement/EditorPrefix/OnlyOneNydus=3v3
 Requirement/EditorPrefix/PromoteToElite=Marine -
 Requirement/EditorPrefix/PromoteToVeteran=Marine -
@@ -2286,6 +2287,7 @@ Requirement/EditorSuffix/NydusUpgrade=Hex
 Requirement/EditorSuffix/NydusUpgrade2=Hex
 Requirement/EditorSuffix/NydusUpgrade3=Hex
 Requirement/EditorSuffix/Only3Larva=Hex
+Requirement/EditorSuffix/Only5Larva=Hex
 Requirement/EditorSuffix/OnlyOneNydus=Hex
 Requirement/EditorSuffix/RequirementHUGS=Hex
 Requirement/EditorSuffix/RequirementHydralicAugment=Hex
@@ -2400,7 +2402,7 @@ Requirement/Name/NydusUpgrade2=Nydus Upgrade 2
 Requirement/Name/NydusUpgrade3=Nydus Upgrade 3
 Requirement/Name/OmegaliskRequirement=Omegalisk Requirement
 Requirement/Name/Only2Morales=Only 2 Morales
-Requirement/Name/Only3Larva=Only 3 Larva
+Requirement/Name/Only5Larva=Only 5 Larva
 Requirement/Name/OnlyOneArmory=Only One Armory
 Requirement/Name/OnlyOneConstructionYard=Only One Construction Yard
 Requirement/Name/OnlyOneEventTechCenter=Only One Event Tech Center
@@ -2897,10 +2899,10 @@ RequirementNode/Name/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=
 RequirementNode/Name/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need one Stacks of Blood!}1
 RequirementNode/Name/GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) >= 1
 RequirementNode/Name/GTECountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= 25
+RequirementNode/Name/LT1405264593CountBehaviorLarvaCountDummyStackQueuedOrBetter5=CountBehavior(LarvaCountDummyStack,QueuedOrBetter) < {Only 5 Larva}5
 RequirementNode/Name/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < {Bunker isnt upgraded already}1
 RequirementNode/Name/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=CountUnit(StrikelingSpawner,QueuedOrBetter) < {Max Reached}(30 + (30 * CountUpgrade(DoubleStrikelings,CompleteOnly)))
 RequirementNode/Name/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) < {Maxed}40
-RequirementNode/Name/LT1859361626CountBehaviorLarvaCountDummyStackQueuedOrBetter3=CountBehavior(LarvaCountDummyStack,QueuedOrBetter) < {You cant have more than 3 alive Larva!}3
 RequirementNode/Name/LT2011835200CountUnitChaosLordQueuedOrBetter1=CountUnit(ChaosLord,QueuedOrBetter) < {You can only have 1 Chaos Lord!}1
 RequirementNode/Name/LT2473741311CountUnitRavager2QueuedOrBetter30=CountUnit(Ravager2,QueuedOrBetter) < {Have Less Than 30}30
 RequirementNode/Name/LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60=(CountUnit(InfestedBunker,QueuedOrBetter) + ()) < {Max 60}60

@@ -5966,6 +5966,9 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_protect_bottom_hive_from_allies, lv_on_off);
     TriggerEnable(gt_hive_bottom_killed, lv_on_off);
     TriggerEnable(gt_hive_top_killed, lv_on_off);
+    TriggerEnable(gt_MechaUpgradefinished, lv_on_off);
+    TriggerEnable(gt_Larvadies, lv_on_off);
+    TriggerEnable(gt_Larvamutatesintobuilding, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -6644,7 +6647,7 @@ void gf_create_zagara (int lp_player) {
 void gf_Update_Hugs_Upgrade (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
-    CatalogReferenceSet("Behavior,HUGSAlgorythm,Modification.VitalMaxArray[Life]", gv_players[lp_player].lv__3v3_zerg_pid, IntToString(gv_players[lp_player].lv__3v3_hug_stacks));
+    CatalogReferenceSet("Behavior,HUGSAlgorythm,Modification.VitalMaxArray[Life]", gv_players[lp_player].lv__3v3_zerg_pid, FixedToString((gv_players[lp_player].lv__3v3_hug_stacks * 0.5), c_fixedPrecisionAny));
 }
 
 void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
@@ -19913,6 +19916,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_MechaUpgradefinished_Init () {
     gt_MechaUpgradefinished = TriggerCreate("gt_MechaUpgradefinished_Func");
+    TriggerEnable(gt_MechaUpgradefinished, false);
     TriggerAddEventUnitResearchProgress(gt_MechaUpgradefinished, null, c_unitProgressStageComplete);
 }
 
@@ -19992,6 +19996,7 @@ bool gt_Larvadies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_Larvadies_Init () {
     gt_Larvadies = TriggerCreate("gt_Larvadies_Func");
+    TriggerEnable(gt_Larvadies, false);
     TriggerAddEventUnitDied(gt_Larvadies, null);
 }
 
@@ -20025,6 +20030,7 @@ bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_Larvamutatesintobuilding_Init () {
     gt_Larvamutatesintobuilding = TriggerCreate("gt_Larvamutatesintobuilding_Func");
+    TriggerEnable(gt_Larvamutatesintobuilding, false);
     TriggerAddEventUnitConstructProgress(gt_Larvamutatesintobuilding, null, c_unitProgressStageStart);
 }
 

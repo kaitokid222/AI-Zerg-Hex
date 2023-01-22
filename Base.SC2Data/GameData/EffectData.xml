@@ -28,7 +28,7 @@
         <AINotifyFlags index="HurtEnemy" value="1"/>
         <ImpactLocation Value="TargetUnit"/>
         <Kind value="Splash"/>
-        <Amount value="30"/>
+        <Amount value="15"/>
         <Death value="Disintegrate"/>
     </CEffectDamage>
     <CEffectSet id="MechalingUnstableCoreExplode">
