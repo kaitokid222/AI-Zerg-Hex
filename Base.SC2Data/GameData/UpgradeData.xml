@@ -209,6 +209,12 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel3.dds"/>
         <EffectArray Reference="Unit,FirebatZergHex,LifeMax" Value="200"/>
         <EffectArray Reference="Unit,FirebatZergHex,LifeStart" Value="200"/>
+        <EffectArray Reference="Unit,ChaosSlave,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,ChaosSlave,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="325"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="325"/>
+        <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
     <CUpgrade id="LotsofBlood">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>
@@ -319,6 +325,9 @@
     <CUpgrade id="ChemicalPlant"/>
     <CUpgrade id="MarineMobileSquadTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train15].Time" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train17].Time" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train16].Time" Value="0.500000"/>
     </CUpgrade>
     <CUpgrade id="MarinePenetratingLaser">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
@@ -330,6 +339,8 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Effect,ReaperDoublePistorDamage,Amount" Value="1"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Effect,TwinBolter,Amount" Value="1"/>
+        <EffectArray Reference="Effect,DesecratedBolter,Amount" Value="1"/>
     </CUpgrade>
     <CUpgrade id="MarineConservationL1">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
@@ -469,6 +480,10 @@
         <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="50"/>
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="175"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="175"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="35"/>
     </CUpgrade>
     <CUpgrade id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
