@@ -32,6 +32,17 @@
         <PreswingBetweenAttacks value="0.5"/>
         <Effect value="FlameThrowerSetOld"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="ImpalerTentacle3v3">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-kerrigan-seismicspines.dds"/>
+        <DisplayEffect value="ImpalerTentacleU3v3"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <RangeSlop value="0"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.3332"/>
+        <Effect value="ImpalerTentacleLM3v3"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MechaClaws">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>

@@ -2182,6 +2182,10 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
+    <CUnit id="SpineCrawlerWeapon3v3" parent="MISSILE_INVULNERABLE">
+        <Race value="Zerg"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
     <CUnit id="Spirit">
         <Description value="Button/Tooltip/WarpInSpirit"/>
         <DeathRevealRadius value="3"/>
@@ -6990,6 +6994,7 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <KillDisplay value="Always"/>
         <RankDisplay value="Always"/>
+        <WeaponArray index="0" Link="ImpalerTentacle3v3"/>
     </CUnit>
     <CUnit id="Ultralisk2" parent="Ultralisk">
         <Name value="Unit/Name/Ultralisk2"/>

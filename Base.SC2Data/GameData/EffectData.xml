@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectLaunchMissile id="ImpalerTentacleLM3v3">
+        <ValidatorArray index="0" value="SpineCrawlerLMTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="ImpalerTentacleU3v3"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="SpineCrawlerWeapon3v3"/>
+        <ReturnDelay value="0.175"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractShort" IfRangeLTE="3"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="7"/>
+        <Movers Link="SpineCrawlerTentacleExtendShort" IfRangeLTE="3"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="7"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ImpalerTentacleU3v3" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Melee"/>
+        <Amount value="30"/>
+    </CEffectDamage>
     <CEffectSet id="MechaShieldTick">
         <EditorCategories value=""/>
     </CEffectSet>
