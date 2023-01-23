@@ -449,7 +449,7 @@
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="1"/>
-        <SpeedMultiplierCreep value="3"/>
+        <SpeedMultiplierCreep value="4"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
@@ -1977,7 +1977,7 @@
         <EnergyStart value="250"/>
         <EnergyMax value="1000"/>
         <BehaviorArray index="1" Link="IsSpawner"/>
-        <EnergyRegenRate value="5"/>
+        <EnergyRegenRate value="2"/>
     </CUnit>
     <CUnit id="NydusCanalCreeper">
         <LifeStart value="3000"/>
