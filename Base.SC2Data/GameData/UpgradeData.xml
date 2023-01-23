@@ -114,15 +114,15 @@
         <EffectArray Operation="Subtract" Reference="Weapon,MechaClaws,Period" Value="0.356000"/>
     </CUpgrade>
     <CUpgrade id="MetalbolicBoost">
-        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.500000"/>
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="1.000000"/>
     </CUpgrade>
     <CUpgrade id="RecyclingProtocol">
-        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
-        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="2"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="2"/>
     </CUpgrade>
     <CUpgrade id="RecyclingProtocol2">
-        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="4"/>
-        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="4"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="2"/>
+        <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountStart" Value="2"/>
         <LeaderAlias value="RecyclingProtocol"/>
     </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
@@ -131,9 +131,9 @@
     </CUpgrade>
     <CUpgrade id="Mode3v3"/>
     <CUpgrade id="MechalingDurability">
-        <EffectArray Operation="Set" Reference="Unit,Mechaling,LifeMax" Value="100"/>
+        <EffectArray Reference="Unit,Mechaling,LifeMax" Value="25"/>
         <EffectArray Operation="Set" Reference="Actor,Mechaling,Scale" Value="1.200000"/>
-        <EffectArray Operation="Set" Reference="Unit,Mechaling,LifeStart" Value="100"/>
+        <EffectArray Reference="Unit,Mechaling,LifeStart" Value="25"/>
         <EffectArray Operation="Set" Reference="Actor,Mechaling,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level1.dds"/>
         <EffectArray Reference="Unit,Mechaling,LifeArmorLevel" Value="1"/>
         <EffectArray Reference="Unit,Mechaling,LifeArmor" Value="1"/>
@@ -480,7 +480,7 @@
     <CUpgrade id="ZergAttack">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <EffectArray Reference="Effect,TanklingMeleeDamage,Amount" Value="0.75"/>
-        <EffectArray Reference="Abil,ZergResearch,InfoArray[Research6].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
         <EffectArray Reference="Effect,Claws,Amount" Value="1.25"/>
         <EffectArray Reference="Abil,ZergResearch,InfoArray[Research6].Resource[Minerals]" Value="200"/>
         <EffectArray Reference="Effect,CreeperSpinesDamage,Amount" Value="1"/>
@@ -529,6 +529,9 @@
         <EffectArray Reference="Effect,BeastlingClawsMainWallDamage,Amount" Value="2.5"/>
         <EffectArray Reference="Weapon,MechaClaws,Level" Value="1"/>
         <EffectArray Reference="Effect,MechaClawsDamage,Amount" Value="2"/>
+        <EffectArray Reference="Effect,ImpalerTentacleU3v3,Amount" Value="1"/>
+        <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
+        <EffectArray Reference="Effect,ImpalerTentacleU3v3,Amount" Value="1"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="100"/>
     </CUpgrade>
@@ -709,7 +712,7 @@
         <EffectArray Operation="Subtract" Reference="Behavior,RoachTarRushSpeed,Modification.MoveSpeedBonus" Value="0.449200"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Vespene]" Value="100"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Charge.CountMax" Value="1"/>
-        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.199200"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

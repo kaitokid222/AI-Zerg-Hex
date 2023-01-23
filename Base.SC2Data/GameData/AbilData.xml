@@ -638,12 +638,13 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="300"/>
+            <Resource index="Terrazine" value="150"/>
+            <Vital index="Energy" value="50"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
-                <TimeStart value="45"/>
-                <TimeUse value="45"/>
+                <TimeStart value="5"/>
+                <TimeUse value="5"/>
             </Charge>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnInfestor3v3" Requirements="RequirementArmor1"/>
@@ -691,13 +692,13 @@
         <Cost>
             <Resource index="Terrazine" value="20"/>
             <Charge>
-                <CountMax value="3"/>
+                <CountMax value="5"/>
                 <CountUse value="1"/>
                 <TimeStart value="2"/>
                 <TimeUse value="2"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3" Requirements="Only3Larva"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnLarva3v3" Requirements="Only5Larva"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SpawnSlowling">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -873,11 +874,11 @@
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Flags index="IgnoreUnitCost" value="1"/>
         <Flags index="WaitForFood" value="0"/>
-        <InfoArray index="Train1" Time="3" Effect="ApplyPrecursorSpawner">
+        <InfoArray index="Train1" Effect="ApplyPrecursorSpawner">
             <Vital index="Energy" value="50"/>
             <Charge>
-                <CountMax value="4"/>
-                <CountStart value="4"/>
+                <CountMax value="2"/>
+                <CountStart value="2"/>
                 <CountUse value="1"/>
                 <Link value="Abil/TrainSpawner"/>
                 <Location value="Unit"/>
@@ -3927,8 +3928,8 @@
             <Button DefaultButtonFace="SpawnInfestor" Requirements="RequirementInfestor"/>
             <Unit value="InfestorZergHex2"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="20">
-            <Vital index="Energy" value="75"/>
+        <InfoArray index="Train7">
+            <Vital index="Energy" value="300"/>
             <Button DefaultButtonFace="BuildMechaHydralisk"/>
             <Unit value="MechaHydralisk"/>
         </InfoArray>

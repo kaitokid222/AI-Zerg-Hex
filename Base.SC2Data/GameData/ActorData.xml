@@ -131,6 +131,45 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
+    <CActorAction id="SpineCrawlerAttack3v3" parent="GenericAttack" effectImpact="ImpalerTentacleU3v3" effectLaunch="ImpalerTentacleLM3v3">
+        <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
+        <LaunchAttachQuery Methods="Weapon"/>
+        <LaunchAssets Sound="SpineCrawler_AttackLaunch"/>
+        <Missile value="SpineCrawlerAttackMissile3v3"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
+        <ImpactSiteOpsReaction Ops="SOp2DRotation SOp180" HoldPosition="1" HoldRotation="1"/>
+        <ImpactMap index="None" Sound="SpineCrawler_AttackImpact"/>
+        <ImpactMap index="LightArmor" ModelReaction="LightArmorTargetImpact"/>
+        <ImpactMap index="Metal" ModelReaction="MetalTargetImpact"/>
+        <ImpactPhysics Name="ImpalerTentacleHurl" MatchKeys="SpineCrawlerHurl" Physics="SpineCrawlerHurlDeathForce"/>
+        <ImpactPhysics Name="ImpalerTentacleImpact" MatchKeys="Basic" Physics="SpineCrawlerAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="30.000000"/>
+        <AcquisitionPitchHalfArc value="60.000000"/>
+        <ActionFlags index="VictimRevealsAttacker" value="1"/>
+    </CActorAction>
+    <CActorMissile id="SpineCrawlerAttackMissile3v3" parent="GenericTentacleMissile" unitName="SpineCrawlerWeapon3v3">
+        <Supporter>
+            <Subject value="_Selectable"/>
+            <Scope value="Caster"/>
+            <Actor value="Find"/>
+            <Effect value="ImpalerTentacleLM3v3"/>
+        </Supporter>
+        <Remove Terms="UnitBirth" Send="AnimBracketStart Lifetime Birth Stand"/>
+        <On Terms="UnitBirth" Send="AnimPlay Main Birth"/>
+        <On Terms="Effect.*.Return" Send="AnimPlay Main Back PlayForever"/>
+        <On Terms="SupporterDestruction" Send="$Death"/>
+        <On Terms="MotionPhaseStart; MotionPhase" Target="::Supporter" Send="RefSet TentacleAttack ::Self"/>
+        <Model value="Invisible"/>
+        <BarHeight value="1"/>
+        <BarWidth value="1"/>
+        <HostReturn>
+            <Subject value="_Selectable"/>
+            <Scope value="Caster"/>
+            <Actor value="Find"/>
+            <Effect value="ImpalerTentacleLM3v3"/>
+        </HostReturn>
+        <HostReturnSiteOps Ops="SOpAttachHardPoint"/>
+    </CActorMissile>
     <CActorModel id="UnstableCoreExplode" parent="ModelAnimationStyleOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <On index="0" Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
