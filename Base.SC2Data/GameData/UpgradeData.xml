@@ -325,9 +325,9 @@
     <CUpgrade id="ChemicalPlant"/>
     <CUpgrade id="MarineMobileSquadTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
-        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train15].Time" Value="0.500000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train17].Time" Value="0.500000"/>
-        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train16].Time" Value="0.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train15].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train17].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train16].Time" Value="1.000000"/>
     </CUpgrade>
     <CUpgrade id="MarinePenetratingLaser">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
