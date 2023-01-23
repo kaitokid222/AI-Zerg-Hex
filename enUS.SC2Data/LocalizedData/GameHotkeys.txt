@@ -136,6 +136,7 @@ Button/Hotkey/MutateintoGeyserBlocker=B
 Button/Hotkey/MutateintoGreaterMineralExtractor=Z
 Button/Hotkey/MutateintoInfusedRoachSpawner=R
 Button/Hotkey/MutateintoMechaSpineCrawler=E
+Button/Hotkey/MutateintoMechaTechlab=W
 Button/Hotkey/MutateintoMechaTerrazineExtractor=F
 Button/Hotkey/MutateintoMineralContainer=X
 Button/Hotkey/MutateintoMineralExtractor=Z

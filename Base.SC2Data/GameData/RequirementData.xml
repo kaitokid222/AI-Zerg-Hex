@@ -59,6 +59,9 @@
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>
+    <CRequirement id="OnlyOneMechaTechlab">
+        <NodeArray index="Use" Link="LT1676206664CountUnitMechaTechlabQueuedOrBetter1"/>
+    </CRequirement>
     <CRequirement id="OnlyOneNydus">
         <NodeArray index="Use" Link="Not225427478CountUnitNydusCanalQueuedOrBetter"/>
     </CRequirement>

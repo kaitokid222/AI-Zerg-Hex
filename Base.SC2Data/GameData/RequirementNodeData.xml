@@ -402,6 +402,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MechaMineralExtractor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitMechaTechlabQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MechaTechlab" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="NapalmBomb" State="CompleteOnlyAtUnit"/>
@@ -1341,6 +1346,10 @@
     <CRequirementLT id="LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40">
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="40"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT1676206664CountUnitMechaTechlabQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitMechaTechlabQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LT2011835200CountUnitChaosLordQueuedOrBetter1">
         <OperandArray index="0" value="CountUnitChaosLordQueuedOrBetter"/>

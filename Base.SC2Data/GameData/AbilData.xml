@@ -3506,6 +3506,9 @@
         <InfoArray index="Build25" Unit="MechaMineralExtractor" Time="40">
             <Button DefaultButtonFace="MutateintoMechaTerrazineExtractor" Requirements="CreepTower"/>
         </InfoArray>
+        <InfoArray index="Build26" Unit="MechaTechlab" Time="60">
+            <Button DefaultButtonFace="MutateintoMechaTechlab" Requirements="OnlyOneMechaTechlab"/>
+        </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">
         <Name value="Abil/Name/TransferEnergyPylon"/>

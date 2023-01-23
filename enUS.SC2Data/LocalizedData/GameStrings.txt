@@ -830,6 +830,7 @@ Button/Name/MutateintoGeyserBlocker=Mutate into Geyser Blocker
 Button/Name/MutateintoGreaterMineralExtractor=Mutate into Greater Mineral Extractor
 Button/Name/MutateintoInfusedRoachSpawner=Mutate into Infused Roach Spawner
 Button/Name/MutateintoMechaSpineCrawler=Mutate into Mecha Spine Crawler
+Button/Name/MutateintoMechaTechlab=Mutate into Mecha Techlab
 Button/Name/MutateintoMechaTerrazineExtractor=Mutate into Terrazine Extractor.
 Button/Name/MutateintoMineralContainer=Mutate into Mineral Container
 Button/Name/MutateintoMineralExtractor=Mutate into Mineral Extractor
@@ -1321,6 +1322,7 @@ Button/Tooltip/MechaHydralisk=
 Button/Tooltip/MechaInfestorUpgradeCache=Unlocks the following upgrades at the Mecha Infestation Pit:<n/><ul indent="2" text="•"><li/>Unlock the Mecha Infestor's UMI-C Charging Protocol ability, which allows it to restore health, Egonergy, and energy over time to a target friendly unit. The unit's ability cooldown rate is also increased.<li/>Allow the Mecha Infestor's Roaches Away! and Deconstructive Roach-nite abilities to spawn an additional Mecha Ravager.
 Button/Tooltip/MechaMineralExtractor=
 Button/Tooltip/MechaRoach=
+Button/Tooltip/MechaTechlab=Contains upgrades for Zerg ground units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Aberrations from Larvae with Lair or Hive
 Button/Tooltip/MechaUpgradeMenu=Mecha Upgrades
 Button/Tooltip/Mechaling=
 Button/Tooltip/MechalingDurability=Increases Mechaling HP by 25, Armor by 1 and Size by 20%
@@ -1347,6 +1349,7 @@ Button/Tooltip/MutateintoGeyserBlocker=Mutated over a Vespene Geyser to deny ter
 Button/Tooltip/MutateintoGreaterMineralExtractor=Upgrades the extractor to give four times as much minerals per minute.<n/><n/>Has 250 more hp and 3 armor.
 Button/Tooltip/MutateintoInfusedRoachSpawner=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="94D1D1">Re-spawns 1 unit</c> <c val="E8E191">(100 sec spawn time)</c>
 Button/Tooltip/MutateintoMechaSpineCrawler=Primary defense structure.
+Button/Tooltip/MutateintoMechaTechlab=Allows to upgrade Mecha units and structures.
 Button/Tooltip/MutateintoMechaTerrazineExtractor=Increase  your Terrazine Income by 30% and your allies Terrazine income by 10%.
 Button/Tooltip/MutateintoMineralContainer=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MutateintoMineralExtractor=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
@@ -3606,6 +3609,7 @@ RequirementNode/Tooltip/LT1405264593CountBehaviorLarvaCountDummyStackQueuedOrBet
 RequirementNode/Tooltip/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=Bunker isnt upgraded already
 RequirementNode/Tooltip/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=Max Reached
 RequirementNode/Tooltip/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=Maxed
+RequirementNode/Tooltip/LT1676206664CountUnitMechaTechlabQueuedOrBetter1=You can only have one Mecha Techlab!
 RequirementNode/Tooltip/LT2011835200CountUnitChaosLordQueuedOrBetter1=You can only have 1 Chaos Lord!
 RequirementNode/Tooltip/LT2473741311CountUnitRavager2QueuedOrBetter30=Have Less Than 30
 RequirementNode/Tooltip/LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60=Max 60
@@ -3778,6 +3782,7 @@ Unit/Name/MechaMineralExtractor=Terrazine Extractor
 Unit/Name/MechaRoach=Mecha Roach
 Unit/Name/MechaSlowling=Slowling
 Unit/Name/MechaSpineCrawler=Mecha Spine Crawler
+Unit/Name/MechaTechlab=Mecha Techlab
 Unit/Name/Mechaling=Mechaling
 Unit/Name/MeleeMinionHell=Melee Minion
 Unit/Name/MineralContainer=Mineral Container

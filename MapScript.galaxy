@@ -19851,7 +19851,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "HiveMindEmulator"))) {
+        if (!((UnitGetType(EventUnit()) == "MechaTechlab"))) {
             return false;
         }
 
@@ -19865,9 +19865,8 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TechTreeUpgradeAddLevel(gv_players[lv_owner].lv__3v3_zerg_pid, lv_upgrade, 1);
     if (((lv_upgrade == "NydusUpgrade") || (lv_upgrade == "NydusUpgrade2") || (lv_upgrade == "NydusUpgrade3"))) {
-        lv_ug = UnitGroup("NydusCanal", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        lv_ug = UnitGroup("NydusCanal", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         autoF493FD12_val = lv_upgrade;
         if (autoF493FD12_val == "NydusUpgrade") {
             auto5B21AB29_g = lv_ug;
@@ -19901,7 +19900,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
     }
 
     if (((lv_upgrade == "MechalingDurability") || (lv_upgrade == "JUICEModule") || (lv_upgrade == "ImprovedLiquids") || (lv_upgrade == "UnstableCore") || (lv_upgrade == "HUGSAlgorythm"))) {
-        lv_ug = UnitGroup("Mechaling", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        lv_ug = UnitGroup("Mechaling", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto1C59175E_val = lv_upgrade;
         if (auto1C59175E_val == "MechalingDurability") {
             auto55C975D3_g = lv_ug;
@@ -19913,7 +19912,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
             }
         }
         else if (auto1C59175E_val == "JUICEModule") {
-            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
             auto4D0A4A7E_g = lv_ug;
             auto4D0A4A7E_u = UnitGroupCount(auto4D0A4A7E_g, c_unitCountAll);
             for (;; auto4D0A4A7E_u -= 1) {
@@ -19923,7 +19922,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
             }
         }
         else if (auto1C59175E_val == "ImprovedLiquids") {
-            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", gv_players[lv_owner].lv__3v3_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
             auto1C9A3F6B_g = lv_ug;
             auto1C9A3F6B_u = UnitGroupCount(auto1C9A3F6B_g, c_unitCountAll);
             for (;; auto1C9A3F6B_u -= 1) {
