@@ -19874,7 +19874,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
             for (;; auto5B21AB29_u -= 1) {
                 auto5B21AB29_var = UnitGroupUnitFromEnd(auto5B21AB29_g, auto5B21AB29_u);
                 if (auto5B21AB29_var == null) { break; }
-                UnitSetScale(auto5B21AB29_var, 120.0, 120.0, 120.0);
+                UnitSetScale(auto5B21AB29_var, 90.0, 90.0, 90.0);
             }
         }
         else if (autoF493FD12_val == "NydusUpgrade2") {
@@ -19883,7 +19883,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
             for (;; autoAC9DC226_u -= 1) {
                 autoAC9DC226_var = UnitGroupUnitFromEnd(autoAC9DC226_g, autoAC9DC226_u);
                 if (autoAC9DC226_var == null) { break; }
-                UnitSetScale(autoAC9DC226_var, 110.0, 110.0, 110.0);
+                UnitSetScale(autoAC9DC226_var, 100.0, 100.0, 100.0);
             }
         }
         else if (autoF493FD12_val == "NydusUpgrade3") {
