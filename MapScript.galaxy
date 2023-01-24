@@ -6962,8 +6962,8 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Creeper")) {
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha");
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "SetTintColor 128,255,0 0.000000 OneShot {} 110.000000");
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha_Flyer");
+            UnitSetPropertyFixed(autoC88EA9BF_var, c_unitPropHeight, 0.5);
         }
 
         if ((lv_unit_type == "Strikeling")) {
@@ -6986,6 +6986,14 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Brutalisk2")) {
+        }
+
+        if ((lv_unit_type == "Ravator")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Ravager_Mecha");
+        }
+
+        if ((lv_unit_type == "BanelingZergHex")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Baneling_Mecha");
         }
 
     }

@@ -941,6 +941,7 @@ Button/Name/ResearchZergArmor43v3=Research Zerg Armor 4
 Button/Name/ResearchZergArmor5=Research Zerg Armor 5
 Button/Name/ResearchZergArmor53v3=Research Zerg Armor 5
 Button/Name/ResearchZergAttack=Research Zerg Attack
+Button/Name/ResearchZergAttack3v3=Research Zerg Attack
 Button/Name/ResearchZergMovement=Research Zerg Movement
 Button/Name/ResearchZergMovement3v3=Research Zerg Movement
 Button/Name/ResetRally=Reset Rally
@@ -1483,6 +1484,7 @@ Button/Tooltip/ResearchZergArmor43v3=- Enables spawning of <c val="ffff8a">Ultra
 Button/Tooltip/ResearchZergArmor5=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/>- Enables spawning of the <c val="8761F8">Omegalisk</c>. <n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
 Button/Tooltip/ResearchZergAttack=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergAttack3v3=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Your units attack increase automatically when the AI upgrade it's attack.</c>
 Button/Tooltip/ResearchZergMovement=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergMovement3v3=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)</n></n><c val="D95200">Recude spawn time of ZCC units by 2 seconds.</c>
 Button/Tooltip/ResetRally=Sets the rally point to the closest Terran base.
@@ -1541,9 +1543,9 @@ Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. 
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
 Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
-Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/>- Spawn Point for Zerg Control Center spawns<n/>- Creep Tower for Creep Spread and Income<n/>- Mecha Spine Crawler to fortify positions.
+Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that increases the spawn rate of your team's zerg units.<n/>- Mecha Terrazine Extractor that multiply your terrazine income.<n/>- Mecha Spine Crawler to fortify positions.<n/>- Mecha Tech Lab to buy defensive upgrades.
 Button/Tooltip/SpawnMenuLarge=Special Units
-Button/Tooltip/SpawnMenuSmall=Regular Units
+Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
