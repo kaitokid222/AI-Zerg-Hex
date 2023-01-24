@@ -468,7 +468,7 @@
         <AbilArray Link="HydraliskFrenzy"/>
         <AbilArray Link="RegenerateShields"/>
         <WeaponArray Link="HydraliskMelee2"/>
-        <WeaponArray Link="HydraliskNeedleSpines2"/>
+        <WeaponArray Link="MechaNeedleSpines"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -2095,6 +2095,11 @@
             <LayoutButtons Face="SpawnFromCenter" Type="AbilCmd" AbilCmd="ZCCCenter,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="SpawnFromRight" Type="AbilCmd" AbilCmd="ZCCRight,Execute" Row="1" Column="3"/>
         </CardLayouts>
+    </CUnit>
+    <CUnit id="MechaNeedleSpineMissile" parent="MISSILE">
+        <Name value="Unit/Name/HydraliskGroundWeapon"/>
+        <Mover value="PrimalNeedleSpinesWeapon2"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="Probe">
         <CardLayouts index="1">

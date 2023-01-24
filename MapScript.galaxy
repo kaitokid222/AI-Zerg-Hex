@@ -20056,7 +20056,7 @@ bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaMineralExtractor")))) {
+        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaMineralExtractor") || (UnitGetType(EventUnitProgressUnit()) == "MechaTechlab")))) {
             return false;
         }
     }
