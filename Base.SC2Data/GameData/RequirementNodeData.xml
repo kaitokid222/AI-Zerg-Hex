@@ -144,10 +144,6 @@
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeZergArmor1CompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUpgradeZergArmor1QueuedOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <OperandArray value="CountUpgradeZergArmor1QueuedOnly"/>
-    </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeZergArmor2CompleteOnly">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeZergArmor2CompleteOnly"/>
@@ -1135,11 +1131,6 @@
     <CRequirementCountUpgrade id="CountUpgradeZergArmor1CompleteOnly1850040327">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergArmor1" State="CompleteOnly"/>
-    </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeZergArmor1QueuedOnly">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="ZergArmor1"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeZergArmor1QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>

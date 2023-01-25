@@ -2620,7 +2620,6 @@ RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpg
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563=CountUpgrade(Tier3Equipment,CompleteOnly){Tier 3 Equipment} && (CountBehavior(BarracksNearby,CompleteOnlyAtUnit){Nearby Barracks} || CountUpgrade(MarineMobileSquadTraining,CompleteOnly){Mobile Squad Training Research})
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5=CountUpgrade(Tier3Equipment,CompleteOnly) && CountUnit(ChaosDefiler,QueuedOrBetter) < {10 Stacks of Blood}5
 RequirementNode/Name/AndCountUpgradeZergArmor1CompleteOnly=CountUpgrade(ZergArmor1,CompleteOnly) && ()
-RequirementNode/Name/AndCountUpgradeZergArmor1QueuedOnly=CountUpgrade(ZergArmor1,QueuedOnly) && ()
 RequirementNode/Name/AndCountUpgradeZergArmor2CompleteOnly=CountUpgrade(ZergArmor2,CompleteOnly) && ()
 RequirementNode/Name/AndCountUpgradeZergArmor3CompleteOnly=CountUpgrade(ZergArmor3,CompleteOnly) && ()
 RequirementNode/Name/AndCountUpgradeZergArmor5CompleteOnly=CountUpgrade(ZergArmor5,CompleteOnly) && ()
@@ -2868,7 +2867,6 @@ RequirementNode/Name/CountUpgradeUpgradedCombatShieldQueuedOrBetter=CountUpgrade
 RequirementNode/Name/CountUpgradeWeaponCapacityQueuedOrBetter=CountUpgrade(WeaponCapacity,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeZergArmor1CompleteOnly=CountUpgrade(ZergArmor1,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor1CompleteOnly1850040327=CountUpgrade(ZergArmor1,CompleteOnly){Armor 1 Research}
-RequirementNode/Name/CountUpgradeZergArmor1QueuedOnly=CountUpgrade(ZergArmor1,QueuedOnly)
 RequirementNode/Name/CountUpgradeZergArmor1QueuedOrBetter=CountUpgrade(ZergArmor1,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly=CountUpgrade(ZergArmor2,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly1814853743=CountUpgrade(ZergArmor2,CompleteOnly){Research Armor 2}

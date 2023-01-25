@@ -80,7 +80,7 @@
         <NodeArray index="Show" Link="NotCountUpgradeMechalingDurabilityQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementHydralicAugment">
-        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1QueuedOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeHydralicAugmentQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="NydusUpgrade">

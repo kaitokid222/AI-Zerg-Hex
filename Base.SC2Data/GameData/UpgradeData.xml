@@ -117,7 +117,7 @@
         <EffectArray Operation="Subtract" Reference="Weapon,MechaClaws,Period" Value="0.356000"/>
     </CUpgrade>
     <CUpgrade id="MetalbolicBoost">
-        <EffectArray Reference="Unit,Mechaling,Speed" Value="1.000000"/>
+        <EffectArray Reference="Unit,Mechaling,Speed" Value="0.398400"/>
     </CUpgrade>
     <CUpgrade id="RecyclingProtocol">
         <EffectArray Reference="Abil,CreepTowerTrain,InfoArray[Train1].Charge.CountMax" Value="2"/>
