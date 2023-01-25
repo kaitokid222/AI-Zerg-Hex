@@ -36,6 +36,12 @@
         <Icon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
     </CButton>
+    <CButton id="MutateintoMechaTechlab">
+        <Icon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value=""/>
+    </CButton>
     <CButton id="SynteticAdrenalPumps">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>

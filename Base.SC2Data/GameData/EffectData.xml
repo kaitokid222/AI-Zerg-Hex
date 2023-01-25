@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectLaunchMissile id="MechaNeedleSpinesLM">
+        <ValidatorArray index="0" value="ZergProtectiveBaseMainAttackBarrier"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="MechaHydraNeedleSpineImpactSet"/>
+        <AmmoUnit value="MechaNeedleSpineMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="MechaNeedleSpinesRangedDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Armored" value="-0.25"/>
+        <Kind value="Ranged"/>
+        <Amount value="15"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ImpalerTentacleLM3v3">
+        <ValidatorArray index="0" value="SpineCrawlerLMTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="ImpalerTentacleU3v3"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="SpineCrawlerWeapon3v3"/>
+        <ReturnDelay value="0.175"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractShort" IfRangeLTE="3"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="7"/>
+        <Movers Link="SpineCrawlerTentacleExtendShort" IfRangeLTE="3"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="7"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ImpalerTentacleU3v3" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Melee"/>
+        <Amount value="30"/>
+    </CEffectDamage>
     <CEffectSet id="MechaShieldTick">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -8,6 +37,9 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="HUGSAlgorythm"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="MechaHydraNeedleSpineImpactSet">
+        <EffectArray value="MechaNeedleSpinesRangedDamage"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="ShieldActiveAB">
         <WhichUnit Value="Caster"/>
         <Behavior value="MechaShieldActive"/>
@@ -20,7 +52,7 @@
         <EditorCategories value="Race:Zerg"/>
         <ImpactLocation Value="SourceUnit"/>
         <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="2.2" Effect="UnstableCoreExplodeDamage"/>
+        <AreaArray Radius="1.5" Effect="UnstableCoreExplodeDamage"/>
         <SearchFlags index="SameCliff" value="1"/>
     </CEffectEnumArea>
     <CEffectDamage id="UnstableCoreExplodeDamage" parent="DU_WEAP">
@@ -28,8 +60,8 @@
         <AINotifyFlags index="HurtEnemy" value="1"/>
         <ImpactLocation Value="TargetUnit"/>
         <Kind value="Splash"/>
-        <Amount value="30"/>
-        <Death value="Disintegrate"/>
+        <Amount value="15"/>
+        <Death value="Fire"/>
     </CEffectDamage>
     <CEffectSet id="MechalingUnstableCoreExplode">
         <EffectArray value="UnstableCoreExplodeSearchArea"/>
