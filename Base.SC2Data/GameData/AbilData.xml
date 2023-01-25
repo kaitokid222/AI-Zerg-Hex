@@ -814,7 +814,7 @@
         <Cost index="0">
             <Vital index="Life" value="20"/>
         </Cost>
-        <CmdButtonArray index="Execute" Requirements=""/>
+        <CmdButtonArray index="Execute" Requirements="UseOvercharge"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="OverchargeSpawner">
         <Alignment value="Positive"/>
@@ -3046,7 +3046,7 @@
             <Vital index="Life" value="0"/>
             <Cooldown TimeUse="30"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MarineOvercharge" Requirements="UseOvercharge"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MarineOvercharge"/>
     </CAbilEffectInstant>
     <CAbilResearch id="ResearchStatic">
         <EditorCategories value="AbilityorEffectType:Units"/>
