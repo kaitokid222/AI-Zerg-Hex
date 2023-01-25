@@ -36,13 +36,13 @@
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
-        <On Terms="WeaponStart.NeedleSpines.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
-        <On Terms="WeaponStart.NeedleSpines.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
+        <On Terms="WeaponStart.MechaNeedleSpines.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
+        <On Terms="WeaponStart.MechaNeedleSpines.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
         <On Terms="WeaponStart.HydraliskMelee.AttackStart" Send="AnimPlay AttackCover Attack,Cover"/>
-        <On Terms="WeaponStart.NeedleSpines.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop AttackSuperior"/>
-        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop AttackInferior"/>
-        <On Terms="WeaponStop.NeedleSpines.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechaNeedleSpines.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.MechaNeedleSpines.AttackStop" Send="AnimBracketStop AttackSuperior"/>
+        <On Terms="WeaponStop.MechaNeedleSpines.AttackStop" Send="AnimBracketStop AttackInferior"/>
+        <On Terms="WeaponStop.MechaNeedleSpines.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,00" Send="TimerSet 0.400000 MeleeAttackLaunch"/>
         <On Terms="WeaponStart.HydraliskMelee.AttackStart; AnimPlaying AttackCover Cover,01" Send="TimerSet 0.100000 MeleeAttackLaunch"/>
@@ -158,6 +158,21 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
+    <CActorMissile id="MechaNeedleSpineMissile" parent="GenericAttackMissile" unitName="MechaNeedleSpineMissile">
+        <Model value="BacklashRocketsLMWeapon"/>
+    </CActorMissile>
+    <CActorAction id="MechaHydraliskAttack" parent="GenericAttack" effectImpact="MechaNeedleSpinesRangedDamage" effectLaunch="MechaNeedleSpinesLM">
+        <LaunchSiteOps Ops="SOpAttachHead SOpForwardImpactGuide"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
+        <LaunchAssets Sound="PrimalHydralisk_GroundAttackLaunch"/>
+        <Missile value="MechaNeedleSpineMissile"/>
+        <ImpactMap index="None" Model="" Sound="PrimalHydralisk_AttackImpactRanged"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="NeedleSpinesImpact" MatchKeys="Basic" Physics="HydraliskAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="20.000000"/>
+        <AcquisitionPitchHalfArc value="20.000000"/>
+        <AccuracyHalfArc value="25.000000"/>
+    </CActorAction>
     <CActorAction id="SpineCrawlerAttack3v3" parent="GenericAttack" effectImpact="ImpalerTentacleU3v3" effectLaunch="ImpalerTentacleLM3v3">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
         <LaunchAttachQuery Methods="Weapon"/>
@@ -527,7 +542,7 @@
         <DeathArray index="UnderConstruction" ModelLink="Spire_Mecha_DeathUnderConstruction" SoundLink="Spire_Explode"/>
         <DeathCustoms ModelLink="SpireDeathUnderConstruction" SoundLink="Spire_Explode" Name="Upgrade"/>
         <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
-        <PlacementModel value="Spire_Mecha_Build"/>
+        <PlacementModel value="Spire_Mecha_Placement"/>
         <PortraitModel value="Spire_Mecha_Portrait"/>
         <BarOffset value="190"/>
         <BarWidth value="100"/>
