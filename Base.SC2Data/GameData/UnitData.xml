@@ -2024,8 +2024,8 @@
         <PlacementFootprint value="Footprint2x2Nydus"/>
         <LifeStart value="2500"/>
         <LifeMax value="2500"/>
-        <EnergyStart value="250"/>
-        <EnergyMax value="1000"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="800"/>
         <BehaviorArray index="1" Link="IsSpawner"/>
         <EnergyRegenRate value="2"/>
     </CUnit>

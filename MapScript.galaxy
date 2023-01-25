@@ -6587,9 +6587,29 @@ void gf_magic () {
 }
 
 fixed gf_get_terrazine_income (int lp_player_id) {
+    // Variable Declarations
+    int lv_income;
+
     // Automatic Variable Declarations
+    unitgroup autoD2F55290_g;
+    int autoD2F55290_u;
+    unit autoD2F55290_var;
+
+    // Variable Initialization
+
     // Implementation
-    return (gv_players[lp_player_id].lv__3v3_terrazine_income * gf_get_terrazine_multiplier(lp_player_id));
+    lv_income = gv_players[lp_player_id].lv__3v3_terrazine_income;
+    autoD2F55290_g = gf_get_nydus_of_team(lp_player_id);
+    autoD2F55290_u = UnitGroupCount(autoD2F55290_g, c_unitCountAll);
+    for (;; autoD2F55290_u -= 1) {
+        autoD2F55290_var = UnitGroupUnitFromEnd(autoD2F55290_g, autoD2F55290_u);
+        if (autoD2F55290_var == null) { break; }
+        if ((UnitGetOwner(autoD2F55290_var) == gv_players[lp_player_id].lv__3v3_zerg_pid)) {
+            lv_income += 4;
+        }
+
+    }
+    return (lv_income * gf_get_terrazine_multiplier(lp_player_id));
 }
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {

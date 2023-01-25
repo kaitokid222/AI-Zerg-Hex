@@ -2606,6 +2606,11 @@ RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgr
 RequirementNode/Name/AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052=CountUnit(HiveMindEmulator,CompleteOnly){Zerg Control Center} && CountUpgrade(ZergArmor2,CompleteOnly){Zerg Armor 2}
 RequirementNode/Name/AndCountUpgradeGasExtraction2CompleteOnly427659588=CountUpgrade(GasExtraction2,CompleteOnly){Complete Gas Extraction 2} && ()
 RequirementNode/Name/AndCountUpgradeGasExtractionCompleteOnly4054536818=CountUpgrade(GasExtraction,CompleteOnly){Complete Gas Extraction 1} && ()
+RequirementNode/Name/AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor2CompleteOnly=CountUpgrade(JUICEModule,CompleteOnly) && CountUpgrade(ZergArmor2,CompleteOnly)
+RequirementNode/Name/AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor5CompleteOnly=CountUpgrade(JUICEModule,CompleteOnly) && CountUpgrade(ZergArmor5,CompleteOnly)
+RequirementNode/Name/AndCountUpgradeNydusUpgrade2CompleteOnlyCountUpgradeZergArmor5CompleteOnly=CountUpgrade(NydusUpgrade2,CompleteOnly) && CountUpgrade(ZergArmor5,CompleteOnly)
+RequirementNode/Name/AndCountUpgradeNydusUpgradeCompleteOnlyCountUpgradeZergArmor3CompleteOnly=CountUpgrade(NydusUpgrade,CompleteOnly) && CountUpgrade(ZergArmor3,CompleteOnly)
+RequirementNode/Name/AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor4CompleteOnly=CountUpgrade(RecyclingProtocol,CompleteOnly) && CountUpgrade(ZergArmor4,CompleteOnly)
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && ()
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030CountUpgradeMarineConservationL1CompleteOnly2205661302=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && CountUpgrade(MarineConservationL1,CompleteOnly){Complete Conservation L1}
 RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnly729820030GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountUpgrade(Tier2Equipment,CompleteOnly){Tier 2 Equipment} && CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
@@ -2614,6 +2619,11 @@ RequirementNode/Name/AndCountUpgradeTier2EquipmentCompleteOnlyGTE3699583646Count
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL2CompleteOnly1428761563=CountUpgrade(Tier3Equipment,CompleteOnly){Tier 3 Equipment} && CountUpgrade(MarineConservationL2,CompleteOnly){Complete Conservation L2}
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnly1892408692OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563=CountUpgrade(Tier3Equipment,CompleteOnly){Tier 3 Equipment} && (CountBehavior(BarracksNearby,CompleteOnlyAtUnit){Nearby Barracks} || CountUpgrade(MarineMobileSquadTraining,CompleteOnly){Mobile Squad Training Research})
 RequirementNode/Name/AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5=CountUpgrade(Tier3Equipment,CompleteOnly) && CountUnit(ChaosDefiler,QueuedOrBetter) < {10 Stacks of Blood}5
+RequirementNode/Name/AndCountUpgradeZergArmor1CompleteOnly=CountUpgrade(ZergArmor1,CompleteOnly) && ()
+RequirementNode/Name/AndCountUpgradeZergArmor1QueuedOnly=CountUpgrade(ZergArmor1,QueuedOnly) && ()
+RequirementNode/Name/AndCountUpgradeZergArmor2CompleteOnly=CountUpgrade(ZergArmor2,CompleteOnly) && ()
+RequirementNode/Name/AndCountUpgradeZergArmor3CompleteOnly=CountUpgrade(ZergArmor3,CompleteOnly) && ()
+RequirementNode/Name/AndCountUpgradeZergArmor5CompleteOnly=CountUpgrade(ZergArmor5,CompleteOnly) && ()
 RequirementNode/Name/AndLT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1CountUpgradeSpawnBombersCompleteOnly3224540341=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < {Bunker isnt upgraded already}1 && CountUpgrade(SpawnBombers,CompleteOnly){Have Bomber Spawn Tech from the Armory!}
 RequirementNode/Name/AndLT2011835200CountUnitChaosLordQueuedOrBetter1GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100CountUpgradeTier2EquipmentCompleteOnly=CountUnit(ChaosLord,QueuedOrBetter) < {You can only have 1 Chaos Lord!}1 && CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 100 Blood Stacks}100 && CountUpgrade(Tier2Equipment,CompleteOnly)
 RequirementNode/Name/AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1=CountBehavior(SpawnFromCenter,CompleteOnlyAtUnit) < 1 && ()
@@ -2858,15 +2868,20 @@ RequirementNode/Name/CountUpgradeUpgradedCombatShieldQueuedOrBetter=CountUpgrade
 RequirementNode/Name/CountUpgradeWeaponCapacityQueuedOrBetter=CountUpgrade(WeaponCapacity,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeZergArmor1CompleteOnly=CountUpgrade(ZergArmor1,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor1CompleteOnly1850040327=CountUpgrade(ZergArmor1,CompleteOnly){Armor 1 Research}
+RequirementNode/Name/CountUpgradeZergArmor1QueuedOnly=CountUpgrade(ZergArmor1,QueuedOnly)
 RequirementNode/Name/CountUpgradeZergArmor1QueuedOrBetter=CountUpgrade(ZergArmor1,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly=CountUpgrade(ZergArmor2,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly1814853743=CountUpgrade(ZergArmor2,CompleteOnly){Research Armor 2}
 RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly2593968052=CountUpgrade(ZergArmor2,CompleteOnly){Zerg Armor 2}
 RequirementNode/Name/CountUpgradeZergArmor2CompleteOnly3976443666=CountUpgrade(ZergArmor2,CompleteOnly){Armor 2 Research}
 RequirementNode/Name/CountUpgradeZergArmor2QueuedOrBetter=CountUpgrade(ZergArmor2,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeZergArmor3CompleteOnly=CountUpgrade(ZergArmor3,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor3CompleteOnly3638424730=CountUpgrade(ZergArmor3,CompleteOnly){Armor 3 Research}
 RequirementNode/Name/CountUpgradeZergArmor3QueuedOrBetter=CountUpgrade(ZergArmor3,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeZergArmor4CompleteOnly=CountUpgrade(ZergArmor4,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor4CompleteOnly3065930054=CountUpgrade(ZergArmor4,CompleteOnly){Armor 4 Research}
 RequirementNode/Name/CountUpgradeZergArmor4QueuedOrBetter=CountUpgrade(ZergArmor4,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeZergArmor5CompleteOnly=CountUpgrade(ZergArmor5,CompleteOnly)
 RequirementNode/Name/CountUpgradeZergArmor5CompleteOnly2431451755=CountUpgrade(ZergArmor5,CompleteOnly){Armor 5 Research}
 RequirementNode/Name/CountUpgradeZergArmor5QueuedOrBetter=CountUpgrade(ZergArmor5,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeZergAttackCompleteOnly=CountUpgrade(ZergAttack,CompleteOnly)

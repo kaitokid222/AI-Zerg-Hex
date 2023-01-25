@@ -2507,6 +2507,7 @@ Variable/Name/AE358C52=support_type
 Variable/Name/AE559F92=impact_area
 Variable/Name/AE8FD334=i
 Variable/Name/AEAF6764=units going to base id
+Variable/Name/AEBFE904=income
 Variable/Name/AEE4BB3A=r
 Variable/Name/AF164DF1=drone_goal_array
 Variable/Name/AF44EBD5=resourceGet
