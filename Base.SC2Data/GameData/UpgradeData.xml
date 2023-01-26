@@ -62,8 +62,8 @@
     <CUpgrade id="NydusUpgrade2">
         <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="4.000000"/>
         <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="2"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="1000"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="1000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="1500"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="1500"/>
         <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="2.000000"/>
         <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.100000"/>
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="500"/>
@@ -72,8 +72,8 @@
     <CUpgrade id="NydusUpgrade3">
         <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="8.000000"/>
         <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="3"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="2000"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="2000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="2500"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="2500"/>
         <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="3.000000"/>
         <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.100000"/>
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="1000"/>
@@ -105,8 +105,8 @@
     <CUpgrade id="NydusUpgrade">
         <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="1.000000"/>
         <EffectArray Reference="Unit,NydusCanal,LifeArmor" Value="1"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="700"/>
-        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="700"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeStart" Value="1000"/>
+        <EffectArray Reference="Unit,NydusCanal,LifeMax" Value="1000"/>
         <EffectArray Reference="Unit,NydusCanal,LifeRegenRate" Value="1.000000"/>
         <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.200000"/>
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="200"/>

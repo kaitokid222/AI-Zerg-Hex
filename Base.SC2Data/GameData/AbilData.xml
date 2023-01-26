@@ -3516,7 +3516,7 @@
         <InfoArray index="Build19" Unit="CreepTumor2" Time="20">
             <Button DefaultButtonFace="MutateintoCreepTumor" Requirements="RequirementArmor1"/>
         </InfoArray>
-        <InfoArray index="Build22" Unit="NydusCanal" Time="20">
+        <InfoArray index="Build22" Unit="NydusCanal" Time="40">
             <Button DefaultButtonFace="NydusCanal"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="20">

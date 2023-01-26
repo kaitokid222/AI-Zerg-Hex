@@ -2024,8 +2024,8 @@
         </CardLayouts>
         <Footprint value="Footprint2x2Nydus"/>
         <PlacementFootprint value="Footprint2x2Nydus"/>
-        <LifeStart value="2500"/>
-        <LifeMax value="2500"/>
+        <LifeStart value="1200"/>
+        <LifeMax value="1200"/>
         <EnergyStart value="100"/>
         <EnergyMax value="800"/>
         <BehaviorArray index="1" Link="IsSpawner"/>
