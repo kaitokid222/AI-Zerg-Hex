@@ -941,6 +941,7 @@ Button/Name/ResearchZergArmor43v3=Research Zerg Armor 4
 Button/Name/ResearchZergArmor5=Research Zerg Armor 5
 Button/Name/ResearchZergArmor53v3=Research Zerg Armor 5
 Button/Name/ResearchZergAttack=Research Zerg Attack
+Button/Name/ResearchZergAttack3v3=Research Zerg Attack
 Button/Name/ResearchZergMovement=Research Zerg Movement
 Button/Name/ResearchZergMovement3v3=Research Zerg Movement
 Button/Name/ResetRally=Reset Rally
@@ -1327,7 +1328,7 @@ Button/Tooltip/MechaUpgradeMenu=Mecha Upgrades
 Button/Tooltip/Mechaling=
 Button/Tooltip/MechalingDurability=Increases Mechaling HP by 25, Armor by 1 and Size by 20%
 Button/Tooltip/MeleeMinionHell=
-Button/Tooltip/MetalbolicBoost=Doubles Movement speed.
+Button/Tooltip/MetalbolicBoost=Increase Movement speed by 40%.
 Button/Tooltip/MineralContainer=
 Button/Tooltip/MineralContainerPassiveInfo=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MineralExtractor=
@@ -1367,10 +1368,10 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
-Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center and grows creep used to feed nearby Zerg structures.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor and energy regeneration.
-Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor and energy regeneration.
-Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor and energy regeneration.
+Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+40 terrazine income per minute while it is alive</c>
+Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.
+Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.
+Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.
 Button/Tooltip/OmegaliskCocoon2=
 Button/Tooltip/OmegaliskZergHex=
 Button/Tooltip/OperationCenter=
@@ -1428,7 +1429,7 @@ Button/Tooltip/RecyclingProtocol2=Materials of destroyed Mechalings get recycled
 Button/Tooltip/Refinery2=
 Button/Tooltip/ResearchAdvancedBuild=Eliminates the cost of walls.<n/><n/><c val="ffff8a">Enables:</c><n/>- Structure: Converter
 Button/Tooltip/ResearchBankling=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
-Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 1 minerals upon creation.
+Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 1 minerals upon creation.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchBomberSpawns=Allows to upgrade bunkers to make them spawn bombers.
 Button/Tooltip/ResearchChemicalPlant=Enables building of the Chemical Plant, a structure producing gas and enabling the Firebat unit at Barracks.
 Button/Tooltip/ResearchCombatShield=<c val="ffff8a">Marines</c> gain +10 life.<n/><n/>Required for <c val="ffff8a">Veteran Marines</c>.
@@ -1437,10 +1438,10 @@ Button/Tooltip/ResearchConservationL2=Improves the energy efficiency of <c val="
 Button/Tooltip/ResearchConservationL3=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 200% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 200% efficiency.<n/><c val="ffff8a">Elite Marine</c>: 200% efficiency.
 Button/Tooltip/ResearchDeflectiveShatter=Improves <c val="ffff8a">Marines</c> laser shattering to deal as much damage as the initial impact.
 Button/Tooltip/ResearchDualHit=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.
-Button/Tooltip/ResearchDualHit3v3=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.
+Button/Tooltip/ResearchDualHit3v3=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchEliteScope=Increases the attack range, damage and vision of <c val="ffff8a">Elite Marines</c> by one.
 Button/Tooltip/ResearchFerocity=Enables all <c val="ffff8a">Creepers</c> to gain +0.5 damage for each attack to an enemy.
-Button/Tooltip/ResearchFerocity3v3=Enables all <c val="ffff8a">Creepers</c> to gain +0.5 damage for each attack to an enemy. Each attack to an enemy also increase unit duration by 2 seconds.
+Button/Tooltip/ResearchFerocity3v3=Enables all <c val="ffff8a">Creepers</c> to gain +0.5 damage for each attack to an enemy. Each attack to an enemy also increase unit duration by 2 seconds.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchGasExtraction=Enables the Construction Yard to extract gas from underground as long as it is built outside the main base.<n/><n/>Produces 1 gas every 3 seconds.<n/><n/>Production is doubled with Solid Foundation.
 Button/Tooltip/ResearchGasExtraction2=Improves the Construction Yard extracting gas while it is built outside the main base.<n/><n/>Produces +1 more gas every 3 seconds.<n/><n/>Production is doubled with Solid Foundation.
 Button/Tooltip/ResearchGasExtraction3=Further improving the Construction Yard extracting gas while it is built outside the main base.<n/><n/>Produces +1 more gas every 3 seconds.<n/><n/>Production is doubled with Solid Foundation.
@@ -1454,20 +1455,20 @@ Button/Tooltip/ResearchMechaUltralisk=Upgrades Ultralisks to be Mecha Ultralisks
 Button/Tooltip/ResearchMobileSquadTraining=Allows <c val="ffff8a">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.
 Button/Tooltip/ResearchOvercharge=Enables <c val="ffff8a">Marines</c> to use the Overcharge ability. Overcharge doubles the attack speed for a short duration, can be used once every 30 seconds.
 Button/Tooltip/ResearchPackedMass=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.
-Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.
+Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a">Shock Troopers</c> to become paralyzed, decreasing their damage and speed by 50% for 2 seconds.
 Button/Tooltip/ResearchPenetratingLaser=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.
+Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchShatteringLaser=Upgrades all <c val="ffff8a">Marines</c> lasers to shatter upon impact, dealing 1/3/5 damage (depending on tier) to 2 nearby enemy units. Damage applies bonuses from the Armory and Penetrating Laser research.
 Button/Tooltip/ResearchShockBeam=Enables <c val="ffff8a">Shock Troopers</c> to fire in a constant beam, effectively increasing attack speed by 100%.
 Button/Tooltip/ResearchShockOverload=More than doubles the impact radius of <c val="ffff8a">Shock Trooper</c> weapons.
 Button/Tooltip/ResearchSolarWeapons=Allows Terran Energy Weapons to passively generate energy on days.
 Button/Tooltip/ResearchSpikedWalls=Creates spikes on Walls and Gates to return 4 damage back to a melee attacker. Does not have an effect when Gates are lowered.
 Button/Tooltip/ResearchTarInfection=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchTarInfection3v3=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.
+Button/Tooltip/ResearchTarInfection3v3=Allows Roaches to infect enemy units upon attacking, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches will in turn also infect units upon attacking.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchTarSpawn=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.
+Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/><n/>Also allowing Roaches to initiate self destruct to send a Tar Roach to target location.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchTier2Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Veteran Marine<n/>- Firebat<n/>- Italis
 Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Elite Marine<n/>- Siege Tank
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
@@ -1483,8 +1484,9 @@ Button/Tooltip/ResearchZergArmor43v3=- Enables spawning of <c val="ffff8a">Ultra
 Button/Tooltip/ResearchZergArmor5=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/>- Enables spawning of the <c val="8761F8">Omegalisk</c>. <n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
 Button/Tooltip/ResearchZergAttack=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/ResearchZergAttack3v3=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Your units attack increase automatically when the AI upgrade it's attack.</c>
 Button/Tooltip/ResearchZergMovement=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergMovement3v3=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)</n></n><c val="D95200">Recude spawn time of ZCC units by 2 seconds.</c>
+Button/Tooltip/ResearchZergMovement3v3=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)</n></n><c val="D95200">Recude spawn time of ZCC units by 2 seconds.</c><n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResetRally=Sets the rally point to the closest Terran base.
 Button/Tooltip/Retarget=Attacks fired are redirected to a nearby enemy if the target has died before impact.<n/><n/>Redirects to enemies within 5 range of impact if it does not exceed a range of 16 from the Italis.
 Button/Tooltip/Roach=
@@ -1541,9 +1543,9 @@ Button/Tooltip/SpawnInfestor=Large Spawner builder with offensive capabilities. 
 Button/Tooltip/SpawnInfestor3v3=Spore Crawler builder with offensive capabilities. Gains energy while attacking, energy is required for Spore Crawlers.<n/><n/>Can transfuse to heal units or structures while increasing structures maximum health.<n/><n/><c val="E2E087">+1 energy per seconds for the Zerg Control Center.</c>
 Button/Tooltip/SpawnInfusedRoach=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/>
 Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="D95200">Spawn 1 unit lasting 240 seconds every 100 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
-Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/>- Spawn Point for Zerg Control Center spawns<n/>- Creep Tower for Creep Spread and Income<n/>- Mecha Spine Crawler to fortify positions.
+Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that increases the spawn rate of your team's zerg units.<n/>- Mecha Terrazine Extractor that multiply your terrazine income.<n/>- Mecha Spine Crawler to fortify positions.<n/>- Mecha Tech Lab to buy defensive upgrades.
 Button/Tooltip/SpawnMenuLarge=Special Units
-Button/Tooltip/SpawnMenuSmall=Regular Units
+Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>

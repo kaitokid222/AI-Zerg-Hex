@@ -503,60 +503,74 @@
             <Resource index="Vespene" value="600"/>
             <Button DefaultButtonFace="ResearchMechaUltralisk" Requirements="RequirementMechaUltraliskUpgrade"/>
         </InfoArray>
-        <InfoArray index="Research2" Time="120" Upgrade="MechalingDurability">
+        <InfoArray index="Research2" Upgrade="MechalingDurability">
             <Resource index="Minerals" value="100"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="MechalingDurability" Requirements="RequirementMechalingDurability"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="120" Upgrade="RecyclingProtocol">
+        <InfoArray index="Research3" Upgrade="RecyclingProtocol">
             <Resource index="Minerals" value="75"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="RecyclingProtocol" Requirements="RequirementRecyclingProtocol"/>
         </InfoArray>
-        <InfoArray index="Research4" Time="90" Upgrade="RecyclingProtocol2">
+        <InfoArray index="Research4" Upgrade="RecyclingProtocol2">
             <Resource index="Minerals" value="125"/>
+            <Vital index="Energy" value="90"/>
             <Button DefaultButtonFace="RecyclingProtocol2" Requirements="RequirementRecyclingProtocol2"/>
         </InfoArray>
-        <InfoArray index="Research5" Time="150" Upgrade="MetalbolicBoost">
+        <InfoArray index="Research5" Upgrade="MetalbolicBoost">
             <Resource index="Minerals" value="200"/>
+            <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="MetalbolicBoost" Requirements="RequirementMetalbolicBoost"/>
         </InfoArray>
-        <InfoArray index="Research6" Time="60" Upgrade="JUICEModule">
+        <InfoArray index="Research6" Upgrade="JUICEModule">
             <Resource index="Minerals" value="250"/>
+            <Vital index="Energy" value="60"/>
             <Button DefaultButtonFace="EnableJUICEModule" Requirements="RequirementMechalingJUICEModule"/>
         </InfoArray>
-        <InfoArray index="Research7" Time="90" Upgrade="ImprovedLiquids">
+        <InfoArray index="Research7" Upgrade="ImprovedLiquids">
             <Resource index="Minerals" value="75"/>
+            <Vital index="Energy" value="90"/>
             <Button DefaultButtonFace="ImprovedLiquids" Requirements="RequirementMechalingImprovedLiquids"/>
         </InfoArray>
-        <InfoArray index="Research8" Time="120" Upgrade="SynteticAdrenalPumps">
+        <InfoArray index="Research8" Upgrade="SynteticAdrenalPumps">
             <Resource index="Minerals" value="250"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="SynteticAdrenalPumps" Requirements="RequirementSynteticAdrenalPumps"/>
         </InfoArray>
-        <InfoArray index="Research9" Time="150" Upgrade="UnstableCore">
+        <InfoArray index="Research9" Upgrade="UnstableCore">
             <Resource index="Minerals" value="500"/>
+            <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="UnstableCore" Requirements="RequirementUnstableCore"/>
         </InfoArray>
-        <InfoArray index="Research10" Time="120" Upgrade="HUGSAlgorythm">
+        <InfoArray index="Research10" Upgrade="HUGSAlgorythm">
             <Resource index="Minerals" value="125"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="InstallHUGSAlgorythm" Requirements="RequirementHUGS"/>
         </InfoArray>
-        <InfoArray index="Research11" Time="60" Upgrade="HydralicAugment">
+        <InfoArray index="Research11" Upgrade="HydralicAugment">
             <Resource index="Minerals" value="50"/>
+            <Vital index="Energy" value="60"/>
             <Button DefaultButtonFace="HydralicAugment" Requirements="RequirementHydralicAugment"/>
         </InfoArray>
-        <InfoArray index="Research12" Time="90" Upgrade="SelfRecharchingBatteries">
+        <InfoArray index="Research12" Upgrade="SelfRecharchingBatteries">
             <Resource index="Minerals" value="125"/>
+            <Vital index="Energy" value="90"/>
             <Button DefaultButtonFace="SelfRechargingBatteries" Requirements="RequirementSelfRechargingBatteries"/>
         </InfoArray>
-        <InfoArray index="Research13" Time="90" Upgrade="NydusUpgrade">
+        <InfoArray index="Research13" Upgrade="NydusUpgrade">
             <Resource index="Minerals" value="200"/>
+            <Vital index="Energy" value="90"/>
             <Button DefaultButtonFace="NydusUpgrade" Requirements="NydusUpgrade"/>
         </InfoArray>
-        <InfoArray index="Research14" Time="120" Upgrade="NydusUpgrade2">
+        <InfoArray index="Research14" Upgrade="NydusUpgrade2">
             <Resource index="Minerals" value="300"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="NydusUpgrade2" Requirements="NydusUpgrade2"/>
         </InfoArray>
-        <InfoArray index="Research15" Time="150" Upgrade="NydusUpgrade3">
+        <InfoArray index="Research15" Upgrade="NydusUpgrade3">
             <Resource index="Minerals" value="500"/>
+            <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="NydusUpgrade3" Requirements="NydusUpgrade3"/>
         </InfoArray>
     </CAbilResearch>
@@ -1964,35 +1978,43 @@
         </InfoArray>
         <InfoArray index="Research7" Upgrade="ZergMovement">
             <Resource index="Vespene" value="175"/>
+            <Resource index="Terrazine" value="1400"/>
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
         </InfoArray>
         <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass">
             <Resource index="Vespene" value="75"/>
+            <Resource index="Terrazine" value="600"/>
             <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="ZergSpecializationCreeperFerocity">
             <Resource index="Vespene" value="100"/>
+            <Resource index="Terrazine" value="800"/>
             <Button DefaultButtonFace="ResearchFerocity3v3" Requirements="ResearchZergSpecialtyCreeperFerocity"/>
         </InfoArray>
         <InfoArray index="Research10" Upgrade="ZergSpecializationStrikelingDualHit">
             <Resource index="Vespene" value="175"/>
+            <Resource index="Terrazine" value="1400"/>
             <Button DefaultButtonFace="ResearchDualHit3v3" Requirements="ResearchZergSpecialtyStrikelingDualHit"/>
         </InfoArray>
         <InfoArray index="Research11" Upgrade="ZergSpecializationTanklingBankling">
             <Resource index="Vespene" value="50"/>
+            <Resource index="Terrazine" value="400"/>
             <Button DefaultButtonFace="ResearchBankling3v3" Requirements="ResearchZergSpecialtyTanklingBankling"/>
         </InfoArray>
         <InfoArray index="Research12" Upgrade="TarInfection">
             <Resource index="Vespene" value="125"/>
+            <Resource index="Terrazine" value="1000"/>
             <Button DefaultButtonFace="ResearchTarInfection3v3" Requirements="ResearchTarInfectionRequirement"/>
         </InfoArray>
         <InfoArray index="Research13" Upgrade="TarSpawn">
-            <Resource index="Vespene" value="188"/>
+            <Resource index="Vespene" value="185"/>
+            <Resource index="Terrazine" value="1500"/>
             <Button DefaultButtonFace="ResearchTarSpawn3v3" Requirements="ResearchTarSpawnRequirement"/>
         </InfoArray>
         <InfoArray index="Research14" Upgrade="PrimalRapidRespawn">
             <Resource index="Vespene" value="375"/>
+            <Resource index="Terrazine" value="3000"/>
             <Button DefaultButtonFace="ResearchPrimalRapidRespawn3v3" Requirements="ResearchPrimalRapidRespawnRequirement"/>
         </InfoArray>
     </CAbilResearch>
@@ -3494,8 +3516,8 @@
         <InfoArray index="Build19" Unit="CreepTumor2" Time="20">
             <Button DefaultButtonFace="MutateintoCreepTumor" Requirements="RequirementArmor1"/>
         </InfoArray>
-        <InfoArray index="Build22" Unit="NydusCanal" Time="20">
-            <Button DefaultButtonFace="NydusCanal" Requirements="RequirementArmor1"/>
+        <InfoArray index="Build22" Unit="NydusCanal" Time="40">
+            <Button DefaultButtonFace="NydusCanal"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="NydusCanalCreeper" Time="20">
             <Button DefaultButtonFace="SummonNydusCanalCreeper" Requirements="RequirementArmor1"/>
@@ -3933,7 +3955,7 @@
         </InfoArray>
         <InfoArray index="Train7">
             <Vital index="Energy" value="300"/>
-            <Button DefaultButtonFace="BuildMechaHydralisk"/>
+            <Button DefaultButtonFace="BuildMechaHydralisk" Requirements="RequirementArmor1"/>
             <Unit value="MechaHydralisk"/>
         </InfoArray>
         <RefundFraction Charge="0"/>

@@ -49,11 +49,11 @@
         <NodeArray index="Use" Link="NotCountUpgradeMode3v3CompleteOnly"/>
     </CRequirement>
     <CRequirement id="NydusUpgrade2">
-        <NodeArray index="Use" Link="CountUpgradeNydusUpgradeCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeNydusUpgradeCompleteOnlyCountUpgradeZergArmor3CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="NydusUpgrade3">
-        <NodeArray index="Use" Link="CountUpgradeNydusUpgrade2CompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeNydusUpgrade2CompleteOnlyCountUpgradeZergArmor5CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade3QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="Only2Morales">
@@ -69,45 +69,54 @@
         <NodeArray index="Show" Link="NotCountUpgradePlasmaCannonsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementSelfRechargingBatteries">
-        <NodeArray index="Use" Link="CountUpgradeJUICEModuleCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeSelfRecharchingBatteriesQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMechaUltraliskUpgrade">
         <NodeArray index="Show" Link="NotCountUpgradePZergMechaUltraliskUpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMechalingDurability">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeMechalingDurabilityQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementHydralicAugment">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeHydralicAugmentQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="NydusUpgrade">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeNydusUpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementSynteticAdrenalPumps">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor1CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeSynteticAdrenalPumpsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMechalingJUICEModule">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeJUICEModuleQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMechalingImprovedLiquids">
-        <NodeArray index="Use" Link="CountUpgradeJUICEModuleCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor5CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeImprovedLiquidsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementMetalbolicBoost">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor3CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeMetalbolicBoostQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementRecyclingProtocol">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRecyclingProtocolQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementRecyclingProtocol2">
-        <NodeArray index="Use" Link="CountUpgradeRecyclingProtocolCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor4CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRecyclingProtocol2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementUnstableCore">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor5CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeUnstableCoreQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementHUGS">
+        <NodeArray index="Use" Link="AndCountUpgradeZergArmor3CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeHUGSAlgorythmQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="SiegeTankBetterVersion">

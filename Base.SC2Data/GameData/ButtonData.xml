@@ -28,6 +28,10 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
         <HotkeyAlias value="NydusUpgrade"/>
     </CButton>
+    <CButton id="ResearchZergAttack3v3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+    </CButton>
     <CButton id="SelfRechargingBatteries">
         <Icon value="Assets\Textures\btn-ability-stetmann-garyattackandregen.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-garyattackandregen.dds"/>
@@ -295,7 +299,7 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="ZergUpgrades">
-        <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>
+        <Icon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="ResearchZergArmor13v3">
@@ -328,8 +332,8 @@
         <HotkeyAlias value="ResearchZergMovement"/>
     </CButton>
     <CButton id="SpawnCreeper3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-slivanminion.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-creeperhostspawnflyer-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-collection-creeperhostspawnflyer-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnSlowling3v3">
@@ -353,8 +357,8 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnBanelingGroup">
-        <Icon value="Assets\Textures\btn-unit-zerg-baneling.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-baneling.dds"/>
+        <Icon value="Assets\Textures\btn-unit-collection-baneling-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-collection-baneling-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnBeastling3v3">
@@ -387,8 +391,8 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnRavator3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ravager-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-collection-ravager-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnTorralisk3v3">

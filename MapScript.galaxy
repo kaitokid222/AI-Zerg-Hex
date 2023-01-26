@@ -659,6 +659,7 @@ void gf_reveal_bottom_hide_top (unit lp_unit);
 bool gf_is_3v3 ();
 bool gf_is_3v3_local_test ();
 region gf_get_region_of_influence_3v3 (int lp_player_position);
+playergroup gf_get_team_of_player (int lp_player_id);
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit);
 int gf_get_position_of_random_alive_player_from_group (playergroup lp_player_group);
 bool gf_is_pvp ();
@@ -6587,9 +6588,29 @@ void gf_magic () {
 }
 
 fixed gf_get_terrazine_income (int lp_player_id) {
+    // Variable Declarations
+    int lv_income;
+
     // Automatic Variable Declarations
+    unitgroup autoD2F55290_g;
+    int autoD2F55290_u;
+    unit autoD2F55290_var;
+
+    // Variable Initialization
+
     // Implementation
-    return (gv_players[lp_player_id].lv__3v3_terrazine_income * gf_get_terrazine_multiplier(lp_player_id));
+    lv_income = gv_players[lp_player_id].lv__3v3_terrazine_income;
+    autoD2F55290_g = gf_get_nydus_of_team(lp_player_id);
+    autoD2F55290_u = UnitGroupCount(autoD2F55290_g, c_unitCountAll);
+    for (;; autoD2F55290_u -= 1) {
+        autoD2F55290_var = UnitGroupUnitFromEnd(autoD2F55290_g, autoD2F55290_u);
+        if (autoD2F55290_var == null) { break; }
+        if ((UnitGetOwner(autoD2F55290_var) == gv_players[lp_player_id].lv__3v3_zerg_pid)) {
+            lv_income += 4;
+        }
+
+    }
+    return (lv_income * gf_get_terrazine_multiplier(lp_player_id));
 }
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {
@@ -6962,8 +6983,8 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Creeper")) {
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha");
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "SetTintColor 128,255,0 0.000000 OneShot {} 110.000000");
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Locust_Mecha_Flyer");
+            UnitSetPropertyFixed(autoC88EA9BF_var, c_unitPropHeight, 0.5);
         }
 
         if ((lv_unit_type == "Strikeling")) {
@@ -6986,6 +7007,14 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Brutalisk2")) {
+        }
+
+        if ((lv_unit_type == "Ravator")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Ravager_Mecha");
+        }
+
+        if ((lv_unit_type == "BanelingZergHex")) {
+            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Baneling_Mecha");
         }
 
     }
@@ -7885,7 +7914,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -7907,6 +7936,17 @@ region gf_get_region_of_influence_3v3 (int lp_player_position) {
         lv_result = RegionRect(0.0, 0.0, lv_map_width, (lv_map_height / 2.0));
     }
     return lv_result;
+}
+
+playergroup gf_get_team_of_player (int lp_player_id) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((gv_players[lp_player_id].lv_position <= 3)) {
+        return gv_terrans_team_top;
+    }
+    else {
+        return gv_terrans_team_bottom;
+    }
 }
 
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit) {
@@ -20323,10 +20363,15 @@ void gt_SpawnZCCUnit3v3_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
     // Variable Declarations
+    string lv_upgrade;
     int lv_zerg_player;
 
     // Automatic Variable Declarations
+    playergroup auto425C9A02_g;
+    int auto425C9A02_var;
+
     // Variable Initialization
+    lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
 
     // Conditions
     if (testConds) {
@@ -20340,8 +20385,23 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
-    TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
+    if (((lv_upgrade == "ZergMovement") || (lv_upgrade == "ZergSpecializationSlowlingPackedMass") || (lv_upgrade == "ZergSpecializationCreeperFerocity") || (lv_upgrade == "ZergSpecializationStrikelingDualHit") || (lv_upgrade == "ZergSpecializationTanklingBankling") || (lv_upgrade == "TarInfection") || (lv_upgrade == "TarSpawn") || (lv_upgrade == "PrimalRapidRespawn"))) {
+        auto425C9A02_g = gf_get_team_of_player(UnitGetOwner(EventUnit()));
+        auto425C9A02_var = -1;
+        while (true) {
+            auto425C9A02_var = PlayerGroupNextPlayer(auto425C9A02_g, auto425C9A02_var);
+            if (auto425C9A02_var < 0) { break; }
+            if ((UnitGetOwner(EventUnit()) != auto425C9A02_var)) {
+                TechTreeUpgradeAddLevel(auto425C9A02_var, libNtve_gf_TriggeringProgressUpgrade(), 1);
+            }
+
+            TechTreeUpgradeAddLevel(gv_players[auto425C9A02_var].lv__3v3_zerg_pid, libNtve_gf_TriggeringProgressUpgrade(), 1);
+        }
+    }
+    else {
+        lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
+        TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
+    }
     return true;
 }
 
