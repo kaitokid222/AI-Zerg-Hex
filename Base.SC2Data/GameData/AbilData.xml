@@ -1978,35 +1978,43 @@
         </InfoArray>
         <InfoArray index="Research7" Upgrade="ZergMovement">
             <Resource index="Vespene" value="175"/>
+            <Resource index="Terrazine" value="1400"/>
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
         </InfoArray>
         <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass">
             <Resource index="Vespene" value="75"/>
+            <Resource index="Terrazine" value="600"/>
             <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="ZergSpecializationCreeperFerocity">
             <Resource index="Vespene" value="100"/>
+            <Resource index="Terrazine" value="800"/>
             <Button DefaultButtonFace="ResearchFerocity3v3" Requirements="ResearchZergSpecialtyCreeperFerocity"/>
         </InfoArray>
         <InfoArray index="Research10" Upgrade="ZergSpecializationStrikelingDualHit">
             <Resource index="Vespene" value="175"/>
+            <Resource index="Terrazine" value="1400"/>
             <Button DefaultButtonFace="ResearchDualHit3v3" Requirements="ResearchZergSpecialtyStrikelingDualHit"/>
         </InfoArray>
         <InfoArray index="Research11" Upgrade="ZergSpecializationTanklingBankling">
             <Resource index="Vespene" value="50"/>
+            <Resource index="Terrazine" value="400"/>
             <Button DefaultButtonFace="ResearchBankling3v3" Requirements="ResearchZergSpecialtyTanklingBankling"/>
         </InfoArray>
         <InfoArray index="Research12" Upgrade="TarInfection">
             <Resource index="Vespene" value="125"/>
+            <Resource index="Terrazine" value="1000"/>
             <Button DefaultButtonFace="ResearchTarInfection3v3" Requirements="ResearchTarInfectionRequirement"/>
         </InfoArray>
         <InfoArray index="Research13" Upgrade="TarSpawn">
-            <Resource index="Vespene" value="188"/>
+            <Resource index="Vespene" value="185"/>
+            <Resource index="Terrazine" value="1500"/>
             <Button DefaultButtonFace="ResearchTarSpawn3v3" Requirements="ResearchTarSpawnRequirement"/>
         </InfoArray>
         <InfoArray index="Research14" Upgrade="PrimalRapidRespawn">
             <Resource index="Vespene" value="375"/>
+            <Resource index="Terrazine" value="3000"/>
             <Button DefaultButtonFace="ResearchPrimalRapidRespawn3v3" Requirements="ResearchPrimalRapidRespawnRequirement"/>
         </InfoArray>
     </CAbilResearch>

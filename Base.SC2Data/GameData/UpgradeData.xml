@@ -733,6 +733,7 @@
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Vespene]" Value="100"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Charge.CountMax" Value="1"/>
         <EffectArray Reference="Unit,Mechaling,Speed" Value="0.199200"/>
+        <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Terrazine]" Value="800"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>
