@@ -1354,6 +1354,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-SpineCrawler.dds"/>
         </Wireframe>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level1.dds"/>
     </CActorUnit>
     <CActorUnit id="SwarmQueenMorphing">
         <StatusBarFlags index="Shields" value="0"/>
