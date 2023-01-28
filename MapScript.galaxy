@@ -1669,6 +1669,14 @@ void gf_apply_support_casual () {
             }
             libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, auto18D3D132_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position))));
             libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto18D3D132_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position))));
+            CatalogReferenceSet("Button,ResearchOvercharge,AlertTooltip", auto18D3D132_var, "Enables <c val=\"ffff8a\">Elite Marines</c> and <c val=\"ffff8a\">Chaos Space Marines</c> to use the Overcharge and Stimpack ability.");
+            CatalogReferenceSet("Button,ResearchOvercharge,Tooltip", auto18D3D132_var, "Enables <c val=\"ffff8a\">Elite Marines</c> and <c val=\"ffff8a\">Chaos Space Marines</c> to use the Overcharge and Stimpack ability.");
+            CatalogReferenceSet("Button,ResearchPenetratingLaser,AlertTooltip", auto18D3D132_var, "Upgrades all <c val=\"ffff8a\">Marines</c>, <c val=\"ffff8a\">Reaper</c> and <c val=\"ffff8a\">Bolter</c> weapons to deal +1 damage.");
+            CatalogReferenceSet("Button,ResearchPenetratingLaser,Tooltip", auto18D3D132_var, "Upgrades all <c val=\"ffff8a\">Marines</c>, <c val=\"ffff8a\">Reaper</c> and <c val=\"ffff8a\">Bolter</c> weapons to deal +1 damage.");
+            CatalogReferenceSet("Button,UpgradeCombatShield,AlertTooltip", auto18D3D132_var, "Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val=\"ffff8a\">Veteran Marines</c> gain +30 life.<n/><c val=\"ffff8a\">Elite Marines</c> gain +50 life.<n/><c val=\"ffff8a\">Chaos Space Marines</c> gain +35 life.<n/><c val=\"ffff8a\">Chaos Lord</c> gain +175 life.");
+            CatalogReferenceSet("Button,UpgradeCombatShield,Tooltip", auto18D3D132_var, "Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val=\"ffff8a\">Veteran Marines</c> gain +30 life.<n/><c val=\"ffff8a\">Elite Marines</c> gain +50 life.<n/><c val=\"ffff8a\">Chaos Space Marines</c> gain +35 life.<n/><c val=\"ffff8a\">Chaos Lord</c> gain +175 life.");
+            CatalogReferenceSet("Button,ResearchMobileSquadTraining,AlertTooltip", auto18D3D132_var, "Allows <c val=\"ffff8a\">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.<n/>Reduces recruit time of <c val=\"ffff8a\">Chaos Forces</c>.");
+            CatalogReferenceSet("Button,ResearchMobileSquadTraining,Tooltip", auto18D3D132_var, "Allows <c val=\"ffff8a\">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.<n/>Reduces recruit time of <c val=\"ffff8a\">Chaos Forces</c>.");
         }
         else if (auto4C710A49_val == 3) {
             gv_players[auto18D3D132_var].lv_support_type = "Hightech";
@@ -1756,6 +1764,8 @@ void gf_apply_support_casual () {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, auto18D3D132_var, lv_p);
             }
             UnitRemove(UnitGroupClosestToPoint(UnitGroup("RocksBE", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 6), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1))));
+            CatalogReferenceSet("Button,Fortification,AlertTooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
+            CatalogReferenceSet("Button,Fortification,Tooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
         }
         else if (auto4C710A49_val == 7) {
             gf_create_raynor_support_forplayer(auto18D3D132_var);
@@ -7914,7 +7924,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -26531,7 +26541,6 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
 
     gf_update_terrandata();
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 12) + 59))) {
-        gf_spawn_eggs(gv_players[gf_ai_get_strongest_player()].lv_position, gf_get_egg_count_defensive_spawn(), 0);
     }
 
     if ((gv_placement_mode == 2)) {
