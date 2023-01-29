@@ -1935,6 +1935,14 @@ void gf_apply_support_3v3 () {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosSpaceMarine", 0, auto4A0E4D9D_var, lv_p);
             }
             libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
+            CatalogReferenceSet("Button,ResearchOvercharge,AlertTooltip", auto4A0E4D9D_var, "Enables <c val=\"ffff8a\">Elite Marines</c> and <c val=\"ffff8a\">Chaos Space Marines</c> to use the Overcharge and Stimpack ability.");
+            CatalogReferenceSet("Button,ResearchOvercharge,Tooltip", auto4A0E4D9D_var, "Enables <c val=\"ffff8a\">Elite Marines</c> and <c val=\"ffff8a\">Chaos Space Marines</c> to use the Overcharge and Stimpack ability.");
+            CatalogReferenceSet("Button,ResearchPenetratingLaser,AlertTooltip", auto4A0E4D9D_var, "Upgrades all <c val=\"ffff8a\">Marines</c>, <c val=\"ffff8a\">Reaper</c> and <c val=\"ffff8a\">Bolter</c> weapons to deal +1 damage.");
+            CatalogReferenceSet("Button,ResearchPenetratingLaser,Tooltip", auto4A0E4D9D_var, "Upgrades all <c val=\"ffff8a\">Marines</c>, <c val=\"ffff8a\">Reaper</c> and <c val=\"ffff8a\">Bolter</c> weapons to deal +1 damage.");
+            CatalogReferenceSet("Button,UpgradeCombatShield,AlertTooltip", auto4A0E4D9D_var, "Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val=\"ffff8a\">Veteran Marines</c> gain +30 life.<n/><c val=\"ffff8a\">Elite Marines</c> gain +50 life.<n/><c val=\"ffff8a\">Chaos Space Marines</c> gain +35 life.<n/><c val=\"ffff8a\">Chaos Lord</c> gain +175 life.");
+            CatalogReferenceSet("Button,UpgradeCombatShield,Tooltip", auto4A0E4D9D_var, "Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val=\"ffff8a\">Veteran Marines</c> gain +30 life.<n/><c val=\"ffff8a\">Elite Marines</c> gain +50 life.<n/><c val=\"ffff8a\">Chaos Space Marines</c> gain +35 life.<n/><c val=\"ffff8a\">Chaos Lord</c> gain +175 life.");
+            CatalogReferenceSet("Button,ResearchMobileSquadTraining,AlertTooltip", auto4A0E4D9D_var, "Allows <c val=\"ffff8a\">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.<n/>Reduces recruit time of <c val=\"ffff8a\">Chaos Forces</c>.");
+            CatalogReferenceSet("Button,ResearchMobileSquadTraining,Tooltip", auto4A0E4D9D_var, "Allows <c val=\"ffff8a\">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.<n/>Reduces recruit time of <c val=\"ffff8a\">Chaos Forces</c>.");
         }
         else if (auto62D37381_val == 3) {
             gv_players[auto4A0E4D9D_var].lv_support_type = "Hightech";
@@ -2012,6 +2020,8 @@ void gf_apply_support_3v3 () {
                 UnitRemove(autoA744CA74_var);
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, auto4A0E4D9D_var, lv_p);
             }
+            CatalogReferenceSet("Button,Fortification,AlertTooltip", auto4A0E4D9D_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
+            CatalogReferenceSet("Button,Fortification,Tooltip", auto4A0E4D9D_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
         }
         else if (auto62D37381_val == 7) {
             gf_create_artanis_support_forplayer(auto4A0E4D9D_var);
@@ -7924,7 +7934,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -8741,29 +8751,29 @@ int gf_get_ranked_difficulty () {
     }
     else if (autoE06D6F1C_val == "0004") {
         lv_r = 3;
-        gv_req_beastlings = 12;
+        gv_req_beastlings = 8;
         gv_req_ravs = 0;
         gv_req_infused = 0;
-        gv_req_torra = 1;
+        gv_req_torra = 0;
     }
     else if (autoE06D6F1C_val == "0005") {
         lv_r = 4;
-        gv_req_beastlings = 6;
+        gv_req_beastlings = 10;
         gv_req_ravs = 6;
         gv_req_infused = 0;
-        gv_req_torra = 2;
+        gv_req_torra = 1;
     }
     else if (autoE06D6F1C_val == "0006") {
         lv_r = 5;
         gv_req_beastlings = 4;
         gv_req_ravs = 4;
-        gv_req_infused = 4;
-        gv_req_torra = 4;
+        gv_req_infused = 2;
+        gv_req_torra = 2;
     }
     else if (autoE06D6F1C_val == "0007") {
         lv_r = 6;
         gv_req_beastlings = 0;
-        gv_req_ravs = 12;
+        gv_req_ravs = 8;
         gv_req_infused = 4;
         gv_req_torra = 4;
     }
@@ -8907,26 +8917,26 @@ void gf_AnalysePlayerDifficultyVotes () {
             gv_req_torra = 0;
         }
         else if (auto05CCF244_val == 3) {
-            gv_req_beastlings = 12;
+            gv_req_beastlings = 8;
             gv_req_ravs = 0;
             gv_req_infused = 0;
-            gv_req_torra = 1;
+            gv_req_torra = 0;
         }
         else if (auto05CCF244_val == 4) {
-            gv_req_beastlings = 6;
+            gv_req_beastlings = 10;
             gv_req_ravs = 6;
             gv_req_infused = 0;
-            gv_req_torra = 2;
+            gv_req_torra = 1;
         }
         else if (auto05CCF244_val == 5) {
             gv_req_beastlings = 4;
             gv_req_ravs = 4;
-            gv_req_infused = 4;
-            gv_req_torra = 4;
+            gv_req_infused = 2;
+            gv_req_torra = 2;
         }
         else if (auto05CCF244_val == 6) {
             gv_req_beastlings = 0;
-            gv_req_ravs = 12;
+            gv_req_ravs = 8;
             gv_req_infused = 4;
             gv_req_torra = 4;
         }
@@ -12918,7 +12928,7 @@ void gf_add_zerg_income () {
     // Variable Initialization
 
     // Implementation
-    autoD69CCB7D_g = UnitGroup(null, 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoD69CCB7D_g = UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoD69CCB7D_u = UnitGroupCount(autoD69CCB7D_g, c_unitCountAll);
     for (;; autoD69CCB7D_u -= 1) {
         autoD69CCB7D_var = UnitGroupUnitFromEnd(autoD69CCB7D_g, autoD69CCB7D_u);
@@ -12952,16 +12962,16 @@ void gf_add_zerg_income () {
         lv_income = (lv_income + 0);
     }
     else if (auto18D0DEB9_val == 4) {
-        lv_income = (lv_income + 50);
+        lv_income = (lv_income + 0);
     }
     else if (auto18D0DEB9_val == 5) {
-        lv_income = (lv_income + 100);
+        lv_income = (lv_income + 50);
     }
     else if (auto18D0DEB9_val == 6) {
-        lv_income = (lv_income + 300);
+        lv_income = (lv_income + 150);
     }
     else if (auto18D0DEB9_val == 7) {
-        lv_income = (lv_income + 400);
+        lv_income = (lv_income + 250);
     }
     else if (auto18D0DEB9_val == 8) {
         lv_income = (lv_income + 500);
@@ -15280,7 +15290,7 @@ int gf_where_toplace_next_spawner () {
     lv_strongest_player_spawner_count = gv_spawner_distro[gv_players[lv_strongest_player].lv_position];
     lv_weakest_player = gf_ai_get_weakest_player();
     lv_weakest_player_spawner_count = gv_spawner_distro[gv_players[lv_weakest_player].lv_position];
-    lv_offset = 5;
+    lv_offset = 6;
 
     // Implementation
     if ((gf_is_3v3() == true) && (gf_is_game_over() == false)) {
@@ -16910,7 +16920,7 @@ void gf_get_attackup () {
     // Variable Initialization
     lv_time = FixedToInt(GameGetMissionTime());
     lv_peacetime = (10 * 60);
-    lv_interval = (120 - (gv_difficulty * 5));
+    lv_interval = (150 - (gv_difficulty * 5));
     lv_max_upgrade = 50;
     lv_upcnt = 1;
     lv_i = 1;
@@ -16930,15 +16940,11 @@ void gf_get_attackup () {
 
         }
     }
-    if ((lv_time > (20 * 60)) && ((gv_difficulty >= 5) || (gf_is_3v3() == true))) {
+    if ((lv_time > (25 * 60)) && ((gv_difficulty >= 5) || (gf_is_3v3() == true))) {
         lv_upcnt = (lv_upcnt + 1);
     }
 
-    if ((lv_time > (22 * 60)) && (gv_difficulty >= 7)) {
-        lv_upcnt = (lv_upcnt + 1);
-    }
-
-    if ((lv_time > (24 * 60)) && (gv_difficulty >= 8)) {
+    if ((lv_time > (28 * 60)) && (gv_difficulty >= 7)) {
         lv_upcnt = (lv_upcnt + 1);
     }
 
@@ -16966,11 +16972,11 @@ void gf_get_speed () {
     lv_i = 1;
 
     // Implementation
-    if (((lv_time == (1000 - (gv_difficulty * 30))) || (lv_time == (1300 - (gv_difficulty * 30))) || (lv_time == (1600 - (gv_difficulty * 30)))) && (TechTreeUpgradeCount(7, "ZergMovement", c_techCountQueuedOrBetter) < 3)) {
+    if (((lv_time == (1100 - (gv_difficulty * 30))) || (lv_time == (1400 - (gv_difficulty * 30))) || (lv_time == (1700 - (gv_difficulty * 30)))) && (TechTreeUpgradeCount(7, "ZergMovement", c_techCountQueuedOrBetter) < 3)) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
     }
 
-    if ((gv_difficulty >= 10) && (lv_time == (1800 - (gv_difficulty * 30)))) {
+    if ((gv_difficulty >= 10) && (lv_time == (1900 - (gv_difficulty * 30)))) {
         TechTreeUpgradeAddLevel(7, "ZergMovement", 1);
     }
 
@@ -24272,7 +24278,7 @@ bool gt_hydragetsattacked_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((EventUnitDamageEffect() == "HydraliskNotOnCreepDamage") || (UnitGetPropertyInt(lv_unit, c_unitPropLifePercent, c_unitPropCurrent) < 7) || ((UnitGetPropertyInt(lv_unit, c_unitPropLifePercent, c_unitPropCurrent) < 22) && (DistanceBetweenPoints(UnitGetPosition(lv_unit), gv_hydra_groups[gf_get_hydras_groupindex(lv_unit)].lv_point) > 7.0)))) {
+    if (((EventUnitDamageEffect() == "HydraliskNotOnCreepDamage") || (UnitGetPropertyInt(lv_unit, c_unitPropLifePercent, c_unitPropCurrent) < 8) || ((UnitGetPropertyInt(lv_unit, c_unitPropLifePercent, c_unitPropCurrent) < 24) && (DistanceBetweenPoints(UnitGetPosition(lv_unit), gv_hydra_groups[gf_get_hydras_groupindex(lv_unit)].lv_point) > 7.0)))) {
         gf_send_hydra_home(lv_unit);
     }
 
@@ -24338,7 +24344,7 @@ bool gt_buildinggetsattackedtrydefendwithhydras_Func (bool testConds, bool runAc
             return false;
         }
 
-        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort")))) {
+        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort") || (UnitGetType(lv_unit) == "SpineCrawlerMecha") || (UnitGetType(lv_unit) == "NydusCanal") || (UnitGetType(lv_unit) == "MechaTechlab") || (UnitGetType(lv_unit) == "MechaMineralExtractor")))) {
             return false;
         }
     }
@@ -26314,9 +26320,7 @@ bool gt_everytwoseconds_Func (bool testConds, bool runActions) {
     gf_add_zerg_income();
     if ((gf_is_pvp() == true)) {
     }
-    else {
-        gf_build_spawners_fast_e2s();
-    }
+
     return true;
 }
 
@@ -26381,6 +26385,7 @@ bool gt_everyfiveseconds_Func (bool testConds, bool runActions) {
         gf_try_regrow_creep();
     }
 
+    gf_build_spawners_fast_e2s();
     gf_Major_rock_exploit();
     return true;
 }
