@@ -653,7 +653,7 @@
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
             <Resource index="Terrazine" value="150"/>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="75"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -3954,6 +3954,7 @@
             <Unit value="InfestorZergHex2"/>
         </InfoArray>
         <InfoArray index="Train7">
+            <Resource index="Terrazine" value="150"/>
             <Vital index="Energy" value="300"/>
             <Button DefaultButtonFace="BuildMechaHydralisk" Requirements="RequirementArmor1"/>
             <Unit value="MechaHydralisk"/>
