@@ -20395,22 +20395,16 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((lv_upgrade == "ZergMovement") || (lv_upgrade == "ZergSpecializationSlowlingPackedMass") || (lv_upgrade == "ZergSpecializationCreeperFerocity") || (lv_upgrade == "ZergSpecializationStrikelingDualHit") || (lv_upgrade == "ZergSpecializationTanklingBankling") || (lv_upgrade == "TarInfection") || (lv_upgrade == "TarSpawn") || (lv_upgrade == "PrimalRapidRespawn"))) {
-        auto425C9A02_g = gf_get_team_of_player(UnitGetOwner(EventUnit()));
-        auto425C9A02_var = -1;
-        while (true) {
-            auto425C9A02_var = PlayerGroupNextPlayer(auto425C9A02_g, auto425C9A02_var);
-            if (auto425C9A02_var < 0) { break; }
-            if ((UnitGetOwner(EventUnit()) != auto425C9A02_var)) {
-                TechTreeUpgradeAddLevel(auto425C9A02_var, libNtve_gf_TriggeringProgressUpgrade(), 1);
-            }
-
-            TechTreeUpgradeAddLevel(gv_players[auto425C9A02_var].lv__3v3_zerg_pid, libNtve_gf_TriggeringProgressUpgrade(), 1);
+    auto425C9A02_g = gf_get_team_of_player(UnitGetOwner(EventUnit()));
+    auto425C9A02_var = -1;
+    while (true) {
+        auto425C9A02_var = PlayerGroupNextPlayer(auto425C9A02_g, auto425C9A02_var);
+        if (auto425C9A02_var < 0) { break; }
+        if ((UnitGetOwner(EventUnit()) != auto425C9A02_var)) {
+            TechTreeUpgradeAddLevel(auto425C9A02_var, libNtve_gf_TriggeringProgressUpgrade(), 1);
         }
-    }
-    else {
-        lv_zerg_player = gv_players[UnitGetOwner(EventUnit())].lv__3v3_zerg_pid;
-        TechTreeUpgradeAddLevel(lv_zerg_player, libNtve_gf_TriggeringProgressUpgrade(), 1);
+
+        TechTreeUpgradeAddLevel(gv_players[auto425C9A02_var].lv__3v3_zerg_pid, libNtve_gf_TriggeringProgressUpgrade(), 1);
     }
     return true;
 }
