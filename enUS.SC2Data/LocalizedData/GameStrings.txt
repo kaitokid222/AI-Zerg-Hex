@@ -2261,6 +2261,7 @@ DocInfo/PatchNote582=- Chaos Forces profit from Penetrating Laser, Combat Shield
 DocInfo/PatchNote583=Fixed Issues.
 DocInfo/PatchNote584=Disabled Attacks from Egg Spawns.
 DocInfo/PatchNote585=Decreased difficulty.
+DocInfo/PatchNote586=Fixed Issue.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior

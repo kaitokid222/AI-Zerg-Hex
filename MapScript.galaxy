@@ -771,6 +771,7 @@ int gf_get_observed_unit_index (unit lp_unit);
 void gf_try_f2_mid ();
 void gf_define_hives ();
 unit gf_get_hive ();
+unitgroup gf_get_hives ();
 int gf_get_hive_g_int (unit lp_unit);
 void gf_HiveDamageRecieved (fixed lp_damage, unit lp_hive);
 void gf_define_hydra_variables ();
@@ -10635,17 +10636,18 @@ bool gf_is_point_in_hazard_zone (point lp_point) {
 
 void gf_build_drone () {
     // Variable Declarations
-    unit lv_hive;
+    unitgroup lv_hives;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_hive = gf_get_hive();
+    lv_hives = gf_get_hives();
 
     // Implementation
     if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 40) && (gv_ai_building_drone == false)) {
-        UnitIssueOrder(lv_hive, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
-        UnitIssueOrder(lv_hive, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
-        UnitIssueOrder(lv_hive, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
+        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 40);
+        UnitGroupIssueOrder(lv_hives, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
+        UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         gv_ai_building_drone = true;
     }
 
@@ -12586,6 +12588,19 @@ unit gf_get_hive () {
     // Implementation
     lv_return = UnitGroupRandomUnit(lv_u_group, c_unitCountAlive);
     return lv_return;
+}
+
+unitgroup gf_get_hives () {
+    // Variable Declarations
+    unitgroup lv_u_group;
+    unit lv_return;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_u_group = UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+
+    // Implementation
+    return lv_u_group;
 }
 
 int gf_get_hive_g_int (unit lp_unit) {
