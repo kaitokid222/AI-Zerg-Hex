@@ -138,7 +138,7 @@
         <NodeArray index="Use" Link="GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10"/>
     </CRequirement>
     <CRequirement id="OnlyOneHiveMindEmulator">
-        <NodeArray index="Use" Link="Not143893411CountUnitHiveMindEmulatorQueuedOrBetter"/>
+        <NodeArray index="Use" Link="AndNot143893411CountUnitHiveMindEmulatorQueuedOrBetterNot542624544CountUpgradeOtherTeamDeadCompleteOnly"/>
     </CRequirement>
     <CRequirement id="OnlyOneProbius">
         <NodeArray index="Use" Link="Not225427478CountUnitProbiusQueuedOrBetter"/>
@@ -802,8 +802,8 @@
     <CRequirement id="ZCCHasCreeperFerocity">
         <NodeArray index="Use" Link="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="ZergControlCenter">
-        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorQueuedOrBetter3640883265Not3674674570CountUpgradeOtherTeamDeadCompleteOnly"/>
+    <CRequirement id="HydraliskDefender">
+        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZergRallyEqual">
         <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>

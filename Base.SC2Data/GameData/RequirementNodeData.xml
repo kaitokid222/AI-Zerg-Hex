@@ -74,10 +74,9 @@
         <OperandArray value="CountUnitConstructionYardCompleteOnly2255243434"/>
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUnitHiveMindEmulatorQueuedOrBetter3640883265Not3674674570CountUpgradeOtherTeamDeadCompleteOnly">
+    <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <OperandArray value="CountUnitHiveMindEmulatorQueuedOrBetter3640883265"/>
-        <OperandArray value="Not3674674570CountUpgradeOtherTeamDeadCompleteOnly"/>
+        <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
@@ -178,6 +177,11 @@
     </CRequirementAnd>
     <CRequirementAnd id="AndLTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
         <OperandArray value="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndNot143893411CountUnitHiveMindEmulatorQueuedOrBetterNot542624544CountUpgradeOtherTeamDeadCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="Not143893411CountUnitHiveMindEmulatorQueuedOrBetter"/>
+        <OperandArray value="Not542624544CountUpgradeOtherTeamDeadCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit">
         <OperandArray value="Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit"/>
@@ -415,12 +419,14 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GasVent" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitHiveMindEmulatorCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HiveMindEmulator" State="CompleteOnly"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
-    </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter3640883265">
-        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HiveMindEmulator" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitInfestedBunkerQueuedOrBetter">
@@ -1540,9 +1546,6 @@
     <CRequirementNot id="Not3445088064OrCountUnitNapalmBombQueuedOrBetterAtUnitCountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit">
         <OperandArray index="0" value="OrCountUnitNapalmBombQueuedOrBetterAtUnitCountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit"/>
     </CRequirementNot>
-    <CRequirementNot id="Not3674674570CountUpgradeOtherTeamDeadCompleteOnly">
-        <OperandArray index="0" value="CountUpgradeOtherTeamDeadCompleteOnly"/>
-    </CRequirementNot>
     <CRequirementNot id="Not3805471138CountUnitArmory2QueuedOrBetter">
         <OperandArray index="0" value="CountUnitArmory2QueuedOrBetter"/>
     </CRequirementNot>
@@ -1560,6 +1563,9 @@
     </CRequirementNot>
     <CRequirementNot id="Not445539353CountUpgradeZergSpecializationTanklingBanklingCompleteOnly">
         <OperandArray index="0" value="CountUpgradeZergSpecializationTanklingBanklingCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="Not542624544CountUpgradeOtherTeamDeadCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeOtherTeamDeadCompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="Not660069371CountUpgradeEnergyCapacityQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeEnergyCapacityQueuedOrBetter"/>

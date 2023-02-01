@@ -908,6 +908,8 @@ trigger gt_info;
 trigger gt_help;
 trigger gt_money;
 trigger gt_resetelo;
+trigger gt_reveal;
+trigger gt_italis;
 trigger gt_inf;
 trigger gt_cheat;
 trigger gt_disabletutorialquestsinthisgame;
@@ -18245,6 +18247,52 @@ void gt_resetelo_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -reveal
+//--------------------------------------------------------------------------------------------------
+bool gt_reveal_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        VisRevealArea(EventPlayer(), RegionEntireMap(), 30.0, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_reveal_Init () {
+    gt_reveal = TriggerCreate("gt_reveal_Func");
+    TriggerAddEventChatMessage(gt_reveal, c_playerAny, "-reveal", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: -italis
+//--------------------------------------------------------------------------------------------------
+bool gt_italis_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(6, "Italis", 0, EventPlayer(), PointFromName(("Zerg Rally " + IntToString(gv_players[EventPlayer()].lv_position))));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_italis_Init () {
+    gt_italis = TriggerCreate("gt_italis_Func");
+    TriggerAddEventChatMessage(gt_italis, c_playerAny, "-italis", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -inf
 //--------------------------------------------------------------------------------------------------
 bool gt_inf_Func (bool testConds, bool runActions) {
@@ -26798,6 +26846,8 @@ void InitTriggers () {
     gt_help_Init();
     gt_money_Init();
     gt_resetelo_Init();
+    gt_reveal_Init();
+    gt_italis_Init();
     gt_inf_Init();
     gt_cheat_Init();
     gt_disabletutorialquestsinthisgame_Init();

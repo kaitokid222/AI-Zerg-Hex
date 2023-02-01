@@ -2704,7 +2704,7 @@
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train19" Time="2">
-            <Button DefaultButtonFace="HydraliskDefender3v3" Requirements="ZergControlCenter"/>
+            <Button DefaultButtonFace="HydraliskDefender3v3" Requirements="HydraliskDefender"/>
             <Unit value="HydraliskDefender3v3"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
