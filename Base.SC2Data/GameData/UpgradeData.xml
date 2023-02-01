@@ -79,6 +79,7 @@
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="1000"/>
         <LeaderAlias value="SelfRecharchingBatteries"/>
     </CUpgrade>
+    <CUpgrade id="OtherTeamDead"/>
     <CUpgrade id="SelfRecharchingBatteries">
         <EffectArray Reference="Unit,Mechaling,EnergyRegenRate" Value="1.000000"/>
         <EffectArray Reference="Unit,MechaHydralisk,EnergyRegenRate" Value="1.000000"/>

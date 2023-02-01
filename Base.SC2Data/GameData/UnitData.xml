@@ -3080,13 +3080,16 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="TerrazineTank">
-        <CostResource index="Vespene" value="75"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="60"/>
         <AbilArray Link="Demolish"/>
         <BehaviorArray Link="GenerateTerrazine"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
         </CardLayouts>
-        <Footprint value="TerrazineTank2x4"/>
+        <Footprint value="Footprint2x2"/>
+        <DeadFootprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="Viper">
         <Speed value="4"/>

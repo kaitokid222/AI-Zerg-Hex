@@ -3158,7 +3158,7 @@
         <InfoArray index="Build22" Unit="BarracksTechReactor" Time="10">
             <Button DefaultButtonFace="BuildEventTechCenter" Requirements="OnlyOneEventTechCenter"/>
         </InfoArray>
-        <InfoArray index="Build23" Unit="TerrazineTank" Time="45">
+        <InfoArray index="Build23" Unit="TerrazineTank">
             <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements="TerrazineConverter"/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>
@@ -3954,7 +3954,6 @@
             <Unit value="InfestorZergHex2"/>
         </InfoArray>
         <InfoArray index="Train7">
-            <Resource index="Terrazine" value="150"/>
             <Vital index="Energy" value="300"/>
             <Button DefaultButtonFace="BuildMechaHydralisk" Requirements="RequirementArmor1"/>
             <Unit value="MechaHydralisk"/>

@@ -416,7 +416,7 @@
         <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="TerrazineConverter">
-        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052"/>
+        <NodeArray index="Use" Link="AndCountUpgradeOtherTeamDeadCompleteOnly411158712"/>
     </CRequirement>
     <CRequirement id="TerrazineDoubler2Requirement">
         <NodeArray index="Use" Link="CountUpgradeTerrazineIncomex2CompleteOnly"/>
@@ -803,7 +803,7 @@
         <NodeArray index="Use" Link="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZergControlCenter">
-        <NodeArray index="Use" Link="CountUnitHiveMindEmulatorCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorQueuedOrBetter3640883265Not3674674570CountUpgradeOtherTeamDeadCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZergRallyEqual">
         <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>
