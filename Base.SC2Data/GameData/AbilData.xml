@@ -1,5 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilBuild id="BuildOmegaliskCocoon3v3">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <TargetMessage value="Abil/TargetMessage/BuildOmegaliskCocoon3v3"/>
+        <SharedFlags index="RegisterChargeEvent" value="1"/>
+        <SharedFlags index="RegisterCooldownEvent" value="1"/>
+        <DataCollection value="CreepTumorBuild"/>
+        <Alert value="BuildComplete_Zerg"/>
+        <InfoArray index="Build1" Unit="OmegaliskCocoon2">
+            <Resource index="Minerals" value="1000"/>
+            <Resource index="Vespene" value="500"/>
+            <Resource index="Terrazine" value="8000"/>
+            <Charge Link="Abil/CreepTumorBuild" Location="Unit"/>
+            <Cooldown Link="Abil/CreepTumorBuild" Location="Unit" TimeUse="1"/>
+            <Button DefaultButtonFace="SpawnOmegaliskCocoon" Requirements="OmegaliskRequirement3v3"/>
+        </InfoArray>
+        <InfoArray index="Build2">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build3">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build4">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build5">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build6">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build7">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build8">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build9">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build10">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build11">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build12">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build13">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build14">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build15">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build16">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build17">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build18">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build19">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build20">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build21">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build22">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build23">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build24">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build25">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build26">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build27">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build28">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build29">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+        <InfoArray index="Build30">
+            <Charge Link="Abil/CreepTumorBuild"/>
+            <Cooldown Link="Abil/CreepTumorBuild"/>
+        </InfoArray>
+    </CAbilBuild>
     <CAbilEffectInstant id="UseJUICEtoheal">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
@@ -653,7 +785,7 @@
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
             <Resource index="Terrazine" value="150"/>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="75"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -2704,7 +2836,7 @@
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train19" Time="2">
-            <Button DefaultButtonFace="HydraliskDefender3v3" Requirements="ZergControlCenter"/>
+            <Button DefaultButtonFace="HydraliskDefender3v3" Requirements="HydraliskDefender"/>
             <Unit value="HydraliskDefender3v3"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
@@ -3158,7 +3290,7 @@
         <InfoArray index="Build22" Unit="BarracksTechReactor" Time="10">
             <Button DefaultButtonFace="BuildEventTechCenter" Requirements="OnlyOneEventTechCenter"/>
         </InfoArray>
-        <InfoArray index="Build23" Unit="TerrazineTank" Time="45">
+        <InfoArray index="Build23" Unit="TerrazineTank">
             <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements="TerrazineConverter"/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>

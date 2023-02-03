@@ -56,6 +56,9 @@
         <NodeArray index="Use" Link="AndCountUpgradeNydusUpgrade2CompleteOnlyCountUpgradeZergArmor5CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade3QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="OmegaliskRequirement3v3">
+        <NodeArray index="Use" Link="And1487884178CountUpgradeHiveKilledCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>
@@ -138,7 +141,7 @@
         <NodeArray index="Use" Link="GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10"/>
     </CRequirement>
     <CRequirement id="OnlyOneHiveMindEmulator">
-        <NodeArray index="Use" Link="Not143893411CountUnitHiveMindEmulatorQueuedOrBetter"/>
+        <NodeArray index="Use" Link="AndNot143893411CountUnitHiveMindEmulatorQueuedOrBetterNot542624544CountUpgradeOtherTeamDeadCompleteOnly"/>
     </CRequirement>
     <CRequirement id="OnlyOneProbius">
         <NodeArray index="Use" Link="Not225427478CountUnitProbiusQueuedOrBetter"/>
@@ -416,7 +419,7 @@
         <NodeArray index="Use" Link="AndLTCountBehaviorSpawnFromRightCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="TerrazineConverter">
-        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly1351179563CountUpgradeZergArmor2CompleteOnly2593968052"/>
+        <NodeArray index="Use" Link="AndCountUpgradeOtherTeamDeadCompleteOnly411158712"/>
     </CRequirement>
     <CRequirement id="TerrazineDoubler2Requirement">
         <NodeArray index="Use" Link="CountUpgradeTerrazineIncomex2CompleteOnly"/>
@@ -802,8 +805,8 @@
     <CRequirement id="ZCCHasCreeperFerocity">
         <NodeArray index="Use" Link="NotCountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="ZergControlCenter">
-        <NodeArray index="Use" Link="CountUnitHiveMindEmulatorCompleteOnly"/>
+    <CRequirement id="HydraliskDefender">
+        <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZergRallyEqual">
         <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>

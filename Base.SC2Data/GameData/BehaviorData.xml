@@ -254,7 +254,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DisableValidatorArray value="PlayerHasGTE40Terrazine"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
-        <Period value="5"/>
+        <Period value="3"/>
         <PeriodicEffect value="ConvertTerrazineConverterText"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EggClusterB">

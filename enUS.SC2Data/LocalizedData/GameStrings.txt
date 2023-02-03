@@ -18,6 +18,7 @@ Abil/Name/BombMissile=Bomb Missile
 Abil/Name/BuildBuilder=Build (Builder)
 Abil/Name/BuildBuilderScalingStructures=Build (Builder Scaling Structures)
 Abil/Name/BuildMechaSlowling=Build Mecha Slowling
+Abil/Name/BuildOmegaliskCocoon3v3=Build Omegalisk Cocoon
 Abil/Name/BuildSporeCrawler=Build Spore Crawler
 Abil/Name/BuildSporeCrawler3v3=Build Spore Crawler
 Abil/Name/BurrowFireling=Burrow (Fireling)
@@ -222,6 +223,7 @@ Abil/Name/ZergResearch=Zerg - Research
 Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
 Abil/Name/ZergResetRally=Zerg Reset Rally
 Abil/Name/ZergTrain=Zerg - Train
+Abil/TargetMessage/BuildOmegaliskCocoon3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/BuildSporeCrawler=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/BuildSporeCrawler3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
@@ -556,7 +558,7 @@ Behavior/Tooltip/GenerateMineral=Generates 1 mineral every 5 seconds.
 Behavior/Tooltip/GenerateMineralHive=Generates 80 minerals per minute.
 Behavior/Tooltip/GenerateMinerals=Generates 1 mineral every 10 seconds
 Behavior/Tooltip/GenerateMineralsCowFarm=Generates 2 mineral every 10 seconds
-Behavior/Tooltip/GenerateTerrazine=Convert 40 Terrazine into 10 Minerals every 5 seconds.
+Behavior/Tooltip/GenerateTerrazine=Convert 40 Terrazine into 10 Minerals every 3 seconds.
 Behavior/Tooltip/GeneratorUpgrades0=0 Generator Upgrades
 Behavior/Tooltip/GeneratorUpgrades1=1 Generator Upgrade
 Behavior/Tooltip/GeneratorUpgrades10=10 Generator Upgrades
@@ -805,6 +807,7 @@ Button/Name/Investment6=Investment 6
 Button/Name/Investment7=Investment 7
 Button/Name/IonCannon=Ion Cannon
 Button/Name/ItalisTeleport=Teleport
+Button/Name/LarvaSpawnOmegaliskCocoon3v3=Larva can Spawn Omegalisk Cocoon
 Button/Name/Lower2=Lower
 Button/Name/MarineOvercharge=Overcharge
 Button/Name/MarinePromoteToElite=Promote to Elite
@@ -992,6 +995,7 @@ Button/Name/SpawnLarva3v3=Spawn Larva
 Button/Name/SpawnMenuLarge=Spawn Menu
 Button/Name/SpawnMenuSmall=Spawn Menu
 Button/Name/SpawnOmegaliskCocoon=Spawn Omegalisk Cocoon
+Button/Name/SpawnOmegaliskCocoon3v3=Spawn Omegalisk Cocoon
 Button/Name/SpawnPrimalRoach=Spawn Primal Roach
 Button/Name/SpawnPrimalRoach3v3=Spawn Primal Roach
 Button/Name/SpawnRavager=Spawn Ravager
@@ -1139,7 +1143,7 @@ Button/Tooltip/BuildSiegeTank=Powerful siege weapon used to destroy enemies from
 Button/Tooltip/BuildSiegeTank2=Powerful siege weapon used to destroy enemies from a long distance.<n/><n/>Requires manual targeting to fire.<n/><n/>Weapon uses 200 energy per shot.
 Button/Tooltip/BuildTechLab=Deals damage to nearby enemies.<n/><n/>Can research better equipment and perform several abilities, requires manual energy charging by default.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildTechStructure=A list of technological structures.
-Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 10 minerals every 5 seconds.
+Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 10 minerals every 3 seconds.
 Button/Tooltip/BuildWall=Protects against enemies.<n/><n/>Has 175 HP and 2 armor. (Can be upgraded at Construction Yard)
 Button/Tooltip/Builder=Can build and repair structures.
 Button/Tooltip/Candy=Contains a gift!
@@ -1313,6 +1317,7 @@ Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic r
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
 Button/Tooltip/Larva3v3=Can mutate into Zerg structures.
+Button/Tooltip/LarvaSpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/LoveMorales=Support trooper. Heals nearby biological units.
 Button/Tooltip/Lower2=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/Marine2=
@@ -1474,15 +1479,15 @@ Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
 Button/Tooltip/ResearchWeaponCapacity=Increases the capacity of energy weapons by 200%.
 Button/Tooltip/ResearchZergArmor1=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergArmor13v3=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
+Button/Tooltip/ResearchZergArmor13v3=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchZergArmor2=- Enables spawning of <c val="ffff8a">Roaches</c>.<n/>- Enables spawning of <c val="D95200">Ravators</c>.<n/>- Enables spawning of <c val="D95200">Banelings</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergArmor23v3=- Enables spawning of <c val="ffff8a">Roaches</c>.<n/>- Enables spawning of <c val="D95200">Ravators</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
+Button/Tooltip/ResearchZergArmor23v3=- Enables spawning of <c val="ffff8a">Roaches</c>.<n/>- Enables spawning of <c val="D95200">Ravators</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchZergArmor3=- Enables spawning of <c val="ffff8a">Primal Roaches</c>.<n/>- Enables spawning of <c val="D95200">Infused Roaches</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergArmor33v3=- Enables spawning of <c val="ffff8a">Primal Roaches</c>.<n/>- Enables spawning of <c val="D95200">Infused Roaches</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
+Button/Tooltip/ResearchZergArmor33v3=- Enables spawning of <c val="ffff8a">Primal Roaches</c>.<n/>- Enables spawning of <c val="D95200">Infused Roaches</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchZergArmor4=- Enables spawning of <c val="ffff8a">Ultralisks</c>.<n/>- Enables construction of <c val="ffff8a">Mineral Containers</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergArmor43v3=- Enables spawning of <c val="ffff8a">Ultralisks</c>.<n/>- Enables spawning of <c val="D95200">Banelings</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
+Button/Tooltip/ResearchZergArmor43v3=- Enables spawning of <c val="ffff8a">Ultralisks</c>.<n/>- Enables spawning of <c val="D95200">Banelings</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchZergArmor5=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/>- Enables spawning of the <c val="8761F8">Omegalisk</c>. <n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.
+Button/Tooltip/ResearchZergArmor53v3=- Enables spawning of <c val="ffff8a">Brutalisks</c>.<n/>- Enables spawning of <c val="D95200">Torralisks</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchZergAttack=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergAttack3v3=Increases the attack of all units by <c val="ffff8a">+25%</c>.<n/><n/><c val="E1848D">Your units attack increase automatically when the AI upgrade it's attack.</c>
 Button/Tooltip/ResearchZergMovement=Increases the movement speed of all spawner units by <c val="ffff8a">+20%</c> (Strikelings <c val="ffff8a">+15%</c>)<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
@@ -1547,6 +1552,7 @@ Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that inc
 Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
+Button/Tooltip/SpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
@@ -3256,7 +3262,7 @@ Param/Expression/ECF36BA8=Large Spawner Added: ~A~
 Param/Expression/EE276F01=Research <c val="E1848D">~A~ ~B~</c> completed
 Param/Expression/F1559DB1=Spawner Removed: ~A~
 Param/Value/008594BF=Zagara will respawn in 10 seconds!
-Param/Value/01AD00A3=Kill the other team!
+Param/Value/01AD00A3=Kill the other team before they kill their Hive!
 Param/Value/01EE3A16=Voting got started for a different event!
 Param/Value/01F40F98=Artanis
 Param/Value/02A43A7E=Play 1 game to enable
@@ -3267,6 +3273,7 @@ Param/Value/04360F3A=Travel Time:
 Param/Value/0489A3AB=Armory allows you to upgrade your units.
 Param/Value/051D4070=Hammer
 Param/Value/052C5FDB=Zagara died.
+Param/Value/0530E671=Good news commander! The other side is finally dead.
 Param/Value/05AB1BA4=You can only vote once in a match!
 Param/Value/082AB456= / 
 Param/Value/08D49DA9=label test name
@@ -3278,6 +3285,7 @@ Param/Value/0C62E199=0
 Param/Value/0D0BB8EB=AI Zerg Hex
 Param/Value/0E5629AD=XMas event is disabled!
 Param/Value/13F996AD= got 
+Param/Value/142E685E=Let's erase any trace that it was our doing.
 Param/Value/14915329=You dont have 1900 or more Elo. Sorry :(
 Param/Value/14F5EB1D=Issuing Zerg balancing cost of: 
 Param/Value/153E8050=Issuing Zerg balancing cost of: 
@@ -3347,7 +3355,6 @@ Param/Value/4C275B87=label test name
 Param/Value/4CF1686F=Difficulty
 Param/Value/4FEC16CE=Move the zerg rally point to change where the zerg units will move.
 Param/Value/505B530F=Build 3 Refineries!
-Param/Value/50CA01D0=At least one member of your team must still be alive.
 Param/Value/50F21B3E=Bzzzzzz!
 Param/Value/5280043D= more votes needed!
 Param/Value/53186217=Player
@@ -3395,7 +3402,6 @@ Param/Value/70CF1FCC=Valentines Day Event active!
 Param/Value/7164857E=0
 Param/Value/740F8555=Kill the Hive on your side of the map.
 Param/Value/74473846=Kill every terran in the other team.
-Param/Value/74552BF8=Your team must stay alive!
 Param/Value/749C261C=all players must agree
 Param/Value/74E25741=
 Param/Value/769E7869=/
@@ -3454,7 +3460,9 @@ Param/Value/9FA748C7=Artanis
 Param/Value/9FA77B02=Build a Construction Yard!
 Param/Value/A000F254=Showing player stats
 Param/Value/A2BA7C6A=10 Minutes left before Zerg wins!
+Param/Value/A34587B0=Kill every terran in the other team.
 Param/Value/A44E9949=label test name
+Param/Value/A4896498=If you die, stay and help your team with Zagara.
 Param/Value/A5BD5F19=You need the Construction Yard for advanced structures.
 Param/Value/A6791F10=Hammer
 Param/Value/A7776EFA=<c val="FF9797">Rock exploits have been terminated.</c>
@@ -3495,7 +3503,6 @@ Param/Value/C4B10AE7=
 Param/Value/C4E3EE26= more votes needed!
 Param/Value/C5E11B6D=. <n/>Type "-rtv" to disable the current event! <n/>3 more votes needed!
 Param/Value/C7979109=. <n/>Type "-rtv" or "-rtv crazyminions" if you also want to play the crazy minions event! <n/>3 more votes needed!
-Param/Value/C8B11E44=Prevent the other team from killing the hive on their side of the map.
 Param/Value/C8D30284=array combine finished
 Param/Value/C97918D7=Pre-Picked Mode
 Param/Value/CA8B6BFF=Vote Practice Mode
@@ -3548,7 +3555,6 @@ Param/Value/F5C8F683=
 Param/Value/F642A0D6=
 Param/Value/F6D337EE=0
 Param/Value/F6E12D50=. <n/>Type "-rtv" or "-rtv vday" if you also want to play the valentines day event! <n/>3 more votes needed!
-Param/Value/F74672B3=Prevent the other team from killing their hive!
 Param/Value/F80D3675=Add 3 more Fruit Farms!
 Param/Value/F88788AB=Terran death before 11 minutes..
 Param/Value/FAAAD3C7=Have 20 Marines!
@@ -3559,6 +3565,7 @@ Param/Value/FDB8335E=Build a Tech Lab!
 Param/Value/FEB8A8BC=Protect what you have!
 Param/Value/FFCFAEFF=. <n/>Type "-rtv" or "-rtv halloween" if you also want to play the halloween event! <n/>3 more votes needed!
 RequirementNode/Tooltip/1455390697= 
+RequirementNode/Tooltip/And1487884178CountUpgradeHiveKilledCompleteOnly=You must kill your Hive first
 RequirementNode/Tooltip/And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter=Only one Operation Center
 RequirementNode/Tooltip/And2331140635NotCountUpgradeEnergyGenerationQueuedOnlyNotCountUpgradeEnergyGenerationInProgressOnly=Complete Upgrade
 RequirementNode/Tooltip/And2331140635NotCountUpgradeFirelingsQueuedOnlyNotCountUpgradeFirelingsInProgressOnly=Complete Upgrade
@@ -3577,7 +3584,6 @@ RequirementNode/Tooltip/CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697=
 RequirementNode/Tooltip/CountUnitArmory2CompleteOnly609241497=Armory
 RequirementNode/Tooltip/CountUnitChemicalPlantCompleteOnly3355057371=Chemical Plant
 RequirementNode/Tooltip/CountUnitConstructionYardCompleteOnly2255243434=Construction Yard
-RequirementNode/Tooltip/CountUnitHiveMindEmulatorCompleteOnly1351179563=Zerg Control Center
 RequirementNode/Tooltip/CountUpgradeAdvancedBuildCompleteOnly3080158053=Research Advanced Build
 RequirementNode/Tooltip/CountUpgradeChemicalPlantCompleteOnly1337995533=Research Chemical Plant
 RequirementNode/Tooltip/CountUpgradeGameTime215CompleteOnly2123455989=Available at 2.15 min
@@ -3591,6 +3597,7 @@ RequirementNode/Tooltip/CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791
 RequirementNode/Tooltip/CountUpgradeMarineOverchargeCompleteOnly2503394132=Research at the Armory
 RequirementNode/Tooltip/CountUpgradeMarineShatteringLaserCompleteOnly4238821561=Complete Shattering Laser
 RequirementNode/Tooltip/CountUpgradeOperationCenterReaperSuitUpgradeCompleteOnly3717036268=Reaper Suit Upgrade (Operation Center)
+RequirementNode/Tooltip/CountUpgradeOtherTeamDeadCompleteOnly411158712=The other team must be dead
 RequirementNode/Tooltip/CountUpgradeParalyzingShockCompleteOnly2664485168=Research at Armory
 RequirementNode/Tooltip/CountUpgradeShockOverloadCompleteOnly445003062=Complete Shock Overload
 RequirementNode/Tooltip/CountUpgradeSiegeTankModulationCompleteOnly3535617815=Upgrade with Modulation
@@ -3604,7 +3611,6 @@ RequirementNode/Tooltip/CountUpgradeTier3EquipmentCompleteOnly1892408692=Tier 3 
 RequirementNode/Tooltip/CountUpgradeTier3EquipmentCompleteOnly3004331205=Tier 3 Equipment (Tech Lab)
 RequirementNode/Tooltip/CountUpgradeZergArmor1CompleteOnly1850040327=Armor 1 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly1814853743=Research Armor 2
-RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly2593968052=Zerg Armor 2
 RequirementNode/Tooltip/CountUpgradeZergArmor2CompleteOnly3976443666=Armor 2 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor3CompleteOnly3638424730=Armor 3 Research
 RequirementNode/Tooltip/CountUpgradeZergArmor4CompleteOnly3065930054=Armor 4 Research
@@ -3658,6 +3664,7 @@ RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationCreeperFerocit
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly=Research Completed
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly=Research Completed
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationTanklingBanklingCompleteOnly=Research Completed
+RequirementNode/Tooltip/Not542624544CountUpgradeOtherTeamDeadCompleteOnly=The other team must be alive
 RequirementNode/Tooltip/Not660069371CountUpgradeEnergyCapacityQueuedOrBetter=Already Completed
 RequirementNode/Tooltip/Not660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetter=Already Completed
 RequirementNode/Tooltip/Not660069371CountUpgradeSuperEnergyGenerationQueuedOrBetter=Already Completed
@@ -3951,6 +3958,7 @@ Upgrade/Name/GasExtraction2=Gas Extraction 2
 Upgrade/Name/GasExtraction3=Gas Extraction 3
 Upgrade/Name/HUGSAlgorythm=H.U.G.S. Algorythm
 Upgrade/Name/HeavyPlating=Heavy Plating
+Upgrade/Name/HiveKilled=Hive Killed
 Upgrade/Name/HydralicAugment=Hydra-lic Augment
 Upgrade/Name/HydraliskSpawnSize=Hydralisk Spawn Size
 Upgrade/Name/HyperElectrodes=Hyper Electrodes
@@ -3987,6 +3995,7 @@ Upgrade/Name/NydusUpgrade3=Nydus Upgrade 3
 Upgrade/Name/OperationCenterEmpoweredWarp=Operation Center - Empowered Warp
 Upgrade/Name/OperationCenterMineralMining=Operation Center - Mineral Mining
 Upgrade/Name/OperationCenterReaperSuitUpgrade=Operation Center - Reaper Suit Upgrade
+Upgrade/Name/OtherTeamDead=Other Team Dead
 Upgrade/Name/PZergMechaUltraliskUpgrade=PZerg Mecha Ultralisk Upgrade
 Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
