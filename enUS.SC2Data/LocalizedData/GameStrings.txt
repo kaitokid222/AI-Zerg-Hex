@@ -3456,7 +3456,7 @@ Param/Value/A000F254=Showing player stats
 Param/Value/A2BA7C6A=10 Minutes left before Zerg wins!
 Param/Value/A34587B0=Kill every terran in the other team.
 Param/Value/A44E9949=label test name
-Param/Value/A4896498=If you die, stay and help your team with Zagara hero unit.
+Param/Value/A4896498=If you die, stay and help your team with Zagara.
 Param/Value/A5BD5F19=You need the Construction Yard for advanced structures.
 Param/Value/A6791F10=Hammer
 Param/Value/A7776EFA=<c val="FF9797">Rock exploits have been terminated.</c>

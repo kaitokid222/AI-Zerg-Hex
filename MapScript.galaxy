@@ -936,6 +936,9 @@ trigger gt_prevent_bottom_zerg_from_going_top;
 trigger gt_prevent_bottom_from_going_top;
 trigger gt_prevent_top_from_going_bottom;
 trigger gt_update_3v3_objectives;
+trigger gt_CocoonorOmegadies3v3;
+trigger gt_Cocoongotspawned3v3;
+trigger gt_Cocoonspawnfinished3v3;
 trigger gt_hive_top_killed;
 trigger gt_hive_bottom_killed;
 trigger gt_TerrazineIncome;
@@ -5974,6 +5977,7 @@ void gf_init_3v3 () {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BarracksTrain2", 18), true);
                 PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 160);
                 TechTreeUpgradeAddLevel(lv_index, "Mode3v3", 1);
+                TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "Mode3v3", 1);
                 TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "MechaZerg3v3", 1);
                 CatalogReferenceSet("Button,Pylon,AlertTooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
                 CatalogReferenceSet("Button,Pylon,Tooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
@@ -6062,6 +6066,9 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     TriggerEnable(gt_MechaUpgradefinished, lv_on_off);
     TriggerEnable(gt_Larvadies, lv_on_off);
     TriggerEnable(gt_Larvamutatesintobuilding, lv_on_off);
+    TriggerEnable(gt_CocoonorOmegadies3v3, lv_on_off);
+    TriggerEnable(gt_Cocoongotspawned3v3, lv_on_off);
+    TriggerEnable(gt_Cocoonspawnfinished3v3, lv_on_off);
 }
 
 void gf_disable_uneeded_triggers_for_3v3 () {
@@ -19789,6 +19796,121 @@ void gt_update_3v3_objectives_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Cocoon or Omega dies 3v3
+//--------------------------------------------------------------------------------------------------
+bool gt_CocoonorOmegadies3v3_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_ut;
+    int lv_killer;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_ut = UnitGetType(EventUnit());
+    lv_killer = libNtve_gf_KillingPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_ut == "OmegaliskCocoon2") || (lv_ut == "OmegaliskZergHex")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PingDestroy(libHots_gf_PingStoredForUnit(EventUnit(), 1));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_CocoonorOmegadies3v3_Init () {
+    gt_CocoonorOmegadies3v3 = TriggerCreate("gt_CocoonorOmegadies3v3_Func");
+    TriggerEnable(gt_CocoonorOmegadies3v3, false);
+    TriggerAddEventUnitDied(gt_CocoonorOmegadies3v3, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Cocoon got spawned 3v3
+//--------------------------------------------------------------------------------------------------
+bool gt_Cocoongotspawned3v3_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_cocoon;
+    point lv_cocoon_position;
+
+    // Automatic Variable Declarations
+    playergroup auto3B4C0210_g;
+    int auto3B4C0210_var;
+
+    // Variable Initialization
+    lv_cocoon = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_cocoon_position = UnitGetPosition(lv_cocoon);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_CreatePingFacingAngle(gv_terrans, "PingBoss", lv_cocoon_position, ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 9999.0, 270.0);
+    PingSetUnit(PingLastCreated(), lv_cocoon);
+    libHots_gf_StorePingForUnit(lv_cocoon, 1, PingLastCreated());
+    SoundPlayForPlayer(SoundLink("UI_Zerg_Warning", -1), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+    auto3B4C0210_g = gv_terrans;
+    auto3B4C0210_var = -1;
+    while (true) {
+        auto3B4C0210_var = PlayerGroupNextPlayer(auto3B4C0210_g, auto3B4C0210_var);
+        if (auto3B4C0210_var < 0) { break; }
+        libNtve_gf_ShareVisionofUnit(lv_cocoon, true, auto3B4C0210_var);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Cocoongotspawned3v3_Init () {
+    gt_Cocoongotspawned3v3 = TriggerCreate("gt_Cocoongotspawned3v3_Func");
+    TriggerEnable(gt_Cocoongotspawned3v3, false);
+    TriggerAddEventPlayerEffectUsed(gt_Cocoongotspawned3v3, c_playerAny, "OmegaliskTriggerSpawnCocoon");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Cocoon spawn finished 3v3
+//--------------------------------------------------------------------------------------------------
+bool gt_Cocoonspawnfinished3v3_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_cocoon;
+    point lv_cocoon_position;
+    unit lv_omega;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_cocoon = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_cocoon_position = UnitGetPosition(lv_cocoon);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PingDestroy(libHots_gf_PingStoredForUnit(lv_cocoon, 1));
+    UnitKill(lv_cocoon);
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "OmegaliskZergHex", c_unitCreateIgnorePlacement | c_unitCreateIgnoreBirth, EventPlayer(), lv_cocoon_position);
+    lv_omega = UnitLastCreated();
+    libNtve_gf_CreatePingFacingAngle(gv_terrans, "PingBoss", UnitGetPosition(lv_omega), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 9999.0, 270.0);
+    PingSetUnit(PingLastCreated(), lv_omega);
+    libHots_gf_StorePingForUnit(lv_omega, 1, PingLastCreated());
+    SoundPlayForPlayer(SoundLink("Omegalisk_Roar", -1), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Cocoonspawnfinished3v3_Init () {
+    gt_Cocoonspawnfinished3v3 = TriggerCreate("gt_Cocoonspawnfinished3v3_Func");
+    TriggerEnable(gt_Cocoonspawnfinished3v3, false);
+    TriggerAddEventPlayerEffectUsed(gt_Cocoonspawnfinished3v3, c_playerAny, "OmegaliskTriggerSpawnCompleted");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: hive_top_killed
 //--------------------------------------------------------------------------------------------------
 bool gt_hive_top_killed_Func (bool testConds, bool runActions) {
@@ -26838,6 +26960,9 @@ void InitTriggers () {
     gt_prevent_bottom_from_going_top_Init();
     gt_prevent_top_from_going_bottom_Init();
     gt_update_3v3_objectives_Init();
+    gt_CocoonorOmegadies3v3_Init();
+    gt_Cocoongotspawned3v3_Init();
+    gt_Cocoonspawnfinished3v3_Init();
     gt_hive_top_killed_Init();
     gt_hive_bottom_killed_Init();
     gt_TerrazineIncome_Init();

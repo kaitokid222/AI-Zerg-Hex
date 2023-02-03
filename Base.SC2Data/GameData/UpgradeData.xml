@@ -133,7 +133,14 @@
         <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.500000"/>
         <MaxLevel value="60"/>
     </CUpgrade>
-    <CUpgrade id="Mode3v3"/>
+    <CUpgrade id="Mode3v3">
+        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Minerals]" Value="1000"/>
+        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Vespene]" Value="500"/>
+        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Terrazine]" Value="8000"/>
+        <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Minerals]" Value="1000"/>
+        <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Vespene]" Value="500"/>
+        <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Terrazine]" Value="8000"/>
+    </CUpgrade>
     <CUpgrade id="MechalingDurability">
         <EffectArray Reference="Unit,Mechaling,LifeMax" Value="25"/>
         <EffectArray Operation="Set" Reference="Actor,Mechaling,Scale" Value="1.200000"/>

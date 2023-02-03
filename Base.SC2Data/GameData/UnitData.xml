@@ -623,6 +623,7 @@
             <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
             <LayoutButtons Face="MutateintoMechaTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build25" Row="2" Column="3"/>
             <LayoutButtons Face="MutateintoMechaTechlab" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build26" Row="2" Column="1"/>
+            <LayoutButtons Face="MorphtoOmegalisk" Type="AbilCmd" AbilCmd="HiveBuildOmegaliskCocoonZergHex,Build1" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.25"/>
         <SubgroupPriority value="20"/>
