@@ -19,6 +19,9 @@
     <CRequirementConst id="80">
         <Value value="80"/>
     </CRequirementConst>
+    <CRequirementAnd id="And1487884178CountUpgradeHiveKilledCompleteOnly">
+        <OperandArray value="CountUpgradeHiveKilledCompleteOnly"/>
+    </CRequirementAnd>
     <CRequirementAnd id="And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter">
         <OperandArray value="Not1537753810CountUnitOperationCenterQueuedOrBetter"/>
     </CRequirementAnd>
@@ -696,6 +699,11 @@
     <CRequirementCountUpgrade id="CountUpgradeHeavyPlatingQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HeavyPlating" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeHiveKilledCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HiveKilled" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeHydralicAugmentQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>

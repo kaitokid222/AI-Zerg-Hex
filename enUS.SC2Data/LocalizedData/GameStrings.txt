@@ -18,6 +18,7 @@ Abil/Name/BombMissile=Bomb Missile
 Abil/Name/BuildBuilder=Build (Builder)
 Abil/Name/BuildBuilderScalingStructures=Build (Builder Scaling Structures)
 Abil/Name/BuildMechaSlowling=Build Mecha Slowling
+Abil/Name/BuildOmegaliskCocoon3v3=Build Omegalisk Cocoon
 Abil/Name/BuildSporeCrawler=Build Spore Crawler
 Abil/Name/BuildSporeCrawler3v3=Build Spore Crawler
 Abil/Name/BurrowFireling=Burrow (Fireling)
@@ -222,6 +223,7 @@ Abil/Name/ZergResearch=Zerg - Research
 Abil/Name/ZergResearchSpawnerSpecialty=Zerg - Research Spawner Specialty
 Abil/Name/ZergResetRally=Zerg Reset Rally
 Abil/Name/ZergTrain=Zerg - Train
+Abil/TargetMessage/BuildOmegaliskCocoon3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/BuildSporeCrawler=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/BuildSporeCrawler3v3=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   Place Creep Tumor<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
@@ -805,6 +807,7 @@ Button/Name/Investment6=Investment 6
 Button/Name/Investment7=Investment 7
 Button/Name/IonCannon=Ion Cannon
 Button/Name/ItalisTeleport=Teleport
+Button/Name/LarvaSpawnOmegaliskCocoon3v3=Larva can Spawn Omegalisk Cocoon
 Button/Name/Lower2=Lower
 Button/Name/MarineOvercharge=Overcharge
 Button/Name/MarinePromoteToElite=Promote to Elite
@@ -992,6 +995,7 @@ Button/Name/SpawnLarva3v3=Spawn Larva
 Button/Name/SpawnMenuLarge=Spawn Menu
 Button/Name/SpawnMenuSmall=Spawn Menu
 Button/Name/SpawnOmegaliskCocoon=Spawn Omegalisk Cocoon
+Button/Name/SpawnOmegaliskCocoon3v3=Spawn Omegalisk Cocoon
 Button/Name/SpawnPrimalRoach=Spawn Primal Roach
 Button/Name/SpawnPrimalRoach3v3=Spawn Primal Roach
 Button/Name/SpawnRavager=Spawn Ravager
@@ -1313,6 +1317,7 @@ Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic r
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
 Button/Tooltip/Larva3v3=Can mutate into Zerg structures.
+Button/Tooltip/LarvaSpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/LoveMorales=Support trooper. Heals nearby biological units.
 Button/Tooltip/Lower2=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/Marine2=
@@ -1547,6 +1552,7 @@ Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that inc
 Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
+Button/Tooltip/SpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
 Button/Tooltip/SpawnPrimalRoach3v3=Heavily armored unit.<n/><n/><c val="338FF7">Upgrade:</c><n/><c val="85BCFA">- Decrease spawn by 4 seconds</c><n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnRavager=Slow moving artillery. Fires every 20 seconds in set target area.<n/><n/>Can have a maximum of 30.
@@ -3559,6 +3565,7 @@ Param/Value/FDB8335E=Build a Tech Lab!
 Param/Value/FEB8A8BC=Protect what you have!
 Param/Value/FFCFAEFF=. <n/>Type "-rtv" or "-rtv halloween" if you also want to play the halloween event! <n/>3 more votes needed!
 RequirementNode/Tooltip/1455390697= 
+RequirementNode/Tooltip/And1487884178CountUpgradeHiveKilledCompleteOnly=You must kill your Hive first
 RequirementNode/Tooltip/And1537753810Not1537753810CountUnitOperationCenterQueuedOrBetter=Only one Operation Center
 RequirementNode/Tooltip/And2331140635NotCountUpgradeEnergyGenerationQueuedOnlyNotCountUpgradeEnergyGenerationInProgressOnly=Complete Upgrade
 RequirementNode/Tooltip/And2331140635NotCountUpgradeFirelingsQueuedOnlyNotCountUpgradeFirelingsInProgressOnly=Complete Upgrade
@@ -3951,6 +3958,7 @@ Upgrade/Name/GasExtraction2=Gas Extraction 2
 Upgrade/Name/GasExtraction3=Gas Extraction 3
 Upgrade/Name/HUGSAlgorythm=H.U.G.S. Algorythm
 Upgrade/Name/HeavyPlating=Heavy Plating
+Upgrade/Name/HiveKilled=Hive Killed
 Upgrade/Name/HydralicAugment=Hydra-lic Augment
 Upgrade/Name/HydraliskSpawnSize=Hydralisk Spawn Size
 Upgrade/Name/HyperElectrodes=Hyper Electrodes

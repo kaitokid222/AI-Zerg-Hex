@@ -53,6 +53,7 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="HiveKilled"/>
     <CUpgrade id="ImprovedLiquids">
         <EffectArray Reference="Unit,Mechaling,EnergyStart" Value="50"/>
         <EffectArray Reference="Unit,Mechaling,EnergyMax" Value="50"/>
@@ -134,9 +135,6 @@
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3">
-        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Minerals]" Value="1000"/>
-        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Vespene]" Value="500"/>
-        <EffectArray Operation="Set" Reference="Abil,HiveBuildOmegaliskCocoonZergHex,InfoArray[Build1].Resource[Terrazine]" Value="8000"/>
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Minerals]" Value="1000"/>
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Vespene]" Value="500"/>
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Terrazine]" Value="8000"/>

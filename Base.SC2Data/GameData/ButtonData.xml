@@ -46,6 +46,15 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value=""/>
     </CButton>
+    <CButton id="SpawnOmegaliskCocoon3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
+    </CButton>
+    <CButton id="LarvaSpawnOmegaliskCocoon3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
+        <HotkeyAlias value="SpawnOmegaliskCocoon3v3"/>
+    </CButton>
     <CButton id="SynteticAdrenalPumps">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>

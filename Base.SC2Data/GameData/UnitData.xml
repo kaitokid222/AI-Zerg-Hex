@@ -612,7 +612,7 @@
         <AbilArray Link="move"/>
         <AbilArray Link="que1"/>
         <AbilArray Link="MorphUnitDroneZergBuildings"/>
-        <AbilArray Link="HiveBuildOmegaliskCocoonZergHex"/>
+        <AbilArray Link="BuildOmegaliskCocoon3v3"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -623,7 +623,7 @@
             <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
             <LayoutButtons Face="MutateintoMechaTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build25" Row="2" Column="3"/>
             <LayoutButtons Face="MutateintoMechaTechlab" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build26" Row="2" Column="1"/>
-            <LayoutButtons Face="MorphtoOmegalisk" Type="AbilCmd" AbilCmd="HiveBuildOmegaliskCocoonZergHex,Build1" Row="2" Column="4"/>
+            <LayoutButtons Face="SpawnOmegaliskCocoon3v3" Type="AbilCmd" AbilCmd="BuildOmegaliskCocoon3v3,Build1" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.25"/>
         <SubgroupPriority value="20"/>
@@ -830,6 +830,7 @@
             <LayoutButtons Face="ResearchZergMovement3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research7" Row="2" Column="1"/>
             <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="ResearchZergAttack3v3" Type="Passive" Row="2" Column="2"/>
+            <LayoutButtons Face="LarvaSpawnOmegaliskCocoon3v3" Type="Passive" Requirements="OmegaliskRequirement3v3" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" SubmenuIsSticky="1" Row="2" Column="4"/>

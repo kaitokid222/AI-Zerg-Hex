@@ -56,6 +56,9 @@
         <NodeArray index="Use" Link="AndCountUpgradeNydusUpgrade2CompleteOnlyCountUpgradeZergArmor5CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeNydusUpgrade3QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="OmegaliskRequirement3v3">
+        <NodeArray index="Use" Link="And1487884178CountUpgradeHiveKilledCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="Only2Morales">
         <NodeArray index="Use" Link="LT3437118427CountUnitLoveMoralesQueuedOrBetter2"/>
     </CRequirement>

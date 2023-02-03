@@ -19929,6 +19929,8 @@ bool gt_hive_top_killed_Func (bool testConds, bool runActions) {
         auto0FCD60F4_var = PlayerGroupNextPlayer(auto0FCD60F4_g, auto0FCD60F4_var);
         if (auto0FCD60F4_var < 0) { break; }
         PlayerModifyPropertyFixed(auto0FCD60F4_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
+        TechTreeUpgradeAddLevel(auto0FCD60F4_var, "HiveKilled", 1);
+        TechTreeUpgradeAddLevel(gv_players[auto0FCD60F4_var].lv__3v3_zerg_pid, "HiveKilled", 1);
     }
     return true;
 }
@@ -19959,6 +19961,8 @@ bool gt_hive_bottom_killed_Func (bool testConds, bool runActions) {
         auto80DECFFE_var = PlayerGroupNextPlayer(auto80DECFFE_g, auto80DECFFE_var);
         if (auto80DECFFE_var < 0) { break; }
         PlayerModifyPropertyFixed(auto80DECFFE_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
+        TechTreeUpgradeAddLevel(auto80DECFFE_var, "HiveKilled", 1);
+        TechTreeUpgradeAddLevel(gv_players[auto80DECFFE_var].lv__3v3_zerg_pid, "HiveKilled", 1);
     }
     return true;
 }
