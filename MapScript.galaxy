@@ -19754,11 +19754,16 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
     while (true) {
         auto2BE65F3E_var = PlayerGroupNextPlayer(auto2BE65F3E_g, auto2BE65F3E_var);
         if (auto2BE65F3E_var < 0) { break; }
-        if ((gf_is_terrans_team_bottom_dead() == true)) {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateCompleted);
+        if ((gf_is_bottom_hive_dead() == true)) {
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateFailed);
         }
         else {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateActive);
+            if ((gf_is_terrans_team_bottom_dead() == true)) {
+                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateCompleted);
+            }
+            else {
+                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateActive);
+            }
         }
         if ((gf_is_top_hive_dead() == true)) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto2BE65F3E_var], c_objectiveStateCompleted);
@@ -19772,11 +19777,16 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
     while (true) {
         auto7964F223_var = PlayerGroupNextPlayer(auto7964F223_g, auto7964F223_var);
         if (auto7964F223_var < 0) { break; }
-        if ((gf_is_terrans_team_top_dead() == true)) {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateCompleted);
+        if ((gf_is_top_hive_dead() == true)) {
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateFailed);
         }
         else {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateActive);
+            if ((gf_is_terrans_team_top_dead() == true)) {
+                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateCompleted);
+            }
+            else {
+                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateActive);
+            }
         }
         if ((gf_is_bottom_hive_dead() == true)) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto7964F223_var], c_objectiveStateCompleted);
