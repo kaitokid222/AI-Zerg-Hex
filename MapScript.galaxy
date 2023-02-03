@@ -3664,7 +3664,7 @@ string gf_get_difficulty_label () {
         lv_string = "Torment 5";
     }
     else if (auto79CEC460_val == 13) {
-        lv_string = "Torment 6";
+        lv_string = "Smith";
     }
     else {
     }
@@ -3773,6 +3773,9 @@ void gf_update_terrandata () {
                 else if (auto8BE2F59A_val == "EliteMarineSkin3") {
                     lv_army_score += 3;
                 }
+                else if (auto8BE2F59A_val == "EliteMarineSkin4") {
+                    lv_army_score += 3;
+                }
                 else if (auto8BE2F59A_val == "Battery") {
                     lv_army_score += 5;
                 }
@@ -3791,14 +3794,26 @@ void gf_update_terrandata () {
                 else if (auto8BE2F59A_val == "FirebatZergHex") {
                     lv_army_score += 2;
                 }
+                else if (auto8BE2F59A_val == "FirebatZergHexOld") {
+                    lv_army_score += 2;
+                }
                 else if (auto8BE2F59A_val == "Italis") {
                     lv_army_score += 50;
                 }
                 else if (auto8BE2F59A_val == "SiegeTank2") {
                     lv_army_score += 50;
                 }
+                else if (auto8BE2F59A_val == "SiegeTank22") {
+                    lv_army_score += 25;
+                }
+                else if (auto8BE2F59A_val == "SiegeTankSieged22") {
+                    lv_army_score += 25;
+                }
                 else if (auto8BE2F59A_val == "SiegeTankSieged2") {
                     lv_army_score += 50;
+                }
+                else if (auto8BE2F59A_val == "Probius") {
+                    lv_army_score += 10;
                 }
                 else {
                 }
