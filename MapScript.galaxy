@@ -626,7 +626,6 @@ int gf_get_integer_of_unit_type (string lp_unit_type);
 point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
 int gf_get_spawn_cooldown_reduction (int lp_player_id);
-int gf_get_terran_id_from_zpid (int lp_zpid);
 unit gf_get_random_flying_rally_of_player (int lp_player);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
@@ -656,6 +655,7 @@ bool gf_is_3v3_local_test ();
 region gf_get_region_of_influence_3v3 (int lp_player_position);
 bool gf_is_in_zerg_highgrounds (unit lp_unit);
 playergroup gf_get_team_of_player (int lp_player_id);
+int gf_get_terran_id_from_zpid (int lp_zpid);
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit);
 int gf_get_position_of_random_alive_player_from_group (playergroup lp_player_group);
 bool gf_is_pvp ();
@@ -7270,27 +7270,6 @@ int gf_get_spawn_cooldown_reduction (int lp_player_id) {
     return lv_result;
 }
 
-int gf_get_terran_id_from_zpid (int lp_zpid) {
-    // Variable Declarations
-    int lv_return;
-    int lv_i;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_i = 1;
-
-    // Implementation
-    while ((lv_i <= 6)) {
-        if ((gv_players[lv_i].lv__3v3_zerg_pid == lp_zpid)) {
-            lv_return = lv_i;
-            break;
-        }
-
-        lv_i = (lv_i + 1);
-    }
-    return lv_return;
-}
-
 unit gf_get_random_flying_rally_of_player (int lp_player) {
     // Variable Declarations
     int lv_unit_player_position;
@@ -8059,6 +8038,27 @@ playergroup gf_get_team_of_player (int lp_player_id) {
     else {
         return gv_terrans_team_bottom;
     }
+}
+
+int gf_get_terran_id_from_zpid (int lp_zpid) {
+    // Variable Declarations
+    int lv_return;
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        if ((gv_players[lv_i].lv__3v3_zerg_pid == lp_zpid)) {
+            lv_return = lv_i;
+            break;
+        }
+
+        lv_i = (lv_i + 1);
+    }
+    return lv_return;
 }
 
 bool gf_is_same_region_of_influence (point lp_point, unit lp_unit) {
@@ -20116,10 +20116,13 @@ void gt_zagara_death_timer_Init () {
 bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_upgrade;
-    int lv_owner;
+    playergroup lv_team;
+    int lv_zerg_pid;
     unitgroup lv_ug;
 
     // Automatic Variable Declarations
+    playergroup autoCC720E6B_g;
+    int autoCC720E6B_var;
     string autoF493FD12_val;
     unitgroup auto5B21AB29_g;
     int auto5B21AB29_u;
@@ -20149,7 +20152,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
     lv_upgrade = libNtve_gf_TriggeringProgressUpgrade();
-    lv_owner = UnitGetOwner(EventUnit());
+    lv_team = gf_get_team_of_player(gf_get_terran_id_from_zpid(UnitGetOwner(EventUnit())));
     lv_ug = UnitGroupEmpty();
 
     // Conditions
@@ -20168,94 +20171,105 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((lv_upgrade == "NydusUpgrade") || (lv_upgrade == "NydusUpgrade2") || (lv_upgrade == "NydusUpgrade3"))) {
-        lv_ug = UnitGroup("NydusCanal", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoF493FD12_val = lv_upgrade;
-        if (autoF493FD12_val == "NydusUpgrade") {
-            auto5B21AB29_g = lv_ug;
-            auto5B21AB29_u = UnitGroupCount(auto5B21AB29_g, c_unitCountAll);
-            for (;; auto5B21AB29_u -= 1) {
-                auto5B21AB29_var = UnitGroupUnitFromEnd(auto5B21AB29_g, auto5B21AB29_u);
-                if (auto5B21AB29_var == null) { break; }
-                UnitSetScale(auto5B21AB29_var, 90.0, 90.0, 90.0);
-            }
+    autoCC720E6B_g = lv_team;
+    autoCC720E6B_var = -1;
+    while (true) {
+        autoCC720E6B_var = PlayerGroupNextPlayer(autoCC720E6B_g, autoCC720E6B_var);
+        if (autoCC720E6B_var < 0) { break; }
+        lv_zerg_pid = gv_players[autoCC720E6B_var].lv__3v3_zerg_pid;
+        if ((lv_zerg_pid != UnitGetOwner(EventUnit()))) {
+            TechTreeUpgradeAddLevel(lv_zerg_pid, lv_upgrade, 1);
         }
-        else if (autoF493FD12_val == "NydusUpgrade2") {
-            autoAC9DC226_g = lv_ug;
-            autoAC9DC226_u = UnitGroupCount(autoAC9DC226_g, c_unitCountAll);
-            for (;; autoAC9DC226_u -= 1) {
-                autoAC9DC226_var = UnitGroupUnitFromEnd(autoAC9DC226_g, autoAC9DC226_u);
-                if (autoAC9DC226_var == null) { break; }
-                UnitSetScale(autoAC9DC226_var, 100.0, 100.0, 100.0);
-            }
-        }
-        else if (autoF493FD12_val == "NydusUpgrade3") {
-            auto2AB97F38_g = lv_ug;
-            auto2AB97F38_u = UnitGroupCount(auto2AB97F38_g, c_unitCountAll);
-            for (;; auto2AB97F38_u -= 1) {
-                auto2AB97F38_var = UnitGroupUnitFromEnd(auto2AB97F38_g, auto2AB97F38_u);
-                if (auto2AB97F38_var == null) { break; }
-                UnitSetScale(auto2AB97F38_var, 110.0, 110.0, 110.0);
-            }
-        }
-        else {
-        }
-    }
 
-    if (((lv_upgrade == "MechalingDurability") || (lv_upgrade == "JUICEModule") || (lv_upgrade == "ImprovedLiquids") || (lv_upgrade == "UnstableCore") || (lv_upgrade == "HUGSAlgorythm"))) {
-        lv_ug = UnitGroup("Mechaling", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto1C59175E_val = lv_upgrade;
-        if (auto1C59175E_val == "MechalingDurability") {
-            auto55C975D3_g = lv_ug;
-            auto55C975D3_u = UnitGroupCount(auto55C975D3_g, c_unitCountAll);
-            for (;; auto55C975D3_u -= 1) {
-                auto55C975D3_var = UnitGroupUnitFromEnd(auto55C975D3_g, auto55C975D3_u);
-                if (auto55C975D3_var == null) { break; }
-                UnitSetScale(auto55C975D3_var, 120.0, 120.0, 120.0);
+        if (((lv_upgrade == "NydusUpgrade") || (lv_upgrade == "NydusUpgrade2") || (lv_upgrade == "NydusUpgrade3"))) {
+            lv_ug = UnitGroup("NydusCanal", lv_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoF493FD12_val = lv_upgrade;
+            if (autoF493FD12_val == "NydusUpgrade") {
+                auto5B21AB29_g = lv_ug;
+                auto5B21AB29_u = UnitGroupCount(auto5B21AB29_g, c_unitCountAll);
+                for (;; auto5B21AB29_u -= 1) {
+                    auto5B21AB29_var = UnitGroupUnitFromEnd(auto5B21AB29_g, auto5B21AB29_u);
+                    if (auto5B21AB29_var == null) { break; }
+                    UnitSetScale(auto5B21AB29_var, 90.0, 90.0, 90.0);
+                }
+            }
+            else if (autoF493FD12_val == "NydusUpgrade2") {
+                autoAC9DC226_g = lv_ug;
+                autoAC9DC226_u = UnitGroupCount(autoAC9DC226_g, c_unitCountAll);
+                for (;; autoAC9DC226_u -= 1) {
+                    autoAC9DC226_var = UnitGroupUnitFromEnd(autoAC9DC226_g, autoAC9DC226_u);
+                    if (autoAC9DC226_var == null) { break; }
+                    UnitSetScale(autoAC9DC226_var, 100.0, 100.0, 100.0);
+                }
+            }
+            else if (autoF493FD12_val == "NydusUpgrade3") {
+                auto2AB97F38_g = lv_ug;
+                auto2AB97F38_u = UnitGroupCount(auto2AB97F38_g, c_unitCountAll);
+                for (;; auto2AB97F38_u -= 1) {
+                    auto2AB97F38_var = UnitGroupUnitFromEnd(auto2AB97F38_g, auto2AB97F38_u);
+                    if (auto2AB97F38_var == null) { break; }
+                    UnitSetScale(auto2AB97F38_var, 110.0, 110.0, 110.0);
+                }
+            }
+            else {
             }
         }
-        else if (auto1C59175E_val == "JUICEModule") {
-            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-            auto4D0A4A7E_g = lv_ug;
-            auto4D0A4A7E_u = UnitGroupCount(auto4D0A4A7E_g, c_unitCountAll);
-            for (;; auto4D0A4A7E_u -= 1) {
-                auto4D0A4A7E_var = UnitGroupUnitFromEnd(auto4D0A4A7E_g, auto4D0A4A7E_u);
-                if (auto4D0A4A7E_var == null) { break; }
-                UnitSetPropertyFixed(auto4D0A4A7E_var, c_unitPropEnergy, 50.0);
-            }
-        }
-        else if (auto1C59175E_val == "ImprovedLiquids") {
-            UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-            auto1C9A3F6B_g = lv_ug;
-            auto1C9A3F6B_u = UnitGroupCount(auto1C9A3F6B_g, c_unitCountAll);
-            for (;; auto1C9A3F6B_u -= 1) {
-                auto1C9A3F6B_var = UnitGroupUnitFromEnd(auto1C9A3F6B_g, auto1C9A3F6B_u);
-                if (auto1C9A3F6B_var == null) { break; }
-                UnitSetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, (UnitGetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, c_unitPropCurrent) + 50.0));
-            }
-        }
-        else if (auto1C59175E_val == "UnstableCore") {
-            auto23C05FB4_g = lv_ug;
-            auto23C05FB4_u = UnitGroupCount(auto23C05FB4_g, c_unitCountAll);
-            for (;; auto23C05FB4_u -= 1) {
-                auto23C05FB4_var = UnitGroupUnitFromEnd(auto23C05FB4_g, auto23C05FB4_u);
-                if (auto23C05FB4_var == null) { break; }
-                UnitBehaviorAdd(auto23C05FB4_var, "UnstableCore", auto23C05FB4_var, 1);
-            }
-        }
-        else if (auto1C59175E_val == "HUGSAlgorythm") {
-            autoF0518C9E_g = lv_ug;
-            autoF0518C9E_u = UnitGroupCount(autoF0518C9E_g, c_unitCountAll);
-            for (;; autoF0518C9E_u -= 1) {
-                autoF0518C9E_var = UnitGroupUnitFromEnd(autoF0518C9E_g, autoF0518C9E_u);
-                if (autoF0518C9E_var == null) { break; }
-                UnitBehaviorAdd(autoF0518C9E_var, "HUGSAlgorythm", autoF0518C9E_var, 1);
-            }
-        }
-        else {
-        }
-    }
 
+        if (((lv_upgrade == "MechalingDurability") || (lv_upgrade == "JUICEModule") || (lv_upgrade == "ImprovedLiquids") || (lv_upgrade == "UnstableCore") || (lv_upgrade == "HUGSAlgorythm"))) {
+            lv_ug = UnitGroup("Mechaling", lv_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto1C59175E_val = lv_upgrade;
+            if (auto1C59175E_val == "MechalingDurability") {
+                auto55C975D3_g = lv_ug;
+                auto55C975D3_u = UnitGroupCount(auto55C975D3_g, c_unitCountAll);
+                for (;; auto55C975D3_u -= 1) {
+                    auto55C975D3_var = UnitGroupUnitFromEnd(auto55C975D3_g, auto55C975D3_u);
+                    if (auto55C975D3_var == null) { break; }
+                    UnitSetScale(auto55C975D3_var, 120.0, 120.0, 120.0);
+                }
+            }
+            else if (auto1C59175E_val == "JUICEModule") {
+                UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+                auto4D0A4A7E_g = lv_ug;
+                auto4D0A4A7E_u = UnitGroupCount(auto4D0A4A7E_g, c_unitCountAll);
+                for (;; auto4D0A4A7E_u -= 1) {
+                    auto4D0A4A7E_var = UnitGroupUnitFromEnd(auto4D0A4A7E_g, auto4D0A4A7E_u);
+                    if (auto4D0A4A7E_var == null) { break; }
+                    UnitSetPropertyFixed(auto4D0A4A7E_var, c_unitPropEnergy, 50.0);
+                }
+            }
+            else if (auto1C59175E_val == "ImprovedLiquids") {
+                UnitGroupAddUnitGroup(lv_ug, UnitGroup("MechaHydralisk", lv_zerg_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+                auto1C9A3F6B_g = lv_ug;
+                auto1C9A3F6B_u = UnitGroupCount(auto1C9A3F6B_g, c_unitCountAll);
+                for (;; auto1C9A3F6B_u -= 1) {
+                    auto1C9A3F6B_var = UnitGroupUnitFromEnd(auto1C9A3F6B_g, auto1C9A3F6B_u);
+                    if (auto1C9A3F6B_var == null) { break; }
+                    UnitSetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, (UnitGetPropertyFixed(auto1C9A3F6B_var, c_unitPropEnergy, c_unitPropCurrent) + 50.0));
+                }
+            }
+            else if (auto1C59175E_val == "UnstableCore") {
+                auto23C05FB4_g = lv_ug;
+                auto23C05FB4_u = UnitGroupCount(auto23C05FB4_g, c_unitCountAll);
+                for (;; auto23C05FB4_u -= 1) {
+                    auto23C05FB4_var = UnitGroupUnitFromEnd(auto23C05FB4_g, auto23C05FB4_u);
+                    if (auto23C05FB4_var == null) { break; }
+                    UnitBehaviorAdd(auto23C05FB4_var, "UnstableCore", auto23C05FB4_var, 1);
+                }
+            }
+            else if (auto1C59175E_val == "HUGSAlgorythm") {
+                autoF0518C9E_g = lv_ug;
+                autoF0518C9E_u = UnitGroupCount(autoF0518C9E_g, c_unitCountAll);
+                for (;; autoF0518C9E_u -= 1) {
+                    autoF0518C9E_var = UnitGroupUnitFromEnd(autoF0518C9E_g, autoF0518C9E_u);
+                    if (autoF0518C9E_var == null) { break; }
+                    UnitBehaviorAdd(autoF0518C9E_var, "HUGSAlgorythm", autoF0518C9E_var, 1);
+                }
+            }
+            else {
+            }
+        }
+
+    }
     return true;
 }
 
@@ -21228,7 +21242,7 @@ bool gt__3v3test_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_one_team_is_dead_event();
+    gf_create_zagara(EventPlayer());
     return true;
 }
 

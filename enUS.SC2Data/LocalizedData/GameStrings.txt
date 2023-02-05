@@ -1219,7 +1219,7 @@ Button/Tooltip/EliteMarineSkin3=
 Button/Tooltip/EliteMarineSkin4=
 Button/Tooltip/EmpoweredWarp=Upgrades the Tech Lab Energy Warp ability to supply more energy.<n/><n/>Energy warped increases from 500 to 800 and has a larger area of effect.
 Button/Tooltip/EnableAutomation=Enables automation and remains open until enemies are nearby.<n/><n/>Manual control will disable automation for 7 seconds.
-Button/Tooltip/EnableJUICEModule=Allows Mechalings and Mecha Hydralisks to use energy.
+Button/Tooltip/EnableJUICEModule=Allows Mechalings and Mecha Hydralisks to use energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/EnableWeapon=Re-enable weapon fire.
 Button/Tooltip/EnergyCore=The Italis can remain alive while the Command Center is destroyed.
 Button/Tooltip/EnergyGeneration=Infestor gains 3 energy per attack.
@@ -1281,12 +1281,12 @@ Button/Tooltip/HighDensityBattery=Tal'darim Faction<n/>Robotic support unit. Can
 Button/Tooltip/Hive2=
 Button/Tooltip/HiveMindEmulator=Tech Structure. Allows you to buy zerg support and therefore indirectly attack the other team.
 Button/Tooltip/HotSRaptor=
-Button/Tooltip/HydralicAugment=Increases Mecha Hydralisk movement speed.
+Button/Tooltip/HydralicAugment=Increases Mecha Hydralisk movement speed.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Hydralisk=
 Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="ffff8a">Zerg Armor</c> upgrades increase attack damage, attack range, max health and health regen.<n/><n/><c val="D95200">Cannot attack zerg buildings.</c><n/>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
-Button/Tooltip/ImprovedLiquids=Doubles Mecha energy.
+Button/Tooltip/ImprovedLiquids=Doubles Mecha energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
 Button/Tooltip/IncreaseMinerals50=Adjust Mineral cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
 Button/Tooltip/IncreasePower=Every Blood Stack increases HP by 1.
@@ -1300,7 +1300,7 @@ Button/Tooltip/InfestorZergHex3v3=Infestation specialist. Can use the Fungal Gro
 Button/Tooltip/InfusedRoach=
 Button/Tooltip/InfusedRoachRadiation=Nearby enemy units take <d ref="Effect,InfusedRoachAuraDamage,Amount"/> damage per second. Nearby roaches have increased attack and movement speed.<n/><n/>Units damaged become infected and will spawn a Roach if killed quickly.
 Button/Tooltip/InfusedRoachSpawner=
-Button/Tooltip/InstallHUGSAlgorythm=For each additional spawn from the Zerg Control Center Mechalings gain 0.5 HP.
+Button/Tooltip/InstallHUGSAlgorythm=For each additional spawn from the Zerg Control Center Mechalings gain 0.5 HP.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/InstantDischarge=Launch a long range blast to selected target, causing 80 damage.
 Button/Tooltip/Investment=Invests minerals to gain more over time. Produced from the Operation Center, does retain income rate when rebuilt.<n/><n/>For every 100 minerals invested, gain +3 minerals per 5 seconds. Doubles in investment cost per upgrade, can be researched 7 times.
 Button/Tooltip/Investment2=Increases the mineral gain of the Operation Center from +3 to +9 per 5 seconds.
@@ -1331,9 +1331,9 @@ Button/Tooltip/MechaRoach=
 Button/Tooltip/MechaTechlab=Contains upgrades for Zerg ground units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Aberrations from Larvae with Lair or Hive
 Button/Tooltip/MechaUpgradeMenu=Mecha Upgrades
 Button/Tooltip/Mechaling=
-Button/Tooltip/MechalingDurability=Increases Mechaling HP by 25, Armor by 1 and Size by 20%
+Button/Tooltip/MechalingDurability=Increases Mechaling HP by 25, Armor by 1 and Size by 20%<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/MeleeMinionHell=
-Button/Tooltip/MetalbolicBoost=Increase Movement speed by 40%.
+Button/Tooltip/MetalbolicBoost=Increase Movement speed by 40%.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/MineralContainer=
 Button/Tooltip/MineralContainerPassiveInfo=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MineralExtractor=
@@ -1355,7 +1355,7 @@ Button/Tooltip/MutateintoGeyserBlocker=Mutated over a Vespene Geyser to deny ter
 Button/Tooltip/MutateintoGreaterMineralExtractor=Upgrades the extractor to give four times as much minerals per minute.<n/><n/>Has 250 more hp and 3 armor.
 Button/Tooltip/MutateintoInfusedRoachSpawner=Infused with radiation crystals to deal damage to nearby enemies. Has a high durability and a strong melee attack.<n/><n/>Units damaged will be infected and spawn a Roach if killed quickly. Nearby Roaches will be radiated to increase attack and movement speed.<n/><n/><c val="94D1D1">Re-spawns 1 unit</c> <c val="E8E191">(100 sec spawn time)</c>
 Button/Tooltip/MutateintoMechaSpineCrawler=Primary defense structure.
-Button/Tooltip/MutateintoMechaTechlab=Allows to upgrade Mecha units and structures.
+Button/Tooltip/MutateintoMechaTechlab=Allows to upgrade Mecha units and structures.<n/><n/><c val="E1848D">Researches are shared among your team.</c><n/><n/><c val="E2E087">Tip: Build this building as soon as possible.</c>
 Button/Tooltip/MutateintoMechaTerrazineExtractor=Increase  your Terrazine Income by 30% and your allies Terrazine income by 10%.
 Button/Tooltip/MutateintoMineralContainer=Increases Mineral Extractors production by 4 per minute.
 Button/Tooltip/MutateintoMineralExtractor=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
@@ -1374,9 +1374,9 @@ Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repa
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
 Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+40 terrazine income per minute while it is alive</c>
-Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.
-Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.
-Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.
+Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/OmegaliskCocoon2=
 Button/Tooltip/OmegaliskZergHex=
 Button/Tooltip/OperationCenter=
@@ -1429,8 +1429,8 @@ Button/Tooltip/RecruitChaosCultist=Cultists perform similar to Tier 1 Marines.
 Button/Tooltip/RecruitChaosLord=Elite Unit which is very tanky.
 Button/Tooltip/RecruitChaosSpaceMarine=Durable but slower elite infantry which doesn't use energy.<n/>Chaos Space Marines Stimpack is stronger than overcharge but costs life.
 Button/Tooltip/RecruitSlave=Slaves gather blood and can kill themselves to generate blood.
-Button/Tooltip/RecyclingProtocol=Materials of destroyed Mechalings get recycled. Increases the maximum amount of Mechalings by 2 per Nydus.
-Button/Tooltip/RecyclingProtocol2=Materials of destroyed Mechalings get recycled more effectively. Increases the maximum amount of Mechalings by 2 per Nydus.
+Button/Tooltip/RecyclingProtocol=Materials of destroyed Mechalings get recycled. Increases the maximum amount of Mechalings by 2 per Nydus.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/RecyclingProtocol2=Materials of destroyed Mechalings get recycled more effectively. Increases the maximum amount of Mechalings by 2 per Nydus.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Refinery2=
 Button/Tooltip/ResearchAdvancedBuild=Eliminates the cost of walls.<n/><n/><c val="ffff8a">Enables:</c><n/>- Structure: Converter
 Button/Tooltip/ResearchBankling=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
@@ -1500,7 +1500,7 @@ Button/Tooltip/RoachSpawner=
 Button/Tooltip/ScannerSweep=Reveals an area of the map. Lasts <d time="10"/>. Acts as a radar when scanning the Zerg inner base.<n/><n/><c val="49D3F1">Costs 1 charge</c>
 Button/Tooltip/SelfDestruct=For those cases you want to spare the zerg the joy of slaughtering you.<n/><n/><c val="E8E191">Requires an additional click to take effect.</c>
 Button/Tooltip/SelfDestruct2=Click to self destruct.
-Button/Tooltip/SelfRechargingBatteries=Mecha units regenerate energy.
+Button/Tooltip/SelfRechargingBatteries=Mecha units regenerate energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/SendToBottomCenter=Send to: [Player Name]<n/><n/>Spawn a transport to send resources with the selected transport type. Transport will automatically set course.
 Button/Tooltip/SendToBottomLeft=Send to: [Player Name]<n/><n/>Spawn a transport to send resources with the selected transport type. Transport will automatically set course.
 Button/Tooltip/SendToBottomRight=Send to: [Player Name]<n/><n/>Spawn a transport to send resources with the selected transport type. Transport will automatically set course.
@@ -1589,7 +1589,7 @@ Button/Tooltip/StrikelingSpawner=Spawns fast moving suicide strikelings.
 Button/Tooltip/StructureBurn=Attacks set structures ablaze, dealing <d ref="Effect,RavatorBurnDamage,Amount/Behavior,RavatorStructureBurning,Period"/> damage per second and reducing armor by 5.<n/><n/>Burning damage is increased with attack upgrades.
 Button/Tooltip/Suicide=Kills itself and generates Blood.
 Button/Tooltip/SummonNydusCanalCreeper=Summons a Creep Tower at the target location. Creep Tower can launch creep in a chosen direction.<n/><n/><c val="D95200">Increase Terrazine income of every player in  your team by 20%.</c></n></n><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/SynteticAdrenalPumps=Increases Mechaling Attack Speed by 100%
+Button/Tooltip/SynteticAdrenalPumps=Increases Mechaling Attack Speed by 100%<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Tankling=
 Button/Tooltip/TanklingSpawner=
 Button/Tooltip/TarInfection=Infect enemy units on attack, infected units will spawn a Tar Roach upon their death.<n/><n/>Tar Roaches move and attack fast and will also infect units.
@@ -1632,7 +1632,7 @@ Button/Tooltip/TransporterMenuTrader=Click to select different transport.<n/><n/
 Button/Tooltip/TransporterMenuTransporter=Click to select different transport.<n/><n/>Currently selected: <c val="E8E191">Transporter</c><n/><n/><c val="429B58">Delivery Value:</c> 100%<n/><c val="429B58">Capacity: </c>unlimited<n/><c val="429B58">Speed: </c>5<n/>
 Button/Tooltip/Ultralisk2=
 Button/Tooltip/UltraliskSpawner=
-Button/Tooltip/UnstableCore=Mechalings explode when they die and cause AOE damage.
+Button/Tooltip/UnstableCore=Mechalings explode when they die and cause AOE damage.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Unstoppable=Gate can not be blocked trying to close.
 Button/Tooltip/UpgradeBunker=Upgrade bunker to spawn Bombers instead. Bombers suicide and create a damaging area of effect.
 Button/Tooltip/UpgradeBunkerCapacity=Increases the number of spawns by 2.
@@ -3617,11 +3617,12 @@ RequirementNode/Tooltip/CountUpgradeZergArmor4CompleteOnly3065930054=Armor 4 Res
 RequirementNode/Tooltip/CountUpgradeZergArmor5CompleteOnly2431451755=Armor 5 Research
 RequirementNode/Tooltip/GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2=You need two Stacks of Blood!
 RequirementNode/Tooltip/GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100=Have 100 Blood
+RequirementNode/Tooltip/GTE1280241940CountUpgradeMinuteUpgradeQueuedOrBetter15=Need to wait 15 minutes
 RequirementNode/Tooltip/GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=Generator Level 30
 RequirementNode/Tooltip/GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20=20 charges
-RequirementNode/Tooltip/GTE1640925980CountUpgradeMinuteUpgradeQueuedOrBetter12=Need to wait 12 minutes
 RequirementNode/Tooltip/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=4 charges
 RequirementNode/Tooltip/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=25 Charges
+RequirementNode/Tooltip/GTE2085714489CountUpgradeMinuteUpgradeQueuedOrBetter10=Need to wait 10 minutes
 RequirementNode/Tooltip/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=Generator Level 5
 RequirementNode/Tooltip/GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100=You need 100 Blood Stacks
 RequirementNode/Tooltip/GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10=You need 10 Stacks of Blood!

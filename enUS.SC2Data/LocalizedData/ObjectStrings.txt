@@ -66,7 +66,7 @@ Abil/EditorPrefix/OverchargeSpawner=Queen -
 Abil/EditorPrefix/PlasmaCannon=Siege Tank -
 Abil/EditorPrefix/PlasmaCannonT2=Siege Tank -
 Abil/EditorPrefix/PlasmaCannonT3=Siege Tank -
-Abil/EditorPrefix/PlayerZergResearch=3v3
+Abil/EditorPrefix/PlayerZergResearch=3v3 Mecha
 Abil/EditorPrefix/PowerField=Tech Lab -
 Abil/EditorPrefix/PromoteToElite=Marine -
 Abil/EditorPrefix/PromoteToVeteran=Marine -
@@ -2335,10 +2335,11 @@ Requirement/EditorSuffix/TerrazineDoubler2Requirement=3v3
 Requirement/EditorSuffix/TerrazineDoubler3Requirement=3v3
 Requirement/EditorSuffix/TerrazineDoublerRequirement=3v3
 Requirement/EditorSuffix/ZCCHasCreeperFerocity=3v3
+Requirement/EditorSuffix/ZagaraCreepTumor=3v3
+Requirement/EditorSuffix/ZagaraSporeCrawler=3v3
 Requirement/EditorSuffix/ZergRallyEqual=3v3
 Requirement/EditorSuffix/ZergRallyMinusON=3v3
 Requirement/EditorSuffix/ZergRallyPlusON=3v3
-Requirement/Name/12minutes=12 minutes
 Requirement/Name/20Vents=20Vents
 Requirement/Name/40Bunkers=40Bunkers
 Requirement/Name/ArmNapalmBomb=Arm Napalm Bomb
@@ -2581,6 +2582,8 @@ Requirement/Name/UseOvercharge=Use Overcharge
 Requirement/Name/UsePlasmaCannons=Use Plasma Cannons
 Requirement/Name/WeaponCapacityRequirement=Weapon Capacity Requirement
 Requirement/Name/ZCCHasCreeperFerocity=ZCC Has Creeper Ferocity
+Requirement/Name/ZagaraCreepTumor=Zagara Creep Tumor
+Requirement/Name/ZagaraSporeCrawler=Zagara Spore Crawler
 Requirement/Name/ZergRallyEqual=Zerg Rally Equal
 Requirement/Name/ZergRallyMinusON=Zerg Rally Minus - ON
 Requirement/Name/ZergRallyPlusON=Zerg Rally Plus - ON
@@ -2924,11 +2927,12 @@ RequirementNode/Name/GTCountUnitCowFarmCompleteOnlyCountUnitCow2CompleteOnly=Cou
 RequirementNode/Name/GTCountUnitSheepFarmCompleteOnlyCountUnitSheep2CompleteOnly=CountUnit(SheepFarm,CompleteOnly) > CountUnit(Sheep2,CompleteOnly)
 RequirementNode/Name/GTE1164318180CountBehaviorBloodStacksQueuedOrBetter2=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need two Stacks of Blood!}2
 RequirementNode/Name/GTE1229494613CountBehaviorBloodStacksQueuedOrBetter100=CountBehavior(BloodStacks,QueuedOrBetter) >= {Have 100 Blood}100
+RequirementNode/Name/GTE1280241940CountUpgradeMinuteUpgradeQueuedOrBetter15=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 15 minutes}15
 RequirementNode/Name/GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 30}30
 RequirementNode/Name/GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {20 charges}20
-RequirementNode/Name/GTE1640925980CountUpgradeMinuteUpgradeQueuedOrBetter12=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 12 minutes}12
 RequirementNode/Name/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {4 charges}4
 RequirementNode/Name/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
+RequirementNode/Name/GTE2085714489CountUpgradeMinuteUpgradeQueuedOrBetter10=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 10 minutes}10
 RequirementNode/Name/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5
 RequirementNode/Name/GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 100 Blood Stacks}100
 RequirementNode/Name/GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 10 Stacks of Blood!}10
