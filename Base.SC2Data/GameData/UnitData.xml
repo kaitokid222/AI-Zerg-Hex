@@ -271,6 +271,10 @@
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="CreepTumorQueen">
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+    </CUnit>
     <CUnit id="EliteMarineSkin4">
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
@@ -4584,7 +4588,6 @@
         <LifeStart value="250"/>
         <LifeMax value="250"/>
         <LifeArmor value="0"/>
-        <FlagArray index="Cloaked" value="1"/>
     </CUnit>
     <CUnit id="SporeCrawlerWeaponZergHex" parent="MISSILE">
         <Race value="Zerg"/>

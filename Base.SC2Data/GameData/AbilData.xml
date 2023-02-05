@@ -257,7 +257,7 @@
             <Vital index="Energy" value="300"/>
             <Charge Link="Abil/CreepTumorBuild" Location="Unit"/>
             <Cooldown Link="Abil/CreepTumorBuild" Location="Unit"/>
-            <Button DefaultButtonFace="SpawnSporeCrawler" Requirements="12minutes"/>
+            <Button DefaultButtonFace="SpawnSporeCrawler" Requirements="ZagaraSporeCrawler"/>
         </InfoArray>
         <InfoArray index="Build2">
             <Charge Link="Abil/CreepTumorBuild"/>
@@ -730,7 +730,9 @@
     <!--                                                                                        -->
     <CAbilBuild id="QueenBuild">
         <InfoArray index="Build1">
+            <Vital index="Energy" value="50"/>
             <Cooldown TimeUse="8"/>
+            <Button Requirements="ZagaraCreepTumor"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectInstant id="SpawnBanelingGroup">

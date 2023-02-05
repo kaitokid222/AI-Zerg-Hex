@@ -21242,7 +21242,7 @@ bool gt__3v3test_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_one_team_is_dead_event();
+    gf_create_zagara(EventPlayer());
     return true;
 }
 
