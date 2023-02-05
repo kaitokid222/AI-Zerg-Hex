@@ -3536,6 +3536,7 @@ Param/Value/E130816B=Gas is needed for everything. The more you have the better 
 Param/Value/E1ED0B77=I heard you need some help! We will take care about some of the zerg spawners. Good Luck!
 Param/Value/E372FAEE= more votes needed!
 Param/Value/E4B0AABC= refunded!
+Param/Value/E4CB8C23= researched 
 Param/Value/E5D0DE4A= Minerals
 Param/Value/E82930A4=Build 5 Reapers!
 Param/Value/E951A043=e2s try buy supply 

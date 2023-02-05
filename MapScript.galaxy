@@ -20178,6 +20178,7 @@ bool gt_MechaUpgradefinished_Func (bool testConds, bool runActions) {
         if (autoCC720E6B_var < 0) { break; }
         lv_zerg_pid = gv_players[autoCC720E6B_var].lv__3v3_zerg_pid;
         if ((lv_zerg_pid != UnitGetOwner(EventUnit()))) {
+            UIDisplayMessage(PlayerGroupSingle(gf_get_terran_id_from_zpid(lv_zerg_pid)), c_messageAreaChat, (TextWithColor(PlayerName(gf_get_terran_id_from_zpid(UnitGetOwner(EventUnit()))), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gf_get_terran_id_from_zpid(UnitGetOwner(EventUnit())), false))) + (StringExternal("Param/Value/E4CB8C23") + TextWithColor(StringExternal(CatalogFieldValueGet(c_gameCatalogUpgrade, libNtve_gf_TriggeringProgressUpgrade(), "Name", c_playerAny)), Color(100.00, 100.00, 0.00)))));
             TechTreeUpgradeAddLevel(lv_zerg_pid, lv_upgrade, 1);
         }
 
