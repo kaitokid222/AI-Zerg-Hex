@@ -637,6 +637,7 @@ unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_gr
 void gf_manage_spawners_3v3 (int lp_player_position);
 bool gf_is_overseer (unit lp_unit);
 void gf_init_3v3_flying_rally ();
+void gf_init_mecha_nydus_spawn_point ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 point gf_get_point_of_flying_rally (unit lp_unit);
 fixed gf_get_left_zerg_ratio_of_player (int lp_player);
@@ -7660,6 +7661,42 @@ void gf_init_3v3_flying_rally () {
             gf_manage_spawners_3v3(gv_players[lv_index].lv_position);
         }
 
+    }
+    gf_init_mecha_nydus_spawn_point();
+}
+
+void gf_init_mecha_nydus_spawn_point () {
+    // Variable Declarations
+    unitgroup lv_ug;
+
+    // Automatic Variable Declarations
+    unitgroup auto48DD725F_g;
+    int auto48DD725F_u;
+    unit auto48DD725F_var;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+
+    // Implementation
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(457314631));
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(1932723074));
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(1151317287));
+    UnitSetPosition(UnitLastCreated(), PointFromId(1151317287), false);
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(385572299));
+    UnitSetPosition(UnitLastCreated(), PointFromId(385572299), false);
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    auto48DD725F_g = lv_ug;
+    auto48DD725F_u = UnitGroupCount(auto48DD725F_g, c_unitCountAll);
+    for (;; auto48DD725F_u -= 1) {
+        auto48DD725F_var = UnitGroupUnitFromEnd(auto48DD725F_g, auto48DD725F_u);
+        if (auto48DD725F_var == null) { break; }
+        UnitSetScale(auto48DD725F_var, 140.0, 140.0, 140.0);
+        libNtve_gf_MakeUnitInvulnerable(auto48DD725F_var, true);
+        UnitSetInfoText2(auto48DD725F_var, StringExternal("Param/Value/CEAAB825"));
+        UnitSetPropertyFixed(auto48DD725F_var, c_unitPropEnergyMax, 0.0);
     }
 }
 
@@ -20697,6 +20734,14 @@ bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
+        if (!((UnitGetOwner(EventUnitProgressUnit()) >= 8))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnitProgressUnit()) <= 13))) {
+            return false;
+        }
+
         if (!((UnitGetType(EventUnitProgressUnit()) == "NydusCanal"))) {
             return false;
         }

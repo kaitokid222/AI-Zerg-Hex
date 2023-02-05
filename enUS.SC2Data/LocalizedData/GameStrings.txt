@@ -3508,6 +3508,7 @@ Param/Value/C97918D7=Pre-Picked Mode
 Param/Value/CA8B6BFF=Vote Practice Mode
 Param/Value/CD71BC83=Build 3 Gas Vents!
 Param/Value/CE7D411E=Zerg Supply
+Param/Value/CEAAB825=Can spawn zerg units.
 Param/Value/CFCFEF2C=Raynor
 Param/Value/D04B4A09=e2s max spawner count reached. try kill low spawner.
 Param/Value/D13D409A=:
