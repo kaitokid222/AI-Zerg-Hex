@@ -4584,6 +4584,7 @@
         <LifeStart value="250"/>
         <LifeMax value="250"/>
         <LifeArmor value="0"/>
+        <FlagArray index="Cloaked" value="1"/>
     </CUnit>
     <CUnit id="SporeCrawlerWeaponZergHex" parent="MISSILE">
         <Race value="Zerg"/>
