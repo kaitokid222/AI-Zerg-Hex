@@ -20666,6 +20666,7 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
         auto425C9A02_var = PlayerGroupNextPlayer(auto425C9A02_g, auto425C9A02_var);
         if (auto425C9A02_var < 0) { break; }
         if ((UnitGetOwner(EventUnit()) != auto425C9A02_var)) {
+            UIDisplayMessage(PlayerGroupSingle(auto425C9A02_var), c_messageAreaChat, (TextWithColor(PlayerName(UnitGetOwner(EventUnit())), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(EventUnit()), false))) + (StringExternal("Param/Value/E6AB5EF3") + TextWithColor(StringExternal(CatalogFieldValueGet(c_gameCatalogUpgrade, libNtve_gf_TriggeringProgressUpgrade(), "Name", c_playerAny)), Color(100.00, 100.00, 0.00)))));
             TechTreeUpgradeAddLevel(auto425C9A02_var, libNtve_gf_TriggeringProgressUpgrade(), 1);
         }
 

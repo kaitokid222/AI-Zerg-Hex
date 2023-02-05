@@ -3538,6 +3538,7 @@ Param/Value/E372FAEE= more votes needed!
 Param/Value/E4B0AABC= refunded!
 Param/Value/E4CB8C23= researched 
 Param/Value/E5D0DE4A= Minerals
+Param/Value/E6AB5EF3= researched 
 Param/Value/E82930A4=Build 5 Reapers!
 Param/Value/E951A043=e2s try buy supply 
 Param/Value/E9F748BF=</c><c val="FFFFC4"> returned with: </c>
