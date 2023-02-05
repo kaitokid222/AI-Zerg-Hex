@@ -428,7 +428,7 @@
         <GlossaryPriority value="29"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <TechTreeUnlockedUnitArray value=""/>
-        <EnergyMax value="300"/>
+        <EnergyMax value="600"/>
         <EnergyRegenRate value="1"/>
     </CUnit>
     <CUnit id="MechaHydralisk">
