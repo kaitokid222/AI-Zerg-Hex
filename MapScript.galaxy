@@ -6741,8 +6741,8 @@ fixed gf_get_terrazine_multiplier (int lp_player_id) {
 
     // Implementation
     lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
-    lv_own_mineral_extractors = UnitGroup("MechaMineralExtractor", gv_players[lp_player_id].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_all_mineral_extractors = UnitGroup("MechaMineralExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_own_mineral_extractors = UnitGroup("MechaTerrazineExtractor", gv_players[lp_player_id].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_all_mineral_extractors = UnitGroup("MechaTerrazineExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     lv_other_mineral_extractors = (UnitGroupCount(lv_all_mineral_extractors, c_unitCountAlive) - UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
     lv_result = 1.0;
     lv_result += (0.1001 * lv_other_mineral_extractors);
@@ -20411,7 +20411,7 @@ bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaMineralExtractor") || (UnitGetType(EventUnitProgressUnit()) == "MechaTechlab")))) {
+        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaTerrazineExtractor") || (UnitGetType(EventUnitProgressUnit()) == "MechaTechlab")))) {
             return false;
         }
     }
@@ -24680,7 +24680,7 @@ bool gt_buildinggetsattackedtrydefendwithhydras_Func (bool testConds, bool runAc
             return false;
         }
 
-        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort") || (UnitGetType(lv_unit) == "SpineCrawlerMecha") || (UnitGetType(lv_unit) == "NydusCanal") || (UnitGetType(lv_unit) == "MechaTechlab") || (UnitGetType(lv_unit) == "MechaMineralExtractor")))) {
+        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort") || (UnitGetType(lv_unit) == "SpineCrawlerMecha") || (UnitGetType(lv_unit) == "NydusCanal") || (UnitGetType(lv_unit) == "MechaTechlab") || (UnitGetType(lv_unit) == "MechaTerrazineExtractor")))) {
             return false;
         }
     }

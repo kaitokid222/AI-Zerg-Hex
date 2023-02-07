@@ -132,6 +132,33 @@
             <Cooldown Link="Abil/CreepTumorBuild"/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilMorph id="MorphBuildingExtractorGreater3v3">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MutateintoGreaterTerrazineExtractor" State="Suppressed"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelMutateMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="GreaterTerrazineExtractor">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="20"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="20"/>
+            </SectionArray>
+            <SectionArray index="Facing">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="20"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="MorphComplete_Zerg"/>
+        <Activity value="UI/Mutating"/>
+    </CAbilMorph>
     <CAbilEffectInstant id="UseJUICEtoheal">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
@@ -3645,8 +3672,8 @@
         <InfoArray index="Build24" Unit="SpineCrawlerMecha" Time="15">
             <Button DefaultButtonFace="MutateintoMechaSpineCrawler" Requirements="RequirementArmor1"/>
         </InfoArray>
-        <InfoArray index="Build25" Unit="MechaMineralExtractor" Time="40">
-            <Button DefaultButtonFace="MutateintoMechaTerrazineExtractor" Requirements="CreepTower"/>
+        <InfoArray index="Build25" Unit="MechaTerrazineExtractor" Time="40">
+            <Button DefaultButtonFace="MutateintoMechaTerrazineExtractor" Requirements="MechaTerrazineExtractor"/>
         </InfoArray>
         <InfoArray index="Build26" Unit="MechaTechlab" Time="60">
             <Button DefaultButtonFace="MutateintoMechaTechlab" Requirements="OnlyOneMechaTechlab"/>

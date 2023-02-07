@@ -21,8 +21,8 @@
     <CRequirement id="Base1Alive">
         <NodeArray index="Show" Link="NotCountUpgradeBase1DeadCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="CreepTower">
-        <NodeArray index="Use" Link="AndLTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4"/>
+    <CRequirement id="MechaTerrazineExtractor">
+        <NodeArray index="Use" Link="AndLT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1"/>
     </CRequirement>
     <CRequirement id="Have100BloodStacksandnoLord">
         <NodeArray index="Use" Link="AndLT2011835200CountUnitChaosLordQueuedOrBetter1GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100CountUpgradeTier2EquipmentCompleteOnly"/>

@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorUnit id="GreaterTerrazineExtractor" parent="ZergBuildingEx" unitName="GreaterTerrazineExtractor">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="InfestorMaxHealthMacroScale085"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="AnimPlay Morph Morph 0 0.000000 0.000000 2.000000 AsDuration"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="Spire_Mecha_GreaterSpire"/>
+        <Scale value="0.850000"/>
+        <BuildModel value="Spire_Mecha_GreaterSpire"/>
+        <DeathArray index="Normal" ModelLink="GreaterSpireDeath" SoundLink=""/>
+        <DeathArray index="UnderConstruction" SoundLink="GreaterSpire_Explode"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PortraitModel value="Spire_Mecha_GreaterSpire_Portrait"/>
+        <BarOffset value="190"/>
+        <BarWidth value="120"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-GreaterSpire.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-greaterspire-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level1.dds"/>
+        <NameOffset value="70"/>
+        <SoundArray index="Ready" value="GreaterSpire_Ready"/>
+        <SoundArray index="What" value="GreaterSpire_What"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-greaterspire-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-GreaterSpire.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorModel id="MechaTechlabBuild" parent="ZergBuildingBuild">
         <Model value="EvolutionChamber_Mecha_Build"/>
     </CActorModel>
@@ -506,17 +534,17 @@
         </Wireframe>
         <Scale value="1.100000"/>
     </CActorUnit>
-    <CActorUnit id="MechaMineralExtractor" parent="ZergBuildingEx" unitName="MechaMineralExtractor">
+    <CActorUnit id="MechaTerrazineExtractor" parent="ZergBuildingEx" unitName="MechaTerrazineExtractor">
         <Aliases value="_UnitHuge"/>
         <Macros value="InfestorMaxHealthMacroScale085"/>
         <On index="0" Send="Create SoundEmitter Spire_Ambience"/>
-        <On index="65" Terms="UnitConstruction.MechaMineralExtractor.Start" Send="Create MechaMineralExtractorBuild"/>
-        <On index="66" Terms="UnitConstruction.MechaMineralExtractor.Start" Send="Create BuildingTerrainFlatten"/>
-        <On index="67" Terms="UnitConstruction.MechaMineralExtractor.Finish" Send="Destroy"/>
-        <On index="68" Terms="UnitBirth.MechaMineralExtractor.Normal" Send="Create BuildingTerrainFlatten"/>
-        <On index="69" Terms="UnitBirth.MechaMineralExtractor.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
-        <On index="70" Terms="UnitBirth.MechaMineralExtractor.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
-        <On index="71" Terms="UnitDeath.MechaMineralExtractor" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="65" Terms="UnitConstruction.MechaTerrazineExtractor.Start" Send="Create MechaMineralExtractorBuild"/>
+        <On index="66" Terms="UnitConstruction.MechaTerrazineExtractor.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="67" Terms="UnitConstruction.MechaTerrazineExtractor.Finish" Send="Destroy"/>
+        <On index="68" Terms="UnitBirth.MechaTerrazineExtractor.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="69" Terms="UnitBirth.MechaTerrazineExtractor.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="70" Terms="UnitBirth.MechaTerrazineExtractor.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="71" Terms="UnitDeath.MechaTerrazineExtractor" Target="_BuildingTerrainFlatten" Send="Destroy"/>
         <On index="72" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="" Send="StatusSet Morphing 1"/>
         <On index="73" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Send="Create SpireMorph"/>
         <On index="74" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Started"/>
@@ -553,7 +581,8 @@
         <GroupSoundArray index="Yes" value="Spire_GroupYes"/>
         <GroupSoundArray index="Attack" value="Spire_GroupAttack"/>
         <GroupSoundArray index="Board" value="Spire_GroupBoard"/>
-        <HeroIcon value="Assets\Textures\btn-building-zerg-spire.dds"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spire-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level1.dds"/>
         <NameOffset value="70"/>
         <SoundArray index="Birth" value="Spire_Birth"/>
         <SoundArray index="Ready" value="Spire_Ready"/>

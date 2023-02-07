@@ -359,6 +359,76 @@
             <Cooldown Link="Marine/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="GreaterTerrazineExtractor">
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="GreaterSpire"/>
+        <Facing value="339.994"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="750"/>
+        <LifeMax value="750"/>
+        <LifeArmor value="3"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Vespene" value="250"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="DestroyStructure"/>
+        <BehaviorArray Link="OnCreep"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5CancelToSelection,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="ExtractTerrazinex5" Type="Passive" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint2x2IgnoreCreepContour"/>
+        <PlacementFootprint value="Footprint2x2Creep"/>
+        <ScoreMake value="650"/>
+        <ScoreKill value="700"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <TacticalAI value="GreaterSpire"/>
+        <LeaderAlias value="GreaterSpire"/>
+        <HotkeyAlias value="GreaterSpire"/>
+        <SelectAlias value="GreaterSpire"/>
+        <SubgroupAlias value="GreaterSpire"/>
+        <TechAliasArray value="Alias_Spire"/>
+        <GlossaryPriority value="244"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <AIEvaluateAlias value="GreaterSpire"/>
+        <TechTreeUnlockedUnitArray value="BroodLord"/>
+        <ReviveInfoBase>
+            <Charge Link="GreaterSpire/Revive"/>
+            <Cooldown Link="GreaterSpire/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
     <CUnit id="MechaTechlab">
         <DeathRevealRadius value="3"/>
         <Facing value="329.9963"/>
@@ -638,7 +708,7 @@
         <HotkeyCategory value="Unit/Category/ZergStory"/>
         <RankDisplay value="Never"/>
     </CUnit>
-    <CUnit id="MechaMineralExtractor">
+    <CUnit id="MechaTerrazineExtractor">
         <DeathRevealRadius value="3"/>
         <ReviveType value="Spire"/>
         <Facing value="315"/>
@@ -673,7 +743,7 @@
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="DestroyStructure"/>
-        <AbilArray Link="MorphBuildingExtractorGreater"/>
+        <AbilArray Link="MorphBuildingExtractorGreater3v3"/>
         <BehaviorArray Link="OnCreep"/>
         <BehaviorArray Link="ZergBuildingNotOnCreep"/>
         <BehaviorArray Link="RefundOnDeath"/>
@@ -681,9 +751,10 @@
         <EffectArray index="Birth" value="IncomeExtractorCreated"/>
         <CardLayouts>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
-            <LayoutButtons Face="CancelMutateMorph" Type="AbilCmd" AbilCmd="MorphBuildingExtractorGreater,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelMutateMorph" Type="AbilCmd" AbilCmd="MorphBuildingExtractorGreater3v3,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="ExtractTerrazine" Type="Passive" Behavior="ExtractMineralsZerg" Row="0" Column="0"/>
             <LayoutButtons Face="DestroyStructure" Type="AbilCmd" AbilCmd="DestroyStructure,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MutateintoGreaterTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphBuildingExtractorGreater3v3,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <Radius value="1"/>
         <SeparationRadius value="1"/>
