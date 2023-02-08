@@ -298,6 +298,7 @@ Actor/EditorSuffix/Larva3v3=Hex
 Actor/EditorSuffix/LaveCrab=(Edit)
 Actor/EditorSuffix/Marine2=(Edit)
 Actor/EditorSuffix/MechaRoach=(Edit)
+Actor/EditorSuffix/MechaTerrazineExtractor=3v3
 Actor/EditorSuffix/Mechaling=Hex
 Actor/EditorSuffix/MineralGenerator=Hex
 Actor/EditorSuffix/NapalmBombCarry=(Chemical Plant Light)

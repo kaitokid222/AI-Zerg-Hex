@@ -6728,25 +6728,60 @@ fixed gf_get_terrazine_income (int lp_player_id) {
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {
     // Variable Declarations
-    unitgroup lv_own_mineral_extractors;
+    unitgroup lv_terrazine_extractor;
     unitgroup lv_all_mineral_extractors;
     int lv_other_mineral_extractors;
     region lv_region;
     fixed lv_result;
 
     // Automatic Variable Declarations
+    playergroup auto6EE6CC88_g;
+    int auto6EE6CC88_var;
+    unitgroup autoEA417664_g;
+    int autoEA417664_u;
+    unit autoEA417664_var;
+    unitgroup autoCD385F56_g;
+    int autoCD385F56_u;
+    unit autoCD385F56_var;
+
     // Variable Initialization
-    lv_own_mineral_extractors = UnitGroupEmpty();
+    lv_terrazine_extractor = UnitGroupEmpty();
     lv_all_mineral_extractors = UnitGroupEmpty();
 
     // Implementation
-    lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
-    lv_own_mineral_extractors = UnitGroup("MechaTerrazineExtractor", gv_players[lp_player_id].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_all_mineral_extractors = UnitGroup("MechaTerrazineExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_other_mineral_extractors = (UnitGroupCount(lv_all_mineral_extractors, c_unitCountAlive) - UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
     lv_result = 1.0;
-    lv_result += (0.1001 * lv_other_mineral_extractors);
-    lv_result += (0.3001 * UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
+    auto6EE6CC88_g = gf_get_team_of_player(lp_player_id);
+    auto6EE6CC88_var = -1;
+    while (true) {
+        auto6EE6CC88_var = PlayerGroupNextPlayer(auto6EE6CC88_g, auto6EE6CC88_var);
+        if (auto6EE6CC88_var < 0) { break; }
+        lv_terrazine_extractor = UnitGroup("MechaTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoEA417664_g = lv_terrazine_extractor;
+        autoEA417664_u = UnitGroupCount(autoEA417664_g, c_unitCountAll);
+        for (;; autoEA417664_u -= 1) {
+            autoEA417664_var = UnitGroupUnitFromEnd(autoEA417664_g, autoEA417664_u);
+            if (autoEA417664_var == null) { break; }
+            if ((auto6EE6CC88_var == lp_player_id)) {
+                lv_result += 0.3001;
+            }
+            else {
+                lv_result += 0.1001;
+            }
+        }
+        lv_terrazine_extractor = UnitGroup("GreaterTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoCD385F56_g = lv_terrazine_extractor;
+        autoCD385F56_u = UnitGroupCount(autoCD385F56_g, c_unitCountAll);
+        for (;; autoCD385F56_u -= 1) {
+            autoCD385F56_var = UnitGroupUnitFromEnd(autoCD385F56_g, autoCD385F56_u);
+            if (autoCD385F56_var == null) { break; }
+            if ((auto6EE6CC88_var == lp_player_id)) {
+                lv_result += 1.5001;
+            }
+            else {
+                lv_result += 0.5001;
+            }
+        }
+    }
     if ((gv_players[lp_player_id].lv_position <= 3)) {
         if ((gf_is_top_hive_dead() == true)) {
             lv_result *= 2.0;

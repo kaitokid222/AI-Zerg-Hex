@@ -3,8 +3,8 @@
     <CActorUnit id="GreaterTerrazineExtractor" parent="ZergBuildingEx" unitName="GreaterTerrazineExtractor">
         <Aliases value="_UnitHuge"/>
         <Macros value="InfestorMaxHealthMacroScale085"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="AnimPlay Morph Morph 0 0.000000 0.000000 2.000000 AsDuration"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterTerrazineExtractor" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterTerrazineExtractor" Send="AnimPlay Morph Morph 0 0.000000 0.000000 2.000000 AsDuration"/>
         <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
         <Model value="Spire_Mecha_GreaterSpire"/>
         <Scale value="0.850000"/>
@@ -545,18 +545,18 @@
         <On index="69" Terms="UnitBirth.MechaTerrazineExtractor.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
         <On index="70" Terms="UnitBirth.MechaTerrazineExtractor.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
         <On index="71" Terms="UnitDeath.MechaTerrazineExtractor" Target="_BuildingTerrainFlatten" Send="Destroy"/>
-        <On index="72" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="" Send="StatusSet Morphing 1"/>
-        <On index="73" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Send="Create SpireMorph"/>
-        <On index="74" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Started"/>
-        <On index="75" Terms="AbilMorph.*.Start; MorphTo GreaterMineralExtractor" Send="AnimPlay Morph Morph PlayForever 0.000000 0.000000 3.333000 AsDuration"/>
-        <On index="76" Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Target="" Send="StatusSet Morphing 0"/>
-        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Finished"/>
-        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimClear Morph"/>
-        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimClear ::Progress"/>
-        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimBaselineStart"/>
-        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterMineralExtractor" Send="AnimPlay Rebirth Build,D,Start 0 0.000000 0.000000 2.000000 AsDuration"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Target="SpireMorph" Send="Signal Finished"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo GreaterMineralExtractor" Send="Destroy"/>
+        <On index="72" Terms="AbilMorph.*.Start; MorphTo GreaterTerrazineExtractor" Target="" Send="StatusSet Morphing 1"/>
+        <On index="73" Terms="AbilMorph.*.Start; MorphTo GreaterTerrazineExtractor" Send="Create SpireMorph"/>
+        <On index="74" Terms="AbilMorph.*.Start; MorphTo GreaterTerrazineExtractor" Target="SpireMorph" Send="Signal Started"/>
+        <On index="75" Terms="AbilMorph.*.Start; MorphTo GreaterTerrazineExtractor" Send="AnimPlay Morph Morph PlayForever 0.000000 0.000000 3.333000 AsDuration"/>
+        <On index="76" Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Target="" Send="StatusSet Morphing 0"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Target="SpireMorph" Send="Signal Finished"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Send="AnimClear Morph"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Send="AnimClear ::Progress"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Send="AnimBaselineStart"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo GreaterTerrazineExtractor" Send="AnimPlay Rebirth Build,D,Start 0 0.000000 0.000000 2.000000 AsDuration"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterTerrazineExtractor" Target="SpireMorph" Send="Signal Finished"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo GreaterTerrazineExtractor" Send="Destroy"/>
         <On Terms="UnitDeathCustomize; IsStatus Morphing 1" Send="DeathCustomize Upgrade"/>
         <On Terms="Behavior.BuildingStasis.On" Send="TimerSet 0.330000 DelayCreation"/>
         <On Terms="TimerExpired; TimerName DelayCreation" Target="SpireMorph" Send="AnimSetPausedAll"/>
