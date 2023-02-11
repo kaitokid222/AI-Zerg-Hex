@@ -146,6 +146,7 @@
 <Unit id="Probe"/>
 <Unit id="SpineCrawler"/>
 <Unit id="Overlord"/>
+<Unit id="NydusCanal"/>
 <Unit id="Viper"/>
 <Unit id="ShieldBattery"/>
 <Unit id="VespeneGeyser"/>

@@ -515,25 +515,25 @@
     <region id="86">
         <name value="ZCC Bottom Left"/>
         <shape type="rect">
-            <quad value="84.9897,117.0422,96.9897,118.0136"/>
+            <quad value="67.001,126.015,75.001,126.9863"/>
         </shape>
     </region>
     <region id="87">
         <name value="ZCC Top Left"/>
         <shape type="rect">
-            <quad value="84.9821,138.074,96.9821,139.0454"/>
+            <quad value="67,129.0153,75,129.9868"/>
         </shape>
     </region>
     <region id="88">
         <name value="ZCC Top Right"/>
         <shape type="rect">
-            <quad value="142.979,138.0964,154.979,139.0678"/>
+            <quad value="165,129.0146,173,129.986"/>
         </shape>
     </region>
     <region id="89">
         <name value="ZCC Bottom Right"/>
         <shape type="rect">
-            <quad value="143.0175,117.03,155.0175,118.0014"/>
+            <quad value="165,126.0163,173,126.9877"/>
         </shape>
     </region>
     <region id="90">

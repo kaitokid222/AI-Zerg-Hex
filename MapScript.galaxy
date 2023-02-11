@@ -637,6 +637,7 @@ unit gf_get_closest_not_full_rally (point lp_point, unitgroup lp_flying_rally_gr
 void gf_manage_spawners_3v3 (int lp_player_position);
 bool gf_is_overseer (unit lp_unit);
 void gf_init_3v3_flying_rally ();
+void gf_init_mecha_nydus_spawn_point ();
 void gf_create_flying_rally (int lp_player_id, int lp_rally_position);
 point gf_get_point_of_flying_rally (unit lp_unit);
 fixed gf_get_left_zerg_ratio_of_player (int lp_player);
@@ -6727,25 +6728,60 @@ fixed gf_get_terrazine_income (int lp_player_id) {
 
 fixed gf_get_terrazine_multiplier (int lp_player_id) {
     // Variable Declarations
-    unitgroup lv_own_mineral_extractors;
+    unitgroup lv_terrazine_extractor;
     unitgroup lv_all_mineral_extractors;
     int lv_other_mineral_extractors;
     region lv_region;
     fixed lv_result;
 
     // Automatic Variable Declarations
+    playergroup auto6EE6CC88_g;
+    int auto6EE6CC88_var;
+    unitgroup autoEA417664_g;
+    int autoEA417664_u;
+    unit autoEA417664_var;
+    unitgroup autoCD385F56_g;
+    int autoCD385F56_u;
+    unit autoCD385F56_var;
+
     // Variable Initialization
-    lv_own_mineral_extractors = UnitGroupEmpty();
+    lv_terrazine_extractor = UnitGroupEmpty();
     lv_all_mineral_extractors = UnitGroupEmpty();
 
     // Implementation
-    lv_region = gf_get_region_of_influence_3v3((7 - gv_players[lp_player_id].lv_position));
-    lv_own_mineral_extractors = UnitGroup("MechaMineralExtractor", gv_players[lp_player_id].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_all_mineral_extractors = UnitGroup("MechaMineralExtractor", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    lv_other_mineral_extractors = (UnitGroupCount(lv_all_mineral_extractors, c_unitCountAlive) - UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
     lv_result = 1.0;
-    lv_result += (0.1001 * lv_other_mineral_extractors);
-    lv_result += (0.3001 * UnitGroupCount(lv_own_mineral_extractors, c_unitCountAlive));
+    auto6EE6CC88_g = gf_get_team_of_player(lp_player_id);
+    auto6EE6CC88_var = -1;
+    while (true) {
+        auto6EE6CC88_var = PlayerGroupNextPlayer(auto6EE6CC88_g, auto6EE6CC88_var);
+        if (auto6EE6CC88_var < 0) { break; }
+        lv_terrazine_extractor = UnitGroup("MechaTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoEA417664_g = lv_terrazine_extractor;
+        autoEA417664_u = UnitGroupCount(autoEA417664_g, c_unitCountAll);
+        for (;; autoEA417664_u -= 1) {
+            autoEA417664_var = UnitGroupUnitFromEnd(autoEA417664_g, autoEA417664_u);
+            if (autoEA417664_var == null) { break; }
+            if ((auto6EE6CC88_var == lp_player_id)) {
+                lv_result += 0.3001;
+            }
+            else {
+                lv_result += 0.1001;
+            }
+        }
+        lv_terrazine_extractor = UnitGroup("GreaterTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoCD385F56_g = lv_terrazine_extractor;
+        autoCD385F56_u = UnitGroupCount(autoCD385F56_g, c_unitCountAll);
+        for (;; autoCD385F56_u -= 1) {
+            autoCD385F56_var = UnitGroupUnitFromEnd(autoCD385F56_g, autoCD385F56_u);
+            if (autoCD385F56_var == null) { break; }
+            if ((auto6EE6CC88_var == lp_player_id)) {
+                lv_result += 1.5001;
+            }
+            else {
+                lv_result += 0.5001;
+            }
+        }
+    }
     if ((gv_players[lp_player_id].lv_position <= 3)) {
         if ((gf_is_top_hive_dead() == true)) {
             lv_result *= 2.0;
@@ -7660,6 +7696,42 @@ void gf_init_3v3_flying_rally () {
             gf_manage_spawners_3v3(gv_players[lv_index].lv_position);
         }
 
+    }
+    gf_init_mecha_nydus_spawn_point();
+}
+
+void gf_init_mecha_nydus_spawn_point () {
+    // Variable Declarations
+    unitgroup lv_ug;
+
+    // Automatic Variable Declarations
+    unitgroup auto48DD725F_g;
+    int auto48DD725F_u;
+    unit auto48DD725F_var;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+
+    // Implementation
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(457314631));
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(1932723074));
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(1151317287));
+    UnitSetPosition(UnitLastCreated(), PointFromId(1151317287), false);
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, 7, PointFromId(385572299));
+    UnitSetPosition(UnitLastCreated(), PointFromId(385572299), false);
+    UnitGroupAdd(lv_ug, UnitLastCreated());
+    auto48DD725F_g = lv_ug;
+    auto48DD725F_u = UnitGroupCount(auto48DD725F_g, c_unitCountAll);
+    for (;; auto48DD725F_u -= 1) {
+        auto48DD725F_var = UnitGroupUnitFromEnd(auto48DD725F_g, auto48DD725F_u);
+        if (auto48DD725F_var == null) { break; }
+        UnitSetScale(auto48DD725F_var, 140.0, 140.0, 140.0);
+        libNtve_gf_MakeUnitInvulnerable(auto48DD725F_var, true);
+        UnitSetInfoText2(auto48DD725F_var, StringExternal("Param/Value/CEAAB825"));
+        UnitSetPropertyFixed(auto48DD725F_var, c_unitPropEnergyMax, 0.0);
     }
 }
 
@@ -20374,7 +20446,7 @@ bool gt_Larvamutatesintobuilding_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaMineralExtractor") || (UnitGetType(EventUnitProgressUnit()) == "MechaTechlab")))) {
+        if (!(((UnitGetType(EventUnitProgressUnit()) == "NydusCanal") || (UnitGetType(EventUnitProgressUnit()) == "NydusCanalCreeper") || (UnitGetType(EventUnitProgressUnit()) == "SpineCrawlerMecha") || (UnitGetType(EventUnitProgressUnit()) == "MechaTerrazineExtractor") || (UnitGetType(EventUnitProgressUnit()) == "MechaTechlab")))) {
             return false;
         }
     }
@@ -20666,6 +20738,7 @@ bool gt_ZCCupgrades_Func (bool testConds, bool runActions) {
         auto425C9A02_var = PlayerGroupNextPlayer(auto425C9A02_g, auto425C9A02_var);
         if (auto425C9A02_var < 0) { break; }
         if ((UnitGetOwner(EventUnit()) != auto425C9A02_var)) {
+            UIDisplayMessage(PlayerGroupSingle(auto425C9A02_var), c_messageAreaChat, (TextWithColor(PlayerName(UnitGetOwner(EventUnit())), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(EventUnit()), false))) + (StringExternal("Param/Value/E6AB5EF3") + TextWithColor(StringExternal(CatalogFieldValueGet(c_gameCatalogUpgrade, libNtve_gf_TriggeringProgressUpgrade(), "Name", c_playerAny)), Color(100.00, 100.00, 0.00)))));
             TechTreeUpgradeAddLevel(auto425C9A02_var, libNtve_gf_TriggeringProgressUpgrade(), 1);
         }
 
@@ -20696,6 +20769,14 @@ bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
+        if (!((UnitGetOwner(EventUnitProgressUnit()) >= 8))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnitProgressUnit()) <= 13))) {
+            return false;
+        }
+
         if (!((UnitGetType(EventUnitProgressUnit()) == "NydusCanal"))) {
             return false;
         }
@@ -24634,7 +24715,7 @@ bool gt_buildinggetsattackedtrydefendwithhydras_Func (bool testConds, bool runAc
             return false;
         }
 
-        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort") || (UnitGetType(lv_unit) == "SpineCrawlerMecha") || (UnitGetType(lv_unit) == "NydusCanal") || (UnitGetType(lv_unit) == "MechaTechlab") || (UnitGetType(lv_unit) == "MechaMineralExtractor")))) {
+        if (!(((UnitGetType(lv_unit) == "SpineCrawler") || (UnitGetType(lv_unit) == "SlowlingSpawner") || (UnitGetType(lv_unit) == "CreeperSpawner") || (UnitGetType(lv_unit) == "StrikelingSpawner") || (UnitGetType(lv_unit) == "TanklingSpawner") || (UnitGetType(lv_unit) == "RoachSpawner") || (UnitGetType(lv_unit) == "PrimalRoachSpawner") || (UnitGetType(lv_unit) == "UltraliskSpawner") || (UnitGetType(lv_unit) == "BrutaliskSpawner") || (UnitGetType(lv_unit) == "BanelingSpawner") || (UnitGetType(lv_unit) == "BeastlingSpawner") || (UnitGetType(lv_unit) == "InfusedRoachSpawner") || (UnitGetType(lv_unit) == "RavatorSpawner") || (UnitGetType(lv_unit) == "TorraliskSpawner") || (UnitGetType(lv_unit) == "MineralExtractor") || (UnitGetType(lv_unit) == "CreepTumor2") || (UnitGetType(lv_unit) == "LargeSpineCrawler") || (UnitGetType(lv_unit) == "Nest2") || (UnitGetType(lv_unit) == "Hellfort") || (UnitGetType(lv_unit) == "SpineCrawlerMecha") || (UnitGetType(lv_unit) == "NydusCanal") || (UnitGetType(lv_unit) == "MechaTechlab") || (UnitGetType(lv_unit) == "MechaTerrazineExtractor")))) {
             return false;
         }
     }

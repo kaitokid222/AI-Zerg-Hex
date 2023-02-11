@@ -163,6 +163,11 @@
         <OperandArray value="GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100"/>
         <OperandArray value="CountUpgradeTier2EquipmentCompleteOnly"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndLT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1"/>
+        <OperandArray value="LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1">
         <OperandArray value="LTCountBehaviorSpawnFromCenterCompleteOnlyAtUnit1"/>
     </CRequirementAnd>
@@ -174,9 +179,6 @@
     </CRequirementAnd>
     <CRequirementAnd id="AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1">
         <OperandArray value="LTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
-    </CRequirementAnd>
-    <CRequirementAnd id="AndLTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
-        <OperandArray value="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNot143893411CountUnitHiveMindEmulatorQueuedOrBetterNot542624544CountUpgradeOtherTeamDeadCompleteOnly">
         <OperandArray value="Not143893411CountUnitHiveMindEmulatorQueuedOrBetter"/>
@@ -418,6 +420,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GasVent" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitGreaterTerrazineExtractorQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="GreaterTerrazineExtractor" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HiveMindEmulator" State="CompleteOnly"/>
@@ -434,13 +441,14 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="LoveMorales" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitMechaMineralExtractorQueuedOrBetter">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="MechaMineralExtractor" State="QueuedOrBetter"/>
-    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitMechaTechlabQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MechaTechlab" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitMechaTerrazineExtractorQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MechaTerrazineExtractor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1418,6 +1426,14 @@
         <OperandArray index="0" value="CountUnitChaosLordQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
+    <CRequirementLT id="LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitGreaterTerrazineExtractorQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitMechaTerrazineExtractorQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
     <CRequirementLT id="LT2473741311CountUnitRavager2QueuedOrBetter30">
         <OperandArray index="0" value="CountUnitRavager2QueuedOrBetter"/>
         <OperandArray index="1" value="30"/>
@@ -1482,10 +1498,6 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
-    <CRequirementLTE id="LTE3748157360CountUnitMechaMineralExtractorQueuedOrBetter4">
-        <OperandArray index="0" value="CountUnitMechaMineralExtractorQueuedOrBetter"/>
-        <OperandArray index="1" value="4"/>
-    </CRequirementLTE>
     <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly50">
         <OperandArray index="0" value="SumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly"/>
         <OperandArray index="1" value="50"/>

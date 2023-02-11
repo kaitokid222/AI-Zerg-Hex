@@ -135,6 +135,7 @@ Button/Hotkey/MutateintoCreepTumor=A
 Button/Hotkey/MutateintoCreeperSpawner=E
 Button/Hotkey/MutateintoGeyserBlocker=B
 Button/Hotkey/MutateintoGreaterMineralExtractor=Z
+Button/Hotkey/MutateintoGreaterTerrazineExtractor=Z
 Button/Hotkey/MutateintoInfusedRoachSpawner=R
 Button/Hotkey/MutateintoMechaSpineCrawler=E
 Button/Hotkey/MutateintoMechaTechlab=W

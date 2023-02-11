@@ -4,6 +4,9 @@
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
     </CButton>
+    <CButton id="ExtractTerrazinex5">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CButton>
     <CButton id="ImprovedLiquids">
         <Icon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
         <AlertIcon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
@@ -17,6 +20,11 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechamuscularaugments.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="MetalbolicBoost"/>
+    </CButton>
+    <CButton id="MutateintoGreaterTerrazineExtractor">
+        <Icon value="Assets\Textures\btn-building-zerg-greaterspire-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-greaterspire-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="NydusUpgrade2">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-lairstetellitebonus.dds"/>
