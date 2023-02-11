@@ -553,9 +553,8 @@
         <EffectArray Reference="Effect,BeastlingClawsMainWallDamage,Amount" Value="2.5"/>
         <EffectArray Reference="Weapon,MechaClaws,Level" Value="1"/>
         <EffectArray Reference="Effect,MechaClawsDamage,Amount" Value="2"/>
-        <EffectArray Reference="Effect,ImpalerTentacleU3v3,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ImpalerTentacleU3v3,Amount" Value="2"/>
         <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
-        <EffectArray Reference="Effect,ImpalerTentacleU3v3,Amount" Value="1"/>
         <EffectArray Reference="Weapon,MechaNeedleSpines,Level" Value="1"/>
         <EffectArray Reference="Effect,MechaNeedleSpinesRangedDamage,Amount" Value="5"/>
         <EditorCategories value="Race:Zerg"/>
