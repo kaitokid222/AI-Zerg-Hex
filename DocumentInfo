@@ -294,7 +294,7 @@
             <Value>1/11/2023</Value>
             <Value>1/26/2023</Value>
             <Value>1/29/2023</Value>
-            <Value>1/30/2023</Value>
+            <Value>2/15/2023</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -430,7 +430,7 @@
             <Value>567,568,569,570,571</Value>
             <Value>572,573,574,575,576,577,578,579,580,581,582</Value>
             <Value>583,584,585</Value>
-            <Value>586</Value>
+            <Value>586,587</Value>
         </Notes>
     </PatchNote>
     <Preload>
