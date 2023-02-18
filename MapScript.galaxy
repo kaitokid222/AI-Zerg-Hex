@@ -5965,6 +5965,8 @@ void gf_init_3v3 () {
     int lv_player_position;
     unit lv_flying_rally;
     int lv_index;
+    unit[5] lv_bs;
+    int lv_i;
 
     // Automatic Variable Declarations
     const int auto46451FDA_ae = 6;
@@ -5975,6 +5977,7 @@ void gf_init_3v3 () {
 
     // Variable Initialization
     lv_index = 1;
+    lv_i = 1;
 
     // Implementation
     if ((gf_is_3v3() == true)) {
@@ -6004,20 +6007,30 @@ void gf_init_3v3 () {
         gf_init_3v3_vision();
         gf_manage_3v3_triggers(true);
         gf_disable_uneeded_triggers_for_3v3();
-        UnitSetPosition(UnitFromId(706616818), PointWithOffset(UnitGetPosition(UnitFromId(706616818)), 0.0, -2.0), false);
-        UnitSetPosition(UnitFromId(478555519), PointWithOffset(UnitGetPosition(UnitFromId(478555519)), 0.0, 2.0), false);
-        auto90631DD0_g = UnitGroup(null, 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        UnitSetPosition(UnitFromId(706616818), PointWithOffset(UnitGetPosition(UnitFromId(706616818)), 0.0, -3.0), false);
+        UnitSetPosition(UnitFromId(478555519), PointWithOffset(UnitGetPosition(UnitFromId(478555519)), 0.0, 3.0), false);
+        auto90631DD0_g = UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto90631DD0_u = UnitGroupCount(auto90631DD0_g, c_unitCountAll);
         for (;; auto90631DD0_u -= 1) {
             auto90631DD0_var = UnitGroupUnitFromEnd(auto90631DD0_g, auto90631DD0_u);
             if (auto90631DD0_var == null) { break; }
-            if ((UnitGetType(auto90631DD0_var) == "Hive2")) {
-                UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShields, 5000.0);
-                UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsMax, 5000.0);
-                UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsRegen, 10.0);
-                UnitBehaviorAdd(auto90631DD0_var, "HiveKilled", auto90631DD0_var, 1);
+            UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShields, 5000.0);
+            UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsMax, 5000.0);
+            UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsRegen, 10.0);
+            UnitBehaviorAdd(auto90631DD0_var, "HiveKilled", auto90631DD0_var, 1);
+        }
+        lv_bs[1] = UnitFromId(331028726);
+        lv_bs[2] = UnitFromId(1394953524);
+        lv_bs[3] = UnitFromId(506911406);
+        lv_bs[4] = UnitFromId(29537112);
+        while ((lv_i <= 4)) {
+            if (((lv_i == 1) || (lv_i == 4))) {
+                UnitSetPosition(lv_bs[lv_i], PointWithOffset(UnitGetPosition(lv_bs[lv_i]), -1.0, 0.0), false);
             }
-
+            else {
+                UnitSetPosition(lv_bs[lv_i], PointWithOffset(UnitGetPosition(lv_bs[lv_i]), 1.0, 0.0), false);
+            }
+            lv_i += 1;
         }
         Wait(5.0, c_timeGame);
         gf_create_3v3_objectives();
