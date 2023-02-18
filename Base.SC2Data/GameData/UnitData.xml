@@ -8562,10 +8562,10 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="ZaGara">
-        <LifeArmor value="1"/>
-        <LifeRegenRate value="5"/>
+        <LifeArmor value="0"/>
+        <LifeRegenRate value="0.5"/>
         <EnergyStart value="0"/>
-        <EnergyMax value="1200"/>
+        <EnergyMax value="0"/>
         <EnergyRegenRate value="0"/>
         <Speed value="1.1992"/>
         <SpeedMultiplierCreep value="4"/>
@@ -8589,6 +8589,8 @@
             <LayoutButtons index="9" Face="SpawnSporeCrawler" AbilCmd="BuildSporeCrawler3v3,Build1" Column="4"/>
             <LayoutButtons Face="SpawnHydralisk" Type="AbilCmd" AbilCmd="ZagaraTrain,Train1" Row="1" Column="0"/>
         </CardLayouts>
+        <LifeStart value="30"/>
+        <LifeMax value="30"/>
     </CUnit>
     <CUnit id="Zealot">
         <Food value="0"/>
