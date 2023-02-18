@@ -576,6 +576,7 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
+        <AttackSpeedMultiplierCreep value="2"/>
     </CUnit>
     <CUnit id="Mechaling">
         <DeathRevealRadius value="3"/>

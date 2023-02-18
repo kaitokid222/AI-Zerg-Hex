@@ -39,7 +39,7 @@
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <MinScanRange value="8"/>
         <Range value="8"/>
-        <Period value="0.83"/>
+        <Period value="1.66"/>
         <DamagePoint value="0.208"/>
         <Effect value="MechaNeedleSpinesLM"/>
     </CWeaponLegacy>
