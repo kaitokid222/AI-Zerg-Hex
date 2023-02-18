@@ -2090,6 +2090,7 @@
             <LayoutButtons index="1" Face="BuildMechaHydralisk" AbilCmd="ZergTrain,Train7" Row="0" Column="1"/>
             <LayoutButtons index="2" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Row="1" Column="3"/>
             <LayoutButtons index="3" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
+            <LayoutButtons Face="ExtractTerrazineNydus" Type="Passive" Row="0" Column="4"/>
         </CardLayouts>
         <CardLayouts>
             <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>

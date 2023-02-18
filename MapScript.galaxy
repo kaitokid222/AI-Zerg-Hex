@@ -6718,24 +6718,10 @@ fixed gf_get_terrazine_income (int lp_player_id) {
     int lv_income;
 
     // Automatic Variable Declarations
-    unitgroup autoD2F55290_g;
-    int autoD2F55290_u;
-    unit autoD2F55290_var;
-
     // Variable Initialization
 
     // Implementation
     lv_income = gv_players[lp_player_id].lv__3v3_terrazine_income;
-    autoD2F55290_g = gf_get_nydus_of_team(lp_player_id);
-    autoD2F55290_u = UnitGroupCount(autoD2F55290_g, c_unitCountAll);
-    for (;; autoD2F55290_u -= 1) {
-        autoD2F55290_var = UnitGroupUnitFromEnd(autoD2F55290_g, autoD2F55290_u);
-        if (autoD2F55290_var == null) { break; }
-        if ((UnitGetOwner(autoD2F55290_var) == gv_players[lp_player_id].lv__3v3_zerg_pid)) {
-            lv_income += 4;
-        }
-
-    }
     return (lv_income * gf_get_terrazine_multiplier(lp_player_id));
 }
 
@@ -6756,6 +6742,9 @@ fixed gf_get_terrazine_multiplier (int lp_player_id) {
     unitgroup autoCD385F56_g;
     int autoCD385F56_u;
     unit autoCD385F56_var;
+    unitgroup auto2F6EA800_g;
+    int auto2F6EA800_u;
+    unit auto2F6EA800_var;
 
     // Variable Initialization
     lv_terrazine_extractor = UnitGroupEmpty();
@@ -6794,6 +6783,13 @@ fixed gf_get_terrazine_multiplier (int lp_player_id) {
                 lv_result += 0.5001;
             }
         }
+    }
+    auto2F6EA800_g = gf_get_nydus_of_team(lp_player_id);
+    auto2F6EA800_u = UnitGroupCount(auto2F6EA800_g, c_unitCountAll);
+    for (;; auto2F6EA800_u -= 1) {
+        auto2F6EA800_var = UnitGroupUnitFromEnd(auto2F6EA800_g, auto2F6EA800_u);
+        if (auto2F6EA800_var == null) { break; }
+        lv_result += 0.1001;
     }
     if ((gv_players[lp_player_id].lv_position <= 3)) {
         if ((gf_is_top_hive_dead() == true)) {

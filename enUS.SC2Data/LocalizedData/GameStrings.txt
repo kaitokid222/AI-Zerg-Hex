@@ -770,6 +770,7 @@ Button/Name/EnhancedPlating=Enhanced Plating
 Button/Name/ExtractMinerals=Extract Minerals
 Button/Name/ExtractMineralsGreater=Extract Minerals x4
 Button/Name/ExtractTerrazine=Extract Terrazines
+Button/Name/ExtractTerrazineNydus=Extract Terrazines
 Button/Name/ExtractTerrazinex5=Extract Terrazines x5
 Button/Name/FireAcid=Fire Acid
 Button/Name/FireNapalmBomb=Fire Napalm Bomb
@@ -1234,6 +1235,7 @@ Button/Tooltip/EnhancedPlating=The Omegalisk health is increased by 15.000.
 Button/Tooltip/ExtractMinerals=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/ExtractMineralsGreater=Continuously generates minerals equal to <c val="83D5E2">160 + 4 per spawner </c>per minute.
 Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 30%. Increase your allies Terrazine income by 10%.
+Button/Tooltip/ExtractTerrazineNydus=Increase your  team Terrazine income by 10%.
 Button/Tooltip/ExtractTerrazinex5=Increase your Terrazine income by 150%. Increase your allies Terrazine income by 50%.
 Button/Tooltip/FarmTextUsed0=<s val="ModLeftSize24Bold">          <c val="C0C0C0">0 / 3</c></s>
 Button/Tooltip/FarmTextUsed1=<s val="ModLeftSize24Bold">          1 / 3</s>
@@ -1379,7 +1381,7 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
-Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+40 terrazine income per minute while it is alive</c>
+Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+10% terrazine income for your team while it is alive</c>
 Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>

@@ -7,6 +7,9 @@
     <CButton id="ExtractTerrazinex5">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
+    <CButton id="ExtractTerrazineNydus">
+        <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
+    </CButton>
     <CButton id="ImprovedLiquids">
         <Icon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
         <AlertIcon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
