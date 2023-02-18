@@ -18790,7 +18790,12 @@ bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
 
     if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
         if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
-            TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 2);
+            if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) == 29)) {
+                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
+            }
+            else {
+                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 2);
+            }
         }
         else {
             TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
