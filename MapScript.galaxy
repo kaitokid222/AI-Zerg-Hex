@@ -542,6 +542,7 @@ void gf_create_probius_support_forplayer (int lp_player);
 void gf_end_raynor_support ();
 void gf_create_raynor_support_forplayer (int lp_player);
 void gf_make_player_protoss (int lp_player);
+void gf_better_casual_upgrade ();
 void gf_create_income_dialog ();
 void gf_update_income_for_player (int lp_player);
 void gf_update_reward_panel (int lp_player);
@@ -568,7 +569,6 @@ int gf_get_random_free_position ();
 void gf_settle_player (int lp_player);
 void gf_handle_collection_skins ();
 void gf_Handle_Elite_Skins ();
-void gf_better_tank_upgrade ();
 void gf_handle_player_tutorial_stages ();
 bool gf_is_stage_done (int lp_player, int lp_stage);
 bool gf_is_bonus_objective_done (int lp_goal_id, int lp_player);
@@ -888,6 +888,7 @@ trigger gt_Infestedmaybestuck;
 trigger gt_PowerAuraGotClicked;
 trigger gt_AttackAuraGotClicked;
 trigger gt_DefenseAuraGotClicked;
+trigger gt_use_tank_ability;
 trigger gt_rtv;
 trigger gt_rtvhalloween;
 trigger gt_rtvxmas;
@@ -916,7 +917,6 @@ trigger gt_SkinJimmygotselected;
 trigger gt_SkinMadaxegotselected;
 trigger gt_SkinUltimategotselected;
 trigger gt_Skinmarshallgotselected;
-trigger gt_use_tank_ability;
 trigger gt_TechLabWarpItalisCost;
 trigger gt_TechLabChargeApply;
 trigger gt_IonCannonNotification;
@@ -3427,6 +3427,30 @@ void gf_make_player_protoss (int lp_player) {
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "Probe", 0, lp_player, PointFromName(("Zerg Rally " + IntToString(lv_player_position))));
 }
 
+void gf_better_casual_upgrade () {
+    // Automatic Variable Declarations
+    playergroup auto657C0B98_g;
+    int auto657C0B98_var;
+
+    // Implementation
+    auto657C0B98_g = gv_terrans;
+    auto657C0B98_var = -1;
+    while (true) {
+        auto657C0B98_var = PlayerGroupNextPlayer(auto657C0B98_g, auto657C0B98_var);
+        if (auto657C0B98_var < 0) { break; }
+        TechTreeUpgradeAddLevel(auto657C0B98_var, "CasualTraderImprovement", 1);
+        TechTreeUpgradeAddLevel(auto657C0B98_var, "SiegeTankBetterVersion", 1);
+        CatalogReferenceSet("Button,FragmentBlast,AlertTooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
+        CatalogReferenceSet("Button,FragmentBlast,Tooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
+        CatalogReferenceSet("Button,PlasmaCannonT1,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> <c val=\"F0E2AC\">225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.<n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
+        CatalogReferenceSet("Button,PlasmaCannonT1,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> <c val=\"F0E2AC\">225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.<n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0");
+        CatalogReferenceSet("Button,PlasmaCannonT2,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> <c val=\"F0E2AC\">325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
+        CatalogReferenceSet("Button,PlasmaCannonT2,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> <c val=\"F0E2AC\">325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
+        CatalogReferenceSet("Button,PlasmaCannonT3,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> <c val=\"F0E2AC\">375/240 damage, radius 4.0/10.0.</c>");
+        CatalogReferenceSet("Button,PlasmaCannonT3,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> <c val=\"F0E2AC\">375/240 damage, radius 4.0/10.0.</c>");
+    }
+}
+
 void gf_create_income_dialog () {
     // Variable Declarations
     int lv_calculated_reward;
@@ -4638,29 +4662,6 @@ void gf_Handle_Elite_Skins () {
             TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 4), true);
         }
 
-    }
-}
-
-void gf_better_tank_upgrade () {
-    // Automatic Variable Declarations
-    playergroup auto657C0B98_g;
-    int auto657C0B98_var;
-
-    // Implementation
-    auto657C0B98_g = gv_terrans;
-    auto657C0B98_var = -1;
-    while (true) {
-        auto657C0B98_var = PlayerGroupNextPlayer(auto657C0B98_g, auto657C0B98_var);
-        if (auto657C0B98_var < 0) { break; }
-        TechTreeUpgradeAddLevel(auto657C0B98_var, "SiegeTankBetterVersion", 1);
-        CatalogReferenceSet("Button,FragmentBlast,AlertTooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
-        CatalogReferenceSet("Button,FragmentBlast,Tooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
-        CatalogReferenceSet("Button,PlasmaCannonT1,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> <c val=\"F0E2AC\">225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.<n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
-        CatalogReferenceSet("Button,PlasmaCannonT1,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> <c val=\"F0E2AC\">225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.<n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0");
-        CatalogReferenceSet("Button,PlasmaCannonT2,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> <c val=\"F0E2AC\">325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
-        CatalogReferenceSet("Button,PlasmaCannonT2,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> <c val=\"F0E2AC\">325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> 375/240 damage, radius 4.0/10.0.");
-        CatalogReferenceSet("Button,PlasmaCannonT3,AlertTooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> <c val=\"F0E2AC\">375/240 damage, radius 4.0/10.0.</c>");
-        CatalogReferenceSet("Button,PlasmaCannonT3,Tooltip", auto657C0B98_var, "Fires a long range plasma cannon to deal damage in blast radius. Can be upgraded with <c val=\"ffff8a\">Plasma Shards</c> to include the outer impact area.<n/><n/><c val=\"ffff8a\">Damage with Modulation levels:<n/>(0)</c> 225/150 damage, radius 3.0/5.0.</c><n/><c val=\"ffff8a\">(1)</c> 325/210 damage, radius 3.5/6.5.</c><n/><c val=\"ffff8a\">(2)</c> <c val=\"F0E2AC\">375/240 damage, radius 4.0/10.0.</c>");
     }
 }
 
@@ -8071,7 +8072,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -17656,6 +17657,44 @@ void gt_DefenseAuraGotClicked_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: use_tank_ability
+//--------------------------------------------------------------------------------------------------
+bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+        if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
+            if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) == 29)) {
+                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
+            }
+            else {
+                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 2);
+            }
+        }
+        else {
+            TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_use_tank_ability_Init () {
+    gt_use_tank_ability = TriggerCreate("gt_use_tank_ability_Func");
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("SiegeTankModulate", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannon", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT2", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT3", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlast", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlastT2", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -rtv
 //--------------------------------------------------------------------------------------------------
 bool gt_rtv_Func (bool testConds, bool runActions) {
@@ -18772,44 +18811,6 @@ bool gt_Skinmarshallgotselected_Func (bool testConds, bool runActions) {
 void gt_Skinmarshallgotselected_Init () {
     gt_Skinmarshallgotselected = TriggerCreate("gt_Skinmarshallgotselected_Func");
     TriggerAddEventUnitAbility(gt_Skinmarshallgotselected, null, AbilityCommand("CCSkinSwitcher", 4), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: use_tank_ability
-//--------------------------------------------------------------------------------------------------
-bool gt_use_tank_ability_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((GameAttributeGameValue("1") != "0002") && (TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
-        if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) < 29) && ((EventUnitAbility() == AbilityCommand("FragmentBlast", 0)) || (EventUnitAbility() == AbilityCommand("FragmentBlastT2", 0)))) {
-            if ((TechTreeUpgradeCount(EventPlayer(), "SiegeTankExpertise", c_techCountCompleteOnly) == 29)) {
-                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
-            }
-            else {
-                TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 2);
-            }
-        }
-        else {
-            TechTreeUpgradeAddLevel(EventPlayer(), "SiegeTankExpertise", 1);
-        }
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_use_tank_ability_Init () {
-    gt_use_tank_ability = TriggerCreate("gt_use_tank_ability_Func");
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("SiegeTankModulate", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannon", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT2", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT3", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlast", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlastT2", 0), c_unitAbilStageComplete, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -26592,7 +26593,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     if ((GameAttributeGameValue("1") != "0002")) {
         gf_apply_smod();
         gf_apply_support();
-        gf_better_tank_upgrade();
+        gf_better_casual_upgrade();
     }
     else {
         gf_restore_ranked_vanilla();
@@ -27050,6 +27051,7 @@ void InitTriggers () {
     gt_PowerAuraGotClicked_Init();
     gt_AttackAuraGotClicked_Init();
     gt_DefenseAuraGotClicked_Init();
+    gt_use_tank_ability_Init();
     gt_rtv_Init();
     gt_rtvhalloween_Init();
     gt_rtvxmas_Init();
@@ -27078,7 +27080,6 @@ void InitTriggers () {
     gt_SkinMadaxegotselected_Init();
     gt_SkinUltimategotselected_Init();
     gt_Skinmarshallgotselected_Init();
-    gt_use_tank_ability_Init();
     gt_TechLabWarpItalisCost_Init();
     gt_TechLabChargeApply_Init();
     gt_IonCannonNotification_Init();

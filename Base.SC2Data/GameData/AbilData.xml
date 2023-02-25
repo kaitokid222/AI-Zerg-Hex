@@ -159,6 +159,33 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
+    <CAbilTrain id="TrainTradersCasual">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Charge>
+                <CountMax value="10"/>
+                <CountUse value="1"/>
+                <TimeStart value="360"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Location="Unit" TimeStart="360"/>
+            <Button DefaultButtonFace="BuildMineralTrader" Requirements="CasualTraderImprovement"/>
+            <Unit value="MineralTrader"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Charge>
+                <CountMax value="10"/>
+                <CountUse value="1"/>
+                <TimeStart value="360"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Location="Unit" TimeStart="360"/>
+            <Button DefaultButtonFace="BuildGasTrader" Requirements="CasualTraderImprovement"/>
+            <Unit value="GasTrader"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
+    </CAbilTrain>
     <CAbilEffectInstant id="UseJUICEtoheal">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>

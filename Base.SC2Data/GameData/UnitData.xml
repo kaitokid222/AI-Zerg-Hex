@@ -7789,7 +7789,7 @@
         <AbilArray index="4" Link="SelfDestruct"/>
         <AbilArray index="5" Link="CCSkinSwitcher"/>
         <AbilArray index="6" Link="CCWeatherSwitcher"/>
-        <AbilArray index="7" removed="1"/>
+        <AbilArray index="7" Link="TrainTradersCasual"/>
         <BehaviorArray index="0" Link="GenerateGas"/>
         <BehaviorArray index="1" Link="GenerateMineral"/>
         <BehaviorArray index="2" removed="1"/>
@@ -7802,8 +7802,8 @@
             <LayoutButtons index="4" Face="BuildAdvancedBattery" AbilCmd="CommandCenterTrain2,Train3" Row="1" Column="1"/>
             <LayoutButtons index="5" Face="SelfDestruct" Type="Submenu" AbilCmd="" SubmenuCardId="0002" Column="4"/>
             <LayoutButtons index="6" Face="BuildDefender" AbilCmd="CommandCenterTrain2,Train5" Row="1" Column="0"/>
-            <LayoutButtons index="7" Face="BuildMineralTrader" AbilCmd="TrainTraders,Train1" Row="0" Column="2"/>
-            <LayoutButtons index="8" Face="BuildGasTrader" AbilCmd="TrainTraders,Train2" Row="1" Column="2"/>
+            <LayoutButtons index="7" Face="BuildMineralTrader" AbilCmd="TrainTradersCasual,Train1" Row="0" Column="2"/>
+            <LayoutButtons index="8" Face="BuildGasTrader" AbilCmd="TrainTradersCasual,Train2" Row="1" Column="2"/>
             <LayoutButtons index="9">
                 <Face value="SkinSwitchPanel"/>
                 <Type value="Submenu"/>
@@ -7816,6 +7816,8 @@
             <LayoutButtons index="11" Face="Probe" AbilCmd="CommandCenterTrain2,Train8" Row="0"/>
             <LayoutButtons index="12" Face="WeatherSelection" Type="Submenu" AbilCmd="" Requirements="ReqWeatherDonor" SubmenuCardId="0004"/>
             <LayoutButtons Face="BuildProbe" Type="AbilCmd" AbilCmd="CommandCenterTrain2,Train10" Row="0" Column="0"/>
+            <LayoutButtons Face="BuildMineralTrader" Type="AbilCmd" AbilCmd="TrainTraders,Train1" Row="0" Column="2"/>
+            <LayoutButtons Face="BuildGasTrader" Type="AbilCmd" AbilCmd="TrainTraders,Train2" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="SelfDestruct2" Type="AbilCmd" AbilCmd="SelfDestruct,Execute" Row="0" Column="0"/>
