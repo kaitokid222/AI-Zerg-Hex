@@ -6383,13 +6383,13 @@
         <Food value="0"/>
         <AbilArray index="3" Link="TradeMineralsInitial"/>
         <AbilArray index="4" Link="TradeMineralsFinal"/>
-        <AbilArray index="5" removed="1"/>
+        <AbilArray index="5" Link="TraderFlight"/>
         <AbilArray index="6" removed="1"/>
         <BehaviorArray index="0" Link="CarryMineralFieldMinerals"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="3" Face="MovePatrol" AbilCmd="move,Patrol" Column="3"/>
-            <LayoutButtons index="4" removed="1"/>
+            <LayoutButtons index="4" Face="Flight2" AbilCmd="TraderFlight,Execute" Row="2" Column="0"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>
@@ -6425,13 +6425,13 @@
         <CostResource index="Vespene" value="60"/>
         <AbilArray index="3" Link="TradeGasInitial"/>
         <AbilArray index="4" Link="TradeGasFinal"/>
-        <AbilArray index="5" removed="1"/>
+        <AbilArray index="5" Link="TraderFlight"/>
         <AbilArray index="6" removed="1"/>
         <BehaviorArray index="0" Link="CarryHarvestableVespeneGeyserGasProtoss"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="3" Face="MovePatrol" AbilCmd="move,Patrol" Column="3"/>
-            <LayoutButtons index="4" removed="1"/>
+            <LayoutButtons index="4" Face="Flight2" AbilCmd="TraderFlight,Execute" Row="2" Column="0"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>

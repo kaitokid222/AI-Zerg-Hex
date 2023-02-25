@@ -159,6 +159,19 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="TraderFlight">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ReaperFlightLeapInitialSet"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Range value="500"/>
+        <EffectRange index="0" value="1,10"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Flight2" Requirements="CasualTraderImprovement"/>
+    </CAbilEffectTarget>
     <CAbilTrain id="TrainTradersCasual">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Train1">
