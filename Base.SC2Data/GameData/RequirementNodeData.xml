@@ -79,6 +79,10 @@
     <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly">
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndCountUpgradeCasualTraderImprovementCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeCasualTraderImprovementCompleteOnly"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
         <OperandArray value="CountUpgradeGasExtraction2CompleteOnly427659588"/>
     </CRequirementAnd>
@@ -164,7 +168,6 @@
         <OperandArray value="CountUpgradeTier2EquipmentCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LT2436295806CountUnitMechaTerrazineExtractorQueuedOrBetter1"/>
         <OperandArray value="LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1"/>
     </CRequirementAnd>
@@ -422,7 +425,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGreaterTerrazineExtractorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="GreaterTerrazineExtractor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorCompleteOnly">
@@ -447,7 +449,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitMechaTerrazineExtractorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MechaTerrazineExtractor" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitNapalmBombCompleteOnlyAtUnit">
@@ -541,6 +542,11 @@
     <CRequirementCountUpgrade id="CountUpgradeBase6DeadCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Base6Dead" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCasualTraderImprovementCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CasualTraderImprovement" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeChemicalPlantCompleteOnly1337995533">
         <Flags index="TechTreeCheat" value="0"/>

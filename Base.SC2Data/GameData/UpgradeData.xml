@@ -6,6 +6,18 @@
     <CUpgrade id="Base4Dead"/>
     <CUpgrade id="Base5Dead"/>
     <CUpgrade id="Base6Dead"/>
+    <CUpgrade id="CasualTraderImprovement">
+        <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land11]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land16]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land2]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land9]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land3]" Value="1"/>
+        <EffectArray Operation="Set" Reference="Unit,MineralTrader,Collide[Land11]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,MineralTrader,Collide[Land16]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,MineralTrader,Collide[Land2]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,MineralTrader,Collide[Land9]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,MineralTrader,Collide[Land3]" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="ChooseNoWeather">
         <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
     </CUpgrade>
@@ -132,6 +144,12 @@
     </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
         <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.500000"/>
+        <EffectArray Reference="Unit,ZaGara,EnergyMax" Value="100"/>
+        <EffectArray Reference="Unit,ZaGara,LifeRegenRate" Value="0.500000"/>
+        <EffectArray Reference="Unit,ZaGara,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,ZaGara,LifeArmor" Value="0.1"/>
+        <EffectArray Reference="Unit,ZaGara,LifeStart" Value="30"/>
+        <EffectArray Reference="Effect,ZaGaraTalonsDamage,Amount" Value="2"/>
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3">

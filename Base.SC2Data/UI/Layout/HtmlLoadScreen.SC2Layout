@@ -20,9 +20,8 @@ Commands:&lt;n/&gt;
 	<Constant name="Tab2Name" val="3v3 Info"/>
 	<Constant name="Tab2Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>
 	<Constant name="Tab2On" val="True"/>
-	<Constant name="Tab2Txt" val="&lt;n/&gt;The goal of this mode is to kill the Hive on your side and to kill the other team.&lt;n/&gt;&lt;n/&gt;
-Use the Zerg Control Center to spawn controllable Zerg units on the other side of the map.&lt;n/&gt;&lt;n/&gt;
-The Construction Yard provides upgrades to get Terrazine even faster."/>
+	<Constant name="Tab2Txt" val="&lt;n/&gt;The goal of this mode is to kill the Hive on your side and to kill the other team before they kill their Hive.&lt;n/&gt;&lt;n/&gt;
+Use the Zerg Control Center to spawn controllable Zerg units on the other side of the map."/>
 
 	<Constant name="Tab3Name" val="Credits"/>
 	<Constant name="Tab3Img" val="Assets/Textures/ui_void_loading_purifier02.dds"/>

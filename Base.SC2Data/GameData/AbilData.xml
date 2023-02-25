@@ -159,6 +159,46 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="TraderFlight">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ReaperFlightLeapInitialSet"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Range value="500"/>
+        <EffectRange index="0" value="1,10"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Flight2" Requirements="CasualTraderImprovement"/>
+    </CAbilEffectTarget>
+    <CAbilTrain id="TrainTradersCasual">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Charge>
+                <CountMax value="10"/>
+                <CountUse value="1"/>
+                <TimeStart value="360"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Location="Unit" TimeStart="360"/>
+            <Button DefaultButtonFace="BuildMineralTrader" Requirements="CasualTraderImprovement"/>
+            <Unit value="MineralTrader"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Charge>
+                <CountMax value="10"/>
+                <CountUse value="1"/>
+                <TimeStart value="360"/>
+                <TimeUse value="10"/>
+            </Charge>
+            <Cooldown Location="Unit" TimeStart="360"/>
+            <Button DefaultButtonFace="BuildGasTrader" Requirements="CasualTraderImprovement"/>
+            <Unit value="GasTrader"/>
+            <Flags index="AutoCast" value="1"/>
+        </InfoArray>
+    </CAbilTrain>
     <CAbilEffectInstant id="UseJUICEtoheal">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
@@ -663,15 +703,15 @@
             <Button DefaultButtonFace="ResearchMechaUltralisk" Requirements="RequirementMechaUltraliskUpgrade"/>
         </InfoArray>
         <InfoArray index="Research2" Upgrade="MechalingDurability">
-            <Vital index="Energy" value="240"/>
+            <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="MechalingDurability" Requirements="RequirementMechalingDurability"/>
         </InfoArray>
         <InfoArray index="Research3" Upgrade="RecyclingProtocol">
-            <Vital index="Energy" value="240"/>
+            <Vital index="Energy" value="180"/>
             <Button DefaultButtonFace="RecyclingProtocol" Requirements="RequirementRecyclingProtocol"/>
         </InfoArray>
         <InfoArray index="Research4" Upgrade="RecyclingProtocol2">
-            <Vital index="Energy" value="240"/>
+            <Vital index="Energy" value="180"/>
             <Button DefaultButtonFace="RecyclingProtocol2" Requirements="RequirementRecyclingProtocol2"/>
         </InfoArray>
         <InfoArray index="Research5" Upgrade="MetalbolicBoost">
@@ -679,7 +719,7 @@
             <Button DefaultButtonFace="MetalbolicBoost" Requirements="RequirementMetalbolicBoost"/>
         </InfoArray>
         <InfoArray index="Research6" Upgrade="JUICEModule">
-            <Vital index="Energy" value="300"/>
+            <Vital index="Energy" value="420"/>
             <Button DefaultButtonFace="EnableJUICEModule" Requirements="RequirementMechalingJUICEModule"/>
         </InfoArray>
         <InfoArray index="Research7" Upgrade="ImprovedLiquids">
@@ -687,7 +727,7 @@
             <Button DefaultButtonFace="ImprovedLiquids" Requirements="RequirementMechalingImprovedLiquids"/>
         </InfoArray>
         <InfoArray index="Research8" Upgrade="SynteticAdrenalPumps">
-            <Vital index="Energy" value="150"/>
+            <Vital index="Energy" value="120"/>
             <Button DefaultButtonFace="SynteticAdrenalPumps" Requirements="RequirementSynteticAdrenalPumps"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="UnstableCore">
@@ -703,19 +743,19 @@
             <Button DefaultButtonFace="HydralicAugment" Requirements="RequirementHydralicAugment"/>
         </InfoArray>
         <InfoArray index="Research12" Upgrade="SelfRecharchingBatteries">
-            <Vital index="Energy" value="240"/>
+            <Vital index="Energy" value="360"/>
             <Button DefaultButtonFace="SelfRechargingBatteries" Requirements="RequirementSelfRechargingBatteries"/>
         </InfoArray>
         <InfoArray index="Research13" Upgrade="NydusUpgrade">
-            <Vital index="Energy" value="180"/>
+            <Vital index="Energy" value="240"/>
             <Button DefaultButtonFace="NydusUpgrade" Requirements="NydusUpgrade"/>
         </InfoArray>
         <InfoArray index="Research14" Upgrade="NydusUpgrade2">
-            <Vital index="Energy" value="240"/>
+            <Vital index="Energy" value="300"/>
             <Button DefaultButtonFace="NydusUpgrade2" Requirements="NydusUpgrade2"/>
         </InfoArray>
         <InfoArray index="Research15" Upgrade="NydusUpgrade3">
-            <Vital index="Energy" value="420"/>
+            <Vital index="Energy" value="540"/>
             <Button DefaultButtonFace="NydusUpgrade3" Requirements="NydusUpgrade3"/>
         </InfoArray>
     </CAbilResearch>
@@ -4101,7 +4141,9 @@
             <Unit value="InfestorZergHex2"/>
         </InfoArray>
         <InfoArray index="Train7">
-            <Vital index="Energy" value="300"/>
+            <Resource index="Minerals" value="25"/>
+            <Resource index="Terrazine" value="50"/>
+            <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="BuildMechaHydralisk" Requirements="RequirementArmor1"/>
             <Unit value="MechaHydralisk"/>
         </InfoArray>

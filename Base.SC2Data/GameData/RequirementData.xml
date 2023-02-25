@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="CasualTraderImprovement">
+        <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
+        <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="ZagaraSporeCrawler">
         <NodeArray index="Use" Link="GTE1280241940CountUpgradeMinuteUpgradeQueuedOrBetter15"/>
     </CRequirement>
