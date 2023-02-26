@@ -2542,7 +2542,7 @@
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="MinionHellMelee"/>
         <DeathArray index="Normal" ModelLink="MinionHellMeleeDeath" SoundLink="Minion_Footman_Hell_Death_Splat" VoiceLink="Minion_Footman_Hell_Vox_Death"/>
-        <DeathCustoms ModelLink="MinionHellMeleeDeath" Name="Normal"/>
+        <DeathCustoms ModelLink="MinionHellMeleeDeath" Name="Variation14"/>
         <PlacementModel value="MinionHellMelee"/>
         <PortraitModel value="MinionHellMelee"/>
         <TerrainSquibs>
@@ -2841,7 +2841,7 @@
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="MinionHellRanged"/>
         <DeathArray index="Normal" ModelLink="MinionHellRangedDeath" SoundLink="Minion_Footman_Hell_Death_Splat" VoiceLink="Minion_Footman_Hell_Vox_Death"/>
-        <DeathCustoms ModelLink="MinionHellRangedDeath" Name="Normal"/>
+        <DeathCustoms ModelLink="MinionHellRangedDeath" Name="Variation14"/>
         <PlacementModel value="MinionHellRanged"/>
         <PortraitModel value="MinionHellRanged"/>
         <TerrainSquibs>
@@ -3103,7 +3103,7 @@
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="MinionHellBanner"/>
         <DeathArray index="Normal" ModelLink="MinionHellBannerDeath" SoundLink="Minion_Footman_Hell_Death_Splat" VoiceLink="Minion_Footman_Hell_Vox_Death"/>
-        <DeathCustoms ModelLink="MinionHellRangedDeath" Name="Normal"/>
+        <DeathCustoms ModelLink="MinionHellRangedDeath" Name="Variation14"/>
         <PlacementModel value="MinionHellBanner"/>
         <PortraitModel value="MinionHellBanner"/>
         <TerrainSquibs>
