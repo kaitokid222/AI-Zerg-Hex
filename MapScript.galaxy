@@ -3439,6 +3439,7 @@ void gf_better_casual_upgrade () {
         auto657C0B98_var = PlayerGroupNextPlayer(auto657C0B98_g, auto657C0B98_var);
         if (auto657C0B98_var < 0) { break; }
         TechTreeUpgradeAddLevel(auto657C0B98_var, "CasualTraderImprovement", 1);
+        TechTreeUpgradeAddLevel(auto657C0B98_var, "CasualNoCollide", 1);
         TechTreeUpgradeAddLevel(auto657C0B98_var, "SiegeTankBetterVersion", 1);
         CatalogReferenceSet("Button,FragmentBlast,AlertTooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
         CatalogReferenceSet("Button,FragmentBlast,Tooltip", auto657C0B98_var, "Lays down a carpet of plasma fragments dealing high damage and leaves a fire which periodically damages enemies within the vicinity.<n/><n/><c val=\"ffff8a\">Modulated:</c><n/>Increase area width by 75% with equal impact density.");
