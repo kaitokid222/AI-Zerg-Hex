@@ -7284,7 +7284,12 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
                         lv_result = (lp_spawn_count / (36.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
                     }
                     else {
-                        lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        if ((lp_unit_type == "Beastling")) {
+                            lv_result = (lp_spawn_count / (80.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        }
+                        else {
+                            lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
+                        }
                     }
                 }
             }
