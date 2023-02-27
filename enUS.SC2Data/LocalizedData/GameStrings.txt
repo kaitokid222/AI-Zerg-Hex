@@ -1539,7 +1539,7 @@ Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and at
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
 Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
-Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
+Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.
 Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBrutalisk=Tanky melee creature.
@@ -3949,6 +3949,7 @@ Upgrade/Name/Base3Dead=Base 3 Dead
 Upgrade/Name/Base4Dead=Base 4 Dead
 Upgrade/Name/Base5Dead=Base 5 Dead
 Upgrade/Name/Base6Dead=Base 6 Dead
+Upgrade/Name/CasualNoCollide=Casual No Collide
 Upgrade/Name/CasualTraderImprovement=Casual Trader Improvement
 Upgrade/Name/ChemicalPlant=Chemical Plant
 Upgrade/Name/ChooseAsh=Choose Ash
@@ -4072,12 +4073,12 @@ Variant002/ModeDesc=No bonuses possible.
 Variant002/ModeName=Ranked
 Variant002/Team/00=Terrans
 Variant002/Team/01=Zerg
-Variant003/ModeDesc=Top vs Bottom. First team to kill their corresponding hive wins.
+Variant003/ModeDesc=Top vs Bottom. Kill your hive and the other team while preventing them to do the same to win.
 Variant003/ModeName=3v3 Teams
 Variant003/Team/00=Team North
 Variant003/Team/01=Team South
 Variant003/Team/02=Zerg
-Variant004/ModeDesc=Top vs Bottom. First team to kill their corresponding hive wins.
+Variant004/ModeDesc=Top vs Bottom. Kill your hive and the other team while preventing them to do the same to win.
 Variant004/ModeName=3v3
 Weapon/Name/AcidSpewZergHex=Acid Spew
 Weapon/Name/BeastlingClaws=Claws
