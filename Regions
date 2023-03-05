@@ -548,4 +548,64 @@
             <quad value="109.004,129.1547,130.9992,130.12"/>
         </shape>
     </region>
+    <region id="92">
+        <name value="strikelings tl"/>
+        <shape type="rect">
+            <quad value="98.0158,155.029,115.046,169.2001"/>
+        </shape>
+    </region>
+    <region id="93">
+        <name value="strikelings tr"/>
+        <shape type="rect">
+            <quad value="124.958,156.9052,140.06,170.9768"/>
+        </shape>
+    </region>
+    <region id="94">
+        <name value="strikelings br"/>
+        <shape type="rect">
+            <quad value="125.0776,86.8217,142.1076,100.993"/>
+        </shape>
+    </region>
+    <region id="95">
+        <name value="strikelings bl"/>
+        <shape type="rect">
+            <quad value="99.9128,85.1054,115.015,99.177"/>
+        </shape>
+    </region>
+    <region id="96">
+        <name value="terran pushing area 3"/>
+        <shape type="rect">
+            <quad value="149.0187,140.2666,163.0114,174.9184"/>
+        </shape>
+    </region>
+    <region id="97">
+        <name value="terran pushing area 1"/>
+        <shape type="rect">
+            <quad value="76.6218,137.0212,90.6145,171.673"/>
+        </shape>
+    </region>
+    <region id="98">
+        <name value="terran pushing area 4"/>
+        <shape type="rect">
+            <quad value="76.7744,81.4355,90.767,116.0874"/>
+        </shape>
+    </region>
+    <region id="99">
+        <name value="terran pushing area 6"/>
+        <shape type="rect">
+            <quad value="150.9824,80.876,164.975,115.5278"/>
+        </shape>
+    </region>
+    <region id="100">
+        <name value="terran pushing area 2"/>
+        <shape type="rect">
+            <quad value="105.0327,174.9638,134.99,184.1291"/>
+        </shape>
+    </region>
+    <region id="101">
+        <name value="terran pushing area 5"/>
+        <shape type="rect">
+            <quad value="105.1477,71.0595,135.105,80.2248"/>
+        </shape>
+    </region>
 </Regions>
