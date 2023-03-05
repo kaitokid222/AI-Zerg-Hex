@@ -1191,6 +1191,7 @@ Trigger/Name/D5BF3699=Energy Upgrade Finished
 Trigger/Name/D5D1CA86=update threat score every 5s
 Trigger/Name/D6B7E1F0=use idle units
 Trigger/Name/D81DA6D0=-elo
+Trigger/Name/D8581522=-karax
 Trigger/Name/D86969BA=kill a pumpkin
 Trigger/Name/D95FFBD5=-rtv hny
 Trigger/Name/DB5F3FDD=No Weather got selected

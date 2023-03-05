@@ -903,6 +903,7 @@ trigger gt_debug_lag;
 trigger gt_elo;
 trigger gt_info;
 trigger gt_help;
+trigger gt_karax;
 trigger gt_money;
 trigger gt_resetelo;
 trigger gt_reveal;
@@ -4099,13 +4100,11 @@ void gf_create_karax_for_player (int lp_player) {
     lv_ps = gv_players[lp_player].lv_last_recorded_strength;
 
     // Implementation
-    gf_overwrite_karax_base_value(lp_player, lv_ps);
     lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
     UnitBehaviorAdd(UnitLastCreated(), "SpawnProtection", UnitLastCreated(), 1);
     PlayerModifyPropertyInt(lp_player, c_playerPropVespene, c_playerPropOperSetTo, 10);
     if ((GameGetMissionTime() < (11 * 60))) {
-        gf_add_early_death_debuff(UnitLastCreated());
     }
 
     Wait(2.0, c_timeGame);
@@ -18335,6 +18334,29 @@ void gt_help_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -karax
+//--------------------------------------------------------------------------------------------------
+bool gt_karax_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        gf_create_karax_for_player(EventPlayer());
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_karax_Init () {
+    gt_karax = TriggerCreate("gt_karax_Func");
+    TriggerAddEventChatMessage(gt_karax, c_playerAny, "-karax", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -money
 //--------------------------------------------------------------------------------------------------
 bool gt_money_Func (bool testConds, bool runActions) {
@@ -27086,6 +27108,7 @@ void InitTriggers () {
     gt_elo_Init();
     gt_info_Init();
     gt_help_Init();
+    gt_karax_Init();
     gt_money_Init();
     gt_resetelo_Init();
     gt_reveal_Init();

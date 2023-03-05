@@ -2789,6 +2789,7 @@ Effect/Name/ItalisLM=Launch Missile
 Effect/Name/ItalisQuadMissileCreatePersistent=Italis - Quad Missile (Create Persistent)
 Effect/Name/ItalisSearchAreaRetarget=Italis - Search Area Retarget
 Effect/Name/ItalisTeleport=Italis - Teleport
+Effect/Name/KaraxPermanentPhaseCanon=Karax Permanent Phase Canon
 Effect/Name/L1Rifle=L1 Rifle
 Effect/Name/L1RifleSet=L1 Rifle (Set)
 Effect/Name/L2Rifle=L2 Rifle

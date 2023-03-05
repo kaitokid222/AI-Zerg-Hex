@@ -169,6 +169,15 @@
         <EffectArray Reference="Unit,ZaGara,LifeArmor" Value="0.1"/>
         <EffectArray Reference="Unit,ZaGara,LifeStart" Value="30"/>
         <EffectArray Reference="Effect,ZaGaraTalonsDamage,Amount" Value="2"/>
+        <EffectArray Reference="Unit,KaraxChampion,EnergyRegenRate" Value="1.500000"/>
+        <EffectArray Reference="Unit,KaraxChampion,LifeMax" Value="6"/>
+        <EffectArray Reference="Unit,KaraxChampion,ShieldsMax" Value="4"/>
+        <EffectArray Reference="Unit,KaraxChampion,ShieldsStart" Value="4"/>
+        <EffectArray Reference="Unit,KaraxChampion,ShieldRegenRate" Value="1"/>
+        <EffectArray Reference="Unit,KaraxChampion,LifeStart" Value="6"/>
+        <EffectArray Reference="Unit,KaraxChampion,LifeRegenRate" Value="0.2"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeRegenRate" Value="30.000000"/>
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3">

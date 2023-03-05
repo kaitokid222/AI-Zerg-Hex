@@ -1973,21 +1973,21 @@
         <LifeRegenRate value="0.3281"/>
     </CUnit>
     <CUnit id="KaraxChampion">
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
-        <ShieldsStart value="500"/>
-        <ShieldsMax value="500"/>
+        <LifeStart value="40"/>
+        <LifeMax value="40"/>
+        <ShieldsStart value="10"/>
+        <ShieldsMax value="10"/>
         <ShieldArmor value="2"/>
-        <ShieldRegenDelay value="1"/>
-        <ShieldRegenRate value="5"/>
-        <EnergyStart value="500"/>
-        <EnergyMax value="100"/>
+        <ShieldRegenDelay value="0"/>
+        <EnergyMax value="2500"/>
         <AbilArray Link="ForceField"/>
         <AbilArray Link="ProtossBuild"/>
         <AbilArray Link="OracleStasisTrapBuild"/>
         <AbilArray Link="UpgradeKarax"/>
         <AbilArray Link="ItalisTeleport"/>
         <AbilArray Link="ArtanisVortex"/>
+        <AbilArray Link="EnergyNetworkRequest"/>
+        <AbilArray Link="TransferEnergyBattery"/>
         <BehaviorArray Link="EnergyUserInfantry"/>
         <CardLayouts index="0">
             <LayoutButtons index="4" Column="4"/>
@@ -2000,8 +2000,16 @@
             <LayoutButtons Face="AutomatedAssimilator" Type="AbilCmd" AbilCmd="ProtossBuild,Build3" Row="1" Column="3"/>
             <LayoutButtons Face="UpgradeKarax" Type="AbilCmd" AbilCmd="UpgradeKarax,Execute" Row="1" Column="4"/>
             <LayoutButtons Face="ItalisTeleport" Type="AbilCmd" AbilCmd="ItalisTeleport,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="EnergyTransfer" Type="AbilCmd" AbilCmd="TransferEnergyBattery,Execute" Row="2" Column="0"/>
         </CardLayouts>
-        <EnergyRegenRate value="3"/>
+        <EnergyRegenRate value="4"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Collide index="Small" value="0"/>
+        <LifeRegenDelay value="1"/>
+        <LifeRegenRate value="0.8007"/>
+        <Speed value="3.5"/>
     </CUnit>
     <CUnit id="LoveMorales">
         <DeathRevealRadius value="3"/>
@@ -2685,8 +2693,6 @@
         <BehaviorArray index="2" Link="PhotonCannonTimedLife"/>
         <Attributes index="Armored" value="0"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="550"/>
-        <LifeMax value="550"/>
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1"/>
     </CUnit>
