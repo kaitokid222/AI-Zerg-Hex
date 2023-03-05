@@ -3668,7 +3668,7 @@
             <ValidatorArray index="0" removed="1"/>
         </InfoArray>
         <InfoArray index="Build4" Unit="StrikelingSpawner">
-            <Button DefaultButtonFace="MutateintoStrikelingSpawner" State="Available" Requirements="StrikelingSpawnerCap"/>
+            <Button DefaultButtonFace="MutateintoStrikelingSpawner" State="Available" Requirements=""/>
         </InfoArray>
         <InfoArray index="Build5" Unit="TanklingSpawner" Time="35">
             <Button DefaultButtonFace="MutateintoTankerSpawner" State="Available" Requirements=""/>
