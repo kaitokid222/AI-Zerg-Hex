@@ -1997,8 +1997,6 @@
             <LayoutButtons index="8" Face="Vortex" AbilCmd="ArtanisVortex,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="2" Column="3"/>
             <LayoutButtons Face="OracleBuildStasisTrap" Type="AbilCmd" AbilCmd="OracleStasisTrapBuild,Build1" Row="1" Column="1"/>
-            <LayoutButtons Face="AutomatedAssimilator" Type="AbilCmd" AbilCmd="ProtossBuild,Build3" Row="1" Column="3"/>
-            <LayoutButtons Face="UpgradeKarax" Type="AbilCmd" AbilCmd="UpgradeKarax,Execute" Row="1" Column="4"/>
             <LayoutButtons Face="ItalisTeleport" Type="AbilCmd" AbilCmd="ItalisTeleport,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="EnergyTransfer" Type="AbilCmd" AbilCmd="TransferEnergyBattery,Execute" Row="2" Column="0"/>
         </CardLayouts>
