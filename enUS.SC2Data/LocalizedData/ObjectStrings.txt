@@ -69,6 +69,7 @@ Abil/EditorPrefix/PlasmaCannonT2=Siege Tank -
 Abil/EditorPrefix/PlasmaCannonT3=Siege Tank -
 Abil/EditorPrefix/PlayerZergResearch=3v3 Mecha
 Abil/EditorPrefix/PowerField=Tech Lab -
+Abil/EditorPrefix/PowerFieldKarax=Karax  -
 Abil/EditorPrefix/PromoteToElite=Marine -
 Abil/EditorPrefix/PromoteToVeteran=Marine -
 Abil/EditorPrefix/RavagerStartArtillery=Ravager -
@@ -217,12 +218,14 @@ Actor/EditorPrefix/InfusedRoachSpawner=Spawner -
 Actor/EditorPrefix/InstantDischargeAttack=Shock Trooper -
 Actor/EditorPrefix/InstantDischargeAttackMissile=Shock Trooper -
 Actor/EditorPrefix/InstantDischargeRange=Shock Trooper -
+Actor/EditorPrefix/KaraxPowerFieldRange=Karax -
 Actor/EditorPrefix/Larva3v3=3v3
 Actor/EditorPrefix/MechaHydralisk=3v3
 Actor/EditorPrefix/Mechaling=3v3
 Actor/EditorPrefix/MineralGenerator=Tozz
 Actor/EditorPrefix/OmegaliskZergHex=Special Creep -
 Actor/EditorPrefix/PlasmaCannonRangeMax=Siege Tank -
+Actor/EditorPrefix/PowerFieldCursorSplatKarax=Karax - 
 Actor/EditorPrefix/PrimalRoach2=Creep -
 Actor/EditorPrefix/PrimalRoachSpawner=Spawner -
 Actor/EditorPrefix/Ravager2=Creep Special -
@@ -607,6 +610,7 @@ Actor/Name/Jaina=Jaina
 Actor/Name/KD8ChargeAction2=KD8 Charge Action Copy
 Actor/Name/KD8ChargeRange2=KD8 Charge Range Copy
 Actor/Name/KaraxPhotonCannon=Karax Photon Cannon
+Actor/Name/KaraxPowerFieldRange=Power Field Range
 Actor/Name/LargeChemicalPlant=Large Chemical Plant
 Actor/Name/LargeSpineCrawler=Large Spine Crawler
 Actor/Name/Larva3v3=Larva
@@ -665,6 +669,7 @@ Actor/Name/PlacementModelTest=Placement Model Test
 Actor/Name/PoorVespeneGeyser=Poor Vespene Geyser
 Actor/Name/PowerFieldBirth=Power Field Birth
 Actor/Name/PowerFieldCursorSplat=Power Field Cursor Splat
+Actor/Name/PowerFieldCursorSplatKarax=Power Field Cursor Splat
 Actor/Name/PowerFieldModel=Power Field Model
 Actor/Name/PowerPylon=Power Pylon
 Actor/Name/PowerPylon3=Power Pylon
@@ -1431,6 +1436,7 @@ Button/EditorPrefix/PlasmaCannonT3=Siege Tank -
 Button/EditorPrefix/PlasmaShards=Siege Tank -
 Button/EditorPrefix/PlasmaShardsInfo=Siege Tank -
 Button/EditorPrefix/PowerField=Tech Lab -
+Button/EditorPrefix/PowerFieldKarax=Karax -
 Button/EditorPrefix/PreConnectWithTarget=Energy Network -
 Button/EditorPrefix/PylonClassic=Tozz
 Button/EditorPrefix/Raise2=Terran Wall -
@@ -2426,6 +2432,7 @@ Requirement/Name/InfestorRallyRequirement=Infestor Rally Requirement
 Requirement/Name/InfestorTrainRequirement=Infestor Train Requirement
 Requirement/Name/Is3v3=Is 3v3
 Requirement/Name/Isnot3v3=Is not 3v3
+Requirement/Name/KaraxPhaseCannon=Karax Phase Cannon
 Requirement/Name/MechaTerrazineExtractor=Mecha Terrazine Extractor
 Requirement/Name/ModeGas=Mode Gas
 Requirement/Name/ModeIdle=Mode Idle
@@ -2601,6 +2608,7 @@ Requirement/Name/ZergRallyEqual=Zerg Rally Equal
 Requirement/Name/ZergRallyMinusON=Zerg Rally Minus - ON
 Requirement/Name/ZergRallyPlusON=Zerg Rally Plus - ON
 Requirement/Name/nothave3pylons=nothave3pylons
+RequirementNode/Name/11=11
 RequirementNode/Name/1455390697=1{ }
 RequirementNode/Name/15=15
 RequirementNode/Name/20=20
@@ -2956,6 +2964,7 @@ RequirementNode/Name/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=
 RequirementNode/Name/GTE3417746048CountUpgradeFortificationCompleteOnly3=CountUpgrade(Fortification,CompleteOnly) >= {Fortification 3}3
 RequirementNode/Name/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {2 charges}2
 RequirementNode/Name/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {10 Stacks of Blood}10
+RequirementNode/Name/GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 11 minutes}11
 RequirementNode/Name/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {40 charges}40
 RequirementNode/Name/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need one Stacks of Blood!}1
 RequirementNode/Name/GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) >= 1

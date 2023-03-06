@@ -159,6 +159,20 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="PhaseCannon">
+        <CmdButtonArray index="Execute" Requirements="KaraxPhaseCannon"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="PowerFieldKarax">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="TechLabPowerFieldSet"/>
+        <Cost>
+            <Cooldown TimeUse="20"/>
+        </Cost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <CursorEffect value="TechLabPowerFieldSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="PowerFieldKarax"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="TraderFlight">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>

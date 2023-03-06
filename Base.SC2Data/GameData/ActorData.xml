@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorRange id="KaraxPowerFieldRange" parent="RangeAbil" abil="ArtanisVortex">
+        <On index="1" Terms="Abil.PowerFieldKarax.TargetOn" Send="Create"/>
+        <On index="2" Terms="Abil.PowerFieldKarax.TargetOff" Send="Destroy"/>
+        <On index="3" Terms="Abil.PowerFieldKarax.ButtonHoverOn" Send="Create"/>
+        <On index="4" Terms="Abil.PowerFieldKarax.ButtonHoverOff" Send="Destroy"/>
+    </CActorRange>
     <CActorUnit id="GreaterTerrazineExtractor" parent="ZergBuildingEx" unitName="GreaterTerrazineExtractor">
         <Aliases value="_UnitHuge"/>
         <Macros value="InfestorMaxHealthMacroScale085"/>
@@ -281,6 +287,9 @@
             <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
+    <CActorSplat id="PowerFieldCursorSplatKarax" parent="ProtossCursorSplat" abil="PowerField">
+        <On index="0" Terms="Abil.PowerFieldKarax.Cursor" Send="Create"/>
+    </CActorSplat>
     <CActorAction id="SpineCrawlerAttack3v3" parent="GenericAttack" effectImpact="ImpalerTentacleU3v3" effectLaunch="ImpalerTentacleLM3v3">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
         <LaunchAttachQuery Methods="Weapon"/>

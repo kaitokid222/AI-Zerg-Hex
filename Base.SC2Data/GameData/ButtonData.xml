@@ -39,6 +39,9 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
         <HotkeyAlias value="NydusUpgrade"/>
     </CButton>
+    <CButton id="PowerFieldKarax">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
+    </CButton>
     <CButton id="ResearchZergAttack3v3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>

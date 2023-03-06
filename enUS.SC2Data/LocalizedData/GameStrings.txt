@@ -117,6 +117,7 @@ Abil/Name/PlasmaCannonT2=Plasma Cannon T2
 Abil/Name/PlasmaCannonT3=Plasma Cannon T3
 Abil/Name/PlayerZergResearch=Player Zerg Research
 Abil/Name/PowerField=Power Field
+Abil/Name/PowerFieldKarax=Power Field
 Abil/Name/PromoteToElite=Promote To Elite
 Abil/Name/PromoteToVeteran=Promote To Veteran
 Abil/Name/PylonOvercharge=Pylon Overcharge
@@ -877,6 +878,7 @@ Button/Name/PlasmaCannonT3=Plasma Cannon
 Button/Name/PlasmaShards=Plasma Shards
 Button/Name/PlasmaShardsInfo=Plasma Shards
 Button/Name/PowerField=Power Field
+Button/Name/PowerFieldKarax=Power Field
 Button/Name/PreConnectWithTarget=Pre Connect With Target
 Button/Name/Probe=Build Probius
 Button/Name/Pylon=Warp In Probius Pylon
@@ -1398,6 +1400,7 @@ Button/Tooltip/Oracle=A flying battery which is very fast.
 Button/Tooltip/Overcapacity=Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/OverchargeSpawner=Doubles the spawner output.
 Button/Tooltip/ParalyzingShock=Enemies struck have their damage reduced by 60% for 2 seconds.
+Button/Tooltip/PhaseCannon=Phases in a Photon Cannon.<n/><n/>The Photon Cannon must be placed within a power field.
 Button/Tooltip/PhotonCannon=Cannon that can hold a position shortly.
 Button/Tooltip/PickupLocator=Reveal pickups for 3 seconds when they spawn.
 Button/Tooltip/PickupMinerals1Text=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="15" width="15"/>
@@ -1411,6 +1414,7 @@ Button/Tooltip/PlasmaShards=Upgrades the Siege Tank to allow launching blasts th
 Button/Tooltip/PlasmaShardsInfo=Enables <c val="ffff8a">Fragment Blast</c> and empowers the <c val="ffff8a">Plasma Cannon</c> with its outer impact area.
 Button/Tooltip/PoorVespeneGeyser=Workers can harvest vespene gas from this Vespene Geyser.
 Button/Tooltip/PowerField=Creates a field lasting for 10 seconds, allies inside gain +3 damage, while enemies have their armor nullified.<n/><n/><c val="49D3F1">Costs 2 charges</c>
+Button/Tooltip/PowerFieldKarax=Creates a field lasting for 10 seconds, allies inside gain +3 damage, while enemies have their armor nullified.
 Button/Tooltip/PowerPylon=
 Button/Tooltip/PowerPylon3=Reveals the locations of enemy units at long range. The Sensor Tower's detection area is visible to the enemy.
 Button/Tooltip/Present=Contains a gift!
@@ -3656,6 +3660,7 @@ RequirementNode/Tooltip/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUni
 RequirementNode/Tooltip/GTE3417746048CountUpgradeFortificationCompleteOnly3=Fortification 3
 RequirementNode/Tooltip/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=2 charges
 RequirementNode/Tooltip/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=10 Stacks of Blood
+RequirementNode/Tooltip/GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11=Need to wait 11 minutes
 RequirementNode/Tooltip/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=40 charges
 RequirementNode/Tooltip/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=You need one Stacks of Blood!
 RequirementNode/Tooltip/LT1405264593CountBehaviorLarvaCountDummyStackQueuedOrBetter5=Only 5 Larva

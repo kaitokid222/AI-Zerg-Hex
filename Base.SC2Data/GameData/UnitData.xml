@@ -1988,6 +1988,7 @@
         <AbilArray Link="ArtanisVortex"/>
         <AbilArray Link="EnergyNetworkRequest"/>
         <AbilArray Link="TransferEnergyBattery"/>
+        <AbilArray Link="PowerFieldKarax"/>
         <BehaviorArray Link="EnergyUserInfantry"/>
         <CardLayouts index="0">
             <LayoutButtons index="4" Column="4"/>
@@ -1995,13 +1996,14 @@
             <LayoutButtons index="6" Face="ProdigalEngineer" Type="Passive" AbilCmd="" Row="0" Column="3"/>
             <LayoutButtons index="7" Face="PhaseCannon" Type="AbilCmd" AbilCmd="PhaseCannon,Execute" Row="1" Column="2"/>
             <LayoutButtons index="8" Face="Vortex" AbilCmd="ArtanisVortex,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="OracleBuildStasisTrap" Type="AbilCmd" AbilCmd="OracleStasisTrapBuild,Build1" Row="1" Column="1"/>
             <LayoutButtons Face="ItalisTeleport" Type="AbilCmd" AbilCmd="ItalisTeleport,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="EnergyTransfer" Type="AbilCmd" AbilCmd="TransferEnergyBattery,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="PowerFieldKarax" Type="AbilCmd" AbilCmd="PowerFieldKarax,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="1" Column="3"/>
         </CardLayouts>
         <EnergyRegenRate value="4"/>
         <Collide index="Ground" value="0"/>
+        <Collide index="Colossus" value="1"/>
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
         <Collide index="Small" value="0"/>
@@ -2223,11 +2225,13 @@
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
+        <AbilArray Link="Demolish"/>
         <BehaviorArray Link="PowerUserBaseDefenseSmall"/>
         <BehaviorArray Link="UnderConstruction"/>
         <WeaponArray Link="PhotonCannon" Turret="PhotonCannon"/>
         <CardLayouts>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Detector" Type="Passive" Requirements="NotUnderConstruction" Row="2" Column="3"/>

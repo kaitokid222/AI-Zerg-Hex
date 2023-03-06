@@ -815,6 +815,9 @@
     <CRequirement id="HydraliskDefender">
         <NodeArray index="Use" Link="AndCountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="KaraxPhaseCannon">
+        <NodeArray index="Use" Link="GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11"/>
+    </CRequirement>
     <CRequirement id="ZergRallyEqual">
         <NodeArray index="Use" Link="LTCountBehaviorZergRallyEqualCompleteOnlyAtUnit4553906971455390697"/>
     </CRequirement>
