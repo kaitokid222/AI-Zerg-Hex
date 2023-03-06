@@ -8,6 +8,12 @@
         <Find value="1"/>
         <Value value="HaveHUGS"/>
     </CValidatorPlayerRequirement>
+    <CValidatorUnitType id="IsPhotonCannonKarax">
+        <Value value="KaraxPhotonCannon"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="IsPhotonCannonOrKhaydarinMonolith">
+        <CombineArray value="IsPhotonCannonKarax"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareVital id="LifeLE50Perc">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>

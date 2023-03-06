@@ -201,6 +201,86 @@
         <AcquisitionPitchHalfArc value="20.000000"/>
         <AccuracyHalfArc value="25.000000"/>
     </CActorAction>
+    <CActorUnit id="KaraxPhotonCannon" parent="ProtossBuildingEx" unitName="KaraxPhotonCannon">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="ProtossBuildingPowerUp"/>
+        <Macros value="VoidMPUnpoweredAnim"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit CasterIsUnpoweredAndNotUnderConstruction" Send="DeathCustomize Variation2"/>
+        <On Terms="ActorCreation" Send="Create PhotonCannonTurretLookAt"/>
+        <On Terms="Abil.attack.ReadyStart" Target="PhotonCannonTurretLookAt" Send="LookAtEngage"/>
+        <On Terms="Abil.attack.ReadyStop" Target="PhotonCannonTurretLookAt" Send="LookAtDisengage"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonDarkDiffuse"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonDarkSpecular"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonDarkEmissive"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonBaseDarkDiffuse"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonBaseDarkSpecular"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById PhotonCannonBaseDarkEmissive"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById LazerBoltGreen"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById GradRaysGreen"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById TronSquareGreen"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="TextureSelectById WarpLineGreen"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonDarkDiffuse"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonDarkSpecular"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonDarkEmissive"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonBaseDarkDiffuse"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonBaseDarkSpecular"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="TextureSelectById PhotonCannonBaseDarkEmissive"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="TextureSelectById LazerBoltGreen"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="TextureSelectById GradRaysGreen"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="TextureSelectById TronSquareGreen"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="TextureSelectById WarpLineGreen"/>
+        <On Terms="UnitBirth; ValidateUnit HasPurifierProtoss" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Upgrade.PurifierProtoss.Add" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Signal.*.PurifierHack" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo PhotonCannon" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom PhotonCannon" Send="Destroy"/>
+        <On Terms="Effect.PhotonCannonTeleportBuildStartCP.Start; At Caster" Send="Create PhotonCannonTeleportOutModel"/>
+        <On Terms="Effect.PhotonCannonTeleportBuildFinishSet.Start; At Caster" Target="PhotonCannonTeleportOutModel" Send="Destroy"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="ModelSwap PhotonCannonTaldarim"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="ModelSwap PhotonCannonTaldarim"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit CasterIsUnpoweredAndNotUnderConstructionAndHasDarkProtoss" Send="DeathCustomize Variation3"/>
+        <On Terms="Behavior.PhaseCannonInitialStun.On" Send="ModelSwap PhotonCannonBirth"/>
+        <On Terms="Behavior.PhaseCannonInitialStun.On" Send="AnimPlay Birth Stand,Build,End"/>
+        <On Terms="Behavior.PhaseCannonInitialStun.On" Send="AnimSetTime Birth 5.000000"/>
+        <On Terms="Behavior.PhaseCannonInitialStun.On" Send="AnimSetTimeScale Birth 2.000000"/>
+        <On Terms="AnimDone; AnimPlaying Birth" Send="ModelSwap PhotonCannon"/>
+        <On Terms="AnimDone; AnimPlaying Birth" Send="AnimPlay Creation Stand,Unpowered,End"/>
+        <On Terms="AnimDone; AnimPlaying Birth" Send="AnimSetTimeScale Creation 2.000000"/>
+        <Model value="PhotonCannon"/>
+        <Scale value="0.600000"/>
+        <CreepHeightClass value="Tiny"/>
+        <BuildModel value="PhotonCannonBirth"/>
+        <DeathArray index="Normal" ModelLink="PhotonCannonDeath" SoundLink="PhotonCannon_Explode"/>
+        <DeathArray index="Timeout" AnimProps="Birth" ModelLink="PhaseCannonWarpOut"/>
+        <DeathArray index="UnderConstruction" ModelLink="PhotonCannonDeathUnderConstruction" SoundLink="PhotonCannon_Explode"/>
+        <DeathCustoms ModelLink="PhotonCannonDeathUnpowered" SoundLink="PhotonCannon_Explode" Name="Variation2"/>
+        <DeathCustoms ModelLink="PhotonCannonTaldarimDeath" Name="DarkProtoss"/>
+        <DeathCustoms ModelLink="PhotonCannonTaldarimDeathUnpowered" Name="Variation3"/>
+        <DeathActorModel value="PhotonCannonDeath"/>
+        <PlacementModel value="PhotonCannonPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PlacementActorModel value="PhotonCannonPlacementModel"/>
+        <PortraitModel value="PhotonCannonPortrait"/>
+        <BarOffset value="60"/>
+        <BarWidth value="75"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-PhotonCannon.dds"/>
+        <SoundArray index="Ready" value="PhotonCannon_Ready"/>
+        <SoundArray index="What" value="PhotonCannon_What"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-PhotonCannon.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
     <CActorAction id="SpineCrawlerAttack3v3" parent="GenericAttack" effectImpact="ImpalerTentacleU3v3" effectLaunch="ImpalerTentacleLM3v3">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
         <LaunchAttachQuery Methods="Weapon"/>

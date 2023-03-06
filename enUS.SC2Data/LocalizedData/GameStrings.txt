@@ -1323,6 +1323,7 @@ Button/Tooltip/IonCannon=Launches a devastating beam from the sky lasting for 20
 Button/Tooltip/IonStorm=
 Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="Abil,ItalisTeleport,CastIntroTime[0]"/> seconds to cast and another <d ref="Abil,ItalisTeleport,FinishTime[0]"/> seconds to instantiate after teleportation.<n/><n/>Ability can only be used once every <d ref="Abil,ItalisTeleport,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
+Button/Tooltip/KaraxPhotonCannon=Cannon that can hold a position shortly.
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
 Button/Tooltip/Larva3v3=Can mutate into Zerg structures.
@@ -3826,6 +3827,7 @@ Unit/Name/IonStorm=Ion Storm
 Unit/Name/Italis=Italis
 Unit/Name/ItalisWeapon=Italis
 Unit/Name/Jaina=Jaina
+Unit/Name/KaraxPhotonCannon=Karax Photon Cannon
 Unit/Name/LargeChemicalPlant=Large Chemical Plant
 Unit/Name/LargePresent=Large Present
 Unit/Name/LargeSpineCrawler=Large Spine Crawler

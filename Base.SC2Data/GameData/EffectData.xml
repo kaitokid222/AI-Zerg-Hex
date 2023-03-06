@@ -45,6 +45,7 @@
     </CEffectSet>
     <CEffectCreateUnit id="PhaseCannon">
         <SpawnEffect value="KaraxPermanentPhaseCanon"/>
+        <SpawnUnit index="0" value="KaraxPhotonCannon"/>
     </CEffectCreateUnit>
     <CEffectApplyBehavior id="ShieldActiveAB">
         <WhichUnit Value="Caster"/>
