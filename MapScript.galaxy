@@ -3023,7 +3023,7 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
 
     }
-    if ((GameAttributeGameValue("1") != "0002") && ((gf_player_selected_prebuilt(lp_player) == true) || (gv_players[lp_player].lv_games < 5))) {
+    if ((GameAttributeGameValue("1") != "0002") && ((gf_player_selected_prebuilt(lp_player) == true) || ((gf_is_3v3() == false) && (gv_players[lp_player].lv_games < 5)))) {
         autoCCAFDBC2_g = lv_tug;
         autoCCAFDBC2_u = UnitGroupCount(autoCCAFDBC2_g, c_unitCountAll);
         for (;; autoCCAFDBC2_u -= 1) {
