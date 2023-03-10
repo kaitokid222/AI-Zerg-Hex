@@ -3022,7 +3022,7 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
 
     }
-    if ((GameAttributeGameValue("1") != "0002") && ((gf_player_selected_prebuilt(lp_player) == true) || (gv_players[lp_player].lv_games < 5))) {
+    if ((GameAttributeGameValue("1") != "0002") && ((gf_player_selected_prebuilt(lp_player) == true) || ((gf_is_3v3() == false) && (gv_players[lp_player].lv_games < 5)))) {
         autoCCAFDBC2_g = lv_tug;
         autoCCAFDBC2_u = UnitGroupCount(autoCCAFDBC2_g, c_unitCountAll);
         for (;; autoCCAFDBC2_u -= 1) {
@@ -5363,7 +5363,7 @@ void gf__3v3_player_died (int lp_player) {
             if (auto39A90B85_var < 0) { break; }
             if ((gv_players[auto39A90B85_var].lv_alive == true)) {
                 PlayerModifyPropertyInt(auto39A90B85_var, c_playerPropTerrazine, c_playerPropOperAdd, (PlayerGetPropertyInt(lp_player, c_playerPropTerrazine) / lv_number_of_alive_ally));
-                gv_players[auto39A90B85_var].lv__3v3_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
+                gv_players[auto39A90B85_var].lv__3v3_terrazine_income += (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
             }
 
         }

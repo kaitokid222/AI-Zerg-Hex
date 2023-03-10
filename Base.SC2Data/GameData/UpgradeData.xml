@@ -162,12 +162,12 @@
         <LeaderAlias value="RecyclingProtocol"/>
     </CUpgrade>
     <CUpgrade id="MinuteUpgrade">
-        <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.500000"/>
+        <EffectArray Reference="Unit,ZaGara,EnergyRegenRate" Value="1.200000"/>
         <EffectArray Reference="Unit,ZaGara,EnergyMax" Value="100"/>
         <EffectArray Reference="Unit,ZaGara,LifeRegenRate" Value="0.500000"/>
-        <EffectArray Reference="Unit,ZaGara,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,ZaGara,LifeMax" Value="15"/>
         <EffectArray Reference="Unit,ZaGara,LifeArmor" Value="0.1"/>
-        <EffectArray Reference="Unit,ZaGara,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,ZaGara,LifeStart" Value="15"/>
         <EffectArray Reference="Effect,ZaGaraTalonsDamage,Amount" Value="2"/>
         <MaxLevel value="60"/>
     </CUpgrade>

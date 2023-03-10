@@ -797,7 +797,7 @@
     <!--                                                                                        -->
     <CAbilBuild id="QueenBuild">
         <InfoArray index="Build1">
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="300"/>
             <Cooldown TimeUse="8"/>
             <Button Requirements="ZagaraCreepTumor"/>
         </InfoArray>
@@ -2220,6 +2220,7 @@
         <InfoArray index="Train1">
             <Resource index="Minerals" value="-150"/>
             <Vital index="Energy" value="300"/>
+            <Cooldown TimeUse="1"/>
             <Button DefaultButtonFace="SpawnHydralisk"/>
             <Unit value="HydraliskLevel23v3"/>
         </InfoArray>
