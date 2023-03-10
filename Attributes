@@ -639,10 +639,6 @@
             <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
         </Value>
         <Default>
-            <Slot Id="0"/>
-            <Value Id="12"/>
-        </Default>
-        <Default>
             <Slot Id="1"/>
             <Value Id="12"/>
         </Default>
@@ -666,6 +662,10 @@
             <Slot Id="6"/>
             <Value Id="1"/>
             <Locked/>
+        </Default>
+        <Default>
+            <Slot Id="0"/>
+            <Value Id="12"/>
         </Default>
     </Attribute>
     <DefaultVariants Value="0"/>

@@ -140,6 +140,7 @@
 <Unit id="Medivac"/>
 <Unit id="Pylon"/>
 <Unit id="Stargate"/>
+<Unit id="DarkShrine"/>
 <Unit id="RoboticsBay"/>
 <Unit id="Zealot"/>
 <Unit id="WarpPrism"/>

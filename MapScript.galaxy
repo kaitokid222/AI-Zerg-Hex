@@ -98,6 +98,11 @@ struct gs_zcc_spawn {
     string lv_unit_type;
 };
 
+struct gs_strikeling_groups {
+    int lv_side;
+    unitgroup lv_spawners;
+};
+
 struct gs_outer_nests {
     point lv_position;
 };
@@ -268,6 +273,10 @@ int gv_timelabel;
 int gv_game_timer;
 int gv_timer_countdown_dialog;
 int gv_timer_countdown_dialog_item;
+int gv_heatmap_top_threat;
+point gv_heatmap_top_threat_position;
+int[7] gv_heatmap_push_threat_positions;
+gs_strikeling_groups[5] gv_strikeling_groups;
 playergroup gv_zerg;
 int gv_nest_snipe_cd;
 gs_dead_creep[101] gv_dead_creep;
@@ -347,6 +356,11 @@ int gv_possible_positions_t3_count;
 int gv_possible_positions_t3_free;
 point[501] gv_possible_positions_t3_dead;
 int gv_possible_positions_t3_dead_count;
+point[501] gv_possible_positions_strikelings;
+int gv_possible_positions_strikelings_count;
+int gv_possible_positions_strikelings_free;
+point[501] gv_possible_positions_strikelings_dead;
+int gv_possible_positions_strikelings_dead_count;
 point[22] gv_possible_positions_special;
 int gv_possible_positions_special_count;
 int gv_possible_positions_special_free;
@@ -449,6 +463,9 @@ void InitGlobals () {
     gv_timelabel = c_invalidDialogControlId;
     gv_timer_countdown_dialog = c_invalidDialogId;
     gv_timer_countdown_dialog_item = c_invalidDialogControlId;
+    for (init_i = 0; init_i <= 4; init_i += 1) {
+        gv_strikeling_groups[init_i].lv_spawners = UnitGroupEmpty();
+    }
     gv_zerg = PlayerGroupEmpty();
     gv_extra_tumors = UnitGroupEmpty();
     gv_outer_tumors = UnitGroupEmpty();
@@ -717,6 +734,9 @@ int gf_get_timer_setting ();
 text gf_convert_int_to_text_with_leading_zero (int lp_int);
 void gf_update_timer ();
 void gf_create_timer_countdown_dialog ();
+void gf_generate_heatmap_results ();
+void gf_add_strikeling_spawner_to_group (unit lp_strikeling_spawner);
+void gf_handle_strikelings ();
 void gf_try_kill_nest (unit lp_nest);
 void gf_create_creep_source_groups ();
 void gf_rebuild_dead_creep_array (unit lp_unit);
@@ -5342,7 +5362,7 @@ void gf__3v3_player_died (int lp_player) {
             if (auto39A90B85_var < 0) { break; }
             if ((gv_players[auto39A90B85_var].lv_alive == true)) {
                 PlayerModifyPropertyInt(auto39A90B85_var, c_playerPropTerrazine, c_playerPropOperAdd, (PlayerGetPropertyInt(lp_player, c_playerPropTerrazine) / lv_number_of_alive_ally));
-                gv_players[auto39A90B85_var].lv__3v3_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
+                gv_players[auto39A90B85_var].lv__3v3_terrazine_income += (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
             }
 
         }
@@ -5970,7 +5990,6 @@ void gf_init_3v3 () {
     unit lv_flying_rally;
     int lv_index;
     unit[5] lv_bs;
-    int lv_i;
 
     // Automatic Variable Declarations
     const int auto46451FDA_ae = 6;
@@ -5981,7 +6000,6 @@ void gf_init_3v3 () {
 
     // Variable Initialization
     lv_index = 1;
-    lv_i = 1;
 
     // Implementation
     if ((gf_is_3v3() == true)) {
@@ -6023,19 +6041,10 @@ void gf_init_3v3 () {
             UnitSetPropertyFixed(auto90631DD0_var, c_unitPropShieldsRegen, 10.0);
             UnitBehaviorAdd(auto90631DD0_var, "HiveKilled", auto90631DD0_var, 1);
         }
-        lv_bs[1] = UnitFromId(331028726);
-        lv_bs[2] = UnitFromId(1394953524);
-        lv_bs[3] = UnitFromId(506911406);
-        lv_bs[4] = UnitFromId(29537112);
-        while ((lv_i <= 4)) {
-            if (((lv_i == 1) || (lv_i == 4))) {
-                UnitSetPosition(lv_bs[lv_i], PointWithOffset(UnitGetPosition(lv_bs[lv_i]), -1.0, 0.0), false);
-            }
-            else {
-                UnitSetPosition(lv_bs[lv_i], PointWithOffset(UnitGetPosition(lv_bs[lv_i]), 1.0, 0.0), false);
-            }
-            lv_i += 1;
-        }
+        UnitSetPosition(UnitFromId(331028726), PointWithOffset(UnitGetPosition(UnitFromId(331028726)), -1.0, 0.0), false);
+        UnitSetPosition(UnitFromId(1394953524), PointWithOffset(UnitGetPosition(UnitFromId(1394953524)), 1.0, 0.0), false);
+        UnitSetPosition(UnitFromId(29537112), PointWithOffset(UnitGetPosition(UnitFromId(29537112)), 1.0, 0.0), false);
+        UnitSetPosition(UnitFromId(506911406), PointWithOffset(UnitGetPosition(UnitFromId(506911406)), -1.0, 0.0), false);
         Wait(5.0, c_timeGame);
         gf_create_3v3_objectives();
         Wait(15.0, c_timeGame);
@@ -10349,6 +10358,358 @@ void gf_create_timer_countdown_dialog () {
     DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), true);
 }
 
+void gf_generate_heatmap_results () {
+    int init_i;
+
+    // Variable Declarations
+    int lv_i;
+    unitgroup[7] lv_units_at_position;
+    unitgroup lv_layer1;
+    unitgroup lv_layer2;
+    unitgroup lv_layer3;
+    int[7][4] lv_unit_matrix;
+    int lv_top_threat;
+    int lv_top_threat_layer;
+    string lv_temp_unit_type;
+
+    // Automatic Variable Declarations
+    unitgroup auto541D75F6_g;
+    int auto541D75F6_u;
+    unit auto541D75F6_var;
+    unitgroup autoEEACEF7A_g;
+    int autoEEACEF7A_u;
+    unit autoEEACEF7A_var;
+    unitgroup auto8827BF06_g;
+    int auto8827BF06_u;
+    unit auto8827BF06_var;
+    unitgroup autoB8F854D9_g;
+    int autoB8F854D9_u;
+    unit autoB8F854D9_var;
+
+    // Variable Initialization
+    lv_i = 1;
+    for (init_i = 0; init_i <= 6; init_i += 1) {
+        lv_units_at_position[init_i] = UnitGroupEmpty();
+    }
+    lv_layer1 = UnitGroupEmpty();
+    lv_layer2 = UnitGroupEmpty();
+    lv_layer3 = UnitGroupEmpty();
+
+    // Implementation
+    gv_heatmap_top_threat = 0;
+    while ((lv_i <= 6)) {
+        gv_heatmap_push_threat_positions[lv_i] = 0;
+        lv_i += 1;
+    }
+    lv_i = 1;
+    while ((lv_i <= 6)) {
+        lv_layer1 = UnitGroupEmpty();
+        lv_layer2 = UnitGroupEmpty();
+        lv_layer3 = UnitGroupEmpty();
+        UnitGroupAddUnitGroup(lv_layer1, UnitGroup(null, c_playerAny, RegionFromName(("zergbase " + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+        auto541D75F6_g = lv_layer1;
+        auto541D75F6_u = UnitGroupCount(auto541D75F6_g, c_unitCountAll);
+        for (;; auto541D75F6_u -= 1) {
+            auto541D75F6_var = UnitGroupUnitFromEnd(auto541D75F6_g, auto541D75F6_u);
+            if (auto541D75F6_var == null) { break; }
+            lv_temp_unit_type = UnitGetType(auto541D75F6_var);
+            if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(auto541D75F6_var) == 0) || (UnitGetOwner(auto541D75F6_var) == 7) || ((UnitGetOwner(auto541D75F6_var) > 7) && (UnitGetOwner(auto541D75F6_var) <= 13)))) {
+                UnitGroupRemove(lv_layer1, auto541D75F6_var);
+            }
+
+        }
+        if ((gv_players[gv_positions[lv_i]].lv_alive == false)) {
+            UnitGroupAddUnitGroup(lv_layer2, UnitGroup(null, c_playerAny, RegionFromName(("outer base area " + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            auto8827BF06_g = lv_layer2;
+            auto8827BF06_u = UnitGroupCount(auto8827BF06_g, c_unitCountAll);
+            for (;; auto8827BF06_u -= 1) {
+                auto8827BF06_var = UnitGroupUnitFromEnd(auto8827BF06_g, auto8827BF06_u);
+                if (auto8827BF06_var == null) { break; }
+                lv_temp_unit_type = UnitGetType(auto8827BF06_var);
+                if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(auto8827BF06_var) == 0) || (UnitGetOwner(auto8827BF06_var) == 7) || ((UnitGetOwner(auto8827BF06_var) > 7) && (UnitGetOwner(auto8827BF06_var) <= 13)))) {
+                    UnitGroupRemove(lv_layer2, auto8827BF06_var);
+                }
+
+            }
+        }
+        else {
+            UnitGroupAddUnitGroup(lv_layer2, UnitGroup(null, c_playerAny, RegionFromName(("terran pushing area " + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            autoEEACEF7A_g = lv_layer2;
+            autoEEACEF7A_u = UnitGroupCount(autoEEACEF7A_g, c_unitCountAll);
+            for (;; autoEEACEF7A_u -= 1) {
+                autoEEACEF7A_var = UnitGroupUnitFromEnd(autoEEACEF7A_g, autoEEACEF7A_u);
+                if (autoEEACEF7A_var == null) { break; }
+                lv_temp_unit_type = UnitGetType(autoEEACEF7A_var);
+                if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(autoEEACEF7A_var) == 0) || (UnitGetOwner(autoEEACEF7A_var) == 7) || ((UnitGetOwner(autoEEACEF7A_var) > 7) && (UnitGetOwner(autoEEACEF7A_var) <= 13)))) {
+                    UnitGroupRemove(lv_layer2, autoEEACEF7A_var);
+                }
+
+            }
+        }
+        if ((gv_players[gv_positions[lv_i]].lv_alive == false)) {
+            UnitGroupAddUnitGroup(lv_layer3, UnitGroup(null, c_playerAny, RegionFromName(("geysers p" + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            autoB8F854D9_g = lv_layer3;
+            autoB8F854D9_u = UnitGroupCount(autoB8F854D9_g, c_unitCountAll);
+            for (;; autoB8F854D9_u -= 1) {
+                autoB8F854D9_var = UnitGroupUnitFromEnd(autoB8F854D9_g, autoB8F854D9_u);
+                if (autoB8F854D9_var == null) { break; }
+                lv_temp_unit_type = UnitGetType(autoB8F854D9_var);
+                if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(autoB8F854D9_var) == 0) || (UnitGetOwner(autoB8F854D9_var) == 7) || ((UnitGetOwner(autoB8F854D9_var) > 7) && (UnitGetOwner(autoB8F854D9_var) <= 13)))) {
+                    UnitGroupRemove(lv_layer3, autoB8F854D9_var);
+                }
+
+            }
+        }
+
+        lv_unit_matrix[lv_i][1] = UnitGroupCount(lv_layer1, c_unitCountAlive);
+        lv_unit_matrix[lv_i][2] = UnitGroupCount(lv_layer2, c_unitCountAlive);
+        lv_unit_matrix[lv_i][3] = UnitGroupCount(lv_layer3, c_unitCountAlive);
+        lv_units_at_position[lv_i] = UnitGroupEmpty();
+        UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer1);
+        UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer2);
+        UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer3);
+        lv_i += 1;
+    }
+    lv_i = 1;
+    while ((lv_i <= 6)) {
+        if ((lv_unit_matrix[lv_i][1] > 3)) {
+            gv_heatmap_push_threat_positions[lv_i] = 1;
+            if ((lv_top_threat == 0)) {
+                lv_top_threat = lv_i;
+                lv_top_threat_layer = 1;
+            }
+            else {
+                if (((lv_top_threat_layer == 2) || (lv_top_threat_layer == 3))) {
+                    lv_top_threat = lv_i;
+                    lv_top_threat_layer = 1;
+                }
+                else {
+                    if ((lv_unit_matrix[lv_i][1] > lv_unit_matrix[lv_top_threat][1])) {
+                        lv_top_threat = lv_i;
+                    }
+
+                }
+            }
+        }
+        else {
+            if ((lv_unit_matrix[lv_i][2] > 4)) {
+                gv_heatmap_push_threat_positions[lv_i] = 1;
+                if ((lv_top_threat == 0)) {
+                    lv_top_threat = lv_i;
+                    lv_top_threat_layer = 2;
+                }
+                else {
+                    if ((lv_top_threat_layer == 1)) {
+                    }
+                    else {
+                        if ((lv_top_threat_layer == 3)) {
+                            lv_top_threat = lv_i;
+                            lv_top_threat_layer = 2;
+                        }
+                        else {
+                            if ((lv_unit_matrix[lv_i][2] > lv_unit_matrix[lv_top_threat][2])) {
+                                lv_top_threat = lv_i;
+                                lv_top_threat_layer = 2;
+                            }
+
+                        }
+                    }
+                }
+            }
+            else {
+                if ((lv_unit_matrix[lv_i][3] > 3)) {
+                    if ((lv_top_threat == 0)) {
+                        lv_top_threat = lv_i;
+                        lv_top_threat_layer = 3;
+                    }
+                    else {
+                        if (((lv_top_threat_layer == 1) || (lv_top_threat_layer == 2))) {
+                        }
+                        else {
+                            if ((lv_unit_matrix[lv_i][3] > lv_unit_matrix[lv_top_threat][3])) {
+                                lv_top_threat = lv_i;
+                                lv_top_threat_layer = 3;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+        }
+        lv_i += 1;
+    }
+    gv_heatmap_top_threat = lv_top_threat;
+    gv_heatmap_top_threat_position = UnitGroupCenterOfGroup(lv_units_at_position[lv_top_threat]);
+}
+
+void gf_add_strikeling_spawner_to_group (unit lp_strikeling_spawner) {
+    // Variable Declarations
+    point lv_ss_pos;
+    int lv_g;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_ss_pos = UnitGetPosition(lp_strikeling_spawner);
+
+    // Implementation
+    if ((libNtve_gf_UnitInRegion(lp_strikeling_spawner, RegionFromId(92)) == true)) {
+        lv_g = 1;
+    }
+    else {
+        if ((libNtve_gf_UnitInRegion(lp_strikeling_spawner, RegionFromId(93)) == true)) {
+            lv_g = 2;
+        }
+        else {
+            if ((libNtve_gf_UnitInRegion(lp_strikeling_spawner, RegionFromId(94)) == true)) {
+                lv_g = 3;
+            }
+            else {
+                if ((libNtve_gf_UnitInRegion(lp_strikeling_spawner, RegionFromId(95)) == true)) {
+                    lv_g = 4;
+                }
+
+            }
+        }
+    }
+    UnitGroupAdd(gv_strikeling_groups[lv_g].lv_spawners, lp_strikeling_spawner);
+}
+
+void gf_handle_strikelings () {
+    // Variable Declarations
+    int[5] lv_group_target;
+    int[5] lv_group_exists;
+    int lv_i;
+    int lv_j;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    int auto5F5E217C_val;
+
+    // Variable Initialization
+    lv_i = 1;
+    lv_j = 1;
+
+    // Implementation
+    while ((lv_i <= 4)) {
+        if ((UnitGroupCount(gv_strikeling_groups[lv_i].lv_spawners, c_unitCountAlive) > 0)) {
+            lv_group_exists[lv_i] = 1;
+        }
+
+        lv_j = 1;
+        if ((lv_group_exists[lv_i] == 1)) {
+            while ((lv_j <= 6)) {
+                if ((RegionContainsPoint(RegionFromName(("player " + IntToString(lv_j))), UnitRallyPointTargetPoint(UnitGroupRandomUnit(gv_strikeling_groups[lv_i].lv_spawners, c_unitCountAlive), 1, 1)) == true)) {
+                    lv_group_target[lv_i] = lv_j;
+                    break;
+                }
+
+                lv_j += 1;
+            }
+        }
+
+        lv_i += 1;
+    }
+    lv_i = 1;
+    while ((lv_i <= 4)) {
+        if ((lv_group_exists[lv_i] == 1)) {
+            auto5F5E217C_val = lv_i;
+            if (auto5F5E217C_val == 1) {
+                if ((gv_heatmap_push_threat_positions[2] == 1)) {
+                    if ((lv_group_target[1] != 2)) {
+                        UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(2)))), c_orderQueueReplace);
+                    }
+
+                }
+                else {
+                    if ((gv_heatmap_push_threat_positions[1] == 1)) {
+                        if ((lv_group_target[1] != 1)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(1)))), c_orderQueueReplace);
+                        }
+
+                    }
+                    else {
+                        if ((lv_group_target[1] == 1)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(2)))), c_orderQueueReplace);
+                        }
+
+                    }
+                }
+            }
+            else if (auto5F5E217C_val == 2) {
+                if ((gv_heatmap_push_threat_positions[2] == 1)) {
+                    if ((lv_group_target[1] != 2)) {
+                        UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(2)))), c_orderQueueReplace);
+                    }
+
+                }
+                else {
+                    if ((gv_heatmap_push_threat_positions[3] == 1)) {
+                        if ((lv_group_target[2] != 3)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(3)))), c_orderQueueReplace);
+                        }
+
+                    }
+                    else {
+                        if ((lv_group_target[2] == 3)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(2)))), c_orderQueueReplace);
+                        }
+
+                    }
+                }
+            }
+            else if (auto5F5E217C_val == 3) {
+                if ((gv_heatmap_push_threat_positions[5] == 1)) {
+                    if ((lv_group_target[3] != 5)) {
+                        UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(5)))), c_orderQueueReplace);
+                    }
+
+                }
+                else {
+                    if ((gv_heatmap_push_threat_positions[6] == 1)) {
+                        if ((lv_group_target[3] != 6)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(6)))), c_orderQueueReplace);
+                        }
+
+                    }
+                    else {
+                        if ((lv_group_target[3] == 6)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(5)))), c_orderQueueReplace);
+                        }
+
+                    }
+                }
+            }
+            else if (auto5F5E217C_val == 4) {
+                if ((gv_heatmap_push_threat_positions[5] == 1)) {
+                    if ((lv_group_target[3] != 5)) {
+                        UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(5)))), c_orderQueueReplace);
+                    }
+
+                }
+                else {
+                    if ((gv_heatmap_push_threat_positions[4] == 1)) {
+                        if ((lv_group_target[4] != 4)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(4)))), c_orderQueueReplace);
+                        }
+
+                    }
+                    else {
+                        if ((lv_group_target[4] == 4)) {
+                            UnitGroupIssueOrder(gv_strikeling_groups[lv_i].lv_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(5)))), c_orderQueueReplace);
+                        }
+
+                    }
+                }
+            }
+            else {
+            }
+        }
+
+        lv_i += 1;
+    }
+}
+
 void gf_try_kill_nest (unit lp_nest) {
     // Variable Declarations
     unitgroup lv_group;
@@ -10827,6 +11188,8 @@ void gf_build_drone () {
     if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 40) && (gv_ai_building_drone == false)) {
         PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 40);
         UnitGroupIssueOrder(lv_hives, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
+        UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         UnitGroupIssueOrder(lv_hives, Order(AbilityCommand("ZergTrain", 0)), c_orderQueueAddToEnd);
         gv_ai_building_drone = true;
@@ -12315,166 +12678,14 @@ string gf_get_angle_of_neighbour (int lp_origin, int lp_target) {
 }
 
 void gf_handle_dead_player_areas () {
-    int init_i;
-
-    // Variable Declarations
-    int lv_i;
-    unitgroup[7] lv_units_at_position;
-    unitgroup lv_layer1;
-    unitgroup lv_layer2;
-    unitgroup lv_layer3;
-    int[7][4] lv_unit_matrix;
-    int lv_top_threat;
-    int lv_top_threat_layer;
-    string lv_temp_unit_type;
-
     // Automatic Variable Declarations
-    unitgroup autoA26A809E_g;
-    int autoA26A809E_u;
-    unit autoA26A809E_var;
-    unitgroup auto323FCE0D_g;
-    int auto323FCE0D_u;
-    unit auto323FCE0D_var;
-    unitgroup auto392FF87B_g;
-    int auto392FF87B_u;
-    unit auto392FF87B_var;
-
-    // Variable Initialization
-    lv_i = 1;
-    for (init_i = 0; init_i <= 6; init_i += 1) {
-        lv_units_at_position[init_i] = UnitGroupEmpty();
-    }
-    lv_layer1 = UnitGroupEmpty();
-    lv_layer2 = UnitGroupEmpty();
-    lv_layer3 = UnitGroupEmpty();
-
     // Implementation
     if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
         if ((gv_f2_cooldown == 0)) {
             if ((gv_f2_check_cooldown == 0) && (UnitGroupCount(gv_f2_unit_group, c_unitCountAlive) < 100)) {
                 gv_f2_check_cooldown = 5;
-                while ((lv_i <= 6)) {
-                    lv_layer1 = UnitGroupEmpty();
-                    lv_layer2 = UnitGroupEmpty();
-                    lv_layer3 = UnitGroupEmpty();
-                    UnitGroupAddUnitGroup(lv_layer1, UnitGroup(null, c_playerAny, RegionFromName(("zergbase " + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                    autoA26A809E_g = lv_layer1;
-                    autoA26A809E_u = UnitGroupCount(autoA26A809E_g, c_unitCountAll);
-                    for (;; autoA26A809E_u -= 1) {
-                        autoA26A809E_var = UnitGroupUnitFromEnd(autoA26A809E_g, autoA26A809E_u);
-                        if (autoA26A809E_var == null) { break; }
-                        lv_temp_unit_type = UnitGetType(autoA26A809E_var);
-                        if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(autoA26A809E_var) == 0) || (UnitGetOwner(autoA26A809E_var) == 7) || ((UnitGetOwner(autoA26A809E_var) > 7) && (UnitGetOwner(autoA26A809E_var) <= 13)))) {
-                            UnitGroupRemove(lv_layer1, autoA26A809E_var);
-                        }
-
-                    }
-                    if ((gv_players[gv_positions[lv_i]].lv_alive == false)) {
-                        UnitGroupAddUnitGroup(lv_layer2, UnitGroup(null, c_playerAny, RegionFromName(("outer base area " + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                        auto323FCE0D_g = lv_layer2;
-                        auto323FCE0D_u = UnitGroupCount(auto323FCE0D_g, c_unitCountAll);
-                        for (;; auto323FCE0D_u -= 1) {
-                            auto323FCE0D_var = UnitGroupUnitFromEnd(auto323FCE0D_g, auto323FCE0D_u);
-                            if (auto323FCE0D_var == null) { break; }
-                            lv_temp_unit_type = UnitGetType(auto323FCE0D_var);
-                            if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(auto323FCE0D_var) == 0) || (UnitGetOwner(auto323FCE0D_var) == 7) || ((UnitGetOwner(auto323FCE0D_var) > 7) && (UnitGetOwner(auto323FCE0D_var) <= 13)))) {
-                                UnitGroupRemove(lv_layer2, auto323FCE0D_var);
-                            }
-
-                        }
-                        UnitGroupAddUnitGroup(lv_layer3, UnitGroup(null, c_playerAny, RegionFromName(("geysers p" + IntToString(lv_i))), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                        auto392FF87B_g = lv_layer3;
-                        auto392FF87B_u = UnitGroupCount(auto392FF87B_g, c_unitCountAll);
-                        for (;; auto392FF87B_u -= 1) {
-                            auto392FF87B_var = UnitGroupUnitFromEnd(auto392FF87B_g, auto392FF87B_u);
-                            if (auto392FF87B_var == null) { break; }
-                            lv_temp_unit_type = UnitGetType(auto392FF87B_var);
-                            if (((lv_temp_unit_type == "IonBeam") || (lv_temp_unit_type == "IonStorm") || (lv_temp_unit_type == "Buggo") || (lv_temp_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_temp_unit_type == "SpaceBalls") || (UnitGetOwner(auto392FF87B_var) == 0) || (UnitGetOwner(auto392FF87B_var) == 7) || ((UnitGetOwner(auto392FF87B_var) > 7) && (UnitGetOwner(auto392FF87B_var) <= 13)))) {
-                                UnitGroupRemove(lv_layer3, auto392FF87B_var);
-                            }
-
-                        }
-                    }
-
-                    lv_unit_matrix[lv_i][1] = UnitGroupCount(lv_layer1, c_unitCountAlive);
-                    lv_unit_matrix[lv_i][2] = UnitGroupCount(lv_layer2, c_unitCountAlive);
-                    lv_unit_matrix[lv_i][3] = UnitGroupCount(lv_layer3, c_unitCountAlive);
-                    lv_units_at_position[lv_i] = UnitGroupEmpty();
-                    UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer1);
-                    UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer2);
-                    UnitGroupAddUnitGroup(lv_units_at_position[lv_i], lv_layer3);
-                    lv_i += 1;
-                }
-                lv_i = 1;
-                while ((lv_i <= 6)) {
-                    if ((lv_unit_matrix[lv_i][1] > 3)) {
-                        if ((lv_top_threat == 0)) {
-                            lv_top_threat = lv_i;
-                            lv_top_threat_layer = 1;
-                        }
-                        else {
-                            if (((lv_top_threat_layer == 2) || (lv_top_threat_layer == 3))) {
-                                lv_top_threat = lv_i;
-                                lv_top_threat_layer = 1;
-                            }
-                            else {
-                                if ((lv_unit_matrix[lv_i][1] > lv_unit_matrix[lv_top_threat][1])) {
-                                    lv_top_threat = lv_i;
-                                }
-
-                            }
-                        }
-                    }
-                    else {
-                        if ((lv_unit_matrix[lv_i][2] > 3)) {
-                            if ((lv_top_threat == 0)) {
-                                lv_top_threat = lv_i;
-                                lv_top_threat_layer = 2;
-                            }
-                            else {
-                                if ((lv_top_threat_layer == 1)) {
-                                }
-                                else {
-                                    if ((lv_top_threat_layer == 3)) {
-                                        lv_top_threat = lv_i;
-                                        lv_top_threat_layer = 2;
-                                    }
-                                    else {
-                                        if ((lv_unit_matrix[lv_i][2] > lv_unit_matrix[lv_top_threat][2])) {
-                                            lv_top_threat = lv_i;
-                                            lv_top_threat_layer = 2;
-                                        }
-
-                                    }
-                                }
-                            }
-                        }
-                        else {
-                            if ((lv_unit_matrix[lv_i][3] > 3)) {
-                                if ((lv_top_threat == 0)) {
-                                    lv_top_threat = lv_i;
-                                    lv_top_threat_layer = 3;
-                                }
-                                else {
-                                    if (((lv_top_threat_layer == 1) || (lv_top_threat_layer == 2))) {
-                                    }
-                                    else {
-                                        if ((lv_unit_matrix[lv_i][3] > lv_unit_matrix[lv_top_threat][3])) {
-                                            lv_top_threat = lv_i;
-                                            lv_top_threat_layer = 3;
-                                        }
-
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-                    lv_i += 1;
-                }
-                lv_i = 1;
-                if ((lv_top_threat != 0)) {
-                    gf_f2_point(UnitGroupCenterOfGroup(lv_units_at_position[lv_top_threat]), false);
+                if ((gv_heatmap_top_threat != 0)) {
+                    gf_f2_point(gv_heatmap_top_threat_position, false);
                 }
 
             }
@@ -14446,7 +14657,7 @@ void gf_build_spawner (unit lp_drone, int lp_target_player) {
             }
         }
         else {
-            if ((UnitGroupCount(UnitGroup("StrikelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 29) && (lv_soup >= 3)) {
+            if ((UnitGroupCount(UnitGroup("StrikelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 59) && (lv_soup >= 3)) {
                 lv_type = "StrikelingSpawner";
             }
             else {
@@ -14910,7 +15121,7 @@ void gf_get_possible_positions () {
     for (;; auto641AD434_u -= 1) {
         auto641AD434_var = UnitGroupUnitFromEnd(auto641AD434_g, auto641AD434_u);
         if (auto641AD434_var == null) { break; }
-        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "Stargate"))) {
+        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "Stargate") || (UnitGetType(auto641AD434_var) == "DarkShrine"))) {
             auto1469AB90_val = UnitGetType(auto641AD434_var);
             if (auto1469AB90_val == "StrikelingSpawner") {
                 gv_possible_positions_t1_count += 1;
@@ -14943,6 +15154,10 @@ void gf_get_possible_positions () {
             else if (auto1469AB90_val == "Stargate") {
                 lv_cp = gf_get_closest_position(UnitGetPosition(auto641AD434_var));
                 gv_defensive_egg_cluster_positions[lv_cp] = UnitGetPosition(auto641AD434_var);
+            }
+            else if (auto1469AB90_val == "DarkShrine") {
+                gv_possible_positions_strikelings_count += 1;
+                gv_possible_positions_strikelings[gv_possible_positions_strikelings_count] = UnitGetPosition(auto641AD434_var);
             }
             else if (auto1469AB90_val == "AiurRockDebris2x2") {
             }
@@ -14996,7 +15211,7 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
         }
 
     }
-    if (((lp_type == "SlowlingSpawner") || (lp_type == "StrikelingSpawner") || (lp_type == "TanklingSpawner") || (lp_type == "CreeperSpawner"))) {
+    if (((lp_type == "SlowlingSpawner") || (lp_type == "TanklingSpawner") || (lp_type == "CreeperSpawner"))) {
         lv_kind = 1;
         lv_limit = gv_possible_positions_t1_count;
     }
@@ -15018,6 +15233,10 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
         lv_kind = 5;
         lv_limit = gv_possible_positions_special_count;
     }
+    else if ((lp_type == "StrikelingSpawner")) {
+        lv_kind = 6;
+        lv_limit = gv_possible_positions_strikelings_count;
+    }
     while ((lv_i <= lv_limit)) {
         lv_taken = false;
         autoC3EDDAFD_val = lv_kind;
@@ -15036,10 +15255,13 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
         else if (autoC3EDDAFD_val == 5) {
             lv_point = gv_possible_positions_special[lv_i];
         }
+        else if (autoC3EDDAFD_val == 6) {
+            lv_point = gv_possible_positions_strikelings[lv_i];
+        }
         else {
         }
         lv_j = 1;
-        if ((lv_kind < 5)) {
+        if (((lv_kind < 5) || (lv_kind == 6))) {
             while ((lv_j <= lv_drone_goal_count)) {
                 if ((lv_drone_goal_array[lv_j] == lv_point)) {
                     lv_taken = true;
@@ -15082,13 +15304,18 @@ point gf_get_closest_free_position_to_player_of_type (int lp_player_position, st
         lv_i += 1;
     }
     lv_return = lv_pre_result;
-    if ((lv_kind == 1)) {
+    if (((lv_kind == 1) || (lv_kind == 6))) {
         lv_closest_bigspine = UnitGroupClosestToPoint(UnitGroup("LargeSpineCrawler", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_pre_result);
         lv_i = 1;
         lv_pre_result_distance = 0.0;
         while ((lv_i <= lv_limit)) {
             lv_taken = false;
-            lv_point = gv_possible_positions_t1[lv_i];
+            if ((lv_kind == 1)) {
+                lv_point = gv_possible_positions_t1[lv_i];
+            }
+            else {
+                lv_point = gv_possible_positions_strikelings[lv_i];
+            }
             lv_j = 1;
             while ((lv_j <= lv_drone_goal_count)) {
                 if ((lv_drone_goal_array[lv_j] == lv_point)) {
@@ -15135,6 +15362,7 @@ void gf_update_free_position_counts () {
     gv_possible_positions_t3_free = 0;
     gv_possible_positions_extractor_free = 0;
     gv_possible_positions_special_free = 0;
+    gv_possible_positions_strikelings_free = 0;
     while ((lv_i <= gv_possible_positions_t1_count)) {
         lv_p = gv_possible_positions_t1[lv_i];
         if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
@@ -15216,6 +15444,24 @@ void gf_update_free_position_counts () {
         lv_i += 1;
     }
     lv_i = 1;
+    while ((lv_i <= gv_possible_positions_strikelings_count)) {
+        lv_p = gv_possible_positions_strikelings[lv_i];
+        if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
+            gv_possible_positions_strikelings_free += 1;
+        }
+
+        lv_i += 1;
+    }
+    lv_i = 1;
+    while ((lv_i <= gv_possible_positions_strikelings_dead_count)) {
+        lv_p = gv_possible_positions_strikelings_dead[lv_i];
+        if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
+            gv_possible_positions_strikelings_free += 1;
+        }
+
+        lv_i += 1;
+    }
+    lv_i = 1;
 }
 
 void gf_reconstruct_possible_positions_array () {
@@ -15261,6 +15507,40 @@ void gf_reconstruct_possible_positions_array () {
         lv_i = 1;
         gv_possible_positions_t1_count = lv_temp_cnt;
         gv_possible_positions_t1_dead_count = 0;
+        lv_temp_cnt = 0;
+    }
+
+    if ((gv_possible_positions_strikelings_free > 0)) {
+        while ((lv_i <= gv_possible_positions_strikelings_count)) {
+            lv_p = gv_possible_positions_strikelings[lv_i];
+            if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
+                lv_temp_cnt += 1;
+                lv_temp_array[lv_temp_cnt] = lv_p;
+            }
+
+            lv_i += 1;
+        }
+        lv_i = 1;
+        if ((gv_possible_positions_strikelings_dead_count > 0)) {
+            while ((lv_i <= gv_possible_positions_strikelings_dead_count)) {
+                lv_p = gv_possible_positions_strikelings_dead[lv_i];
+                if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
+                    lv_temp_cnt += 1;
+                    lv_temp_array[lv_temp_cnt] = lv_p;
+                }
+
+                lv_i += 1;
+            }
+        }
+
+        lv_i = 1;
+        while ((lv_i <= lv_temp_cnt)) {
+            gv_possible_positions_strikelings[lv_i] = lv_temp_array[lv_i];
+            lv_i += 1;
+        }
+        lv_i = 1;
+        gv_possible_positions_strikelings_count = lv_temp_cnt;
+        gv_possible_positions_strikelings_dead_count = 0;
         lv_temp_cnt = 0;
     }
 
@@ -25439,8 +25719,12 @@ bool gt_spawner_started_Func (bool testConds, bool runActions) {
     lv_ut = UnitGetType(EventUnitProgressUnit());
     lv_capp = gf_get_closest_alive_player_position(lv_position);
     gv_spawner_distro[lv_capp] += 1;
-    if (((lv_ut == "SlowlingSpawner") || (lv_ut == "SlivanCreep") || (lv_ut == "TanklingSpawner"))) {
+    if (((lv_ut == "SlowlingSpawner") || (lv_ut == "CreeperSpawner") || (lv_ut == "TanklingSpawner"))) {
         gv_t1_spawner_distro[lv_capp] += 1;
+    }
+
+    if ((lv_ut == "StrikelingSpawner")) {
+        gf_add_strikeling_spawner_to_group(EventUnitProgressUnit());
     }
 
     if (((lv_ut == "BeastlingSpawner") || (lv_ut == "RavatorSpawner") || (lv_ut == "InfusedRoachSpawner") || (lv_ut == "TorraliskSpawner"))) {
@@ -25511,7 +25795,7 @@ bool gt_spawnerdies_Func (bool testConds, bool runActions) {
         gv_t1_spawner_distro[gf_get_closest_alive_player_position(lv_unit_position)] -= 1;
     }
 
-    if (((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "StrikelingSpawner") || (lv_type == "TanklingSpawner"))) {
+    if (((lv_type == "SlowlingSpawner") || (lv_type == "CreeperSpawner") || (lv_type == "TanklingSpawner"))) {
         if ((libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(1)))) != true) && (libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(2)))) != true) && (libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(3)))) != true) && (libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(4)))) != true) && (libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(5)))) != true) && (libNtve_gf_UnitInRegion(lv_unit, RegionFromName(("spawner player zerg " + IntToString(6)))) != true)) {
             gv_possible_positions_t1_dead_count += 1;
             gv_possible_positions_t1_dead[gv_possible_positions_t1_dead_count] = lv_unit_position;
@@ -25548,7 +25832,13 @@ bool gt_spawnerdies_Func (bool testConds, bool runActions) {
                     else {
                     }
                 }
+                else {
+                    if ((lv_type == "StrikelingSpawner")) {
+                        gv_possible_positions_strikelings_count += 1;
+                        gv_possible_positions_strikelings_dead[gv_possible_positions_strikelings_count] = lv_unit_position;
+                    }
 
+                }
             }
         }
     }
@@ -26562,6 +26852,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_refresh_bonus_gasses_data();
     gf_define_hydra_variables();
     gf_define_egg_spawn_points();
+    gv_strikeling_groups[1].lv_side = 1;
+    gv_strikeling_groups[2].lv_side = 1;
+    gv_strikeling_groups[3].lv_side = 2;
+    gv_strikeling_groups[4].lv_side = 2;
     UISetFrameVisible(gv_terrans, c_syncFrameTypeSupply, false);
     if ((gv_difficulty < 5)) {
         auto54EEAE8F_g = PlayerGroupActive();
@@ -26835,6 +27129,11 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
     // Actions
     if (!runActions) {
         return true;
+    }
+
+    if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
+        gf_generate_heatmap_results();
+        gf_handle_strikelings();
     }
 
     autoB76A211F_g = gv_terrans;
