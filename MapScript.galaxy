@@ -5363,7 +5363,7 @@ void gf__3v3_player_died (int lp_player) {
             if (auto39A90B85_var < 0) { break; }
             if ((gv_players[auto39A90B85_var].lv_alive == true)) {
                 PlayerModifyPropertyInt(auto39A90B85_var, c_playerPropTerrazine, c_playerPropOperAdd, (PlayerGetPropertyInt(lp_player, c_playerPropTerrazine) / lv_number_of_alive_ally));
-                gv_players[auto39A90B85_var].lv__3v3_terrazine_income = (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
+                gv_players[auto39A90B85_var].lv__3v3_terrazine_income += (gv_players[lp_player].lv__3v3_terrazine_income / lv_number_of_alive_ally);
             }
 
         }
