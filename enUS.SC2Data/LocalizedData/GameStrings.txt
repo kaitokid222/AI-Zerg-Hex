@@ -2291,6 +2291,7 @@ DocInfo/PatchNote596=Decreased Mechaling Upgrade Costs, Increased Nydus and Hydr
 DocInfo/PatchNote597=Mecha Hydralisks now additionally cost Minerals and Terrazine.
 DocInfo/PatchNote598=Fixed Issues.
 DocInfo/PatchNote599=Improved AI.
+DocInfo/PatchNote600=Fixed Issues.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/AbsorbingCloud=Absorbing Cloud
 Effect/Name/AbsorbingCloudApplyBehavior=Absorbing Cloud Apply Behavior
