@@ -47,7 +47,6 @@
 <Behavior id="SpawnFromLeft"/>
 <Behavior id="SpawnFromRight"/>
 <Behavior id="TorraliskCountDummyStack"/>
-<Behavior id="EarlyDeathDebuff"/>
 <Behavior id="MedivacTimedLife"/>
 <Behavior id="GeneratorUpgrades1"/>
 <Behavior id="GeneratorUpgrades2"/>
@@ -125,7 +124,6 @@
 <Behavior id="ZergRallyPlus"/>
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
-<Behavior id="SpawnProtection"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>

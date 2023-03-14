@@ -571,9 +571,6 @@ void gf_Game_create_leaderboard ();
 void gf_Game_update_leaderboard ();
 string gf_elo_to_rank_icon (int lp_elo, int lp_games);
 void gf_create_karax_for_player (int lp_player);
-void gf_overwrite_karax_base_value (int lp_o, int lp_ps);
-void gf_remove_karax_early_death_debuff ();
-void gf_add_early_death_debuff (unit lp_karax);
 void gf_buff_players ();
 void gf_restore_ranked_vanilla ();
 void gf_disable_non_vanilla_content_for_player (int lp_player);
@@ -932,7 +929,7 @@ trigger gt_inf;
 trigger gt_cheat;
 trigger gt_disabletutorialquestsinthisgame;
 trigger gt_tutorial;
-trigger gt_KaraxUpgrade;
+trigger gt_KaraxDeathTimer;
 trigger gt_Veterangetspromoted;
 trigger gt_SkinJimmygotselected;
 trigger gt_SkinMadaxegotselected;
@@ -4122,82 +4119,8 @@ void gf_create_karax_for_player (int lp_player) {
     // Implementation
     lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
-    UnitBehaviorAdd(UnitLastCreated(), "SpawnProtection", UnitLastCreated(), 1);
-    PlayerModifyPropertyInt(lp_player, c_playerPropVespene, c_playerPropOperSetTo, 10);
-    if ((GameGetMissionTime() < (11 * 60))) {
-    }
-
     Wait(2.0, c_timeGame);
     CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
-}
-
-void gf_overwrite_karax_base_value (int lp_o, int lp_ps) {
-    // Automatic Variable Declarations
-    // Implementation
-    if ((lp_ps < 50)) {
-        gv_players[lp_o].lv_weak_karax = true;
-        CatalogReferenceSet("Unit,KaraxChampion,EnergyMax", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,EnergyMax", lp_o) - 50)));
-        CatalogReferenceSet("Unit,KaraxChampion,LifeMax", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeMax", lp_o) - 100)));
-        CatalogReferenceSet("Unit,KaraxChampion,LifeStart", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeStart", lp_o) - 100)));
-        CatalogReferenceSet("Unit,KaraxChampion,ShieldsMax", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsMax", lp_o) - 200)));
-        CatalogReferenceSet("Unit,KaraxChampion,ShieldsStart", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsStart", lp_o) - 200)));
-        CatalogReferenceSet("Unit,PhotonCannon,LifeMax", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeMax", lp_o) - 150)));
-        CatalogReferenceSet("Unit,PhotonCannon,LifeStart", lp_o, IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeStart", lp_o) - 150)));
-    }
-
-}
-
-void gf_remove_karax_early_death_debuff () {
-    // Automatic Variable Declarations
-    unitgroup auto59440065_g;
-    int auto59440065_u;
-    unit auto59440065_var;
-
-    // Implementation
-    if ((GameGetMissionTime() == (11 * 60))) {
-        auto59440065_g = UnitGroup("KaraxChampion", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto59440065_u = UnitGroupCount(auto59440065_g, c_unitCountAll);
-        for (;; auto59440065_u -= 1) {
-            auto59440065_var = UnitGroupUnitFromEnd(auto59440065_g, auto59440065_u);
-            if (auto59440065_var == null) { break; }
-            if ((UnitHasBehavior2(auto59440065_var, "EarlyDeathDebuff") == true)) {
-                UnitBehaviorRemove(auto59440065_var, "EarlyDeathDebuff", 1);
-                CatalogReferenceSet("Unit,KaraxChampion,EnergyMax", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,EnergyMax", UnitGetOwner(auto59440065_var)) + 75)));
-                CatalogReferenceSet("Unit,KaraxChampion,LifeMax", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeMax", UnitGetOwner(auto59440065_var)) + 200)));
-                CatalogReferenceSet("Unit,KaraxChampion,LifeStart", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeStart", UnitGetOwner(auto59440065_var)) + 200)));
-                CatalogReferenceSet("Unit,KaraxChampion,ShieldsMax", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsMax", UnitGetOwner(auto59440065_var)) + 250)));
-                CatalogReferenceSet("Unit,KaraxChampion,ShieldsStart", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsStart", UnitGetOwner(auto59440065_var)) + 250)));
-                CatalogReferenceSet("Unit,PhotonCannon,LifeMax", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeMax", UnitGetOwner(auto59440065_var)) + 350)));
-                CatalogReferenceSet("Unit,PhotonCannon,LifeStart", UnitGetOwner(auto59440065_var), IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeStart", UnitGetOwner(auto59440065_var)) + 350)));
-            }
-
-        }
-    }
-
-}
-
-void gf_add_early_death_debuff (unit lp_karax) {
-    // Variable Declarations
-    int lv_owner;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_owner = UnitGetOwner(lp_karax);
-
-    // Implementation
-    UnitBehaviorAdd(lp_karax, "EarlyDeathDebuff", lp_karax, 1);
-    if ((gv_players[lv_owner].lv_weak_karax == true)) {
-        CatalogReferenceSet("Unit,KaraxChampion,EnergyMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,EnergyMax", lv_owner) - 25)));
-    }
-    else {
-        CatalogReferenceSet("Unit,KaraxChampion,EnergyMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,EnergyMax", lv_owner) - 75)));
-    }
-    CatalogReferenceSet("Unit,KaraxChampion,LifeMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeMax", lv_owner) - 200)));
-    CatalogReferenceSet("Unit,KaraxChampion,LifeStart", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeStart", lv_owner) - 200)));
-    CatalogReferenceSet("Unit,KaraxChampion,ShieldsMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsMax", lv_owner) - 250)));
-    CatalogReferenceSet("Unit,KaraxChampion,ShieldsStart", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,ShieldsStart", lv_owner) - 250)));
-    CatalogReferenceSet("Unit,PhotonCannon,LifeMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeMax", lv_owner) - 350)));
-    CatalogReferenceSet("Unit,PhotonCannon,LifeStart", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,PhotonCannon,LifeStart", lv_owner) - 350)));
 }
 
 void gf_buff_players () {
@@ -8805,6 +8728,7 @@ void gf_end_game (int lp_winner) {
         TriggerDestroy(gt_everyminute);
         TriggerDestroy(gt_every90seconds);
         TriggerDestroy(gt_spawner_finished);
+        TriggerDestroy(gt_KaraxDeathTimer);
         gf_manage_3v3_triggers(false);
         if (((gf_is_3v3() == true) && (gv_practice_mode == false))) {
             gf_end_game_3v3();
@@ -18936,39 +18860,41 @@ void gt_tutorial_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Karax Upgrade
+// Trigger: Karax Death Timer
 //--------------------------------------------------------------------------------------------------
-bool gt_KaraxUpgrade_Func (bool testConds, bool runActions) {
+bool gt_KaraxDeathTimer_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_owner;
-    int lv_karax_level;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_owner = UnitGetOwner(EventPlayerEffectUsedUnit(c_effectUnitCaster));
-    lv_karax_level = gv_players[lv_owner].lv_karax_level;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "KaraxChampion"))) {
+            return false;
+        }
+    }
 
     // Actions
     if (!runActions) {
         return true;
     }
 
-    CatalogReferenceSet("Unit,KaraxChampion,EnergyMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,EnergyMax", lv_owner) + 60)));
-    CatalogReferenceSet("Unit,KaraxChampion,LifeMax", lv_owner, IntToString((CatalogReferenceGetAsInt("Unit,KaraxChampion,LifeMax", lv_owner) + 30)));
-    CatalogReferenceSet("Abil,UpgradeKarax,Cost[0].Resource[Vespene]", lv_owner, IntToString((CatalogReferenceGetAsInt("Abil,UpgradeKarax,Cost[0].Resource[Vespene]", lv_owner) + 75)));
-    lv_karax_level = (lv_karax_level + 1);
-    gv_players[lv_owner].lv_karax_level = lv_karax_level;
-    if ((lv_karax_level == 10)) {
-        TechTreeAbilityAllow(lv_owner, AbilityCommand("UpgradeKarax", 0), false);
-    }
-
+    lv_owner = UnitGetOwner(EventUnit());
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/1384C7EF"));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/4B0EE28B"));
+    Wait(10.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/BF7D0FF4"));
+    Wait(10.0, c_timeGame);
+    gf_create_karax_for_player(lv_owner);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_KaraxUpgrade_Init () {
-    gt_KaraxUpgrade = TriggerCreate("gt_KaraxUpgrade_Func");
-    TriggerAddEventPlayerEffectUsed(gt_KaraxUpgrade, c_playerAny, "UpgradeKarax");
+void gt_KaraxDeathTimer_Init () {
+    gt_KaraxDeathTimer = TriggerCreate("gt_KaraxDeathTimer_Func");
+    TriggerAddEventUnitDied(gt_KaraxDeathTimer, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27006,7 +26932,6 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
     gf_marauder_timed_event();
     gf_artanis_timed_event();
     gf_kill_banned_player();
-    gf_remove_karax_early_death_debuff();
     gf_end_raynor_support();
     gf_attack_highground_invaders();
     gf_timer_terran_death();
@@ -27416,7 +27341,7 @@ void InitTriggers () {
     gt_cheat_Init();
     gt_disabletutorialquestsinthisgame_Init();
     gt_tutorial_Init();
-    gt_KaraxUpgrade_Init();
+    gt_KaraxDeathTimer_Init();
     gt_Veterangetspromoted_Init();
     gt_SkinJimmygotselected_Init();
     gt_SkinMadaxegotselected_Init();
