@@ -2214,10 +2214,8 @@
         <LifeMax value="150"/>
         <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
-        <ShieldsStart value="150"/>
-        <ShieldsMax value="150"/>
-        <ShieldRegenDelay value="10"/>
-        <ShieldRegenRate value="2"/>
+        <ShieldsStart value="60"/>
+        <ShieldsMax value="60"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <Sight value="11"/>
         <CostCategory value="Technology"/>
@@ -2226,7 +2224,6 @@
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="Demolish"/>
-        <BehaviorArray Link="PowerUserBaseDefenseSmall"/>
         <BehaviorArray Link="UnderConstruction"/>
         <WeaponArray Link="PhotonCannon" Turret="PhotonCannon"/>
         <CardLayouts>

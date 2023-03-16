@@ -2351,7 +2351,6 @@ Variable/Name/939FCBE3=spawn_right
 Variable/Name/93D0FD5C=r
 Variable/Name/93E8832E=found
 Variable/Name/93F623E6=return
-Variable/Name/93F75148=ps
 Variable/Name/94259F39=i
 Variable/Name/942E1061=spawn_right
 Variable/Name/946E9B2C=o_pen

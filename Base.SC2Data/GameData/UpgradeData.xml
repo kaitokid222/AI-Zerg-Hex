@@ -176,9 +176,10 @@
         <EffectArray Reference="Unit,KaraxChampion,ShieldRegenRate" Value="1"/>
         <EffectArray Reference="Unit,KaraxChampion,LifeStart" Value="6"/>
         <EffectArray Reference="Unit,KaraxChampion,LifeRegenRate" Value="0.2"/>
-        <EffectArray Reference="Unit,KaraxPhotonCannon,LifeMax" Value="30"/>
-        <EffectArray Reference="Unit,KaraxPhotonCannon,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,KaraxPhotonCannon,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,KaraxPhotonCannon,LifeStart" Value="20"/>
         <EffectArray Reference="Unit,KaraxChampion,EnergyMax" Value="40"/>
+        <EffectArray Reference="Unit,KaraxPhotonCannon,ShieldRegenRate" Value="0.500000"/>
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="Mode3v3">

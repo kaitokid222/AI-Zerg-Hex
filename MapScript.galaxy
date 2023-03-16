@@ -4109,12 +4109,10 @@ string gf_elo_to_rank_icon (int lp_elo, int lp_games) {
 
 void gf_create_karax_for_player (int lp_player) {
     // Variable Declarations
-    int lv_ps;
     point lv_spawn_point;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_ps = gv_players[lp_player].lv_last_recorded_strength;
 
     // Implementation
     lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
