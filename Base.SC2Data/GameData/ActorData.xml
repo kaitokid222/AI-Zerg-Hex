@@ -10086,6 +10086,10 @@
         <On Terms="Abil.ItalisTeleport.SourceCastStop" Send="AnimBracketStop BSD"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStart" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStop" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorSound id="WarpTrainLoop">
         <On Terms="Abil.TechLabWarpTrain.TargetStart" Send="Create"/>
@@ -10094,6 +10098,10 @@
         <On Terms="Abil.ItalisTeleport.SourceCastStop" Send="Destroy"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStart" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStop" Send="Destroy"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStop" Send="Destroy"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStop" Send="Destroy"/>
         <!-- <On Terms="AbilMorph.*.Finish; MorphTo ZealotPurifierReviveCorpse" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom ZealotPurifierReviveCorpse" Send="Destroy"/> -->
     </CActorSound>
@@ -10113,17 +10121,25 @@
         <On Terms="Abil.ItalisTeleport.SourceCastStop" Send="AnimBracketStop BSD"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStart" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStop" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorSound id="WarpTrainStart">
         <On Terms="Abil.TechLabWarpTrain.TargetStart" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceCastStart" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStart" Send="Create"/>
         <!-- <On Terms="AbilMorph.*.Finish; MorphTo ZealotPurifierReviveCorpse" Send="Create"/> -->
     </CActorSound>
     <CActorSound id="WarpTrainStop">
         <On Terms="Abil.TechLabWarpTrain.TargetStop" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceFinishStop" Send="Create"/>
         <On Terms="Abil.ItalisTeleport.SourceCastStop" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceFinishStop" Send="Create"/>
+        <On Terms="Abil.KaraxTeleport.SourceCastStop" Send="Create"/>
         <!-- <On Terms="AbilMorph.*.Finish; MorphFrom ZealotPurifierReviveCorpse" Send="Create"/> -->
     </CActorSound>
     <CActorProgress id="ZergConstruction">

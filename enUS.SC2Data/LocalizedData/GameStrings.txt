@@ -84,6 +84,7 @@ Abil/Name/InitiateRequestFind=Initiate Request
 Abil/Name/InstantDischarge=Instant Discharge
 Abil/Name/IonCannon=Ion Cannon
 Abil/Name/ItalisTeleport=Teleport
+Abil/Name/KaraxTeleport=Teleport
 Abil/Name/LargeSpawnerTrainBaneling=Train Baneling
 Abil/Name/LargeSpawnerTrainBeastling=Train Beastling
 Abil/Name/LargeSpawnerTrainInfusedRoach=Train Infused Roach

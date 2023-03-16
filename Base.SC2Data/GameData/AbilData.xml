@@ -132,6 +132,34 @@
             <Cooldown Link="Abil/CreepTumorBuild"/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectTarget id="KaraxTeleport">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="Abil/ItalisTeleport/Activity"/>
+        <Effect index="0" value="ItalisTeleport"/>
+        <Flags index="BestUnit" value="0"/>
+        <Cost>
+            <Cooldown TimeStart="30" TimeUse="30"/>
+        </Cost>
+        <InterruptArray index="Cast" value="1"/>
+        <InterruptCost>
+            <Cooldown TimeUse="5"/>
+        </InterruptCost>
+        <TargetFilters value="Ground,Structure,Visible;Self,Neutral,Enemy,Missile,Dead,Hidden"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <TrackingArc value="360"/>
+        <CastIntroTime value="2"/>
+        <FinishTime value="5"/>
+        <ShowProgressArray index="Cast" value="1"/>
+        <ShowProgressArray index="Finish" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <AINotifyEffect value="ItalisTeleport"/>
+        <ProgressButtonArray index="Cast" value="ItalisTeleport"/>
+        <ProgressButtonArray index="Finish" value="ItalisTeleport"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ItalisTeleport"/>
+    </CAbilEffectTarget>
     <CAbilMorph id="MorphBuildingExtractorGreater3v3">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MutateintoGreaterTerrazineExtractor" State="Suppressed"/>

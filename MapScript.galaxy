@@ -4117,8 +4117,11 @@ void gf_create_karax_for_player (int lp_player) {
     // Implementation
     lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
-    Wait(2.0, c_timeGame);
-    CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+    if ((gv_players[lp_player].lv_alive == false)) {
+        Wait(2.0, c_timeGame);
+        CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+    }
+
 }
 
 void gf_buff_players () {

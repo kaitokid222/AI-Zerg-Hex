@@ -45,6 +45,7 @@ Abil/EditorPrefix/InitiateRequestFind=Energy Network -
 Abil/EditorPrefix/InstantDischarge=Shock Trooper -
 Abil/EditorPrefix/IonCannon=Tech Lab -
 Abil/EditorPrefix/ItalisTeleport=Italis -
+Abil/EditorPrefix/KaraxTeleport=Karax -
 Abil/EditorPrefix/LargeSpawnerTrainBaneling=Large Spawner -
 Abil/EditorPrefix/LargeSpawnerTrainBeastling=Large Spawner -
 Abil/EditorPrefix/LargeSpawnerTrainInfusedRoach=Large Spawner -
