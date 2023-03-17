@@ -570,7 +570,7 @@ void gf_update_terrandata ();
 void gf_Game_create_leaderboard ();
 void gf_Game_update_leaderboard ();
 string gf_elo_to_rank_icon (int lp_elo, int lp_games);
-void gf_create_karax_for_player (int lp_player);
+void gf_create_karax_for_player (int lp_player, point lp_p);
 void gf_buff_players ();
 void gf_restore_ranked_vanilla ();
 void gf_disable_non_vanilla_content_for_player (int lp_player);
@@ -1840,6 +1840,7 @@ void gf_apply_support_casual () {
             gv_players[auto18D3D132_var].lv_support_type = "Probius";
         }
         else if (auto4C710A49_val == 12) {
+            lv_p = UnitGroupCenterOfGroup(UnitGroup("Marine2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
             auto134AAC57_g = UnitGroup("Marine2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             auto134AAC57_u = UnitGroupCount(auto134AAC57_g, c_unitCountAll);
             for (;; auto134AAC57_u -= 1) {
@@ -1854,7 +1855,7 @@ void gf_apply_support_casual () {
                 if (autoD6363266_var == null) { break; }
                 UnitRemove(autoD6363266_var);
             }
-            gf_create_karax_for_player(auto18D3D132_var);
+            gf_create_karax_for_player(auto18D3D132_var, lv_p);
             gv_players[auto18D3D132_var].lv_support_type = "Karax";
         }
         else if (auto4C710A49_val == 13) {
@@ -2107,6 +2108,7 @@ void gf_apply_support_3v3 () {
             gv_players[auto4A0E4D9D_var].lv_support_type = "Probius";
         }
         else if (auto62D37381_val == 10) {
+            lv_p = UnitGroupCenterOfGroup(UnitGroup("Marine2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
             auto8E300475_g = UnitGroup("Marine2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             auto8E300475_u = UnitGroupCount(auto8E300475_g, c_unitCountAll);
             for (;; auto8E300475_u -= 1) {
@@ -2121,7 +2123,7 @@ void gf_apply_support_3v3 () {
                 if (autoDD8B82FF_var == null) { break; }
                 UnitRemove(autoDD8B82FF_var);
             }
-            gf_create_karax_for_player(auto4A0E4D9D_var);
+            gf_create_karax_for_player(auto4A0E4D9D_var, lv_p);
             gv_players[auto4A0E4D9D_var].lv_support_type = "Karax";
         }
         else if (auto62D37381_val == 11) {
@@ -4161,7 +4163,7 @@ string gf_elo_to_rank_icon (int lp_elo, int lp_games) {
     return lv_image;
 }
 
-void gf_create_karax_for_player (int lp_player) {
+void gf_create_karax_for_player (int lp_player, point lp_p) {
     // Variable Declarations
     point lv_spawn_point;
 
@@ -4169,8 +4171,17 @@ void gf_create_karax_for_player (int lp_player) {
     // Variable Initialization
 
     // Implementation
-    lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
+    if ((gv_players[lp_player].lv_alive == false)) {
+        lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
+    }
+    else {
+        lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[lp_player].lv_position)));
+    }
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
+    if ((lp_p != null)) {
+        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lp_p), c_orderQueueReplace);
+    }
+
     if ((gv_players[lp_player].lv_alive == false)) {
         Wait(2.0, c_timeGame);
         CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
@@ -8077,7 +8088,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -18638,14 +18649,19 @@ void gt_help_Init () {
 // Trigger: -karax
 //--------------------------------------------------------------------------------------------------
 bool gt_karax_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_no_point;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
     // Actions
     if (!runActions) {
         return true;
     }
 
     if ((gv_practice_mode == true)) {
-        gf_create_karax_for_player(EventPlayer());
+        gf_create_karax_for_player(EventPlayer(), lv_no_point);
     }
 
     return true;
@@ -18962,6 +18978,7 @@ void gt_tutorial_Init () {
 bool gt_KaraxDeathTimer_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_owner;
+    point lv_no_point;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -18984,7 +19001,7 @@ bool gt_KaraxDeathTimer_Func (bool testConds, bool runActions) {
     Wait(10.0, c_timeGame);
     UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/BF7D0FF4"));
     Wait(10.0, c_timeGame);
-    gf_create_karax_for_player(lv_owner);
+    gf_create_karax_for_player(lv_owner, lv_no_point);
     return true;
 }
 
@@ -21703,6 +21720,7 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     int lv_attacker_owner;
     unit lv_n;
     int lv_cap;
+    point lv_no_point;
 
     // Automatic Variable Declarations
     unitgroup autoA1C2F3A3_g;
@@ -21813,7 +21831,7 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
         if ((PlayerStatus(lv_owner) == c_playerStatusActive)) {
             if ((gf_is_game_over() == false) && (gf_is_player_banned(lv_owner) == false)) {
                 if ((GameAttributeGameValue("1") == "0001")) {
-                    gf_create_karax_for_player(lv_owner);
+                    gf_create_karax_for_player(lv_owner, lv_no_point);
                 }
 
             }
