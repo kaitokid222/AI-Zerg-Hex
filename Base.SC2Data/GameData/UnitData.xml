@@ -1999,6 +1999,7 @@
             <LayoutButtons Face="EnergyTransfer" Type="AbilCmd" AbilCmd="TransferEnergyGenerator,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="PowerFieldKarax" Type="AbilCmd" AbilCmd="PowerFieldKarax,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="KaraxHeroic" Type="Passive" Row="1" Column="4"/>
         </CardLayouts>
         <EnergyRegenRate value="4"/>
         <Collide index="Ground" value="0"/>
@@ -8658,6 +8659,7 @@
             <LayoutButtons index="8" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Column="3"/>
             <LayoutButtons index="9" Face="SpawnSporeCrawler" AbilCmd="BuildSporeCrawler3v3,Build1" Column="4"/>
             <LayoutButtons Face="SpawnHydralisk" Type="AbilCmd" AbilCmd="ZagaraTrain,Train1" Row="1" Column="0"/>
+            <LayoutButtons Face="ZagaraHeroic" Type="Passive" Row="1" Column="4"/>
         </CardLayouts>
         <LifeStart value="30"/>
         <LifeMax value="30"/>
