@@ -1604,6 +1604,12 @@ void gf_apply_support_casual () {
     unitgroup auto24C4542F_g;
     int auto24C4542F_u;
     unit auto24C4542F_var;
+    unitgroup auto134AAC57_g;
+    int auto134AAC57_u;
+    unit auto134AAC57_var;
+    unitgroup autoD6363266_g;
+    int autoD6363266_u;
+    unit autoD6363266_var;
 
     // Variable Initialization
     lv_i = 1;
@@ -1653,8 +1659,11 @@ void gf_apply_support_casual () {
         else if (auto166FA2A2_val == "0010") {
             lv_picked_bonus_int = 11;
         }
-        else if (auto166FA2A2_val == "0013") {
+        else if (auto166FA2A2_val == "0014") {
             lv_picked_bonus_int = 12;
+        }
+        else if (auto166FA2A2_val == "0013") {
+            lv_picked_bonus_int = 13;
         }
         else {
         }
@@ -1663,7 +1672,7 @@ void gf_apply_support_casual () {
         }
 
         if ((lv_picked_bonus_int == 1)) {
-            lv_picked_bonus_int = RandomInt(2, 11);
+            lv_picked_bonus_int = RandomInt(2, 12);
         }
 
         auto4C710A49_val = lv_picked_bonus_int;
@@ -1831,6 +1840,24 @@ void gf_apply_support_casual () {
             gv_players[auto18D3D132_var].lv_support_type = "Probius";
         }
         else if (auto4C710A49_val == 12) {
+            auto134AAC57_g = UnitGroup("Marine2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto134AAC57_u = UnitGroupCount(auto134AAC57_g, c_unitCountAll);
+            for (;; auto134AAC57_u -= 1) {
+                auto134AAC57_var = UnitGroupUnitFromEnd(auto134AAC57_g, auto134AAC57_u);
+                if (auto134AAC57_var == null) { break; }
+                UnitRemove(auto134AAC57_var);
+            }
+            autoD6363266_g = UnitGroup("Battery", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoD6363266_u = UnitGroupCount(autoD6363266_g, c_unitCountAll);
+            for (;; autoD6363266_u -= 1) {
+                autoD6363266_var = UnitGroupUnitFromEnd(autoD6363266_g, autoD6363266_u);
+                if (autoD6363266_var == null) { break; }
+                UnitRemove(autoD6363266_var);
+            }
+            gf_create_karax_for_player(auto18D3D132_var);
+            gv_players[auto18D3D132_var].lv_support_type = "Karax";
+        }
+        else if (auto4C710A49_val == 13) {
             gv_players[auto18D3D132_var].lv_support_type = "Prebuilt";
         }
         else {
@@ -1877,6 +1904,12 @@ void gf_apply_support_3v3 () {
     unitgroup autoA744CA74_g;
     int autoA744CA74_u;
     unit autoA744CA74_var;
+    unitgroup auto8E300475_g;
+    int auto8E300475_u;
+    unit auto8E300475_var;
+    unitgroup autoDD8B82FF_g;
+    int autoDD8B82FF_u;
+    unit autoDD8B82FF_var;
 
     // Variable Initialization
     lv_i = 1;
@@ -1920,8 +1953,11 @@ void gf_apply_support_3v3 () {
         else if (auto29B4316B_val == "0010") {
             lv_picked_bonus_int = 9;
         }
-        else if (auto29B4316B_val == "0013") {
+        else if (auto29B4316B_val == "0002") {
             lv_picked_bonus_int = 10;
+        }
+        else if (auto29B4316B_val == "0013") {
+            lv_picked_bonus_int = 11;
         }
         else {
         }
@@ -1930,7 +1966,7 @@ void gf_apply_support_3v3 () {
         }
 
         if ((lv_picked_bonus_int == 1)) {
-            lv_picked_bonus_int = RandomInt(2, 9);
+            lv_picked_bonus_int = RandomInt(2, 10);
         }
 
         auto62D37381_val = lv_picked_bonus_int;
@@ -2071,6 +2107,24 @@ void gf_apply_support_3v3 () {
             gv_players[auto4A0E4D9D_var].lv_support_type = "Probius";
         }
         else if (auto62D37381_val == 10) {
+            auto8E300475_g = UnitGroup("Marine2", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto8E300475_u = UnitGroupCount(auto8E300475_g, c_unitCountAll);
+            for (;; auto8E300475_u -= 1) {
+                auto8E300475_var = UnitGroupUnitFromEnd(auto8E300475_g, auto8E300475_u);
+                if (auto8E300475_var == null) { break; }
+                UnitRemove(auto8E300475_var);
+            }
+            autoDD8B82FF_g = UnitGroup("Battery", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoDD8B82FF_u = UnitGroupCount(autoDD8B82FF_g, c_unitCountAll);
+            for (;; autoDD8B82FF_u -= 1) {
+                autoDD8B82FF_var = UnitGroupUnitFromEnd(autoDD8B82FF_g, autoDD8B82FF_u);
+                if (autoDD8B82FF_var == null) { break; }
+                UnitRemove(autoDD8B82FF_var);
+            }
+            gf_create_karax_for_player(auto4A0E4D9D_var);
+            gv_players[auto4A0E4D9D_var].lv_support_type = "Karax";
+        }
+        else if (auto62D37381_val == 11) {
             gv_players[auto4A0E4D9D_var].lv_support_type = "Prebuilt";
         }
         else {

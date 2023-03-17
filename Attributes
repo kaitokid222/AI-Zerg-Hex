@@ -531,6 +531,12 @@
             <Description Value="Attribute005/Value013/Desc"/>
             <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
         </Value>
+        <Value>
+            <Id Value="14"/>
+            <Name Value="Attribute005/Value014/Name"/>
+            <Description Value="Attribute005/Value014/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-protoss-karax.dds"/>
+        </Value>
         <Default>
             <Slot Id="0"/>
             <Value Id="12"/>
@@ -637,6 +643,12 @@
             <Name Value="Attribute010/Value013/Name"/>
             <Description Value="Attribute010/Value013/Desc"/>
             <Icon Value="Assets\Textures\btn-upgrade-mengsk-engineeringbay-neosteelfortifiedarmor.dds"/>
+        </Value>
+        <Value>
+            <Id Value="2"/>
+            <Name Value="Attribute010/Value002/Name"/>
+            <Description Value="Attribute010/Value002/Desc"/>
+            <Icon Value="Assets\Textures\btn-unit-protoss-karax.dds"/>
         </Value>
         <Default>
             <Slot Id="1"/>
