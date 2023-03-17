@@ -5537,7 +5537,7 @@ void gf_one_team_is_dead_event () {
             auto3EB611F5_var = UnitGroupUnitFromEnd(auto3EB611F5_g, auto3EB611F5_u);
             if (auto3EB611F5_var == null) { break; }
             if ((gf_is_in_zerg_highgrounds(auto3EB611F5_var) == false)) {
-                UnitKill(auto3EB611F5_var);
+                UnitRemove(auto3EB611F5_var);
             }
 
         }
@@ -5551,7 +5551,7 @@ void gf_one_team_is_dead_event () {
             for (;; auto4FE1F2AE_u -= 1) {
                 auto4FE1F2AE_var = UnitGroupUnitFromEnd(auto4FE1F2AE_g, auto4FE1F2AE_u);
                 if (auto4FE1F2AE_var == null) { break; }
-                UnitKill(auto4FE1F2AE_var);
+                UnitRemove(auto4FE1F2AE_var);
             }
         }
     }
@@ -5576,7 +5576,7 @@ void gf_one_team_is_dead_event () {
             auto65A5A223_var = UnitGroupUnitFromEnd(auto65A5A223_g, auto65A5A223_u);
             if (auto65A5A223_var == null) { break; }
             if ((gf_is_in_zerg_highgrounds(auto65A5A223_var) == false)) {
-                UnitKill(auto65A5A223_var);
+                UnitRemove(auto65A5A223_var);
             }
 
         }
@@ -5590,7 +5590,7 @@ void gf_one_team_is_dead_event () {
             for (;; auto89F91751_u -= 1) {
                 auto89F91751_var = UnitGroupUnitFromEnd(auto89F91751_g, auto89F91751_u);
                 if (auto89F91751_var == null) { break; }
-                UnitKill(auto89F91751_var);
+                UnitRemove(auto89F91751_var);
             }
         }
     }
