@@ -5693,6 +5693,9 @@ void gf_end_game_3v3 () {
     int auto459C5D99_var;
     playergroup auto36D4379E_g;
     int auto36D4379E_var;
+    unitgroup auto68E5B62C_g;
+    int auto68E5B62C_u;
+    unit auto68E5B62C_var;
     playergroup auto49494231_g;
     int auto49494231_var;
     playergroup autoB48C9BF1_g;
@@ -5731,7 +5734,14 @@ void gf_end_game_3v3 () {
         }
     }
 
-    Wait(7.0, c_timeGame);
+    auto68E5B62C_g = UnitGroup("Hive2", 7, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto68E5B62C_u = UnitGroupCount(auto68E5B62C_g, c_unitCountAll);
+    for (;; auto68E5B62C_u -= 1) {
+        auto68E5B62C_var = UnitGroupUnitFromEnd(auto68E5B62C_g, auto68E5B62C_u);
+        if (auto68E5B62C_var == null) { break; }
+        libNtve_gf_MakeUnitInvulnerable(auto68E5B62C_var, true);
+    }
+    Wait(5.0, c_timeGame);
     if (((gf_is_terran_dead() == true) || (gf_is_zerg_dead() == true))) {
         auto2433D401_g = gv_terrans;
         auto2433D401_var = -1;
