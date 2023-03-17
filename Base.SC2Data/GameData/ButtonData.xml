@@ -10,6 +10,9 @@
     <CButton id="ExtractTerrazineNydus">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
+    <CButton id="KaraxHeroic">
+        <Icon value="Assets\Textures\btn-hero-karax.dds"/>
+    </CButton>
     <CButton id="ImprovedLiquids">
         <Icon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
         <AlertIcon value="Assets\Textures\btn-progression-stetmann-09-dualqueue.dds"/>
@@ -38,6 +41,9 @@
         <Icon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hivestetellitebonus.dds"/>
         <HotkeyAlias value="NydusUpgrade"/>
+    </CButton>
+    <CButton id="PowerFieldKarax">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldcapacitor.dds"/>
     </CButton>
     <CButton id="ResearchZergAttack3v3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
@@ -317,6 +323,9 @@
         <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ZagaraHeroic">
+        <Icon value="Assets\Textures\btn-hero-niadra.dds"/>
     </CButton>
     <CButton id="ZergUpgrades">
         <Icon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>

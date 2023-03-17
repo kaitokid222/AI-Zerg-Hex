@@ -1973,35 +1973,43 @@
         <LifeRegenRate value="0.3281"/>
     </CUnit>
     <CUnit id="KaraxChampion">
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
-        <ShieldsStart value="500"/>
-        <ShieldsMax value="500"/>
+        <LifeStart value="40"/>
+        <LifeMax value="40"/>
+        <ShieldsStart value="10"/>
+        <ShieldsMax value="10"/>
         <ShieldArmor value="2"/>
-        <ShieldRegenDelay value="1"/>
-        <ShieldRegenRate value="5"/>
-        <EnergyStart value="500"/>
+        <ShieldRegenDelay value="0"/>
         <EnergyMax value="100"/>
         <AbilArray Link="ForceField"/>
         <AbilArray Link="ProtossBuild"/>
         <AbilArray Link="OracleStasisTrapBuild"/>
         <AbilArray Link="UpgradeKarax"/>
-        <AbilArray Link="ItalisTeleport"/>
+        <AbilArray Link="KaraxTeleport"/>
         <AbilArray Link="ArtanisVortex"/>
-        <BehaviorArray Link="EnergyUserInfantry"/>
+        <AbilArray Link="EnergyNetworkRequest"/>
+        <AbilArray Link="TransferEnergyGenerator"/>
+        <AbilArray Link="PowerFieldKarax"/>
         <CardLayouts index="0">
             <LayoutButtons index="4" Column="4"/>
             <LayoutButtons index="5" Face="Rally" AbilCmd="ProgressRally,Rally1" Column="4"/>
             <LayoutButtons index="6" Face="ProdigalEngineer" Type="Passive" AbilCmd="" Row="0" Column="3"/>
             <LayoutButtons index="7" Face="PhaseCannon" Type="AbilCmd" AbilCmd="PhaseCannon,Execute" Row="1" Column="2"/>
             <LayoutButtons index="8" Face="Vortex" AbilCmd="ArtanisVortex,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="OracleBuildStasisTrap" Type="AbilCmd" AbilCmd="OracleStasisTrapBuild,Build1" Row="1" Column="1"/>
-            <LayoutButtons Face="AutomatedAssimilator" Type="AbilCmd" AbilCmd="ProtossBuild,Build3" Row="1" Column="3"/>
-            <LayoutButtons Face="UpgradeKarax" Type="AbilCmd" AbilCmd="UpgradeKarax,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="ItalisTeleport" Type="AbilCmd" AbilCmd="ItalisTeleport,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="ItalisTeleport" Type="AbilCmd" AbilCmd="KaraxTeleport,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="EnergyTransfer" Type="AbilCmd" AbilCmd="TransferEnergyGenerator,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="PowerFieldKarax" Type="AbilCmd" AbilCmd="PowerFieldKarax,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="ForceField" Type="AbilCmd" AbilCmd="ForceField,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="KaraxHeroic" Type="Passive" Row="1" Column="4"/>
         </CardLayouts>
-        <EnergyRegenRate value="3"/>
+        <EnergyRegenRate value="4"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="Colossus" value="1"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Collide index="Small" value="0"/>
+        <LifeRegenDelay value="1"/>
+        <LifeRegenRate value="0.8007"/>
+        <Speed value="3.5"/>
     </CUnit>
     <CUnit id="LoveMorales">
         <DeathRevealRadius value="3"/>
@@ -2177,6 +2185,74 @@
         <Name value="Unit/Name/HydraliskGroundWeapon"/>
         <Mover value="PrimalNeedleSpinesWeapon2"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="KaraxPhotonCannon">
+        <Facing value="45"/>
+        <Race value="Prot"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIDefense" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
+        <ShieldsStart value="60"/>
+        <ShieldsMax value="60"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <Sight value="11"/>
+        <CostCategory value="Technology"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="Demolish"/>
+        <BehaviorArray Link="UnderConstruction"/>
+        <WeaponArray Link="PhotonCannon" Turret="PhotonCannon"/>
+        <CardLayouts>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Detector" Type="Passive" Requirements="NotUnderConstruction" Row="2" Column="3"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint1x1Contour"/>
+        <PlacementFootprint value="Footprint1x1"/>
+        <ScoreMake value="150"/>
+        <ScoreKill value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="0.75"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <AIEvalFactor value="0.8"/>
+        <GlossaryCategory value="Unit/Category/ProtossUnits"/>
+        <GlossaryPriority value="200"/>
+        <GlossaryStrongArray value="Banshee"/>
+        <GlossaryStrongArray value="Mutalisk"/>
+        <GlossaryStrongArray value="DarkTemplar"/>
+        <GlossaryWeakArray value="SiegeTankSieged"/>
+        <GlossaryWeakArray value="BroodLord"/>
+        <GlossaryWeakArray value="Immortal"/>
+        <HotkeyCategory value="Unit/Category/ProtossUnits"/>
     </CUnit>
     <CUnit id="Probe">
         <CardLayouts index="1">
@@ -2685,8 +2761,6 @@
         <BehaviorArray index="2" Link="PhotonCannonTimedLife"/>
         <Attributes index="Armored" value="0"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="550"/>
-        <LifeMax value="550"/>
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1"/>
     </CUnit>
@@ -8585,6 +8659,7 @@
             <LayoutButtons index="8" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Column="3"/>
             <LayoutButtons index="9" Face="SpawnSporeCrawler" AbilCmd="BuildSporeCrawler3v3,Build1" Column="4"/>
             <LayoutButtons Face="SpawnHydralisk" Type="AbilCmd" AbilCmd="ZagaraTrain,Train1" Row="1" Column="0"/>
+            <LayoutButtons Face="ZagaraHeroic" Type="Passive" Row="1" Column="4"/>
         </CardLayouts>
         <LifeStart value="30"/>
         <LifeMax value="30"/>

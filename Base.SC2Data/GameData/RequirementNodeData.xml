@@ -80,7 +80,6 @@
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeCasualTraderImprovementCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGasExtraction2CompleteOnly427659588">
@@ -545,7 +544,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeCasualTraderImprovementCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="CasualTraderImprovement" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeChemicalPlantCompleteOnly1337995533">
@@ -1395,6 +1393,10 @@
     <CRequirementGTE id="GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10">
         <OperandArray index="0" value="CountBehaviorBloodStacksQueuedOrBetter"/>
         <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11">
+        <OperandArray index="0" value="CountUpgradeMinuteUpgradeQueuedOrBetter"/>
+        <OperandArray index="1" value="11"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40">
         <OperandArray index="0" value="CountBehaviorTechLabChargeCompleteOnlyAtUnit"/>

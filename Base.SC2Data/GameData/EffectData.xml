@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectSet id="KaraxPermanentPhaseCanon">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectLaunchMissile id="MechaNeedleSpinesLM">
         <ValidatorArray index="0" value="ZergProtectiveBaseMainAttackBarrier"/>
         <EditorCategories value="Race:Zerg"/>
@@ -40,6 +43,10 @@
     <CEffectSet id="MechaHydraNeedleSpineImpactSet">
         <EffectArray value="MechaNeedleSpinesRangedDamage"/>
     </CEffectSet>
+    <CEffectCreateUnit id="PhaseCannon">
+        <SpawnEffect value="KaraxPermanentPhaseCanon"/>
+        <SpawnUnit index="0" value="KaraxPhotonCannon"/>
+    </CEffectCreateUnit>
     <CEffectApplyBehavior id="ShieldActiveAB">
         <WhichUnit Value="Caster"/>
         <Behavior value="MechaShieldActive"/>

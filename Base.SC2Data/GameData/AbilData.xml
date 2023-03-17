@@ -132,6 +132,34 @@
             <Cooldown Link="Abil/CreepTumorBuild"/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectTarget id="KaraxTeleport">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="Abil/ItalisTeleport/Activity"/>
+        <Effect index="0" value="ItalisTeleport"/>
+        <Flags index="BestUnit" value="0"/>
+        <Cost>
+            <Cooldown TimeStart="30" TimeUse="30"/>
+        </Cost>
+        <InterruptArray index="Cast" value="1"/>
+        <InterruptCost>
+            <Cooldown TimeUse="5"/>
+        </InterruptCost>
+        <TargetFilters value="Ground,Structure,Visible;Self,Neutral,Enemy,Missile,Dead,Hidden"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <TrackingArc value="360"/>
+        <CastIntroTime value="2"/>
+        <FinishTime value="5"/>
+        <ShowProgressArray index="Cast" value="1"/>
+        <ShowProgressArray index="Finish" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <AINotifyEffect value="ItalisTeleport"/>
+        <ProgressButtonArray index="Cast" value="ItalisTeleport"/>
+        <ProgressButtonArray index="Finish" value="ItalisTeleport"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ItalisTeleport"/>
+    </CAbilEffectTarget>
     <CAbilMorph id="MorphBuildingExtractorGreater3v3">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MutateintoGreaterTerrazineExtractor" State="Suppressed"/>
@@ -159,6 +187,20 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="PhaseCannon">
+        <CmdButtonArray index="Execute" Requirements="KaraxPhaseCannon"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="PowerFieldKarax">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="TechLabPowerFieldSet"/>
+        <Cost>
+            <Cooldown TimeUse="20"/>
+        </Cost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <CursorEffect value="TechLabPowerFieldSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="PowerFieldKarax"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="TraderFlight">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -483,8 +525,8 @@
     </CAbilResearch>
     <CAbilEffectTarget id="ArtanisVortex">
         <Cost index="0">
-            <Vital index="Energy" value="100"/>
-            <Cooldown TimeUse="15"/>
+            <Vital index="Energy" value="0"/>
+            <Cooldown TimeUse="45"/>
         </Cost>
     </CAbilEffectTarget>
     <CAbilResearch id="CCSkinSwitcher">
@@ -1100,7 +1142,13 @@
     </CAbilEffectInstant>
     <CAbilEffectTarget id="ForceField">
         <Cost index="0">
-            <Vital index="Energy" value="10"/>
+            <Vital index="Energy" value="0"/>
+            <Charge>
+                <CountMax value="5"/>
+                <CountUse value="1"/>
+                <TimeStart value="10"/>
+                <TimeUse value="10"/>
+            </Charge>
         </Cost>
     </CAbilEffectTarget>
     <CAbilTransport id="HerculesTransport">
