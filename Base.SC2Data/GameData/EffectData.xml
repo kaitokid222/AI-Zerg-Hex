@@ -400,7 +400,7 @@
         <EditorCategories value=""/>
     </CEffectModifyPlayer>
     <CEffectDamage id="ServitorStrikeDamageA">
-        <AttributeBonus index="Armored" value="30"/>
+        <AttributeBonus index="Armored" value="0"/>
         <Amount value="30"/>
     </CEffectDamage>
     <CEffectCreateUnit id="CreateBloodBig2">

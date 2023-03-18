@@ -694,11 +694,23 @@
     <CUpgrade id="Tier2Equipment">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Weapon,ServitorStrike,Range" Value="2"/>
+        <EffectArray Reference="Weapon,ServitorStrike,MinScanRange" Value="2"/>
+        <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="30"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <EffectArray Reference="Weapon,PhotonCannon,MinScanRange" Value="1"/>
     </CUpgrade>
     <CUpgrade id="Tier3Equipment">
         <LeaderAlias value="Tier2Equipment"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel2.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Weapon,ServitorStrike,Range" Value="2"/>
+        <EffectArray Reference="Weapon,ServitorStrike,MinScanRange" Value="2"/>
+        <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="60"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <EffectArray Reference="Weapon,PhotonCannon,MinScanRange" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>

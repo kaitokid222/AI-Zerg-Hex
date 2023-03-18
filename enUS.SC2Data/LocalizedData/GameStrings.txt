@@ -1332,7 +1332,7 @@ Button/Tooltip/IonCannon=Launches a devastating beam from the sky lasting for 20
 Button/Tooltip/IonStorm=
 Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="Abil,ItalisTeleport,CastIntroTime[0]"/> seconds to cast and another <d ref="Abil,ItalisTeleport,FinishTime[0]"/> seconds to instantiate after teleportation.<n/><n/>Ability can only be used once every <d ref="Abil,ItalisTeleport,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
-Button/Tooltip/KaraxHeroic=This unit becomes stronger automatically with every passing minute.
+Button/Tooltip/KaraxHeroic=This unit becomes stronger automatically with every passing minute.<n/><n/>Tier 2 and Tier 3 Equipement upgrades increase weapon efficiency.
 Button/Tooltip/KaraxPhotonCannon=Cannon that can hold a position shortly.
 Button/Tooltip/LargeChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/LargePresent=Contains a gift!
