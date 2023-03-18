@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectEnumArea id="ArtanisVortexSearchArea">
+        <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead"/>
+    </CEffectEnumArea>
     <CEffectSet id="KaraxPermanentPhaseCanon">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -296,7 +299,7 @@
         <EditorCategories value=""/>
     </CEffectSet>
     <CEffectEnumArea id="VortexSearchArea">
-        <SearchFilters value="-;Self,Ally,Structure,Missile,Item,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
     <CEffectSet id="ZCCCenter">
         <EditorCategories value=""/>
