@@ -759,7 +759,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="ProdigalEngineerProductionTarget">
         <DisableValidatorArray index="0" removed="1"/>
-        <Modification TimeScale="2"/>
+        <Modification TimeScale="1.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ScannerSweepTimed">
         <EditorCategories value="AbilityorEffectType:Units"/>
