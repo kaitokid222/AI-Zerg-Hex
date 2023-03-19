@@ -539,7 +539,7 @@
         </Value>
         <Default>
             <Slot Id="0"/>
-            <Value Id="12"/>
+            <Value Id="5"/>
         </Default>
         <Default>
             <Slot Id="1"/>

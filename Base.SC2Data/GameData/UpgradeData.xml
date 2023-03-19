@@ -299,6 +299,8 @@
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Cooldown.TimeUse" Value="0.900000"/>
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="50"/>
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="50"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Period" Value="0.060000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Cost.Vital[Energy]" Value="1"/>
         <MaxLevel value="30"/>
     </CUpgrade>
     <CUpgrade id="UnstableCore">

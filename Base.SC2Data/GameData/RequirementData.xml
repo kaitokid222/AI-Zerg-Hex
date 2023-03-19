@@ -130,7 +130,7 @@
         <NodeArray index="Show" Link="NotCountUpgradeHUGSAlgorythmQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="SiegeTankBetterVersion">
-        <NodeArray index="Use" Link="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndEq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="SpawnFirelings">
         <NodeArray index="Use" Link="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80"/>

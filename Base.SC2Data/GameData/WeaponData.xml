@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CWeaponLegacy id="90mmCannons2">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Cost>
+            <Vital index="Energy" value="40"/>
+        </Cost>
+        <Period value="2"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="ChaosSword">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>

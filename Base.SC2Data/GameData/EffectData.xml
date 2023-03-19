@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="90mmCannons2" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="100"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
     <CEffectEnumArea id="ArtanisVortexSearchArea">
         <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead"/>
     </CEffectEnumArea>

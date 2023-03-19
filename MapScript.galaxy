@@ -906,6 +906,7 @@ trigger gt_PowerAuraGotClicked;
 trigger gt_AttackAuraGotClicked;
 trigger gt_DefenseAuraGotClicked;
 trigger gt_use_tank_ability;
+trigger gt_use_tank_attack;
 trigger gt_rtv;
 trigger gt_rtvhalloween;
 trigger gt_rtvxmas;
@@ -8805,6 +8806,7 @@ void gf_end_game (int lp_winner) {
         TriggerDestroy(gt_every90seconds);
         TriggerDestroy(gt_spawner_finished);
         TriggerDestroy(gt_KaraxDeathTimer);
+        TriggerDestroy(gt_use_tank_attack);
         gf_manage_3v3_triggers(false);
         if (((gf_is_3v3() == true) && (gv_practice_mode == false))) {
             gf_end_game_3v3();
@@ -18023,6 +18025,51 @@ void gt_use_tank_ability_Init () {
     TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("PlasmaCannonT3", 0), c_unitAbilStageComplete, false);
     TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlast", 0), c_unitAbilStageComplete, false);
     TriggerAddEventUnitAbility(gt_use_tank_ability, null, AbilityCommand("FragmentBlastT2", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: use_tank_attack
+//--------------------------------------------------------------------------------------------------
+bool gt_use_tank_attack_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_killer;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_killer = libNtve_gf_KillingUnit();
+
+    // Conditions
+    if (testConds) {
+        if (!((GameAttributeGameValue("1") != "0002"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(lv_killer) == "SiegeTank2"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitBehaviorAdd(lv_killer, "SiegeTankExpertise", lv_killer, 1);
+    if ((UnitBehaviorCount(lv_killer, "SiegeTankExpertise") >= 30)) {
+        libNtve_gf_SetBehaviorCount(lv_killer, "SiegeTankExpertise", lv_killer, 0);
+        if ((TechTreeUpgradeCount(UnitGetOwner(lv_killer), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+            TechTreeUpgradeAddLevel(UnitGetOwner(lv_killer), "SiegeTankExpertise", 1);
+        }
+
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_use_tank_attack_Init () {
+    gt_use_tank_attack = TriggerCreate("gt_use_tank_attack_Func");
+    TriggerAddEventUnitDied(gt_use_tank_attack, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27433,6 +27480,7 @@ void InitTriggers () {
     gt_AttackAuraGotClicked_Init();
     gt_DefenseAuraGotClicked_Init();
     gt_use_tank_ability_Init();
+    gt_use_tank_attack_Init();
     gt_rtv_Init();
     gt_rtvhalloween_Init();
     gt_rtvxmas_Init();

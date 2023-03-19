@@ -290,6 +290,12 @@
     <CActorSplat id="PowerFieldCursorSplatKarax" parent="ProtossCursorSplat" abil="PowerField">
         <On index="0" Terms="Abil.PowerFieldKarax.Cursor" Send="Create"/>
     </CActorSplat>
+    <CActorAction id="SiegeTankAttack2" parent="GenericAttack" effectAttack="90mmCannons2">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+        <LaunchAssets Model="SiegeTankAttackLaunch" Sound="SiegeTank_AttackLaunch"/>
+        <ImpactMap index="None" Model="SiegeTankAttackImpact" Sound="SiegeTank_AttackImpact"/>
+        <ImpactPhysics Name="90mmCannonImpact" MatchKeys="Basic" Physics="SiegeTankAttackForce"/>
+    </CActorAction>
     <CActorAction id="SpineCrawlerAttack3v3" parent="GenericAttack" effectImpact="ImpalerTentacleU3v3" effectLaunch="ImpalerTentacleLM3v3">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
         <LaunchAttachQuery Methods="Weapon"/>

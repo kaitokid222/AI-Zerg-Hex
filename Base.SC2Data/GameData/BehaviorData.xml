@@ -9,6 +9,19 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="HasShieldLeft"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankDisableWeapon">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="SiegeTankNotBetterVersion"/>
+        <Modification>
+            <WeaponDisableArray value="90mmCannons2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SiegeTankExpertise">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel3.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCount value="30"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="UsingJUICE">
         <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>

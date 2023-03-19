@@ -154,8 +154,9 @@
     <CRequirementAnd id="AndCountUpgradeZergArmor5CompleteOnly">
         <OperandArray value="CountUpgradeZergArmor5CompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndEqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
-        <OperandArray value="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
+    <CRequirementAnd id="AndEq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="Eq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1CountUpgradeSpawnBombersCompleteOnly3224540341">
         <OperandArray value="LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1"/>
@@ -1286,6 +1287,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergSupplyIncrease"/>
     </CRequirementCountUpgrade>
+    <CRequirementEq id="Eq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeSiegeTankBetterVersionCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
     <CRequirementEq id="EqCountBehaviorRavagerSiegedCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorRavagerSiegedCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
@@ -1305,10 +1310,6 @@
     <CRequirementEq id="EqCountBehaviorSpawnerUpgradedCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorSpawnerUpgradedCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
-    </CRequirementEq>
-    <CRequirementEq id="EqCountUpgradeSiegeTankBetterVersionCompleteOnly1">
-        <OperandArray index="0" value="CountUpgradeSiegeTankBetterVersionCompleteOnly"/>
-        <OperandArray index="1" value="1"/>
     </CRequirementEq>
     <CRequirementGT id="GTCountBehaviorProbiusPylonBuffAuraAttackQueuedOrBetterAtUnit0">
         <OperandArray index="0" value="CountBehaviorProbiusPylonBuffAuraAttackQueuedOrBetterAtUnit"/>
