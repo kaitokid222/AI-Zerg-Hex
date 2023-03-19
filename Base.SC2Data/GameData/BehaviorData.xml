@@ -295,7 +295,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankFragmentBlastFireTimedLife" parent="TimedLife">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="15"/>
+        <Duration value="12"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SpawnFromCenter">
         <InfoIcon value="Assets\Textures\btn-building-zerg-hive.dds"/>
