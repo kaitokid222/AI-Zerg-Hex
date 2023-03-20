@@ -5935,10 +5935,11 @@
         <CostResource index="Vespene" value="100"/>
         <AbilArray index="3" Link="Siege"/>
         <BehaviorArray Link="EnergyUserUtillityAutomatic"/>
-        <WeaponArray index="0" Link=""/>
+        <BehaviorArray Link="SiegeTankDisableWeapon"/>
+        <WeaponArray index="0" Link="90mmCannons2"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="SiegeMode2" AbilCmd="Siege,Execute"/>
-            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="6" Face="SiegeTankExpertiseWeapon" Type="Passive" Requirements="SiegeTankBetterVersion" Row="1" Column="4"/>
         </CardLayouts>
         <LeaderAlias value="SiegeTank2"/>
         <HotkeyAlias value="SiegeTank2"/>
@@ -6004,6 +6005,7 @@
             <LayoutButtons Face="PlasmaShardsInfo" Type="Passive" Requirements="SiegeTankHasPlasmaShards" Row="1" Column="1"/>
             <LayoutButtons Face="SiegeTankEnableModulation" Type="AbilCmd" AbilCmd="SiegeTankUpgrade,Research3" Row="1" Column="2"/>
             <LayoutButtons Face="SiegeTankModulate" Type="AbilCmd" AbilCmd="SiegeTankModulate,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="SiegeTankExpertise" Type="Passive" Requirements="SiegeTankBetterVersion" Row="1" Column="4"/>
         </CardLayouts>
         <LeaderAlias value="SiegeTankSieged2"/>
         <HotkeyAlias value="SiegeTankSieged2"/>

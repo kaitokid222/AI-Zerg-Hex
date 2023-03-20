@@ -299,6 +299,8 @@
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Cooldown.TimeUse" Value="0.900000"/>
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlast,Cost[0].Vital[Energy]" Value="50"/>
         <EffectArray Operation="Subtract" Reference="Abil,FragmentBlastT2,Cost[0].Vital[Energy]" Value="50"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Period" Value="0.060000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Cost.Vital[Energy]" Value="1"/>
         <MaxLevel value="30"/>
     </CUpgrade>
     <CUpgrade id="UnstableCore">
@@ -694,11 +696,15 @@
     <CUpgrade id="Tier2Equipment">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="30"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
     </CUpgrade>
     <CUpgrade id="Tier3Equipment">
         <LeaderAlias value="Tier2Equipment"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel2.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="30"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>

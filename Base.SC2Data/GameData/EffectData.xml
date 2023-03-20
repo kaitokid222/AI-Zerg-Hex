@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="90mmCannons2" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="100"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="ArtanisVortexSearchArea">
+        <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead"/>
+    </CEffectEnumArea>
     <CEffectSet id="KaraxPermanentPhaseCanon">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -167,7 +176,7 @@
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>
         <Visibility value="Visible"/>
-        <Amount value="5"/>
+        <Amount value="4"/>
         <Death value="Fire"/>
         <AreaArray Radius="1" Fraction="1"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -296,7 +305,7 @@
         <EditorCategories value=""/>
     </CEffectSet>
     <CEffectEnumArea id="VortexSearchArea">
-        <SearchFilters value="-;Self,Ally,Structure,Missile,Item,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
     <CEffectSet id="ZCCCenter">
         <EditorCategories value=""/>
@@ -400,7 +409,7 @@
         <EditorCategories value=""/>
     </CEffectModifyPlayer>
     <CEffectDamage id="ServitorStrikeDamageA">
-        <AttributeBonus index="Armored" value="30"/>
+        <AttributeBonus index="Armored" value="0"/>
         <Amount value="30"/>
     </CEffectDamage>
     <CEffectCreateUnit id="CreateBloodBig2">

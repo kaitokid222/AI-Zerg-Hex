@@ -400,6 +400,10 @@
         <Find value="1"/>
         <Value value="SiegeTankHasPlasmaShards"/>
     </CValidatorPlayerRequirement>
+    <CValidatorCombine id="SiegeTankNotBetterVersion">
+        <CombineArray value="SiegeTankBetterVersion"/>
+        <Negate value="1"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="SiegeTankPlasmaCannonNoMarker">
         <Behavior value="SiegeTankPlasmaCannonHitMarker"/>
         <RequireCasterUnit Value="Caster"/>
