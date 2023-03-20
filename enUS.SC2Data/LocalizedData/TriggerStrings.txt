@@ -3033,6 +3033,7 @@ Variable/Name/F1DB8911=playerTerranAtLocation
 Variable/Name/F2114659=handle
 Variable/Name/F261AC9B=income_zerg_60s
 Variable/Name/F282137E=i
+Variable/Name/F2866029=done_main_targets
 Variable/Name/F28F1821=i
 Variable/Name/F2AC6DED=right
 Variable/Name/F2C6FEAE=count_terranstart_top
