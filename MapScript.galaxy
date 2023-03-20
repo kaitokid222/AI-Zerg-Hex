@@ -102,6 +102,7 @@ struct gs_strikeling_groups {
     int lv_side;
     unitgroup lv_spawners;
     bool lv_done_main_targets;
+    bool lv_cluster_full;
 };
 
 struct gs_outer_nests {
@@ -278,6 +279,7 @@ int gv_heatmap_top_threat;
 point gv_heatmap_top_threat_position;
 int[7] gv_heatmap_push_threat_positions;
 gs_strikeling_groups[5] gv_strikeling_groups;
+bool gv_strikelings_built_initially;
 playergroup gv_zerg;
 int gv_nest_snipe_cd;
 gs_dead_creep[101] gv_dead_creep;
@@ -735,6 +737,7 @@ void gf_create_timer_countdown_dialog ();
 void gf_generate_heatmap_results ();
 void gf_add_strikeling_spawner_to_group (unit lp_strikeling_spawner);
 void gf_handle_strikelings ();
+void gf_inject_left_strike_positions ();
 void gf_try_kill_nest (unit lp_nest);
 void gf_create_creep_source_groups ();
 void gf_rebuild_dead_creep_array (unit lp_unit);
@@ -10550,6 +10553,8 @@ void gf_add_strikeling_spawner_to_group (unit lp_strikeling_spawner) {
     // Variable Declarations
     point lv_ss_pos;
     int lv_g;
+    int lv_i;
+    int lv_c;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -10576,6 +10581,23 @@ void gf_add_strikeling_spawner_to_group (unit lp_strikeling_spawner) {
         }
     }
     UnitGroupAdd(gv_strikeling_groups[lv_g].lv_spawners, lp_strikeling_spawner);
+    if ((UnitGroupCount(gv_strikeling_groups[lv_g].lv_spawners, c_unitCountAlive) == 15)) {
+        gv_strikeling_groups[lv_g].lv_cluster_full = true;
+    }
+
+    lv_i = 1;
+    while ((lv_i <= 4)) {
+        if ((gv_strikeling_groups[lv_i].lv_cluster_full == true)) {
+            lv_c += 1;
+        }
+
+        lv_i += 1;
+    }
+    if ((lv_c == 4)) {
+        gv_strikelings_built_initially = true;
+        gf_inject_left_strike_positions();
+    }
+
 }
 
 void gf_handle_strikelings () {
@@ -10827,6 +10849,27 @@ void gf_handle_strikelings () {
             }
             else {
             }
+        }
+
+        lv_i += 1;
+    }
+}
+
+void gf_inject_left_strike_positions () {
+    // Variable Declarations
+    int lv_i;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= gv_possible_positions_strikelings_free)) {
+        lv_p = gv_possible_positions_strikelings[lv_i];
+        if ((UnitTypePlacementTestsFromPoint("SlowlingSpawner", 7, lv_p, 0.0, c_placementTestCreepMask) != null)) {
+            gv_possible_positions_t1_dead_count += 1;
+            gv_possible_positions_t1_dead[gv_possible_positions_t1_dead_count] = lv_p;
         }
 
         lv_i += 1;
@@ -14780,7 +14823,7 @@ void gf_build_spawner (unit lp_drone, int lp_target_player) {
             }
         }
         else {
-            if ((UnitGroupCount(UnitGroup("StrikelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 59) && (lv_soup >= 3)) {
+            if ((((gv_strikelings_built_initially == false) && (UnitGroupCount(UnitGroup("StrikelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 59)) || ((gv_strikelings_built_initially == true) && (UnitGroupCount(UnitGroup("StrikelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 29))) && (lv_soup >= 3)) {
                 lv_type = "StrikelingSpawner";
             }
             else {
