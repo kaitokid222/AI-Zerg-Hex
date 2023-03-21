@@ -608,4 +608,10 @@
             <quad value="105.1477,71.0595,135.105,80.2248"/>
         </shape>
     </region>
+    <region id="102">
+        <name value="firewall"/>
+        <shape type="rect">
+            <quad value="55,127.5,185,128.5"/>
+        </shape>
+    </region>
 </Regions>
