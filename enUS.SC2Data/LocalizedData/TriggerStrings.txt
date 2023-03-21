@@ -972,7 +972,6 @@ Trigger/Name/1A589801=player collects blood
 Trigger/Name/1B85F56E=Tech Lab Warp Italis Cost
 Trigger/Name/1C1E513B=choas marine created
 Trigger/Name/21ED7C9A=Kerrigan cocoon died
-Trigger/Name/2377F2BE=zerg_vision_3v3
 Trigger/Name/239CEA57=Rock Exploit Major 2
 Trigger/Name/23B3EEFF=zerg_rally_center
 Trigger/Name/23CA96BD=check hydras
