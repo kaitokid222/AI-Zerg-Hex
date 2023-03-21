@@ -702,15 +702,18 @@ int gf_get_real_difficulty ();
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
 void gf_revealpickup (unit lp_item);
+void gf_enable_vday_settings ();
 void gf_spawn_heart ();
 void gf_enable_halloween_settings ();
 void gf_disable_halloween_settings ();
 void gf_spawn_sappers ();
+void gf_enable_xmas_settings ();
+void gf_enable_hny_settings ();
 void gf_enable_crazyminions_settings ();
 void gf_defend_point_with_wizard (point lp_point, int lp_groupindex, unit lp_target_unit);
 unit gf_get_wizard_from_group (int lp_group);
+void gf_enable_nightking_settings ();
 void gf_create_overlord_wave ();
-void gf_enable_nightking_abilities ();
 void gf_make_night ();
 void gf_make_day ();
 void gf_decrease_terran_vision ();
@@ -927,6 +930,7 @@ trigger gt_info;
 trigger gt_help;
 trigger gt_karax;
 trigger gt_money;
+trigger gt_money_zerg;
 trigger gt_resetelo;
 trigger gt_reveal;
 trigger gt_italis;
@@ -9199,8 +9203,6 @@ void gf_init_event () {
     playergroup autoEF184761_g;
     int autoEF184761_var;
     int autoE7D7DBBA_val;
-    playergroup auto30C181EE_g;
-    int auto30C181EE_var;
 
     // Implementation
     if ((gf_get_lobby_event_setting() == 0) && (gf_is_3v3() == false)) {
@@ -9252,9 +9254,11 @@ void gf_init_event () {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/9E9E757A") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 2) {
+            gf_enable_xmas_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/23B1DE81") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 3) {
+            gf_enable_hny_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/3F992C71") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 5) {
@@ -9262,17 +9266,11 @@ void gf_init_event () {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/388C19B2") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 6) {
-            gf_enable_nightking_abilities();
+            gf_enable_nightking_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/2097B6C0") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 7) {
-            auto30C181EE_g = gv_terrans;
-            auto30C181EE_var = -1;
-            while (true) {
-                auto30C181EE_var = PlayerGroupNextPlayer(auto30C181EE_g, auto30C181EE_var);
-                if (auto30C181EE_var < 0) { break; }
-                TechTreeAbilityAllow(auto30C181EE_var, AbilityCommand("BarracksTrain2", 17), true);
-            }
+            gf_enable_vday_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/94E41F97") + StringToText("")));
         }
         else {
@@ -9338,6 +9336,24 @@ void gf_revealpickup (unit lp_item) {
     }
 }
 
+void gf_enable_vday_settings () {
+    // Automatic Variable Declarations
+    playergroup auto30C181EE_g;
+    int auto30C181EE_var;
+
+    // Implementation
+    auto30C181EE_g = gv_terrans;
+    auto30C181EE_var = -1;
+    while (true) {
+        auto30C181EE_var = PlayerGroupNextPlayer(auto30C181EE_g, auto30C181EE_var);
+        if (auto30C181EE_var < 0) { break; }
+        TechTreeAbilityAllow(auto30C181EE_var, AbilityCommand("BarracksTrain2", 17), true);
+    }
+    TriggerEnable(gt_spawnheart, true);
+    TriggerEnable(gt_playercollectsheart, true);
+    TriggerEnable(gt_grabaheart, true);
+}
+
 void gf_spawn_heart () {
     // Variable Declarations
     point lv_p;
@@ -9361,6 +9377,10 @@ void gf_enable_halloween_settings () {
     // Automatic Variable Declarations
     // Implementation
     GameSetToDLighting("AgriaNight");
+    TriggerEnable(gt_killapumpkin, true);
+    TriggerEnable(gt_spawnpumpkin, true);
+    TriggerEnable(gt_pumpkindies, true);
+    TriggerEnable(gt_playercollectsbonuscard, true);
 }
 
 void gf_disable_halloween_settings () {
@@ -9481,6 +9501,23 @@ void gf_spawn_sappers () {
     }
 }
 
+void gf_enable_xmas_settings () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_spawnpresent, true);
+    TriggerEnable(gt_playercollectspresent, true);
+    TriggerEnable(gt_grabapresent, true);
+}
+
+void gf_enable_hny_settings () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_spawnhappynewyeargift, true);
+    TriggerEnable(gt_playercollectshappynewyeargift, true);
+    TriggerEnable(gt_grabahnygift, true);
+    TriggerEnable(gt_removeallfireworks, true);
+}
+
 void gf_enable_crazyminions_settings () {
     // Variable Declarations
     int lv_i;
@@ -9496,6 +9533,10 @@ void gf_enable_crazyminions_settings () {
     lv_group = UnitGroupEmpty();
 
     // Implementation
+    TriggerEnable(gt_spawnhellforces, true);
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, true);
+    TriggerEnable(gt_resetwizardactioncooldown, true);
+    TriggerEnable(gt_removefortdebrisactorfix, true);
     UnitGroupAddUnitGroup(lv_group, gv_outer_nests);
     UnitGroupAdd(lv_group, UnitFromId(1238434742));
     UnitGroupAdd(lv_group, UnitFromId(2123689193));
@@ -9589,6 +9630,26 @@ unit gf_get_wizard_from_group (int lp_group) {
     return lv_return;
 }
 
+void gf_enable_nightking_settings () {
+    // Automatic Variable Declarations
+    playergroup auto57F20C5B_g;
+    int auto57F20C5B_var;
+
+    // Implementation
+    TriggerEnable(gt_changedaytime, true);
+    TriggerEnable(gt_SolarWeaponsfinished, true);
+    TriggerEnable(gt_Overlorddies, true);
+    auto57F20C5B_g = gv_terrans;
+    auto57F20C5B_var = -1;
+    while (true) {
+        auto57F20C5B_var = PlayerGroupNextPlayer(auto57F20C5B_g, auto57F20C5B_var);
+        if (auto57F20C5B_var < 0) { break; }
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("BuildBuilder", 20), true);
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 19), true);
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 20), true);
+    }
+}
+
 void gf_create_overlord_wave () {
     // Variable Declarations
     int lv_alive_player_count;
@@ -9615,23 +9676,6 @@ void gf_create_overlord_wave () {
         UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lv_p), c_orderQueueReplace);
         UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("GenerateCreep", 0)), c_orderQueueAddToEnd);
         lv_i = (lv_i + 1);
-    }
-}
-
-void gf_enable_nightking_abilities () {
-    // Automatic Variable Declarations
-    playergroup auto57F20C5B_g;
-    int auto57F20C5B_var;
-
-    // Implementation
-    auto57F20C5B_g = gv_terrans;
-    auto57F20C5B_var = -1;
-    while (true) {
-        auto57F20C5B_var = PlayerGroupNextPlayer(auto57F20C5B_g, auto57F20C5B_var);
-        if (auto57F20C5B_var < 0) { break; }
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("BuildBuilder", 20), true);
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 19), true);
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 20), true);
     }
 }
 
@@ -9919,7 +9963,7 @@ void gf_handle_votes (int lp_player, string lp_event) {
                 else if (auto481F0B10_val == 6) {
                     gv_is_night_king = true;
                     gv_voted_event = true;
-                    gf_enable_nightking_abilities();
+                    gf_enable_nightking_settings();
                     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/B4CAD2AC") + StringToText("")));
                 }
                 else if (auto481F0B10_val == 7) {
@@ -18820,6 +18864,29 @@ void gt_money_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -money_zerg
+//--------------------------------------------------------------------------------------------------
+bool gt_money_zerg_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 5000);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_money_zerg_Init () {
+    gt_money_zerg = TriggerCreate("gt_money_zerg_Func");
+    TriggerAddEventChatMessage(gt_money_zerg, c_playerAny, "-money_zerg", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -reset elo
 //--------------------------------------------------------------------------------------------------
 bool gt_resetelo_Func (bool testConds, bool runActions) {
@@ -21820,6 +21887,7 @@ bool gt_spawnheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnheart_Init () {
     gt_spawnheart = TriggerCreate("gt_spawnheart_Func");
+    TriggerEnable(gt_spawnheart, false);
     TriggerAddEventTimePeriodic(gt_spawnheart, 10.0, c_timeGame);
 }
 
@@ -21937,6 +22005,7 @@ bool gt_playercollectsheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectsheart_Init () {
     gt_playercollectsheart = TriggerCreate("gt_playercollectsheart_Func");
+    TriggerEnable(gt_playercollectsheart, false);
     TriggerAddEventUnitAbility(gt_playercollectsheart, null, AbilityCommand("PickupHNYgift", 0), c_abilEffectStageCast, false);
 }
 
@@ -21993,6 +22062,7 @@ bool gt_grabaheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabaheart_Init () {
     gt_grabaheart = TriggerCreate("gt_grabaheart_Func");
+    TriggerEnable(gt_grabaheart, false);
     TriggerAddEventTimePeriodic(gt_grabaheart, 11.0, c_timeGame);
 }
 
@@ -22041,6 +22111,7 @@ bool gt_killapumpkin_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_killapumpkin_Init () {
     gt_killapumpkin = TriggerCreate("gt_killapumpkin_Func");
+    TriggerEnable(gt_killapumpkin, false);
     TriggerAddEventTimePeriodic(gt_killapumpkin, 10.0, c_timeGame);
 }
 
@@ -22091,6 +22162,7 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnpumpkin_Init () {
     gt_spawnpumpkin = TriggerCreate("gt_spawnpumpkin_Func");
+    TriggerEnable(gt_spawnpumpkin, false);
     TriggerAddEventTimePeriodic(gt_spawnpumpkin, 20.0, c_timeGame);
 }
 
@@ -22135,6 +22207,7 @@ bool gt_pumpkindies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_pumpkindies_Init () {
     gt_pumpkindies = TriggerCreate("gt_pumpkindies_Func");
+    TriggerEnable(gt_pumpkindies, false);
     TriggerAddEventUnitDied(gt_pumpkindies, null);
 }
 
@@ -22211,6 +22284,7 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectsbonuscard_Init () {
     gt_playercollectsbonuscard = TriggerCreate("gt_playercollectsbonuscard_Func");
+    TriggerEnable(gt_playercollectsbonuscard, false);
     TriggerAddEventUnitAbility(gt_playercollectsbonuscard, null, AbilityCommand("PickupNovaTechnology", 0), c_abilEffectStageFinish, false);
 }
 
@@ -22294,6 +22368,7 @@ bool gt_spawnpresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnpresent_Init () {
     gt_spawnpresent = TriggerCreate("gt_spawnpresent_Func");
+    TriggerEnable(gt_spawnpresent, false);
     TriggerAddEventTimePeriodic(gt_spawnpresent, 7.0, c_timeGame);
 }
 
@@ -22587,6 +22662,7 @@ bool gt_playercollectspresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectspresent_Init () {
     gt_playercollectspresent = TriggerCreate("gt_playercollectspresent_Func");
+    TriggerEnable(gt_playercollectspresent, false);
     TriggerAddEventUnitAbility(gt_playercollectspresent, null, AbilityCommand("PickupXmasPresent", 0), c_abilEffectStageFinish, false);
 }
 
@@ -22643,6 +22719,7 @@ bool gt_grabapresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabapresent_Init () {
     gt_grabapresent = TriggerCreate("gt_grabapresent_Func");
+    TriggerEnable(gt_grabapresent, false);
     TriggerAddEventTimePeriodic(gt_grabapresent, 10.0, c_timeGame);
 }
 
@@ -22721,6 +22798,7 @@ bool gt_spawnhappynewyeargift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnhappynewyeargift_Init () {
     gt_spawnhappynewyeargift = TriggerCreate("gt_spawnhappynewyeargift_Func");
+    TriggerEnable(gt_spawnhappynewyeargift, false);
     TriggerAddEventTimePeriodic(gt_spawnhappynewyeargift, 10.0, c_timeGame);
 }
 
@@ -23032,6 +23110,7 @@ bool gt_playercollectshappynewyeargift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectshappynewyeargift_Init () {
     gt_playercollectshappynewyeargift = TriggerCreate("gt_playercollectshappynewyeargift_Func");
+    TriggerEnable(gt_playercollectshappynewyeargift, false);
     TriggerAddEventUnitAbility(gt_playercollectshappynewyeargift, null, AbilityCommand("PickupHNYgift", 0), c_abilEffectStageCast, false);
 }
 
@@ -23088,6 +23167,7 @@ bool gt_grabahnygift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabahnygift_Init () {
     gt_grabahnygift = TriggerCreate("gt_grabahnygift_Func");
+    TriggerEnable(gt_grabahnygift, false);
     TriggerAddEventTimePeriodic(gt_grabahnygift, 10.0, c_timeGame);
 }
 
@@ -23154,6 +23234,7 @@ bool gt_removeallfireworks_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_removeallfireworks_Init () {
     gt_removeallfireworks = TriggerCreate("gt_removeallfireworks_Func");
+    TriggerEnable(gt_removeallfireworks, false);
     TriggerAddEventTimePeriodic(gt_removeallfireworks, 120.0, c_timeGame);
 }
 
@@ -23218,6 +23299,7 @@ bool gt_spawnhellforces_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnhellforces_Init () {
     gt_spawnhellforces = TriggerCreate("gt_spawnhellforces_Func");
+    TriggerEnable(gt_spawnhellforces, false);
     TriggerAddEventTimePeriodic(gt_spawnhellforces, 60.0, c_timeGame);
 }
 
@@ -23272,6 +23354,7 @@ bool gt_buildinggetsattackedtrydefendwithwizards_Func (bool testConds, bool runA
 //--------------------------------------------------------------------------------------------------
 void gt_buildinggetsattackedtrydefendwithwizards_Init () {
     gt_buildinggetsattackedtrydefendwithwizards = TriggerCreate("gt_buildinggetsattackedtrydefendwithwizards_Func");
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, false);
     TriggerAddEventUnitDamaged(gt_buildinggetsattackedtrydefendwithwizards, null, c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
@@ -23309,6 +23392,7 @@ bool gt_resetwizardactioncooldown_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_resetwizardactioncooldown_Init () {
     gt_resetwizardactioncooldown = TriggerCreate("gt_resetwizardactioncooldown_Func");
+    TriggerEnable(gt_resetwizardactioncooldown, false);
     TriggerAddEventTimePeriodic(gt_resetwizardactioncooldown, 3.0, c_timeGame);
 }
 
@@ -23337,6 +23421,7 @@ bool gt_removefortdebrisactorfix_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_removefortdebrisactorfix_Init () {
     gt_removefortdebrisactorfix = TriggerCreate("gt_removefortdebrisactorfix_Func");
+    TriggerEnable(gt_removefortdebrisactorfix, false);
     TriggerAddEventUnitDied(gt_removefortdebrisactorfix, null);
 }
 
@@ -23389,6 +23474,7 @@ bool gt_changedaytime_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_changedaytime_Init () {
     gt_changedaytime = TriggerCreate("gt_changedaytime_Func");
+    TriggerEnable(gt_changedaytime, false);
     TriggerAddEventTimePeriodic(gt_changedaytime, 1.0, c_timeGame);
 }
 
@@ -23436,6 +23522,7 @@ bool gt_SolarWeaponsfinished_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_SolarWeaponsfinished_Init () {
     gt_SolarWeaponsfinished = TriggerCreate("gt_SolarWeaponsfinished_Func");
+    TriggerEnable(gt_SolarWeaponsfinished, false);
     TriggerAddEventUnitResearchProgress(gt_SolarWeaponsfinished, null, c_unitProgressStageComplete);
 }
 
@@ -23471,6 +23558,7 @@ bool gt_Overlorddies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_Overlorddies_Init () {
     gt_Overlorddies = TriggerCreate("gt_Overlorddies_Func");
+    TriggerEnable(gt_Overlorddies, false);
     TriggerAddEventUnitDied(gt_Overlorddies, null);
 }
 
@@ -27316,6 +27404,7 @@ void InitTriggers () {
     gt_help_Init();
     gt_karax_Init();
     gt_money_Init();
+    gt_money_zerg_Init();
     gt_resetelo_Init();
     gt_reveal_Init();
     gt_italis_Init();
