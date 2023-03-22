@@ -194,6 +194,7 @@ playergroup gv_terrans;
 int gv_player_count;
 int[7] gv_positions;
 gs_player[7] gv_players;
+point[7] gv_command_center_position;
 unitgroup gv_transmission_units;
 int[7] gv_blood_dialog_item;
 int[7] gv_reward;
@@ -642,7 +643,6 @@ unitgroup gf_get_nydus_of_team (int lp_player_id);
 int gf_get_integer_of_unit_type (string lp_unit_type);
 point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
-int gf_get_spawn_cooldown_reduction (int lp_player_id);
 unit gf_get_random_flying_rally_of_player (int lp_player);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
@@ -901,6 +901,7 @@ void gf_get_unit_upgrades ();
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_transporterbecameidle;
+trigger gt_disable_transporter_trigger;
 trigger gt_choaslordcreated;
 trigger gt_choasmarinecreated;
 trigger gt_cultistcreated;
@@ -7238,48 +7239,10 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
                 lv_result = (lp_spawn_count / 100.0);
             }
             else {
-                if ((lp_unit_type == "Strikeling")) {
-                    lv_result = (lp_spawn_count / (32.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                }
-                else {
-                    if ((lp_unit_type == "PrimalRoach2") && (TechTreeUpgradeCount(lp_player_id, "PrimalRapidRespawn", c_techCountCompleteOnly) == 1)) {
-                        lv_result = (lp_spawn_count / (36.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                    }
-                    else {
-                        if ((lp_unit_type == "Beastling")) {
-                            lv_result = (lp_spawn_count / (80.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                        else {
-                            lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                    }
-                }
+                lv_result = (lp_spawn_count / 80.0);
             }
         }
     }
-    return lv_result;
-}
-
-int gf_get_spawn_cooldown_reduction (int lp_player_id) {
-    // Variable Declarations
-    int lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 1)) {
-        lv_result = 2;
-    }
-
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 2)) {
-        lv_result = 4;
-    }
-
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 3)) {
-        lv_result = 6;
-    }
-
     return lv_result;
 }
 
@@ -8203,6 +8166,8 @@ void gf_Create_game () {
     // Automatic Variable Declarations
     playergroup auto27D78943_g;
     int auto27D78943_var;
+    const int auto1252BAB2_ae = 6;
+    int auto1252BAB2_var;
     playergroup autoEA6AA9EA_g;
     int autoEA6AA9EA_var;
 
@@ -8261,6 +8226,13 @@ void gf_Create_game () {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/FD46B427"));
     }
 
+    auto1252BAB2_var = 1;
+    for ( ; auto1252BAB2_var <= auto1252BAB2_ae; auto1252BAB2_var += 1 ) {
+        if ((gv_players[auto1252BAB2_var].lv_alive == true)) {
+            gv_command_center_position[gv_players[auto1252BAB2_var].lv_position] = UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto1252BAB2_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+        }
+
+    }
     libNtve_gf_SetPlayerGroupAlliance(gv_terrans, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans, gv_zerg, libNtve_ge_AllianceSetting_Enemy);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg, gv_terrans, libNtve_ge_AllianceSetting_Enemy);
@@ -14492,23 +14464,13 @@ int gf_get_closest_alive_player_position_from_group (point lp_position, playergr
 point gf_get_command_center_point_from_player_position (int lp_player_position) {
     // Variable Declarations
     int lv_index;
-    int lv_player_id;
+    point lv_result;
 
     // Automatic Variable Declarations
-    const int auto02F145C4_ae = 6;
-    const int auto02F145C4_ai = 1;
-
     // Variable Initialization
 
     // Implementation
-    lv_index = 1;
-    for ( ; ( (auto02F145C4_ai >= 0 && lv_index <= auto02F145C4_ae) || (auto02F145C4_ai < 0 && lv_index >= auto02F145C4_ae) ) ; lv_index += auto02F145C4_ai ) {
-        if ((gv_players[lv_index].lv_position == lp_player_position)) {
-            lv_player_id = lv_index;
-        }
-
-    }
-    return UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", lv_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+    return gv_command_center_position[lp_player_position];
 }
 
 int gf_get_free_supply () {
@@ -17736,6 +17698,26 @@ void gt_transporterbecameidle_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: disable_transporter_trigger
+//--------------------------------------------------------------------------------------------------
+bool gt_disable_transporter_trigger_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(gt_transporterbecameidle, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_disable_transporter_trigger_Init () {
+    gt_disable_transporter_trigger = TriggerCreate("gt_disable_transporter_trigger_Func");
+    TriggerAddEventTimeElapsed(gt_disable_transporter_trigger, 120.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: choas lord created
 //--------------------------------------------------------------------------------------------------
 bool gt_choaslordcreated_Func (bool testConds, bool runActions) {
@@ -18172,10 +18154,10 @@ bool gt_use_tank_attack_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitBehaviorAdd(lv_killer, "SiegeTankExpertise", lv_killer, 1);
-    if ((UnitBehaviorCount(lv_killer, "SiegeTankExpertise") >= 30)) {
-        libNtve_gf_SetBehaviorCount(lv_killer, "SiegeTankExpertise", lv_killer, 0);
-        if ((TechTreeUpgradeCount(UnitGetOwner(lv_killer), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+    if ((TechTreeUpgradeCount(UnitGetOwner(lv_killer), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+        UnitBehaviorAdd(lv_killer, "SiegeTankExpertise", lv_killer, 1);
+        if ((UnitBehaviorCount(lv_killer, "SiegeTankExpertise") >= 30)) {
+            libNtve_gf_SetBehaviorCount(lv_killer, "SiegeTankExpertise", lv_killer, 0);
             TechTreeUpgradeAddLevel(UnitGetOwner(lv_killer), "SiegeTankExpertise", 1);
         }
 
@@ -27375,6 +27357,7 @@ void gt_every15minutes_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_transporterbecameidle_Init();
+    gt_disable_transporter_trigger_Init();
     gt_choaslordcreated_Init();
     gt_choasmarinecreated_Init();
     gt_cultistcreated_Init();
