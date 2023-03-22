@@ -2051,6 +2051,7 @@ Variable/Name/6AFC6EDC=next_positions
 Variable/Name/6B2AB8DF=income_zerg_extractor_count
 Variable/Name/6B7B16F7=found
 Variable/Name/6BA8532B=i
+Variable/Name/6BB085E6=is_3v3
 Variable/Name/6BD720BA=i
 Variable/Name/6BF99F25=unit_type
 Variable/Name/6C0697AF=old_target

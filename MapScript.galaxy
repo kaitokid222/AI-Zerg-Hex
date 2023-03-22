@@ -237,6 +237,7 @@ int gv_top_bruta;
 int gv_bottom_bruta;
 bool gv_build_top_next;
 unitgroup gv_flying_rally_group;
+bool gv_is_3v3;
 int gv_debug_mode;
 bool gv_practice_mode;
 bool gv_game_has_ended;
@@ -7988,15 +7989,7 @@ bool gf_is_3v3 () {
     // Variable Initialization
 
     // Implementation
-    if ((GameAttributeGameValue("1") == "0003")) {
-        lv_return_value = true;
-    }
-
-    if ((gf_is_3v3_local_test() == true)) {
-        lv_return_value = true;
-    }
-
-    return lv_return_value;
+    return gv_is_3v3;
 }
 
 bool gf_is_3v3_local_test () {
@@ -20916,7 +20909,7 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     playergroup auto0C595BDC_g;
     int auto0C595BDC_var;
-    const int auto6D139C0C_ae = 30;
+    const int auto6D139C0C_ae = 12;
     int auto6D139C0C_var;
 
     // Variable Initialization
@@ -26785,6 +26778,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     // Actions
     if (!runActions) {
         return true;
+    }
+
+    if (((GameAttributeGameValue("1") == "0003") || (gf_is_3v3_local_test() == true))) {
+        gv_is_3v3 = true;
     }
 
     libLbty_gf_EnableDisablePingPanel(true, PlayerGroupAll());
