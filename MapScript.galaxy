@@ -26965,25 +26965,28 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
     gf_get_speed();
     gf_get_unit_upgrades();
     gf_handle_player_tutorial_stages();
-    gf_handle_dead_player_areas();
-    gf_update_pet_score();
-    if ((gv_viper_cloud_cd > 0)) {
-        gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
+    if ((gf_is_3v3() == false)) {
+        gf_handle_dead_player_areas();
+        gf_update_pet_score();
+        if ((gv_viper_cloud_cd > 0)) {
+            gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
+        }
+
+        if ((gv_defensive_egg_spawn_cooldown > 0)) {
+            gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
+        }
+
+        gf_increase_hydra_stock();
+        gf_attack_highground_invaders();
+        gf_handle_egg_cluster_creation();
     }
 
-    if ((gv_defensive_egg_spawn_cooldown > 0)) {
-        gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
-    }
-
-    gf_increase_hydra_stock();
     gf_remove_transmission_units();
     gf_marauder_timed_event();
     gf_artanis_timed_event();
     gf_kill_banned_player();
     gf_end_raynor_support();
-    gf_attack_highground_invaders();
     gf_timer_terran_death();
-    gf_handle_egg_cluster_creation();
     if ((gf_is_game_over() == true)) {
         gf_end_game(gf_get_winning_team());
     }
@@ -27045,8 +27048,11 @@ bool gt_everythreeseconds_Func (bool testConds, bool runActions) {
         if (auto7B868DAD_var < 0) { break; }
         gf_update_reward_panel(auto7B868DAD_var);
     }
-    if ((gv_nest_snipe_cd == 1)) {
-        gv_nest_snipe_cd = 0;
+    if ((gf_is_3v3() == false)) {
+        if ((gv_nest_snipe_cd == 1)) {
+            gv_nest_snipe_cd = 0;
+        }
+
     }
 
     return true;
@@ -27068,12 +27074,15 @@ bool gt_everyfiveseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gv_cloud_cd == 1)) {
-        gv_cloud_cd = 0;
-    }
+    if ((gf_is_3v3() == false)) {
+        if ((gv_cloud_cd == 1)) {
+            gv_cloud_cd = 0;
+        }
 
-    if ((gv_hydra_action_cooldown == true)) {
-        gv_hydra_action_cooldown = false;
+        if ((gv_hydra_action_cooldown == true)) {
+            gv_hydra_action_cooldown = false;
+        }
+
     }
 
     if ((gv_difficulty > 1) && (gv_armor_level > 0) && (gv_dead_creep_count > 0) && (gf_get_drone() != null)) {
@@ -27104,11 +27113,6 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
-        gf_generate_heatmap_results();
-        gf_handle_strikelings();
-    }
-
     autoB76A211F_g = gv_terrans;
     autoB76A211F_var = -1;
     while (true) {
@@ -27116,25 +27120,33 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
         if (autoB76A211F_var < 0) { break; }
         gf_update_income_for_player(autoB76A211F_var);
     }
-    if ((gf_is_pvp() == true)) {
-    }
-    else {
-        if ((gv_armor_level >= 1)) {
-            gf_get_infestors();
+    if ((gf_is_3v3() == false)) {
+        if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
+            gf_generate_heatmap_results();
+            gf_handle_strikelings();
         }
 
-        gf_gather_infestor_groups();
-        if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 35000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
-            gv_omega_placement_cooldown = 3;
-            gf_buy_omega();
+        if ((gf_is_pvp() == true)) {
         }
         else {
-            if ((gv_omega_placement_cooldown > 0)) {
-                gv_omega_placement_cooldown = (gv_omega_placement_cooldown - 1);
+            if ((gv_armor_level >= 1)) {
+                gf_get_infestors();
             }
 
+            gf_gather_infestor_groups();
+            if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 35000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
+                gv_omega_placement_cooldown = 3;
+                gf_buy_omega();
+            }
+            else {
+                if ((gv_omega_placement_cooldown > 0)) {
+                    gv_omega_placement_cooldown = (gv_omega_placement_cooldown - 1);
+                }
+
+            }
         }
     }
+
     return true;
 }
 
@@ -27154,16 +27166,19 @@ bool gt_every15seconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_refresh_bonus_gasses_data();
-    if ((gv_difficulty > 1)) {
-        gf_scout_bonus_gasses();
+    if ((gf_is_3v3() == false)) {
+        gf_refresh_bonus_gasses_data();
+        if ((gv_difficulty > 1)) {
+            gf_scout_bonus_gasses();
+        }
+
+        if ((gv_difficulty > 3)) {
+            gf_try_prefuse();
+        }
+
+        gf_gather_infestor_groups();
     }
 
-    if ((gv_difficulty > 3)) {
-        gf_try_prefuse();
-    }
-
-    gf_gather_infestor_groups();
     return true;
 }
 
@@ -27200,19 +27215,19 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
         }
 
     }
-    if (((gv_req_ravs + (gv_req_infused + gv_req_torra)) > 0) && (UnitGroupCount(gv_reserved_infestors, c_unitCountAlive) < (gv_req_ravs + (gv_req_infused + gv_req_torra)))) {
-        gf_reserve_infestors();
-    }
-
     if ((gv_difficulty > 4) && (gv_armor_level >= 1)) {
         gf_upgrade_a_spawner();
     }
 
-    if ((gv_difficulty > 2)) {
-        gf_attack_a_bonus_gas();
-    }
-
     if ((gf_is_3v3() == false)) {
+        if (((gv_req_ravs + (gv_req_infused + gv_req_torra)) > 0) && (UnitGroupCount(gv_reserved_infestors, c_unitCountAlive) < (gv_req_ravs + (gv_req_infused + gv_req_torra)))) {
+            gf_reserve_infestors();
+        }
+
+        if ((gv_difficulty > 2)) {
+            gf_attack_a_bonus_gas();
+        }
+
         gf_handle_yard_exception();
     }
 
@@ -27290,9 +27305,12 @@ bool gt_every90seconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_restore_improved_default_rallies();
-    if ((gv_difficulty > 4)) {
-        gf_focus_weakest();
+    if ((gf_is_3v3() == false)) {
+        gf_restore_improved_default_rallies();
+        if ((gv_difficulty > 4)) {
+            gf_focus_weakest();
+        }
+
     }
 
     return true;
@@ -27330,14 +27348,17 @@ bool gt_every15minutes_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
-    if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
-        lv_t = gf_get_hive();
-        UnitKill(lv_t);
+    if ((gf_is_3v3() == false)) {
+        lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
+        if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
+            lv_t = gf_get_hive();
+            UnitKill(lv_t);
+        }
+
     }
 
     return true;
