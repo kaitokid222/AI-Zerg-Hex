@@ -201,6 +201,25 @@
         <CursorEffect value="TechLabPowerFieldSearch"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="PowerFieldKarax"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="SpawnMutalisk3v3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="SpawnMutaliskDummy3v3"/>
+        <Cost>
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Terrazine" value="800"/>
+            <Charge>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
+                <CountUse value="1"/>
+                <TimeStart value="10"/>
+                <TimeUse value="-1"/>
+            </Charge>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnMutalisk3v3" Requirements="RequirementArmor5"/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="TraderFlight">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -265,8 +284,8 @@
             <Resource index="Terrazine" value="850"/>
             <Vital index="Energy" value="700"/>
             <Charge>
-                <CountMax value="10"/>
-                <CountStart value="10"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
@@ -283,8 +302,8 @@
             <Resource index="Terrazine" value="550"/>
             <Vital index="Energy" value="400"/>
             <Charge>
-                <CountMax value="10"/>
-                <CountStart value="10"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
@@ -301,8 +320,8 @@
             <Resource index="Terrazine" value="3000"/>
             <Vital index="Energy" value="1000"/>
             <Charge>
-                <CountMax value="10"/>
-                <CountStart value="10"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
@@ -848,15 +867,17 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="650"/>
+            <Resource index="Minerals" value="45"/>
+            <Resource index="Terrazine" value="240"/>
             <Charge>
-                <CountMax value="5"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
-                <TimeStart value="60"/>
-                <TimeUse value="60"/>
+                <TimeStart value="10"/>
+                <TimeUse value="-1"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBanelingGroup" Requirements="RequirementArmor4"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBaneling3v3" Requirements="RequirementArmor3"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
@@ -867,8 +888,8 @@
             <Resource index="Minerals" value="16"/>
             <Resource index="Terrazine" value="85"/>
             <Charge>
-                <CountMax value="15"/>
-                <CountStart value="15"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
@@ -881,8 +902,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="150"/>
-            <Vital index="Energy" value="75"/>
+            <Resource index="Terrazine" value="250"/>
+            <Vital index="Energy" value="100"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
@@ -915,8 +936,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBeastlingDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="56"/>
-            <Resource index="Terrazine" value="280"/>
+            <Resource index="Minerals" value="48"/>
+            <Resource index="Terrazine" value="210"/>
             <Charge>
                 <CountMax value="30"/>
                 <CountStart value="30"/>
@@ -950,8 +971,8 @@
             <Resource index="Minerals" value="16"/>
             <Resource index="Terrazine" value="70"/>
             <Charge>
-                <CountMax value="15"/>
-                <CountStart value="15"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeUse value="-1"/>
             </Charge>
@@ -981,11 +1002,11 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnUltraDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="72"/>
-            <Resource index="Terrazine" value="320"/>
+            <Resource index="Minerals" value="75"/>
+            <Resource index="Terrazine" value="400"/>
             <Charge>
-                <CountMax value="15"/>
-                <CountStart value="15"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
@@ -1003,8 +1024,8 @@
             <Resource index="Minerals" value="35"/>
             <Resource index="Terrazine" value="170"/>
             <Charge>
-                <CountMax value="15"/>
-                <CountStart value="15"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
@@ -1041,8 +1062,8 @@
             <Resource index="Minerals" value="20"/>
             <Resource index="Terrazine" value="110"/>
             <Charge>
-                <CountMax value="15"/>
-                <CountStart value="15"/>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
                 <CountUse value="1"/>
                 <TimeStart value="10"/>
                 <TimeUse value="-1"/>
@@ -2182,27 +2203,32 @@
     <CAbilResearch id="ZCCResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Upgrade="ZergArmor1">
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="50"/>
             <Resource index="Terrazine" value="800"/>
             <Button DefaultButtonFace="ResearchZergArmor13v3" Requirements="ResearchZergArmor1"/>
         </InfoArray>
         <InfoArray index="Research2" Upgrade="ZergArmor2">
-            <Resource index="Minerals" value="475"/>
+            <Resource index="Minerals" value="240"/>
+            <Resource index="Vespene" value="120"/>
             <Resource index="Terrazine" value="1900"/>
             <Button DefaultButtonFace="ResearchZergArmor23v3" Requirements="ResearchZergArmor2"/>
         </InfoArray>
         <InfoArray index="Research3" Upgrade="ZergArmor3">
-            <Resource index="Minerals" value="1075"/>
+            <Resource index="Minerals" value="550"/>
+            <Resource index="Vespene" value="275"/>
             <Resource index="Terrazine" value="4300"/>
             <Button DefaultButtonFace="ResearchZergArmor33v3" Requirements="ResearchZergArmor3"/>
         </InfoArray>
         <InfoArray index="Research4" Upgrade="ZergArmor4">
-            <Resource index="Minerals" value="1325"/>
+            <Resource index="Minerals" value="650"/>
+            <Resource index="Vespene" value="325"/>
             <Resource index="Terrazine" value="5300"/>
             <Button DefaultButtonFace="ResearchZergArmor43v3" Requirements="ResearchZergArmor4"/>
         </InfoArray>
         <InfoArray index="Research5" Upgrade="ZergArmor5">
-            <Resource index="Minerals" value="2000"/>
+            <Resource index="Minerals" value="1000"/>
+            <Resource index="Vespene" value="500"/>
             <Resource index="Terrazine" value="8000"/>
             <Button DefaultButtonFace="ResearchZergArmor53v3" Requirements="ResearchZergArmor5"/>
         </InfoArray>
@@ -2217,10 +2243,10 @@
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
         </InfoArray>
-        <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass">
+        <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass3v3">
             <Resource index="Vespene" value="75"/>
             <Resource index="Terrazine" value="600"/>
-            <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass"/>
+            <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass3v3"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="ZergSpecializationCreeperFerocity">
             <Resource index="Vespene" value="100"/>

@@ -287,6 +287,82 @@
             <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
+    <CActorUnit id="Mutalisk3v3" parent="GenericUnitStandard" unitName="Mutalisk3v3">
+        <Macros value="PhysicsDeathsSwarmAir"/>
+        <Macros value="PhysicsDeathsVoidAir"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Mutalisk_Land"/>
+        <On Terms="Effect.SpawnMutaliskCreateMutalisk.Create" Send="$Birth"/>
+        <On Terms="Effect.InfestedVentSpawnMutaliskCreateMutalisk.Create" Send="$Birth"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Mutalisk; MorphFrom HybridMutaliskEgg" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Mutalisk; MorphFrom HybridMutaliskEgg" Send="Create EggsplosionPurpleGeneric0"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Mutalisk; MorphFrom HybridMutaliskEgg" Target="EggsplosionPurpleGeneric0" Send="SetScale 1.660000"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Mutalisk; MorphFrom HybridMutaliskEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <HostSiteOps Ops="SOpBankerMutalisk"/>
+        <Model value="Mutalisk_Mecha"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Mutalisk_Mecha"/>
+        <DeathArray index="Normal" ModelLink="Mutalisk_Mecha_Death" SoundLink="Mutalisk_Explode"/>
+        <DeathCustoms>
+            <ActorModel value="MutaliskDeathRagdoll"/>
+            <ModelLink value="MutaliskDeathRagdoll"/>
+            <Name value="RagdollBasic"/>
+            <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Spectre_KillerPhantasmDeath" Name="Hallucination"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionFlier"/>
+        <PhysicsMatchKeysOrdered value="BasicAir,Basic"/>
+        <PlacementModel value="Mutalisk_Mecha"/>
+        <PortraitModel value="MutaliskPortrait"/>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="60"/>
+        <BarWidth value="50"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Mutalisk.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-mutalisk.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-flyercarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="Mutalisk_Ready"/>
+        <SoundArray index="What" value="Mutalisk_What"/>
+        <SoundArray index="Yes" value="Mutalisk_Yes"/>
+        <SoundArray index="Attack" value="Mutalisk_Attack"/>
+        <SoundArray index="Pissed" value="Mutalisk_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-mutalisk.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Mutalisk.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorSplat id="PowerFieldCursorSplatKarax" parent="ProtossCursorSplat" abil="PowerField">
         <On index="0" Terms="Abil.PowerFieldKarax.Cursor" Send="Create"/>
     </CActorSplat>

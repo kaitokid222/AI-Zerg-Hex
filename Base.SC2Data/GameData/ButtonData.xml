@@ -70,6 +70,9 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel3.dds"/>
         <HotkeyAlias value="SiegeTankExpertise"/>
     </CButton>
+    <CButton id="SpawnMutalisk3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-mutalisk-mecha.dds"/>
+    </CButton>
     <CButton id="SpawnOmegaliskCocoon3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
@@ -392,7 +395,7 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-zagara-scourgegasreduction.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="SpawnBanelingGroup">
+    <CButton id="SpawnBaneling3v3">
         <Icon value="Assets\Textures\btn-unit-collection-baneling-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-collection-baneling-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
@@ -427,8 +430,8 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnRavator3v3">
-        <Icon value="Assets\Textures\btn-unit-zerg-ravager-mecha.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-collection-ravager-mecha.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="SpawnTorralisk3v3">

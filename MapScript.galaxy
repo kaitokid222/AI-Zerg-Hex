@@ -194,6 +194,7 @@ playergroup gv_terrans;
 int gv_player_count;
 int[7] gv_positions;
 gs_player[7] gv_players;
+point[7] gv_command_center_position;
 unitgroup gv_transmission_units;
 int[7] gv_blood_dialog_item;
 int[7] gv_reward;
@@ -236,6 +237,7 @@ int gv_top_bruta;
 int gv_bottom_bruta;
 bool gv_build_top_next;
 unitgroup gv_flying_rally_group;
+bool gv_is_3v3;
 int gv_debug_mode;
 bool gv_practice_mode;
 bool gv_game_has_ended;
@@ -642,7 +644,6 @@ unitgroup gf_get_nydus_of_team (int lp_player_id);
 int gf_get_integer_of_unit_type (string lp_unit_type);
 point gf_get_zcc_spawn_point (int lp_player_id, string lp_unit_type);
 fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn_count);
-int gf_get_spawn_cooldown_reduction (int lp_player_id);
 unit gf_get_random_flying_rally_of_player (int lp_player);
 int gf__3v3_get_target_or_random_enemy_terran_position (int lp_pid);
 bool gf_can_build_bruta_3v3 (int lp_player_id);
@@ -702,15 +703,18 @@ int gf_get_real_difficulty ();
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
 void gf_revealpickup (unit lp_item);
+void gf_enable_vday_settings ();
 void gf_spawn_heart ();
 void gf_enable_halloween_settings ();
 void gf_disable_halloween_settings ();
 void gf_spawn_sappers ();
+void gf_enable_xmas_settings ();
+void gf_enable_hny_settings ();
 void gf_enable_crazyminions_settings ();
 void gf_defend_point_with_wizard (point lp_point, int lp_groupindex, unit lp_target_unit);
 unit gf_get_wizard_from_group (int lp_group);
+void gf_enable_nightking_settings ();
 void gf_create_overlord_wave ();
-void gf_enable_nightking_abilities ();
 void gf_make_night ();
 void gf_make_day ();
 void gf_decrease_terran_vision ();
@@ -898,6 +902,7 @@ void gf_get_unit_upgrades ();
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_transporterbecameidle;
+trigger gt_disable_transporter_trigger;
 trigger gt_choaslordcreated;
 trigger gt_choasmarinecreated;
 trigger gt_cultistcreated;
@@ -923,10 +928,12 @@ trigger gt_debug;
 trigger gt_debug_elo;
 trigger gt_debug_lag;
 trigger gt_elo;
+trigger gt_energy;
 trigger gt_info;
 trigger gt_help;
 trigger gt_karax;
 trigger gt_money;
+trigger gt_money_zerg;
 trigger gt_resetelo;
 trigger gt_reveal;
 trigger gt_italis;
@@ -952,24 +959,20 @@ trigger gt_NoWeathergotselected;
 trigger gt_Raingotselected;
 trigger gt_Snowgotselected;
 trigger gt_Ashgotselected;
+trigger gt_hive_top_killed;
+trigger gt_hive_bottom_killed;
 trigger gt_testfw;
+trigger gt_remove_invalid_ion;
 trigger gt_protect_top_hive_from_allies;
 trigger gt_protect_bottom_hive_from_allies;
-trigger gt_prevent_top_zerg_from_going_bottom;
-trigger gt_prevent_bottom_zerg_from_going_top;
-trigger gt_prevent_bottom_from_going_top;
-trigger gt_prevent_top_from_going_bottom;
+trigger gt_firewall_death;
 trigger gt_update_3v3_objectives;
 trigger gt_CocoonorOmegadies3v3;
 trigger gt_Cocoongotspawned3v3;
 trigger gt_Cocoonspawnfinished3v3;
-trigger gt_hive_top_killed;
-trigger gt_hive_bottom_killed;
 trigger gt_TerrazineIncome;
-trigger gt_TerrazineDoublerfinished;
 trigger gt_zagara_death_timer;
 trigger gt_MechaUpgradefinished;
-trigger gt_FirelingDies;
 trigger gt_Larvadies;
 trigger gt_Larvamutatesintobuilding;
 trigger gt_zccbuilt;
@@ -979,7 +982,6 @@ trigger gt_SpawnZCCUnit3v3;
 trigger gt_ZCCupgrades;
 trigger gt_Nydusfinished;
 trigger gt_Nydusdied;
-trigger gt_removeterrazinegeneratordebrisactorfix;
 trigger gt_zerg_rally_center;
 trigger gt_zerg_rally_left;
 trigger gt_zerg_rally_right;
@@ -987,7 +989,6 @@ trigger gt_zerg_rally_equal_on;
 trigger gt_zerg_rally_minus_on;
 trigger gt_zerg_rally_plus_on;
 trigger gt_relocate_spawners_rally_action;
-trigger gt_zerg_vision_3v3;
 trigger gt__3v3test;
 trigger gt_CCdestroyed;
 trigger gt_playerleavesgame;
@@ -5506,8 +5507,6 @@ void gf_one_team_is_dead_event () {
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/0530E671"));
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/142E685E"));
     Wait(2.0, c_timeGame);
-    TriggerEnable(gt_zerg_vision_3v3, false);
-    TriggerEnable(gt_FirelingDies, false);
     TriggerEnable(gt_PeriodicZCCSpawn, false);
     TriggerEnable(gt_SpawnZCCUnit3v3, false);
     TriggerEnable(gt_ZCCupgrades, false);
@@ -5980,7 +5979,7 @@ bool gf_can_cross_middle_in_3v3 (unit lp_unit_param) {
     lv_unit_type = UnitGetType(lp_unit_param);
 
     // Implementation
-    if ((lv_unit_type != "ImmortalShakurasStasisCannonMissile") && (lv_unit_type != "IonStorm") && (lv_unit_type != "IonBeam") && ((UnitTypeTestFlag(UnitGetType(lp_unit_param), c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer") || ((GameGetMissionTime() < 120.0) && ((lv_unit_type == "EliteMarine") || (lv_unit_type == "EliteMarineSkin1") || (lv_unit_type == "EliteMarineSkin2") || (lv_unit_type == "EliteMarineSkin3") || (lv_unit_type == "EliteMarineSkin4"))))) {
+    if (((UnitTypeTestFlag(lv_unit_type, c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
         lv_result = true;
     }
 
@@ -6080,15 +6079,8 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     else {
         lv_on_off = false;
     }
-    TriggerEnable(gt_zerg_vision_3v3, lv_on_off);
-    TriggerEnable(gt_prevent_bottom_from_going_top, lv_on_off);
-    TriggerEnable(gt_prevent_top_from_going_bottom, lv_on_off);
-    TriggerEnable(gt_prevent_top_zerg_from_going_bottom, lv_on_off);
-    TriggerEnable(gt_prevent_bottom_zerg_from_going_top, lv_on_off);
-    TriggerEnable(gt_TerrazineDoublerfinished, lv_on_off);
+    TriggerEnable(gt_firewall_death, lv_on_off);
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
-    TriggerEnable(gt_FirelingDies, lv_on_off);
-    TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, lv_on_off);
     TriggerEnable(gt_PeriodicZCCSpawn, lv_on_off);
     TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
     TriggerEnable(gt_ZCCupgrades, lv_on_off);
@@ -6135,6 +6127,20 @@ void gf_disable_uneeded_triggers_for_3v3 () {
     TriggerEnable(gt_Cocoonspawnfinished, false);
     TriggerEnable(gt_CocoonorOmegadies, false);
     TriggerEnable(gt_TryOmegaOrderRefresh, false);
+    TriggerEnable(gt_f2triggerevery5s, false);
+    TriggerEnable(gt_spinegetsattacked, false);
+    TriggerEnable(gt_buildinggetsattacked, false);
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, false);
+    TriggerEnable(gt_nestislowhealth, false);
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithhydras, false);
+    TriggerEnable(gt_hydragetsattacked, false);
+    TriggerEnable(gt_checkhydras, false);
+    TriggerEnable(gt_hydragotborn, false);
+    TriggerEnable(gt_nestdied, false);
+    TriggerEnable(gt_infestorgetsattacked, false);
+    TriggerEnable(gt_spinedies, false);
+    TriggerEnable(gt_add_infestor_to_group, false);
+    TriggerEnable(gt_Feedidleinfestorsevery21s, false);
 }
 
 void gf_create_3v3_objectives () {
@@ -6859,19 +6865,7 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
     lv_zcc = UnitGroupUnit(UnitGroup("HiveMindEmulator", lp_pid, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     if ((lv_zcc != null)) {
         auto4D713774_val = lp_ut;
-        if (auto4D713774_val == "Fireling") {
-            UnitBehaviorRemove(lv_zcc, "FirelingCountDummyStack", 1);
-        }
-        else if (auto4D713774_val == "BanelingZergHex") {
-            UnitBehaviorRemove(lv_zcc, "BanelingCountDummyStack", 1);
-        }
-        else if (auto4D713774_val == "InfusedRoach") {
-            UnitBehaviorRemove(lv_zcc, "InfusedRoachCountDummyStack", 1);
-        }
-        else if (auto4D713774_val == "Torralisk") {
-            UnitBehaviorRemove(lv_zcc, "TorraliskCountDummyStack", 1);
-        }
-        else if (auto4D713774_val == "Larva3v3") {
+        if (auto4D713774_val == "Larva3v3") {
             UnitBehaviorRemove(lv_zcc, "LarvaCountDummyStack", 1);
         }
         else {
@@ -6879,51 +6873,7 @@ void gf_remove_count_dummy_stack (int lp_pid, string lp_ut) {
     }
     else {
         auto126C1DE1_val = lp_ut;
-        if (auto126C1DE1_val == "Fireling") {
-            if ((gv_zcc_stack_backup[lp_pid].lv_firelings > 0)) {
-                if ((gv_zcc_stack_backup[lp_pid].lv_firelings == 1)) {
-                    gv_zcc_stack_backup[lp_pid].lv_firelings = 0;
-                }
-                else {
-                    gv_zcc_stack_backup[lp_pid].lv_firelings = (gv_zcc_stack_backup[lp_pid].lv_firelings - 1);
-                }
-            }
-
-        }
-        else if (auto126C1DE1_val == "BanelingZergHex") {
-            if ((gv_zcc_stack_backup[lp_pid].lv_banelings > 0)) {
-                if ((gv_zcc_stack_backup[lp_pid].lv_banelings == 1)) {
-                    gv_zcc_stack_backup[lp_pid].lv_banelings = 0;
-                }
-                else {
-                    gv_zcc_stack_backup[lp_pid].lv_banelings = (gv_zcc_stack_backup[lp_pid].lv_banelings - 1);
-                }
-            }
-
-        }
-        else if (auto126C1DE1_val == "InfusedRoach") {
-            if ((gv_zcc_stack_backup[lp_pid].lv_infused > 0)) {
-                if ((gv_zcc_stack_backup[lp_pid].lv_infused == 1)) {
-                    gv_zcc_stack_backup[lp_pid].lv_infused = 0;
-                }
-                else {
-                    gv_zcc_stack_backup[lp_pid].lv_infused = (gv_zcc_stack_backup[lp_pid].lv_infused - 1);
-                }
-            }
-
-        }
-        else if (auto126C1DE1_val == "Torralisk") {
-            if ((gv_zcc_stack_backup[lp_pid].lv_torras > 0)) {
-                if ((gv_zcc_stack_backup[lp_pid].lv_torras == 1)) {
-                    gv_zcc_stack_backup[lp_pid].lv_torras = 0;
-                }
-                else {
-                    gv_zcc_stack_backup[lp_pid].lv_torras = (gv_zcc_stack_backup[lp_pid].lv_torras - 1);
-                }
-            }
-
-        }
-        else if (auto126C1DE1_val == "Larva3v3") {
+        if (auto126C1DE1_val == "Larva3v3") {
             if ((gv_zcc_stack_backup[lp_pid].lv_larva > 0)) {
                 if ((gv_zcc_stack_backup[lp_pid].lv_larva == 1)) {
                     gv_zcc_stack_backup[lp_pid].lv_larva = 0;
@@ -6998,6 +6948,8 @@ void gf_initialize_zcc_spawn () {
         gv_zcc_spawn[autoC4FC25A6_var][10].lv_unit_type = "Tankling";
         gv_zcc_spawn[autoC4FC25A6_var][11].lv_unit_type = "Torralisk";
         gv_zcc_spawn[autoC4FC25A6_var][12].lv_unit_type = "Ultralisk2";
+        gv_zcc_spawn[autoC4FC25A6_var][13].lv_unit_type = "BanelingZergHex";
+        gv_zcc_spawn[autoC4FC25A6_var][14].lv_unit_type = "Mutalisk3v3";
     }
 }
 
@@ -7184,7 +7136,6 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Ravator")) {
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Ravager_Mecha");
         }
 
         if ((lv_unit_type == "BanelingZergHex")) {
@@ -7212,7 +7163,7 @@ int gf_get_integer_of_unit_type (string lp_unit_type) {
     int lv_result;
 
     // Automatic Variable Declarations
-    const int auto7B385356_ae = 12;
+    const int auto7B385356_ae = 14;
     const int auto7B385356_ai = 1;
 
     // Variable Initialization
@@ -7292,48 +7243,10 @@ fixed gf_get_zcc_spawn_rate (int lp_player_id, string lp_unit_type, int lp_spawn
                 lv_result = (lp_spawn_count / 100.0);
             }
             else {
-                if ((lp_unit_type == "Strikeling")) {
-                    lv_result = (lp_spawn_count / (32.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                }
-                else {
-                    if ((lp_unit_type == "PrimalRoach2") && (TechTreeUpgradeCount(lp_player_id, "PrimalRapidRespawn", c_techCountCompleteOnly) == 1)) {
-                        lv_result = (lp_spawn_count / (36.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                    }
-                    else {
-                        if ((lp_unit_type == "Beastling")) {
-                            lv_result = (lp_spawn_count / (80.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                        else {
-                            lv_result = (lp_spawn_count / (40.0 - gf_get_spawn_cooldown_reduction(lp_player_id)));
-                        }
-                    }
-                }
+                lv_result = (lp_spawn_count / 80.0);
             }
         }
     }
-    return lv_result;
-}
-
-int gf_get_spawn_cooldown_reduction (int lp_player_id) {
-    // Variable Declarations
-    int lv_result;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 1)) {
-        lv_result = 2;
-    }
-
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 2)) {
-        lv_result = 4;
-    }
-
-    if ((TechTreeUpgradeCount(lp_player_id, "ZergMovement", c_techCountCompleteOnly) == 3)) {
-        lv_result = 6;
-    }
-
     return lv_result;
 }
 
@@ -7982,7 +7895,7 @@ void gf_give_3v3_vision (unit lp_unit) {
         }
         else {
             if ((libNtve_gf_UnitInRegion(lp_unit, gf_get_region_of_influence_3v3(1)) == true)) {
-                if ((gf_is_3v3_local_test() == true)) {
+                if ((gv_practice_mode == true)) {
                     gf_reveal_top_hide_bottom(lp_unit);
                 }
                 else {
@@ -7990,7 +7903,7 @@ void gf_give_3v3_vision (unit lp_unit) {
                 }
             }
             else {
-                if ((gf_is_3v3_local_test() == true)) {
+                if ((gv_practice_mode == true)) {
                     gf_reveal_bottom_hide_top(lp_unit);
                 }
                 else {
@@ -8079,21 +7992,13 @@ bool gf_is_3v3 () {
     // Variable Initialization
 
     // Implementation
-    if ((GameAttributeGameValue("1") == "0003")) {
-        lv_return_value = true;
-    }
-
-    if ((gf_is_3v3_local_test() == true)) {
-        lv_return_value = true;
-    }
-
-    return lv_return_value;
+    return gv_is_3v3;
 }
 
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -8257,6 +8162,8 @@ void gf_Create_game () {
     // Automatic Variable Declarations
     playergroup auto27D78943_g;
     int auto27D78943_var;
+    const int auto1252BAB2_ae = 6;
+    int auto1252BAB2_var;
     playergroup autoEA6AA9EA_g;
     int autoEA6AA9EA_var;
 
@@ -8315,6 +8222,13 @@ void gf_Create_game () {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/FD46B427"));
     }
 
+    auto1252BAB2_var = 1;
+    for ( ; auto1252BAB2_var <= auto1252BAB2_ae; auto1252BAB2_var += 1 ) {
+        if ((gv_players[auto1252BAB2_var].lv_alive == true)) {
+            gv_command_center_position[gv_players[auto1252BAB2_var].lv_position] = UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto1252BAB2_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+        }
+
+    }
     libNtve_gf_SetPlayerGroupAlliance(gv_terrans, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_terrans, gv_zerg, libNtve_ge_AllianceSetting_Enemy);
     libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg, gv_terrans, libNtve_ge_AllianceSetting_Enemy);
@@ -9257,8 +9171,6 @@ void gf_init_event () {
     playergroup autoEF184761_g;
     int autoEF184761_var;
     int autoE7D7DBBA_val;
-    playergroup auto30C181EE_g;
-    int auto30C181EE_var;
 
     // Implementation
     if ((gf_get_lobby_event_setting() == 0) && (gf_is_3v3() == false)) {
@@ -9310,9 +9222,11 @@ void gf_init_event () {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/9E9E757A") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 2) {
+            gf_enable_xmas_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/23B1DE81") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 3) {
+            gf_enable_hny_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/3F992C71") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 5) {
@@ -9320,17 +9234,11 @@ void gf_init_event () {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/388C19B2") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 6) {
-            gf_enable_nightking_abilities();
+            gf_enable_nightking_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/2097B6C0") + StringToText("")));
         }
         else if (autoE7D7DBBA_val == 7) {
-            auto30C181EE_g = gv_terrans;
-            auto30C181EE_var = -1;
-            while (true) {
-                auto30C181EE_var = PlayerGroupNextPlayer(auto30C181EE_g, auto30C181EE_var);
-                if (auto30C181EE_var < 0) { break; }
-                TechTreeAbilityAllow(auto30C181EE_var, AbilityCommand("BarracksTrain2", 17), true);
-            }
+            gf_enable_vday_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/94E41F97") + StringToText("")));
         }
         else {
@@ -9396,6 +9304,24 @@ void gf_revealpickup (unit lp_item) {
     }
 }
 
+void gf_enable_vday_settings () {
+    // Automatic Variable Declarations
+    playergroup auto30C181EE_g;
+    int auto30C181EE_var;
+
+    // Implementation
+    auto30C181EE_g = gv_terrans;
+    auto30C181EE_var = -1;
+    while (true) {
+        auto30C181EE_var = PlayerGroupNextPlayer(auto30C181EE_g, auto30C181EE_var);
+        if (auto30C181EE_var < 0) { break; }
+        TechTreeAbilityAllow(auto30C181EE_var, AbilityCommand("BarracksTrain2", 17), true);
+    }
+    TriggerEnable(gt_spawnheart, true);
+    TriggerEnable(gt_playercollectsheart, true);
+    TriggerEnable(gt_grabaheart, true);
+}
+
 void gf_spawn_heart () {
     // Variable Declarations
     point lv_p;
@@ -9419,6 +9345,10 @@ void gf_enable_halloween_settings () {
     // Automatic Variable Declarations
     // Implementation
     GameSetToDLighting("AgriaNight");
+    TriggerEnable(gt_killapumpkin, true);
+    TriggerEnable(gt_spawnpumpkin, true);
+    TriggerEnable(gt_pumpkindies, true);
+    TriggerEnable(gt_playercollectsbonuscard, true);
 }
 
 void gf_disable_halloween_settings () {
@@ -9539,6 +9469,23 @@ void gf_spawn_sappers () {
     }
 }
 
+void gf_enable_xmas_settings () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_spawnpresent, true);
+    TriggerEnable(gt_playercollectspresent, true);
+    TriggerEnable(gt_grabapresent, true);
+}
+
+void gf_enable_hny_settings () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_spawnhappynewyeargift, true);
+    TriggerEnable(gt_playercollectshappynewyeargift, true);
+    TriggerEnable(gt_grabahnygift, true);
+    TriggerEnable(gt_removeallfireworks, true);
+}
+
 void gf_enable_crazyminions_settings () {
     // Variable Declarations
     int lv_i;
@@ -9554,6 +9501,10 @@ void gf_enable_crazyminions_settings () {
     lv_group = UnitGroupEmpty();
 
     // Implementation
+    TriggerEnable(gt_spawnhellforces, true);
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, true);
+    TriggerEnable(gt_resetwizardactioncooldown, true);
+    TriggerEnable(gt_removefortdebrisactorfix, true);
     UnitGroupAddUnitGroup(lv_group, gv_outer_nests);
     UnitGroupAdd(lv_group, UnitFromId(1238434742));
     UnitGroupAdd(lv_group, UnitFromId(2123689193));
@@ -9647,6 +9598,26 @@ unit gf_get_wizard_from_group (int lp_group) {
     return lv_return;
 }
 
+void gf_enable_nightking_settings () {
+    // Automatic Variable Declarations
+    playergroup auto57F20C5B_g;
+    int auto57F20C5B_var;
+
+    // Implementation
+    TriggerEnable(gt_changedaytime, true);
+    TriggerEnable(gt_SolarWeaponsfinished, true);
+    TriggerEnable(gt_Overlorddies, true);
+    auto57F20C5B_g = gv_terrans;
+    auto57F20C5B_var = -1;
+    while (true) {
+        auto57F20C5B_var = PlayerGroupNextPlayer(auto57F20C5B_g, auto57F20C5B_var);
+        if (auto57F20C5B_var < 0) { break; }
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("BuildBuilder", 20), true);
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 19), true);
+        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 20), true);
+    }
+}
+
 void gf_create_overlord_wave () {
     // Variable Declarations
     int lv_alive_player_count;
@@ -9673,23 +9644,6 @@ void gf_create_overlord_wave () {
         UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lv_p), c_orderQueueReplace);
         UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("GenerateCreep", 0)), c_orderQueueAddToEnd);
         lv_i = (lv_i + 1);
-    }
-}
-
-void gf_enable_nightking_abilities () {
-    // Automatic Variable Declarations
-    playergroup auto57F20C5B_g;
-    int auto57F20C5B_var;
-
-    // Implementation
-    auto57F20C5B_g = gv_terrans;
-    auto57F20C5B_var = -1;
-    while (true) {
-        auto57F20C5B_var = PlayerGroupNextPlayer(auto57F20C5B_g, auto57F20C5B_var);
-        if (auto57F20C5B_var < 0) { break; }
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("BuildBuilder", 20), true);
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 19), true);
-        TechTreeAbilityAllow(auto57F20C5B_var, AbilityCommand("ArmoryResearch2", 20), true);
     }
 }
 
@@ -9977,7 +9931,7 @@ void gf_handle_votes (int lp_player, string lp_event) {
                 else if (auto481F0B10_val == 6) {
                     gv_is_night_king = true;
                     gv_voted_event = true;
-                    gf_enable_nightking_abilities();
+                    gf_enable_nightking_settings();
                     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/B4CAD2AC") + StringToText("")));
                 }
                 else if (auto481F0B10_val == 7) {
@@ -14506,23 +14460,13 @@ int gf_get_closest_alive_player_position_from_group (point lp_position, playergr
 point gf_get_command_center_point_from_player_position (int lp_player_position) {
     // Variable Declarations
     int lv_index;
-    int lv_player_id;
+    point lv_result;
 
     // Automatic Variable Declarations
-    const int auto02F145C4_ae = 6;
-    const int auto02F145C4_ai = 1;
-
     // Variable Initialization
 
     // Implementation
-    lv_index = 1;
-    for ( ; ( (auto02F145C4_ai >= 0 && lv_index <= auto02F145C4_ae) || (auto02F145C4_ai < 0 && lv_index >= auto02F145C4_ae) ) ; lv_index += auto02F145C4_ai ) {
-        if ((gv_players[lv_index].lv_position == lp_player_position)) {
-            lv_player_id = lv_index;
-        }
-
-    }
-    return UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", lv_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+    return gv_command_center_position[lp_player_position];
 }
 
 int gf_get_free_supply () {
@@ -17750,6 +17694,26 @@ void gt_transporterbecameidle_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: disable_transporter_trigger
+//--------------------------------------------------------------------------------------------------
+bool gt_disable_transporter_trigger_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(gt_transporterbecameidle, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_disable_transporter_trigger_Init () {
+    gt_disable_transporter_trigger = TriggerCreate("gt_disable_transporter_trigger_Func");
+    TriggerAddEventTimeElapsed(gt_disable_transporter_trigger, 120.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: choas lord created
 //--------------------------------------------------------------------------------------------------
 bool gt_choaslordcreated_Func (bool testConds, bool runActions) {
@@ -18186,10 +18150,10 @@ bool gt_use_tank_attack_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitBehaviorAdd(lv_killer, "SiegeTankExpertise", lv_killer, 1);
-    if ((UnitBehaviorCount(lv_killer, "SiegeTankExpertise") >= 30)) {
-        libNtve_gf_SetBehaviorCount(lv_killer, "SiegeTankExpertise", lv_killer, 0);
-        if ((TechTreeUpgradeCount(UnitGetOwner(lv_killer), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+    if ((TechTreeUpgradeCount(UnitGetOwner(lv_killer), "SiegeTankExpertise", c_techCountCompleteOnly) < 30)) {
+        UnitBehaviorAdd(lv_killer, "SiegeTankExpertise", lv_killer, 1);
+        if ((UnitBehaviorCount(lv_killer, "SiegeTankExpertise") >= 30)) {
+            libNtve_gf_SetBehaviorCount(lv_killer, "SiegeTankExpertise", lv_killer, 0);
             TechTreeUpgradeAddLevel(UnitGetOwner(lv_killer), "SiegeTankExpertise", 1);
         }
 
@@ -18785,6 +18749,39 @@ void gt_elo_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -energy
+//--------------------------------------------------------------------------------------------------
+bool gt_energy_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    unitgroup autoBE865BF0_g;
+    int autoBE865BF0_u;
+    unit autoBE865BF0_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        autoBE865BF0_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoBE865BF0_u = UnitGroupCount(autoBE865BF0_g, c_unitCountAll);
+        for (;; autoBE865BF0_u -= 1) {
+            autoBE865BF0_var = UnitGroupUnitFromEnd(autoBE865BF0_g, autoBE865BF0_u);
+            if (autoBE865BF0_var == null) { break; }
+            UnitSetPropertyFixed(autoBE865BF0_var, c_unitPropEnergyRegen, 1000.0);
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_energy_Init () {
+    gt_energy = TriggerCreate("gt_energy_Func");
+    TriggerAddEventChatMessage(gt_energy, c_playerAny, "-energy", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -info
 //--------------------------------------------------------------------------------------------------
 bool gt_info_Func (bool testConds, bool runActions) {
@@ -18875,6 +18872,29 @@ bool gt_money_Func (bool testConds, bool runActions) {
 void gt_money_Init () {
     gt_money = TriggerCreate("gt_money_Func");
     TriggerAddEventChatMessage(gt_money, c_playerAny, "-money", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: -money_zerg
+//--------------------------------------------------------------------------------------------------
+bool gt_money_zerg_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 50000);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_money_zerg_Init () {
+    gt_money_zerg = TriggerCreate("gt_money_zerg_Func");
+    TriggerAddEventChatMessage(gt_money_zerg, c_playerAny, "-money_zerg", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20133,6 +20153,70 @@ void gt_Ashgotselected_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: hive_top_killed
+//--------------------------------------------------------------------------------------------------
+bool gt_hive_top_killed_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup auto0FCD60F4_g;
+    int auto0FCD60F4_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto0FCD60F4_g = gv_terrans_team_top;
+    auto0FCD60F4_var = -1;
+    while (true) {
+        auto0FCD60F4_var = PlayerGroupNextPlayer(auto0FCD60F4_g, auto0FCD60F4_var);
+        if (auto0FCD60F4_var < 0) { break; }
+        PlayerModifyPropertyFixed(auto0FCD60F4_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
+        TechTreeUpgradeAddLevel(auto0FCD60F4_var, "HiveKilled", 1);
+        TechTreeUpgradeAddLevel(gv_players[auto0FCD60F4_var].lv__3v3_zerg_pid, "HiveKilled", 1);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_hive_top_killed_Init () {
+    gt_hive_top_killed = TriggerCreate("gt_hive_top_killed_Func");
+    TriggerEnable(gt_hive_top_killed, false);
+    TriggerAddEventUnitDied(gt_hive_top_killed, UnitRefFromUnit(UnitFromId(706616818)));
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: hive_bottom_killed
+//--------------------------------------------------------------------------------------------------
+bool gt_hive_bottom_killed_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup auto80DECFFE_g;
+    int auto80DECFFE_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto80DECFFE_g = gv_terrans_team_bottom;
+    auto80DECFFE_var = -1;
+    while (true) {
+        auto80DECFFE_var = PlayerGroupNextPlayer(auto80DECFFE_g, auto80DECFFE_var);
+        if (auto80DECFFE_var < 0) { break; }
+        PlayerModifyPropertyFixed(auto80DECFFE_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
+        TechTreeUpgradeAddLevel(auto80DECFFE_var, "HiveKilled", 1);
+        TechTreeUpgradeAddLevel(gv_players[auto80DECFFE_var].lv__3v3_zerg_pid, "HiveKilled", 1);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_hive_bottom_killed_Init () {
+    gt_hive_bottom_killed = TriggerCreate("gt_hive_bottom_killed_Func");
+    TriggerEnable(gt_hive_bottom_killed, false);
+    TriggerAddEventUnitDied(gt_hive_bottom_killed, UnitRefFromUnit(UnitFromId(478555519)));
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -test fw
 //--------------------------------------------------------------------------------------------------
 bool gt_testfw_Func (bool testConds, bool runActions) {
@@ -20168,6 +20252,40 @@ bool gt_testfw_Func (bool testConds, bool runActions) {
 void gt_testfw_Init () {
     gt_testfw = TriggerCreate("gt_testfw_Func");
     TriggerAddEventChatMessage(gt_testfw, c_playerAny, "-fw", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: remove_invalid_ion
+//--------------------------------------------------------------------------------------------------
+bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_point;
+    region lv_valid_region;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_point = OrderGetTargetPoint(EventUnitOrder());
+    lv_valid_region = gf_get_region_of_influence_3v3(gv_players[EventPlayer()].lv_position);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((RegionContainsPoint(lv_valid_region, lv_point) == true)) {
+        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/CF7E6418"));
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/3FC6E54E"));
+        UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_remove_invalid_ion_Init () {
+    gt_remove_invalid_ion = TriggerCreate("gt_remove_invalid_ion_Func");
+    TriggerAddEventUnitOrder(gt_remove_invalid_ion, null, AbilityCommand("IonCannon", 0));
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20219,97 +20337,17 @@ void gt_protect_bottom_hive_from_allies_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: prevent_top_zerg_from_going_bottom
+// Trigger: firewall_death
 //--------------------------------------------------------------------------------------------------
-bool gt_prevent_top_zerg_from_going_bottom_Func (bool testConds, bool runActions) {
+bool gt_firewall_death_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((gf_is_3v3() == true))) {
+        if (!((UnitGetOwner(EventUnit()) != 0))) {
             return false;
         }
 
-        if (!((gf_is_3v3_local_test() == false))) {
-            return false;
-        }
-
-        if (!((PlayerGroupHasPlayer(gv_zerg_team_bottom, UnitGetOwner(EventUnit())) == true))) {
-            return false;
-        }
-
-        if (!((gf_can_cross_middle_in_3v3(EventUnit()) == false))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitSetPosition(EventUnit(), PointFromId(25496535), false);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_prevent_top_zerg_from_going_bottom_Init () {
-    gt_prevent_top_zerg_from_going_bottom = TriggerCreate("gt_prevent_top_zerg_from_going_bottom_Func");
-    TriggerEnable(gt_prevent_top_zerg_from_going_bottom, false);
-    TriggerAddEventUnitRegion(gt_prevent_top_zerg_from_going_bottom, null, gf_get_region_of_influence_3v3(4), true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: prevent_bottom_zerg_from_going_top
-//--------------------------------------------------------------------------------------------------
-bool gt_prevent_bottom_zerg_from_going_top_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((gf_is_3v3_local_test() == false))) {
-            return false;
-        }
-
-        if (!((PlayerGroupHasPlayer(gv_zerg_team_top, UnitGetOwner(EventUnit())) == true))) {
-            return false;
-        }
-
-        if (!((gf_can_cross_middle_in_3v3(EventUnit()) == false))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitSetPosition(EventUnit(), PointFromId(718945287), false);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_prevent_bottom_zerg_from_going_top_Init () {
-    gt_prevent_bottom_zerg_from_going_top = TriggerCreate("gt_prevent_bottom_zerg_from_going_top_Func");
-    TriggerEnable(gt_prevent_bottom_zerg_from_going_top, false);
-    TriggerAddEventUnitRegion(gt_prevent_bottom_zerg_from_going_top, null, gf_get_region_of_influence_3v3(1), true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: prevent_bottom_from_going_top
-//--------------------------------------------------------------------------------------------------
-bool gt_prevent_bottom_from_going_top_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((PlayerGroupHasPlayer(gv_terrans_team_bottom, UnitGetOwner(EventUnit())) == true))) {
+        if (!((UnitGetOwner(EventUnit()) != 7))) {
             return false;
         }
 
@@ -20328,46 +20366,10 @@ bool gt_prevent_bottom_from_going_top_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_prevent_bottom_from_going_top_Init () {
-    gt_prevent_bottom_from_going_top = TriggerCreate("gt_prevent_bottom_from_going_top_Func");
-    TriggerEnable(gt_prevent_bottom_from_going_top, false);
-    TriggerAddEventUnitRegion(gt_prevent_bottom_from_going_top, null, gf_get_region_of_influence_3v3(1), true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: prevent_top_from_going_bottom
-//--------------------------------------------------------------------------------------------------
-bool gt_prevent_top_from_going_bottom_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((PlayerGroupHasPlayer(gv_terrans_team_top, UnitGetOwner(EventUnit())) == true))) {
-            return false;
-        }
-
-        if (!((gf_can_cross_middle_in_3v3(EventUnit()) == false))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitKill(EventUnit());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_prevent_top_from_going_bottom_Init () {
-    gt_prevent_top_from_going_bottom = TriggerCreate("gt_prevent_top_from_going_bottom_Func");
-    TriggerEnable(gt_prevent_top_from_going_bottom, false);
-    TriggerAddEventUnitRegion(gt_prevent_top_from_going_bottom, null, gf_get_region_of_influence_3v3(4), true);
+void gt_firewall_death_Init () {
+    gt_firewall_death = TriggerCreate("gt_firewall_death_Func");
+    TriggerEnable(gt_firewall_death, false);
+    TriggerAddEventUnitRegion(gt_firewall_death, null, RegionFromId(102), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20564,70 +20566,6 @@ void gt_Cocoonspawnfinished3v3_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: hive_top_killed
-//--------------------------------------------------------------------------------------------------
-bool gt_hive_top_killed_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    playergroup auto0FCD60F4_g;
-    int auto0FCD60F4_var;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto0FCD60F4_g = gv_terrans_team_top;
-    auto0FCD60F4_var = -1;
-    while (true) {
-        auto0FCD60F4_var = PlayerGroupNextPlayer(auto0FCD60F4_g, auto0FCD60F4_var);
-        if (auto0FCD60F4_var < 0) { break; }
-        PlayerModifyPropertyFixed(auto0FCD60F4_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
-        TechTreeUpgradeAddLevel(auto0FCD60F4_var, "HiveKilled", 1);
-        TechTreeUpgradeAddLevel(gv_players[auto0FCD60F4_var].lv__3v3_zerg_pid, "HiveKilled", 1);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_hive_top_killed_Init () {
-    gt_hive_top_killed = TriggerCreate("gt_hive_top_killed_Func");
-    TriggerEnable(gt_hive_top_killed, false);
-    TriggerAddEventUnitDied(gt_hive_top_killed, UnitRefFromUnit(UnitFromId(706616818)));
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: hive_bottom_killed
-//--------------------------------------------------------------------------------------------------
-bool gt_hive_bottom_killed_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    playergroup auto80DECFFE_g;
-    int auto80DECFFE_var;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto80DECFFE_g = gv_terrans_team_bottom;
-    auto80DECFFE_var = -1;
-    while (true) {
-        auto80DECFFE_var = PlayerGroupNextPlayer(auto80DECFFE_g, auto80DECFFE_var);
-        if (auto80DECFFE_var < 0) { break; }
-        PlayerModifyPropertyFixed(auto80DECFFE_var, c_playerPropTerrazine, c_playerPropOperAdd, 3000.0);
-        TechTreeUpgradeAddLevel(auto80DECFFE_var, "HiveKilled", 1);
-        TechTreeUpgradeAddLevel(gv_players[auto80DECFFE_var].lv__3v3_zerg_pid, "HiveKilled", 1);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_hive_bottom_killed_Init () {
-    gt_hive_bottom_killed = TriggerCreate("gt_hive_bottom_killed_Func");
-    TriggerEnable(gt_hive_bottom_killed, false);
-    TriggerAddEventUnitDied(gt_hive_bottom_killed, UnitRefFromUnit(UnitFromId(478555519)));
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Terrazine Income
 //--------------------------------------------------------------------------------------------------
 bool gt_TerrazineIncome_Func (bool testConds, bool runActions) {
@@ -20665,38 +20603,6 @@ void gt_TerrazineIncome_Init () {
     gt_TerrazineIncome = TriggerCreate("gt_TerrazineIncome_Func");
     TriggerEnable(gt_TerrazineIncome, false);
     TriggerAddEventTimePeriodic(gt_TerrazineIncome, 6.0, c_timeGame);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Terrazine Doubler finished
-//--------------------------------------------------------------------------------------------------
-bool gt_TerrazineDoublerfinished_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "ConstructionYard"))) {
-            return false;
-        }
-
-        if (!(((libNtve_gf_TriggeringProgressUpgrade() == "TerrazineIncomex2") || (libNtve_gf_TriggeringProgressUpgrade() == "TerrazineIncomex3") || (libNtve_gf_TriggeringProgressUpgrade() == "TerrazineIncomex4")))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gv_players[UnitGetOwner(EventUnit())].lv__3v3_terrazine_doubler += 1;
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TerrazineDoublerfinished_Init () {
-    gt_TerrazineDoublerfinished = TriggerCreate("gt_TerrazineDoublerfinished_Func");
-    TriggerEnable(gt_TerrazineDoublerfinished, false);
-    TriggerAddEventUnitResearchProgress(gt_TerrazineDoublerfinished, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20910,46 +20816,6 @@ void gt_MechaUpgradefinished_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Fireling Dies
-//--------------------------------------------------------------------------------------------------
-bool gt_FirelingDies_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_owner;
-    int lv_terran_id;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_owner = UnitGetOwner(EventUnit());
-    lv_terran_id = gf_get_terran_id_from_zpid(lv_owner);
-
-    // Conditions
-    if (testConds) {
-        if (!((gf_is_3v3() == true))) {
-            return false;
-        }
-
-        if (!((UnitGetType(EventUnit()) == "Fireling"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_remove_count_dummy_stack(lv_terran_id, UnitGetType(EventUnit()));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_FirelingDies_Init () {
-    gt_FirelingDies = TriggerCreate("gt_FirelingDies_Func");
-    TriggerEnable(gt_FirelingDies, false);
-    TriggerAddEventUnitDied(gt_FirelingDies, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Larva dies
 //--------------------------------------------------------------------------------------------------
 bool gt_Larvadies_Func (bool testConds, bool runActions) {
@@ -21048,26 +20914,6 @@ bool gt_zccbuilt_Func (bool testConds, bool runActions) {
     }
 
     lv_zcc = EventUnitProgressUnit();
-    if ((gv_zcc_stack_backup[lv_terran_id].lv_firelings > 0)) {
-        UnitBehaviorAdd(lv_zcc, "FirelingCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_firelings);
-        gv_zcc_stack_backup[lv_terran_id].lv_firelings = 0;
-    }
-
-    if ((gv_zcc_stack_backup[lv_terran_id].lv_banelings > 0)) {
-        UnitBehaviorAdd(lv_zcc, "BanelingCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_banelings);
-        gv_zcc_stack_backup[lv_terran_id].lv_banelings = 0;
-    }
-
-    if ((gv_zcc_stack_backup[lv_terran_id].lv_infused > 0)) {
-        UnitBehaviorAdd(lv_zcc, "InfusedRoachCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_infused);
-        gv_zcc_stack_backup[lv_terran_id].lv_infused = 0;
-    }
-
-    if ((gv_zcc_stack_backup[lv_terran_id].lv_torras > 0)) {
-        UnitBehaviorAdd(lv_zcc, "TorraliskCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_torras);
-        gv_zcc_stack_backup[lv_terran_id].lv_torras = 0;
-    }
-
     if ((gv_zcc_stack_backup[lv_terran_id].lv_larva > 0)) {
         UnitBehaviorAdd(lv_zcc, "LarvaCountDummyStack", lv_zcc, gv_zcc_stack_backup[lv_terran_id].lv_larva);
         gv_zcc_stack_backup[lv_terran_id].lv_larva = 0;
@@ -21133,7 +20979,7 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     playergroup auto0C595BDC_g;
     int auto0C595BDC_var;
-    const int auto6D139C0C_ae = 30;
+    const int auto6D139C0C_ae = 14;
     int auto6D139C0C_var;
 
     // Variable Initialization
@@ -21186,7 +21032,7 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
 
     auto011C7887_val = EventPlayerEffectUsed();
     if (auto011C7887_val == "SpawnBanelingsDummy") {
-        gf_spawn_3v3_zerg_unit(EventPlayer(), 4, "BanelingZergHex");
+        gf_update_zcc_spawn(EventPlayer(), "BanelingZergHex");
     }
     else if (auto011C7887_val == "SpawnBeastlingDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "Beastling");
@@ -21209,6 +21055,9 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     }
     else if (auto011C7887_val == "SpawnInfusedDummy") {
         gf_update_zcc_spawn(EventPlayer(), "InfusedRoach");
+    }
+    else if (auto011C7887_val == "SpawnMutaliskDummy3v3") {
+        gf_update_zcc_spawn(EventPlayer(), "Mutalisk3v3");
     }
     else if (auto011C7887_val == "SpawnPrimalDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "PrimalRoach2");
@@ -21259,6 +21108,7 @@ void gt_SpawnZCCUnit3v3_Init () {
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTorraDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnUltraDummy3v3");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnLarvaDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnMutaliskDummy3v3");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -21415,35 +21265,6 @@ void gt_Nydusdied_Init () {
     gt_Nydusdied = TriggerCreate("gt_Nydusdied_Func");
     TriggerEnable(gt_Nydusdied, false);
     TriggerAddEventUnitDied(gt_Nydusdied, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: remove terrazine generator debris (actorfix)
-//--------------------------------------------------------------------------------------------------
-bool gt_removeterrazinegeneratordebrisactorfix_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "TerrazineTank"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    AnimWait(libNtve_gf_MainActorofUnit(EventUnit()), "Death", 12.0, c_animationOffsetStart);
-    UnitRemove(EventUnit());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_removeterrazinegeneratordebrisactorfix_Init () {
-    gt_removeterrazinegeneratordebrisactorfix = TriggerCreate("gt_removeterrazinegeneratordebrisactorfix_Func");
-    TriggerEnable(gt_removeterrazinegeneratordebrisactorfix, false);
-    TriggerAddEventUnitDied(gt_removeterrazinegeneratordebrisactorfix, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -21824,36 +21645,6 @@ void gt_relocate_spawners_rally_action_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: zerg_vision_3v3
-//--------------------------------------------------------------------------------------------------
-bool gt_zerg_vision_3v3_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_give_3v3_vision(EventUnit());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_zerg_vision_3v3_Init () {
-    gt_zerg_vision_3v3 = TriggerCreate("gt_zerg_vision_3v3_Func");
-    TriggerEnable(gt_zerg_vision_3v3, false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, gf_get_region_of_influence_3v3(1), true);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, gf_get_region_of_influence_3v3(4), true);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, gf_get_region_of_influence_3v3(1), false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, gf_get_region_of_influence_3v3(4), false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(1), false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(85), false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(84), false);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(1), true);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(85), true);
-    TriggerAddEventUnitRegion(gt_zerg_vision_3v3, null, RegionFromId(84), true);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: -3v3test
 //--------------------------------------------------------------------------------------------------
 bool gt__3v3test_Func (bool testConds, bool runActions) {
@@ -22145,6 +21936,7 @@ bool gt_spawnheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnheart_Init () {
     gt_spawnheart = TriggerCreate("gt_spawnheart_Func");
+    TriggerEnable(gt_spawnheart, false);
     TriggerAddEventTimePeriodic(gt_spawnheart, 10.0, c_timeGame);
 }
 
@@ -22262,6 +22054,7 @@ bool gt_playercollectsheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectsheart_Init () {
     gt_playercollectsheart = TriggerCreate("gt_playercollectsheart_Func");
+    TriggerEnable(gt_playercollectsheart, false);
     TriggerAddEventUnitAbility(gt_playercollectsheart, null, AbilityCommand("PickupHNYgift", 0), c_abilEffectStageCast, false);
 }
 
@@ -22318,6 +22111,7 @@ bool gt_grabaheart_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabaheart_Init () {
     gt_grabaheart = TriggerCreate("gt_grabaheart_Func");
+    TriggerEnable(gt_grabaheart, false);
     TriggerAddEventTimePeriodic(gt_grabaheart, 11.0, c_timeGame);
 }
 
@@ -22366,6 +22160,7 @@ bool gt_killapumpkin_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_killapumpkin_Init () {
     gt_killapumpkin = TriggerCreate("gt_killapumpkin_Func");
+    TriggerEnable(gt_killapumpkin, false);
     TriggerAddEventTimePeriodic(gt_killapumpkin, 10.0, c_timeGame);
 }
 
@@ -22416,6 +22211,7 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnpumpkin_Init () {
     gt_spawnpumpkin = TriggerCreate("gt_spawnpumpkin_Func");
+    TriggerEnable(gt_spawnpumpkin, false);
     TriggerAddEventTimePeriodic(gt_spawnpumpkin, 20.0, c_timeGame);
 }
 
@@ -22460,6 +22256,7 @@ bool gt_pumpkindies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_pumpkindies_Init () {
     gt_pumpkindies = TriggerCreate("gt_pumpkindies_Func");
+    TriggerEnable(gt_pumpkindies, false);
     TriggerAddEventUnitDied(gt_pumpkindies, null);
 }
 
@@ -22536,6 +22333,7 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectsbonuscard_Init () {
     gt_playercollectsbonuscard = TriggerCreate("gt_playercollectsbonuscard_Func");
+    TriggerEnable(gt_playercollectsbonuscard, false);
     TriggerAddEventUnitAbility(gt_playercollectsbonuscard, null, AbilityCommand("PickupNovaTechnology", 0), c_abilEffectStageFinish, false);
 }
 
@@ -22619,6 +22417,7 @@ bool gt_spawnpresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnpresent_Init () {
     gt_spawnpresent = TriggerCreate("gt_spawnpresent_Func");
+    TriggerEnable(gt_spawnpresent, false);
     TriggerAddEventTimePeriodic(gt_spawnpresent, 7.0, c_timeGame);
 }
 
@@ -22912,6 +22711,7 @@ bool gt_playercollectspresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectspresent_Init () {
     gt_playercollectspresent = TriggerCreate("gt_playercollectspresent_Func");
+    TriggerEnable(gt_playercollectspresent, false);
     TriggerAddEventUnitAbility(gt_playercollectspresent, null, AbilityCommand("PickupXmasPresent", 0), c_abilEffectStageFinish, false);
 }
 
@@ -22968,6 +22768,7 @@ bool gt_grabapresent_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabapresent_Init () {
     gt_grabapresent = TriggerCreate("gt_grabapresent_Func");
+    TriggerEnable(gt_grabapresent, false);
     TriggerAddEventTimePeriodic(gt_grabapresent, 10.0, c_timeGame);
 }
 
@@ -23046,6 +22847,7 @@ bool gt_spawnhappynewyeargift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnhappynewyeargift_Init () {
     gt_spawnhappynewyeargift = TriggerCreate("gt_spawnhappynewyeargift_Func");
+    TriggerEnable(gt_spawnhappynewyeargift, false);
     TriggerAddEventTimePeriodic(gt_spawnhappynewyeargift, 10.0, c_timeGame);
 }
 
@@ -23357,6 +23159,7 @@ bool gt_playercollectshappynewyeargift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_playercollectshappynewyeargift_Init () {
     gt_playercollectshappynewyeargift = TriggerCreate("gt_playercollectshappynewyeargift_Func");
+    TriggerEnable(gt_playercollectshappynewyeargift, false);
     TriggerAddEventUnitAbility(gt_playercollectshappynewyeargift, null, AbilityCommand("PickupHNYgift", 0), c_abilEffectStageCast, false);
 }
 
@@ -23413,6 +23216,7 @@ bool gt_grabahnygift_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_grabahnygift_Init () {
     gt_grabahnygift = TriggerCreate("gt_grabahnygift_Func");
+    TriggerEnable(gt_grabahnygift, false);
     TriggerAddEventTimePeriodic(gt_grabahnygift, 10.0, c_timeGame);
 }
 
@@ -23479,6 +23283,7 @@ bool gt_removeallfireworks_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_removeallfireworks_Init () {
     gt_removeallfireworks = TriggerCreate("gt_removeallfireworks_Func");
+    TriggerEnable(gt_removeallfireworks, false);
     TriggerAddEventTimePeriodic(gt_removeallfireworks, 120.0, c_timeGame);
 }
 
@@ -23543,6 +23348,7 @@ bool gt_spawnhellforces_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_spawnhellforces_Init () {
     gt_spawnhellforces = TriggerCreate("gt_spawnhellforces_Func");
+    TriggerEnable(gt_spawnhellforces, false);
     TriggerAddEventTimePeriodic(gt_spawnhellforces, 60.0, c_timeGame);
 }
 
@@ -23597,6 +23403,7 @@ bool gt_buildinggetsattackedtrydefendwithwizards_Func (bool testConds, bool runA
 //--------------------------------------------------------------------------------------------------
 void gt_buildinggetsattackedtrydefendwithwizards_Init () {
     gt_buildinggetsattackedtrydefendwithwizards = TriggerCreate("gt_buildinggetsattackedtrydefendwithwizards_Func");
+    TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, false);
     TriggerAddEventUnitDamaged(gt_buildinggetsattackedtrydefendwithwizards, null, c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
@@ -23634,6 +23441,7 @@ bool gt_resetwizardactioncooldown_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_resetwizardactioncooldown_Init () {
     gt_resetwizardactioncooldown = TriggerCreate("gt_resetwizardactioncooldown_Func");
+    TriggerEnable(gt_resetwizardactioncooldown, false);
     TriggerAddEventTimePeriodic(gt_resetwizardactioncooldown, 3.0, c_timeGame);
 }
 
@@ -23662,6 +23470,7 @@ bool gt_removefortdebrisactorfix_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_removefortdebrisactorfix_Init () {
     gt_removefortdebrisactorfix = TriggerCreate("gt_removefortdebrisactorfix_Func");
+    TriggerEnable(gt_removefortdebrisactorfix, false);
     TriggerAddEventUnitDied(gt_removefortdebrisactorfix, null);
 }
 
@@ -23714,6 +23523,7 @@ bool gt_changedaytime_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_changedaytime_Init () {
     gt_changedaytime = TriggerCreate("gt_changedaytime_Func");
+    TriggerEnable(gt_changedaytime, false);
     TriggerAddEventTimePeriodic(gt_changedaytime, 1.0, c_timeGame);
 }
 
@@ -23761,6 +23571,7 @@ bool gt_SolarWeaponsfinished_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_SolarWeaponsfinished_Init () {
     gt_SolarWeaponsfinished = TriggerCreate("gt_SolarWeaponsfinished_Func");
+    TriggerEnable(gt_SolarWeaponsfinished, false);
     TriggerAddEventUnitResearchProgress(gt_SolarWeaponsfinished, null, c_unitProgressStageComplete);
 }
 
@@ -23796,6 +23607,7 @@ bool gt_Overlorddies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_Overlorddies_Init () {
     gt_Overlorddies = TriggerCreate("gt_Overlorddies_Func");
+    TriggerEnable(gt_Overlorddies, false);
     TriggerAddEventUnitDied(gt_Overlorddies, null);
 }
 
@@ -27042,6 +26854,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    if (((GameAttributeGameValue("1") == "0003") || (gf_is_3v3_local_test() == true))) {
+        gv_is_3v3 = true;
+    }
+
     libLbty_gf_EnableDisablePingPanel(true, PlayerGroupAll());
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackTownAlly_Terr", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnitAlly_Zerg", false);
@@ -27223,25 +27039,28 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
     gf_get_speed();
     gf_get_unit_upgrades();
     gf_handle_player_tutorial_stages();
-    gf_handle_dead_player_areas();
-    gf_update_pet_score();
-    if ((gv_viper_cloud_cd > 0)) {
-        gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
+    if ((gf_is_3v3() == false)) {
+        gf_handle_dead_player_areas();
+        gf_update_pet_score();
+        if ((gv_viper_cloud_cd > 0)) {
+            gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
+        }
+
+        if ((gv_defensive_egg_spawn_cooldown > 0)) {
+            gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
+        }
+
+        gf_increase_hydra_stock();
+        gf_attack_highground_invaders();
+        gf_handle_egg_cluster_creation();
     }
 
-    if ((gv_defensive_egg_spawn_cooldown > 0)) {
-        gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
-    }
-
-    gf_increase_hydra_stock();
     gf_remove_transmission_units();
     gf_marauder_timed_event();
     gf_artanis_timed_event();
     gf_kill_banned_player();
     gf_end_raynor_support();
-    gf_attack_highground_invaders();
     gf_timer_terran_death();
-    gf_handle_egg_cluster_creation();
     if ((gf_is_game_over() == true)) {
         gf_end_game(gf_get_winning_team());
     }
@@ -27303,8 +27122,11 @@ bool gt_everythreeseconds_Func (bool testConds, bool runActions) {
         if (auto7B868DAD_var < 0) { break; }
         gf_update_reward_panel(auto7B868DAD_var);
     }
-    if ((gv_nest_snipe_cd == 1)) {
-        gv_nest_snipe_cd = 0;
+    if ((gf_is_3v3() == false)) {
+        if ((gv_nest_snipe_cd == 1)) {
+            gv_nest_snipe_cd = 0;
+        }
+
     }
 
     return true;
@@ -27326,12 +27148,15 @@ bool gt_everyfiveseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gv_cloud_cd == 1)) {
-        gv_cloud_cd = 0;
-    }
+    if ((gf_is_3v3() == false)) {
+        if ((gv_cloud_cd == 1)) {
+            gv_cloud_cd = 0;
+        }
 
-    if ((gv_hydra_action_cooldown == true)) {
-        gv_hydra_action_cooldown = false;
+        if ((gv_hydra_action_cooldown == true)) {
+            gv_hydra_action_cooldown = false;
+        }
+
     }
 
     if ((gv_difficulty > 1) && (gv_armor_level > 0) && (gv_dead_creep_count > 0) && (gf_get_drone() != null)) {
@@ -27362,11 +27187,6 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
-        gf_generate_heatmap_results();
-        gf_handle_strikelings();
-    }
-
     autoB76A211F_g = gv_terrans;
     autoB76A211F_var = -1;
     while (true) {
@@ -27374,25 +27194,33 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
         if (autoB76A211F_var < 0) { break; }
         gf_update_income_for_player(autoB76A211F_var);
     }
-    if ((gf_is_pvp() == true)) {
-    }
-    else {
-        if ((gv_armor_level >= 1)) {
-            gf_get_infestors();
+    if ((gf_is_3v3() == false)) {
+        if ((GameGetMissionTime() >= (1 + (7 * 60)))) {
+            gf_generate_heatmap_results();
+            gf_handle_strikelings();
         }
 
-        gf_gather_infestor_groups();
-        if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 35000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
-            gv_omega_placement_cooldown = 3;
-            gf_buy_omega();
+        if ((gf_is_pvp() == true)) {
         }
         else {
-            if ((gv_omega_placement_cooldown > 0)) {
-                gv_omega_placement_cooldown = (gv_omega_placement_cooldown - 1);
+            if ((gv_armor_level >= 1)) {
+                gf_get_infestors();
             }
 
+            gf_gather_infestor_groups();
+            if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 35000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
+                gv_omega_placement_cooldown = 3;
+                gf_buy_omega();
+            }
+            else {
+                if ((gv_omega_placement_cooldown > 0)) {
+                    gv_omega_placement_cooldown = (gv_omega_placement_cooldown - 1);
+                }
+
+            }
         }
     }
+
     return true;
 }
 
@@ -27412,16 +27240,19 @@ bool gt_every15seconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_refresh_bonus_gasses_data();
-    if ((gv_difficulty > 1)) {
-        gf_scout_bonus_gasses();
+    if ((gf_is_3v3() == false)) {
+        gf_refresh_bonus_gasses_data();
+        if ((gv_difficulty > 1)) {
+            gf_scout_bonus_gasses();
+        }
+
+        if ((gv_difficulty > 3)) {
+            gf_try_prefuse();
+        }
+
+        gf_gather_infestor_groups();
     }
 
-    if ((gv_difficulty > 3)) {
-        gf_try_prefuse();
-    }
-
-    gf_gather_infestor_groups();
     return true;
 }
 
@@ -27458,19 +27289,19 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
         }
 
     }
-    if (((gv_req_ravs + (gv_req_infused + gv_req_torra)) > 0) && (UnitGroupCount(gv_reserved_infestors, c_unitCountAlive) < (gv_req_ravs + (gv_req_infused + gv_req_torra)))) {
-        gf_reserve_infestors();
-    }
-
     if ((gv_difficulty > 4) && (gv_armor_level >= 1)) {
         gf_upgrade_a_spawner();
     }
 
-    if ((gv_difficulty > 2)) {
-        gf_attack_a_bonus_gas();
-    }
-
     if ((gf_is_3v3() == false)) {
+        if (((gv_req_ravs + (gv_req_infused + gv_req_torra)) > 0) && (UnitGroupCount(gv_reserved_infestors, c_unitCountAlive) < (gv_req_ravs + (gv_req_infused + gv_req_torra)))) {
+            gf_reserve_infestors();
+        }
+
+        if ((gv_difficulty > 2)) {
+            gf_attack_a_bonus_gas();
+        }
+
         gf_handle_yard_exception();
     }
 
@@ -27548,9 +27379,12 @@ bool gt_every90seconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_restore_improved_default_rallies();
-    if ((gv_difficulty > 4)) {
-        gf_focus_weakest();
+    if ((gf_is_3v3() == false)) {
+        gf_restore_improved_default_rallies();
+        if ((gv_difficulty > 4)) {
+            gf_focus_weakest();
+        }
+
     }
 
     return true;
@@ -27588,14 +27422,17 @@ bool gt_every15minutes_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-    lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
-    if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
-        lv_t = gf_get_hive();
-        UnitKill(lv_t);
+    if ((gf_is_3v3() == false)) {
+        lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
+        if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
+            lv_t = gf_get_hive();
+            UnitKill(lv_t);
+        }
+
     }
 
     return true;
@@ -27612,6 +27449,7 @@ void gt_every15minutes_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_transporterbecameidle_Init();
+    gt_disable_transporter_trigger_Init();
     gt_choaslordcreated_Init();
     gt_choasmarinecreated_Init();
     gt_cultistcreated_Init();
@@ -27637,10 +27475,12 @@ void InitTriggers () {
     gt_debug_elo_Init();
     gt_debug_lag_Init();
     gt_elo_Init();
+    gt_energy_Init();
     gt_info_Init();
     gt_help_Init();
     gt_karax_Init();
     gt_money_Init();
+    gt_money_zerg_Init();
     gt_resetelo_Init();
     gt_reveal_Init();
     gt_italis_Init();
@@ -27666,24 +27506,20 @@ void InitTriggers () {
     gt_Raingotselected_Init();
     gt_Snowgotselected_Init();
     gt_Ashgotselected_Init();
+    gt_hive_top_killed_Init();
+    gt_hive_bottom_killed_Init();
     gt_testfw_Init();
+    gt_remove_invalid_ion_Init();
     gt_protect_top_hive_from_allies_Init();
     gt_protect_bottom_hive_from_allies_Init();
-    gt_prevent_top_zerg_from_going_bottom_Init();
-    gt_prevent_bottom_zerg_from_going_top_Init();
-    gt_prevent_bottom_from_going_top_Init();
-    gt_prevent_top_from_going_bottom_Init();
+    gt_firewall_death_Init();
     gt_update_3v3_objectives_Init();
     gt_CocoonorOmegadies3v3_Init();
     gt_Cocoongotspawned3v3_Init();
     gt_Cocoonspawnfinished3v3_Init();
-    gt_hive_top_killed_Init();
-    gt_hive_bottom_killed_Init();
     gt_TerrazineIncome_Init();
-    gt_TerrazineDoublerfinished_Init();
     gt_zagara_death_timer_Init();
     gt_MechaUpgradefinished_Init();
-    gt_FirelingDies_Init();
     gt_Larvadies_Init();
     gt_Larvamutatesintobuilding_Init();
     gt_zccbuilt_Init();
@@ -27693,7 +27529,6 @@ void InitTriggers () {
     gt_ZCCupgrades_Init();
     gt_Nydusfinished_Init();
     gt_Nydusdied_Init();
-    gt_removeterrazinegeneratordebrisactorfix_Init();
     gt_zerg_rally_center_Init();
     gt_zerg_rally_left_Init();
     gt_zerg_rally_right_Init();
@@ -27701,7 +27536,6 @@ void InitTriggers () {
     gt_zerg_rally_minus_on_Init();
     gt_zerg_rally_plus_on_Init();
     gt_relocate_spawners_rally_action_Init();
-    gt_zerg_vision_3v3_Init();
     gt__3v3test_Init();
     gt_CCdestroyed_Init();
     gt_playerleavesgame_Init();

@@ -155,7 +155,6 @@
         <OperandArray value="CountUpgradeZergArmor5CompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndEq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="Eq3508156677CountUpgradeSiegeTankBetterVersionCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1CountUpgradeSpawnBombersCompleteOnly3224540341">
@@ -1243,6 +1242,21 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergSpecializationCreeperFerocity"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZergSpecializationSlowlingPackedMass3v3" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZergSpecializationSlowlingPackedMass3v3" State="InProgressOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZergSpecializationSlowlingPackedMass3v3"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergSpecializationSlowlingPackedMass" State="CompleteOnly"/>
@@ -1579,6 +1593,9 @@
     </CRequirementNot>
     <CRequirementNot id="Not445539353CountUpgradeZergSpecializationCreeperFerocityCompleteOnly">
         <OperandArray index="0" value="CountUpgradeZergSpecializationCreeperFerocityCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly">
+        <OperandArray index="0" value="CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="Not445539353CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly">
         <OperandArray index="0" value="CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly"/>
@@ -1946,6 +1963,10 @@
     <CRequirementNot id="NotOrCountUpgradeZergSpecializationCreeperFerocityQueuedOnlyCountUpgradeZergSpecializationCreeperFerocityInProgressOnly">
         <OperandArray index="0" value="OrCountUpgradeZergSpecializationCreeperFerocityQueuedOnlyCountUpgradeZergSpecializationCreeperFerocityInProgressOnly"/>
     </CRequirementNot>
+    <CRequirementNot id="NotOrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="OrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
+    </CRequirementNot>
     <CRequirementNot id="NotOrCountUpgradeZergSpecializationSlowlingPackedMassQueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMassInProgressOnly">
         <OperandArray index="0" value="OrCountUpgradeZergSpecializationSlowlingPackedMassQueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMassInProgressOnly"/>
     </CRequirementNot>
@@ -2012,6 +2033,16 @@
         <OperandArray value="CountUpgradeZergSpecializationCreeperFerocityQueuedOnly"/>
         <OperandArray value="CountUpgradeZergSpecializationCreeperFerocityInProgressOnly"/>
     </CRequirementOr>
+    <CRequirementOr id="OrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnly"/>
+        <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
+    </CRequirementOr>
+    <CRequirementOr id="OrCountUpgradeZergSpecializationSlowlingPackedMassCompleteOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly"/>
+        <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
+    </CRequirementOr>
     <CRequirementOr id="OrCountUpgradeZergSpecializationSlowlingPackedMassQueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMassInProgressOnly">
         <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMassQueuedOnly"/>
         <OperandArray value="CountUpgradeZergSpecializationSlowlingPackedMassInProgressOnly"/>
@@ -2076,6 +2107,12 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeHydralisk3QueuedOrBetter">
         <Count Link="HydraliskLevel1"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeMutalisk2CompleteOnly">
+        <Count Link="Mutalisk3v3"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeMutalisk2QueuedOrBetter">
+        <Count Link="Mutalisk3v3"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeZergling2CompleteOnly">
         <Count Link="Stuckling"/>
