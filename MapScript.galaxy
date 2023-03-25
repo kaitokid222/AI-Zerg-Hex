@@ -928,6 +928,7 @@ trigger gt_debug;
 trigger gt_debug_elo;
 trigger gt_debug_lag;
 trigger gt_elo;
+trigger gt_energy;
 trigger gt_info;
 trigger gt_help;
 trigger gt_karax;
@@ -961,6 +962,7 @@ trigger gt_Ashgotselected;
 trigger gt_hive_top_killed;
 trigger gt_hive_bottom_killed;
 trigger gt_testfw;
+trigger gt_remove_invalid_ion;
 trigger gt_protect_top_hive_from_allies;
 trigger gt_protect_bottom_hive_from_allies;
 trigger gt_firewall_death;
@@ -18747,6 +18749,39 @@ void gt_elo_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -energy
+//--------------------------------------------------------------------------------------------------
+bool gt_energy_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    unitgroup autoBE865BF0_g;
+    int autoBE865BF0_u;
+    unit autoBE865BF0_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        autoBE865BF0_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoBE865BF0_u = UnitGroupCount(autoBE865BF0_g, c_unitCountAll);
+        for (;; autoBE865BF0_u -= 1) {
+            autoBE865BF0_var = UnitGroupUnitFromEnd(autoBE865BF0_g, autoBE865BF0_u);
+            if (autoBE865BF0_var == null) { break; }
+            UnitSetPropertyFixed(autoBE865BF0_var, c_unitPropEnergyRegen, 1000.0);
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_energy_Init () {
+    gt_energy = TriggerCreate("gt_energy_Func");
+    TriggerAddEventChatMessage(gt_energy, c_playerAny, "-energy", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -info
 //--------------------------------------------------------------------------------------------------
 bool gt_info_Func (bool testConds, bool runActions) {
@@ -18850,7 +18885,7 @@ bool gt_money_zerg_Func (bool testConds, bool runActions) {
     }
 
     if ((gv_practice_mode == true)) {
-        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 5000);
+        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 50000);
     }
 
     return true;
@@ -20217,6 +20252,40 @@ bool gt_testfw_Func (bool testConds, bool runActions) {
 void gt_testfw_Init () {
     gt_testfw = TriggerCreate("gt_testfw_Func");
     TriggerAddEventChatMessage(gt_testfw, c_playerAny, "-fw", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: remove_invalid_ion
+//--------------------------------------------------------------------------------------------------
+bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_point;
+    region lv_valid_region;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_point = OrderGetTargetPoint(EventUnitOrder());
+    lv_valid_region = gf_get_region_of_influence_3v3(gv_players[EventPlayer()].lv_position);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((RegionContainsPoint(lv_valid_region, lv_point) == true)) {
+        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/CF7E6418"));
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/3FC6E54E"));
+        UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_remove_invalid_ion_Init () {
+    gt_remove_invalid_ion = TriggerCreate("gt_remove_invalid_ion_Func");
+    TriggerAddEventUnitOrder(gt_remove_invalid_ion, null, AbilityCommand("IonCannon", 0));
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27406,6 +27475,7 @@ void InitTriggers () {
     gt_debug_elo_Init();
     gt_debug_lag_Init();
     gt_elo_Init();
+    gt_energy_Init();
     gt_info_Init();
     gt_help_Init();
     gt_karax_Init();
@@ -27439,6 +27509,7 @@ void InitTriggers () {
     gt_hive_top_killed_Init();
     gt_hive_bottom_killed_Init();
     gt_testfw_Init();
+    gt_remove_invalid_ion_Init();
     gt_protect_top_hive_from_allies_Init();
     gt_protect_bottom_hive_from_allies_Init();
     gt_firewall_death_Init();

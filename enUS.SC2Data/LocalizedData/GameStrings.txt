@@ -3401,6 +3401,7 @@ Param/Value/3EDE583D=To win the game you have to kill the Zerg Hive before the o
 Param/Value/3F2E101C=<c val="FFFFC4">(
 Param/Value/3F992C71=It's HNY-Event!
 Param/Value/3FA9BDBD="Ability Used"
+Param/Value/3FC6E54E=Invalid region for Ion
 Param/Value/4097C11B=0
 Param/Value/411F328C=Very early Terran death detected..
 Param/Value/41E3533A=You dont want your energy users to run dry!
@@ -3573,6 +3574,7 @@ Param/Value/CA8B6BFF=Vote Practice Mode
 Param/Value/CD71BC83=Build 3 Gas Vents!
 Param/Value/CE7D411E=Zerg Supply
 Param/Value/CEAAB825=Can spawn zerg units.
+Param/Value/CF7E6418=Valid region for Ion
 Param/Value/CFCFEF2C=Raynor
 Param/Value/D04B4A09=e2s max spawner count reached. try kill low spawner.
 Param/Value/D13D409A=:
