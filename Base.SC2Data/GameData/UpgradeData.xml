@@ -123,6 +123,23 @@
         <EffectArray Operation="Set" Reference="Actor,Ultralisk2,PortraitModel" Value="Ultralisk_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Strikeling,PortraitModel" Value="Broodling_Mecha_Portrait"/>
         <EffectArray Operation="Set" Reference="Actor,Overseer,PortraitModel" Value="Overseer_Mecha_Portrait"/>
+        <EffectArray Reference="Unit,Slowling,LifeMax" Value="25"/>
+        <EffectArray Reference="Unit,Slowling,LifeStart" Value="25"/>
+        <EffectArray Reference="Unit,Creeper,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,Creeper,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,Tankling,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,Tankling,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,Roach2,LifeMax" Value="90"/>
+        <EffectArray Reference="Unit,Roach2,LifeStart" Value="90"/>
+        <EffectArray Reference="Unit,Ultralisk2,LifeMax" Value="245"/>
+        <EffectArray Reference="Unit,Ultralisk2,LifeStart" Value="245"/>
+        <EffectArray Reference="Unit,BanelingZergHex,LifeMax" Value="90"/>
+        <EffectArray Reference="Unit,BanelingZergHex,LifeStart" Value="90"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,KaiserBlades,Period" Value="0.250000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,NeedleSpines2,Period" Value="0.425000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,Claws,Period" Value="0.174000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,TanklingMelee,Period" Value="0.300000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,Locust,Period" Value="0.300000"/>
     </CUpgrade>
     <CUpgrade id="JUICEModule">
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EnergyStart" Value="50"/>
