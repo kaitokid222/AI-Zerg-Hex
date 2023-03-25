@@ -4,6 +4,10 @@
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="ResearchZergSpecialtySlowlingPackedMass3v3">
+        <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
+        <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
+    </CRequirement>
     <CRequirement id="ZagaraSporeCrawler">
         <NodeArray index="Use" Link="GTE1280241940CountUpgradeMinuteUpgradeQueuedOrBetter15"/>
     </CRequirement>
@@ -515,7 +519,7 @@
         <NodeArray index="Show" Link="CountUpgradeUnifiedArmorCompleteOnly"/>
     </CRequirement>
     <CRequirement id="HaveZergSpecialtySlowlingPackedMass">
-        <NodeArray index="Use" Link="CountUpgradeZergSpecializationSlowlingPackedMassCompleteOnly"/>
+        <NodeArray index="Use" Link="OrCountUpgradeZergSpecializationSlowlingPackedMassCompleteOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
     </CRequirement>
     <CRequirement id="HaveZergSpecialtyStrikelingDualHit">
         <NodeArray index="Use" Link="CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly"/>

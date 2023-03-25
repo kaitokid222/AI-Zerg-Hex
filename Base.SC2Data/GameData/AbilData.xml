@@ -2219,10 +2219,10 @@
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="ResearchZergMovement3v3" Requirements="UpgradeZergMovement"/>
         </InfoArray>
-        <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass">
+        <InfoArray index="Research8" Upgrade="ZergSpecializationSlowlingPackedMass3v3">
             <Resource index="Vespene" value="75"/>
             <Resource index="Terrazine" value="600"/>
-            <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass"/>
+            <Button DefaultButtonFace="ResearchPackedMass3v3" Requirements="ResearchZergSpecialtySlowlingPackedMass3v3"/>
         </InfoArray>
         <InfoArray index="Research9" Upgrade="ZergSpecializationCreeperFerocity">
             <Resource index="Vespene" value="100"/>

@@ -813,6 +813,11 @@
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>
+    <CUpgrade id="ZergSpecializationSlowlingPackedMass3v3">
+        <Icon value="Assets\Textures\btn-ability-zerg-dehakaspawn.dds"/>
+        <EffectArray Reference="Unit,Slowling,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,Slowling,LifeStart" Value="50"/>
+    </CUpgrade>
     <CUpgrade id="ZergSpecializationTanklingBankling">
         <Icon value="Assets\Textures\btn-upgrade-zerg-evolveincreasedlocustlifetime.dds"/>
     </CUpgrade>
