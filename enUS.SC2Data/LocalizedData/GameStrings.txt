@@ -990,7 +990,7 @@ Button/Name/SkinSwitchPanel=Skin Switch Panel
 Button/Name/SolidFoundation=Solid Foundation
 Button/Name/Spawn5Firelings=Spawn 5 Firelings
 Button/Name/SpawnBaneling=Spawn Baneling
-Button/Name/SpawnBanelingGroup=Spawn Baneling Group
+Button/Name/SpawnBaneling3v3=Spawn Baneling
 Button/Name/SpawnBeastling=Spawn Beastling
 Button/Name/SpawnBeastling3v3=Spawn Beastling
 Button/Name/SpawnBomber=Spawn Bomber
@@ -1556,7 +1556,7 @@ Button/Tooltip/SolidFoundation=After 5 minutes of being constructed, the Constru
 Button/Tooltip/SpaceBalls=A highly intelligent and friendly creature.
 Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and attack speed while burning itself to death. Will also ignite upon taking damage.
 Button/Tooltip/SpawnBaneling=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/>Train time increases by +10% for every Baneling alive from the Spawner.
-Button/Tooltip/SpawnBanelingGroup=Spawns a Group of Banelings.
+Button/Tooltip/SpawnBaneling3v3=Exploding unit.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBeastling=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/>
 Button/Tooltip/SpawnBeastling3v3=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.

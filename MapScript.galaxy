@@ -6946,6 +6946,7 @@ void gf_initialize_zcc_spawn () {
         gv_zcc_spawn[autoC4FC25A6_var][10].lv_unit_type = "Tankling";
         gv_zcc_spawn[autoC4FC25A6_var][11].lv_unit_type = "Torralisk";
         gv_zcc_spawn[autoC4FC25A6_var][12].lv_unit_type = "Ultralisk2";
+        gv_zcc_spawn[autoC4FC25A6_var][13].lv_unit_type = "BanelingZergHex";
     }
 }
 
@@ -7132,7 +7133,6 @@ void gf_zcc_model_swap (unitgroup lp_units) {
         }
 
         if ((lv_unit_type == "Ravator")) {
-            ActorSend(libNtve_gf_MainActorofUnit(autoC88EA9BF_var), "ModelSwap Ravager_Mecha");
         }
 
         if ((lv_unit_type == "BanelingZergHex")) {
@@ -20909,7 +20909,7 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     playergroup auto0C595BDC_g;
     int auto0C595BDC_var;
-    const int auto6D139C0C_ae = 12;
+    const int auto6D139C0C_ae = 13;
     int auto6D139C0C_var;
 
     // Variable Initialization
@@ -20962,7 +20962,7 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
 
     auto011C7887_val = EventPlayerEffectUsed();
     if (auto011C7887_val == "SpawnBanelingsDummy") {
-        gf_spawn_3v3_zerg_unit(EventPlayer(), 4, "BanelingZergHex");
+        gf_update_zcc_spawn(EventPlayer(), "BanelingZergHex");
     }
     else if (auto011C7887_val == "SpawnBeastlingDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "Beastling");

@@ -898,28 +898,22 @@
             <LayoutButtons Face="ResearchZergArmor43v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research4" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergArmor53v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research5" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchZergMovement3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research7" Row="2" Column="1"/>
-            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="ResearchZergAttack3v3" Type="Passive" Row="2" Column="2"/>
             <LayoutButtons Face="LarvaSpawnOmegaliskCocoon3v3" Type="Passive" Requirements="OmegaliskRequirement3v3" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" SubmenuIsSticky="1" Row="2" Column="4"/>
-            <LayoutButtons Face="ResearchBankling3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research11" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchPackedMass3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research8" Row="0" Column="0"/>
             <LayoutButtons Face="ResearchFerocity3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research9" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchTarInfection3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research12" Row="1" Column="0"/>
-            <LayoutButtons Face="ResearchTarSpawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research13" Row="1" Column="1"/>
-            <LayoutButtons Face="ResearchPrimalRapidRespawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research14" Row="1" Column="2"/>
-            <LayoutButtons Face="ResearchDualHit3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research10" Row="0" Column="2"/>
+            <LayoutButtons Face="ResearchBankling3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research11" Row="0" Column="2"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
             <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="3"/>
-            <LayoutButtons Face="SpawnPrimalRoach3v3" Type="AbilCmd" AbilCmd="SpawnPrimal3v3,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="SpawnBaneling3v3" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="SpawnUltra3v3" Type="AbilCmd" AbilCmd="SpawnUltra3v3,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="SpawnBruta3v3" Type="AbilCmd" AbilCmd="SpawnBruta3v3,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="SpawnCreeper3v3" Type="AbilCmd" AbilCmd="SpawnCreeper,Execute" Row="0" Column="1"/>
-            <LayoutButtons Face="SpawnStrikeling3v3" Type="AbilCmd" AbilCmd="SpawnStrikeling,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="SpawnTankling3v3" Type="AbilCmd" AbilCmd="SpawnTankling3v3,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="SpawnRoach3v3" Type="AbilCmd" AbilCmd="SpawnRoach3v3,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="2" Column="0"/>
@@ -930,7 +924,7 @@
         <CardLayouts CardId="0004">
             <LayoutButtons Face="SpawnBeastling3v3" Type="AbilCmd" AbilCmd="SpawnBeastling3v3,Execute" Row="0" Column="0"/>
             <LayoutButtons Face="SpawnTorralisk3v3" Type="AbilCmd" AbilCmd="3v3SpawnTorralisk2,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="SpawnBanelingGroup" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="SpawnBaneling3v3" Type="AbilCmd" AbilCmd="SpawnBanelingGroup,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="SpawnRavator3v3" Type="AbilCmd" AbilCmd="3v3SpawnRavator2,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="SpawnInfusedRoach3v3" Type="AbilCmd" AbilCmd="3v3SpawnInfusedRoach2,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
