@@ -70,6 +70,9 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel3.dds"/>
         <HotkeyAlias value="SiegeTankExpertise"/>
     </CButton>
+    <CButton id="SpawnMutalisk3v3">
+        <Icon value="Assets\Textures\btn-unit-zerg-mutalisk-mecha.dds"/>
+    </CButton>
     <CButton id="SpawnOmegaliskCocoon3v3">
         <Icon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>

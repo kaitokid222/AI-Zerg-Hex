@@ -9,6 +9,12 @@
     <CEffectEnumArea id="ArtanisVortexSearchArea">
         <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead"/>
     </CEffectEnumArea>
+    <CEffectEnumArea id="GlaiveWurmE1">
+        <SearchFilters value="Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GlaiveWurmE2">
+        <SearchFilters value="Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectEnumArea>
     <CEffectSet id="KaraxPermanentPhaseCanon">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -64,6 +70,9 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="MechaShield"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="SpawnMutaliskDummy3v3">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectEnumArea id="UnstableCoreExplodeSearchArea">
         <EditorCategories value="Race:Zerg"/>
         <ImpactLocation Value="SourceUnit"/>

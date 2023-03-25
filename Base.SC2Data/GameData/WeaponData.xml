@@ -42,6 +42,10 @@
         <PreswingBetweenAttacks value="0.5"/>
         <Effect value="FlameThrowerSetOld"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="GlaiveWurm">
+        <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="1.5"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MechaNeedleSpines">
         <EditorCategories value="Race:Zerg"/>
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechamissileattacks-level0.dds"/>

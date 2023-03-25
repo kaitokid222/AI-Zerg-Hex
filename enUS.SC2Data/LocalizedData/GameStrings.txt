@@ -156,6 +156,7 @@ Abil/Name/SpawnCreeper=Spawn Creeper
 Abil/Name/SpawnFirelings=Spawn Firelings
 Abil/Name/SpawnInfestor3v3=Spawn Infestor 3v3
 Abil/Name/SpawnLarva3v3=Spawn Larva 3v3
+Abil/Name/SpawnMutalisk3v3=Spawn Mutalisk
 Abil/Name/SpawnOmgaliskCocoon=Spawn Omgalisk Cocoon
 Abil/Name/SpawnPrimal3v3=Spawn Primal
 Abil/Name/SpawnRoach3v3=Spawn Roach
@@ -1012,6 +1013,7 @@ Button/Name/SpawnInfusedRoach3v3=Spawn Infused Roach
 Button/Name/SpawnLarva3v3=Spawn Larva
 Button/Name/SpawnMenuLarge=Spawn Menu
 Button/Name/SpawnMenuSmall=Spawn Menu
+Button/Name/SpawnMutalisk3v3=Spawn Mutalisk
 Button/Name/SpawnOmegaliskCocoon=Spawn Omegalisk Cocoon
 Button/Name/SpawnOmegaliskCocoon3v3=Spawn Omegalisk Cocoon
 Button/Name/SpawnPrimalRoach=Spawn Primal Roach
@@ -1370,6 +1372,7 @@ Button/Tooltip/ModeConvertGas=Convert 4 gas into <c val="58BEF5">2 minerals</c> 
 Button/Tooltip/ModeConvertMinerals=Convert 4 minerals into <c val="6CEA4D">2 gas</c> every 5 seconds.
 Button/Tooltip/ModeIdle=Halts the conversion process.
 Button/Tooltip/MorphtoOmegalisk=
+Button/Tooltip/Mutalisk3v3=Air unit. Bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/MutateintoBanelingSpawner=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/><c val="94D1D1">Spawns unlimited</c> <c val="E8E191">(45 sec spawn time +10% per unit)</c>
 Button/Tooltip/MutateintoBeastlingSpawner=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="94D1D1">Re-spawns 2 units</c> <c val="E8E191">(12 sec spawn time)</c>
 Button/Tooltip/MutateintoBrutaliskSpawner=Only elite soldiers may bring it down.<n/><n/><c val="94D1D1">Re-spawns 2 units (upgraded 3)</c>
@@ -1580,6 +1583,7 @@ Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal dama
 Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that increases the spawn rate of your team's zerg units.<n/>- Mecha Terrazine Extractor that multiply your terrazine income.<n/>- Mecha Spine Crawler to fortify positions.<n/>- Mecha Tech Lab to buy defensive upgrades.
 Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
+Button/Tooltip/SpawnMutalisk3v3=High armor flying unit. Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
@@ -3076,6 +3080,7 @@ Effect/Name/SpawnFirelingsDummy=Spawn Firelings Dummy
 Effect/Name/SpawnInfestorDummy=Spawn Infestor Dummy
 Effect/Name/SpawnInfusedDummy=Spawn Infused Dummy
 Effect/Name/SpawnLarvaDummy=Spawn Larva Dummy
+Effect/Name/SpawnMutaliskDummy3v3=Spawn Mutalisk Dummy
 Effect/Name/SpawnPrimalDummy3v3=Spawn Primal Dummy
 Effect/Name/SpawnRavDummy=Spawn Rav Dummy
 Effect/Name/SpawnRavagerEggCU=Spawn Ravager Egg (CU)
@@ -3885,6 +3890,7 @@ Unit/Name/MineralContainer=Mineral Container
 Unit/Name/MineralExtractor=Mineral Extractor
 Unit/Name/MineralGenerator=Mineral Generator
 Unit/Name/MineralTrader=Mineral Trader
+Unit/Name/Mutalisk3v3=Mutalisk
 Unit/Name/NapalmBomb=Nuke
 Unit/Name/Nest2=Nest
 Unit/Name/NydusCanal=Nydus

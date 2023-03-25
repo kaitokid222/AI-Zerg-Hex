@@ -2108,6 +2108,12 @@
     <CRequirementCountUpgrade id="UpgradeHydralisk3QueuedOrBetter">
         <Count Link="HydraliskLevel1"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeMutalisk2CompleteOnly">
+        <Count Link="Mutalisk3v3"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeMutalisk2QueuedOrBetter">
+        <Count Link="Mutalisk3v3"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeZergling2CompleteOnly">
         <Count Link="Stuckling"/>
     </CRequirementCountUpgrade>

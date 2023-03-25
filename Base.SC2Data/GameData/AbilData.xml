@@ -201,6 +201,25 @@
         <CursorEffect value="TechLabPowerFieldSearch"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="PowerFieldKarax"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="SpawnMutalisk3v3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="SpawnMutaliskDummy3v3"/>
+        <Cost>
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Terrazine" value="800"/>
+            <Charge>
+                <CountMax value="30"/>
+                <CountStart value="30"/>
+                <CountUse value="1"/>
+                <TimeStart value="10"/>
+                <TimeUse value="-1"/>
+            </Charge>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;-"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnMutalisk3v3" Requirements="RequirementArmor5"/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="TraderFlight">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>

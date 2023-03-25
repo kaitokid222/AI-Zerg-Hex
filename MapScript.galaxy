@@ -6947,6 +6947,7 @@ void gf_initialize_zcc_spawn () {
         gv_zcc_spawn[autoC4FC25A6_var][11].lv_unit_type = "Torralisk";
         gv_zcc_spawn[autoC4FC25A6_var][12].lv_unit_type = "Ultralisk2";
         gv_zcc_spawn[autoC4FC25A6_var][13].lv_unit_type = "BanelingZergHex";
+        gv_zcc_spawn[autoC4FC25A6_var][14].lv_unit_type = "Mutalisk3v3";
     }
 }
 
@@ -7160,7 +7161,7 @@ int gf_get_integer_of_unit_type (string lp_unit_type) {
     int lv_result;
 
     // Automatic Variable Declarations
-    const int auto7B385356_ae = 12;
+    const int auto7B385356_ae = 14;
     const int auto7B385356_ai = 1;
 
     // Variable Initialization
@@ -20909,7 +20910,7 @@ bool gt_PeriodicZCCSpawn_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     playergroup auto0C595BDC_g;
     int auto0C595BDC_var;
-    const int auto6D139C0C_ae = 13;
+    const int auto6D139C0C_ae = 14;
     int auto6D139C0C_var;
 
     // Variable Initialization
@@ -20986,6 +20987,9 @@ bool gt_SpawnZCCUnit3v3_Func (bool testConds, bool runActions) {
     else if (auto011C7887_val == "SpawnInfusedDummy") {
         gf_update_zcc_spawn(EventPlayer(), "InfusedRoach");
     }
+    else if (auto011C7887_val == "SpawnMutaliskDummy3v3") {
+        gf_update_zcc_spawn(EventPlayer(), "Mutalisk3v3");
+    }
     else if (auto011C7887_val == "SpawnPrimalDummy3v3") {
         gf_update_zcc_spawn(EventPlayer(), "PrimalRoach2");
     }
@@ -21035,6 +21039,7 @@ void gt_SpawnZCCUnit3v3_Init () {
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnTorraDummy");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnUltraDummy3v3");
     TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnLarvaDummy");
+    TriggerAddEventPlayerEffectUsed(gt_SpawnZCCUnit3v3, c_playerAny, "SpawnMutaliskDummy3v3");
 }
 
 //--------------------------------------------------------------------------------------------------
