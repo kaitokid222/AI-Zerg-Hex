@@ -858,7 +858,7 @@
                 <TimeUse value="-1"/>
             </Charge>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBaneling3v3" Requirements="RequirementArmor4"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SpawnBaneling3v3" Requirements="RequirementArmor3"/>
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
     </CAbilEffectInstant>
