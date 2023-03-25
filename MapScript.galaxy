@@ -5977,7 +5977,7 @@ bool gf_can_cross_middle_in_3v3 (unit lp_unit_param) {
     lv_unit_type = UnitGetType(lp_unit_param);
 
     // Implementation
-    if (((lv_unit_type == "ImmortalShakurasStasisCannonMissile") || (lv_unit_type == "IonStorm") || (lv_unit_type == "IonBeam") || (UnitTypeTestFlag(lv_unit_type, c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
+    if (((UnitTypeTestFlag(lv_unit_type, c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
         lv_result = true;
     }
 

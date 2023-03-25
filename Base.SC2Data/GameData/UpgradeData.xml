@@ -203,6 +203,8 @@
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Minerals]" Value="1000"/>
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Vespene]" Value="500"/>
         <EffectArray Operation="Set" Reference="Abil,EnhancePlating,Cost[0].Resource[Terrazine]" Value="8000"/>
+        <EffectArray Operation="Set" Reference="Weapon,GlaiveCannon,TargetFilters" Value="Visible;Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <EffectArray Operation="Set" Reference="Weapon,PhotonCannon,TargetFilters" Value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CUpgrade>
     <CUpgrade id="MechalingDurability">
         <EffectArray Reference="Unit,Mechaling,LifeMax" Value="25"/>

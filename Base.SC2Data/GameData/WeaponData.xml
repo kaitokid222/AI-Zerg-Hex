@@ -210,7 +210,7 @@
         <Effect value="PhotonCannonLM"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ServitorStrike">
-        <TargetFilters value="Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.3"/>
         <MinScanRange value="6"/>
     </CWeaponLegacy>

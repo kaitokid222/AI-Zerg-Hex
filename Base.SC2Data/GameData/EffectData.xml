@@ -7,7 +7,7 @@
         <Death value="Blast"/>
     </CEffectDamage>
     <CEffectEnumArea id="ArtanisVortexSearchArea">
-        <SearchFilters value="-;Self,Player,Ally,Structure,Missile,Item,Dead"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Missile,Item,Dead"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="GlaiveWurmE1">
         <SearchFilters value="Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
