@@ -1083,9 +1083,9 @@
         <LifeRegenRate value="1.25"/>
         <LifeRegenRateCreep value="8.75"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
-        <EnergyStart value="50"/>
+        <EnergyStart value="100"/>
         <EnergyMax value="1000"/>
-        <EnergyRegenRate value="1"/>
+        <EnergyRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="2.5"/>
         <SpeedMultiplierCreep value="1.3"/>

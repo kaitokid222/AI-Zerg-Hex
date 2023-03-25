@@ -548,7 +548,7 @@
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
     <CUpgrade id="ZCCEnergyUpgrade">
-        <EffectArray Reference="Unit,HiveMindEmulator,EnergyRegenRate" Value="1.000000"/>
+        <EffectArray Reference="Unit,HiveMindEmulator,EnergyRegenRate" Value="2.000000"/>
         <MaxLevel value="60"/>
     </CUpgrade>
     <CUpgrade id="ZergAttack">

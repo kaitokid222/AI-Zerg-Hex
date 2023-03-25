@@ -881,8 +881,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfestorDummy"/>
         <Cost>
-            <Resource index="Terrazine" value="150"/>
-            <Vital index="Energy" value="75"/>
+            <Resource index="Terrazine" value="250"/>
+            <Vital index="Energy" value="100"/>
             <Charge>
                 <CountMax value="5"/>
                 <CountUse value="1"/>
