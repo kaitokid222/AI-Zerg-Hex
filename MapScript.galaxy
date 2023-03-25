@@ -20292,7 +20292,7 @@ bool gt_firewall_death_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitSetPosition(EventUnit(), PointFromId(718945287), false);
+    UnitKill(EventUnit());
     return true;
 }
 
