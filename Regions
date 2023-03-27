@@ -611,7 +611,19 @@
     <region id="102">
         <name value="firewall"/>
         <shape type="rect">
-            <quad value="15,127.5,225,128.5"/>
+            <quad value="15.0798,127.5,225.0798,128.5"/>
+        </shape>
+    </region>
+    <region id="103">
+        <name value="firewall s"/>
+        <shape type="rect">
+            <quad value="15.0893,125.4826,225.0893,127.4826"/>
+        </shape>
+    </region>
+    <region id="104">
+        <name value="firewall n"/>
+        <shape type="rect">
+            <quad value="15.075,128.4797,225.075,130.4797"/>
         </shape>
     </region>
 </Regions>

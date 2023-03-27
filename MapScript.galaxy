@@ -965,7 +965,7 @@ trigger gt_testfw;
 trigger gt_remove_invalid_ion;
 trigger gt_protect_top_hive_from_allies;
 trigger gt_protect_bottom_hive_from_allies;
-trigger gt_firewall_death;
+trigger gt_firewall_kill;
 trigger gt_update_3v3_objectives;
 trigger gt_CocoonorOmegadies3v3;
 trigger gt_Cocoongotspawned3v3;
@@ -5979,7 +5979,7 @@ bool gf_can_cross_middle_in_3v3 (unit lp_unit_param) {
     lv_unit_type = UnitGetType(lp_unit_param);
 
     // Implementation
-    if (((UnitTypeTestFlag(lv_unit_type, c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
+    if (((lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
         lv_result = true;
     }
 
@@ -6079,7 +6079,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
     else {
         lv_on_off = false;
     }
-    TriggerEnable(gt_firewall_death, lv_on_off);
+    TriggerEnable(gt_firewall_kill, lv_on_off);
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
     TriggerEnable(gt_PeriodicZCCSpawn, lv_on_off);
     TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
@@ -20259,25 +20259,30 @@ void gt_testfw_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    point lv_point;
+    unit lv_tech_lab;
+    point lv_target_point;
     region lv_valid_region;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_point = OrderGetTargetPoint(EventUnitOrder());
-    lv_valid_region = gf_get_region_of_influence_3v3(gv_players[EventPlayer()].lv_position);
+    lv_tech_lab = EventUnit();
+    lv_target_point = EventUnitTargetPoint();
+    lv_valid_region = gf_get_region_of_influence_3v3(gv_players[UnitGetOwner(lv_tech_lab)].lv_position);
 
     // Actions
     if (!runActions) {
         return true;
     }
 
-    if ((RegionContainsPoint(lv_valid_region, lv_point) == true)) {
+    if ((RegionContainsPoint(lv_valid_region, lv_target_point) == true)) {
         UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/CF7E6418"));
     }
     else {
         UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/3FC6E54E"));
-        UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+        lv_target_point = UnitGetPosition(lv_tech_lab);
+        UnitRemove(lv_tech_lab);
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "TechLab3", 0, UnitGetOwner(lv_tech_lab), lv_target_point);
+        libNtve_gf_CopyUnitControlGroups(lv_tech_lab, UnitLastCreated());
     }
     return true;
 }
@@ -20285,7 +20290,7 @@ bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_remove_invalid_ion_Init () {
     gt_remove_invalid_ion = TriggerCreate("gt_remove_invalid_ion_Func");
-    TriggerAddEventUnitOrder(gt_remove_invalid_ion, null, AbilityCommand("IonCannon", 0));
+    TriggerAddEventUnitAbility(gt_remove_invalid_ion, null, AbilityCommand("IonCannon", 0), c_unitAbilStageExecute, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20337,9 +20342,9 @@ void gt_protect_bottom_hive_from_allies_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: firewall_death
+// Trigger: firewall_kill
 //--------------------------------------------------------------------------------------------------
-bool gt_firewall_death_Func (bool testConds, bool runActions) {
+bool gt_firewall_kill_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
@@ -20366,10 +20371,10 @@ bool gt_firewall_death_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_firewall_death_Init () {
-    gt_firewall_death = TriggerCreate("gt_firewall_death_Func");
-    TriggerEnable(gt_firewall_death, false);
-    TriggerAddEventUnitRegion(gt_firewall_death, null, RegionFromId(102), true);
+void gt_firewall_kill_Init () {
+    gt_firewall_kill = TriggerCreate("gt_firewall_kill_Func");
+    TriggerEnable(gt_firewall_kill, false);
+    TriggerAddEventUnitRegion(gt_firewall_kill, null, RegionFromId(102), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27512,7 +27517,7 @@ void InitTriggers () {
     gt_remove_invalid_ion_Init();
     gt_protect_top_hive_from_allies_Init();
     gt_protect_bottom_hive_from_allies_Init();
-    gt_firewall_death_Init();
+    gt_firewall_kill_Init();
     gt_update_3v3_objectives_Init();
     gt_CocoonorOmegadies3v3_Init();
     gt_Cocoongotspawned3v3_Init();

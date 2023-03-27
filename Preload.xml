@@ -235,6 +235,7 @@
 <Unit id="Candy3"/>
 <Unit id="Candy4"/>
 <Unit id="Candy5"/>
+<Unit id="Mutalisk3v3"/>
 <Unit id="MeleeMinionHell"/>
 <Unit id="RangedMinionHell"/>
 <Unit id="WizardMinion"/>
@@ -259,5 +260,4 @@
 <Unit id="CommandCenter2"/>
 <Unit id="Generator"/>
 <Unit id="HalloweenSapper"/>
-<Unit id="Mutalisk3v3"/>
 </Preload>

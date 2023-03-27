@@ -429,6 +429,9 @@
             <Cooldown Link="GreaterSpire/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="KaraxServitorWeaponA">
+        <Speed value="4"/>
+    </CUnit>
     <CUnit id="MechaTechlab">
         <DeathRevealRadius value="3"/>
         <Facing value="329.9963"/>
