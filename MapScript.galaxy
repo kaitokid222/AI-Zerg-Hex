@@ -5979,7 +5979,7 @@ bool gf_can_cross_middle_in_3v3 (unit lp_unit_param) {
     lv_unit_type = UnitGetType(lp_unit_param);
 
     // Implementation
-    if (((lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
+    if (((UnitTypeTestFlag(lv_unit_type, c_unitFlagMissile) == true) || (lv_unit_type == "SpaceBalls") || (lv_unit_type == "Medivac") || (lv_unit_type == "Buggo") || (lv_unit_type == "Hercules") || (lv_unit_type == "Overseer"))) {
         lv_result = true;
     }
 
@@ -6080,6 +6080,7 @@ void gf_manage_3v3_triggers (bool lp_enable) {
         lv_on_off = false;
     }
     TriggerEnable(gt_firewall_kill, lv_on_off);
+    TriggerEnable(gt_remove_invalid_ion, lv_on_off);
     TriggerEnable(gt_TerrazineIncome, lv_on_off);
     TriggerEnable(gt_PeriodicZCCSpawn, lv_on_off);
     TriggerEnable(gt_SpawnZCCUnit3v3, lv_on_off);
@@ -20275,14 +20276,15 @@ bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
     }
 
     if ((RegionContainsPoint(lv_valid_region, lv_target_point) == true)) {
-        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/CF7E6418"));
     }
     else {
         UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/3FC6E54E"));
         lv_target_point = UnitGetPosition(lv_tech_lab);
         UnitRemove(lv_tech_lab);
+        libNtve_gf_SetUpgradeLevelForPlayer(EventPlayer(), "TechLabCharge", 0);
         libNtve_gf_CreateUnitsWithDefaultFacing(1, "TechLab3", 0, UnitGetOwner(lv_tech_lab), lv_target_point);
         libNtve_gf_CopyUnitControlGroups(lv_tech_lab, UnitLastCreated());
+        UnitBehaviorAdd(UnitLastCreated(), "TechLabCharge", UnitLastCreated(), 40);
     }
     return true;
 }
@@ -20290,6 +20292,7 @@ bool gt_remove_invalid_ion_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_remove_invalid_ion_Init () {
     gt_remove_invalid_ion = TriggerCreate("gt_remove_invalid_ion_Func");
+    TriggerEnable(gt_remove_invalid_ion, false);
     TriggerAddEventUnitAbility(gt_remove_invalid_ion, null, AbilityCommand("IonCannon", 0), c_unitAbilStageExecute, false);
 }
 
