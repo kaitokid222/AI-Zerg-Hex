@@ -15,6 +15,15 @@
     <CEffectEnumArea id="GlaiveWurmE2">
         <SearchFilters value="Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
+    <CEffectDamage id="GlaiveWurmU1">
+        <AttributeFactor index="Mechanical" value="-0.7"/>
+    </CEffectDamage>
+    <CEffectDamage id="GlaiveWurmU2">
+        <AttributeFactor index="Mechanical" value="-0.7"/>
+    </CEffectDamage>
+    <CEffectDamage id="GlaiveWurmU3">
+        <AttributeFactor index="Mechanical" value="-0.7"/>
+    </CEffectDamage>
     <CEffectSet id="KaraxPermanentPhaseCanon">
         <EditorCategories value=""/>
     </CEffectSet>

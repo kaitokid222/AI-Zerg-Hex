@@ -626,7 +626,7 @@
         <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
         <EffectArray Reference="Weapon,MechaNeedleSpines,Level" Value="1"/>
         <EffectArray Reference="Effect,MechaNeedleSpinesRangedDamage,Amount" Value="5"/>
-        <EffectArray Reference="Effect,GlaiveWurmU1,Amount" Value="2"/>
+        <EffectArray Reference="Effect,GlaiveWurmU1,Amount" Value="1.5"/>
         <EffectArray Reference="Effect,GlaiveWurmU2,Amount" Value="1"/>
         <EffectArray Reference="Effect,GlaiveWurmU3,Chance" Value="0.5"/>
         <EffectArray Reference="Weapon,GlaiveWurm,Level" Value="1"/>
@@ -816,7 +816,7 @@
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Charge.CountMax" Value="1"/>
         <EffectArray Reference="Unit,Mechaling,Speed" Value="0.199200"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Terrazine]" Value="800"/>
-        <EffectArray Reference="Unit,Mutalisk3v3,Speed" Value="0.601500"/>
+        <EffectArray Reference="Unit,Mutalisk3v3,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

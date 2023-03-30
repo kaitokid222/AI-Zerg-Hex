@@ -2103,7 +2103,7 @@
         <LifeArmorName value="Unit/LifeArmorName/ZergAirArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Mover value="Fly"/>
-        <Speed value="3"/>
+        <Speed value="2"/>
         <Acceleration value="3.5"/>
         <StationaryTurningRate value="1499.9414"/>
         <TurningRate value="1499.9414"/>
