@@ -751,6 +751,7 @@ Button/Name/ConnectWithTarget=Connect With Target
 Button/Name/ConsumeState=Consume State
 Button/Name/ConvertGas=Convert Minerals
 Button/Name/ConvertGas2=Convert Gas
+Button/Name/ConvertTerrazine=Convert Terrazine
 Button/Name/CopyRally=Copy Rally
 Button/Name/CorrosiveBile2=Corrosive Bile
 Button/Name/CowLink=Cow Link
@@ -780,7 +781,7 @@ Button/Name/EnhanceProduction=Enhance Production
 Button/Name/EnhancedPlating=Enhanced Plating
 Button/Name/ExtractMinerals=Extract Minerals
 Button/Name/ExtractMineralsGreater=Extract Minerals x4
-Button/Name/ExtractTerrazine=Extract Terrazines
+Button/Name/ExtractTerrazine=Extract Terrazine
 Button/Name/ExtractTerrazineNydus=Extract Terrazines
 Button/Name/ExtractTerrazinex5=Extract Terrazines x5
 Button/Name/FireAcid=Fire Acid
@@ -1205,6 +1206,7 @@ Button/Tooltip/ConstructionYard=
 Button/Tooltip/ConsumeState=Immobilizes the Infestor to consume units inside for health and energy, nearby units are automatically ordered to be consumed.<n/><n/>Uses 50% of consumed units health.
 Button/Tooltip/ConvertGas=Produces 2 gas.
 Button/Tooltip/ConvertGas2=Produces 2 minerals.
+Button/Tooltip/ConvertTerrazine=Convert 40 Terrazine to 10 Minerals every 3 seconds.
 Button/Tooltip/Converter=
 Button/Tooltip/CopyRally=Setting rally point on another spawner will copy its rally path.
 Button/Tooltip/CorrosiveBile2=Launch a missile at the target location, dealing <d ref="Effect,RavagerCorrosiveBileDamage,Amount"/> damage to all units in the area upon impact.<n/><n/><c val="#ColorAttackInfo">Can destroy Protoss Force Fields.</c>
@@ -1251,7 +1253,7 @@ Button/Tooltip/EnhanceProduction=Upgrades the Sheep Farm to produce double the m
 Button/Tooltip/EnhancedPlating=The Omegalisk health is increased by 15.000.
 Button/Tooltip/ExtractMinerals=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/ExtractMineralsGreater=Continuously generates minerals equal to <c val="83D5E2">160 + 4 per spawner </c>per minute.
-Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 30%. Increase your allies Terrazine income by 10%.
+Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 10%.
 Button/Tooltip/ExtractTerrazineNydus=Increase your  team Terrazine income by 10%.
 Button/Tooltip/ExtractTerrazinex5=Increase your Terrazine income by 150%. Increase your allies Terrazine income by 50%.
 Button/Tooltip/FarmTextUsed0=<s val="ModLeftSize24Bold">          <c val="C0C0C0">0 / 3</c></s>

@@ -4,6 +4,9 @@
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
     </CButton>
+    <CButton id="ConvertTerrazine">
+        <Icon value="Assets\Textures\icon-mineral-terran.dds"/>
+    </CButton>
     <CButton id="ExtractTerrazinex5">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
