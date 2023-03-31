@@ -5318,6 +5318,8 @@ void gf__3v3_player_left (int lp_player) {
         PlayerGroupAdd(gv_terrans_team_bottom_open_access_units, gv_players[lp_player].lv__3v3_zerg_pid);
     }
     gf_flush_privileges_3v3_OAU();
+    gf_reposition_flying_rally(lp_player);
+    Wait(5.0, c_timeGame);
     auto249555DF_g = UnitGroup("ZaGara", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto249555DF_u = UnitGroupCount(auto249555DF_g, c_unitCountAll);
     for (;; auto249555DF_u -= 1) {
@@ -5325,7 +5327,6 @@ void gf__3v3_player_left (int lp_player) {
         if (auto249555DF_var == null) { break; }
         UnitRemove(auto249555DF_var);
     }
-    gf_reposition_flying_rally(lp_player);
 }
 
 void gf__3v3_player_died (int lp_player) {
@@ -5512,7 +5513,6 @@ void gf_one_team_is_dead_event () {
     TriggerEnable(gt_ZCCupgrades, false);
     TriggerEnable(gt_zccdies, false);
     TriggerEnable(gt_zccbuilt, false);
-    TriggerEnable(gt_zagara_death_timer, false);
     TriggerEnable(gt_Nydusdied, false);
     TriggerEnable(gt_Nydusfinished, false);
     TriggerEnable(gt_MechaUpgradefinished, false);
@@ -5568,6 +5568,10 @@ void gf_one_team_is_dead_event () {
                 if (auto4FE1F2AE_var == null) { break; }
                 UnitRemove(auto4FE1F2AE_var);
             }
+            if ((gv_players[autoA55255A5_var].lv_alive == false)) {
+                gf_create_karax_for_player(autoA55255A5_var, null);
+            }
+
         }
     }
 
@@ -5607,6 +5611,10 @@ void gf_one_team_is_dead_event () {
                 if (auto89F91751_var == null) { break; }
                 UnitRemove(auto89F91751_var);
             }
+            if ((gv_players[auto70122CC1_var].lv_alive == false)) {
+                gf_create_karax_for_player(auto70122CC1_var, null);
+            }
+
         }
     }
 
