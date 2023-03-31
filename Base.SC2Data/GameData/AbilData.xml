@@ -3421,7 +3421,7 @@
             <Button DefaultButtonFace="BuildEventTechCenter" Requirements="OnlyOneEventTechCenter"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="TerrazineTank">
-            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements="TerrazineConverter"/>
+            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements=""/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>
     </CAbilBuild>

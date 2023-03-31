@@ -1164,7 +1164,7 @@ Button/Tooltip/BuildSiegeTank=Powerful siege weapon used to destroy enemies from
 Button/Tooltip/BuildSiegeTank2=Powerful siege weapon used to destroy enemies from a long distance.<n/><n/>Requires manual targeting to fire.<n/><n/>Weapon uses 200 energy per shot.
 Button/Tooltip/BuildTechLab=Deals damage to nearby enemies.<n/><n/>Can research better equipment and perform several abilities, requires manual energy charging by default.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildTechStructure=A list of technological structures.
-Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 10 minerals every 3 seconds.
+Button/Tooltip/BuildTerrazineGenerator=Increase Terrazine income by 10%. <n /></n> After the other team died, it can be used to convert terrazine back into mineral.
 Button/Tooltip/BuildWall=Protects against enemies.<n/><n/>Has 175 HP and 2 armor. (Can be upgraded at Construction Yard)
 Button/Tooltip/Builder=Can build and repair structures.
 Button/Tooltip/Candy=Contains a gift!
@@ -1401,7 +1401,7 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
-Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+10% terrazine income for your team while it is alive</c>
+Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c>
 Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>

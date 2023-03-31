@@ -694,7 +694,6 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="NydusCanal" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build22" Row="2" Column="0"/>
             <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
-            <LayoutButtons Face="MutateintoMechaTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build25" Row="2" Column="3"/>
             <LayoutButtons Face="MutateintoMechaTechlab" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build26" Row="2" Column="1"/>
             <LayoutButtons Face="SpawnOmegaliskCocoon3v3" Type="AbilCmd" AbilCmd="BuildOmegaliskCocoon3v3,Build1" Row="2" Column="4"/>
         </CardLayouts>
@@ -956,7 +955,7 @@
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
-        <Speed value="2.25"/>
+        <Speed value="3"/>
         <SpeedMultiplierCreep value="1.3"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -1002,8 +1001,8 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <CostResource index="Vespene" value="25"/>
-        <CostResource index="Terrazine" value="50"/>
+        <CostResource index="Vespene" value="20"/>
+        <CostResource index="Terrazine" value="110"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">
         <Subtitle value="UnitSubtitle/HydraliskLevel23v3"/>
@@ -3291,12 +3290,20 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="TerrazineTank">
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="60"/>
+        <CostResource index="Minerals" value="0"/>
+        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Terrazine" value="200"/>
         <AbilArray Link="Demolish"/>
-        <BehaviorArray Link="GenerateTerrazine"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
+            <LayoutButtons>
+                <Face value="BuildTerrazineGenerator"/>
+                <Type value="Passive"/>
+                <Behavior value="GenerateTerrazine"/>
+                <Requirements value="TerrazineConverter"/>
+                <Row value="0"/>
+                <Column value="0"/>
+            </LayoutButtons>
         </CardLayouts>
         <Footprint value="Footprint2x2"/>
         <DeadFootprint value="Footprint2x2Contour"/>

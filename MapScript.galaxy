@@ -408,7 +408,7 @@ void InitGlobals () {
         gv_players[init_i].lv_tutorial_stage_state = "";
         gv_players[init_i].lv_wants_tutorial = 1;
         gv_players[init_i].lv__3v3_terrazine_doubler = 1;
-        gv_players[init_i].lv__3v3_terrazine_income = 14;
+        gv_players[init_i].lv__3v3_terrazine_income = 24;
     }
     gv_transmission_units = UnitGroupEmpty();
     for (init_i = 0; init_i <= 6; init_i += 1) {
@@ -6758,17 +6758,9 @@ fixed gf_get_terrazine_multiplier (int lp_player_id) {
     fixed lv_result;
 
     // Automatic Variable Declarations
-    playergroup auto6EE6CC88_g;
-    int auto6EE6CC88_var;
-    unitgroup autoEA417664_g;
-    int autoEA417664_u;
-    unit autoEA417664_var;
-    unitgroup autoCD385F56_g;
-    int autoCD385F56_u;
-    unit autoCD385F56_var;
-    unitgroup auto2F6EA800_g;
-    int auto2F6EA800_u;
-    unit auto2F6EA800_var;
+    unitgroup auto6E2EEFBF_g;
+    int auto6E2EEFBF_u;
+    unit auto6E2EEFBF_var;
 
     // Variable Initialization
     lv_terrazine_extractor = UnitGroupEmpty();
@@ -6776,43 +6768,11 @@ fixed gf_get_terrazine_multiplier (int lp_player_id) {
 
     // Implementation
     lv_result = 1.0;
-    auto6EE6CC88_g = gf_get_team_of_player(lp_player_id);
-    auto6EE6CC88_var = -1;
-    while (true) {
-        auto6EE6CC88_var = PlayerGroupNextPlayer(auto6EE6CC88_g, auto6EE6CC88_var);
-        if (auto6EE6CC88_var < 0) { break; }
-        lv_terrazine_extractor = UnitGroup("MechaTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoEA417664_g = lv_terrazine_extractor;
-        autoEA417664_u = UnitGroupCount(autoEA417664_g, c_unitCountAll);
-        for (;; autoEA417664_u -= 1) {
-            autoEA417664_var = UnitGroupUnitFromEnd(autoEA417664_g, autoEA417664_u);
-            if (autoEA417664_var == null) { break; }
-            if ((auto6EE6CC88_var == lp_player_id)) {
-                lv_result += 0.3001;
-            }
-            else {
-                lv_result += 0.1001;
-            }
-        }
-        lv_terrazine_extractor = UnitGroup("GreaterTerrazineExtractor", gv_players[auto6EE6CC88_var].lv__3v3_zerg_pid, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterUnderConstruction - 32)) | (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoCD385F56_g = lv_terrazine_extractor;
-        autoCD385F56_u = UnitGroupCount(autoCD385F56_g, c_unitCountAll);
-        for (;; autoCD385F56_u -= 1) {
-            autoCD385F56_var = UnitGroupUnitFromEnd(autoCD385F56_g, autoCD385F56_u);
-            if (autoCD385F56_var == null) { break; }
-            if ((auto6EE6CC88_var == lp_player_id)) {
-                lv_result += 1.5001;
-            }
-            else {
-                lv_result += 0.5001;
-            }
-        }
-    }
-    auto2F6EA800_g = gf_get_nydus_of_team(lp_player_id);
-    auto2F6EA800_u = UnitGroupCount(auto2F6EA800_g, c_unitCountAll);
-    for (;; auto2F6EA800_u -= 1) {
-        auto2F6EA800_var = UnitGroupUnitFromEnd(auto2F6EA800_g, auto2F6EA800_u);
-        if (auto2F6EA800_var == null) { break; }
+    auto6E2EEFBF_g = UnitGroup("TerrazineTank", lp_player_id, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto6E2EEFBF_u = UnitGroupCount(auto6E2EEFBF_g, c_unitCountAll);
+    for (;; auto6E2EEFBF_u -= 1) {
+        auto6E2EEFBF_var = UnitGroupUnitFromEnd(auto6E2EEFBF_g, auto6E2EEFBF_u);
+        if (auto6E2EEFBF_var == null) { break; }
         lv_result += 0.1001;
     }
     if ((gv_players[lp_player_id].lv_position <= 3)) {
