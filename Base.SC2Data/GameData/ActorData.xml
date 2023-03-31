@@ -1579,6 +1579,7 @@
         <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="AnimPlay Work Stand,Work"/>
         <On Terms="Effect.ConvertTerrazineConverterText.Start" Send="TimerSet 1.300000 Stop"/>
         <BarOffset value="140"/>
+        <DeathArray index="Normal" ModelLink="TerranBuildingDeath"/>
     </CActorUnit>
     <CActorModel id="UseJUICEShieldBuffModel" parent="ModelAnimationStyleContinuous">
         <Inherits index="Visibility" value="1"/>

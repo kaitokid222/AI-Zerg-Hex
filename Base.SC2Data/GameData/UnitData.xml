@@ -3309,6 +3309,7 @@
         <Footprint value="Footprint2x2"/>
         <DeadFootprint value="Footprint2x2Contour"/>
         <PlacementFootprint value="Footprint2x2"/>
+        <DeathTime value="0"/>
     </CUnit>
     <CUnit id="Viper">
         <Speed value="4"/>
