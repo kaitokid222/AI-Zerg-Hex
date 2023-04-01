@@ -1552,6 +1552,7 @@ Button/EditorSuffix/ChooseSkinJimmy=CC
 Button/EditorSuffix/ChooseSkinMadaxe=CC
 Button/EditorSuffix/ChooseSkinUltimate=CC
 Button/EditorSuffix/ChooseSnow=CC
+Button/EditorSuffix/ConvertTerrazine=3v3
 Button/EditorSuffix/CorrosiveBile2=(Edit)
 Button/EditorSuffix/DecreaseGas50=(Gas)
 Button/EditorSuffix/DecreaseMinerals50=(Minerals)

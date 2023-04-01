@@ -115,6 +115,7 @@
 <Behavior id="SpawnsBombers"/>
 <Behavior id="InvulnerableBlockers"/>
 <Behavior id="Automated"/>
+<Behavior id="TechLabCharge"/>
 <Behavior id="ZCCTimedLife"/>
 <Behavior id="ZCCTorraliskTimedLife"/>
 <Behavior id="ZCCRavatorTimedLife"/>

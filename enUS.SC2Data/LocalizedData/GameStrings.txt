@@ -751,6 +751,7 @@ Button/Name/ConnectWithTarget=Connect With Target
 Button/Name/ConsumeState=Consume State
 Button/Name/ConvertGas=Convert Minerals
 Button/Name/ConvertGas2=Convert Gas
+Button/Name/ConvertTerrazine=Convert Terrazine
 Button/Name/CopyRally=Copy Rally
 Button/Name/CorrosiveBile2=Corrosive Bile
 Button/Name/CowLink=Cow Link
@@ -780,7 +781,7 @@ Button/Name/EnhanceProduction=Enhance Production
 Button/Name/EnhancedPlating=Enhanced Plating
 Button/Name/ExtractMinerals=Extract Minerals
 Button/Name/ExtractMineralsGreater=Extract Minerals x4
-Button/Name/ExtractTerrazine=Extract Terrazines
+Button/Name/ExtractTerrazine=Extract Terrazine
 Button/Name/ExtractTerrazineNydus=Extract Terrazines
 Button/Name/ExtractTerrazinex5=Extract Terrazines x5
 Button/Name/FireAcid=Fire Acid
@@ -1164,7 +1165,7 @@ Button/Tooltip/BuildSiegeTank=Powerful siege weapon used to destroy enemies from
 Button/Tooltip/BuildSiegeTank2=Powerful siege weapon used to destroy enemies from a long distance.<n/><n/>Requires manual targeting to fire.<n/><n/>Weapon uses 200 energy per shot.
 Button/Tooltip/BuildTechLab=Deals damage to nearby enemies.<n/><n/>Can research better equipment and perform several abilities, requires manual energy charging by default.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildTechStructure=A list of technological structures.
-Button/Tooltip/BuildTerrazineGenerator=Convert 40 Terrazine into 10 minerals every 3 seconds.
+Button/Tooltip/BuildTerrazineGenerator=Increase Terrazine income by 10%. <n /></n> After the other team died, it can be used to convert terrazine back into mineral.
 Button/Tooltip/BuildWall=Protects against enemies.<n/><n/>Has 175 HP and 2 armor. (Can be upgraded at Construction Yard)
 Button/Tooltip/Builder=Can build and repair structures.
 Button/Tooltip/Candy=Contains a gift!
@@ -1205,6 +1206,7 @@ Button/Tooltip/ConstructionYard=
 Button/Tooltip/ConsumeState=Immobilizes the Infestor to consume units inside for health and energy, nearby units are automatically ordered to be consumed.<n/><n/>Uses 50% of consumed units health.
 Button/Tooltip/ConvertGas=Produces 2 gas.
 Button/Tooltip/ConvertGas2=Produces 2 minerals.
+Button/Tooltip/ConvertTerrazine=Convert 40 Terrazine to 10 Minerals every 3 seconds.
 Button/Tooltip/Converter=
 Button/Tooltip/CopyRally=Setting rally point on another spawner will copy its rally path.
 Button/Tooltip/CorrosiveBile2=Launch a missile at the target location, dealing <d ref="Effect,RavagerCorrosiveBileDamage,Amount"/> damage to all units in the area upon impact.<n/><n/><c val="#ColorAttackInfo">Can destroy Protoss Force Fields.</c>
@@ -1251,7 +1253,7 @@ Button/Tooltip/EnhanceProduction=Upgrades the Sheep Farm to produce double the m
 Button/Tooltip/EnhancedPlating=The Omegalisk health is increased by 15.000.
 Button/Tooltip/ExtractMinerals=Continuously generates minerals equal to <c val="83D5E2">40 + 1 per spawner </c>per minute.
 Button/Tooltip/ExtractMineralsGreater=Continuously generates minerals equal to <c val="83D5E2">160 + 4 per spawner </c>per minute.
-Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 30%. Increase your allies Terrazine income by 10%.
+Button/Tooltip/ExtractTerrazine=Increase your Terrazine income by 10%.
 Button/Tooltip/ExtractTerrazineNydus=Increase your  team Terrazine income by 10%.
 Button/Tooltip/ExtractTerrazinex5=Increase your Terrazine income by 150%. Increase your allies Terrazine income by 50%.
 Button/Tooltip/FarmTextUsed0=<s val="ModLeftSize24Bold">          <c val="C0C0C0">0 / 3</c></s>
@@ -1307,7 +1309,7 @@ Button/Tooltip/HiveMindEmulator=Tech Structure. Allows you to buy zerg support a
 Button/Tooltip/HotSRaptor=
 Button/Tooltip/HydralicAugment=Increases Mecha Hydralisk movement speed.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Hydralisk=
-Button/Tooltip/HydraliskDefender3v3=High-damage ranged unit. <c val="ffff8a">Zerg Armor</c> upgrades increase attack damage, attack range, max health and health regen.<n/><n/><c val="D95200">Cannot attack zerg buildings.</c><n/>
+Button/Tooltip/HydraliskDefender3v3=Sturdy ranged unit. <c val="ffff8a">Zerg Armor</c> upgrades increase attack damage, attack range, max health and health regen.<n/><n/><c val="D95200">Cannot attack zerg buildings.</c><n/>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
 Button/Tooltip/ImprovedLiquids=Doubles Mecha energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
@@ -1401,7 +1403,7 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
-Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c><n/><n/><c val="#ColorAttackInfo">+10% terrazine income for your team while it is alive</c>
+Button/Tooltip/NydusCanal=Spawn 1/20 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c>
 Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
@@ -1583,7 +1585,7 @@ Button/Tooltip/SpawnInfusedRoach3v3=Infused with radiation crystals to deal dama
 Button/Tooltip/SpawnLarva3v3=Larva can morph into:<n/><n/>- Mecha Nydus that increases the spawn rate of your team's zerg units.<n/>- Mecha Terrazine Extractor that multiply your terrazine income.<n/>- Mecha Spine Crawler to fortify positions.<n/>- Mecha Tech Lab to buy defensive upgrades.
 Button/Tooltip/SpawnMenuLarge=Special Units
 Button/Tooltip/SpawnMenuSmall=Periodically spawn zerg units to attack your opponents.
-Button/Tooltip/SpawnMutalisk3v3=High armor flying unit. Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
+Button/Tooltip/SpawnMutalisk3v3=High armor flying unit. Good against biological units but cannot damage buildings.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 80 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnOmegaliskCocoon=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.<n/><n/><c val="F03030">Can only have one at a time.</c>
 Button/Tooltip/SpawnOmegaliskCocoon3v3=Creates a cocoon that will spawn an Omegalisk in 120 seconds.<n/><n/>The Omegalisk is a giant that can deviour even the most fortified terran base. Deals damage in a huge area and gives vision of nearby high ground. May only be taken down after long periods of fire or with a terran base destruction.<n/><n/>Requires a 4 wide path to navigate.
 Button/Tooltip/SpawnPrimalRoach=Tanky melee creature.
@@ -3574,7 +3576,6 @@ Param/Value/CA8B6BFF=Vote Practice Mode
 Param/Value/CD71BC83=Build 3 Gas Vents!
 Param/Value/CE7D411E=Zerg Supply
 Param/Value/CEAAB825=Can spawn zerg units.
-Param/Value/CF7E6418=Valid region for Ion
 Param/Value/CFCFEF2C=Raynor
 Param/Value/D04B4A09=e2s max spawner count reached. try kill low spawner.
 Param/Value/D13D409A=:
@@ -3754,7 +3755,7 @@ UI/AIBuild02Tip=A.I. builds more roaches than usual.
 UI/AIBuild05=Fast Eco
 UI/AIBuild05Tip=A.I. tries to eco up fast than usual.
 UI/Morphing=Upgrading
-UI/ResourceName2=Unidentified
+UI/ResourceName2=Terrazine
 UI/Upgrading=Upgrading
 Unit/Category/ChaosUnits=Chaos
 Unit/Category/ProtossStory=Terran

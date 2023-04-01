@@ -1139,7 +1139,7 @@
         <Flags index="IgnoreUnitCost" value="1"/>
         <Flags index="WaitForFood" value="0"/>
         <InfoArray index="Train1" Effect="ApplyPrecursorSpawner">
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="5"/>
             <Charge>
                 <CountMax value="2"/>
                 <CountStart value="2"/>
@@ -3421,7 +3421,7 @@
             <Button DefaultButtonFace="BuildEventTechCenter" Requirements="OnlyOneEventTechCenter"/>
         </InfoArray>
         <InfoArray index="Build23" Unit="TerrazineTank">
-            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements="TerrazineConverter"/>
+            <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements=""/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>
     </CAbilBuild>
@@ -4217,7 +4217,7 @@
         </InfoArray>
         <InfoArray index="Train7">
             <Resource index="Minerals" value="25"/>
-            <Resource index="Terrazine" value="50"/>
+            <Resource index="Terrazine" value="100"/>
             <Vital index="Energy" value="150"/>
             <Button DefaultButtonFace="BuildMechaHydralisk" Requirements="RequirementArmor1"/>
             <Unit value="MechaHydralisk"/>

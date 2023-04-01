@@ -521,7 +521,7 @@
         <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
-        <LifeRegenRate value="0.2734"/>
+        <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldsMax value="400"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
@@ -577,6 +577,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
         <AttackSpeedMultiplierCreep value="2"/>
+        <BehaviorArray Link="HydraliskNotOnCreep"/>
     </CUnit>
     <CUnit id="Mechaling">
         <DeathRevealRadius value="3"/>
@@ -693,7 +694,6 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="NydusCanal" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build22" Row="2" Column="0"/>
             <LayoutButtons Face="MutateintoMechaSpineCrawler" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build24" Row="2" Column="2"/>
-            <LayoutButtons Face="MutateintoMechaTerrazineExtractor" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build25" Row="2" Column="3"/>
             <LayoutButtons Face="MutateintoMechaTechlab" Type="AbilCmd" AbilCmd="MorphUnitDroneZergBuildings,Build26" Row="2" Column="1"/>
             <LayoutButtons Face="SpawnOmegaliskCocoon3v3" Type="AbilCmd" AbilCmd="BuildOmegaliskCocoon3v3,Build1" Row="2" Column="4"/>
         </CardLayouts>
@@ -911,6 +911,7 @@
             <LayoutButtons Face="ResearchFerocity3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research9" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchTarInfection3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research12" Row="1" Column="0"/>
             <LayoutButtons Face="ResearchBankling3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research11" Row="0" Column="2"/>
+            <LayoutButtons Face="ResearchTarSpawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research13" Row="1" Column="1"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
             <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
@@ -955,7 +956,7 @@
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
-        <Speed value="2.25"/>
+        <Speed value="3"/>
         <SpeedMultiplierCreep value="1.3"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -1001,8 +1002,8 @@
         <RankDisplay value="Always"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <CostResource index="Vespene" value="25"/>
-        <CostResource index="Terrazine" value="50"/>
+        <CostResource index="Vespene" value="20"/>
+        <CostResource index="Terrazine" value="110"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">
         <Subtitle value="UnitSubtitle/HydraliskLevel23v3"/>
@@ -2103,7 +2104,7 @@
         <LifeArmorName value="Unit/LifeArmorName/ZergAirArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Mover value="Fly"/>
-        <Speed value="3"/>
+        <Speed value="2"/>
         <Acceleration value="3.5"/>
         <StationaryTurningRate value="1499.9414"/>
         <TurningRate value="1499.9414"/>
@@ -2161,7 +2162,6 @@
             <LayoutButtons index="1" Face="BuildMechaHydralisk" AbilCmd="ZergTrain,Train7" Row="0" Column="1"/>
             <LayoutButtons index="2" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Row="1" Column="3"/>
             <LayoutButtons index="3" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
-            <LayoutButtons Face="ExtractTerrazineNydus" Type="Passive" Row="0" Column="4"/>
         </CardLayouts>
         <CardLayouts>
             <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
@@ -3290,16 +3290,26 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="TerrazineTank">
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="60"/>
+        <CostResource index="Minerals" value="0"/>
+        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Terrazine" value="200"/>
         <AbilArray Link="Demolish"/>
-        <BehaviorArray Link="GenerateTerrazine"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="ExtractTerrazine" Type="Passive" Row="0" Column="0"/>
+            <LayoutButtons>
+                <Face value="ConvertTerrazine"/>
+                <Type value="Passive"/>
+                <Behavior value="GenerateTerrazine"/>
+                <Requirements value="TerrazineConverter"/>
+                <Row value="0"/>
+                <Column value="4"/>
+            </LayoutButtons>
         </CardLayouts>
         <Footprint value="Footprint2x2"/>
         <DeadFootprint value="Footprint2x2Contour"/>
         <PlacementFootprint value="Footprint2x2"/>
+        <DeathTime value="0"/>
     </CUnit>
     <CUnit id="Viper">
         <Speed value="4"/>

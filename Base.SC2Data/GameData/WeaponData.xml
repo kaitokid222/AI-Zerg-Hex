@@ -44,7 +44,6 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="GlaiveWurm">
         <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="1.5"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MechaNeedleSpines">
         <EditorCategories value="Race:Zerg"/>
