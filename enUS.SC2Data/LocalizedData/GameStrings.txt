@@ -1403,7 +1403,7 @@ Button/Tooltip/MutateintoUltraliskSpawner=Massively armored, a force to be dealt
 Button/Tooltip/NanoRepair2=Repairs a friendly structure or mechanical unit. Repairs <d ref="Effect,DefenderNanoRepair,RechargeVitalRate"/> hp/s.<n/><n/>Cannot be stacked by multiple Defenders.
 Button/Tooltip/NapalmBomb=Explodes after a short delay, dealing 1000 damage to units and structures within target area.<n/><n/>Also detonates instantly when the Firebat dies.
 Button/Tooltip/Nest2=
-Button/Tooltip/NydusCanal=Spawn 1/10 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c>
+Button/Tooltip/NydusCanal=Spawn 1/20 as many units as Zerg Control Center, grows creep and spawn defensive units.<n/><n/><c val="D95200">Cannot be built near the Hives or other Nydus</c>
 Button/Tooltip/NydusUpgrade=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade2=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/NydusUpgrade3=Nydus gains HP, Armor, energy and energy regeneration.<n/><n/><c val="E1848D">Research is shared among your team.</c>

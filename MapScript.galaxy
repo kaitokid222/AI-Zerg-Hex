@@ -456,7 +456,7 @@ void InitGlobals () {
     gv_zerg_team_bottom = PlayerGroupEmpty();
     gv_terrans_team_top_open_access_units = PlayerGroupEmpty();
     gv_terrans_team_bottom_open_access_units = PlayerGroupEmpty();
-    gv_nydus_zcc_ratio = 10;
+    gv_nydus_zcc_ratio = 20;
     gv_nydus_team_top = UnitGroupEmpty();
     gv_nydus_team_bottom = UnitGroupEmpty();
     gv_flying_rally_group = UnitGroupEmpty();
@@ -21144,7 +21144,7 @@ bool gt_Nydusfinished_Func (bool testConds, bool runActions) {
     int lv_terran_player_id;
 
     // Automatic Variable Declarations
-    const int autoB3C999BB_ae = 12;
+    const int autoB3C999BB_ae = 14;
     int autoB3C999BB_var;
 
     // Variable Initialization
