@@ -911,6 +911,7 @@
             <LayoutButtons Face="ResearchFerocity3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research9" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchTarInfection3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research12" Row="1" Column="0"/>
             <LayoutButtons Face="ResearchBankling3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research11" Row="0" Column="2"/>
+            <LayoutButtons Face="ResearchTarSpawn3v3" Type="AbilCmd" AbilCmd="ZCCResearch,Research13" Row="1" Column="1"/>
         </CardLayouts>
         <CardLayouts CardId="0003">
             <LayoutButtons Face="SpawnSlowling3v3" Type="AbilCmd" AbilCmd="SpawnSlowling,Execute" Row="0" Column="0"/>
