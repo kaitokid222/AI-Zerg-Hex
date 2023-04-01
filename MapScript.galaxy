@@ -366,12 +366,12 @@ int gv_possible_positions_strikelings_count;
 int gv_possible_positions_strikelings_free;
 point[501] gv_possible_positions_strikelings_dead;
 int gv_possible_positions_strikelings_dead_count;
-point[22] gv_possible_positions_special;
+point[51] gv_possible_positions_special;
 int gv_possible_positions_special_count;
 int gv_possible_positions_special_free;
-point[22] gv_possible_positions_special_dead;
+point[51] gv_possible_positions_special_dead;
 int gv_possible_positions_special_dead_count;
-point[32] gv_possible_positions_extractor;
+point[51] gv_possible_positions_extractor;
 int gv_possible_positions_extractor_count;
 int gv_possible_positions_extractor_free;
 point[7] gv_nest_repositions;
@@ -2932,9 +2932,9 @@ void gf_Apply_or_remove_base (int lp_player) {
     // Variable Declarations
     unitgroup lv_ug;
     unitgroup lv_tug;
-    point[21] lv_ffparr;
+    point[51] lv_ffparr;
     int lv_ffparr_cnt;
-    point[21] lv_cfparr;
+    point[51] lv_cfparr;
     int lv_cfparr_cnt;
     point[501] lv_wparr;
     int lv_wparr_cnt;
@@ -7977,7 +7977,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
