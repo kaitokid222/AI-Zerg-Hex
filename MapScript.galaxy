@@ -7029,11 +7029,21 @@ void gf_spawn_3v3_zerg_unit (int lp_player_id, int lp_unit_count, string lp_unit
     }
 
     if (((lp_unit_type == "Fireling") || (lp_unit_type == "InfestorZergHex3v3") || (lp_unit_type == "Larva3v3"))) {
-        if ((gv_players[lp_player_id].lv_position <= 3)) {
-            lv_attack_point = PointFromName("3v3_spawn_5");
+        if ((gv_practice_mode == true)) {
+            if ((gv_players[lp_player_id].lv_position <= 3)) {
+                lv_attack_point = PointFromName("3v3_spawn_2");
+            }
+            else {
+                lv_attack_point = PointFromName("3v3_spawn_5");
+            }
         }
         else {
-            lv_attack_point = PointFromName("3v3_spawn_2");
+            if ((gv_players[lp_player_id].lv_position <= 3)) {
+                lv_attack_point = PointFromName("3v3_spawn_5");
+            }
+            else {
+                lv_attack_point = PointFromName("3v3_spawn_2");
+            }
         }
         UnitGroupIssueOrder(lv_created_units, OrderTargetingPoint(AbilityCommand("attack", 0), lv_attack_point), c_orderQueueReplace);
     }

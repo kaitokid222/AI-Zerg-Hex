@@ -521,7 +521,7 @@
         <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
-        <LifeRegenRate value="0.2734"/>
+        <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldsMax value="400"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
@@ -2161,7 +2161,6 @@
             <LayoutButtons index="1" Face="BuildMechaHydralisk" AbilCmd="ZergTrain,Train7" Row="0" Column="1"/>
             <LayoutButtons index="2" Face="AbsorbingCloud" AbilCmd="AbsorbingCloud,Execute" Row="1" Column="3"/>
             <LayoutButtons index="3" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
-            <LayoutButtons Face="ExtractTerrazineNydus" Type="Passive" Row="0" Column="4"/>
         </CardLayouts>
         <CardLayouts>
             <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
