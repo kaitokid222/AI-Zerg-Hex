@@ -6027,7 +6027,7 @@ void gf_init_3v3 () {
                 TechTreeAbilityAllow(lv_index, AbilityCommand("ConstructionYardResearch", 12), true);
                 TechTreeAbilityAllow(gv_players[lv_index].lv__3v3_zerg_pid, AbilityCommand("DestroyStructure", 0), false);
                 TechTreeAbilityAllow(lv_index, AbilityCommand("BarracksTrain2", 18), true);
-                PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 160);
+                PlayerModifyPropertyInt(lv_index, c_playerPropTerrazine, c_playerPropOperSetTo, 276);
                 TechTreeUpgradeAddLevel(lv_index, "Mode3v3", 1);
                 TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "Mode3v3", 1);
                 TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "MechaZerg3v3", 1);
