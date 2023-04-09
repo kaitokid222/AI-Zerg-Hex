@@ -4177,20 +4177,23 @@ void gf_create_karax_for_player (int lp_player, point lp_p) {
     // Variable Initialization
 
     // Implementation
-    if ((gv_players[lp_player].lv_alive == false)) {
-        lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
-    }
-    else {
-        lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[lp_player].lv_position)));
-    }
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
-    if ((lp_p != null)) {
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lp_p), c_orderQueueReplace);
-    }
+    if ((UnitGroupCount(UnitGroup("KaraxChampion", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
+        if ((gv_players[lp_player].lv_alive == false)) {
+            lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
+        }
+        else {
+            lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[lp_player].lv_position)));
+        }
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
+        if ((lp_p != null)) {
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lp_p), c_orderQueueReplace);
+        }
 
-    if ((gv_players[lp_player].lv_alive == false)) {
-        Wait(2.0, c_timeGame);
-        CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+        if ((gv_players[lp_player].lv_alive == false)) {
+            Wait(2.0, c_timeGame);
+            CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+        }
+
     }
 
 }
@@ -6803,12 +6806,22 @@ void gf_create_zagara (int lp_player) {
     // Implementation
     if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
         if ((gv_players[lp_player].lv_position <= 3)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(20243859));
-            CameraPan(lp_player, PointFromId(20243859), 0.0, -1, 10.0, false);
+            if ((gf_is_terrans_team_bottom_dead() == true)) {
+                gf_create_karax_for_player(lp_player, null);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(20243859));
+                CameraPan(lp_player, PointFromId(20243859), 0.0, -1, 10.0, false);
+            }
         }
         else {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(1177115991));
-            CameraPan(lp_player, PointFromId(1177115991), 0.0, -1, 10.0, false);
+            if ((gf_is_terrans_team_top_dead() == true)) {
+                gf_create_karax_for_player(lp_player, null);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZaGara", 0, gv_players[lp_player].lv__3v3_zerg_pid, PointFromId(1177115991));
+                CameraPan(lp_player, PointFromId(1177115991), 0.0, -1, 10.0, false);
+            }
         }
     }
 
@@ -7977,7 +7990,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {

@@ -3295,14 +3295,6 @@
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="ExtractTerrazine" Type="Passive" Row="0" Column="0"/>
-            <LayoutButtons>
-                <Face value="ConvertTerrazine"/>
-                <Type value="Passive"/>
-                <Behavior value="GenerateTerrazine"/>
-                <Requirements value="TerrazineConverter"/>
-                <Row value="0"/>
-                <Column value="4"/>
-            </LayoutButtons>
         </CardLayouts>
         <Footprint value="Footprint2x2"/>
         <DeadFootprint value="Footprint2x2Contour"/>
