@@ -672,8 +672,6 @@
         <Attributes index="Heroic" value="1"/>
         <LifeStart value="130"/>
         <LifeMax value="130"/>
-        <LifeArmor value="2"/>
-        <LifeRegenRate value="10"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="3"/>
