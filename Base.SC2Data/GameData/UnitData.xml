@@ -672,8 +672,6 @@
         <Attributes index="Heroic" value="1"/>
         <LifeStart value="130"/>
         <LifeMax value="130"/>
-        <LifeArmor value="2"/>
-        <LifeRegenRate value="10"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="3"/>
@@ -1014,9 +1012,7 @@
         <FlagArray index="PreventDestroy" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <PlaneArray index="Ground" value="1"/>
-        <Collide index="Ground" value="1"/>
-        <Collide index="ForceField" value="1"/>
-        <Collide index="Locust" value="1"/>
+        <Collide index="DisruptorPhased" value="1"/>
         <Attributes index="Biological" value="1"/>
         <LifeStart value="200"/>
         <LifeMax value="200"/>
@@ -1077,8 +1073,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeRegenDelay value="2"/>
         <LifeRegenRate value="1.25"/>
         <LifeRegenRateCreep value="8.75"/>
@@ -3297,14 +3293,6 @@
         <CardLayouts index="0">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="ExtractTerrazine" Type="Passive" Row="0" Column="0"/>
-            <LayoutButtons>
-                <Face value="ConvertTerrazine"/>
-                <Type value="Passive"/>
-                <Behavior value="GenerateTerrazine"/>
-                <Requirements value="TerrazineConverter"/>
-                <Row value="0"/>
-                <Column value="4"/>
-            </LayoutButtons>
         </CardLayouts>
         <Footprint value="Footprint2x2"/>
         <DeadFootprint value="Footprint2x2Contour"/>
@@ -4791,8 +4779,8 @@
         <HotkeyAlias value="SporeCrawlerZergHex"/>
         <HotkeyCategory value=""/>
         <RankDisplay value="Never"/>
-        <Footprint value="Footprint2x2CreepTumor"/>
-        <PlacementFootprint value="Footprint2x2CreepTumor"/>
+        <Footprint value="Footprint2x2SporeCrawler"/>
+        <PlacementFootprint value="Footprint2x2SporeCrawler"/>
         <GlossaryStrongArray index="0" removed="1"/>
         <GlossaryStrongArray index="1" removed="1"/>
         <GlossaryStrongArray index="2" removed="1"/>

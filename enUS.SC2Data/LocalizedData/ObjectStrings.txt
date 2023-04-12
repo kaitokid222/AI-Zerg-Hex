@@ -2050,6 +2050,7 @@ Footprint/Name/Footprint21x21NearResource=Footprint 21x21 (Near Resource)
 Footprint/Name/Footprint2x2CreepTumor=Footprint 2x2
 Footprint/Name/Footprint2x2Nydus=Footprint 2x2 Nydus
 Footprint/Name/Footprint2x2NydusPlacement=Footprint 2x2 Nydus Placement
+Footprint/Name/Footprint2x2SporeCrawler=Footprint 2x2 Spore Crawler
 Footprint/Name/Footprint3x3OutsideBase=Footprint 3x3 (Outside Base)
 Footprint/Name/Footprint3x3OutsideBaseContour=Footprint 3x3 (Outside Base)
 Footprint/Name/Footprint4x4Creep=Footprint 4x4
