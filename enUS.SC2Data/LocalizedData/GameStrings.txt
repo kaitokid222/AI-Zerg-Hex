@@ -2341,6 +2341,14 @@ DocInfo/PatchNote620=- Rebalancing terrazine economy to have a more natural scal
 DocInfo/PatchNote621=- New mecha units -> baneling and mutalisk
 DocInfo/PatchNote622=- Zagara keeps spawning after your team is dead
 DocInfo/PatchNote623=- Karax spawn for dead player in your team once the other team is dead
+DocInfo/PatchNote624=Fixed Issues.
+DocInfo/PatchNote625=
+DocInfo/PatchNote626=== 3v3 changes ==
+DocInfo/PatchNote627=- boosting health of mecha infestor so they don't get 1 shot by the (overpowered) tank
+DocInfo/PatchNote628=- removing t1 requirement for mecha spine crawler, nydus and hydralisk
+DocInfo/PatchNote629=- terrazine converter no longer generate mineral after the other team is dead
+DocInfo/PatchNote630=- the game ends if one team left the game
+DocInfo/PatchNote631=- many bug fixes related to Zagara exploits
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
