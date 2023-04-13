@@ -2288,6 +2288,7 @@
             <Charge Link="Abil/ZaGaraDeepTunnel"/>
             <Cooldown Link="Abil/ZaGaraDeepTunnel" TimeUse="30"/>
         </Cost>
+        <TargetFilters value="Ground;Player,Ally,Neutral,Enemy"/>
     </CAbilEffectTarget>
     <CAbilTrain id="ZagaraTrain">
         <EditorCategories value="AbilityorEffectType:Units"/>
