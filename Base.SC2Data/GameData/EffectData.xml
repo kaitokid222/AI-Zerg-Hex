@@ -180,6 +180,9 @@
         <Behavior value="UnstableCore"/>
         <ValidatorArray index="0" value="HaveUnstableCore"/>
     </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="ZaGaraDeepTunnelCreatePersistent">
+        <ValidatorArray value="TargetPointIsCreep"/>
+    </CEffectCreatePersistent>
     <CEffectDamage id="ZagaraNotOnCreepDamage3v3">
         <EditorCategories value="Race:Zerg"/>
         <Flags index="NoKillCredit" value="1"/>
