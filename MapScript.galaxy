@@ -698,8 +698,10 @@ void gf_end_game (int lp_winner);
 void gf_rebalance_zerg_after_early_terran_death (int lp_player_id);
 int gf_get_ranked_difficulty ();
 void gf_AnalysePlayerDifficultyVotes ();
-int gf_get_pvote_difficulty (int lp_p);
+fixed gf_get_pvote_difficulty (int lp_p);
+bool gf_is_average_vote ();
 int gf_get_real_difficulty ();
+int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real);
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
 void gf_revealpickup (unit lp_item);
@@ -8937,7 +8939,7 @@ int gf_get_ranked_difficulty () {
 void gf_AnalysePlayerDifficultyVotes () {
     // Variable Declarations
     int lv_c;
-    int lv_s;
+    fixed lv_s;
     int lv_i;
     int lv_j;
     int lv_mxhack;
@@ -8968,7 +8970,7 @@ void gf_AnalysePlayerDifficultyVotes () {
             if ((PlayerStatus(lv_i) != c_playerStatusUnused)) {
                 lv_c = (lv_c + 1);
                 lv_s = (lv_s + gf_get_pvote_difficulty(lv_i));
-                lv_votes[lv_i] = gf_get_pvote_difficulty(lv_i);
+                lv_votes[lv_i] = gf_transform_voted_difficulty_real(gf_get_pvote_difficulty(lv_i));
                 lv_diff_votes[lv_votes[lv_i]] = (lv_diff_votes[lv_votes[lv_i]] + 1);
             }
 
@@ -8977,7 +8979,7 @@ void gf_AnalysePlayerDifficultyVotes () {
         if ((lv_c > 0)) {
             if ((GameAttributeGameValue("8") == "0003")) {
                 lv_voted_difficulty_real = ((lv_s + lv_votes[1]) / (lv_c + 1));
-                gv_voted_difficulty = RoundI(lv_voted_difficulty_real);
+                gv_voted_difficulty = gf_transform_voted_difficulty_real(lv_voted_difficulty_real);
             }
             else {
                 if ((GameAttributeGameValue("8") == "0004")) {
@@ -8993,7 +8995,7 @@ void gf_AnalysePlayerDifficultyVotes () {
                 }
                 else {
                     lv_voted_difficulty_real = (lv_s / lv_c);
-                    gv_voted_difficulty = RoundI(lv_voted_difficulty_real);
+                    gv_voted_difficulty = gf_transform_voted_difficulty_real(lv_voted_difficulty_real);
                 }
             }
         }
@@ -9090,9 +9092,9 @@ void gf_AnalysePlayerDifficultyVotes () {
     }
 }
 
-int gf_get_pvote_difficulty (int lp_p) {
+fixed gf_get_pvote_difficulty (int lp_p) {
     // Variable Declarations
-    int lv_r;
+    fixed lv_r;
 
     // Automatic Variable Declarations
     string autoCF610398_val;
@@ -9126,23 +9128,59 @@ int gf_get_pvote_difficulty (int lp_p) {
         lv_r = 8;
     }
     else if (autoCF610398_val == "0009") {
-        lv_r = 9;
+        if ((gf_is_average_vote() == true)) {
+            lv_r = 8.2;
+        }
+        else {
+            lv_r = 9.0;
+        }
     }
     else if (autoCF610398_val == "0010") {
-        lv_r = 10;
+        if ((gf_is_average_vote() == true)) {
+            lv_r = 8.4;
+        }
+        else {
+            lv_r = 10.0;
+        }
     }
     else if (autoCF610398_val == "0011") {
-        lv_r = 11;
+        if ((gf_is_average_vote() == true)) {
+            lv_r = 8.6;
+        }
+        else {
+            lv_r = 11.0;
+        }
     }
     else if (autoCF610398_val == "0012") {
-        lv_r = 12;
+        if ((gf_is_average_vote() == true)) {
+            lv_r = 8.8;
+        }
+        else {
+            lv_r = 12.0;
+        }
     }
     else if (autoCF610398_val == "0013") {
-        lv_r = 13;
+        if ((gf_is_average_vote() == true)) {
+            lv_r = 9.0;
+        }
+        else {
+            lv_r = 13.0;
+        }
     }
     else {
     }
     return lv_r;
+}
+
+bool gf_is_average_vote () {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((GameAttributeGameValue("8") == "0003") && (GameAttributeGameValue("8") == "0002")) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 int gf_get_real_difficulty () {
@@ -9155,6 +9193,31 @@ int gf_get_real_difficulty () {
 
     // Implementation
     return lv_r;
+}
+
+int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real) {
+    // Variable Declarations
+    fixed lv_temp;
+    int lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gf_is_average_vote() == true)) {
+        if ((lp_voted_difficulty_real < 8.0)) {
+            lv_result = RoundI(lp_voted_difficulty_real);
+        }
+        else {
+            lv_temp = (lp_voted_difficulty_real - 8.0);
+            lv_temp = (lp_voted_difficulty_real * 5.0);
+            lv_result = RoundI((8.0 + lv_temp));
+        }
+    }
+    else {
+        lv_result = RoundI(lp_voted_difficulty_real);
+    }
+    return lv_result;
 }
 
 void gf_init_event () {
