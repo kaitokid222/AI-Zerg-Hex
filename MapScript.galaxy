@@ -7993,7 +7993,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
