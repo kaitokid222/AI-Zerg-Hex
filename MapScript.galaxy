@@ -6007,6 +6007,8 @@ void gf_init_3v3 () {
     unit lv_flying_rally;
     int lv_index;
     unit[5] lv_bs;
+    int lv_zpid_position;
+    point lv_point;
 
     // Automatic Variable Declarations
     const int auto46451FDA_ae = 6;
@@ -6039,6 +6041,9 @@ void gf_init_3v3 () {
                 TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "MechaZerg3v3", 1);
                 CatalogReferenceSet("Button,Pylon,AlertTooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
                 CatalogReferenceSet("Button,Pylon,Tooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
+                lv_zpid_position = gf__3v3_get_target_or_random_enemy_terran_position(lv_index);
+                lv_point = PointFromName(("Nydus" + IntToString(lv_zpid_position)));
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, gv_players[lv_index].lv__3v3_zerg_pid, lv_point);
             }
 
         }
