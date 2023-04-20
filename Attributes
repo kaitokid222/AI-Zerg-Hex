@@ -174,9 +174,14 @@
             <Id Value="3"/>
             <Name Value="Attribute008/Value003/Name"/>
         </Value>
+        <Value>
+            <Id Value="5"/>
+            <Name Value="Attribute008/Value005/Name"/>
+            <Description Value="Attribute008/Value005/Desc"/>
+        </Value>
         <Default>
             <Slot Id="Global"/>
-            <Value Id="4"/>
+            <Value Id="2"/>
         </Default>
     </Attribute>
     <Attribute>
@@ -190,6 +195,11 @@
             <Attribute Id="1"/>
             <Value Id="1"/>
         </Requirement>
+        <Value>
+            <Id Value="14"/>
+            <Name Value="Attribute007/Value014/Name"/>
+            <Description Value="Attribute007/Value014/Desc"/>
+        </Value>
         <Value>
             <Id Value="2"/>
             <Name Value="Attribute007/Value002/Name"/>
@@ -275,27 +285,27 @@
         </Default>
         <Default>
             <Slot Id="0"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
         <Default>
             <Slot Id="1"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
         <Default>
             <Slot Id="2"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
         <Default>
             <Slot Id="3"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
         <Default>
             <Slot Id="4"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
         <Default>
             <Slot Id="5"/>
-            <Value Id="4"/>
+            <Value Id="14"/>
         </Default>
     </Attribute>
     <Attribute>

@@ -466,7 +466,7 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Minerals" value="20"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="que5"/>
@@ -849,8 +849,8 @@
         <EnergyStart value="250"/>
         <EnergyMax value="5000"/>
         <EnergyRegenRate value="0"/>
-        <CostResource index="Minerals" value="50"/>
-        <CostResource index="Vespene" value="50"/>
+        <CostResource index="Minerals" value="40"/>
+        <CostResource index="Vespene" value="40"/>
         <CostResource index="Terrazine" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>
@@ -1001,7 +1001,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
         <CostResource index="Vespene" value="20"/>
-        <CostResource index="Terrazine" value="110"/>
+        <CostResource index="Terrazine" value="80"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">
         <Subtitle value="UnitSubtitle/HydraliskLevel23v3"/>
@@ -7260,7 +7260,7 @@
         <LifeMax value="750"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.2734"/>
-        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Minerals" value="80"/>
         <BehaviorArray index="2" removed="1"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <KillDisplay value="Always"/>

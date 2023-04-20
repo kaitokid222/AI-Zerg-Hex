@@ -698,8 +698,11 @@ void gf_end_game (int lp_winner);
 void gf_rebalance_zerg_after_early_terran_death (int lp_player_id);
 int gf_get_ranked_difficulty ();
 void gf_AnalysePlayerDifficultyVotes ();
-int gf_get_pvote_difficulty (int lp_p);
+fixed gf_get_pvote_difficulty (int lp_p);
+fixed gf_get_elo_difficulty (int lp_player);
+bool gf_is_average_vote ();
 int gf_get_real_difficulty ();
+int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real);
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
 void gf_revealpickup (unit lp_item);
@@ -6004,6 +6007,8 @@ void gf_init_3v3 () {
     unit lv_flying_rally;
     int lv_index;
     unit[5] lv_bs;
+    int lv_zpid_position;
+    point lv_point;
 
     // Automatic Variable Declarations
     const int auto46451FDA_ae = 6;
@@ -6036,6 +6041,9 @@ void gf_init_3v3 () {
                 TechTreeUpgradeAddLevel(gv_players[lv_index].lv__3v3_zerg_pid, "MechaZerg3v3", 1);
                 CatalogReferenceSet("Button,Pylon,AlertTooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
                 CatalogReferenceSet("Button,Pylon,Tooltip", lv_index, "Provides powerful buffs and creates a powerfield for photon cannons.");
+                lv_zpid_position = gf__3v3_get_target_or_random_enemy_terran_position(lv_index);
+                lv_point = PointFromName(("Nydus" + IntToString(lv_zpid_position)));
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, gv_players[lv_index].lv__3v3_zerg_pid, lv_point);
             }
 
         }
@@ -7990,7 +7998,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return true;
+    return false;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -8170,13 +8178,11 @@ void gf_Create_game () {
         gv_practice_mode = true;
     }
 
-    gf_Game_Banks_handler("load", 0, 0, 0);
     auto27D78943_g = gv_terrans;
     auto27D78943_var = -1;
     while (true) {
         auto27D78943_var = PlayerGroupNextPlayer(auto27D78943_g, auto27D78943_var);
         if (auto27D78943_var < 0) { break; }
-        gf_Game_Banks_handler("addgame", auto27D78943_var, (gv_players[auto27D78943_var].lv_elo - 0), 0);
         gv_players[auto27D78943_var].lv_alive = true;
         if ((gf_is_player_banned(auto27D78943_var) == true)) {
         }
@@ -8937,7 +8943,7 @@ int gf_get_ranked_difficulty () {
 void gf_AnalysePlayerDifficultyVotes () {
     // Variable Declarations
     int lv_c;
-    int lv_s;
+    fixed lv_s;
     int lv_i;
     int lv_j;
     int lv_mxhack;
@@ -8968,7 +8974,7 @@ void gf_AnalysePlayerDifficultyVotes () {
             if ((PlayerStatus(lv_i) != c_playerStatusUnused)) {
                 lv_c = (lv_c + 1);
                 lv_s = (lv_s + gf_get_pvote_difficulty(lv_i));
-                lv_votes[lv_i] = gf_get_pvote_difficulty(lv_i);
+                lv_votes[lv_i] = gf_transform_voted_difficulty_real(gf_get_pvote_difficulty(lv_i));
                 lv_diff_votes[lv_votes[lv_i]] = (lv_diff_votes[lv_votes[lv_i]] + 1);
             }
 
@@ -8977,7 +8983,7 @@ void gf_AnalysePlayerDifficultyVotes () {
         if ((lv_c > 0)) {
             if ((GameAttributeGameValue("8") == "0003")) {
                 lv_voted_difficulty_real = ((lv_s + lv_votes[1]) / (lv_c + 1));
-                gv_voted_difficulty = RoundI(lv_voted_difficulty_real);
+                gv_voted_difficulty = gf_transform_voted_difficulty_real(lv_voted_difficulty_real);
             }
             else {
                 if ((GameAttributeGameValue("8") == "0004")) {
@@ -8993,7 +8999,7 @@ void gf_AnalysePlayerDifficultyVotes () {
                 }
                 else {
                     lv_voted_difficulty_real = (lv_s / lv_c);
-                    gv_voted_difficulty = RoundI(lv_voted_difficulty_real);
+                    gv_voted_difficulty = gf_transform_voted_difficulty_real(lv_voted_difficulty_real);
                 }
             }
         }
@@ -9090,9 +9096,9 @@ void gf_AnalysePlayerDifficultyVotes () {
     }
 }
 
-int gf_get_pvote_difficulty (int lp_p) {
+fixed gf_get_pvote_difficulty (int lp_p) {
     // Variable Declarations
-    int lv_r;
+    fixed lv_result;
 
     // Automatic Variable Declarations
     string autoCF610398_val;
@@ -9100,49 +9106,158 @@ int gf_get_pvote_difficulty (int lp_p) {
     // Variable Initialization
 
     // Implementation
-    autoCF610398_val = GameAttributePlayerValue("7", lp_p);
-    if (autoCF610398_val == "0002") {
-        lv_r = 1;
-    }
-    else if (autoCF610398_val == "0001") {
-        lv_r = 2;
-    }
-    else if (autoCF610398_val == "0004") {
-        lv_r = 3;
-    }
-    else if (autoCF610398_val == "0005") {
-        lv_r = 4;
-    }
-    else if (autoCF610398_val == "0006") {
-        lv_r = 5;
-    }
-    else if (autoCF610398_val == "0007") {
-        lv_r = 6;
-    }
-    else if (autoCF610398_val == "0003") {
-        lv_r = 7;
-    }
-    else if (autoCF610398_val == "0008") {
-        lv_r = 8;
-    }
-    else if (autoCF610398_val == "0009") {
-        lv_r = 9;
-    }
-    else if (autoCF610398_val == "0010") {
-        lv_r = 10;
-    }
-    else if (autoCF610398_val == "0011") {
-        lv_r = 11;
-    }
-    else if (autoCF610398_val == "0012") {
-        lv_r = 12;
-    }
-    else if (autoCF610398_val == "0013") {
-        lv_r = 13;
+    if ((GameAttributeGameValue("8") == "0005")) {
+        lv_result = gf_get_elo_difficulty(lp_p);
     }
     else {
+        autoCF610398_val = GameAttributePlayerValue("7", lp_p);
+        if (autoCF610398_val == "0014") {
+            lv_result = gf_get_elo_difficulty(lp_p);
+        }
+        else if (autoCF610398_val == "0002") {
+            lv_result = 1;
+        }
+        else if (autoCF610398_val == "0001") {
+            lv_result = 2;
+        }
+        else if (autoCF610398_val == "0004") {
+            lv_result = 3;
+        }
+        else if (autoCF610398_val == "0005") {
+            lv_result = 4;
+        }
+        else if (autoCF610398_val == "0006") {
+            lv_result = 5;
+        }
+        else if (autoCF610398_val == "0007") {
+            lv_result = 6;
+        }
+        else if (autoCF610398_val == "0003") {
+            lv_result = 7;
+        }
+        else if (autoCF610398_val == "0008") {
+            lv_result = 8;
+        }
+        else if (autoCF610398_val == "0009") {
+            if ((gf_is_average_vote() == true)) {
+                lv_result = 8.2;
+            }
+            else {
+                lv_result = 9.0;
+            }
+        }
+        else if (autoCF610398_val == "0010") {
+            if ((gf_is_average_vote() == true)) {
+                lv_result = 8.4;
+            }
+            else {
+                lv_result = 10.0;
+            }
+        }
+        else if (autoCF610398_val == "0011") {
+            if ((gf_is_average_vote() == true)) {
+                lv_result = 8.6;
+            }
+            else {
+                lv_result = 11.0;
+            }
+        }
+        else if (autoCF610398_val == "0012") {
+            if ((gf_is_average_vote() == true)) {
+                lv_result = 8.8;
+            }
+            else {
+                lv_result = 12.0;
+            }
+        }
+        else if (autoCF610398_val == "0013") {
+            if ((gf_is_average_vote() == true)) {
+                lv_result = 9.0;
+            }
+            else {
+                lv_result = 13.0;
+            }
+        }
+        else {
+        }
     }
-    return lv_r;
+    return lv_result;
+}
+
+fixed gf_get_elo_difficulty (int lp_player) {
+    // Variable Declarations
+    int lv_elo;
+    fixed lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_elo = gv_players[lp_player].lv_elo;
+
+    // Implementation
+    if ((lv_elo < 1000)) {
+        lv_result = 1.0;
+    }
+
+    if ((lv_elo >= 1000) && (lv_elo < 1200)) {
+        lv_result = 2.0;
+    }
+
+    if ((lv_elo >= 1200) && (lv_elo < 1400)) {
+        lv_result = 3.0;
+    }
+
+    if ((lv_elo >= 1400) && (lv_elo < 1600)) {
+        lv_result = 4.0;
+    }
+
+    if ((lv_elo >= 1600) && (lv_elo < 1800)) {
+        lv_result = 5.0;
+    }
+
+    if ((lv_elo >= 1800) && (lv_elo < 2000)) {
+        lv_result = 6.0;
+    }
+
+    if ((lv_elo >= 2000) && (lv_elo < 2200)) {
+        lv_result = 7.0;
+    }
+
+    if ((lv_elo >= 2200) && (lv_elo < 2400)) {
+        lv_result = 8.0;
+    }
+
+    if ((lv_elo >= 2400) && (lv_elo < 2600)) {
+        lv_result = 8.2;
+    }
+
+    if ((lv_elo >= 2600) && (lv_elo < 2800)) {
+        lv_result = 8.4;
+    }
+
+    if ((lv_elo >= 2800) && (lv_elo < 3000)) {
+        lv_result = 8.6;
+    }
+
+    if ((lv_elo >= 3000) && (lv_elo < 3200)) {
+        lv_result = 8.8;
+    }
+
+    if ((lv_elo >= 3200)) {
+        lv_result = 9.0;
+    }
+
+    return lv_result;
+}
+
+bool gf_is_average_vote () {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((GameAttributeGameValue("8") == "0003") && (GameAttributeGameValue("8") == "0002") && (GameAttributeGameValue("8") == "0005")) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 int gf_get_real_difficulty () {
@@ -9155,6 +9270,31 @@ int gf_get_real_difficulty () {
 
     // Implementation
     return lv_r;
+}
+
+int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real) {
+    // Variable Declarations
+    fixed lv_temp;
+    int lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gf_is_average_vote() == true)) {
+        if ((lp_voted_difficulty_real < 8.0)) {
+            lv_result = RoundI(lp_voted_difficulty_real);
+        }
+        else {
+            lv_temp = (lp_voted_difficulty_real - 8.0);
+            lv_temp = (lp_voted_difficulty_real * 5.0);
+            lv_result = RoundI((8.0 + lv_temp));
+        }
+    }
+    else {
+        lv_result = RoundI(lp_voted_difficulty_real);
+    }
+    return lv_result;
 }
 
 void gf_init_event () {
@@ -26839,6 +26979,8 @@ void gt_ZergArmor_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_entrypoint_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    playergroup autoAE518202_g;
+    int autoAE518202_var;
     playergroup autoE17CD697_g;
     int autoE17CD697_var;
     playergroup auto66F91F0D_g;
@@ -26861,6 +27003,14 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackTownAlly_Terr", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnitAlly_Zerg", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnit_Zerg", false);
+    gf_Game_Banks_handler("load", 0, 0, 0);
+    autoAE518202_g = gv_terrans;
+    autoAE518202_var = -1;
+    while (true) {
+        autoAE518202_var = PlayerGroupNextPlayer(autoAE518202_g, autoAE518202_var);
+        if (autoAE518202_var < 0) { break; }
+        gf_Game_Banks_handler("addgame", autoAE518202_var, (gv_players[autoAE518202_var].lv_elo - 0), 0);
+    }
     if ((GameAttributeGameValue("1") == "0002")) {
         gv_difficulty = gf_get_ranked_difficulty();
     }
