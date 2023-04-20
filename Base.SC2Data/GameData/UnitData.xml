@@ -1001,7 +1001,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
         <CostResource index="Vespene" value="20"/>
-        <CostResource index="Terrazine" value="110"/>
+        <CostResource index="Terrazine" value="80"/>
     </CUnit>
     <CUnit id="HydraliskLevel23v3">
         <Subtitle value="UnitSubtitle/HydraliskLevel23v3"/>
