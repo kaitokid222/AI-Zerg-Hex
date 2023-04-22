@@ -197,7 +197,7 @@
         <EditorCategories value=""/>
         <AttributeBonus index="Structure" value="-5"/>
         <Visibility value="Visible"/>
-        <Amount value="4"/>
+        <Amount value="1"/>
         <Death value="Fire"/>
         <AreaArray Radius="1" Fraction="1"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>

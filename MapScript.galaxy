@@ -7998,7 +7998,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -24705,6 +24705,10 @@ bool gt_Terranenterszerghighground_Func (bool testConds, bool runActions) {
         if (!((lv_unit_type != gf_get_zerg_rally_point_unit_type()))) {
             return false;
         }
+
+        if (!((lv_unit_type != "SiegeTankFragmentBlastFire"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -24779,6 +24783,10 @@ bool gt_invaderleaveszerghighground_Func (bool testConds, bool runActions) {
         }
 
         if (!((lv_unit_type != gf_get_zerg_rally_point_unit_type()))) {
+            return false;
+        }
+
+        if (!((lv_unit_type != "SiegeTankFragmentBlastFire"))) {
             return false;
         }
 
@@ -24857,6 +24865,10 @@ bool gt_invaderdies_Func (bool testConds, bool runActions) {
         }
 
         if (!((UnitGetType(lv_unit) != gf_get_zerg_rally_point_unit_type()))) {
+            return false;
+        }
+
+        if (!((UnitGetType(lv_unit) != "SiegeTankFragmentBlastFire"))) {
             return false;
         }
 
