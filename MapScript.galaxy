@@ -1908,9 +1908,6 @@ void gf_apply_support_3v3 () {
     unitgroup autoE414EAEC_g;
     int autoE414EAEC_u;
     unit autoE414EAEC_var;
-    unitgroup auto8B0EB86F_g;
-    int auto8B0EB86F_u;
-    unit auto8B0EB86F_var;
     unitgroup autoA744CA74_g;
     int autoA744CA74_u;
     unit autoA744CA74_var;
@@ -2000,7 +1997,7 @@ void gf_apply_support_3v3 () {
                 if (auto5610767C_var == null) { break; }
                 lv_p = UnitGetPosition(auto5610767C_var);
                 UnitRemove(auto5610767C_var);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosSpaceMarine", 0, auto4A0E4D9D_var, lv_p);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "ChaosCultist", 0, auto4A0E4D9D_var, lv_p);
             }
             libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSlave", 0, auto4A0E4D9D_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto4A0E4D9D_var].lv_position))));
             CatalogReferenceSet("Button,ResearchOvercharge,AlertTooltip", auto4A0E4D9D_var, "Enables <c val=\"ffff8a\">Elite Marines</c> and <c val=\"ffff8a\">Chaos Space Marines</c> to use the Overcharge and Stimpack ability.");
@@ -2040,13 +2037,6 @@ void gf_apply_support_3v3 () {
                 UnitRemove(autoE414EAEC_var);
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "ShockTrooper", 0, auto4A0E4D9D_var, lv_p);
             }
-            auto8B0EB86F_g = UnitGroup("Generator", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-            auto8B0EB86F_u = UnitGroupCount(auto8B0EB86F_g, c_unitCountAll);
-            for (;; auto8B0EB86F_u -= 1) {
-                auto8B0EB86F_var = UnitGroupUnitFromEnd(auto8B0EB86F_g, auto8B0EB86F_u);
-                if (auto8B0EB86F_var == null) { break; }
-                UnitBehaviorAdd(auto8B0EB86F_var, "HighTechBuff", auto8B0EB86F_var, 1);
-            }
         }
         else if (auto62D37381_val == 4) {
             gv_players[auto4A0E4D9D_var].lv_support_type = "3x";
@@ -2067,8 +2057,8 @@ void gf_apply_support_3v3 () {
         }
         else if (auto62D37381_val == 5) {
             lv_i = 1;
-            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals) + 250));
-            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropVespene) + 250));
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals) + 200));
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto4A0E4D9D_var, c_playerPropVespene) + 200));
         }
         else if (auto62D37381_val == 6) {
             TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("CommandCenterTrain2", 6), true);
@@ -2077,7 +2067,7 @@ void gf_apply_support_3v3 () {
             TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("ArmoryResearch2", 17), false);
             TechTreeAbilityAllow(auto4A0E4D9D_var, AbilityCommand("BarracksTrain2", 7), false);
             PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropMinerals, c_playerPropOperAdd, 180);
-            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperAdd, 100);
+            PlayerModifyPropertyInt(auto4A0E4D9D_var, c_playerPropVespene, c_playerPropOperAdd, 50);
             gv_players[auto4A0E4D9D_var].lv_support_type = "Infested";
             autoA744CA74_g = UnitGroup("Builder", auto4A0E4D9D_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             autoA744CA74_u = UnitGroupCount(autoA744CA74_g, c_unitCountAll);
@@ -2341,9 +2331,12 @@ void gf_create_tank_support_forplayer (int lp_player) {
     libNtve_gf_MakeUnitUncommandable(lv_mv, true);
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "SiegeTank2", c_unitCreateIgnorePlacement, lp_player, lv_spawn_middle);
     UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+    if ((gf_is_3v3() == false)) {
+        TechTreeUpgradeAddLevel(lp_player, "SiegeTankRange", 1);
+        TechTreeUpgradeAddLevel(lp_player, "SiegeTankPlasmaShards", 1);
+    }
+
     TechTreeUpgradeAddLevel(lp_player, "SiegeTankModulation", 1);
-    TechTreeUpgradeAddLevel(lp_player, "SiegeTankPlasmaShards", 1);
-    TechTreeUpgradeAddLevel(lp_player, "SiegeTankRange", 1);
     UnitIssueOrder(lv_mv, OrderTargetingUnit(AbilityCommand("MedivacTransport", 0), UnitLastCreated()), c_orderQueueAddToEnd);
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", c_unitCreateIgnorePlacement, lp_player, lv_spawn_middle);
     UnitIssueOrder(lv_mv, OrderTargetingUnit(AbilityCommand("MedivacTransport", 0), UnitLastCreated()), c_orderQueueAddToEnd);
@@ -3140,8 +3133,11 @@ void gf_Apply_or_remove_base (int lp_player) {
         }
         lv_i = 1;
         while ((lv_i <= lv_agparr_cnt)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "TerranAdvancedGate", 0, lp_player, lv_agparr[lv_i]);
-            UnitBehaviorAdd(UnitLastCreated(), "Automated", UnitLastCreated(), 1);
+            if ((gf_is_3v3() == false)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "TerranAdvancedGate", 0, lp_player, lv_agparr[lv_i]);
+                UnitBehaviorAdd(UnitLastCreated(), "Automated", UnitLastCreated(), 1);
+            }
+
             lv_i = (lv_i + 1);
         }
     }
@@ -7998,7 +7994,7 @@ bool gf_is_3v3 () {
 bool gf_is_3v3_local_test () {
     // Automatic Variable Declarations
     // Implementation
-    return false;
+    return true;
 }
 
 region gf_get_region_of_influence_3v3 (int lp_player_position) {
@@ -24705,6 +24701,10 @@ bool gt_Terranenterszerghighground_Func (bool testConds, bool runActions) {
         if (!((lv_unit_type != gf_get_zerg_rally_point_unit_type()))) {
             return false;
         }
+
+        if (!((lv_unit_type != "SiegeTankFragmentBlastFire"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -24779,6 +24779,10 @@ bool gt_invaderleaveszerghighground_Func (bool testConds, bool runActions) {
         }
 
         if (!((lv_unit_type != gf_get_zerg_rally_point_unit_type()))) {
+            return false;
+        }
+
+        if (!((lv_unit_type != "SiegeTankFragmentBlastFire"))) {
             return false;
         }
 
@@ -24857,6 +24861,10 @@ bool gt_invaderdies_Func (bool testConds, bool runActions) {
         }
 
         if (!((UnitGetType(lv_unit) != gf_get_zerg_rally_point_unit_type()))) {
+            return false;
+        }
+
+        if (!((UnitGetType(lv_unit) != "SiegeTankFragmentBlastFire"))) {
             return false;
         }
 

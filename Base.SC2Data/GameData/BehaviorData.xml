@@ -290,7 +290,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankFragmentBlastFireDamage">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Period value="0.2"/>
+        <Period value="0.5"/>
         <PeriodicEffect value="SiegeTankFragmentBlastFireDamage"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankFragmentBlastFireTimedLife" parent="TimedLife">
