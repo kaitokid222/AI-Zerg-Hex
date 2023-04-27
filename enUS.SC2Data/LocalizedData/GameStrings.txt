@@ -2353,6 +2353,16 @@ DocInfo/PatchNote628=- removing t1 requirement for mecha spine crawler, nydus an
 DocInfo/PatchNote629=- terrazine converter no longer generate mineral after the other team is dead
 DocInfo/PatchNote630=- the game ends if one team left the game
 DocInfo/PatchNote631=- many bug fixes related to Zagara exploits
+DocInfo/PatchNote632=Fixed Issues
+DocInfo/PatchNote633=Adding a new automatic difficulty voting option. It will select a difficulty from Easy to Torment 6 (Smith) based on your elo rating.
+DocInfo/PatchNote634=
+DocInfo/PatchNote635==== 3v3 changes ===
+DocInfo/PatchNote636=
+DocInfo/PatchNote637=- Reducing mecha spine crawler mineral cost from 100 to 80
+DocInfo/PatchNote638=- Reducing Mecha TechLab mineral cost from 50 to 20
+DocInfo/PatchNote639=- Reducing ZCC mineral/gas cost from 50/50 to 40/40
+DocInfo/PatchNote640=- Reducing Hydralisk Defender terrazine cost from 110 to 80
+DocInfo/PatchNote641=- Pre-placing 1 Mecha Nydus per 3v3 player at the start of the game
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
