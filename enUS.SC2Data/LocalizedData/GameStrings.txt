@@ -2363,6 +2363,7 @@ DocInfo/PatchNote638=- Reducing Mecha TechLab mineral cost from 50 to 20
 DocInfo/PatchNote639=- Reducing ZCC mineral/gas cost from 50/50 to 40/40
 DocInfo/PatchNote640=- Reducing Hydralisk Defender terrazine cost from 110 to 80
 DocInfo/PatchNote641=- Pre-placing 1 Mecha Nydus per 3v3 player at the start of the game
+DocInfo/PatchNote642=Fixed Issue.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
