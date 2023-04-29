@@ -26987,10 +26987,10 @@ void gt_ZergArmor_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_entrypoint_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    playergroup autoAE518202_g;
-    int autoAE518202_var;
     playergroup autoE17CD697_g;
     int autoE17CD697_var;
+    playergroup autoAE518202_g;
+    int autoAE518202_var;
     playergroup auto66F91F0D_g;
     int auto66F91F0D_var;
     playergroup auto54EEAE8F_g;
@@ -27011,6 +27011,18 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackTownAlly_Terr", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnitAlly_Zerg", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnit_Zerg", false);
+    autoE17CD697_g = PlayerGroupActive();
+    autoE17CD697_var = -1;
+    while (true) {
+        autoE17CD697_var = PlayerGroupNextPlayer(autoE17CD697_g, autoE17CD697_var);
+        if (autoE17CD697_var < 0) { break; }
+        if ((PlayerRace(autoE17CD697_var) == "Terr")) {
+            PlayerGroupAdd(gv_terrans, autoE17CD697_var);
+        }
+        else {
+            PlayerGroupAdd(gv_zerg, autoE17CD697_var);
+        }
+    }
     gf_Game_Banks_handler("load", 0, 0, 0);
     autoAE518202_g = gv_terrans;
     autoAE518202_var = -1;
@@ -27038,18 +27050,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_create_creep_source_groups();
     gf_get_possible_positions();
     gf_set_infestors_points();
-    autoE17CD697_g = PlayerGroupActive();
-    autoE17CD697_var = -1;
-    while (true) {
-        autoE17CD697_var = PlayerGroupNextPlayer(autoE17CD697_g, autoE17CD697_var);
-        if (autoE17CD697_var < 0) { break; }
-        if ((PlayerRace(autoE17CD697_var) == "Terr")) {
-            PlayerGroupAdd(gv_terrans, autoE17CD697_var);
-        }
-        else {
-            PlayerGroupAdd(gv_zerg, autoE17CD697_var);
-        }
-    }
     gf_Create_game();
     gf_init_weather();
     gf_Game_create_leaderboard();
