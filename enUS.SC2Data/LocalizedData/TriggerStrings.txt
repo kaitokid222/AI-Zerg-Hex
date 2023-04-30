@@ -3035,6 +3035,7 @@ Variable/Name/EF637889=random_position
 Variable/Name/EF7E3B9C=owner
 Variable/Name/EFAA4730=player_id
 Variable/Name/EFC8B5C3=possible_positions_t1_count
+Variable/Name/EFCF7A79=region
 Variable/Name/EFE18BD0=savedata_player_wins_terran
 Variable/Name/F0432B87=return
 Variable/Name/F074E3ED=possible_positions_t2_dead

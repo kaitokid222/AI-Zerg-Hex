@@ -2185,6 +2185,11 @@
         </CardLayouts>
         <BehaviorArray Link="IsSpawner"/>
     </CUnit>
+    <CUnit id="Obelisk">
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="2"/>
+    </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>
         <FlagArray index="ArmySelect" value="0"/>

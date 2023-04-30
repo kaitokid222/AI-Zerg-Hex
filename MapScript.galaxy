@@ -6005,10 +6005,17 @@ void gf_init_3v3 () {
     unit[5] lv_bs;
     int lv_zpid_position;
     point lv_point;
+    region lv_region;
 
     // Automatic Variable Declarations
+    unitgroup auto587CED75_g;
+    int auto587CED75_u;
+    unit auto587CED75_var;
     const int auto46451FDA_ae = 6;
     const int auto46451FDA_ai = 1;
+    unitgroup auto8ADABB05_g;
+    int auto8ADABB05_u;
+    unit auto8ADABB05_var;
     unitgroup auto90631DD0_g;
     int auto90631DD0_u;
     unit auto90631DD0_var;
@@ -6040,6 +6047,14 @@ void gf_init_3v3 () {
                 lv_zpid_position = gf__3v3_get_target_or_random_enemy_terran_position(lv_index);
                 lv_point = PointFromName(("Nydus" + IntToString(lv_zpid_position)));
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "NydusCanal", 0, gv_players[lv_index].lv__3v3_zerg_pid, lv_point);
+                lv_region = RegionFromName(("geysers " + IntToString(gv_players[lv_index].lv_position)));
+                auto8ADABB05_g = UnitGroup("Obelisk", c_playerAny, lv_region, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                auto8ADABB05_u = UnitGroupCount(auto8ADABB05_g, c_unitCountAll);
+                for (;; auto8ADABB05_u -= 1) {
+                    auto8ADABB05_var = UnitGroupUnitFromEnd(auto8ADABB05_g, auto8ADABB05_u);
+                    if (auto8ADABB05_var == null) { break; }
+                    UnitSetOwner(auto8ADABB05_var, lv_index, true);
+                }
             }
 
         }
@@ -6076,6 +6091,13 @@ void gf_init_3v3 () {
     }
     else {
         libNtve_gf_RemoveDoodadsinRegion(RegionEntireMap(), "DOM_Fire_Large_Long");
+        auto587CED75_g = UnitGroup("Obelisk", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto587CED75_u = UnitGroupCount(auto587CED75_g, c_unitCountAll);
+        for (;; auto587CED75_u -= 1) {
+            auto587CED75_var = UnitGroupUnitFromEnd(auto587CED75_g, auto587CED75_u);
+            if (auto587CED75_var == null) { break; }
+            UnitRemove(auto587CED75_var);
+        }
     }
 }
 
@@ -6177,10 +6199,10 @@ void gf_create_3v3_objectives () {
         auto18CFFB66_var = PlayerGroupNextPlayer(auto18CFFB66_g, auto18CFFB66_var);
         if (auto18CFFB66_var < 0) { break; }
         lv_player_group = PlayerGroupSingle(auto18CFFB66_var);
-        ObjectiveCreateForPlayers(StringExternal("Param/Value/B50ED78D"), StringExternal("Param/Value/740F8555"), c_objectiveStateActive, true, lv_player_group);
-        gv__3v3_objective_kill_hive[auto18CFFB66_var] = ObjectiveLastCreated();
         ObjectiveCreateForPlayers(StringExternal("Param/Value/01AD00A3"), StringExternal("Param/Value/74473846"), c_objectiveStateActive, true, lv_player_group);
         gv__3v3_objective_kill_other_team[auto18CFFB66_var] = ObjectiveLastCreated();
+        ObjectiveCreateForPlayers(StringExternal("Param/Value/B50ED78D"), StringExternal("Param/Value/740F8555"), c_objectiveStateActive, false, lv_player_group);
+        gv__3v3_objective_kill_hive[auto18CFFB66_var] = ObjectiveLastCreated();
         ObjectiveCreateForPlayers(StringExternal("Param/Value/A4896498"), StringExternal("Param/Value/A34587B0"), c_objectiveStateActive, false, lv_player_group);
         gv__3v3_help_with_zagara[auto18CFFB66_var] = ObjectiveLastCreated();
     }
@@ -20534,16 +20556,11 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
     while (true) {
         auto2BE65F3E_var = PlayerGroupNextPlayer(auto2BE65F3E_g, auto2BE65F3E_var);
         if (auto2BE65F3E_var < 0) { break; }
-        if ((gf_is_bottom_hive_dead() == true)) {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateFailed);
+        if ((gf_is_terrans_team_bottom_dead() == true)) {
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateCompleted);
         }
         else {
-            if ((gf_is_terrans_team_bottom_dead() == true)) {
-                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateCompleted);
-            }
-            else {
-                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateActive);
-            }
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto2BE65F3E_var], c_objectiveStateActive);
         }
         if ((gf_is_top_hive_dead() == true)) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto2BE65F3E_var], c_objectiveStateCompleted);
@@ -20557,16 +20574,11 @@ bool gt_update_3v3_objectives_Func (bool testConds, bool runActions) {
     while (true) {
         auto7964F223_var = PlayerGroupNextPlayer(auto7964F223_g, auto7964F223_var);
         if (auto7964F223_var < 0) { break; }
-        if ((gf_is_top_hive_dead() == true)) {
-            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateFailed);
+        if ((gf_is_terrans_team_top_dead() == true)) {
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateCompleted);
         }
         else {
-            if ((gf_is_terrans_team_top_dead() == true)) {
-                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateCompleted);
-            }
-            else {
-                ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateActive);
-            }
+            ObjectiveSetState(gv__3v3_objective_kill_other_team[auto7964F223_var], c_objectiveStateActive);
         }
         if ((gf_is_bottom_hive_dead() == true)) {
             ObjectiveSetState(gv__3v3_objective_kill_hive[auto7964F223_var], c_objectiveStateCompleted);

@@ -3361,7 +3361,7 @@ Param/Expression/ECF36BA8=Large Spawner Added: ~A~
 Param/Expression/EE276F01=Research <c val="E1848D">~A~ ~B~</c> completed
 Param/Expression/F1559DB1=Spawner Removed: ~A~
 Param/Value/008594BF=Zagara will respawn in 10 seconds!
-Param/Value/01AD00A3=Kill the other team before they kill their Hive!
+Param/Value/01AD00A3=Kill the other team's Obelisk!
 Param/Value/01EE3A16=Voting got started for a different event!
 Param/Value/01F40F98=Artanis
 Param/Value/02A43A7E=Play 1 game to enable
@@ -3503,7 +3503,7 @@ Param/Value/70429A66=I will come and support you!
 Param/Value/70CF1FCC=Valentines Day Event active!
 Param/Value/7164857E=0
 Param/Value/740F8555=Kill the Hive on your side of the map.
-Param/Value/74473846=Kill every terran in the other team.
+Param/Value/74473846=Kill the obelisk of every terran in the other team.
 Param/Value/749C261C=all players must agree
 Param/Value/74E25741=
 Param/Value/769E7869=/
