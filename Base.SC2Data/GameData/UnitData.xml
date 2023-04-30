@@ -2186,9 +2186,16 @@
         <BehaviorArray Link="IsSpawner"/>
     </CUnit>
     <CUnit id="Obelisk">
+        <Subtitle value="This unit cannot be repaired."/>
+        <FlagArray index="Invulnerable" value="0"/>
         <LifeStart value="1000"/>
         <LifeMax value="1000"/>
         <LifeArmor value="2"/>
+        <ShieldsStart value="500"/>
+        <ShieldsMax value="500"/>
+        <ShieldRegenRate value="10"/>
+        <RepairTime value="100"/>
+        <BehaviorArray index="0" removed="1"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>

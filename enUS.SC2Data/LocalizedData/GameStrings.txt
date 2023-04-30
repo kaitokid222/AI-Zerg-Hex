@@ -3784,6 +3784,7 @@ RequirementNode/Tooltip/Not862517467CountUnitAutomatedAssimilatorQueuedOrBetter=
 RequirementNode/Tooltip/Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmory2CompleteOnlyCountUnitTechLab3CompleteOnly=Any Tech Structure
 RequirementNode/Tooltip/Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmoryCompleteOnlyCountUnitTechLab3CompleteOnly=Any Tech Structure
 SiegeTankUpgrading=Upgrading
+This unit cannot be repaired.=This unit cannot be repaired.
 UI/AIBuild00=Default
 UI/AIBuild00Tip=A.I. builds in the usual balanced order.
 UI/AIBuild02=Mass Roach
