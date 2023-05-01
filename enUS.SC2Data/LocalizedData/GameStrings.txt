@@ -2364,6 +2364,23 @@ DocInfo/PatchNote639=- Reducing ZCC mineral/gas cost from 50/50 to 40/40
 DocInfo/PatchNote640=- Reducing Hydralisk Defender terrazine cost from 110 to 80
 DocInfo/PatchNote641=- Pre-placing 1 Mecha Nydus per 3v3 player at the start of the game
 DocInfo/PatchNote642=Fixed Issue.
+DocInfo/PatchNote643==== Siege Tank ( in Casual & 3v3) ===
+DocInfo/PatchNote644=
+DocInfo/PatchNote645=- Siege Tank cost 200 less mineral
+DocInfo/PatchNote646=- Siege Tank range upgrade cost increase: 50/50 -> 750/150
+DocInfo/PatchNote647=- Siege Tank fragment ugprade cost increase: 50/50 -> 500/100
+DocInfo/PatchNote648=
+DocInfo/PatchNote649==== 3v3 Bonus ===
+DocInfo/PatchNote650=
+DocInfo/PatchNote651=Siege Tank Bonus: You start without the range upgrade and the fragment upgrade.
+DocInfo/PatchNote652=Cash Bonus initial money reduced: 250/250 -> 200/200
+DocInfo/PatchNote653=Prebuilt Bonus: Gates are removed
+DocInfo/PatchNote654=Chaos Bonus: You start with  Cultist instead of Chaos Marines.
+DocInfo/PatchNote655=High Tech Bonus: Initial energy buff removed
+DocInfo/PatchNote656=
+DocInfo/PatchNote657==== 3v3 Win Condition === 
+DocInfo/PatchNote658=
+DocInfo/PatchNote659=Each player now starts with an Obelisk. Your team wins if you manage to destroy all the Obelisks of the other team.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud

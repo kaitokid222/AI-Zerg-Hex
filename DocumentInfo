@@ -167,6 +167,7 @@
             <Value>1.79</Value>
             <Value>1.80</Value>
             <Value>1.81</Value>
+            <Value>1.82</Value>
         </Version>
         <Date>
             <Value>9/6/2021</Value>
@@ -311,6 +312,7 @@
             <Value>4/13/2023</Value>
             <Value>4/27/2023</Value>
             <Value>4/29/2023</Value>
+            <Value>4/30/2023</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -455,6 +457,7 @@
             <Value>624,625,626,627,628,629,630,631</Value>
             <Value>632,633,634,635,636,637,638,639,640,641</Value>
             <Value>642</Value>
+            <Value>643,644,645,646,647,648,649,650,651,652,653,654,655,656,657,658,659</Value>
         </Notes>
     </PatchNote>
     <Preload>
