@@ -2364,6 +2364,29 @@ DocInfo/PatchNote639=- Reducing ZCC mineral/gas cost from 50/50 to 40/40
 DocInfo/PatchNote640=- Reducing Hydralisk Defender terrazine cost from 110 to 80
 DocInfo/PatchNote641=- Pre-placing 1 Mecha Nydus per 3v3 player at the start of the game
 DocInfo/PatchNote642=Fixed Issue.
+DocInfo/PatchNote643==== Siege Tank ( in Casual & 3v3) ===
+DocInfo/PatchNote644=
+DocInfo/PatchNote645=- Siege Tank cost 200 less mineral
+DocInfo/PatchNote646=- Siege Tank range upgrade cost increase: 50/50 -> 750/150
+DocInfo/PatchNote647=- Siege Tank fragment ugprade cost increase: 50/50 -> 500/100
+DocInfo/PatchNote648=
+DocInfo/PatchNote649==== 3v3 Bonus ===
+DocInfo/PatchNote650=
+DocInfo/PatchNote651=Siege Tank Bonus: You start without the range upgrade and the fragment upgrade.
+DocInfo/PatchNote652=Cash Bonus initial money reduced: 250/250 -> 200/200
+DocInfo/PatchNote653=Prebuilt Bonus: Gates are removed
+DocInfo/PatchNote654=Chaos Bonus: You start with  Cultist instead of Chaos Marines.
+DocInfo/PatchNote655=High Tech Bonus: Initial energy buff removed
+DocInfo/PatchNote656=
+DocInfo/PatchNote657==== 3v3 Win Condition === 
+DocInfo/PatchNote658=
+DocInfo/PatchNote659=Each player now starts with an Obelisk. Your team wins if you manage to destroy all the Obelisks of the other team.
+DocInfo/PatchNote660=
+DocInfo/PatchNote661==== 3v3 Economy ===
+DocInfo/PatchNote662=
+DocInfo/PatchNote663=- Starting terrazine income per minute is increased: 240 -> 360
+DocInfo/PatchNote664=- Zerg Control Center building cost is descreased : 40/40 -> 25/25
+DocInfo/PatchNote665=- Slowling, Creeper and Tankling cost 5 less minerals but cost 2 more gas.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -3361,7 +3384,7 @@ Param/Expression/ECF36BA8=Large Spawner Added: ~A~
 Param/Expression/EE276F01=Research <c val="E1848D">~A~ ~B~</c> completed
 Param/Expression/F1559DB1=Spawner Removed: ~A~
 Param/Value/008594BF=Zagara will respawn in 10 seconds!
-Param/Value/01AD00A3=Kill the other team before they kill their Hive!
+Param/Value/01AD00A3=Kill the other team's Obelisk!
 Param/Value/01EE3A16=Voting got started for a different event!
 Param/Value/01F40F98=Artanis
 Param/Value/02A43A7E=Play 1 game to enable
@@ -3503,7 +3526,7 @@ Param/Value/70429A66=I will come and support you!
 Param/Value/70CF1FCC=Valentines Day Event active!
 Param/Value/7164857E=0
 Param/Value/740F8555=Kill the Hive on your side of the map.
-Param/Value/74473846=Kill every terran in the other team.
+Param/Value/74473846=Kill the obelisk of every terran in the other team.
 Param/Value/749C261C=all players must agree
 Param/Value/74E25741=
 Param/Value/769E7869=/
@@ -3784,6 +3807,7 @@ RequirementNode/Tooltip/Not862517467CountUnitAutomatedAssimilatorQueuedOrBetter=
 RequirementNode/Tooltip/Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmory2CompleteOnlyCountUnitTechLab3CompleteOnly=Any Tech Structure
 RequirementNode/Tooltip/Or3811626076CountUnitConstructionYardCompleteOnlyCountUnitArmoryCompleteOnlyCountUnitTechLab3CompleteOnly=Any Tech Structure
 SiegeTankUpgrading=Upgrading
+This unit cannot be repaired.=This unit cannot be repaired.
 UI/AIBuild00=Default
 UI/AIBuild00Tip=A.I. builds in the usual balanced order.
 UI/AIBuild02=Mass Roach

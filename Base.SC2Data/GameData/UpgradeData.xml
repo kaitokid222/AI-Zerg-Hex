@@ -235,6 +235,7 @@
         <EffectArray Reference="Abil,SiegeTankUpgrade,InfoArray[Research2].Resource[Minerals]" Value="425"/>
         <EffectArray Reference="Abil,SiegeTankUpgrade,InfoArray[Research2].Resource[Vespene]" Value="50"/>
         <EffectArray Operation="Subtract" Reference="Unit,SiegeTank2,CostResource[Minerals]" Value="200"/>
+        <EffectArray Operation="Subtract" Reference="Unit,SiegeTankSieged2,CostResource[Minerals]" Value="200"/>
     </CUpgrade>
     <CUpgrade id="SuperEnergyGeneration">
         <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>

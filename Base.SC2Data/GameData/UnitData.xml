@@ -849,8 +849,8 @@
         <EnergyStart value="250"/>
         <EnergyMax value="5000"/>
         <EnergyRegenRate value="0"/>
-        <CostResource index="Minerals" value="40"/>
-        <CostResource index="Vespene" value="40"/>
+        <CostResource index="Minerals" value="25"/>
+        <CostResource index="Vespene" value="25"/>
         <CostResource index="Terrazine" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>
@@ -2184,6 +2184,18 @@
             <LayoutButtons Face="BuildMechaling" Type="AbilCmd" AbilCmd="CreepTowerTrain,Train1" Row="0" Column="0"/>
         </CardLayouts>
         <BehaviorArray Link="IsSpawner"/>
+    </CUnit>
+    <CUnit id="Obelisk">
+        <Subtitle value="This unit cannot be repaired."/>
+        <FlagArray index="Invulnerable" value="0"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="2"/>
+        <ShieldsStart value="500"/>
+        <ShieldsMax value="500"/>
+        <ShieldRegenRate value="10"/>
+        <RepairTime value="100"/>
+        <BehaviorArray index="0" removed="1"/>
     </CUnit>
     <CUnit id="Oracle">
         <FlagArray index="AlwaysThreatens" value="0"/>
