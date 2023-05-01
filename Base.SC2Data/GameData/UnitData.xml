@@ -849,8 +849,8 @@
         <EnergyStart value="250"/>
         <EnergyMax value="5000"/>
         <EnergyRegenRate value="0"/>
-        <CostResource index="Minerals" value="40"/>
-        <CostResource index="Vespene" value="40"/>
+        <CostResource index="Minerals" value="25"/>
+        <CostResource index="Vespene" value="25"/>
         <CostResource index="Terrazine" value="50"/>
         <AbilArray index="1" Link="SpawnFirelings"/>
         <AbilArray Link="3v3SpawnTorralisk2"/>

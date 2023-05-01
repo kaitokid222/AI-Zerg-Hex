@@ -2381,6 +2381,12 @@ DocInfo/PatchNote656=
 DocInfo/PatchNote657==== 3v3 Win Condition === 
 DocInfo/PatchNote658=
 DocInfo/PatchNote659=Each player now starts with an Obelisk. Your team wins if you manage to destroy all the Obelisks of the other team.
+DocInfo/PatchNote660=
+DocInfo/PatchNote661==== 3v3 Economy ===
+DocInfo/PatchNote662=
+DocInfo/PatchNote663=- Starting terrazine income per minute is increased: 240 -> 360
+DocInfo/PatchNote664=- Zerg Control Center building cost is descreased : 40/40 -> 25/25
+DocInfo/PatchNote665=- Slowling, Creeper and Tankling cost 5 less minerals but cost 2 more gas.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud

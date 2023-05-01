@@ -408,7 +408,7 @@ void InitGlobals () {
         gv_players[init_i].lv_tutorial_stage_state = "";
         gv_players[init_i].lv_wants_tutorial = 1;
         gv_players[init_i].lv__3v3_terrazine_doubler = 1;
-        gv_players[init_i].lv__3v3_terrazine_income = 24;
+        gv_players[init_i].lv__3v3_terrazine_income = 36;
     }
     gv_transmission_units = UnitGroupEmpty();
     for (init_i = 0; init_i <= 6; init_i += 1) {
