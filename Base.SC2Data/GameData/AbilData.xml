@@ -205,7 +205,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnMutaliskDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="150"/>
+            <Resource index="Minerals" value="90"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="800"/>
             <Charge>
                 <CountMax value="30"/>
@@ -280,7 +281,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnInfusedDummy"/>
         <Cost>
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="190"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="850"/>
             <Vital index="Energy" value="700"/>
             <Charge>
@@ -298,7 +300,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnRavDummy"/>
         <Cost>
-            <Resource index="Minerals" value="100"/>
+            <Resource index="Minerals" value="90"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="550"/>
             <Vital index="Energy" value="400"/>
             <Charge>
@@ -316,7 +319,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnTorraDummy"/>
         <Cost>
-            <Resource index="Minerals" value="540"/>
+            <Resource index="Minerals" value="350"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="3000"/>
             <Vital index="Energy" value="1000"/>
             <Charge>
@@ -867,7 +871,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBanelingsDummy"/>
         <Cost>
-            <Resource index="Minerals" value="45"/>
+            <Resource index="Minerals" value="35"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="240"/>
             <Charge>
                 <CountMax value="30"/>
@@ -885,8 +890,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnCreeperDummy"/>
         <Cost>
-            <Resource index="Minerals" value="11"/>
-            <Resource index="Vespene" value="2"/>
+            <Resource index="Minerals" value="6"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="85"/>
             <Charge>
                 <CountMax value="30"/>
@@ -937,7 +942,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnBeastlingDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="48"/>
+            <Resource index="Minerals" value="38"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="210"/>
             <Charge>
                 <CountMax value="30"/>
@@ -969,8 +975,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnSlowlingDummy"/>
         <Cost>
-            <Resource index="Minerals" value="11"/>
-            <Resource index="Vespene" value="2"/>
+            <Resource index="Minerals" value="6"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="70"/>
             <Charge>
                 <CountMax value="30"/>
@@ -1004,7 +1010,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnUltraDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="75"/>
+            <Resource index="Minerals" value="50"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="400"/>
             <Charge>
                 <CountMax value="30"/>
@@ -1023,7 +1030,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnRoachDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="35"/>
+            <Resource index="Minerals" value="25"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="170"/>
             <Charge>
                 <CountMax value="30"/>
@@ -1061,8 +1069,8 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="SpawnTanklingDummy3v3"/>
         <Cost>
-            <Resource index="Minerals" value="15"/>
-            <Resource index="Vespene" value="2"/>
+            <Resource index="Minerals" value="10"/>
+            <Resource index="Vespene" value="4"/>
             <Resource index="Terrazine" value="110"/>
             <Charge>
                 <CountMax value="30"/>
