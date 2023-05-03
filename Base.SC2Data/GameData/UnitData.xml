@@ -466,7 +466,7 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="20"/>
+        <CostResource index="Terrazine" value="50"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="que5"/>
@@ -2147,8 +2147,9 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
     </CUnit>
     <CUnit id="NydusCanal">
-        <CostResource index="Minerals" value="70"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Minerals" value="55"/>
+        <CostResource index="Vespene" value="25"/>
+        <CostResource index="Terrazine" value="100"/>
         <AbilArray index="2" Link="CreepTowerTrain"/>
         <AbilArray index="3" Link="ZergTrain"/>
         <AbilArray Link="AbsorbingCloud"/>
@@ -3298,8 +3299,8 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="TerrazineTank">
-        <CostResource index="Minerals" value="0"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Minerals" value="10"/>
+        <CostResource index="Vespene" value="25"/>
         <CostResource index="Terrazine" value="200"/>
         <AbilArray Link="Demolish"/>
         <CardLayouts index="0">

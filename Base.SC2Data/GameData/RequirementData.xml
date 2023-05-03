@@ -118,11 +118,10 @@
         <NodeArray index="Show" Link="NotCountUpgradeMetalbolicBoostQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementRecyclingProtocol">
-        <NodeArray index="Use" Link="AndCountUpgradeZergArmor2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRecyclingProtocolQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementRecyclingProtocol2">
-        <NodeArray index="Use" Link="AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor4CompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor3CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRecyclingProtocol2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="RequirementUnstableCore">

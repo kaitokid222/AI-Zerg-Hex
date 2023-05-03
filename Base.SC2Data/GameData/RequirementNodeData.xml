@@ -77,7 +77,6 @@
         <OperandArray value="CountUpgradeChemicalPlantCompleteOnly1337995533"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitHiveMindEmulatorCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitHiveMindEmulatorCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeCasualTraderImprovementCompleteOnly">
@@ -108,9 +107,10 @@
     <CRequirementAnd id="AndCountUpgradeOtherTeamDeadCompleteOnly411158712">
         <OperandArray value="CountUpgradeOtherTeamDeadCompleteOnly411158712"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor4CompleteOnly">
+    <CRequirementAnd id="AndCountUpgradeRecyclingProtocolCompleteOnlyCountUpgradeZergArmor3CompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeRecyclingProtocolCompleteOnly"/>
-        <OperandArray value="CountUpgradeZergArmor4CompleteOnly"/>
+        <OperandArray value="CountUpgradeZergArmor3CompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeTier2EquipmentCompleteOnly729820030">
         <OperandArray value="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
@@ -429,7 +429,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HiveMindEmulator" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHiveMindEmulatorQueuedOrBetter">
@@ -1183,10 +1182,6 @@
     <CRequirementCountUpgrade id="CountUpgradeZergArmor3QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergArmor3" State="QueuedOrBetter"/>
-    </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeZergArmor4CompleteOnly">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="ZergArmor4" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeZergArmor4CompleteOnly3065930054">
         <Flags index="TechTreeCheat" value="0"/>
