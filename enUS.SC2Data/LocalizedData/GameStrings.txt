@@ -2366,32 +2366,34 @@ DocInfo/PatchNote641=- Pre-placing 1 Mecha Nydus per 3v3 player at the start of 
 DocInfo/PatchNote642=Fixed Issue.
 DocInfo/PatchNote643==== Siege Tank ( in Casual & 3v3) ===
 DocInfo/PatchNote644=
-DocInfo/PatchNote645=- Siege Tank cost 200 less mineral
-DocInfo/PatchNote646=- Siege Tank range upgrade cost increase: 50/50 -> 750/150
-DocInfo/PatchNote647=- Siege Tank fragment ugprade cost increase: 50/50 -> 500/100
-DocInfo/PatchNote648=
-DocInfo/PatchNote649==== 3v3 Bonus ===
+DocInfo/PatchNote645=- Flamewall fire damage does 10% of the damage it previously did.
+DocInfo/PatchNote646=- Fully upgraded tank abilities require 60% more energy than before.
+DocInfo/PatchNote647=- Siege Tank cost 200 less mineral
+DocInfo/PatchNote648=- Siege Tank range upgrade cost increased: 50/50 -> 750/150
+DocInfo/PatchNote649=- Siege Tank fragment ugprade cost increased: 50/50 -> 500/100
 DocInfo/PatchNote650=
-DocInfo/PatchNote651=Siege Tank Bonus: You start without the range upgrade and the fragment upgrade.
-DocInfo/PatchNote652=Cash Bonus initial money reduced: 250/250 -> 200/200
-DocInfo/PatchNote653=Prebuilt Bonus: Gates are removed
-DocInfo/PatchNote654=Chaos Bonus: You start with  Cultist instead of Chaos Marines.
-DocInfo/PatchNote655=High Tech Bonus: Initial energy buff removed
-DocInfo/PatchNote656=
-DocInfo/PatchNote657==== 3v3 Win Condition === 
+DocInfo/PatchNote651==== 3v3 Bonus ===
+DocInfo/PatchNote652=
+DocInfo/PatchNote653=- Siege Tank Bonus: You start without the range upgrade and the fragment upgrade.
+DocInfo/PatchNote654=- Cash Bonus initial money reduced: 250/250 -> 200/200
+DocInfo/PatchNote655=- Prebuilt Bonus: Gates are removed
+DocInfo/PatchNote656=- Chaos Bonus: You start with  Cultist instead of Chaos Marines.
+DocInfo/PatchNote657=- High Tech Bonus: Initial energy buff removed
 DocInfo/PatchNote658=
-DocInfo/PatchNote659=Each player now starts with an Obelisk. Your team wins if you manage to destroy all the Obelisks of the other team.
+DocInfo/PatchNote659==== 3v3 Win Condition === 
 DocInfo/PatchNote660=
-DocInfo/PatchNote661==== 3v3 Economy ===
+DocInfo/PatchNote661=Each player now starts with an Obelisk. Your team wins if you manage to destroy all the Obelisks of the other team.
 DocInfo/PatchNote662=
-DocInfo/PatchNote663=- Starting terrazine income per minute is increased: 240 -> 360
-DocInfo/PatchNote664=- Zerg Control Center building cost is descreased : 40/40 -> 25/25
-DocInfo/PatchNote665=- All ZCC spawner units cost 10 less minerals but 4 more gas
-DocInfo/PatchNote666=- Recycling protocol can be bought at armor 0 instead of 2
-DocInfo/PatchNote667=- Recycling protocol 2 can be bought at armor 3 instead of 4
-DocInfo/PatchNote668=- Mecha Tech lab now cost 50 terrazine instead of 20 mineral
-DocInfo/PatchNote669=- Nydus canal cost : 70/30 -> 55/25/100
-DocInfo/PatchNote670=- Terrazine Converter cost: 0/30/200 -> 10/25/200
+DocInfo/PatchNote663==== 3v3 Economy ===
+DocInfo/PatchNote664=
+DocInfo/PatchNote665=- Starting terrazine income per minute is increased: 240 -> 360
+DocInfo/PatchNote666=- Zerg Control Center building cost is descreased : 40/40 -> 25/25
+DocInfo/PatchNote667=- All ZCC spawner units cost 10 less minerals but 4 more gas
+DocInfo/PatchNote668=- Recycling protocol can be bought at armor 0 instead of 2
+DocInfo/PatchNote669=- Recycling protocol 2 can be bought at armor 3 instead of 4
+DocInfo/PatchNote670=- Mecha Tech lab now cost 50 terrazine instead of 20 mineral
+DocInfo/PatchNote671=- Nydus canal cost : 70/30 -> 55/25/100
+DocInfo/PatchNote672=- Terrazine Converter cost: 0/30/200 -> 10/25/200
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
