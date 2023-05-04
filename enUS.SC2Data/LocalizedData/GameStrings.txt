@@ -2386,7 +2386,12 @@ DocInfo/PatchNote661==== 3v3 Economy ===
 DocInfo/PatchNote662=
 DocInfo/PatchNote663=- Starting terrazine income per minute is increased: 240 -> 360
 DocInfo/PatchNote664=- Zerg Control Center building cost is descreased : 40/40 -> 25/25
-DocInfo/PatchNote665=- Slowling, Creeper and Tankling cost 5 less minerals but cost 2 more gas.
+DocInfo/PatchNote665=- All ZCC spawner units cost 10 less minerals but 4 more gas
+DocInfo/PatchNote666=- Recycling protocol can be bought at armor 0 instead of 2
+DocInfo/PatchNote667=- Recycling protocol 2 can be bought at armor 3 instead of 4
+DocInfo/PatchNote668=- Mecha Tech lab now cost 50 terrazine instead of 20 mineral
+DocInfo/PatchNote669=- Nydus canal cost : 70/30 -> 55/25/100
+DocInfo/PatchNote670=- Terrazine Converter cost: 0/30/200 -> 10/25/200
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
