@@ -24,6 +24,23 @@
     <CEffectDamage id="GlaiveWurmU3">
         <AttributeFactor index="Mechanical" value="-0.7"/>
     </CEffectDamage>
+    <CEffectEnumArea id="GuardianShieldSearch">
+        <AreaArray index="0" Radius="2"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="MengskMarauderDamage">
+        <AttributeBonus index="Armored" value="32"/>
+        <Amount value="18"/>
+    </CEffectDamage>
+    <CEffectSet id="MengskMarauderSet">
+        <EffectArray value="TitanWeaponIncreaseEnergy"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="TitanWeaponIncreaseEnergy">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Energy">
+            <Change value="5"/>
+        </VitalArray>
+    </CEffectModifyUnit>
     <CEffectSet id="KaraxPermanentPhaseCanon">
         <EditorCategories value=""/>
     </CEffectSet>

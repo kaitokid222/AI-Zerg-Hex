@@ -76,6 +76,7 @@ Button/Hotkey/EmpoweredWarp=W
 Button/Hotkey/EnableAutomation=Q
 Button/Hotkey/EnableJUICEModule=A
 Button/Hotkey/EnableWeapon=X
+Button/Hotkey/EnergizedShield=G
 Button/Hotkey/EnergyTech=E
 Button/Hotkey/EnergyTransfer=E
 Button/Hotkey/EnhancePlating=Z

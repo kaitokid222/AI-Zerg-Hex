@@ -132,6 +132,22 @@
             <Cooldown Link="Abil/CreepTumorBuild"/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectInstant id="GuardianShield">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <AutoCastValidatorArray value="TitanLE50Perc"/>
+        <!--Cost index="0">
+            <Vital index="Energy" value="75"/>
+            <Cooldown Link="GuardianShield" TimeUse="30"/>
+        </Cost-->
+        <!--Flags index="AutoCast" value="1"/-->
+        <!--Flags index="AutoCastOn" value="1"/-->
+        <!--AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastValidatorArray value="VoidSentryNearbyFriendlyUnitInCombat"/-->
+        <!--CmdButtonArray index="Execute" Requirements="HaveVoidSentryGuardianShield"/-->
+        <!--CmdButtonArray index="Execute" Requirements="NotHaveVoidSentryForceFieldCampaignMarker"/-->
+        <!--CmdButtonArray index="Execute" State="Restricted"/-->
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="KaraxTeleport">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="Abil/ItalisTeleport/Activity"/>

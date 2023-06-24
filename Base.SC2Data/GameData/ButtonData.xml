@@ -13,6 +13,11 @@
     <CButton id="ExtractTerrazineNydus">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CButton>
+    <CButton id="EnergizedShield">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="KaraxHeroic">
         <Icon value="Assets\Textures\btn-hero-karax.dds"/>
     </CButton>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorBuff id="GuardianShield">
+        <Modification ShieldArmorBonus="16">
+            <VitalRegenArray index="Shields" value="18"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="HUGSAlgorythm">
         <InfoIcon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>

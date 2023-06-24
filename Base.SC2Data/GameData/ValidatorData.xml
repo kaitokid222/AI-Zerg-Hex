@@ -66,6 +66,13 @@
         <Compare value="GT"/>
         <Vital value="Shields"/>
     </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TitanLE50Perc">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LE"/>
+        <Type value="Fraction"/>
+        <Value value="0.4"/>
+        <Vital value="Shields"/>
+    </CValidatorUnitCompareVital>
     <CValidatorUnitCompareBehaviorCount id="MechaHydraliskhasnoMechaShieldactive">
         <WhichUnit Value="Caster"/>
         <Compare value="LT"/>

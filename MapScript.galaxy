@@ -1817,6 +1817,7 @@ void gf_apply_support_casual () {
         }
         else if (auto4C710A49_val == 8) {
             gf_create_marauder_support_forplayer(auto18D3D132_var);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "MengskMarauder", 0, auto18D3D132_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position))));
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Marauder", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);

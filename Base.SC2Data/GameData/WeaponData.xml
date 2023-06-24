@@ -88,6 +88,10 @@
         <Options index="RequireEnabledAttackAbil" value="0"/>
         <Period value="0.75"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="MengskMarauder">
+        <Range value="8"/>
+        <Period value="1.4"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MercLanerGoblinSapperWeaponMelee">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <DisplayEffect value="MercDefenderGoblinSapperDamage"/>

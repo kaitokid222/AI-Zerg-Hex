@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorModel id="GuardianShield">
+        <Scale value="0.500000"/>
+    </CActorModel>
     <CActorRange id="KaraxPowerFieldRange" parent="RangeAbil" abil="ArtanisVortex">
         <On index="1" Terms="Abil.PowerFieldKarax.TargetOn" Send="Create"/>
         <On index="2" Terms="Abil.PowerFieldKarax.TargetOff" Send="Destroy"/>
@@ -287,6 +290,12 @@
             <Image value="Assets\Textures\Wireframe-Protoss-PhotonCannon-Shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
+    <CActorUnit id="MengskMarauder">
+        <Scale value="2.000000"/>
+    </CActorUnit>
+    <CActorMissile id="MengskMarauderAttackMissile">
+        <Scale value="1.400000"/>
+    </CActorMissile>
     <CActorUnit id="Mutalisk3v3" parent="GenericUnitStandard" unitName="Mutalisk3v3">
         <Macros value="PhysicsDeathsSwarmAir"/>
         <Macros value="PhysicsDeathsVoidAir"/>

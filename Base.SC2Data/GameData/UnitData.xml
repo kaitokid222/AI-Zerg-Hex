@@ -773,6 +773,25 @@
             <Cooldown Link="Spire/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="MengskMarauder">
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="5"/>
+        <LifeRegenRate value="0.5"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="700"/>
+        <ShieldsMax value="500"/>
+        <ShieldArmorName value="TitanShield"/>
+        <ShieldArmorTip value="TitanShieldTT"/>
+        <Speed value="0.5"/>
+        <Food value="0"/>
+        <AbilArray Link="GuardianShield"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" AbilCmd="255,255"/>
+            <LayoutButtons index="6" AbilCmd="255,255"/>
+            <LayoutButtons Face="EnergizedShield" Type="AbilCmd" AbilCmd="GuardianShield,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+    </CUnit>
     <CUnit id="MineralGenerator">
         <DeathRevealRadius value="3"/>
         <Facing value="315"/>
