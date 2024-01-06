@@ -569,6 +569,10 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
+    <CActorSound id="PickupScrapImpactSound">
+        <On index="4" removed="1"/>
+        <On index="5" removed="1"/>
+    </CActorSound>
     <CActorSplat id="PowerFieldCursorSplatKarax" parent="ProtossCursorSplat" abil="PowerField">
         <On index="0" Terms="Abil.PowerFieldKarax.Cursor" Send="Create"/>
     </CActorSplat>
