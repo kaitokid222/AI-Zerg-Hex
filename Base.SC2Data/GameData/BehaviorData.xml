@@ -27,6 +27,10 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <MaxStackCount value="30"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="StimpackMarauder">
+        <Duration value="30"/>
+        <Modification MoveSpeedMultiplier="3" AttackSpeedMultiplier="3"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="UsingJUICE">
         <InfoIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>

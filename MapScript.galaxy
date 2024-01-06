@@ -67,6 +67,8 @@ struct gs_player {
     int lv__3v3_terrazine_doubler;
     int lv__3v3_terrazine_income;
     int lv__3v3_hug_stacks;
+    int lv_xp;
+    int lv_more_cash_drop_level;
 };
 
 struct gs_TerranIncomeData {
@@ -196,6 +198,7 @@ int[7] gv_positions;
 gs_player[7] gv_players;
 point[7] gv_command_center_position;
 unitgroup gv_transmission_units;
+int[7][3] gv_cash_drops;
 int[7] gv_blood_dialog_item;
 int[7] gv_reward;
 int[7] gv_dialog_terranIncome;
@@ -244,6 +247,8 @@ bool gv_game_has_ended;
 int gv_reward_related_deaths;
 int gv_difficulty;
 int gv_voted_difficulty;
+bool gv_is_thxg;
+int gv_rtv_thxg;
 int gv_heart_count;
 int gv_zerg_pumpkins;
 int gv_sapper_level;
@@ -391,6 +396,27 @@ int gv_zerg_drop_cd;
 int gv_viper_cloud_cd;
 int gv_armor_level;
 int gv_supply_upgrades;
+int gv_tbp_dialog;
+int gv_tbp_dialog_info;
+int[14] gv_tbp_dialog_info_rows;
+int gv_tbp_button_terran_random;
+int gv_tbp_button_terran_infested;
+int gv_tbp_button_terran_v3x;
+int gv_tbp_button_terran_probius;
+int gv_tbp_button_terran_ht;
+int gv_tbp_button_terran_karax;
+int gv_tbp_button_terran_chaos;
+int gv_tbp_button_terran_cash;
+int gv_tbp_button_terran_raynor;
+int gv_tbp_button_terran_marauder;
+int gv_tbp_button_terran_artanis;
+int gv_tbp_button_terran_tank;
+int gv_tbp_button_terran_wizard;
+int[7] gv_tbp_player_bonus_picks;
+int[13] gv_tbp_labels_terran;
+int gv_tbp_progress_bar;
+int[9] gv_tbp_player_picked_terran;
+int gv_tbp_player_picked_terran_count;
 
 void InitGlobals () {
     int init_i;
@@ -521,6 +547,28 @@ void InitGlobals () {
         gv_heatmap[init_i].lv_zerg_orderable = UnitGroupEmpty();
     }
     gv_zerg_drop_cd = 180;
+    gv_tbp_dialog = c_invalidDialogId;
+    gv_tbp_dialog_info = c_invalidDialogId;
+    for (init_i = 0; init_i <= 13; init_i += 1) {
+        gv_tbp_dialog_info_rows[init_i] = c_invalidDialogControlId;
+    }
+    gv_tbp_button_terran_random = c_invalidDialogControlId;
+    gv_tbp_button_terran_infested = c_invalidDialogControlId;
+    gv_tbp_button_terran_v3x = c_invalidDialogControlId;
+    gv_tbp_button_terran_probius = c_invalidDialogControlId;
+    gv_tbp_button_terran_ht = c_invalidDialogControlId;
+    gv_tbp_button_terran_karax = c_invalidDialogControlId;
+    gv_tbp_button_terran_chaos = c_invalidDialogControlId;
+    gv_tbp_button_terran_cash = c_invalidDialogControlId;
+    gv_tbp_button_terran_raynor = c_invalidDialogControlId;
+    gv_tbp_button_terran_marauder = c_invalidDialogControlId;
+    gv_tbp_button_terran_artanis = c_invalidDialogControlId;
+    gv_tbp_button_terran_tank = c_invalidDialogControlId;
+    gv_tbp_button_terran_wizard = c_invalidDialogControlId;
+    for (init_i = 0; init_i <= 12; init_i += 1) {
+        gv_tbp_labels_terran[init_i] = c_invalidDialogControlId;
+    }
+    gv_tbp_progress_bar = c_invalidDialogControlId;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -535,7 +583,7 @@ int gf_get_team_average_elo (int lp_team);
 int gf_calc_new_elo (int lp_winner_elo, int lp_loser_elo, string lp_output);
 bool gf_is_bigspine_fortified (unit lp_bigspine);
 bool gf_player_vulnerable_to_dronerush (int lp_player);
-void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather);
+void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather, int lp_xp);
 string gf_create_bank_data_csum (int lp_player);
 void gf_create_clean_bank (int lp_player);
 void gf_save_csum (int lp_player);
@@ -549,6 +597,8 @@ void gf_disable_unit_pickup (unit lp_unit);
 void gf_artanis_timed_event ();
 void gf_create_artanis_support_forplayer (int lp_player);
 void gf_command_artanis_support_for_player (int lp_player);
+void gf_create_cash_transporter_from_to (int lp_sender, int lp_target);
+void gf_run_cash_bonus_check ();
 bool gf_player_is_chaos (int lp_player);
 int gf_get_player_blood (int lp_player);
 void gf_Handle_blood_pickup (int lp_player, point lp_position, int lp_size);
@@ -575,6 +625,7 @@ void gf_update_terrandata ();
 void gf_Game_create_leaderboard ();
 void gf_Game_update_leaderboard ();
 string gf_elo_to_rank_icon (int lp_elo, int lp_games);
+string gf_level_to_rank_icon (int lp_level, int lp_games);
 void gf_create_karax_for_player (int lp_player, point lp_p);
 void gf_buff_players ();
 void gf_restore_ranked_vanilla ();
@@ -703,6 +754,9 @@ fixed gf_get_elo_difficulty (int lp_player);
 bool gf_is_average_vote ();
 int gf_get_real_difficulty ();
 int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real);
+void gf_enable_thxg_setting ();
+bool gf_is_thxg ();
+void gf_spawn_turkey ();
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
 void gf_revealpickup (unit lp_item);
@@ -900,23 +954,33 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+bool gf_is_sunday ();
+int gf_get_level_from_xp (int lp_xp);
+int gf_get_needed_xp (int lp_level);
+void gf_Disable_timed_triggers ();
+void gf_Enable_timed_triggers ();
+text gf_get_bonus_name_text_from_bid (int lp_bonus_int);
+void gf_tbp_refresh_dialog_labels ();
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_transporterbecameidle;
 trigger gt_disable_transporter_trigger;
+trigger gt_Cashtransporterbecameidle;
+trigger gt_MoreCashPickupResearchFinished;
 trigger gt_choaslordcreated;
 trigger gt_choasmarinecreated;
 trigger gt_cultistcreated;
 trigger gt_playercollectsblood;
 trigger gt_playercollectsbloodbig;
 trigger gt_BunkerUpgradegotclicked;
-trigger gt_Bunkergotbuilt;
+trigger gt_Infestedbuildingfinished;
 trigger gt_Infestedmaybestuck;
 trigger gt_PowerAuraGotClicked;
 trigger gt_AttackAuraGotClicked;
 trigger gt_DefenseAuraGotClicked;
+trigger gt_InactiveStateGotClicked;
 trigger gt_use_tank_ability;
 trigger gt_use_tank_attack;
 trigger gt_rtv;
@@ -926,18 +990,17 @@ trigger gt_rtvhny;
 trigger gt_rtvcrazyminions;
 trigger gt_rtvnightking;
 trigger gt_rtvvday;
+trigger gt_rtvthxg;
 trigger gt_clear;
 trigger gt_debug;
 trigger gt_debug_elo;
 trigger gt_debug_lag;
-trigger gt_elo;
 trigger gt_energy;
-trigger gt_info;
 trigger gt_help;
 trigger gt_karax;
+trigger gt_drone;
 trigger gt_money;
 trigger gt_money_zerg;
-trigger gt_resetelo;
 trigger gt_reveal;
 trigger gt_italis;
 trigger gt_inf;
@@ -995,6 +1058,8 @@ trigger gt_relocate_spawners_rally_action;
 trigger gt__3v3test;
 trigger gt_CCdestroyed;
 trigger gt_playerleavesgame;
+trigger gt_spawnturkey;
+trigger gt_turkeydies;
 trigger gt_spawnheart;
 trigger gt_playercollectsheart;
 trigger gt_grabaheart;
@@ -1076,6 +1141,8 @@ trigger gt_ZergSupplyUpgrade;
 trigger gt_ZergArmor;
 trigger gt_entrypoint;
 trigger gt_SporeCrawlerwantstoshoot;
+trigger gt_tbp_create;
+trigger gt_tbp_dialog_interaction;
 trigger gt_everysecond;
 trigger gt_everytwoseconds;
 trigger gt_everythreeseconds;
@@ -1085,6 +1152,7 @@ trigger gt_every15seconds;
 trigger gt_every30seconds;
 trigger gt_everyminute;
 trigger gt_every90seconds;
+trigger gt_every3minutes;
 trigger gt_every15minutes;
 
 //--------------------------------------------------------------------------------------------------
@@ -1411,7 +1479,7 @@ bool gf_player_vulnerable_to_dronerush (int lp_player) {
     return lv_r;
 }
 
-void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather) {
+void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_weather, int lp_xp) {
     // Variable Declarations
     int lv_used_elo;
     string lv_csum_str;
@@ -1441,6 +1509,7 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
                 gv_players[auto55E1911B_var].lv_skinpoints = BankValueGetAsInt(BankLastCreated(), "Player", "Sp");
                 gv_players[auto55E1911B_var].lv_has_marshall_skin = BankValueGetAsInt(BankLastCreated(), "Player", "ResetPromoSkin");
                 gv_players[auto55E1911B_var].lv_weather = BankValueGetAsInt(BankLastCreated(), "Player", "Weather");
+                gv_players[auto55E1911B_var].lv_xp = BankValueGetAsInt(BankLastCreated(), "Player", "XP");
                 if ((lv_csum_str != gf_create_bank_data_csum(auto55E1911B_var))) {
                 }
 
@@ -1498,6 +1567,14 @@ void gf_Game_Banks_handler (string lp_action, int lp_player, int lp_elo, int lp_
         }
 
     }
+    else if (autoBCFCD9D4_val == "addxp") {
+        if ((lp_player > 0)) {
+            BankValueSetFromInt(gv_players[lp_player].lv_bank, "Player", "XP", (gv_players[lp_player].lv_xp + lp_xp));
+            BankOptionSet(gv_players[lp_player].lv_bank, c_bankOptionSignature, true);
+            BankSave(gv_players[lp_player].lv_bank);
+        }
+
+    }
     else {
     }
 }
@@ -1525,11 +1602,13 @@ void gf_create_clean_bank (int lp_player) {
     gv_players[lp_player].lv_skinpoints = 0;
     gv_players[lp_player].lv_has_marshall_skin = 0;
     gv_players[lp_player].lv_weather = 0;
+    gv_players[lp_player].lv_xp = 0;
     BankValueSetFromInt(BankLastCreated(), "Player", "Elo", gv_players[lp_player].lv_elo);
     BankValueSetFromInt(BankLastCreated(), "Player", "Games", gv_players[lp_player].lv_games);
     BankValueSetFromInt(BankLastCreated(), "Player", "Sp", gv_players[lp_player].lv_skinpoints);
     BankValueSetFromInt(BankLastCreated(), "Player", "ResetPromoSkin", gv_players[lp_player].lv_has_marshall_skin);
     BankValueSetFromInt(BankLastCreated(), "Player", "Weather", gv_players[lp_player].lv_weather);
+    BankValueSetFromInt(BankLastCreated(), "Player", "XP", gv_players[lp_player].lv_xp);
     BankOptionSet(BankLastCreated(), c_bankOptionSignature, true);
     BankSave(BankLastCreated());
     BankLoad("hextvt", lp_player);
@@ -1566,15 +1645,7 @@ void gf_remove_transmission_units () {
 void gf_apply_support () {
     // Automatic Variable Declarations
     // Implementation
-    if ((gf_is_3v3() == true)) {
-        gf_apply_support_3v3();
-    }
-    else {
-        if ((GameAttributeGameValue("1") == "0001")) {
-            gf_apply_support_casual();
-        }
-
-    }
+    gf_apply_support_casual();
 }
 
 void gf_apply_support_casual () {
@@ -1680,8 +1751,10 @@ void gf_apply_support_casual () {
             lv_penalty = (3 * gv_difficulty);
         }
 
+        lv_penalty = 0;
+        lv_picked_bonus_int = gv_tbp_player_bonus_picks[auto18D3D132_var];
         if ((lv_picked_bonus_int == 1)) {
-            lv_picked_bonus_int = RandomInt(2, 12);
+            lv_picked_bonus_int = RandomInt(2, 13);
         }
 
         auto4C710A49_val = lv_picked_bonus_int;
@@ -1763,7 +1836,7 @@ void gf_apply_support_casual () {
             }
         }
         else if (auto4C710A49_val == 4) {
-            gv_players[auto18D3D132_var].lv_support_type = "3x";
+            gv_players[auto18D3D132_var].lv_support_type = "v3x";
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 4), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 3), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 7), false);
@@ -1780,18 +1853,43 @@ void gf_apply_support_casual () {
             PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 25));
         }
         else if (auto4C710A49_val == 5) {
+            gv_players[auto18D3D132_var].lv_support_type = "Cash";
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConyardOrderCashUpgrade", 0), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CashPickupResearch", 0), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CashPickupResearch", 3), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CashPickupResearch", 4), true);
             lv_i = 1;
-            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropMinerals) + 400));
-            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 400));
-            lv_target_middle = PointFromName(("Zerg Rally " + IntToString(gv_players[auto18D3D132_var].lv_position)));
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropMinerals) + 0));
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 0));
+            lv_target_middle = PointFromName(("Terran Face " + IntToString(gv_players[auto18D3D132_var].lv_position)));
+            gv_cash_drops[auto18D3D132_var][1] = 3;
+            gv_cash_drops[auto18D3D132_var][2] = 3;
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletGas", 0, auto18D3D132_var, lv_target_middle);
+            libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletMinerals", 0, auto18D3D132_var, lv_target_middle);
+            while ((lv_i <= 6)) {
+                if ((gv_players[gf_get_player_at_position(lv_i)].lv_alive == true)) {
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, gf_get_player_at_position(lv_i), PointFromName(("Zerg Rally " + IntToString(lv_i))));
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, gf_get_player_at_position(lv_i), PointFromName(("Zerg Rally " + IntToString(lv_i))));
+                }
+
+                lv_i = (lv_i + 1);
+            }
         }
         else if (auto4C710A49_val == 6) {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 6), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 18), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardResearch", 13), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardOrderUpgradeFortificationInfested", 0), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 22), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 23), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ConstructionYardOrderUpgradeFortification", 0), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 0), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 17), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 7), false);
-            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperAdd, 180);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("InstantDischarge", 0), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 14), false);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 15), false);
+            PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperAdd, 160);
             PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperAdd, 100);
             gv_players[auto18D3D132_var].lv_support_type = "Infested";
             auto24C4542F_g = UnitGroup("Builder", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
@@ -1804,8 +1902,11 @@ void gf_apply_support_casual () {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "InfestedBuilder", 0, auto18D3D132_var, lv_p);
             }
             UnitRemove(UnitGroupClosestToPoint(UnitGroup("RocksBE", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 6), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1))));
-            CatalogReferenceSet("Button,Fortification,AlertTooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
-            CatalogReferenceSet("Button,Fortification,Tooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 30 times.");
+            CatalogReferenceSet("Button,Fortification,AlertTooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 50 times.");
+            CatalogReferenceSet("Button,Fortification,Tooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 50 times.");
+            CatalogReferenceSet("Button,FortificationIssue,Tooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 50 times.");
+            CatalogReferenceSet("Button,FortificationIssue,AlertTooltip", auto18D3D132_var, "Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val=\"E8E191\">Walls and Gates</c>: +30% health and +1 armor.<n/><c val=\"E8E191\">Tech Structures</c>: +35 hp.<n/><c val=\"E8E191\">Other</c>: +20 hp. <c val=\"C0C0C0\">(Fruit Farm excluded)</c><n/><c val=\"E8E191\">Infested Marines</c>: +15 hp.<n/><n/>Can be upgraded 50 times.");
+            CatalogReferenceSet("Abil,ConstructionYardResearch,InfoArray[Research1].Button.Requirements", auto18D3D132_var, "UpgradeFortificationInfested");
         }
         else if (auto4C710A49_val == 7) {
             gf_create_raynor_support_forplayer(auto18D3D132_var);
@@ -1869,7 +1970,7 @@ void gf_apply_support_casual () {
             gv_players[auto18D3D132_var].lv_support_type = "Karax";
         }
         else if (auto4C710A49_val == 13) {
-            gv_players[auto18D3D132_var].lv_support_type = "Prebuilt";
+            gv_players[auto18D3D132_var].lv_support_type = "Wizard";
         }
         else {
         }
@@ -2364,7 +2465,7 @@ void gf_artanis_timed_event () {
     // Variable Initialization
 
     // Implementation
-    if ((GameGetMissionTime() == 40.0)) {
+    if ((GameGetMissionTime() == 60.0)) {
         while ((lv_i <= 6)) {
             if ((gv_players[lv_i].lv_support_type == "Artanis")) {
                 gf_command_artanis_support_for_player(lv_i);
@@ -2374,7 +2475,7 @@ void gf_artanis_timed_event () {
         }
     }
 
-    if ((GameGetMissionTime() == 85.0)) {
+    if ((GameGetMissionTime() == 105.0)) {
         while ((lv_i <= 6)) {
             if ((gv_players[lv_i].lv_support_type == "Artanis")) {
                 autoFC808D7A_g = gv_players[lv_i].lv_support_units;
@@ -2554,6 +2655,73 @@ void gf_command_artanis_support_for_player (int lp_player) {
         UnitGroupIssueOrder(lv_atkg[lv_k], OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupUnit(lv_spawners, lv_k)), c_orderQueueReplace);
         UnitGroupIssueOrder(lv_atkg[lv_k], OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(UnitGroupRandomUnit(lv_prisms, c_unitCountAlive))), c_orderQueueAddToEnd);
         lv_k += 1;
+    }
+}
+
+void gf_create_cash_transporter_from_to (int lp_sender, int lp_target) {
+    // Variable Declarations
+    int lv_player_position;
+    point lv_spawn_left;
+    point lv_spawn_right;
+    point lv_spawn_middle;
+    point lv_target_middle;
+
+    // Automatic Variable Declarations
+    int autoD5A88B1E_val;
+
+    // Variable Initialization
+    lv_player_position = gv_players[lp_sender].lv_position;
+
+    // Implementation
+    autoD5A88B1E_val = lv_player_position;
+    if (autoD5A88B1E_val == 1) {
+        lv_spawn_right = PointFromId(1304502023);
+        lv_spawn_left = PointFromId(1654796346);
+    }
+    else if (autoD5A88B1E_val == 2) {
+        lv_spawn_right = PointFromId(427204689);
+        lv_spawn_left = PointFromId(1304502023);
+    }
+    else if (autoD5A88B1E_val == 3) {
+        lv_spawn_right = PointFromId(1375552357);
+        lv_spawn_left = PointFromId(427204689);
+    }
+    else if (autoD5A88B1E_val == 4) {
+        lv_spawn_right = PointFromId(1304502023);
+        lv_spawn_left = PointFromId(1654796346);
+    }
+    else if (autoD5A88B1E_val == 5) {
+        lv_spawn_right = PointFromId(1654796346);
+        lv_spawn_left = PointFromId(1375552357);
+    }
+    else if (autoD5A88B1E_val == 6) {
+        lv_spawn_right = PointFromId(1375552357);
+        lv_spawn_left = PointFromId(427204689);
+    }
+    else {
+    }
+    lv_spawn_middle = MidPoint(lv_spawn_left, lv_spawn_right);
+    lv_target_middle = PointFromName(("Terran Face " + IntToString(lv_player_position)));
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CashTransporter", 0, lp_sender, lv_spawn_middle);
+    UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lv_target_middle), c_orderQueueReplace);
+    libNtve_gf_MakeUnitUncommandable(UnitLastCreated(), true);
+}
+
+void gf_run_cash_bonus_check () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        if ((gv_players[lv_i].lv_support_type == "Cash") && (gv_players[lv_i].lv_alive == true)) {
+            gf_create_cash_transporter_from_to(lv_i, 0);
+        }
+
+        lv_i += 1;
     }
 }
 
@@ -2777,7 +2945,7 @@ void gf_marauder_timed_event () {
     // Variable Initialization
 
     // Implementation
-    if ((GameGetMissionTime() == 40.0)) {
+    if ((GameGetMissionTime() == 60.0)) {
         while ((lv_i <= 6)) {
             if ((gv_players[lv_i].lv_support_type == "Marauder")) {
                 gf_command_marauder_support_for_player(lv_i);
@@ -3332,6 +3500,7 @@ void gf_end_raynor_support () {
     // Variable Declarations
     int lv_i;
     unit lv_portrait_unit;
+    unitgroup lv_ug;
 
     // Automatic Variable Declarations
     unitgroup auto6D3BF18F_g;
@@ -3339,18 +3508,28 @@ void gf_end_raynor_support () {
     unit auto6D3BF18F_var;
 
     // Variable Initialization
+    lv_ug = UnitGroupEmpty();
 
     // Implementation
-    if ((GameGetMissionTime() == (11 * 60))) {
+    if ((GameGetMissionTime() == ((11 * 60) + 20))) {
         while ((lv_i <= 6)) {
             if ((gv_players[lv_i].lv_support_type == "Raynor")) {
+                lv_ug = null;
                 auto6D3BF18F_g = gv_players[lv_i].lv_support_units;
                 auto6D3BF18F_u = UnitGroupCount(auto6D3BF18F_g, c_unitCountAll);
                 for (;; auto6D3BF18F_u -= 1) {
                     auto6D3BF18F_var = UnitGroupUnitFromEnd(auto6D3BF18F_g, auto6D3BF18F_u);
                     if (auto6D3BF18F_var == null) { break; }
-                    UnitRemove(auto6D3BF18F_var);
+                    if ((UnitGetType(auto6D3BF18F_var) == "Medivac")) {
+                        UnitRemove(auto6D3BF18F_var);
+                    }
+                    else {
+                        UnitGroupRemove(gv_players[lv_i].lv_support_units, auto6D3BF18F_var);
+                        libNtve_gf_MakeUnitUncommandable(auto6D3BF18F_var, false);
+                        UnitGroupAdd(lv_ug, auto6D3BF18F_var);
+                    }
                 }
+                UnitGroupIssueOrder(lv_ug, OrderTargetingPoint(AbilityCommand("move", 0), PointFromName(("Zerg Rally " + IntToString(gv_players[lv_i].lv_position)))), c_orderQueueReplace);
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, "Raynor", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
                 lv_portrait_unit = UnitLastCreated();
                 UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
@@ -3604,7 +3783,6 @@ void gf_create_income_dialog () {
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 180, 50, c_anchorTopLeft, 0, 0, lv_indicator_string_text, ColorWithAlpha(0,0,0,0), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModRightSize16Bold", PlayerGroupAll());
         gv_reward[auto4227153C_var] = DialogControlLastCreated();
-        DialogSetVisible(DialogLastCreated(), PlayerGroupSingle(auto4227153C_var), true);
         lv_indicator_string_text = (StringExternal("Param/Value/1960DBEA") + (StringExternal("Param/Value/082AB456") + StringExternal("Param/Value/68EED64B")));
         DialogCreate(410, 78, c_anchorTop, 500, 0, true);
         DialogSetImageVisible(DialogLastCreated(), false);
@@ -4068,7 +4246,7 @@ void gf_Game_create_leaderboard () {
             autoD0BD21C2_var = PlayerGroupNextPlayer(autoD0BD21C2_g, autoD0BD21C2_var);
             if (autoD0BD21C2_var < 0) { break; }
             gv_players[autoD0BD21C2_var].lv_lb_row = lv_row;
-            gv_players[autoD0BD21C2_var].lv_icon = gf_elo_to_rank_icon(gv_players[autoD0BD21C2_var].lv_elo, gv_players[autoD0BD21C2_var].lv_games);
+            gv_players[autoD0BD21C2_var].lv_icon = gf_level_to_rank_icon(gf_get_level_from_xp(gv_players[autoD0BD21C2_var].lv_xp), gv_players[autoD0BD21C2_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(autoD0BD21C2_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(autoD0BD21C2_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[autoD0BD21C2_var].lv_icon, false);
@@ -4083,7 +4261,7 @@ void gf_Game_create_leaderboard () {
             autoB2D8C610_var = PlayerGroupNextPlayer(autoB2D8C610_g, autoB2D8C610_var);
             if (autoB2D8C610_var < 0) { break; }
             gv_players[autoB2D8C610_var].lv_lb_row = lv_row;
-            gv_players[autoB2D8C610_var].lv_icon = gf_elo_to_rank_icon(gv_players[autoB2D8C610_var].lv_elo, gv_players[autoB2D8C610_var].lv_games);
+            gv_players[autoB2D8C610_var].lv_icon = gf_level_to_rank_icon(gf_get_level_from_xp(gv_players[autoB2D8C610_var].lv_xp), gv_players[autoB2D8C610_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(autoB2D8C610_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(autoB2D8C610_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[autoB2D8C610_var].lv_icon, false);
@@ -4097,7 +4275,7 @@ void gf_Game_create_leaderboard () {
             auto54536D90_var = PlayerGroupNextPlayer(auto54536D90_g, auto54536D90_var);
             if (auto54536D90_var < 0) { break; }
             gv_players[auto54536D90_var].lv_lb_row = lv_row;
-            gv_players[auto54536D90_var].lv_icon = gf_elo_to_rank_icon(gv_players[auto54536D90_var].lv_elo, gv_players[auto54536D90_var].lv_games);
+            gv_players[auto54536D90_var].lv_icon = gf_level_to_rank_icon(gf_get_level_from_xp(gv_players[auto54536D90_var].lv_xp), gv_players[auto54536D90_var].lv_games);
             BoardItemSetText(gv_leaderboard, 1, lv_row, PlayerName(auto54536D90_var));
             BoardItemSetTextColor(gv_leaderboard, 1, lv_row, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(auto54536D90_var, false)));
             BoardItemSetIcon(gv_leaderboard, 2, lv_row, gv_players[auto54536D90_var].lv_icon, false);
@@ -4164,6 +4342,49 @@ string gf_elo_to_rank_icon (int lp_elo, int lp_games) {
         }
         else if ((lp_elo >= 2400)) {
             lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_grandmaster_3.dds";
+        }
+    }
+    return lv_image;
+}
+
+string gf_level_to_rank_icon (int lp_level, int lp_games) {
+    // Variable Declarations
+    string lv_image;
+
+    // Automatic Variable Declarations
+    int autoB3BD61A2_val;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_games < 5)) {
+        lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_placement.dds";
+    }
+    else {
+        autoB3BD61A2_val = lp_level;
+        if (autoB3BD61A2_val == 1) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_bronze_3.dds";
+        }
+        else if (autoB3BD61A2_val == 2) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_silver_3.dds";
+        }
+        else if (autoB3BD61A2_val == 3) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_gold_3.dds";
+        }
+        else if (autoB3BD61A2_val == 4) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_platinum_3.dds";
+        }
+        else if (autoB3BD61A2_val == 5) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_diamond_3.dds";
+        }
+        else if (autoB3BD61A2_val == 6) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_master_3.dds";
+        }
+        else if (autoB3BD61A2_val == 7) {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_grandmaster_3.dds";
+        }
+        else {
+            lv_image = "Assets\\Textures\\ui_glues_icons_ladder_small_placement.dds";
         }
     }
     return lv_image;
@@ -4312,6 +4533,14 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("GeneratorResearch", 5), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BarracksTrain2", 18), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("CommandCenterTrain2", 9), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardResearch", 13), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConstructionYardOrderUpgradeFortificationInfested", 0), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch2", 22), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch2", 23), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ConyardOrderCashUpgrade", 0), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("CashPickupResearch", 0), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("CashPickupResearch", 3), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("CashPickupResearch", 4), false);
 }
 
 void gf_apply_smod () {
@@ -4637,9 +4866,14 @@ void gf_handle_collection_skins () {
 }
 
 void gf_Handle_Elite_Skins () {
+    // Variable Declarations
+    int lv_level;
+
     // Automatic Variable Declarations
     playergroup autoAC933295_g;
     int autoAC933295_var;
+
+    // Variable Initialization
 
     // Implementation
     autoAC933295_g = gv_terrans;
@@ -4656,7 +4890,8 @@ void gf_Handle_Elite_Skins () {
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 2), false);
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 3), false);
         TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 4), false);
-        if ((gv_players[autoAC933295_var].lv_skinpoints < 10)) {
+        lv_level = gf_get_level_from_xp(gv_players[autoAC933295_var].lv_xp);
+        if ((lv_level < 2)) {
             if ((gv_players[autoAC933295_var].lv_has_marshall_skin == 1)) {
             }
             else {
@@ -4664,11 +4899,11 @@ void gf_Handle_Elite_Skins () {
             }
         }
         else {
-            if ((gv_players[autoAC933295_var].lv_skinpoints < 25)) {
+            if ((lv_level < 3)) {
                 TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 1), true);
             }
             else {
-                if ((gv_players[autoAC933295_var].lv_skinpoints < 50)) {
+                if ((lv_level < 4)) {
                     TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 1), true);
                     TechTreeAbilityAllow(autoAC933295_var, AbilityCommand("CCSkinSwitcher", 2), true);
                 }
@@ -5193,10 +5428,15 @@ void gf_remove_tutorial_after_death (int lp_player_id) {
 }
 
 void gf_init_weather () {
+    // Variable Declarations
+    int lv_level;
+
     // Automatic Variable Declarations
     playergroup autoF51BFD51_g;
     int autoF51BFD51_var;
     int auto998EF399_val;
+
+    // Variable Initialization
 
     // Implementation
     autoF51BFD51_g = gv_terrans;
@@ -5204,7 +5444,8 @@ void gf_init_weather () {
     while (true) {
         autoF51BFD51_var = PlayerGroupNextPlayer(autoF51BFD51_g, autoF51BFD51_var);
         if (autoF51BFD51_var < 0) { break; }
-        if ((gf_is_player_donor(autoF51BFD51_var) == true)) {
+        lv_level = gf_get_level_from_xp(gv_players[autoF51BFD51_var].lv_xp);
+        if (((lv_level >= 5) || (gf_is_player_donor(autoF51BFD51_var) == true))) {
             libNtve_gf_SetUpgradeLevelForPlayer(autoF51BFD51_var, "ChooseDonor", 1);
             if ((gv_players[autoF51BFD51_var].lv_weather > 0)) {
                 auto998EF399_val = gv_players[autoF51BFD51_var].lv_weather;
@@ -5745,7 +5986,7 @@ void gf_end_game_3v3 () {
             auto459C5D99_var = PlayerGroupNextPlayer(auto459C5D99_g, auto459C5D99_var);
             if (auto459C5D99_var < 0) { break; }
             gv_players[auto459C5D99_var].lv_elo = (gv_players[auto459C5D99_var].lv_elo + gf_get_reward_elo_count(auto459C5D99_var));
-            gf_Game_Banks_handler("save", auto459C5D99_var, gv_players[auto459C5D99_var].lv_elo, 0);
+            gf_Game_Banks_handler("save", auto459C5D99_var, gv_players[auto459C5D99_var].lv_elo, 0, 0);
         }
     }
 
@@ -5756,7 +5997,7 @@ void gf_end_game_3v3 () {
             auto36D4379E_var = PlayerGroupNextPlayer(auto36D4379E_g, auto36D4379E_var);
             if (auto36D4379E_var < 0) { break; }
             gv_players[auto36D4379E_var].lv_elo = (gv_players[auto36D4379E_var].lv_elo + gf_get_reward_elo_count(auto36D4379E_var));
-            gf_Game_Banks_handler("save", auto36D4379E_var, gv_players[auto36D4379E_var].lv_elo, 0);
+            gf_Game_Banks_handler("save", auto36D4379E_var, gv_players[auto36D4379E_var].lv_elo, 0, 0);
         }
     }
 
@@ -5860,7 +6101,7 @@ bool gf_is_terrans_team_bottom_dead () {
     // Variable Initialization
 
     // Implementation
-    if ((UnitIsAlive(UnitFromId(489324603)) == false) && (UnitIsAlive(UnitFromId(1454762397)) == false) && (UnitIsAlive(UnitFromId(305182405)) == false)) {
+    if (true) {
         lv_return = true;
     }
 
@@ -5875,7 +6116,7 @@ bool gf_is_terrans_team_top_dead () {
     // Variable Initialization
 
     // Implementation
-    if ((UnitIsAlive(UnitFromId(2129062306)) == false) && (UnitIsAlive(UnitFromId(668212781)) == false) && (UnitIsAlive(UnitFromId(1499966027)) == false)) {
+    if (true) {
         lv_return = true;
     }
 
@@ -8747,11 +8988,8 @@ void gf_end_game (int lp_winner) {
                     }
                     else {
                         gv_players[autoC5308BE9_var].lv_elo = (gv_players[autoC5308BE9_var].lv_elo + gf_get_reward_elo_count(autoC5308BE9_var));
-                        gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
-                        if ((((gf_is_event() == true) && (gv_difficulty >= 5)) || (gv_difficulty >= 8))) {
-                            gf_Game_Banks_handler("addsp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0);
-                        }
-
+                        gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0, 0);
+                        gf_Game_Banks_handler("addxp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0, gv_terrandata[autoC5308BE9_var].lv_strength);
                     }
                 }
 
@@ -8769,10 +9007,6 @@ void gf_end_game (int lp_winner) {
                     GameOver(auto796E7148_var, c_gameOverDefeat, true, true);
                 }
             }
-            if ((gf_is_pvp() == true) && (lp_winner == 2)) {
-                GameOver(7, c_gameOverVictory, true, true);
-            }
-
         }
     }
 
@@ -9014,94 +9248,86 @@ void gf_AnalysePlayerDifficultyVotes () {
         }
 
     }
-    if ((gf_is_3v3() == true)) {
+    auto05CCF244_val = gv_voted_difficulty;
+    if (auto05CCF244_val == 1) {
         gv_req_beastlings = 0;
         gv_req_ravs = 0;
         gv_req_infused = 0;
         gv_req_torra = 0;
     }
+    else if (auto05CCF244_val == 2) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 0;
+        gv_req_infused = 0;
+        gv_req_torra = 0;
+    }
+    else if (auto05CCF244_val == 3) {
+        gv_req_beastlings = 8;
+        gv_req_ravs = 0;
+        gv_req_infused = 0;
+        gv_req_torra = 0;
+    }
+    else if (auto05CCF244_val == 4) {
+        gv_req_beastlings = 10;
+        gv_req_ravs = 6;
+        gv_req_infused = 0;
+        gv_req_torra = 1;
+    }
+    else if (auto05CCF244_val == 5) {
+        gv_req_beastlings = 4;
+        gv_req_ravs = 4;
+        gv_req_infused = 2;
+        gv_req_torra = 2;
+    }
+    else if (auto05CCF244_val == 6) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 8;
+        gv_req_infused = 4;
+        gv_req_torra = 4;
+    }
+    else if (auto05CCF244_val == 7) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 8;
+        gv_req_infused = 6;
+        gv_req_torra = 6;
+    }
+    else if (auto05CCF244_val == 8) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 6;
+        gv_req_infused = 8;
+        gv_req_torra = 6;
+    }
+    else if (auto05CCF244_val == 9) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 4;
+        gv_req_infused = 10;
+        gv_req_torra = 6;
+    }
+    else if (auto05CCF244_val == 10) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 12;
+        gv_req_torra = 6;
+    }
+    else if (auto05CCF244_val == 11) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 10;
+        gv_req_torra = 8;
+    }
+    else if (auto05CCF244_val == 12) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 8;
+        gv_req_torra = 10;
+    }
+    else if (auto05CCF244_val == 13) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 6;
+        gv_req_torra = 12;
+    }
     else {
-        auto05CCF244_val = gv_voted_difficulty;
-        if (auto05CCF244_val == 1) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 0;
-            gv_req_infused = 0;
-            gv_req_torra = 0;
-        }
-        else if (auto05CCF244_val == 2) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 0;
-            gv_req_infused = 0;
-            gv_req_torra = 0;
-        }
-        else if (auto05CCF244_val == 3) {
-            gv_req_beastlings = 8;
-            gv_req_ravs = 0;
-            gv_req_infused = 0;
-            gv_req_torra = 0;
-        }
-        else if (auto05CCF244_val == 4) {
-            gv_req_beastlings = 10;
-            gv_req_ravs = 6;
-            gv_req_infused = 0;
-            gv_req_torra = 1;
-        }
-        else if (auto05CCF244_val == 5) {
-            gv_req_beastlings = 4;
-            gv_req_ravs = 4;
-            gv_req_infused = 2;
-            gv_req_torra = 2;
-        }
-        else if (auto05CCF244_val == 6) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 8;
-            gv_req_infused = 4;
-            gv_req_torra = 4;
-        }
-        else if (auto05CCF244_val == 7) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 8;
-            gv_req_infused = 6;
-            gv_req_torra = 6;
-        }
-        else if (auto05CCF244_val == 8) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 6;
-            gv_req_infused = 8;
-            gv_req_torra = 6;
-        }
-        else if (auto05CCF244_val == 9) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 4;
-            gv_req_infused = 10;
-            gv_req_torra = 6;
-        }
-        else if (auto05CCF244_val == 10) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 2;
-            gv_req_infused = 12;
-            gv_req_torra = 6;
-        }
-        else if (auto05CCF244_val == 11) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 2;
-            gv_req_infused = 10;
-            gv_req_torra = 8;
-        }
-        else if (auto05CCF244_val == 12) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 2;
-            gv_req_infused = 8;
-            gv_req_torra = 10;
-        }
-        else if (auto05CCF244_val == 13) {
-            gv_req_beastlings = 0;
-            gv_req_ravs = 2;
-            gv_req_infused = 6;
-            gv_req_torra = 12;
-        }
-        else {
-        }
     }
 }
 
@@ -9306,6 +9532,55 @@ int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real) {
     return lv_result;
 }
 
+void gf_enable_thxg_setting () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_spawnturkey, true);
+    TriggerEnable(gt_turkeydies, true);
+}
+
+bool gf_is_thxg () {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((GetDateTimeMonth(CurrentDateTimeGet()) == 11) && ((GetDateTimeDay(CurrentDateTimeGet()) == 22) || (GetDateTimeDay(CurrentDateTimeGet()) == 23) || (GetDateTimeDay(CurrentDateTimeGet()) == 24) || (GetDateTimeDay(CurrentDateTimeGet()) == 25) || (GetDateTimeDay(CurrentDateTimeGet()) == 26))) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+void gf_spawn_turkey () {
+    // Variable Declarations
+    point lv_p;
+    int lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_r = RandomInt(1, 40);
+
+    // Implementation
+    lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_r))));
+    if ((gf_flip_coin() == 1)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "UglyTurkey", 0, 0, lv_p);
+    }
+    else {
+        if ((gf_flip_coin() == 1)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "UglyTurkey", 0, 0, lv_p);
+        }
+        else {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpaceTurkey", 0, 0, lv_p);
+        }
+    }
+    libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloStart");
+    libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloSetColor 255,0,0");
+    gf_revealpickup(UnitLastCreated());
+}
+
 void gf_init_event () {
     // Automatic Variable Declarations
     int auto0034F086_val;
@@ -9314,7 +9589,7 @@ void gf_init_event () {
     int autoE7D7DBBA_val;
 
     // Implementation
-    if ((gf_get_lobby_event_setting() == 0) && (gf_is_3v3() == false)) {
+    if ((gf_get_lobby_event_setting() == 0)) {
         gv_is_halloween = gf_is_halloween();
         gv_is_xmas = gf_is_xmas();
         gv_is_hny = gf_is_hny();
@@ -9322,6 +9597,7 @@ void gf_init_event () {
         gv_is_crazyminions = gf_is_crazyminions();
         gv_is_night_king = gf_is_night_king();
         gv_is_vday = gf_is_vday();
+        gv_is_thxg = gf_is_thxg();
     }
     else {
         auto0034F086_val = gf_get_lobby_event_setting();
@@ -9345,6 +9621,9 @@ void gf_init_event () {
         }
         else if (auto0034F086_val == 7) {
             gv_is_vday = true;
+        }
+        else if (auto0034F086_val == 8) {
+            gv_is_thxg = true;
         }
         else {
         }
@@ -9382,6 +9661,10 @@ void gf_init_event () {
             gf_enable_vday_settings();
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/94E41F97") + StringToText("")));
         }
+        else if (autoE7D7DBBA_val == 8) {
+            gf_enable_thxg_setting();
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/CF0D4BBB") + StringToText("")));
+        }
         else {
         }
     }
@@ -9418,6 +9701,9 @@ int gf_get_lobby_event_setting () {
     }
     else if (auto25C7FF1E_val == "0007") {
         lv_r = 7;
+    }
+    else if (auto25C7FF1E_val == "0008") {
+        lv_r = 8;
     }
     else {
     }
@@ -10007,6 +10293,9 @@ void gf_handle_votes (int lp_player, string lp_event) {
         else if (auto6613F30C_val == "vday") {
             gv_rtv_vday = 1;
         }
+        else if (auto6613F30C_val == "thxg") {
+            gv_rtv_thxg = 1;
+        }
         else {
         }
         gv_rtv = (gv_rtv + 1);
@@ -10038,6 +10327,9 @@ void gf_handle_votes (int lp_player, string lp_event) {
                 }
                 else if (auto86891C42_val == 7) {
                     gv_is_vday = false;
+                }
+                else if (auto86891C42_val == 8) {
+                    gv_is_thxg = false;
                 }
                 else {
                 }
@@ -10086,6 +10378,12 @@ void gf_handle_votes (int lp_player, string lp_event) {
                         TechTreeAbilityAllow(autoE852C16A_var, AbilityCommand("BarracksTrain2", 17), true);
                     }
                     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/70CF1FCC") + StringToText("")));
+                }
+                else if (auto481F0B10_val == 8) {
+                    gv_is_thxg = true;
+                    gv_voted_event = true;
+                    gf_enable_thxg_setting();
+                    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/4FFAEA06") + StringToText("")));
                 }
                 else {
                 }
@@ -10141,6 +10439,10 @@ int gf_get_current_event_as_typeint () {
         lv_r = 7;
     }
 
+    if ((gv_is_thxg == true)) {
+        lv_r = 8;
+    }
+
     return lv_r;
 }
 
@@ -10180,6 +10482,10 @@ int gf_get_voted_event_as_typeint () {
         lv_r = 7;
     }
 
+    if ((gv_rtv_thxg == 1)) {
+        lv_r = 8;
+    }
+
     return lv_r;
 }
 
@@ -10191,7 +10497,7 @@ bool gf_is_event () {
     // Variable Initialization
 
     // Implementation
-    if (((gv_is_halloween == true) || (gv_is_xmas == true) || (gv_is_hny == true) || (gv_is_eastern == true) || (gv_is_crazyminions == true) || (gv_is_night_king == true) || (gv_is_vday == true))) {
+    if (((gv_is_halloween == true) || (gv_is_xmas == true) || (gv_is_hny == true) || (gv_is_eastern == true) || (gv_is_crazyminions == true) || (gv_is_night_king == true) || (gv_is_vday == true) || (gv_is_thxg == true))) {
         lv_r = true;
     }
 
@@ -17781,6 +18087,224 @@ void gf_get_unit_upgrades () {
 
 }
 
+bool gf_is_sunday () {
+    // Variable Declarations
+    bool lv_return;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((GetDateTimeWeekday(CurrentDateTimeGet()) == 0)) {
+        lv_return = true;
+    }
+
+    return lv_return;
+}
+
+int gf_get_level_from_xp (int lp_xp) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_r = 1;
+
+    // Implementation
+    if ((lp_xp >= 1000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 2000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 4000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 8000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 16000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 32000)) {
+        lv_r += 1;
+    }
+
+    if ((lp_xp >= 64000)) {
+        lv_r += 1;
+    }
+
+    return lv_r;
+}
+
+int gf_get_needed_xp (int lp_level) {
+    // Variable Declarations
+    int lv_nxp;
+
+    // Automatic Variable Declarations
+    int autoD50D207A_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoD50D207A_val = lp_level;
+    if (autoD50D207A_val == 1) {
+        lv_nxp = 1000;
+    }
+    else if (autoD50D207A_val == 2) {
+        lv_nxp = 2000;
+    }
+    else if (autoD50D207A_val == 3) {
+        lv_nxp = 4000;
+    }
+    else if (autoD50D207A_val == 4) {
+        lv_nxp = 8000;
+    }
+    else if (autoD50D207A_val == 5) {
+        lv_nxp = 16000;
+    }
+    else if (autoD50D207A_val == 6) {
+        lv_nxp = 32000;
+    }
+    else if (autoD50D207A_val == 7) {
+        lv_nxp = 64000;
+    }
+    else {
+        lv_nxp = 1000;
+    }
+    return lv_nxp;
+}
+
+void gf_Disable_timed_triggers () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_everysecond, false);
+    TriggerEnable(gt_everytwoseconds, false);
+    TriggerEnable(gt_everythreeseconds, false);
+    TriggerEnable(gt_everyfiveseconds, false);
+    TriggerEnable(gt_everytenseconds, false);
+    TriggerEnable(gt_every15seconds, false);
+    TriggerEnable(gt_every30seconds, false);
+    TriggerEnable(gt_every45seconds, false);
+    TriggerEnable(gt_everyminute, false);
+    TriggerEnable(gt_every90seconds, false);
+    TriggerEnable(gt_everyfiveminutes, false);
+    TriggerEnable(gt_every15minutes, false);
+    TriggerEnable(gt_checkhydras, false);
+}
+
+void gf_Enable_timed_triggers () {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerEnable(gt_everysecond, true);
+    TriggerEnable(gt_everytwoseconds, true);
+    TriggerEnable(gt_everythreeseconds, true);
+    TriggerEnable(gt_everyfiveseconds, true);
+    TriggerEnable(gt_everytenseconds, true);
+    TriggerEnable(gt_every15seconds, true);
+    TriggerEnable(gt_every30seconds, true);
+    TriggerEnable(gt_every45seconds, true);
+    TriggerEnable(gt_everyminute, true);
+    TriggerEnable(gt_every90seconds, true);
+    TriggerEnable(gt_everyfiveminutes, true);
+    TriggerEnable(gt_every15minutes, true);
+    TriggerEnable(gt_checkhydras, true);
+}
+
+text gf_get_bonus_name_text_from_bid (int lp_bonus_int) {
+    // Variable Declarations
+    text lv_r;
+
+    // Automatic Variable Declarations
+    int auto566F021E_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto566F021E_val = lp_bonus_int;
+    if (auto566F021E_val == 0) {
+        lv_r = StringExternal("Param/Value/DD5396A4");
+    }
+    else if (auto566F021E_val == 1) {
+        lv_r = StringExternal("Param/Value/0E35134C");
+    }
+    else if (auto566F021E_val == 2) {
+        lv_r = StringExternal("Param/Value/73BF34E4");
+    }
+    else if (auto566F021E_val == 3) {
+        lv_r = StringExternal("Param/Value/64E57F01");
+    }
+    else if (auto566F021E_val == 4) {
+        lv_r = StringExternal("Param/Value/8DFB1F87");
+    }
+    else if (auto566F021E_val == 5) {
+        lv_r = StringExternal("Param/Value/1C734627");
+    }
+    else if (auto566F021E_val == 6) {
+        lv_r = StringExternal("Param/Value/704B0AD1");
+    }
+    else if (auto566F021E_val == 7) {
+        lv_r = StringExternal("Param/Value/0D95D3CD");
+    }
+    else if (auto566F021E_val == 8) {
+        lv_r = StringExternal("Param/Value/D7A7EEF6");
+    }
+    else if (auto566F021E_val == 9) {
+        lv_r = StringExternal("Param/Value/0FD0FC63");
+    }
+    else if (auto566F021E_val == 10) {
+        lv_r = StringExternal("Param/Value/FFDAC1AE");
+    }
+    else if (auto566F021E_val == 11) {
+        lv_r = StringExternal("Param/Value/0C325742");
+    }
+    else if (auto566F021E_val == 12) {
+        lv_r = StringExternal("Param/Value/FC64C2D2");
+    }
+    else if (auto566F021E_val == 13) {
+        lv_r = StringExternal("Param/Value/98B11280");
+    }
+    else {
+        lv_r = StringExternal("Param/Value/FCB00C95");
+    }
+    return lv_r;
+}
+
+void gf_tbp_refresh_dialog_labels () {
+    // Variable Declarations
+    int lv_i;
+    int lv_j;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+    lv_j = 1;
+
+    // Implementation
+    lv_i = 1;
+    lv_j = 1;
+    while ((lv_i <= 6)) {
+        if ((lv_i <= gv_tbp_player_picked_terran_count)) {
+            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringToText("") + StringToText("")) + (TextWithColor(PlayerName(gv_tbp_player_picked_terran[lv_i]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_tbp_player_picked_terran[lv_i], false))) + StringToText(""))) + (StringExternal("Param/Value/9A106EF6") + gf_get_bonus_name_text_from_bid(gv_tbp_player_bonus_picks[lv_i]))), PlayerGroupAll());
+            lv_j = (lv_j + 1);
+            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringExternal("Param/Value/CAD22DBC") + IntToText(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/79799139") + IntToText(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/143320F9") + (IntToText(gf_get_needed_xp(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + StringExternal("Param/Value/8F2A688D")))), PlayerGroupAll());
+            lv_j = (lv_j + 1);
+        }
+        else {
+            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], StringToText(""), PlayerGroupAll());
+            lv_j = (lv_j + 1);
+            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], StringToText(""), PlayerGroupAll());
+            lv_j = (lv_j + 1);
+        }
+        lv_i = (lv_i + 1);
+    }
+}
+
 //--------------------------------------------------------------------------------------------------
 // Trigger: transporter became idle
 //--------------------------------------------------------------------------------------------------
@@ -17852,6 +18376,143 @@ bool gt_disable_transporter_trigger_Func (bool testConds, bool runActions) {
 void gt_disable_transporter_trigger_Init () {
     gt_disable_transporter_trigger = TriggerCreate("gt_disable_transporter_trigger_Func");
     TriggerAddEventTimeElapsed(gt_disable_transporter_trigger, 120.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Cash transporter became idle
+//--------------------------------------------------------------------------------------------------
+bool gt_Cashtransporterbecameidle_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_position;
+    unit lv_unit;
+    int lv_owner;
+    int lv_minerals;
+    int lv_gas;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = EventUnit();
+    lv_owner = UnitGetOwner(lv_unit);
+
+    // Conditions
+    if (testConds) {
+        if (!((lv_owner <= 6))) {
+            return false;
+        }
+
+        if (!((lv_owner >= 1))) {
+            return false;
+        }
+
+        if (!((gv_players[lv_owner].lv_support_type == "Cash"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(lv_unit) == "CashTransporter"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_position = UnitGetPosition(EventUnit());
+    lv_minerals = gv_cash_drops[lv_owner][1];
+    lv_gas = gv_cash_drops[lv_owner][2];
+    if ((GameGetMissionTime() <= ((8 * 60) + 0))) {
+        lv_minerals += 2;
+        lv_gas += 2;
+    }
+
+    libNtve_gf_CreateUnitsWithDefaultFacing(lv_gas, "PickupPalletGas", 0, lv_owner, lv_position);
+    libNtve_gf_CreateUnitsWithDefaultFacing(lv_minerals, "PickupPalletMinerals", 0, lv_owner, lv_position);
+    Wait(2.0, c_timeGame);
+    UnitRemove(lv_unit);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Cashtransporterbecameidle_Init () {
+    gt_Cashtransporterbecameidle = TriggerCreate("gt_Cashtransporterbecameidle_Func");
+    TriggerAddEventUnitBecomesIdle(gt_Cashtransporterbecameidle, null, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: More Cash Pickup Research Finished
+//--------------------------------------------------------------------------------------------------
+bool gt_MoreCashPickupResearchFinished_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    string autoCB4F09A8_val;
+
+    // Variable Initialization
+    lv_i = 1;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "ConstructionYard"))) {
+            return false;
+        }
+
+        if (!(((libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops") || (libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops2") || (libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops3") || (libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops4") || (libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops5")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_cash_drops[UnitGetOwner(EventUnit())][1] = (gv_cash_drops[UnitGetOwner(EventUnit())][1] + 1);
+    gv_cash_drops[UnitGetOwner(EventUnit())][2] = (gv_cash_drops[UnitGetOwner(EventUnit())][2] + 1);
+    gv_players[UnitGetOwner(EventUnit())].lv_more_cash_drop_level += 1;
+    autoCB4F09A8_val = libNtve_gf_TriggeringProgressUpgrade();
+    if (autoCB4F09A8_val == "MoreCashDrops") {
+        gv_cash_drops[UnitGetOwner(EventUnit())][1] = (gv_cash_drops[UnitGetOwner(EventUnit())][1] + 1);
+        gv_cash_drops[UnitGetOwner(EventUnit())][2] = (gv_cash_drops[UnitGetOwner(EventUnit())][2] + 1);
+    }
+    else if (autoCB4F09A8_val == "MoreCashDrops2") {
+        gv_cash_drops[UnitGetOwner(EventUnit())][1] = (gv_cash_drops[UnitGetOwner(EventUnit())][1] + 2);
+        gv_cash_drops[UnitGetOwner(EventUnit())][2] = (gv_cash_drops[UnitGetOwner(EventUnit())][2] + 2);
+    }
+    else if (autoCB4F09A8_val == "MoreCashDrops3") {
+    }
+    else if (autoCB4F09A8_val == "MoreCashDrops4") {
+        while ((lv_i <= 6)) {
+            if ((lv_i != UnitGetOwner(EventUnit()))) {
+                gv_cash_drops[lv_i][1] = (gv_cash_drops[lv_i][1] + 2);
+                gv_cash_drops[lv_i][2] = (gv_cash_drops[lv_i][2] + 2);
+            }
+
+            lv_i += 1;
+        }
+    }
+    else if (autoCB4F09A8_val == "MoreCashDrops5") {
+        while ((lv_i <= 6)) {
+            gv_cash_drops[lv_i][1] = (gv_cash_drops[lv_i][1] + 2);
+            gv_cash_drops[lv_i][2] = (gv_cash_drops[lv_i][2] + 2);
+            lv_i += 1;
+        }
+    }
+    else {
+    }
+    if ((libNtve_gf_TriggeringProgressUpgrade() == "MoreCashDrops")) {
+    }
+    else {
+        gv_players[UnitGetOwner(EventUnit())].lv_more_cash_drop_level += 2;
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MoreCashPickupResearchFinished_Init () {
+    gt_MoreCashPickupResearchFinished = TriggerCreate("gt_MoreCashPickupResearchFinished_Func");
+    TriggerAddEventUnitResearchProgress(gt_MoreCashPickupResearchFinished, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18066,13 +18727,17 @@ void gt_BunkerUpgradegotclicked_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Bunker got built
+// Trigger: Infested building finished
 //--------------------------------------------------------------------------------------------------
-bool gt_Bunkergotbuilt_Func (bool testConds, bool runActions) {
+bool gt_Infestedbuildingfinished_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((UnitGetType(EventUnitProgressUnit()) == "InfestedBunker"))) {
+        if (!((UnitGetOwner(EventUnitProgressUnit()) >= 1))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnitProgressUnit()) <= 6))) {
             return false;
         }
     }
@@ -18082,15 +18747,21 @@ bool gt_Bunkergotbuilt_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitBehaviorAdd(EventUnitProgressUnit(), "InfestedVisual", EventUnitProgressUnit(), 1);
-    UnitIssueOrder(EventUnitProgressUnit(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+    if ((gv_players[UnitGetOwner(EventUnitProgressUnit())].lv_support_type == "Infested") && ((UnitGetType(EventUnitProgressUnit()) == "InfestedBunker") || (UnitGetType(EventUnitProgressUnit()) == "Armory2") || (UnitGetType(EventUnitProgressUnit()) == "ConstructionYard"))) {
+        UnitBehaviorAdd(EventUnitProgressUnit(), "InfestedVisual", EventUnitProgressUnit(), 1);
+        if ((UnitGetType(EventUnitProgressUnit()) == "InfestedBunker")) {
+            UnitIssueOrder(EventUnitProgressUnit(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+        }
+
+    }
+
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_Bunkergotbuilt_Init () {
-    gt_Bunkergotbuilt = TriggerCreate("gt_Bunkergotbuilt_Func");
-    TriggerAddEventUnitConstructProgress(gt_Bunkergotbuilt, null, c_unitProgressStageComplete);
+void gt_Infestedbuildingfinished_Init () {
+    gt_Infestedbuildingfinished = TriggerCreate("gt_Infestedbuildingfinished_Func");
+    TriggerAddEventUnitConstructProgress(gt_Infestedbuildingfinished, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18224,6 +18895,36 @@ bool gt_DefenseAuraGotClicked_Func (bool testConds, bool runActions) {
 void gt_DefenseAuraGotClicked_Init () {
     gt_DefenseAuraGotClicked = TriggerCreate("gt_DefenseAuraGotClicked_Func");
     TriggerAddEventPlayerEffectUsed(gt_DefenseAuraGotClicked, c_playerAny, "AddProbiusPylonDefenseAura");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Inactive State Got Clicked
+//--------------------------------------------------------------------------------------------------
+bool gt_InactiveStateGotClicked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_pylon;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_pylon = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraPower", 1);
+    UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraAttack", 1);
+    UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraDefense", 1);
+    UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
+    UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InactiveStateGotClicked_Init () {
+    gt_InactiveStateGotClicked = TriggerCreate("gt_InactiveStateGotClicked_Func");
+    TriggerAddEventPlayerEffectUsed(gt_InactiveStateGotClicked, c_playerAny, "RemoveAnyProbiusPylonAura");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18714,6 +19415,61 @@ void gt_rtvvday_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -rtv thxg
+//--------------------------------------------------------------------------------------------------
+bool gt_rtvthxg_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gf_get_lobby_event_setting() == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gf_get_voted_event_as_typeint() == 0)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/9B777A43") + (TextWithColor(PlayerName(lv_player), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_player, false))) + StringExternal("Param/Value/687DF3BB"))));
+        gf_handle_votes(lv_player, "thxg");
+    }
+    else {
+        if ((gf_get_voted_event_as_typeint() == 7)) {
+            if (((4 - (gv_rtv + 1)) != 0)) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringToText("") + (IntToText((4 - (gv_rtv + 1))) + StringExternal("Param/Value/662B39A4"))));
+            }
+
+            gf_handle_votes(lv_player, "thxg");
+        }
+        else {
+            UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaSubtitle, (StringToText("") + (StringToText("") + StringExternal("Param/Value/956222AD"))));
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_rtvthxg_Init () {
+    gt_rtvthxg = TriggerCreate("gt_rtvthxg_Func");
+    TriggerAddEventChatMessage(gt_rtvthxg, c_playerAny, "-rtv thxg", true);
+    TriggerAddEventChatMessage(gt_rtvthxg, c_playerAny, "-rtv thanksgiving", true);
+    TriggerAddEventChatMessage(gt_rtvthxg, c_playerAny, "-rock the vote thxg", true);
+    TriggerAddEventChatMessage(gt_rtvthxg, c_playerAny, "-rock the vote thanksgiving", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -clear
 //--------------------------------------------------------------------------------------------------
 bool gt_clear_Func (bool testConds, bool runActions) {
@@ -18870,26 +19626,6 @@ void gt_debug_lag_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: -elo
-//--------------------------------------------------------------------------------------------------
-bool gt_elo_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, (StringExternal("Param/Value/18909050") + IntToText(gv_players[EventPlayer()].lv_elo)));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_elo_Init () {
-    gt_elo = TriggerCreate("gt_elo_Func");
-    TriggerAddEventChatMessage(gt_elo, c_playerAny, "-elo", true);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: -energy
 //--------------------------------------------------------------------------------------------------
 bool gt_energy_Func (bool testConds, bool runActions) {
@@ -18920,26 +19656,6 @@ bool gt_energy_Func (bool testConds, bool runActions) {
 void gt_energy_Init () {
     gt_energy = TriggerCreate("gt_energy_Func");
     TriggerAddEventChatMessage(gt_energy, c_playerAny, "-energy", true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: -info
-//--------------------------------------------------------------------------------------------------
-bool gt_info_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, (StringExternal("Param/Value/5DB3E85A") + (IntToText(gv_players[EventPlayer()].lv_skinpoints) + StringExternal("Param/Value/264EB76A"))));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_info_Init () {
-    gt_info = TriggerCreate("gt_info_Func");
-    TriggerAddEventChatMessage(gt_info, c_playerAny, "-info", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18991,6 +19707,34 @@ void gt_karax_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -drone
+//--------------------------------------------------------------------------------------------------
+bool gt_drone_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_no_point;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_practice_mode == true)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "MechaDrone", 0, 1, PointFromId(1384876706));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_drone_Init () {
+    gt_drone = TriggerCreate("gt_drone_Func");
+    TriggerAddEventChatMessage(gt_drone, c_playerAny, "-dronedev", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: -money
 //--------------------------------------------------------------------------------------------------
 bool gt_money_Func (bool testConds, bool runActions) {
@@ -19036,48 +19780,6 @@ bool gt_money_zerg_Func (bool testConds, bool runActions) {
 void gt_money_zerg_Init () {
     gt_money_zerg = TriggerCreate("gt_money_zerg_Func");
     TriggerAddEventChatMessage(gt_money_zerg, c_playerAny, "-money_zerg", true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: -reset elo
-//--------------------------------------------------------------------------------------------------
-bool gt_resetelo_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    bool lv_did_reset;
-    int lv_player_elo;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_did_reset = gv_players[EventPlayer()].lv_did_elo_reset;
-    lv_player_elo = gv_players[EventPlayer()].lv_elo;
-
-    // Conditions
-    if (testConds) {
-        if (!((lv_did_reset == false))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((lv_player_elo <= 1000)) {
-        gf_Game_Banks_handler("save", EventPlayer(), 1100, 0);
-        gv_players[EventPlayer()].lv_elo = 1100;
-        gv_players[EventPlayer()].lv_did_elo_reset = true;
-    }
-    else {
-        UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaChat, StringExternal("Param/Value/60454D8C"));
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_resetelo_Init () {
-    gt_resetelo = TriggerCreate("gt_resetelo_Func");
-    TriggerAddEventChatMessage(gt_resetelo, c_playerAny, "-reset elo", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -20181,7 +20883,7 @@ bool gt_NoWeathergotselected_Func (bool testConds, bool runActions) {
 
     gv_players[lv_player].lv_weather = 0;
     gf_Remove_weather(gv_players[lv_player].lv_position);
-    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 0);
+    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 0, 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseRain", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseSnow", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseAsh", 0);
@@ -20214,7 +20916,7 @@ bool gt_Raingotselected_Func (bool testConds, bool runActions) {
 
     gv_players[lv_player].lv_weather = 2;
     gf_Create_weather(gv_players[lv_player].lv_position, 2);
-    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 2);
+    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 2, 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseNoWeather", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseSnow", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseAsh", 0);
@@ -20247,7 +20949,7 @@ bool gt_Snowgotselected_Func (bool testConds, bool runActions) {
 
     gv_players[lv_player].lv_weather = 3;
     gf_Create_weather(gv_players[lv_player].lv_position, 3);
-    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 3);
+    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 3, 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseNoWeather", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseRain", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseAsh", 0);
@@ -20280,7 +20982,7 @@ bool gt_Ashgotselected_Func (bool testConds, bool runActions) {
 
     gv_players[lv_player].lv_weather = 1;
     gf_Create_weather(gv_players[lv_player].lv_position, 1);
-    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 1);
+    gf_Game_Banks_handler("changeweather", EventPlayer(), lv_elo, 1, 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseNoWeather", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseRain", 0);
     libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ChooseSnow", 0);
@@ -21927,12 +22629,12 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
         else {
             if ((gf_is_player_banned(lv_owner) == true)) {
                 gv_players[lv_owner].lv_elo = 0;
-                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
+                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0, 0);
                 gv_players[lv_owner].lv_lost_elo = true;
             }
             else {
                 gv_players[lv_owner].lv_elo = (gv_players[lv_owner].lv_elo - gf_get_base_penalty_elo_count());
-                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0);
+                gf_Game_Banks_handler("save", lv_owner, gv_players[lv_owner].lv_elo, 0, 0);
                 gv_players[lv_owner].lv_lost_elo = true;
             }
         }
@@ -21996,7 +22698,7 @@ bool gt_playerleavesgame_Func (bool testConds, bool runActions) {
         }
         else {
             gv_players[lv_player].lv_elo = (gv_players[lv_player].lv_elo - gf_get_base_penalty_elo_count());
-            gf_Game_Banks_handler("save", lv_player, gv_players[lv_player].lv_elo, 0);
+            gf_Game_Banks_handler("save", lv_player, gv_players[lv_player].lv_elo, 0, 0);
             gv_players[lv_player].lv_lost_elo = true;
         }
     }
@@ -22044,6 +22746,162 @@ bool gt_playerleavesgame_Func (bool testConds, bool runActions) {
 void gt_playerleavesgame_Init () {
     gt_playerleavesgame = TriggerCreate("gt_playerleavesgame_Func");
     TriggerAddEventPlayerLeft(gt_playerleavesgame, c_playerAny, c_gameResultUndecided);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: spawn turkey
+//--------------------------------------------------------------------------------------------------
+bool gt_spawnturkey_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_is_thxg == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_spawn_turkey();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_spawnturkey_Init () {
+    gt_spawnturkey = TriggerCreate("gt_spawnturkey_Func");
+    TriggerEnable(gt_spawnturkey, false);
+    TriggerAddEventTimePeriodic(gt_spawnturkey, 30.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: turkey dies
+//--------------------------------------------------------------------------------------------------
+bool gt_turkeydies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_killing_player;
+    point lv_position;
+    int lv_rng;
+
+    // Automatic Variable Declarations
+    int autoF1B9E811_val;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_is_thxg == true))) {
+            return false;
+        }
+
+        if (!(((UnitGetType(EventUnit()) == "UglyTurkey") || (UnitGetType(EventUnit()) == "SpaceTurkey")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_killing_player = libNtve_gf_KillingPlayer();
+    if ((lv_killing_player >= 1) && (lv_killing_player <= 6)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_killing_player) + StringExternal("Param/Value/BB169735")));
+        lv_position = UnitGetPosition(EventUnit());
+        lv_rng = RandomInt(1, 8);
+        autoF1B9E811_val = lv_rng;
+        if (autoF1B9E811_val == 1) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+            }
+        }
+        else if (autoF1B9E811_val == 2) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
+            }
+        }
+        else if (autoF1B9E811_val == 3) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
+            }
+        }
+        else if (autoF1B9E811_val == 4) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
+                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+            }
+        }
+        else if (autoF1B9E811_val == 5) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
+            }
+        }
+        else if (autoF1B9E811_val == 6) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
+            }
+        }
+        else if (autoF1B9E811_val == 7) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
+            }
+        }
+        else if (autoF1B9E811_val == 8) {
+            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
+            }
+        }
+        else {
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_turkeydies_Init () {
+    gt_turkeydies = TriggerCreate("gt_turkeydies_Func");
+    TriggerEnable(gt_turkeydies, false);
+    TriggerAddEventUnitDied(gt_turkeydies, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22547,6 +23405,22 @@ bool gt_spawnpresent_Func (bool testConds, bool runActions) {
         }
         else {
         }
+        if ((gf_flip_coin() == 1)) {
+            if ((gf_flip_coin() == 1)) {
+                libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "SetTintColor 255,0,0");
+            }
+            else {
+                libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "SetTintColor 0,0,255");
+            }
+        }
+        else {
+            if ((gf_flip_coin() == 1)) {
+                libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "SetTintColor 0,128,0");
+            }
+            else {
+                libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "SetTintColor 255,0,128");
+            }
+        }
     }
     gf_revealpickup(UnitLastCreated());
     return true;
@@ -22599,7 +23473,7 @@ bool gt_playercollectspresent_Func (bool testConds, bool runActions) {
 
     UnitRemove(EventUnit());
     lv_player = UnitGetOwner(UnitGroupClosestToPoint(UnitGroup(null, c_playerAny, RegionCircle(lv_present_position, 1.8), UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterSummoned - 32))), 0), lv_present_position));
-    if ((gv_players[lv_player].lv_eliteskin != 0)) {
+    if ((lv_player <= 6) && (gv_players[lv_player].lv_eliteskin != 0)) {
         auto10FC66AF_val = gv_players[lv_player].lv_eliteskin;
         if (auto10FC66AF_val == 1) {
             lv_elite_skin = "EliteMarineSkin1";
@@ -22746,12 +23620,7 @@ bool gt_playercollectspresent_Func (bool testConds, bool runActions) {
     }
     else {
         if (((lv_present_type == "Candy4") || (lv_present_type == "Candy5") || (lv_present_type == "Candy") || (lv_present_type == "Candy2") || (lv_present_type == "Candy3"))) {
-            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                lv_rand_amount = RandomInt(10, 40);
-            }
-            else {
-                lv_rand_amount = RandomInt(5, 20);
-            }
+            lv_rand_amount = RandomInt(10, 40);
             PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
         }
         else {
@@ -22775,12 +23644,7 @@ bool gt_playercollectspresent_Func (bool testConds, bool runActions) {
             }
             else {
                 if ((lv_present_type == "LargePresent")) {
-                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                        lv_rand_amount = RandomInt(5, 9);
-                    }
-                    else {
-                        lv_rand_amount = RandomInt(3, 5);
-                    }
+                    lv_rand_amount = RandomInt(5, 9);
                     auto550510B2_val = RandomInt(1, 4);
                     if (auto550510B2_val == 1) {
                         if ((gv_armor_level >= 3)) {
@@ -22986,7 +23850,7 @@ bool gt_spawnhappynewyeargift_Func (bool testConds, bool runActions) {
 void gt_spawnhappynewyeargift_Init () {
     gt_spawnhappynewyeargift = TriggerCreate("gt_spawnhappynewyeargift_Func");
     TriggerEnable(gt_spawnhappynewyeargift, false);
-    TriggerAddEventTimePeriodic(gt_spawnhappynewyeargift, 10.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_spawnhappynewyeargift, 9.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -22999,22 +23863,17 @@ bool gt_playercollectshappynewyeargift_Func (bool testConds, bool runActions) {
     string lv_present_type;
     int lv_rand;
     int lv_rand_amount;
-    int lv_luck;
 
     // Automatic Variable Declarations
-    int autoFDCE03ED_val;
-    int auto416749FB_val;
     int auto68BE1E46_val;
     int auto0A032D53_val;
     int autoAF63B087_val;
-    int autoF9672691_val;
     int auto7EFBD487_val;
 
     // Variable Initialization
     lv_present_position = UnitGetPosition(EventUnit());
     lv_present_type = UnitGetType(EventUnit());
     lv_rand = RandomInt(3, 10);
-    lv_luck = RandomInt(1, 10);
 
     // Conditions
     if (testConds) {
@@ -23032,249 +23891,174 @@ bool gt_playercollectshappynewyeargift_Func (bool testConds, bool runActions) {
     if ((lv_player <= 7) && (lv_player >= 1)) {
         if ((lv_player <= 6)) {
             if (((lv_present_type == "PickupScrapSalvage1x1") || (lv_present_type == "PickupScrapSalvage2x2") || (lv_present_type == "PickupScrapSalvage3x3"))) {
-                if ((lv_luck <= 7)) {
-                    if ((lv_present_type == "PickupScrapSalvage1x1")) {
-                        auto68BE1E46_val = RandomInt(1, 3);
-                        if (auto68BE1E46_val == 1) {
-                            lv_rand_amount = RandomInt(20, 30);
-                        }
-                        else if (auto68BE1E46_val == 2) {
-                            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
-                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
-                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                            }
-                            else {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
-                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                            }
-                        }
-                        else if (auto68BE1E46_val == 3) {
-                            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
-                            }
-                            else {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
-                            }
+                if ((lv_present_type == "PickupScrapSalvage1x1")) {
+                    auto68BE1E46_val = RandomInt(1, 3);
+                    if (auto68BE1E46_val == 1) {
+                        lv_rand_amount = RandomInt(20, 30);
+                    }
+                    else if (auto68BE1E46_val == 2) {
+                        if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
+                            UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
+                            UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
                         }
                         else {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "Battery", 0, lv_player, lv_present_position);
+                            UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                        }
+                    }
+                    else if (auto68BE1E46_val == 3) {
+                        if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
+                        }
+                        else {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
                         }
                     }
                     else {
-                        if ((lv_present_type == "PickupScrapSalvage2x2")) {
-                            auto0A032D53_val = RandomInt(1, 3);
-                            if (auto0A032D53_val == 1) {
-                                lv_rand_amount = RandomInt(40, 60);
-                            }
-                            else if (auto0A032D53_val == 2) {
-                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                }
-                                else {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                }
-                            }
-                            else if (auto0A032D53_val == 3) {
-                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
-                                }
-                                else {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
-                                }
-                            }
-                            else {
-                            }
-                        }
-                        else {
-                            if ((lv_present_type == "PickupScrapSalvage3x3")) {
-                                autoAF63B087_val = RandomInt(1, 3);
-                                if (autoAF63B087_val == 1) {
-                                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                        lv_rand_amount = RandomInt(120, 180);
-                                    }
-                                    else {
-                                        lv_rand_amount = RandomInt(60, 90);
-                                    }
-                                }
-                                else if (autoAF63B087_val == 2) {
-                                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                    }
-                                    else {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                    }
-                                }
-                                else if (autoAF63B087_val == 3) {
-                                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
-                                    }
-                                    else {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
-                                    }
-                                }
-                                else {
-                                }
-                            }
-
-                        }
                     }
-                    if ((lv_rand_amount != 0)) {
-                        PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
-                        libNtve_gf_CreateActorAtPoint("GainBountyTextKicker", lv_present_position);
-                    }
-
                 }
                 else {
-                    if ((lv_present_type == "PickupScrapSalvage1x1")) {
-                        autoFDCE03ED_val = RandomInt(1, 3);
-                        if (autoFDCE03ED_val == 1) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
+                    if ((lv_present_type == "PickupScrapSalvage2x2")) {
+                        auto0A032D53_val = RandomInt(1, 3);
+                        if (auto0A032D53_val == 1) {
+                            lv_rand_amount = RandomInt(40, 60);
                         }
-                        else if (autoFDCE03ED_val == 2) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
+                        else if (auto0A032D53_val == 2) {
+                            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                            }
+                            else {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                            }
                         }
-                        else if (autoFDCE03ED_val == 3) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
+                        else if (auto0A032D53_val == 3) {
+                            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                            }
+                            else {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                            }
                         }
                         else {
                         }
                     }
                     else {
-                        if ((lv_present_type == "PickupScrapSalvage2x2")) {
-                            auto416749FB_val = RandomInt(1, 3);
-                            if (auto416749FB_val == 1) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
+                        if ((lv_present_type == "PickupScrapSalvage3x3")) {
+                            autoAF63B087_val = RandomInt(1, 3);
+                            if (autoAF63B087_val == 1) {
+                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                    lv_rand_amount = RandomInt(120, 180);
+                                }
+                                else {
+                                    lv_rand_amount = RandomInt(60, 90);
+                                }
                             }
-                            else if (auto416749FB_val == 2) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
+                            else if (autoAF63B087_val == 2) {
+                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                }
+                                else {
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                }
                             }
-                            else if (auto416749FB_val == 3) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
+                            else if (autoAF63B087_val == 3) {
+                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                                }
+                                else {
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_player, lv_present_position);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_player, lv_present_position);
+                                }
                             }
                             else {
                             }
                         }
-                        else {
-                            if ((lv_present_type == "PickupScrapSalvage3x3")) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
-                            }
 
-                        }
                     }
                 }
+                if ((lv_rand_amount != 0)) {
+                    PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
+                    libNtve_gf_CreateActorAtPoint("GainBountyTextKicker", lv_present_position);
+                }
+
             }
             else {
                 if (((lv_present_type == "PickupHealth100") || (lv_present_type == "PickupEnergy100") || (lv_present_type == "PickupRestorationCharge"))) {
-                    if ((lv_luck <= 7)) {
-                        if ((lv_present_type == "PickupHealth100")) {
+                    if ((lv_present_type == "PickupHealth100")) {
+                        if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
+                        }
+                        else {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
+                        }
+                    }
+                    else {
+                        if ((lv_present_type == "PickupEnergy100")) {
                             if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
                             }
                             else {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
+                                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
                             }
                         }
                         else {
-                            if ((lv_present_type == "PickupEnergy100")) {
+                            if ((lv_present_type == "PickupRestorationCharge")) {
                                 if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
                                     libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
                                     UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
                                 }
                                 else {
+                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
                                     libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
                                     UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
                                 }
                             }
-                            else {
-                                if ((lv_present_type == "PickupRestorationCharge")) {
-                                    if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                    }
-                                    else {
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "FirebatZergHex", 0, lv_player, lv_present_position);
-                                        libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_player, lv_present_position);
-                                        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                                    }
-                                }
 
-                            }
-                        }
-                    }
-                    else {
-                        autoF9672691_val = RandomInt(1, 3);
-                        if (autoF9672691_val == 1) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
-                        }
-                        else if (autoF9672691_val == 2) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
-                        }
-                        else if (autoF9672691_val == 3) {
-                            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
-                        }
-                        else {
                         }
                     }
                 }
                 else {
                     if ((lv_present_type == "PickupPlasmaRounds")) {
-                        if ((lv_luck <= 7)) {
-                            gv_plasma_rounds[lv_player] = (gv_plasma_rounds[lv_player] + 1);
-                            if ((gv_plasma_rounds[lv_player] == 3)) {
-                                if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
-                                }
-                                else {
-                                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
-                                }
-                                gv_plasma_rounds[lv_player] = 0;
+                        gv_plasma_rounds[lv_player] = (gv_plasma_rounds[lv_player] + 1);
+                        if ((gv_plasma_rounds[lv_player] == 3)) {
+                            if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
+                                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_player) + StringExternal("Param/Value/AEE0EC62")));
                             }
                             else {
-                                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_player) + (StringExternal("Param/Value/A941D8BE") + (IntToText(gv_plasma_rounds[lv_player]) + (StringExternal("Param/Value/41EEE019") + StringExternal("Param/Value/E07D26ED"))))));
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_player, lv_present_position);
+                                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_player) + StringExternal("Param/Value/B7A2DC2E")));
                             }
+                            gv_plasma_rounds[lv_player] = 0;
                         }
                         else {
-                            auto7EFBD487_val = RandomInt(1, 3);
-                            if (auto7EFBD487_val == 1) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
-                            }
-                            else if (auto7EFBD487_val == 2) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
-                            }
-                            else if (auto7EFBD487_val == 3) {
-                                libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
-                            }
-                            else {
-                            }
+                            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_player) + (StringExternal("Param/Value/A941D8BE") + (IntToText(gv_plasma_rounds[lv_player]) + (StringExternal("Param/Value/41EEE019") + StringExternal("Param/Value/E07D26ED"))))));
                         }
                     }
 
@@ -23287,6 +24071,18 @@ bool gt_playercollectshappynewyeargift_Func (bool testConds, bool runActions) {
                 PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, lv_rand_amount);
             }
 
+        }
+        auto7EFBD487_val = RandomInt(1, 3);
+        if (auto7EFBD487_val == 1) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", 0, 0, lv_present_position);
+        }
+        else if (auto7EFBD487_val == 2) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", 0, 0, lv_present_position);
+        }
+        else if (auto7EFBD487_val == 3) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", 0, 0, lv_present_position);
+        }
+        else {
         }
     }
 
@@ -23813,7 +24609,13 @@ bool gt_sendbuggohome_Func (bool testConds, bool runActions) {
         UnitRemove(EventUnitCreatedUnit());
     }
     else {
-        UnitIssueOrder(EventUnitCreatedUnit(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1))), c_orderQueueReplace);
+        if ((gv_players[lv_owner].lv_support_type == "Marauder")) {
+            libNtve_gf_ReplaceUnit(EventUnitCreatedUnit(), "Oggub", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+            UnitIssueOrder(libNtve_gf_LastReplacedUnit(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1))), c_orderQueueReplace);
+        }
+        else {
+            UnitIssueOrder(EventUnitCreatedUnit(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", lv_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1))), c_orderQueueReplace);
+        }
     }
     return true;
 }
@@ -27014,6 +27816,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackTownAlly_Terr", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnitAlly_Zerg", false);
     UISetAlertTypeVisible(PlayerGroupAll(), "AttackUnit_Zerg", false);
+    gf_Disable_timed_triggers();
     autoE17CD697_g = PlayerGroupActive();
     autoE17CD697_var = -1;
     while (true) {
@@ -27026,20 +27829,17 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
             PlayerGroupAdd(gv_zerg, autoE17CD697_var);
         }
     }
-    gf_Game_Banks_handler("load", 0, 0, 0);
+    gf_Game_Banks_handler("load", 0, 0, 0, 0);
+    gf_AnalysePlayerDifficultyVotes();
+    gv_difficulty = gf_get_real_difficulty();
+    TriggerExecute(gt_tbp_create, true, true);
+    gf_Enable_timed_triggers();
     autoAE518202_g = gv_terrans;
     autoAE518202_var = -1;
     while (true) {
         autoAE518202_var = PlayerGroupNextPlayer(autoAE518202_g, autoAE518202_var);
         if (autoAE518202_var < 0) { break; }
-        gf_Game_Banks_handler("addgame", autoAE518202_var, (gv_players[autoAE518202_var].lv_elo - 0), 0);
-    }
-    if ((GameAttributeGameValue("1") == "0002")) {
-        gv_difficulty = gf_get_ranked_difficulty();
-    }
-    else {
-        gf_AnalysePlayerDifficultyVotes();
-        gv_difficulty = gf_get_real_difficulty();
+        gf_Game_Banks_handler("addgame", autoAE518202_var, (gv_players[autoAE518202_var].lv_elo - 0), 0, 0);
     }
     gv_game_timer_setting = gf_get_timer_setting();
     if ((gv_game_timer_setting != 1)) {
@@ -27145,7 +27945,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_create_income_dialog();
     GameSetPauseable(false);
     gf_spawn_spaceballs();
-    gf_init_3v3();
     libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     return true;
 }
@@ -27177,6 +27976,221 @@ void gt_SporeCrawlerwantstoshoot_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: tbp_create
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_create_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    playergroup lv_players;
+    int lv_i;
+
+    // Automatic Variable Declarations
+    playergroup auto2240D553_g;
+    int auto2240D553_var;
+    playergroup autoC1308021_g;
+    int autoC1308021_var;
+    playergroup auto8606355D_g;
+    int auto8606355D_var;
+
+    // Variable Initialization
+    lv_players = PlayerGroupEmpty();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_players = PlayerGroupAll();
+    auto2240D553_g = lv_players;
+    auto2240D553_var = -1;
+    while (true) {
+        auto2240D553_var = PlayerGroupNextPlayer(auto2240D553_g, auto2240D553_var);
+        if (auto2240D553_var < 0) { break; }
+        CameraPan(auto2240D553_var, PointFromId(304274518), 0.0, -1, 10.0, false);
+        CameraLockInput(auto2240D553_var, true);
+    }
+    UnitPauseAll(true);
+    libNtve_gf_HideGameUI(false, PlayerGroupAll());
+    DialogCreate(420, 600, c_anchorTopLeft, 200, 250, true);
+    DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/5EDCD2AE"));
+    gv_tbp_dialog_info = DialogLastCreated();
+    lv_i = 1;
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (60 + (1 * 35)), (StringExternal("Param/Value/9429560E") + StringToText(gf_get_difficulty_label())), Color(100.00, 0.00, 0.00), false, 2.0);
+    while ((lv_i <= 12)) {
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + ((2 + lv_i) * 35)), StringExternal("Param/Value/29478174"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        gv_tbp_labels_terran[lv_i] = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + (((2 + lv_i) * 35) + 22)), StringExternal("Param/Value/80B29AB2"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        lv_i = (lv_i + 1);
+        gv_tbp_labels_terran[lv_i] = DialogControlLastCreated();
+        lv_i = (lv_i + 1);
+    }
+    lv_players = PlayerGroupActive();
+    PlayerGroupRemove(lv_players, 7);
+    autoC1308021_g = lv_players;
+    autoC1308021_var = -1;
+    while (true) {
+        autoC1308021_var = PlayerGroupNextPlayer(autoC1308021_g, autoC1308021_var);
+        if (autoC1308021_var < 0) { break; }
+        gv_tbp_player_picked_terran_count = (gv_tbp_player_picked_terran_count + 1);
+        gv_tbp_player_picked_terran[gv_tbp_player_picked_terran_count] = autoC1308021_var;
+    }
+    DialogSetVisible(gv_tbp_dialog_info, PlayerGroupAll(), true);
+    DialogCreate(800, 450, c_anchorTop, 20, 250, true);
+    DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/B50B193C"));
+    gv_tbp_dialog = DialogLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 75, StringToText(""), StringExternal("Param/Value/FFAF0AAB"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_random = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 75, StringToText(""), StringExternal("Param/Value/54A95DC9"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_infested = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 75, StringToText(""), StringExternal("Param/Value/07755624"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_v3x = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 75, StringToText(""), StringExternal("Param/Value/5B64B55E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_probius = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 165, StringToText(""), StringExternal("Param/Value/C41EEAA0"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_ht = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 165, StringToText(""), StringExternal("Param/Value/CDA9DFBE"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_karax = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 165, StringToText(""), StringExternal("Param/Value/615E49F9"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_chaos = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 165, StringToText(""), StringExternal("Param/Value/B845E20A"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_cash = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 255, StringToText(""), StringExternal("Param/Value/43440836"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_raynor = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 255, StringToText(""), StringExternal("Param/Value/795B13EC"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_marauder = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 255, StringToText(""), StringExternal("Param/Value/1041A1C4"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_artanis = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 255, StringToText(""), StringExternal("Param/Value/6ADFE20E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_tank = DialogControlLastCreated();
+    lv_i = 1;
+    DialogControlCreate(DialogLastCreated(), c_triggerControlTypeProgressBar);
+    libNtve_gf_SetDialogItemMinimumValue(DialogControlLastCreated(), 0.0, PlayerGroupAll());
+    libNtve_gf_SetDialogItemMaximumValue(DialogControlLastCreated(), 15.0, PlayerGroupAll());
+    libNtve_gf_SetDialogItemCurrentValue(DialogControlLastCreated(), 15.0, PlayerGroupAll());
+    DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorBottom, 0, 40);
+    gv_tbp_progress_bar = DialogControlLastCreated();
+    DialogControlSetSize(DialogControlLastCreated(), PlayerGroupAll(), 350, 25);
+    gf_tbp_refresh_dialog_labels();
+    DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
+    CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    lv_i = 15;
+    while ((lv_i >= 0)) {
+        libNtve_gf_SetDialogItemCurrentValue(gv_tbp_progress_bar, IntToFixed(lv_i), PlayerGroupAll());
+        lv_i = (lv_i - 1);
+        Wait(1.0, c_timeReal);
+    }
+    DialogDestroy(gv_tbp_dialog);
+    DialogDestroy(gv_tbp_dialog_info);
+    UnitPauseAll(false);
+    libNtve_gf_HideGameUI(true, PlayerGroupAll());
+    auto8606355D_g = lv_players;
+    auto8606355D_var = -1;
+    while (true) {
+        auto8606355D_var = PlayerGroupNextPlayer(auto8606355D_g, auto8606355D_var);
+        if (auto8606355D_var < 0) { break; }
+        CameraLockInput(auto8606355D_var, false);
+    }
+    CinematicFade(true, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_create_Init () {
+    gt_tbp_create = TriggerCreate("gt_tbp_create_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int autoA0AD69A2_val;
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_button_terran_random) || (EventDialogControl() == gv_tbp_button_terran_chaos) || (EventDialogControl() == gv_tbp_button_terran_ht) || (EventDialogControl() == gv_tbp_button_terran_v3x) || (EventDialogControl() == gv_tbp_button_terran_cash) || (EventDialogControl() == gv_tbp_button_terran_infested) || (EventDialogControl() == gv_tbp_button_terran_raynor) || (EventDialogControl() == gv_tbp_button_terran_marauder) || (EventDialogControl() == gv_tbp_button_terran_artanis) || (EventDialogControl() == gv_tbp_button_terran_tank) || (EventDialogControl() == gv_tbp_button_terran_probius) || (EventDialogControl() == gv_tbp_button_terran_karax)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetEnabled(gv_tbp_button_terran_random, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_chaos, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_ht, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_v3x, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_cash, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_infested, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_raynor, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_probius, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), true);
+    autoA0AD69A2_val = EventDialogControl();
+    if (autoA0AD69A2_val == gv_tbp_button_terran_random) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 1;
+        DialogControlSetEnabled(gv_tbp_button_terran_random, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_chaos) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 2;
+        DialogControlSetEnabled(gv_tbp_button_terran_chaos, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_ht) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 3;
+        DialogControlSetEnabled(gv_tbp_button_terran_ht, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_v3x) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 4;
+        DialogControlSetEnabled(gv_tbp_button_terran_v3x, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_cash) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 5;
+        DialogControlSetEnabled(gv_tbp_button_terran_cash, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_infested) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 6;
+        DialogControlSetEnabled(gv_tbp_button_terran_infested, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_raynor) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 7;
+        DialogControlSetEnabled(gv_tbp_button_terran_raynor, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_marauder) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 8;
+        DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_artanis) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 9;
+        DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_tank) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 10;
+        DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_probius) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 11;
+        DialogControlSetEnabled(gv_tbp_button_terran_probius, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_karax) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 12;
+        DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else {
+    }
+    gf_tbp_refresh_dialog_labels();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_interaction_Init () {
+    gt_tbp_dialog_interaction = TriggerCreate("gt_tbp_dialog_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: every second
 //--------------------------------------------------------------------------------------------------
 bool gt_everysecond_Func (bool testConds, bool runActions) {
@@ -27199,22 +28213,19 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
     gf_get_speed();
     gf_get_unit_upgrades();
     gf_handle_player_tutorial_stages();
-    if ((gf_is_3v3() == false)) {
-        gf_handle_dead_player_areas();
-        gf_update_pet_score();
-        if ((gv_viper_cloud_cd > 0)) {
-            gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
-        }
-
-        if ((gv_defensive_egg_spawn_cooldown > 0)) {
-            gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
-        }
-
-        gf_increase_hydra_stock();
-        gf_attack_highground_invaders();
-        gf_handle_egg_cluster_creation();
+    gf_handle_dead_player_areas();
+    gf_update_pet_score();
+    if ((gv_viper_cloud_cd > 0)) {
+        gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
     }
 
+    if ((gv_defensive_egg_spawn_cooldown > 0)) {
+        gv_defensive_egg_spawn_cooldown = (gv_defensive_egg_spawn_cooldown - 1);
+    }
+
+    gf_increase_hydra_stock();
+    gf_attack_highground_invaders();
+    gf_handle_egg_cluster_creation();
     gf_remove_transmission_units();
     gf_marauder_timed_event();
     gf_artanis_timed_event();
@@ -27250,9 +28261,6 @@ bool gt_everytwoseconds_Func (bool testConds, bool runActions) {
     }
 
     gf_add_zerg_income();
-    if ((gf_is_pvp() == true)) {
-    }
-
     return true;
 }
 
@@ -27557,6 +28565,26 @@ void gt_every90seconds_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: every 3 minutes
+//--------------------------------------------------------------------------------------------------
+bool gt_every3minutes_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_run_cash_bonus_check();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_every3minutes_Init () {
+    gt_every3minutes = TriggerCreate("gt_every3minutes_Func");
+    TriggerAddEventTimePeriodic(gt_every3minutes, (60.0 * 3.0), c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: every 15 minutes
 //--------------------------------------------------------------------------------------------------
 bool gt_every15minutes_Func (bool testConds, bool runActions) {
@@ -27610,17 +28638,20 @@ void gt_every15minutes_Init () {
 void InitTriggers () {
     gt_transporterbecameidle_Init();
     gt_disable_transporter_trigger_Init();
+    gt_Cashtransporterbecameidle_Init();
+    gt_MoreCashPickupResearchFinished_Init();
     gt_choaslordcreated_Init();
     gt_choasmarinecreated_Init();
     gt_cultistcreated_Init();
     gt_playercollectsblood_Init();
     gt_playercollectsbloodbig_Init();
     gt_BunkerUpgradegotclicked_Init();
-    gt_Bunkergotbuilt_Init();
+    gt_Infestedbuildingfinished_Init();
     gt_Infestedmaybestuck_Init();
     gt_PowerAuraGotClicked_Init();
     gt_AttackAuraGotClicked_Init();
     gt_DefenseAuraGotClicked_Init();
+    gt_InactiveStateGotClicked_Init();
     gt_use_tank_ability_Init();
     gt_use_tank_attack_Init();
     gt_rtv_Init();
@@ -27630,18 +28661,17 @@ void InitTriggers () {
     gt_rtvcrazyminions_Init();
     gt_rtvnightking_Init();
     gt_rtvvday_Init();
+    gt_rtvthxg_Init();
     gt_clear_Init();
     gt_debug_Init();
     gt_debug_elo_Init();
     gt_debug_lag_Init();
-    gt_elo_Init();
     gt_energy_Init();
-    gt_info_Init();
     gt_help_Init();
     gt_karax_Init();
+    gt_drone_Init();
     gt_money_Init();
     gt_money_zerg_Init();
-    gt_resetelo_Init();
     gt_reveal_Init();
     gt_italis_Init();
     gt_inf_Init();
@@ -27699,6 +28729,8 @@ void InitTriggers () {
     gt__3v3test_Init();
     gt_CCdestroyed_Init();
     gt_playerleavesgame_Init();
+    gt_spawnturkey_Init();
+    gt_turkeydies_Init();
     gt_spawnheart_Init();
     gt_playercollectsheart_Init();
     gt_grabaheart_Init();
@@ -27780,6 +28812,8 @@ void InitTriggers () {
     gt_ZergArmor_Init();
     gt_entrypoint_Init();
     gt_SporeCrawlerwantstoshoot_Init();
+    gt_tbp_create_Init();
+    gt_tbp_dialog_interaction_Init();
     gt_everysecond_Init();
     gt_everytwoseconds_Init();
     gt_everythreeseconds_Init();
@@ -27789,6 +28823,7 @@ void InitTriggers () {
     gt_every30seconds_Init();
     gt_everyminute_Init();
     gt_every90seconds_Init();
+    gt_every3minutes_Init();
     gt_every15minutes_Init();
 }
 

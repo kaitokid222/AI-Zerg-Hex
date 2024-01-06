@@ -90,7 +90,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="MengskMarauder">
         <Range value="8"/>
-        <Period value="1.4"/>
+        <Period value="1.3"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MercLanerGoblinSapperWeaponMelee">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>

@@ -4,9 +4,54 @@
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="GasVentUpgradeRequirement">
+        <NodeArray index="Use" Link="AndCountUpgradeGasExtraction3CompleteOnly1267463215"/>
+        <NodeArray index="Show" Link="NotCountUpgradeGasVentUpgradeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="HaveGasVentUpgrade">
+        <NodeArray index="Use" Link="CountUpgradeGasVentUpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountBehaviorUpgradedVespeneHarvestingUnlimitedCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ProbiusPylonInactiveState">
+        <NodeArray index="Use" Link="NotGTCountBehaviorGenerateMineralsQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="ResearchMoreCashDrops2">
+        <NodeArray index="Use" Link="CountUpgradeMoreCashDropsQueuedOrBetter906507071"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchMoreCashDrops">
+        <NodeArray index="Show" Link="NotCountUpgradeMoreCashDropsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchInfestedOffense">
+        <NodeArray index="Use" Link="CountUpgradeTier3EquipmentCompleteOnly4240815259"/>
+        <NodeArray index="Show" Link="NotCountUpgradeInfestedOffenseQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchInfestedSpeedUp">
+        <NodeArray index="Show" Link="NotCountUpgradeInfestedSpeedUpQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchMoreCashDrops4">
+        <NodeArray index="Use" Link="GTE875194640CountUpgradeIncreaseCashPickupsCompleteOnly10"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops4QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchMoreCashDrops5">
+        <NodeArray index="Use" Link="GTE3128881089CountUpgradeIncreaseCashPickupsCompleteOnly15"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops5QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchZergSpecialtySlowlingPackedMass3v3">
         <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
         <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="UpgradeCashPickups">
+        <NodeArray index="Use" Link="And4188474517NotCountUpgradeIncreaseCashPickupsQueuedOnlyNotCountUpgradeIncreaseCashPickupsInProgressOnlyCountUpgradeMoreCashDrops2CompleteOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeIncreaseCashPickupsCompleteOnlyOrCountUpgradeIncreaseCashPickupsQueuedOnlyCountUpgradeIncreaseCashPickupsInProgressOnly15"/>
+    </CRequirement>
+    <CRequirement id="ResearchMoreCashDrops3">
+        <NodeArray index="Use" Link="GTE1342794281CountUpgradeIncreaseCashPickupsCompleteOnly5"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UpgradeFortificationInfested">
+        <NodeArray index="Use" Link="And2331140635NotCountUpgradeFortificationQueuedOnlyNotCountUpgradeFortificationInProgressOnly"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeFortificationCompleteOnlyOrCountUpgradeFortificationQueuedOnlyCountUpgradeFortificationInProgressOnly50"/>
     </CRequirement>
     <CRequirement id="ZagaraSporeCrawler">
         <NodeArray index="Use" Link="GTE1280241940CountUpgradeMinuteUpgradeQueuedOrBetter15"/>

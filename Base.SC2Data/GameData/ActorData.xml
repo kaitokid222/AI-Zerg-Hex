@@ -1,8 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorModel id="MechaExtractorBuild" parent="ModelConstruction">
+        <Aliases value="_ZergBuildModel"/>
+        <On Terms="ActorCreation" Send="Create ZergConstructionAttached"/>
+        <HostSiteOps Ops="SOpShadow ExtractorBuildFacing"/>
+        <Model value="Extractor_Mecha_Build"/>
+        <Scale value="1.200000"/>
+    </CActorModel>
+    <CActorUnit id="MechaExtractor" parent="ZergBuilding" unitName="MechaExtractor">
+        <Macros value="ExtractAnim"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo AutomatedExtractor; MorphFrom Extractor" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Extractor; MorphFrom AutomatedExtractor" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimGroupRemove A"/>
+        <On Terms="ActorCreation" Send="AnimGroupRemove B"/>
+        <On Terms="ActorCreation" Send="AnimGroupApply D"/>
+        <On Terms="ActorCreation" Send="StatusSet Mining 1"/>
+        <On Terms="ActorCreation" Send="TimerSet 5.000000 Stopped"/>
+        <On Terms="Effect.GainGas6CasterText.Start" Send="TimerKill Stopped"/>
+        <On Terms="Effect.GainGas6CasterText.Start" Send="TimerSet 5.000000 Stopped"/>
+        <On Terms="Effect.GainGas6CasterText.Start; IsStatus Mining 0" Send="AnimPlay Work Stand,Work"/>
+        <On Terms="Effect.GainGas6CasterText.Start; IsStatus Mining 0" Send="AnimGroupRemove B"/>
+        <On Terms="Effect.GainGas6CasterText.Start; IsStatus Mining 0" Send="AnimGroupApply D"/>
+        <On Terms="Effect.GainGas6CasterText.Start; IsStatus Mining 0" Send="StatusSet Mining 1"/>
+        <On Terms="TimerExpired; TimerName Stopped" Send="AnimGroupRemove D"/>
+        <On Terms="TimerExpired; TimerName Stopped" Send="AnimGroupApply B"/>
+        <On Terms="TimerExpired; TimerName Stopped" Send="StatusSet Mining 0"/>
+        <On Terms="AnimDone; AnimName Work; IsStatus Mining 1" Send="AnimPlay Work Stand,Work"/>
+        <On Terms="Behavior.GenerateGasChemicalPlantLarge.On" Send="SetTintColor 255,255,255"/>
+        <On Terms="Behavior.GenerateGasChemicalPlantLarge.Off" Send="SetTintColor 255,170,170"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoVespene" Send="DeathCustomize Empty"/>
+        <On Terms="UnitBirth.MechaExtractor" Send="TimerSet 0.100000 HideGeyser"/>
+        <On Terms="ActorCreation" Send="Create GeyserBuildFinishCovered"/>
+        <On Terms="TimerExpired; TimerName HideGeyser" Send="Create GeyserBuildFinishCovered"/>
+        <On Terms="ActorDestruction" Send="Create GeyserUncovered"/>
+        <On Terms="Effect.GainGas6CasterText.Start" Send="Create AutomatedRefineryTextKicker6"/>
+        <Model value="Extractor_Mecha"/>
+        <BuildModel value="Extractor_Mecha_Build"/>
+        <DeathArray index="Normal" ModelLink="AutomatedExtractorDeath" SoundLink="Extractor_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="ZergLargeBuildingDeath" SoundLink="Extractor_Explode"/>
+        <DeathCustoms ModelLink="AutomatedExtractorEmptyDeath" Name="Empty"/>
+        <PlacementModel value="Extractor_Mecha_Placement"/>
+        <PlacementSound value="Zerg_BuildingPlacement"/>
+        <PlaceholderActorModel value="PlaceholderModel"/>
+        <PortraitModel value="Extractor_Mecha_Portrait"/>
+        <BarOffset value="140"/>
+        <BarWidth value="120"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Extractor.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level0.dds"/>
+        <NameOffset value="100"/>
+        <SoundArray index="Ready" value="Extractor_Ready"/>
+        <SoundArray index="What" value="Extractor_What"/>
+        <SoundArray index="Construction" value="Zerg_BuildingMorphWhat"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Extractor.dds"/>
+        </Wireframe>
+        <Scale value="1.200000"/>
+    </CActorUnit>
+    <CActorUnit id="CarrionBird2" parent="GenericUnitCritter" unitName="UglyTurkey">
+        <Aliases value="_UnitSmall"/>
+        <On Terms="Behavior.CarrionBirdFlee.On" Send="AnimBracketStart FlyAway Stand,Unpowered,End Stand,Unpowered Stand,Unpowered,Start ClosingFull"/>
+        <On Terms="Behavior.CarrionBirdFlee.Off" Send="AnimBracketStop FlyAway"/>
+        <On Terms="Effect.Suicide.Start" Send="Create CritterExplosion"/>
+        <Model value="CarrionBird"/>
+        <BuildModel value="CarrionBird"/>
+        <DeathArray index="Normal" ModelLink="CarrionBirdDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <PlacementModel value="CarrionBird"/>
+        <PortraitModel value="CarrionBirdPortrait"/>
+        <WalkAnimMoveSpeed value="1.1992"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-critter-carrionbird.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/CarrionBird2"/>
+        <SoundArray index="What" value="CarrionBird2_What"/>
+        <SoundArray index="Yes" value="CarrionBird2_What"/>
+        <SoundArray index="Attack" value="CarrionBird2_What"/>
+        <SoundArray index="Pissed" value="CarrionBird2_What"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <StatusBarFlags index="Magazine" value="0"/>
+        <UnitIcon value="Assets\Textures\Wireframe-critter-carrionbird.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-critter-carrionbird.dds"/>
+        </Wireframe>
+        <Scale value="2.000000"/>
+    </CActorUnit>
+    <CActorUnit id="MechaCreepTumor" parent="TerranBuilding" unitName="MechaCreepTumor">
+        <Aliases value="_ZergBuildingMorphModel"/>
+        <Aliases value="_UnitHuge"/>
+        <Macros value="QueueAnim"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="65" Terms="UnitConstruction.MechaCreepTumor.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="66" Terms="UnitConstruction.MechaCreepTumor.Cancel" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="67" Terms="UnitConstruction.MechaCreepTumor.Finish" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="68" Terms="UnitBirth.MechaCreepTumor.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="69" Terms="UnitBirth.MechaCreepTumor.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="70" Terms="UnitBirth.MechaCreepTumor.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="71" Terms="UnitDeath.MechaCreepTumor" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="72" Terms="UnitDeathCustomize; AnimPlaying Waiting" Target="" Send="DeathCustomize Upgrade"/>
+        <On Terms="ProgressLevel.ImpalerDenMorph.Start; Level 2" Send="AnimClear Waiting"/>
+        <On Terms="ProgressLevel.ImpalerDenMorph.Start; Level 2" Send="AnimPlay Morph Morph 0 0.000000"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo ImpalerDen" Send="Create HydraliskDen"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo ImpalerDen" Target="HydraliskDen" Send="AnimPlay Rebirth Build,D,Start 0 0.000000 0.000000 0.300000 AsDuration"/>
+        <On Terms="AbilMorph.*.Cancel; MorphTo ImpalerDen" Send="Destroy"/>
+        <Model value="LurkerDen_Mecha"/>
+        <Scale value="0.550000"/>
+        <BuildModel value="LurkerDen_Mecha_Build"/>
+        <DeathArray index="Normal" ModelLink="LurkerDenDeath" SoundLink="LurkerDen_Explode"/>
+        <DeathCustoms ModelLink="ZergBuildingDeath" Name="Upgrade"/>
+        <PlacementModel value="MechaCreepTumorPlacement"/>
+        <PlacementSound value="Zerg_BuildingPlacement"/>
+        <PortraitModel value="Overlord_Mecha_Portrait"/>
+        <BarOffset value="140"/>
+        <BarWidth value="160"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-LurkerDen.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level0.dds"/>
+        <NameOffset value="110"/>
+        <SoundArray index="Ready" value="LurkerDen_Ready"/>
+        <SoundArray index="What" value="LurkerDen_What"/>
+        <SoundArray index="Construction" value="Zerg_BuildingMorphWhat"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-LurkerDen.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorModel id="GuardianShield">
         <Scale value="0.500000"/>
     </CActorModel>
+    <CActorUnit id="KarakFemale2" parent="GenericUnitCritter" unitName="SpaceTurkey">
+        <Aliases value="_UnitSmall"/>
+        <On Terms="Effect.Suicide.Start" Send="Create CritterExplosion"/>
+        <Model value="KarakFemale"/>
+        <BuildModel value="KarakFemale"/>
+        <DeathArray index="Normal" ModelLink="KarakFemaleDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <PlacementModel value="KarakFemale"/>
+        <PortraitModel value="KarakFemalePortrait"/>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-critter-karakfemale.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/KarakFemale2"/>
+        <SoundArray index="What" value="Karak_What"/>
+        <SoundArray index="Yes" value="Karak_What"/>
+        <SoundArray index="Attack" value="Karak_What"/>
+        <UnitIcon value="Assets\Textures\Wireframe-critter-karakfemale.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-critter-karakfemale.dds"/>
+        </Wireframe>
+        <Scale value="2.000000"/>
+    </CActorUnit>
     <CActorRange id="KaraxPowerFieldRange" parent="RangeAbil" abil="ArtanisVortex">
         <On index="1" Terms="Abil.PowerFieldKarax.TargetOn" Send="Create"/>
         <On index="2" Terms="Abil.PowerFieldKarax.TargetOff" Send="Destroy"/>
@@ -35,6 +196,42 @@
         <UnitIcon value="Assets\Textures\btn-building-zerg-greaterspire-mecha.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-GreaterSpire.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="LaveCrabOggub" parent="GenericUnitCritter" unitName="Oggub">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="CritterBurrowEffects"/>
+        <On Terms="UnitBirth.RedstoneLavaCritterBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.RedstoneLavaCritterBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="Effect.Suicide.Start" Send="Create CritterExplosion"/>
+        <Model value="RedstoneLavaCritter"/>
+        <Scale value="1.200000"/>
+        <BuildModel value="RedstoneLavaCritter"/>
+        <DeathArray index="Normal" ModelLink="ZergSmallUnitDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <PlacementModel value="RedstoneLavaCritter"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-critter-lavacritter.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/LaveCrabOggub"/>
+        <SoundArray index="Birth" value="ZerglingBirth"/>
+        <SoundArray index="Ready" value="LavaCritter_What"/>
+        <SoundArray index="Help" value="ZerglingHelp"/>
+        <SoundArray index="What" value="LavaCritter_What"/>
+        <SoundArray index="Yes" value="LavaCritter_What"/>
+        <SoundArray index="Attack" value="LavaCritter_What"/>
+        <SoundArray index="Pissed" value="LavaCritter_What"/>
+        <SoundArray index="Movement" value="ZerglingMovement"/>
+        <SoundArray index="Turning" value="ZerglingTurning"/>
+        <SoundArray index="Board" value="ZerglingBoard"/>
+        <SoundArray index="Click" value="ZerglingClick"/>
+        <SoundArray index="ClickError" value="ZerglingClickError"/>
+        <SoundArray index="Highlight" value="ZerglingHighlight"/>
+        <UnitIcon value="Assets\Textures\Wireframe-critter-lavacritter.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-critter-lavacritter.dds"/>
         </Wireframe>
     </CActorUnit>
     <CActorModel id="MechaTechlabBuild" parent="ZergBuildingBuild">
@@ -375,6 +572,131 @@
     <CActorSplat id="PowerFieldCursorSplatKarax" parent="ProtossCursorSplat" abil="PowerField">
         <On index="0" Terms="Abil.PowerFieldKarax.Cursor" Send="Create"/>
     </CActorSplat>
+    <CActorUnit id="MechaDroneBuilder" parent="GenericUnitStandard" unitName="MechaDrone">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="CarryAnim"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="MacroWorkerHat"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Macros value="CarryTerrazineNodeAnim"/>
+        <Macros value="CarryAnimCampaign"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On index="0" Send="Create SoundEmitter SCV_Ambience"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="AnimClear Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="TimerKill Gather"/>
+        <On Terms="AnimDone.*.Complete; AnimName Gather" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="AnimPlay Gather Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="Create SCVGatherSound"/>
+        <On Terms="Abil.Repair.SourceChannelStart" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="TimerKill Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="AnimClear Repair"/>
+        <On Terms="AnimDone.*.Complete; AnimName Repair" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="AnimPlay Repair Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="Create SCVRepairSound"/>
+        <On Terms="Abil.*.WorkerStart" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="AnimClear Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="AnimClear Build"/>
+        <On Terms="AnimDone.*.Complete; AnimName Build" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="TimerExpired; TimerName Build" Send="AnimPlay Build Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Build" Send="Create SCVBuildSound"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGas.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.SCV.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SCV_Land"/>
+        <On Terms="Abil.GatherSpecialObject.SourcePrepStart" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="Abil.GatherSpecialObject.SourceCastStop" Send="AnimClear Gather"/>
+        <On Terms="Abil.GatherSpecialObject.SourceCastStop" Send="TimerKill Gather"/>
+        <On Terms="AnimDone.*.Complete; AnimName Gather" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="AnimPlay Gather Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="Create SCVGatherSound"/>
+        <On Terms="Behavior.CarryChrysalisEgg.Create" Send="AnimGroupApply Gather"/>
+        <On Terms="Behavior.CarryChrysalisEgg.Destroy" Send="AnimGroupRemove Gather"/>
+        <On Terms="ActorCreation; ValidateUnit SCVUpgraded" Send="ModelSwap SCVFusionWelder"/>
+        <On Terms="Upgrade.FusionWelder.Add" Send="ModelSwap SCVFusionWelder"/>
+        <On Terms="Upgrade.DualFusionWelders.Add" Send="ModelSwap SCVFusionWelder"/>
+        <On Terms="Behavior.SCVFakeRepair.On" Send="AnimPlay Work,A Work,A"/>
+        <On Terms="AnimDone; AnimName Work,A; ValidateUnit HaveSCVFakeRepair" Send="AnimPlay Work,B Work,B"/>
+        <On Terms="AnimDone; AnimName Work,B; ValidateUnit HaveSCVFakeRepair" Send="AnimPlay Work,A Work,A"/>
+        <On Terms="Behavior.SCVFakeRepair.Off" Send="AnimClear Work,A"/>
+        <On Terms="Behavior.SCVFakeRepair.Off" Send="AnimClear Work,B"/>
+        <Model value="Drone_Mecha"/>
+        <AnimBlendTime value="0.500000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="SCVFootprint"/>
+        <BuildModel value="Drone_Mecha"/>
+        <DeathArray index="Normal" ModelLink="SCVDeath" SoundLink="SCV_Explode" VoiceLink="SCVDeathVoice"/>
+        <DeathCustoms ModelLink="SCVDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdoll" ModelLink="SCVDeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PlacementModel value="Drone_Mecha"/>
+        <PortraitModel value="Drone_Mecha_Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="0.600000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSmall"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="40"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-zerg-drone.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SCV_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SCV_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SCV_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SCV_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-drone-mecha.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-stetmann-mechagroundplating-level0.dds"/>
+        <SoundArray index="Birth" value="SCV_Birth"/>
+        <SoundArray index="Ready" value="SCV_Ready"/>
+        <SoundArray index="Help" value="Alert_TerranEconomyUnderAttack"/>
+        <SoundArray index="What" value="SCV_What"/>
+        <SoundArray index="Yes" value="SCV_Yes"/>
+        <SoundArray index="Attack" value="SCV_Attack"/>
+        <SoundArray index="Pissed" value="SCV_Pissed"/>
+        <SoundArray index="Movement" value="SCV_Movement"/>
+        <SoundArray index="Turning" value="SCV_Turning"/>
+        <SoundArray index="Board" value="SCV_Board"/>
+        <SoundArray index="Click" value="SCV_Click"/>
+        <SoundArray index="ClickError" value="SCV_ClickError"/>
+        <SoundArray index="Highlight" value="SCV_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-drone-mecha.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-zerg-drone.dds"/>
+        </Wireframe>
+        <HighlightTooltip value="Unit/Name/MechaDroneBuilder"/>
+    </CActorUnit>
     <CActorAction id="SiegeTankAttack2" parent="GenericAttack" effectAttack="90mmCannons2">
         <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
         <LaunchAssets Model="SiegeTankAttackLaunch" Sound="SiegeTank_AttackLaunch"/>
@@ -2139,6 +2461,7 @@
     </CActorUnit>
     <CActorUnit id="GasVent" parent="TerranBuildingFlyer" unitName="GasVent">
         <On Terms="Effect.AutoHarvestVespeneU1.Start" Send="Create AutomatedRefineryTextKicker1"/>
+        <On Terms="Effect.AutoHarvestVespeneU2.Start" Send="Create AutomatedRefineryTextKicker2"/>
         <Aliases value="_UnitHuge"/>
         <Macros value="QueueAnim"/>
         <Model value="SpacePlatformVentsUnit"/>
@@ -4302,7 +4625,7 @@
         </HostReturn>
         <HostReturnSiteOps Ops="SOpAttachHardPoint"/>
     </CActorMissile>
-    <CActorUnit id="Bomber" parent="GenericUnitStandard" unitName="Bomber">
+    <CActorUnit id="Bomber" parent="GenericUnitStandard" unitName="CashTransporter">
         <Aliases value="_UnitLarge"/>
         <On Terms="Abil.SpecOpsDropshipTransport.TransportUnloadStart" Send="AnimBracketStart Unload Work,Start Work Work,End"/>
         <On Terms="Abil.SpecOpsDropshipTransport.TransportUnloadStop" Send="AnimBracketStop Unload"/>
@@ -4328,6 +4651,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-DropshipSpecialOps.dds"/>
         </Wireframe>
+        <HighlightTooltip value="Unit/Name/Bomber"/>
     </CActorUnit>
     <CActorUnit id="ObserverScanCliff0" parent="GenericUnitStandard" unitName="ObserverScannerSweep0">
         <Aliases value="_UnitMedium"/>
@@ -7393,6 +7717,8 @@
         <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>
         <On Terms="Abil.que5.Start" Send="AnimSetTimeScale ::Baseline 5.000000"/>
         <On Terms="Abil.que5.Stop" Send="AnimSetTimeScale ::Baseline 1.000000"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="Create InfestationArmory"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="StatusSet Infested 1"/>
         <Model value="Armory"/>
         <CreepHeightClass value="Small"/>
         <BuildModel value="Armory"/>
@@ -8887,6 +9213,8 @@
         <On Terms="UnitBirth.ConstructionYard" Send="Create ConstructionYardLight1"/>
         <On Terms="UnitBirth.ConstructionYard" Send="Create ConstructionYardLight2"/>
         <On Terms="UnitBirth.ConstructionYard" Send="Create ConstructionYardLight3"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="Create InfestationStarport"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="StatusSet Infested 1"/>
         <HostSiteOps Ops="SOpBankerUnitBuilding"/>
         <Model value="Starport"/>
         <Scale value="0.800000"/>

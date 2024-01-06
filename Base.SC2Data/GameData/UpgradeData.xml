@@ -84,12 +84,46 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="IncreaseCashPickups">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EffectArray Reference="Abil,ConyardOrderCashUpgrade,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Effect,PickupPalletGas,Resources[Vespene]" Value="10"/>
+        <EffectArray Reference="Effect,PickupPalletMinerals,Resources[Minerals]" Value="10"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
+    <CUpgrade id="GasVentUpgrade">
+        <Icon value="Assets\Textures\btn-ability-kerrigan-vespeneefficiency.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,GasExtractionGainGasSet,EffectArray[0]" Value="GasExtractionGainGasSwitchTier3"/>
+        <AffectedUnitArray value="ConstructionYard"/>
+    </CUpgrade>
     <CUpgrade id="HiveKilled"/>
     <CUpgrade id="ImprovedLiquids">
         <EffectArray Reference="Unit,Mechaling,EnergyStart" Value="50"/>
         <EffectArray Reference="Unit,Mechaling,EnergyMax" Value="50"/>
         <EffectArray Reference="Unit,MechaHydralisk,EnergyMax" Value="50"/>
         <EffectArray Reference="Unit,MechaHydralisk,EnergyStart" Value="50"/>
+    </CUpgrade>
+    <CUpgrade id="InfestedSpeedUp">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedciviliansleap.dds"/>
+        <EffectArray Reference="Unit,InfestedBuilder,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,InfestedExploder,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,InfestedTerranCampaign,Speed" Value="0.398400"/>
+    </CUpgrade>
+    <CUpgrade id="MoreCashDrops2">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <LeaderAlias value="MoreCashDrops"/>
+    </CUpgrade>
+    <CUpgrade id="MoreCashDrops3">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <LeaderAlias value="MoreCashDrops"/>
+    </CUpgrade>
+    <CUpgrade id="MoreCashDrops4">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <LeaderAlias value="MoreCashDrops"/>
+    </CUpgrade>
+    <CUpgrade id="MoreCashDrops5">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <LeaderAlias value="MoreCashDrops"/>
     </CUpgrade>
     <CUpgrade id="NydusUpgrade2">
         <EffectArray Reference="Unit,NydusCanal,EnergyRegenRate" Value="4.000000"/>
@@ -110,6 +144,13 @@
         <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.100000"/>
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="1000"/>
         <LeaderAlias value="SelfRecharchingBatteries"/>
+    </CUpgrade>
+    <CUpgrade id="InfestedOffense">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-attackspeedmastery.dds"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Weapon,InfestedTerranCampaign,Range" Value="2"/>
+        <EffectArray Operation="Multiply" Reference="Weapon,InfestedTerranCampaign,Period" Value="0.900000"/>
+        <EffectArray Reference="Effect,HotSBanelingExplodeLargeSearch,AreaArray[0].Radius" Value="2"/>
     </CUpgrade>
     <CUpgrade id="OtherTeamDead"/>
     <CUpgrade id="SelfRecharchingBatteries">
@@ -161,6 +202,9 @@
         <EffectArray Reference="Actor,NydusCanal,Scale" Value="0.200000"/>
         <EffectArray Reference="Unit,NydusCanal,EnergyMax" Value="200"/>
         <LeaderAlias value="SelfRecharchingBatteries"/>
+    </CUpgrade>
+    <CUpgrade id="MoreCashDrops">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
     </CUpgrade>
     <CUpgrade id="SynteticAdrenalPumps">
         <EffectArray Operation="Set" Reference="Weapon,MechaClaws,Icon" Value="Assets\Textures\btn-upgrade-stetmann-mechameleeattacks-level3.dds"/>
@@ -641,6 +685,8 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-neosteelframe.dds"/>
         <EffectArray Reference="Abil,ConstructionYardResearch,InfoArray[Research1].Resource[Vespene]" Value="10"/>
         <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortification,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortificationInfested,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Abil,ConstructionYardOrderUpgradeFortificationInfested,Cost[0].Resource[Vespene]" Value="10"/>
         <EffectArray Reference="Unit,Wall2,LifeMax" Value="52.5"/>
         <EffectArray Reference="Unit,Wall2,LifeStart" Value="52.5"/>
         <EffectArray Reference="Unit,TerranGate,LifeArmor" Value="1"/>

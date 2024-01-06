@@ -132,6 +132,88 @@
             <Cooldown Link="Abil/CreepTumorBuild"/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectInstant id="ChooseInactiveState">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="RemoveAnyProbiusPylonAura"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ChooseInactiveState" Requirements="ProbiusPylonInactiveState"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="ConstructionYardOrderUpgradeFortificationInfested">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="ConstructionYardAutoUpgradeIssueUpgradeSet"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="CancelResetAutoCast" value="0"/>
+        <Cost>
+            <Resource index="Vespene" value="140"/>
+            <Charge CountMax="1" CountStart="1" Link="Abil/OrderUpgradeGenerator"/>
+            <Cooldown Link="Abil/OrderUpgradeGenerator"/>
+        </Cost>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FortificationIssue" Requirements="UpgradeFortificationInfested"/>
+    </CAbilEffectInstant>
+    <CAbilResearch id="CashPickupResearch">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Research1" Time="15" Upgrade="IncreaseCashPickups">
+            <Resource index="Minerals" value="60"/>
+            <Resource index="Vespene" value="60"/>
+            <Charge CountMax="1"/>
+            <Button DefaultButtonFace="BiggerCashDrops" Requirements="UpgradeCashPickups"/>
+        </InfoArray>
+        <InfoArray index="Research4" Time="30" Upgrade="MoreCashDrops">
+            <Resource index="Minerals" value="75"/>
+            <Resource index="Vespene" value="75"/>
+            <Button DefaultButtonFace="MoreCashDrops" Requirements="ResearchMoreCashDrops"/>
+        </InfoArray>
+        <InfoArray index="Research5" Time="30" Upgrade="MoreCashDrops2">
+            <Resource index="Minerals" value="125"/>
+            <Resource index="Vespene" value="125"/>
+            <Button DefaultButtonFace="MoreCashDrops2" Requirements="ResearchMoreCashDrops2"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilEffectInstant id="ConyardOrderCashUpgrade">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="IssueCashUpgradeSet"/>
+        <Flags index="AutoCast" value="1"/>
+        <Cost>
+            <Resource index="Minerals" value="60"/>
+            <Resource index="Vespene" value="60"/>
+            <Charge CountMax="1" CountStart="1" Link="Abil/OrderUpgradeGenerator"/>
+            <Cooldown Link="Abil/OrderUpgradeGenerator"/>
+        </Cost>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BiggerCashDrops" Requirements="UpgradeCashPickups"/>
+    </CAbilEffectInstant>
+    <CAbilBuild id="MorphMechaDrone">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <DataCollection value="ZergBuild"/>
+        <FlagArray index="PeonHide" value="1"/>
+        <FlagArray index="PeonKillFinish" value="1"/>
+        <FlagArray index="RangeIncludesBuilding" value="0"/>
+        <InfoArray index="Build1" Unit="MechaExtractor" Time="20">
+            <Charge Link="Abil/ZergBuild"/>
+            <Cooldown Link="Abil/ZergBuild"/>
+            <Button DefaultButtonFace="BuildMechaExtractor"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="MechaTechlab" Time="20">
+            <Charge Link="Abil/ZergBuild"/>
+            <Cooldown Link="Abil/ZergBuild"/>
+            <Button DefaultButtonFace="BuildMechaTechlab" Requirements="OnlyOneMechaTechlab"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="NydusCanal" Time="20">
+            <Charge Link="Abil/ZergBuild"/>
+            <Cooldown Link="Abil/ZergBuild"/>
+            <Button DefaultButtonFace="NydusCanal"/>
+        </InfoArray>
+    </CAbilBuild>
+    <CAbilEffectInstant id="UpgradeGasVent">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="UpgradeGasVentSet"/>
+        <Flags index="BestUnit" value="1"/>
+        <Cost>
+            <Resource index="Minerals" value="70"/>
+            <Resource index="Vespene" value="10"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeGasVent" Requirements="HaveGasVentUpgrade"/>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="GuardianShield">
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
@@ -235,6 +317,13 @@
         <AutoCastAcquireLevel value="Defensive"/>
         <AutoCastFilters value="-;-"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SpawnMutalisk3v3" Requirements="RequirementArmor5"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="StimpackMarauder">
+        <Cost index="0">
+            <Vital index="Life" value="0"/>
+            <Vital index="Energy" value="200"/>
+        </Cost>
+        <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="TraderFlight">
         <Alignment value="Positive"/>
@@ -671,6 +760,14 @@
         <InfoArray index="Research22" Time="30" Upgrade="ParalyzingShock">
             <Resource index="Vespene" value="600"/>
             <Button DefaultButtonFace="ResearchParalyzingShock" Requirements="ResearchParalyzingShock"/>
+        </InfoArray>
+        <InfoArray index="Research23" Time="90" Upgrade="InfestedOffense">
+            <Resource index="Vespene" value="900"/>
+            <Button DefaultButtonFace="InfestedOffense" Requirements="ResearchInfestedOffense"/>
+        </InfoArray>
+        <InfoArray index="Research24" Time="30" Upgrade="InfestedSpeedUp">
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="ResearchInfestedSpeedUp" Requirements="ResearchInfestedSpeedUp"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilMorph id="BurrowFireling">
@@ -1737,8 +1834,8 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="PlasmaCannonT1" Requirements="SiegeTankShowModulate2"/>
     </CAbilEffectTarget>
     <CAbilBuild id="ProtossBuild">
-        <InfoArray index="Build2" Unit="ProbiusPylon" Time="20">
-            <Cooldown TimeUse="20"/>
+        <InfoArray index="Build2" Unit="ProbiusPylon" Time="10">
+            <Cooldown TimeUse="10"/>
             <Button Requirements="nothave3pylons"/>
         </InfoArray>
         <InfoArray index="Build3" Unit="AutomatedAssimilator" Time="15">
@@ -2999,23 +3096,35 @@
         <InfoArray index="Build1" Unit="SentryGun2" Time="15">
             <Button DefaultButtonFace="BuildSentryGun"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="PowerPylon" Time="15">
+        <InfoArray index="Build2" Unit="PowerPylon" Time="10">
             <Button DefaultButtonFace="BuildPowerPylon" Requirements="HaveConstructionYard"/>
         </InfoArray>
-        <InfoArray index="Build3" Unit="TechLab3" Time="40">
+        <InfoArray index="Build3" Unit="TechLab3" Time="20">
             <Button DefaultButtonFace="BuildTechLab" Requirements="OnlyOneTechLab"/>
         </InfoArray>
-        <InfoArray index="Build4" Unit="ChemicalPlant" Time="30">
+        <InfoArray index="Build4" Unit="ChemicalPlant" Time="15">
             <Button DefaultButtonFace="BuildChemicalPlant" Requirements="ChemicalPlantRequirement"/>
         </InfoArray>
-        <InfoArray index="Build5" Unit="OperationCenter" Time="40">
+        <InfoArray index="Build5" Unit="OperationCenter" Time="20">
             <Button DefaultButtonFace="BuildOperationCenter" Requirements="RequirementOperationCenter"/>
         </InfoArray>
-        <InfoArray index="Build6" Unit="LargeChemicalPlant" Time="30">
+        <InfoArray index="Build6" Unit="LargeChemicalPlant" Time="15">
             <Button DefaultButtonFace="BuildLargeChemicalPlant" Requirements="HaveTier2Equipment"/>
         </InfoArray>
         <InfoArray index="Build7" Unit="HiveMindEmulator" Time="10">
             <Button DefaultButtonFace="HiveMindEmulator" Requirements="OnlyOneHiveMindEmulator"/>
+        </InfoArray>
+        <InfoArray index="Build8" Unit="NydusCanal" Time="15">
+            <Button DefaultButtonFace="NydusCanal"/>
+        </InfoArray>
+        <InfoArray index="Build9" Unit="MechaCreepTumor" Time="15">
+            <Button DefaultButtonFace="BuildMechaCreepTumor"/>
+        </InfoArray>
+        <InfoArray index="Build10" Unit="MechaTechlab" Time="15">
+            <Button DefaultButtonFace="BuildMechaTechlab" Requirements="OnlyOneMechaTechlab"/>
+        </InfoArray>
+        <InfoArray index="Build11" Unit="MechaExtractor" Time="10">
+            <Button DefaultButtonFace="BuildMechaExtractor"/>
         </InfoArray>
         <ConstructionMover value="Construction"/>
         <FidgetDelayMin value="5"/>
@@ -3072,6 +3181,12 @@
         <InfoArray index="Train10" Time="2">
             <Button DefaultButtonFace="BuildProbe"/>
             <Unit value="Probe"/>
+        </InfoArray>
+        <InfoArray index="Train11" Time="4">
+            <Resource index="Minerals" value="20"/>
+            <Resource index="Vespene" value="20"/>
+            <Button DefaultButtonFace="SpawnLarva3v3"/>
+            <Unit value="Larva3v3"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilEffectInstant id="ConvertMinerals">
@@ -3251,6 +3366,10 @@
             <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="TerrazineIncomex4" Requirements="TerrazineDoubler3Requirement"/>
         </InfoArray>
+        <InfoArray index="Research14" Time="20" Upgrade="GasVentUpgrade">
+            <Resource index="Vespene" value="125"/>
+            <Button DefaultButtonFace="UnlockUpgradedGasVents" Requirements="GasVentUpgradeRequirement"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="ReaperFlight">
         <Alignment value="Positive"/>
@@ -3398,37 +3517,37 @@
         <InfoArray index="Build1" Unit="Wall2" Time="4">
             <Button DefaultButtonFace="BuildWall" State="Available" Requirements=""/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="TerranGate" Time="20">
+        <InfoArray index="Build2" Unit="TerranGate" Time="10">
             <Button DefaultButtonFace="BuildGate"/>
         </InfoArray>
-        <InfoArray index="Build3" Unit="Refinery2" Time="20">
+        <InfoArray index="Build3" Unit="Refinery2" Time="10">
             <Button DefaultButtonFace="BuildRefinery" Requirements=""/>
         </InfoArray>
-        <InfoArray index="Build4" Unit="Converter" Time="20">
+        <InfoArray index="Build4" Unit="Converter" Time="10">
             <Button DefaultButtonFace="BuildConverter" Requirements="HaveAdvancedBuild"/>
         </InfoArray>
-        <InfoArray index="Build6" Unit="SentryGun2" Time="15">
+        <InfoArray index="Build6" Unit="SentryGun2" Time="10">
             <Button DefaultButtonFace="BuildSentryGun" State="Available" Requirements="HaveConstructionYard"/>
         </InfoArray>
-        <InfoArray index="Build10" Unit="FruitFarm" Time="20">
+        <InfoArray index="Build10" Unit="FruitFarm" Time="10">
             <Button DefaultButtonFace="BuildFruitFarm" Requirements=""/>
         </InfoArray>
-        <InfoArray index="Build13" Unit="SheepFarm" Time="20">
+        <InfoArray index="Build13" Unit="SheepFarm" Time="10">
             <Button DefaultButtonFace="BuildSheepFarm" Requirements=""/>
         </InfoArray>
-        <InfoArray index="Build14" Unit="CowFarm" Time="30">
+        <InfoArray index="Build14" Unit="CowFarm" Time="15">
             <Button DefaultButtonFace="BuildCowFarm" Requirements="RequireConYard"/>
         </InfoArray>
-        <InfoArray index="Build16" Unit="Armory2" Time="40">
+        <InfoArray index="Build16" Unit="Armory2" Time="20">
             <Button DefaultButtonFace="BuildArmory" State="Available" Requirements="OnlyOneArmory"/>
         </InfoArray>
-        <InfoArray index="Build17" Unit="ConstructionYard" Time="30">
+        <InfoArray index="Build17" Unit="ConstructionYard" Time="15">
             <Button DefaultButtonFace="BuildConstructionYard" Requirements="OnlyOneConstructionYard"/>
         </InfoArray>
-        <InfoArray index="Build18" Unit="GasVent" Time="25">
+        <InfoArray index="Build18" Unit="GasVent" Time="10">
             <Button DefaultButtonFace="BuildGasVent" Requirements="20Vents"/>
         </InfoArray>
-        <InfoArray index="Build19" Unit="InfestedBunker" Time="30">
+        <InfoArray index="Build19" Unit="InfestedBunker" Time="15">
             <Button DefaultButtonFace="BuildInfestedBunker" Requirements="40Bunkers"/>
         </InfoArray>
         <InfoArray index="Build20" Unit="Flower" Time="1">
@@ -3811,7 +3930,7 @@
             <Button DefaultButtonFace="MutateintoMechaTerrazineExtractor" Requirements="MechaTerrazineExtractor"/>
         </InfoArray>
         <InfoArray index="Build26" Unit="MechaTechlab" Time="60">
-            <Button DefaultButtonFace="MutateintoMechaTechlab" Requirements="OnlyOneMechaTechlab"/>
+            <Button DefaultButtonFace="BuildMechaTechlab" Requirements="OnlyOneMechaTechlab"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="TransferEnergyPylon" parent="heal">

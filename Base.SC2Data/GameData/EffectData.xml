@@ -6,9 +6,48 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectModifyPlayer id="CashUpgradeDoubleCostFixGiveMinerals">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Resources index="Minerals" value="60"/>
+        <Resources index="Vespene" value="60"/>
+    </CEffectModifyPlayer>
+    <CEffectIssueOrder id="IssueCashUpgrade">
+        <EditorCategories value=""/>
+        <Abil value="CashPickupResearch"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="IssueCashUpgradeSet">
+        <EditorCategories value=""/>
+        <EffectArray value="CashUpgradeDoubleCostFixGiveMinerals"/>
+        <EffectArray value="IssueCashUpgrade"/>
+    </CEffectSet>
+    <CEffectModifyPlayer id="PickupPalletGas">
+        <Resources index="Vespene" value="30"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="PickupPalletMinerals">
+        <Resources index="Minerals" value="30"/>
+    </CEffectModifyPlayer>
+    <CEffectSet id="RemoveAnyProbiusPylonAura">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectEnumArea id="ArtanisVortexSearchArea">
         <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Missile,Item,Dead"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="UpgradeGasVentAB">
+        <ValidatorArray index="0" value="EnhanceProductionRemoveBehaviourTargetFilters"/>
+        <EditorCategories value=""/>
+        <Marker Link="Effect/EnhanceProductionRemoveBehaviour"/>
+        <Behavior value="UpgradedVespeneHarvestingUnlimited"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="UpgradeGasVentRB">
+        <EditorCategories value=""/>
+        <BehaviorLink value="VespeneHarvestingUnlimited"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="UpgradeGasVentSet">
+        <EditorCategories value=""/>
+        <EffectArray value="UpgradeGasVentRB"/>
+        <EffectArray value="UpgradeGasVentAB"/>
+    </CEffectSet>
     <CEffectEnumArea id="GlaiveWurmE1">
         <SearchFilters value="Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
@@ -28,8 +67,9 @@
         <AreaArray index="0" Radius="2"/>
     </CEffectEnumArea>
     <CEffectDamage id="MengskMarauderDamage">
-        <AttributeBonus index="Armored" value="32"/>
-        <Amount value="18"/>
+        <AttributeBonus index="Armored" value="21"/>
+        <AttributeBonus index="Structure" value="41"/>
+        <Amount value="30"/>
     </CEffectDamage>
     <CEffectSet id="MengskMarauderSet">
         <EffectArray value="TitanWeaponIncreaseEnergy"/>
@@ -517,16 +557,6 @@
     <CEffectEnumArea id="OracleStasisTrapActivate">
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
-    <CEffectRemoveBehavior id="ProbiusBuffAttackRemove">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
-        <BehaviorLink value="ProbiusPylonBuffAuraAttack"/>
-    </CEffectRemoveBehavior>
-    <CEffectRemoveBehavior id="ProbiusBuffDefenseRemove">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
-        <BehaviorLink value="ProbiusPylonBuffAuraPower"/>
-    </CEffectRemoveBehavior>
     <CEffectEnumArea id="ProdigalEngineerSearch">
         <SearchFilters value="Structure;Self,Neutral,Enemy,Worker,Missile,Item,Dead,Hidden"/>
     </CEffectEnumArea>
@@ -590,22 +620,11 @@
         <SearchFilters value="Ground;Self,Neutral,Enemy,Structure,Missile"/>
         <AreaArray Radius="6" Effect="PylonBuffAttackApply"/>
     </CEffectEnumArea>
-    <CEffectRemoveBehavior id="ProbiusBuffPowerRemove">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
-        <BehaviorLink value="ProbiusPylonBuffAuraPower"/>
-    </CEffectRemoveBehavior>
     <CEffectSet id="ReclamationSet">
         <ValidatorArray index="3" value="NotPointDefenseDrone"/>
         <ValidatorArray index="4" removed="1"/>
         <ValidatorArray index="5" removed="1"/>
         <ValidatorArray index="6" removed="1"/>
-    </CEffectSet>
-    <CEffectSet id="RemoveProbiusBuffSet">
-        <EditorCategories value=""/>
-        <EffectArray value="ProbiusBuffAttackRemove"/>
-        <EffectArray value="ProbiusBuffDefenseRemove"/>
-        <EffectArray value="ProbiusBuffPowerRemove"/>
     </CEffectSet>
     <CEffectSet id="AddProbiusPylonPowerAura">
         <EditorCategories value=""/>

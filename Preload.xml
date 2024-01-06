@@ -2,6 +2,7 @@
 <Preload>
 <Asset path="assets\textures\ui_emoticons_gas.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_theart.dds" Type="Image"/>
+<Asset path="assets\textures\ui_emoticons_random.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_zerg.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_infested.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_locust.dds" Type="Image"/>
@@ -14,7 +15,6 @@
 <Abil id="TransferEnergyBattery"/>
 <Actor id="SYSTEM_ActorConfig"/>
 <Actor id="Aiur_Zerg_Ribs" Variations="1,2,3"/>
-<Actor id="DOM_Fire_Large_Long"/>
 <Actor id="Elsecaro_Bush1x1" Variations="1,2,3"/>
 <Actor id="Snow"/>
 <Actor id="ZergRoots" Variations="0,1,2"/>
@@ -45,6 +45,8 @@
 <Behavior id="SpawnFromCenter"/>
 <Behavior id="SpawnFromLeft"/>
 <Behavior id="SpawnFromRight"/>
+<Behavior id="GenerateMinerals"/>
+<Behavior id="VespeneHarvestingUnlimited"/>
 <Behavior id="MedivacTimedLife"/>
 <Behavior id="GeneratorUpgrades1"/>
 <Behavior id="GeneratorUpgrades2"/>
@@ -149,10 +151,11 @@
 <Unit id="ShieldBattery"/>
 <Unit id="VespeneGeyser"/>
 <Unit id="ShapeHeart"/>
+<Unit id="PickupPalletGas"/>
+<Unit id="PickupPalletMinerals"/>
 <Unit id="PickupScrapSalvage1x1"/>
 <Unit id="PickupScrapSalvage2x2"/>
 <Unit id="PickupScrapSalvage3x3"/>
-<Unit id="Obelisk"/>
 <Unit id="Artanis"/>
 <Unit id="Hercules"/>
 <Unit id="Raynor"/>
@@ -191,6 +194,7 @@
 <Unit id="ShockTrooper"/>
 <Unit id="Reaper2"/>
 <Unit id="FirebatZergHex"/>
+<Unit id="EliteMarineSkin4"/>
 <Unit id="ChaosSlave"/>
 <Unit id="ChaosSpaceMarine"/>
 <Unit id="ChaosCultist"/>
@@ -203,6 +207,7 @@
 <Unit id="Defender"/>
 <Unit id="InfestedBuilder"/>
 <Unit id="Probius"/>
+<Unit id="Larva3v3"/>
 <Unit id="TerranGate"/>
 <Unit id="Wall2"/>
 <Unit id="FruitFarm"/>
@@ -231,8 +236,10 @@
 <Unit id="CreepTumor2"/>
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
-<Unit id="Larva3v3"/>
 <Unit id="Barracks2"/>
+<Unit id="MechaDrone"/>
+<Unit id="SpaceTurkey"/>
+<Unit id="UglyTurkey"/>
 <Unit id="InfestorZergHex3v3"/>
 <Unit id="Candy2"/>
 <Unit id="Candy3"/>
@@ -255,6 +262,7 @@
 <Unit id="DynamicNearbyResource4x4"/>
 <Unit id="DynamicNearbyResource6x6"/>
 <Unit id="DynamicNearbyResource21x21"/>
+<Unit id="CashTransporter"/>
 <Unit id="TrafficTower"/>
 <Unit id="RocksBE"/>
 <Unit id="DestructibleRock6x6I"/>

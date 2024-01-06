@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="BuildMechaExtractor">
+        <Icon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
+        <Hotkey value="Button/Hotkey/Refinery"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Refinery"/>
+    </CButton>
+    <CButton id="ChooseInactiveState">
+        <Icon value="Assets\Textures\btn-tips-richminerals.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-richminerals.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="EnableJUICEModule">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadenergy.dds"/>
@@ -17,6 +29,55 @@
         <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="InfestedOffense">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-attackspeedmastery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-attackspeedmastery.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="BuildMechaCreepTumor">
+        <Icon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="MoreCashDrops2">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MoreCashDrops"/>
+    </CButton>
+    <CButton id="BiggerCashDrops">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MoreCashDrops"/>
+    </CButton>
+    <CButton id="MoreCashDrops3">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MoreCashDrops"/>
+    </CButton>
+    <CButton id="MoreCashDrops4">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MoreCashDrops"/>
+    </CButton>
+    <CButton id="MoreCashDrops5">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="MoreCashDrops"/>
+    </CButton>
+    <CButton id="ResearchInfestedSpeedUp">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedciviliansleap.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedciviliansleap.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="UnlockUpgradedGasVents">
+        <Icon value="Assets\Textures\btn-ability-kerrigan-vespeneefficiency.dds"/>
+        <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="KaraxHeroic">
         <Icon value="Assets\Textures\btn-hero-karax.dds"/>
@@ -65,7 +126,7 @@
         <Icon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-hatcherystetellitebonus.dds"/>
     </CButton>
-    <CButton id="MutateintoMechaTechlab">
+    <CButton id="BuildMechaTechlab">
         <Icon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-zerg-evolutionchamber-mecha.dds"/>
         <EditorCategories value="Race:Terran"/>
@@ -94,6 +155,11 @@
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaadrenalglands.dds"/>
     </CButton>
+    <CButton id="MoreCashDrops">
+        <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="UnstableCore">
         <Icon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-banelingextradamage.dds"/>
@@ -102,6 +168,10 @@
         <Icon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
         <HotkeyAlias value="UnstableCore"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-stetmann-mechaventralsacs.dds"/>
+    </CButton>
+    <CButton id="UpgradeGasVent">
+        <Icon value="Assets\Textures\btn-research-terran-microfiltering.dds"/>
+        <AlertIcon value="Assets\Textures\btn-research-terran-automatedrefinery.dds"/>
     </CButton>
     <CButton id="UseJUICEtoheal">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>

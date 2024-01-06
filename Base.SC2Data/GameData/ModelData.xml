@@ -23,6 +23,16 @@
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
     </CModel>
+    <CModel id="MechaCreepTumorPlacement" parent="Building" Race="Zerg">
+        <Model value="Assets\Buildings\Zerg\LurkerDen_Mecha\LurkerDen_Mecha.m3"/>
+        <Radius value="0.750000"/>
+        <ScaleMax value="0.550000,0.550000,0.550000"/>
+        <ScaleMin value="0.550000,0.550000,0.550000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="6.000000"/>
+        <ShadowRadius value="6.000000"/>
+        <SquibTypeDefault value="Metal"/>
+    </CModel>
     <CModel id="EvolutionChamber_Mecha_Placement">
         <ScaleMax value="0.650000,0.650000,0.650000"/>
         <ScaleMin value="0.650000,0.650000,0.650000"/>
