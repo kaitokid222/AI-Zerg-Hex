@@ -159,14 +159,29 @@
             <Button DefaultButtonFace="BiggerCashDrops" Requirements="UpgradeCashPickups"/>
         </InfoArray>
         <InfoArray index="Research4" Time="30" Upgrade="MoreCashDrops">
-            <Resource index="Minerals" value="75"/>
-            <Resource index="Vespene" value="75"/>
+            <Resource index="Minerals" value="30"/>
+            <Resource index="Vespene" value="30"/>
             <Button DefaultButtonFace="MoreCashDrops" Requirements="ResearchMoreCashDrops"/>
         </InfoArray>
         <InfoArray index="Research5" Time="30" Upgrade="MoreCashDrops2">
-            <Resource index="Minerals" value="125"/>
-            <Resource index="Vespene" value="125"/>
+            <Resource index="Minerals" value="60"/>
+            <Resource index="Vespene" value="60"/>
             <Button DefaultButtonFace="MoreCashDrops2" Requirements="ResearchMoreCashDrops2"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="30" Upgrade="MoreCashDrops3">
+            <Resource index="Minerals" value="90"/>
+            <Resource index="Vespene" value="90"/>
+            <Button DefaultButtonFace="MoreCashDrops3" Requirements="ResearchMoreCashDrops3"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="30" Upgrade="MoreCashDrops4">
+            <Resource index="Minerals" value="120"/>
+            <Resource index="Vespene" value="120"/>
+            <Button DefaultButtonFace="MoreCashDrops4" Requirements="ResearchMoreCashDrops4"/>
+        </InfoArray>
+        <InfoArray index="Research8" Time="30" Upgrade="MoreCashDrops5">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="MoreCashDrops5" Requirements="ResearchMoreCashDrops5"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilEffectInstant id="ConyardOrderCashUpgrade">
@@ -176,8 +191,7 @@
         <Cost>
             <Resource index="Minerals" value="60"/>
             <Resource index="Vespene" value="60"/>
-            <Charge CountMax="1" CountStart="1" Link="Abil/OrderUpgradeGenerator"/>
-            <Cooldown Link="Abil/OrderUpgradeGenerator"/>
+            <Charge CountMax="1" CountStart="1"/>
         </Cost>
         <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BiggerCashDrops" Requirements="UpgradeCashPickups"/>

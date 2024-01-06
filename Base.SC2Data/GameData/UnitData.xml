@@ -7421,6 +7421,9 @@
             <LayoutButtons Face="Fortification" Type="AbilCmd" AbilCmd="ConstructionYardResearch,Research1" Row="0" Column="0"/>
             <LayoutButtons Face="MoreCashDrops" Type="AbilCmd" AbilCmd="CashPickupResearch,Research4" Row="1" Column="2"/>
             <LayoutButtons Face="MoreCashDrops2" Type="AbilCmd" AbilCmd="CashPickupResearch,Research5" Row="1" Column="2"/>
+            <LayoutButtons Face="MoreCashDrops3" Type="AbilCmd" AbilCmd="CashPickupResearch,Research6" Row="1" Column="2"/>
+            <LayoutButtons Face="MoreCashDrops4" Type="AbilCmd" AbilCmd="CashPickupResearch,Research7" Row="1" Column="2"/>
+            <LayoutButtons Face="MoreCashDrops5" Type="AbilCmd" AbilCmd="CashPickupResearch,Research8" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts index="1">
             <LayoutButtons index="1" Face="" Type="Undefined" AbilCmd="" Column="0"/>
