@@ -9,8 +9,8 @@
     <CEffectModifyPlayer id="CashUpgradeDoubleCostFixGiveMinerals">
         <EditorCategories value=""/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Minerals" value="60"/>
-        <Resources index="Vespene" value="60"/>
+        <Resources index="Minerals" value="75"/>
+        <Resources index="Vespene" value="75"/>
     </CEffectModifyPlayer>
     <CEffectIssueOrder id="IssueCashUpgrade">
         <EditorCategories value=""/>

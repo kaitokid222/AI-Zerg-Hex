@@ -1481,7 +1481,7 @@ Button/Tooltip/Present3=Contains a gift!
 Button/Tooltip/PrimalRoachSpawnerImpaler=
 Button/Tooltip/Probe=A builder unit.
 Button/Tooltip/Probius=Heroic Probe Probius!
-Button/Tooltip/ProbiusPylon=Provides supply.<n/>Supply allows you to warp in more units.<n/>Creates power for nearby structures.
+Button/Tooltip/ProbiusPylon=Provides a powerfield for Photon Cannons and can emit strong auras.
 Button/Tooltip/ProduceMineralText01=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
 Button/Tooltip/ProduceMineralText02=<s val="MercDescription">+2</s><IMG path="Assets\Textures\icon-mineral.dds" height="24" width="24"/>
 Button/Tooltip/ProduceMineralText04=<s val="Kicker_Minerals">+4</s>
@@ -2478,6 +2478,12 @@ DocInfo/PatchNote714=
 DocInfo/PatchNote715=Changed Cash Bonus to provide more value.
 DocInfo/PatchNote716=
 DocInfo/PatchNote717=Raynor Elites spawn in reduced number if the difficulty is harder or below.
+DocInfo/PatchNote718=Changed Cash Bonus
+DocInfo/PatchNote719=Removed More Cash Drops 4 & 5 Upgrades.
+DocInfo/PatchNote720=Increased Bigger Cash Drop Cost 60/60 -> 75/75.
+DocInfo/PatchNote721=
+DocInfo/PatchNote722=Reduced Probius Pylon Cost 20/20 -> 10/10.
+DocInfo/PatchNote723=Buffed Probius and his Pylons.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud

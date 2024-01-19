@@ -2643,7 +2643,6 @@ Variable/Name/AFB3BA58=extra_infestors
 Variable/Name/AFBD70DA=possible_positions_t3_dead_count
 Variable/Name/AFF8D20C=unit
 Variable/Name/B00484CD=r
-Variable/Name/B0434B7D=player_position
 Variable/Name/B05381BA=amountString
 Variable/Name/B0676362=wizard_action_cooldown
 Variable/Name/B072EFA5=i

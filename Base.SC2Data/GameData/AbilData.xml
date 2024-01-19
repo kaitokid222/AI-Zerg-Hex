@@ -153,8 +153,8 @@
     <CAbilResearch id="CashPickupResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Time="15" Upgrade="IncreaseCashPickups">
-            <Resource index="Minerals" value="60"/>
-            <Resource index="Vespene" value="60"/>
+            <Resource index="Minerals" value="75"/>
+            <Resource index="Vespene" value="75"/>
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="BiggerCashDrops" Requirements="UpgradeCashPickups"/>
         </InfoArray>
@@ -189,8 +189,8 @@
         <Effect index="0" value="IssueCashUpgradeSet"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Minerals" value="60"/>
-            <Resource index="Vespene" value="60"/>
+            <Resource index="Minerals" value="70"/>
+            <Resource index="Vespene" value="70"/>
             <Charge CountMax="1" CountStart="1"/>
         </Cost>
         <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>

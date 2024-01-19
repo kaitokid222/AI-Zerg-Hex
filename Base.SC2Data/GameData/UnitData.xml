@@ -3192,23 +3192,23 @@
         <Response value="Flee"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="600"/>
-        <ShieldsMax value="600"/>
+        <ShieldsStart value="1000"/>
+        <ShieldsMax value="1000"/>
         <ShieldRegenDelay value="15"/>
-        <ShieldRegenRate value="10"/>
+        <ShieldRegenRate value="15"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
-        <Speed value="4.1992"/>
+        <Speed value="4.3984"/>
         <Acceleration value="15"/>
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <Sight value="8"/>
+        <Sight value="12"/>
         <CostCategory value="Economy"/>
-        <CostResource index="Minerals" value="100"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="20"/>
+        <CostResource index="Vespene" value="20"/>
         <AttackTargetPriority value="20"/>
         <AIOverideTargetPriority value="10"/>
         <DamageDealtXP value="1"/>
@@ -3251,7 +3251,7 @@
         </CardLayouts>
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
-        <InnerRadius value="0.375"/>
+        <InnerRadius value="0.4375"/>
         <CargoSize value="1"/>
         <ScoreMake value="50"/>
         <ScoreKill value="50"/>
@@ -3265,7 +3265,7 @@
     </CUnit>
     <CUnit id="ProbiusPylon">
         <DeathRevealRadius value="3"/>
-        <Race value="Prot"/>
+        <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="PreventDefeat" value="1"/>
@@ -3286,21 +3286,21 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
-        <LifeArmor value="1"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
+        <LifeArmor value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
-        <ShieldsStart value="200"/>
-        <ShieldsMax value="200"/>
-        <ShieldRegenDelay value="10"/>
-        <ShieldRegenRate value="2"/>
+        <ShieldsStart value="300"/>
+        <ShieldsMax value="300"/>
+        <ShieldRegenDelay value="2"/>
+        <ShieldRegenRate value="3"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <StationaryTurningRate value="719.4726"/>
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Economy"/>
-        <CostResource index="Minerals" value="20"/>
-        <CostResource index="Vespene" value="20"/>
+        <CostResource index="Minerals" value="10"/>
+        <CostResource index="Vespene" value="10"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="attackProtossPylon"/>
@@ -7422,8 +7422,6 @@
             <LayoutButtons Face="MoreCashDrops" Type="AbilCmd" AbilCmd="CashPickupResearch,Research4" Row="1" Column="2"/>
             <LayoutButtons Face="MoreCashDrops2" Type="AbilCmd" AbilCmd="CashPickupResearch,Research5" Row="1" Column="2"/>
             <LayoutButtons Face="MoreCashDrops3" Type="AbilCmd" AbilCmd="CashPickupResearch,Research6" Row="1" Column="2"/>
-            <LayoutButtons Face="MoreCashDrops4" Type="AbilCmd" AbilCmd="CashPickupResearch,Research7" Row="1" Column="2"/>
-            <LayoutButtons Face="MoreCashDrops5" Type="AbilCmd" AbilCmd="CashPickupResearch,Research8" Row="1" Column="2"/>
         </CardLayouts>
         <CardLayouts index="1">
             <LayoutButtons index="1" Face="" Type="Undefined" AbilCmd="" Column="0"/>
