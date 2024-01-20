@@ -1848,6 +1848,13 @@ void gf_apply_support_casual () {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 7), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 11), true);
             CatalogReferenceSet("Unit,Marine2,CostResource[Minerals]", auto18D3D132_var, "15");
+            CatalogReferenceSet("Unit,VeteranMarine,CostResource[Minerals]", auto18D3D132_var, "35");
+            CatalogReferenceSet("Unit,EliteMarine,CostResource[Minerals]", auto18D3D132_var, "100");
+            CatalogReferenceSet("Unit,EliteMarineSkin1,CostResource[Minerals]", auto18D3D132_var, "100");
+            CatalogReferenceSet("Unit,EliteMarineSkin2,CostResource[Minerals]", auto18D3D132_var, "100");
+            CatalogReferenceSet("Unit,EliteMarineSkin3,CostResource[Minerals]", auto18D3D132_var, "100");
+            CatalogReferenceSet("Unit,EliteMarineSkin4,CostResource[Minerals]", auto18D3D132_var, "100");
+            CatalogReferenceSet("Abil,ConstructionYardResearch,InfoArray[Research2].Resource[Vespene]", auto18D3D132_var, "50");
             PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSubtract, 1);
             PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropMinerals, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropMinerals) + 25));
             PlayerModifyPropertyInt(auto18D3D132_var, c_playerPropVespene, c_playerPropOperSetTo, (PlayerGetPropertyInt(auto18D3D132_var, c_playerPropVespene) + 25));

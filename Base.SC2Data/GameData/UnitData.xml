@@ -3527,8 +3527,8 @@
         <LifeMax value="400"/>
         <EnergyMax value="400"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="450"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="200"/>
+        <CostResource index="Vespene" value="60"/>
         <AbilArray index="3" Link="Siege2"/>
         <BehaviorArray Link="EnergyUserUtillityAutomatic"/>
         <WeaponArray index="0" Link=""/>
@@ -3550,8 +3550,8 @@
         <LifeMax value="400"/>
         <EnergyMax value="400"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="450"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="200"/>
+        <CostResource index="Vespene" value="60"/>
         <AbilArray index="2" Link="Unsiege22"/>
         <AbilArray Link="PlasmaCannonOld"/>
         <BehaviorArray Link="EnergyUserUtillityAutomatic"/>
@@ -4300,8 +4300,8 @@
         <LifeMax value="750"/>
         <LifeArmor value="1"/>
         <Sight value="9"/>
-        <CostResource index="Minerals" value="800"/>
-        <CostResource index="Vespene" value="200"/>
+        <CostResource index="Minerals" value="400"/>
+        <CostResource index="Vespene" value="100"/>
         <RepairTime value="30"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>

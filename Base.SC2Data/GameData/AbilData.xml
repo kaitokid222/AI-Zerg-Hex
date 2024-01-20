@@ -189,8 +189,8 @@
         <Effect index="0" value="IssueCashUpgradeSet"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Minerals" value="70"/>
-            <Resource index="Vespene" value="70"/>
+            <Resource index="Minerals" value="75"/>
+            <Resource index="Vespene" value="75"/>
             <Charge CountMax="1" CountStart="1"/>
         </Cost>
         <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
@@ -1390,7 +1390,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="CreateNapalmBombSet"/>
         <Cost>
-            <Resource index="Vespene" value="400"/>
+            <Resource index="Vespene" value="200"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="CreateNapalmBomb" Requirements="TrainNapalmBomb"/>
         <Flags index="BestUnit" value="1"/>
@@ -3344,8 +3344,8 @@
             <Resource index="Vespene" value="75"/>
             <Button DefaultButtonFace="ResearchUnifiedArmor" Requirements="ResearchUnifiedArmorRequirement"/>
         </InfoArray>
-        <InfoArray index="Research5" Time="30" Upgrade="ChemicalPlant">
-            <Resource index="Vespene" value="400"/>
+        <InfoArray index="Research5" Time="15" Upgrade="ChemicalPlant">
+            <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="ResearchChemicalPlant" Requirements="ChemicalPlantResearchRequirement"/>
         </InfoArray>
         <InfoArray index="Research6" Time="30" Upgrade="ImprovedFarming">
