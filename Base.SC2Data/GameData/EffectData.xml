@@ -12,6 +12,17 @@
         <Resources index="Minerals" value="75"/>
         <Resources index="Vespene" value="75"/>
     </CEffectModifyPlayer>
+    <CEffectDamage id="CycloneAttackWeaponDamage">
+        <Amount value="9"/>
+    </CEffectDamage>
+    <CEffectDamage id="InfernalFlameThrower">
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectDamage id="ZTerranGaussRifle" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="2"/>
+    </CEffectDamage>
     <CEffectIssueOrder id="IssueCashUpgrade">
         <EditorCategories value=""/>
         <Abil value="CashPickupResearch"/>
@@ -1688,9 +1699,6 @@
         <EffectArray value="CreateNapalmBombRefund"/>
         <EffectArray value="CreateNapalmBombIssue"/>
     </CEffectSet>
-    <CEffectDamage id="CycloneAttackWeaponDamage">
-        <Flags index="Live" value="1"/>
-    </CEffectDamage>
     <CEffectDamage id="CycloneAttackWeaponDamage2" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Terran"/>
         <Amount value="18"/>
@@ -5363,6 +5371,10 @@
         <Cost Abil="TrainInfestedMarine,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainBomber,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="CreepTowerTrain,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainZMarine,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainZMarauder,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainZFirebat,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainZMechs,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

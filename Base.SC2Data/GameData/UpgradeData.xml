@@ -678,6 +678,16 @@
         <EffectArray Reference="Effect,GlaiveWurmU2,Amount" Value="1"/>
         <EffectArray Reference="Effect,GlaiveWurmU3,Chance" Value="0.5"/>
         <EffectArray Reference="Weapon,GlaiveWurm,Level" Value="1"/>
+        <EffectArray Reference="Weapon,ZTerranGaussRifle,Level" Value="1"/>
+        <EffectArray Reference="Effect,ZTerranGaussRifle,Amount" Value="0.5"/>
+        <EffectArray Reference="Weapon,PunisherGrenades2,Level" Value="1"/>
+        <EffectArray Reference="Effect,PunisherGrenadesU,Amount" Value="2"/>
+        <EffectArray Reference="Weapon,Firebat,Level" Value="1"/>
+        <EffectArray Reference="Effect,FirebatUFull,Amount" Value="2"/>
+        <EffectArray Reference="Weapon,InfernalFlameThrower,Level" Value="1"/>
+        <EffectArray Reference="Effect,InfernalFlameThrower,Amount" Value="2"/>
+        <EffectArray Reference="Weapon,TyphoonMissilePod,Level" Value="1"/>
+        <EffectArray Reference="Effect,CycloneAttackWeaponDamage,Amount" Value="2"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="100"/>
     </CUpgrade>
@@ -789,6 +799,8 @@
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="1"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="0.500000"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="10"/>
+        <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor2">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
@@ -800,6 +812,12 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeStart" Value="10"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
@@ -812,6 +830,14 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeStart" Value="10"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor4">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
@@ -823,6 +849,17 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="4"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="40"/>
+        <EffectArray Reference="Unit,Marauder2,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,Hellion2,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeStart" Value="10"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor5">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
@@ -834,6 +871,14 @@
         <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="5"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,Marauder2,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeStart" Value="10"/>
+        <EffectArray Reference="Unit,Cyclone3,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
     </CUpgrade>
     <CUpgrade id="HydraliskSpawnSize">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-regenrate.dds"/>
@@ -867,6 +912,11 @@
         <EffectArray Reference="Unit,Mechaling,Speed" Value="0.199200"/>
         <EffectArray Reference="Abil,ZCCResearch,InfoArray[Research7].Resource[Terrazine]" Value="800"/>
         <EffectArray Reference="Unit,Mutalisk3v3,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Cyclone3,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Firebat2,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Hellion2,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Marine3,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Marauder2,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

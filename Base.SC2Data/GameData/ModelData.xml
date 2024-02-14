@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CModel id="AutoTurret">
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
+    </CModel>
+    <CModel id="Biodome">
+        <ScaleMax value="0.400000,0.400000,0.500000"/>
+        <ScaleMin value="0.400000,0.400000,0.500000"/>
+    </CModel>
     <CModel id="BloodDropBig">
         <Model value="assets\units\storm_fx_butcher_base_freshmeat_drop_big.m3"/>
     </CModel>
@@ -22,6 +30,22 @@
         <RequiredAnims index="0" removed="1"/>
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
+    <CModel id="GunTower">
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.300000,0.300000,0.650000"/>
+        <ScaleMin value="0.300000,0.300000,0.650000"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
+    </CModel>
+    <CModel id="MineralStorage" parent="Building">
+        <Model value="Assets\Buildings\Terran\MineralStorageDepot\MineralStorageDepot.m3"/>
+        <EditorCategories value=""/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
     </CModel>
     <CModel id="MechaCreepTumorPlacement" parent="Building" Race="Zerg">
         <Model value="Assets\Buildings\Zerg\LurkerDen_Mecha\LurkerDen_Mecha.m3"/>
@@ -1571,6 +1595,16 @@
             <Payload value="Merc_Sapper_Foley"/>
         </Events>
         <RequiredAnims value="assets\units\storm_merc_wintercrest_sapper_requiredanims.m3a"/>
+    </CModel>
+    <CModel id="MineralStorageDeath" parent="BuildingDeath">
+        <Model value="Assets\Buildings\Terran\MineralStorageDepotDeath\MineralStorageDepotDeath.m3"/>
+        <EditorCategories value=""/>
+        <Lighting value="MineralStorage"/>
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.600000,0.600000,0.600000"/>
+        <ScaleMin value="0.600000,0.600000,0.600000"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
     </CModel>
     <CModel id="MinionHellBanner" parent="Unit" Race="Terran">
         <Model value="assets\units\storm_minion_hell_banner.m3"/>
@@ -3730,6 +3764,13 @@
     <CModel id="FragmentBlastMissile" parent="MissileFX">
         <Model value="Assets\Effects\Terran\YamatoMissile\YamatoMissile.m3"/>
         <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="WarfieldFortress">
+        <Radius value="1.000000"/>
+        <ScaleMax value="0.300000,0.300000,0.300000"/>
+        <ScaleMin value="0.300000,0.300000,0.300000"/>
+        <SelectionRadius value="1.000000"/>
+        <ShadowRadius value="1.000000"/>
     </CModel>
     <CModel id="pumpkin">
         <Model value="assets\doodads\storm_doodad_kingscrest_pumpkins_00.m3"/>

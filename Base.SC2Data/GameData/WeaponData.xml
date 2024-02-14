@@ -23,6 +23,9 @@
         <DamagePoint value="0.888"/>
         <Effect value="ChaosSwordEffectSet"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="Firebat">
+        <Period value="1"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="FirebatOld">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -44,6 +47,29 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="GlaiveWurm">
         <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PunisherGrenades2">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="PunisherGrenadesU"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="1.6"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="PunisherGrenadesLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TyphoonMissilePod">
+        <Period value="0.1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ZTerranGaussRifle">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1"/>
+        <DamagePoint value="0.05"/>
+        <Backswing value="0.75"/>
+        <Range value="4"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MechaNeedleSpines">
         <EditorCategories value="Race:Zerg"/>
@@ -605,10 +631,6 @@
         <Range value="0.1"/>
         <Period value="0"/>
         <Effect value="SuicideNeedleClawsSet"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="TyphoonMissilePod">
-        <Range value="25"/>
-        <Period value="0.125"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ChaosPowerSword">
         <EditorCategories value="Race:Zerg"/>

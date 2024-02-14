@@ -1,5 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorUnit id="Cyclone3" parent="GenericUnitBase" unitName="Cyclone3">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Cyclone_Land"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Cyclone_Land2"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileLeft.Start; At Caster" Send="AnimPlay Attack Attack"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileRight.Start; At Caster" Send="AnimPlay Attack Attack"/>
+        <On Terms="ActorCreation" Send="StatusSet CoverOn 0"/>
+        <On Terms="Abil.attack.ReadyStart; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="Abil.attack.ReadyStart; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On Terms="Abil.attack.ReadyStart" Send="TimerKill CoverDelay"/>
+        <On Terms="Abil.attack.ReadyStart" Send="TimerSet 3.000000 CoverDelay"/>
+        <On Terms="WeaponStart.*.AttackStart; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="WeaponStart.*.AttackStart; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="TimerKill CoverDelay"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="TimerSet 3.000000 CoverDelay"/>
+        <On Terms="TurretTarget.CycloneWeaponTurret.Set" Target="CycloneWeaponTurretLookAt" Send="LookAtEngage"/>
+        <On Terms="TurretTarget.CycloneWeaponTurret.Clear" Target="CycloneWeaponTurretLookAt" Send="LookAtDisengage"/>
+        <On Terms="TurretTarget.Cyclone.Set" Target="CycloneLockOnTurretLookAt" Send="LookAtEngage"/>
+        <On Terms="TurretTarget.Cyclone.Clear" Target="CycloneLockOnTurretLookAt" Send="LookAtDisengage"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileLeft.Start; At Caster; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileLeft.Start; At Caster; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileRight.Start; At Caster; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileRight.Start; At Caster; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileLeft.Start; At Caster" Send="TimerKill CoverDelay"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileLeft.Start; At Caster" Send="TimerSet 3.000000 CoverDelay"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileRight.Start; At Caster" Send="TimerKill CoverDelay"/>
+        <On Terms="Effect.CycloneWeaponLaunchMissileRight.Start; At Caster" Send="TimerSet 3.000000 CoverDelay"/>
+        <On Terms="Effect.LockOnCP.Start; At Caster" Send="Create CycloneLockOnTrackingBeam"/>
+        <On Terms="Effect.LockOnAirCP.Start; At Caster" Send="Create CycloneLockOnTrackingBeam"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimBracketStop Cover"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="StatusSet CoverOn 0"/>
+        <On Terms="Behavior.LockOnDisableAttack.On" Target="::PortraitGameSelf" Send="AnimGroupApply Morph Morph,Start Morph,End"/>
+        <On Terms="Behavior.LockOnDisableAttack.Off" Target="::PortraitGameSelf" Send="AnimGroupRemove Morph"/>
+        <On Terms="UnitPortrait.*.Configure; ValidateUnit LockingOn" Target="::PortraitGameSelf" Send="AnimBracketStart Morph Morph,Start Morph,Stand Morph,End Instant"/>
+        <On Terms="UnitPortrait.*.Configure; ValidateUnit NotLockingOn" Target="::PortraitGameSelf" Send="AnimBracketStop Morph Instant"/>
+        <Model value="Cyclone"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <LookAtPriorityList value="CycloneWeaponTurretLookAt"/>
+        <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
+        <BuildModel value="Cyclone"/>
+        <DeathArray index="Normal" ModelLink="CycloneDeath" SoundLink="WarHound_Explode"/>
+        <DeathCustoms ActorModel="CycloneDeathRagdoll" ModelLink="CycloneDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="BloodReduced"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollBloodPrevent" ModelLink="CycloneDeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <PlacementModel value="Cyclone"/>
+        <PortraitModel value="CyclonePortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <AbilSoundArray AbilCmd="LockOn,Execute" Sound="Cyclone_LockOnVO"/>
+        <AbilSoundArray AbilCmd="LockOnAir,Execute" Sound="Cyclone_LockOnVO"/>
+        <BarOffset value="75"/>
+        <BarWidth value="75"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-terran-cyclone.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SiegeTank_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SiegeTank_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SiegeTank_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SiegeTank_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-warhound.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Birth" value="SiegeTank_Birth"/>
+        <SoundArray index="Ready" value="Cyclone_Ready"/>
+        <SoundArray index="Help" value="Cyclone_Help"/>
+        <SoundArray index="What" value="Cyclone_What"/>
+        <SoundArray index="Yes" value="Cyclone_Yes"/>
+        <SoundArray index="Attack" value="Cyclone_Attack"/>
+        <SoundArray index="Pissed" value="Cyclone_Pissed"/>
+        <SoundArray index="Movement" value="Cyclone_Move_Start"/>
+        <SoundArray index="Turning" value="SiegeTank_Turning"/>
+        <SoundArray index="Board" value="SiegeTank_Board"/>
+        <SoundArray index="Click" value="SiegeTank_Click"/>
+        <SoundArray index="ClickError" value="SiegeTank_ClickError"/>
+        <SoundArray index="Highlight" value="SiegeTank_Highlight"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-cyclone.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-cyclone.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="Firebat2" parent="GenericUnitStandard" unitName="Firebat2">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="UnloadDropAnim"/>
+        <On Terms="Abil.attack.ReadyStop" Target="FirebatAttackModel" Send="SetOpacity 0.000000 0.250000"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Model value="Firebat"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Firebat"/>
+        <DeathArray index="Normal" ModelLink="FirebatDeath" SoundLink="Firebat_Explode"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <PlacementModel value="Firebat"/>
+        <PortraitModel value="FirebatPortrait"/>
+        <WalkAnimMoveSpeed value="1.875"/>
+        <BarOffset value="77"/>
+        <BarWidth value="45"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-firebat.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Firebat_Ready"/>
+        <SoundArray index="Help" value="Firebat_Help"/>
+        <SoundArray index="What" value="Firebat_What"/>
+        <SoundArray index="Yes" value="Firebat_Yes"/>
+        <SoundArray index="Attack" value="Firebat_Attack"/>
+        <SoundArray index="Pissed" value="Firebat_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-firebat.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="MechSpawner" parent="ZergBuildingEx" unitName="MechSpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter SpawningPool_Ambience"/>
+        <On index="69" Terms="UnitConstruction.MechSpawner.Start" Send="Create SpawnerBuild"/>
+        <On Terms="UnitDeathCustomize; ModelIsLowQuality" Send="Create SpawningPool_DeathLow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="Factory"/>
+        <Scale value="0.900000"/>
+        <EventDataFootprint index="0" Model="SpawningPoolFootprint"/>
+        <BuildModel value="SpawningPool"/>
+        <DeathArray index="Normal" ModelLink="SpawningPoolDeath" SoundLink="" VoiceLink="SpawningPoolDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="SpawningPoolDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
+        <DeathCustoms ModelLink="BarracksDeath" Name="Detached"/>
+        <PlacementModel value="SpawnerSlowlingPlacement"/>
+        <PortraitModel value="SpawningPoolPortrait"/>
+        <BarOffset value="85"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SpawningPool_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SpawningPool_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SpawningPool_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SpawningPool_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <SoundArray index="Birth" value="SpawningPool_Birth"/>
+        <SoundArray index="Ready" value="SpawningPool_Ready"/>
+        <SoundArray index="Help" value="SpawningPool_Help"/>
+        <SoundArray index="What" value="SpawningPool_What"/>
+        <SoundArray index="Yes" value="SpawningPool_Yes"/>
+        <SoundArray index="Attack" value="SpawningPool_Attack"/>
+        <SoundArray index="Pissed" value="SpawningPool_Pissed"/>
+        <SoundArray index="Movement" value="SpawningPool_Movement"/>
+        <SoundArray index="Turning" value="SpawningPool_Turning"/>
+        <SoundArray index="Board" value="SpawningPool_Board"/>
+        <SoundArray index="Click" value="SpawningPool_Click"/>
+        <SoundArray index="ClickError" value="SpawningPool_ClickError"/>
+        <SoundArray index="Highlight" value="SpawningPool_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="Hellion2" parent="GenericUnitBase" unitName="Hellion2">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="TimerSet 0.250000 KillBeam"/>
+        <On Terms="Abil.attack.ReadyStop" Send="TimerSet 0.250000 KillBeam"/>
+        <On Terms="TimerExpired; TimerName KillBeam" Target="HellionAttackBeam" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Hellion" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom Hellion" Send="Destroy"/>
+        <On Terms="UnitPortrait.*.Configure" Target="::PortraitGameSelf" Send="AnimClear Visor 0.000000"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Hellion_Land"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Model value="Hellion"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Hellion"/>
+        <DeathArray index="Normal" ModelLink="HellionDeath" SoundLink="Hellion_Explode"/>
+        <DeathCustoms ModelLink="HellionDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Hellion"/>
+        <PortraitActor value="HellionPortrait"/>
+        <PortraitModel value="HellionPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeVehicle"/>
+        </TerrainSquibs>
+        <BarOffset value="50"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-hellionex1.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-hellion.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="Hellion_Ready"/>
+        <SoundArray index="Help" value="Hellion_Help"/>
+        <SoundArray index="What" value="Hellion_What"/>
+        <SoundArray index="Yes" value="Hellion_Yes"/>
+        <SoundArray index="Attack" value="Hellion_Attack"/>
+        <SoundArray index="Pissed" value="Hellion_Pissed"/>
+        <SoundArray index="Movement" value="Hellion_Movement"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-hellion.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-hellionex1.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="Marauder2" parent="GenericUnitBase" unitName="Marauder2">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="ActorCreation" Send="StatusSet WeaponNext 0"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster" Send="StatusIncrement WeaponNext"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster; IsStatus WeaponNext 2" Send="StatusSet WeaponNext 0"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster; IsStatus WeaponNext 0" Send="AnimClear AttackRight"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster; IsStatus WeaponNext 0" Send="AnimPlay AttackLeft Attack,Left"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimClear AttackLeft"/>
+        <On Terms="Effect.PunisherGrenadesLM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimPlay AttackRight Attack,Right"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackLeft"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackRight"/>
+        <On Terms="ModelEvent; ModelEventName AnimClear" Send="AnimClear AttackLeft"/>
+        <On Terms="ModelEvent; ModelEventName AnimClear" Send="AnimClear AttackRight"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Marauder" Send="Create"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Marauder_Land"/>
+        <On Terms="UnitDeathCustomize; PassChance 1.000000; ValidateUnit IsNotNeuralParasited" Send="Create Marauder_Death"/>
+        <On Terms="UnitDeathCustomize; PassChance 10.000000; !ValidateUnit IsNotNeuralParasited" Send="Create Marauder_Death_NP"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Model value="Marauder"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Marauder"/>
+        <DeathArray index="Normal" ModelLink="MarauderDeath" SoundLink="Marauder_Explode"/>
+        <DeathArray index="Eviscerate" ModelLink="MarauderDeathEviscerate" SoundLink="Uni_DeathFXEviscerate"/>
+        <DeathArray index="Silentkill" SoundLink="Uni_DeathFXSilentKill"/>
+        <DeathCustoms ActorModel="UnitDeathRagdollBloodPrevent" ModelLink="MarauderDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Marauder"/>
+        <PortraitModel value="MarauderPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.800000"/>
+            <RangeDown value="0.800000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="60"/>
+        <BarWidth value="50"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Marauder.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Marauder_Ready"/>
+        <SoundArray index="Help" value="Marauder_Help"/>
+        <SoundArray index="What" value="Marauder_What"/>
+        <SoundArray index="Yes" value="Marauder_Yes"/>
+        <SoundArray index="Attack" value="Marauder_Attack"/>
+        <SoundArray index="Pissed" value="Marauder_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Marauder.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="Marine3" parent="GenericUnitBase" unitName="Marine3">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
@@ -107,6 +467,107 @@
             <Image value="Assets\Textures\Wireframe-Terran-Marine.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="MarauderSpawner" parent="ZergBuildingEx" unitName="MarauderSpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter SpawningPool_Ambience"/>
+        <On index="69" Terms="UnitConstruction.MarauderSpawner.Start" Send="Create SpawnerBuild"/>
+        <On Terms="UnitDeathCustomize; ModelIsLowQuality" Send="Create SpawningPool_DeathLow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="Barracks"/>
+        <Scale value="0.680000"/>
+        <EventDataFootprint index="0" Model="SpawningPoolFootprint"/>
+        <BuildModel value="SpawningPool"/>
+        <DeathArray index="Normal" ModelLink="SpawningPoolDeath" SoundLink="" VoiceLink="SpawningPoolDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="SpawningPoolDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
+        <DeathCustoms ModelLink="BarracksDeath" Name="Detached"/>
+        <PlacementModel value="SpawnerSlowlingPlacement"/>
+        <PortraitModel value="SpawningPoolPortrait"/>
+        <BarOffset value="85"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SpawningPool_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SpawningPool_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SpawningPool_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SpawningPool_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <SoundArray index="Birth" value="SpawningPool_Birth"/>
+        <SoundArray index="Ready" value="SpawningPool_Ready"/>
+        <SoundArray index="Help" value="SpawningPool_Help"/>
+        <SoundArray index="What" value="SpawningPool_What"/>
+        <SoundArray index="Yes" value="SpawningPool_Yes"/>
+        <SoundArray index="Attack" value="SpawningPool_Attack"/>
+        <SoundArray index="Pissed" value="SpawningPool_Pissed"/>
+        <SoundArray index="Movement" value="SpawningPool_Movement"/>
+        <SoundArray index="Turning" value="SpawningPool_Turning"/>
+        <SoundArray index="Board" value="SpawningPool_Board"/>
+        <SoundArray index="Click" value="SpawningPool_Click"/>
+        <SoundArray index="ClickError" value="SpawningPool_ClickError"/>
+        <SoundArray index="Highlight" value="SpawningPool_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="FirebatSpawner" parent="ZergBuildingEx" unitName="FirebatSpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter SpawningPool_Ambience"/>
+        <On index="69" Terms="UnitConstruction.FirebatSpawner.Start" Send="Create SpawnerBuild"/>
+        <On Terms="UnitDeathCustomize; ModelIsLowQuality" Send="Create SpawningPool_DeathLow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="Barracks"/>
+        <Scale value="0.680000"/>
+        <EventDataFootprint index="0" Model="SpawningPoolFootprint"/>
+        <BuildModel value="SpawningPool"/>
+        <DeathArray index="Normal" ModelLink="SpawningPoolDeath" SoundLink="" VoiceLink="SpawningPoolDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="SpawningPoolDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
+        <DeathCustoms ModelLink="BarracksDeath" Name="Detached"/>
+        <PlacementModel value="SpawnerSlowlingPlacement"/>
+        <PortraitModel value="SpawningPoolPortrait"/>
+        <BarOffset value="85"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SpawningPool_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SpawningPool_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SpawningPool_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SpawningPool_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <SoundArray index="Birth" value="SpawningPool_Birth"/>
+        <SoundArray index="Ready" value="SpawningPool_Ready"/>
+        <SoundArray index="Help" value="SpawningPool_Help"/>
+        <SoundArray index="What" value="SpawningPool_What"/>
+        <SoundArray index="Yes" value="SpawningPool_Yes"/>
+        <SoundArray index="Attack" value="SpawningPool_Attack"/>
+        <SoundArray index="Pissed" value="SpawningPool_Pissed"/>
+        <SoundArray index="Movement" value="SpawningPool_Movement"/>
+        <SoundArray index="Turning" value="SpawningPool_Turning"/>
+        <SoundArray index="Board" value="SpawningPool_Board"/>
+        <SoundArray index="Click" value="SpawningPool_Click"/>
+        <SoundArray index="ClickError" value="SpawningPool_ClickError"/>
+        <SoundArray index="Highlight" value="SpawningPool_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorAction id="ZTerranMarineAttack" parent="GenericAttack" effectAttack="ZTerranGaussRifle">
+        <LaunchAssets Model="MarineAttackLaunch" Sound="Marine_AttackLaunch"/>
+        <ContainerAssets Model="MarineBunkerAttackLaunch" Sound="Marine_BunkerAttackLaunch"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="BulletImpact" MatchKeys="Basic" Physics="MarineAttackDeathForce"/>
+        <DamageMap index="None" Sound=""/>
+        <AcquisitionYawHalfArc value="10.000000"/>
+        <AcquisitionPitchHalfArc value="15.000000"/>
+        <AccuracyHalfArc value="5.000000"/>
+    </CActorAction>
     <CActorModel id="MechaExtractorBuild" parent="ModelConstruction">
         <Aliases value="_ZergBuildModel"/>
         <On Terms="ActorCreation" Send="Create ZergConstructionAttached"/>
@@ -828,7 +1289,7 @@
         <BuildModel value="SpawningPool"/>
         <DeathArray index="Normal" ModelLink="SpawningPoolDeath" SoundLink="" VoiceLink="SpawningPoolDeathVoice"/>
         <DeathArray index="UnderConstruction" ModelLink="SpawningPoolDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
-        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <DeathCustoms ModelLink="BarracksDeath" Name="Detached"/>
         <PlacementModel value="SpawnerSlowlingPlacement"/>
         <PortraitModel value="SpawningPoolPortrait"/>
         <BarOffset value="85"/>
