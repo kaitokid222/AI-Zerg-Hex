@@ -48,6 +48,9 @@
     <CWeaponLegacy id="GlaiveWurm">
         <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="InfernalFlameThrower">
+        <Range value="4"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PunisherGrenades2">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -61,6 +64,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="TyphoonMissilePod">
         <Period value="0.1"/>
+        <Range value="4"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ZTerranGaussRifle">
         <EditorCategories value="Race:Terran"/>

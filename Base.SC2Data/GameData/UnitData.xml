@@ -28,9 +28,9 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
-        <LifeArmor value="2"/>
+        <LifeStart value="90"/>
+        <LifeMax value="90"/>
+        <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Speed value="2.3984"/>
         <Acceleration value="1000"/>
@@ -187,10 +187,10 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
-        <LifeArmor value="2"/>
-        <LifeRegenRate value="2"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="4"/>
+        <LifeRegenRate value="4"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
         <StationaryTurningRate value="719.4726"/>
         <TurningRate value="719.4726"/>
@@ -255,8 +255,8 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Speed value="2.3984"/>
         <Acceleration value="1000"/>
@@ -303,7 +303,7 @@
         <GlossaryWeakArray value="Roach"/>
         <GlossaryWeakArray value="Stalker"/>
         <HotkeyCategory value="Unit/Category/TerranUnits"/>
-        <LifeArmor value="2"/>
+        <LifeArmor value="1"/>
     </CUnit>
     <CUnit id="Marauder2">
         <DeathRevealRadius value="3"/>
@@ -320,9 +320,9 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="90"/>
-        <LifeMax value="90"/>
-        <LifeArmor value="2"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
+        <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Speed value="2"/>
         <Acceleration value="1000"/>
@@ -398,8 +398,8 @@
         <Collide index="Small" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="50"/>
-        <LifeMax value="50"/>
+        <LifeStart value="35"/>
+        <LifeMax value="35"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Speed value="2"/>
         <Acceleration value="1000"/>
@@ -475,8 +475,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
@@ -547,8 +547,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
@@ -892,8 +892,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>

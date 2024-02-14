@@ -13,7 +13,7 @@
         <Resources index="Vespene" value="75"/>
     </CEffectModifyPlayer>
     <CEffectDamage id="CycloneAttackWeaponDamage">
-        <Amount value="9"/>
+        <Amount value="8"/>
     </CEffectDamage>
     <CEffectDamage id="InfernalFlameThrower">
         <Amount value="20"/>
@@ -21,7 +21,7 @@
     <CEffectDamage id="ZTerranGaussRifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="2"/>
+        <Amount value="1.5"/>
     </CEffectDamage>
     <CEffectIssueOrder id="IssueCashUpgrade">
         <EditorCategories value=""/>
