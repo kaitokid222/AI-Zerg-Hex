@@ -22,6 +22,8 @@
         <Value>bnet:Liberty (Campaign)/0.0/999,file:Campaigns/Liberty.SC2Campaign</Value>
         <Value>bnet:Swarm (Campaign)/0.0/999,file:Campaigns/Swarm.SC2Campaign</Value>
         <Value>bnet:Void (Campaign)/0.0/999,file:Campaigns/Void.SC2Campaign</Value>
+        <Value>bnet:Scion Custom Races Art Mod/0.0/280062,file:Mods\scion-keiron-dev\ScionArt.SC2Mod</Value>
+        <Value>bnet:Scion (Mod) NoScript/0.0/323881,file:Mods\scion-keiron-dev\ScionModNoscript.SC2Mod</Value>
     </Dependencies>
     <PatchNote>
         <Version>
@@ -181,7 +183,9 @@
             <Value>1.95</Value>
             <Value>1.96</Value>
             <Value>1.97</Value>
-            <Value>1.99</Value>
+            <Value>1.101</Value>
+            <Value>1.102</Value>
+            <Value>1.103</Value>
         </Version>
         <Date>
             <Value>9/6/2021</Value>
@@ -341,6 +345,8 @@
             <Value>1/19/2024</Value>
             <Value>1/20/2024</Value>
             <Value>2/14/2024</Value>
+            <Value>2/26/2024</Value>
+            <Value>3/9/2024</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -500,6 +506,8 @@
             <Value>718,719,720,721,722,723</Value>
             <Value>724,725,726,727,728,729,730,731,732,733,734</Value>
             <Value>735</Value>
+            <Value>736</Value>
+            <Value>737,738,739,740,741,742,743,744,745,746,747</Value>
         </Notes>
     </PatchNote>
     <Preload>

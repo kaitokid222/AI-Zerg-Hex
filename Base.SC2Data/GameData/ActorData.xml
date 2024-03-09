@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorModel id="GenetronGeneratorBuild" parent="GenetronBuildingBuild">
+        <Model value="GeneratorBuild"/>
+    </CActorModel>
+    <CActorUnit id="GenetronGenerator" parent="GenetronBuilding" buildTime="40.000000" unitName="GenetronGenerator">
+        <On Terms="Behavior.LockdownMode.On" Send="AnimGroupApply Unpowered"/>
+        <On Terms="Behavior.LockdownModeDuration.Off" Send="AnimGroupRemove Unpowered"/>
+        <On Terms="Abil.GeneratorResearch.Start" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="Abil.GeneratorResearch.Stop" Send="AnimClear StandWork"/>
+        <DeathArray index="Normal" ModelLink="GeneratorDeath" SoundLink="FusionCore_Explode"/>
+        <BarOffset value="110"/>
+        <BarWidth value="135"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\btn-building-genetron-generator.dds"/>
+        </GroupIcon>
+        <UnitIcon value="Assets\Textures\btn-building-genetron-generator.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-genetron-generator.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorRange id="OutfittingStationAuraRange">
+        <On Terms="SelectionLocalUpdate.OutfittingStation.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.OutfittingStation.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.OutfittingStation.Stop" Send="Destroy"/>
+        <Range value="2.100000"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconScale value="0.008000,0.008000"/>
+        <IconArcLength value="0.875000"/>
+        <IconTint value="255,255,95,26"/>
+    </CActorRange>
+    <CActorUnit id="OutfittingStation">
+        <On Terms="Abil.GenetronResearchEdit.Start" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="Abil.GenetronResearchEdit.Stop" Send="AnimClear StandWork"/>
+    </CActorUnit>
+    <CActorUnit id="Fixer">
+        <On index="68" Terms="Abil.FixerRepairEdit.SourceChannelStart"/>
+        <On Terms="Abil.FixerRepairEdit.SourceChannelStop" Send="AnimClear Spell"/>
+    </CActorUnit>
+    <CActorUnit id="Manufacturer">
+        <On Terms="AbilTrain.GenetronTrainEdit.Start" Send="AnimPlay StandWork Stand,Work PlayForever,RandomStartOffset -1.000000 -1.000000 1.000000 AsTimeScale"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Finish" Send="AnimClear StandWork"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Cancel" Send="AnimClear StandWork"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Spitfire" Send="Create SpitfireConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Equalizer" Send="Create EqualizerConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Blitzer" Send="Create BlitzerConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Blaze" Send="Create BlazeConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Aquila" Send="Create AquilaConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Start; AbilTrainProduced Fixer" Send="Create FixerConstruction"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Cancel" Target="_GenetronUnitConstruction" Send="Destroy Immediate"/>
+        <On Terms="AbilTrain.GenetronTrainEdit.Finish" Target="_GenetronUnitConstruction" Send="Destroy Immediate"/>
+    </CActorUnit>
+    <CActorUnit id="ACR">
+        <On index="71" Terms="Abil.Repair.SourceChannelStart"/>
+        <On index="72" Terms="Abil.Repair.SourceChannelStop"/>
+        <On index="73" Terms="Abil.Repair.SourceChannelStart"/>
+        <On index="74" Terms="Abil.Repair.SourceFinishStop"/>
+        <On index="75" Terms="Abil.Repair.SourceChannelStop"/>
+    </CActorUnit>
     <CActorUnit id="Cyclone3" parent="GenericUnitBase" unitName="Cyclone3">
         <Aliases value="_UnitLarge"/>
         <Macros value="UnloadDropAnim"/>
@@ -115,6 +172,21 @@
             <Image value="Assets\Textures\wireframe-terran-cyclone.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="FilteringPlant">
+        <On Terms="ActorCreation" Send="AnimGroupRemove A"/>
+        <On Terms="ActorCreation" Send="AnimGroupRemove D"/>
+        <On Terms="ActorCreation" Send="AnimGroupApply A"/>
+        <On Terms="Behavior.GenerateGasChemicalPlant.On" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.GenerateGasChemicalPlant.On" Send="AnimGroupApply A"/>
+        <On Terms="Behavior.GenerateGasChemicalPlant.Off" Send="AnimGroupRemove A"/>
+        <On Terms="Behavior.GenerateGasChemicalPlant.Off" Send="AnimGroupApply B"/>
+        <On Terms="Effect.GainGas10CasterText.Start" Send="AnimPlay Work Stand,Work"/>
+        <On Terms="Effect.GainGas10CasterText.Start" Send="TimerSet 3.300000 Stop"/>
+        <On Terms="TimerExpired; TimerName Stop" Send="AnimClear Work"/>
+        <On Terms="Effect.GainGas10CasterText.Start" Send="Create AutomatedRefineryTextKicker10"/>
+        <Scale value="0.950000"/>
+        <StatusHarvesterData Text=""/>
+    </CActorUnit>
     <CActorUnit id="Firebat2" parent="GenericUnitStandard" unitName="Firebat2">
         <Aliases value="_UnitMedium"/>
         <Macros value="UnloadDropAnim"/>
@@ -152,6 +224,22 @@
             <Image value="Assets\Textures\Wireframe-Terran-firebat.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorAction id="MantisL2MinigunAttackAction" parent="GenericAttackBase">
+        <On Terms="Effect.L2Minigun.Start; At Caster" Send="Create"/>
+        <LaunchAttachQuery Methods="AMFilterWeapon"/>
+        <LaunchAssets Model="" Sound="Marine_AttackLaunch"/>
+        <Beam value="MarineL2AttackBeam"/>
+        <BeamScope value="Caster"/>
+        <Missile value="InterceptorAttackMissile"/>
+        <ImpactMap index="None" Model="InterceptorAttackImpact" Sound="Interceptor_AttackImpact" ModelReaction="InterceptorAttackImpactReaction"/>
+        <ImpactMap index="Shield" Sound="InterceptorAttackImpactShield" ModelReaction="InterceptorAttackImpactReactionShield"/>
+        <ImpactModel value="GenericAttackImpactModelVeteran"/>
+        <DamageMap index="None" Model="InterceptorAttackDamage" Sound="InterceptorAttackDamage" ModelReaction="InterceptorAttackDamageReaction"/>
+        <DamageMap index="Shield" Sound="InterceptorAttackDamageShield" ModelReaction="InterceptorAttackDamageReactionShield"/>
+        <DamagePhysics Name="InterceptorBeamImpact" MatchKeys="Basic" Physics="InterceptorAttackDeathForce"/>
+        <DamagePhysics Name="InterceptorBeamImpact" MatchKeys="BasicAir" Physics="InterceptorAttackAirDeathForce"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
     <CActorUnit id="MechSpawner" parent="ZergBuildingEx" unitName="MechSpawner">
         <Aliases value="_UnitHuge"/>
         <Macros value="UpgradeSpawnerMacro"/>
@@ -557,6 +645,141 @@
             <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="Mantis" parent="GenericUnitBase" unitName="Mantis">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundMedium"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="ModelSwap DarkStalker"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkStalker"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="DeathCustomsEnablePhysics 0"/>
+        <On Terms="UnitBirth; ValidateUnit HasPurifierProtoss" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Upgrade.PurifierProtoss.Add" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="Signal.*.PurifierHack" Send="TextureSelectById PurifierHackDiffuse"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsTerrazineShadow" Send="DeathCustomize Hallucination"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Scale value="1.600000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="StalkerWarpIn"/>
+        <DeathArray index="Normal" ModelLink="StalkerDeath"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathMedium" Name="Hallucination"/>
+        <DeathCustoms ModelLink="StalkerDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ModelLink="DarkStalkerDeath" Name="DarkProtoss"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="StalkerPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="StalkerPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Stalker_Ready"/>
+        <SoundArray index="Help" value="Stalker_Help"/>
+        <SoundArray index="What" value="Stalker_What"/>
+        <SoundArray index="Yes" value="Stalker_Yes"/>
+        <SoundArray index="Attack" value="Stalker_Attack"/>
+        <SoundArray index="Pissed" value="Stalker_Pissed"/>
+        <UnitIcon value="assets\textures\btn-unit-terran-mantis.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="Node">
+        <Scale value="0.900000"/>
+    </CActorUnit>
+    <CActorUnit id="TechVault">
+        <Scale value="0.600000"/>
+    </CActorUnit>
+    <CActorUnit id="Uploader">
+        <Aliases value="_UnitMedium"/>
+        <On Terms="Behavior.wallphasedout.On" Send="SetOpacity 0.500000"/>
+        <On Terms="Behavior.wallphasedout.Off" Send="SetOpacity 1.000000"/>
+    </CActorUnit>
+    <CActorUnit id="Uploader2" parent="GenetronBuilding" buildTime="29.000000" unitName="Uploader2">
+        <Aliases value="_UnitMedium"/>
+        <On Terms="Abil.UploaderResearchManufacL1.Start" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="Abil.UploaderResearchManufacL1.Stop" Send="AnimClear StandWork"/>
+        <On Terms="Abil.UploaderResearchFabricator.Start" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="Abil.UploaderResearchFabricator.Stop" Send="AnimClear StandWork"/>
+        <On Terms="Abil.ResearchAssemblyArray.Start" Send="AnimPlay StandWork Stand,Work PlayForever"/>
+        <On Terms="Abil.ResearchAssemblyArray.Stop" Send="AnimClear StandWork"/>
+        <On Terms="Behavior.wallphasedout.On" Send="SetOpacity 0.500000"/>
+        <On Terms="Behavior.wallphasedout.Off" Send="SetOpacity 1.000000"/>
+        <Model value="Uploader"/>
+        <BuildModel value="UploaderBirth"/>
+        <DeathArray index="Normal" ModelLink="UploaderDeath" SoundLink="Reactor_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeathSmall" SoundLink="Reactor_Explode"/>
+        <PlacementModel value="UploaderPlacement"/>
+        <PlacementSound value="Terran_BuildingPlacementSmall"/>
+        <BarOffset value="115"/>
+        <BarWidth value="50"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-genetron-Uploader.dds"/>
+        </GroupIcon>
+        <SoundArray index="Ready" value="SensorTower_Ready"/>
+        <SoundArray index="What" value="SensorTower_What"/>
+        <UnitIcon value="Assets\Textures\btn-building-genetron-Uploader.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-genetron-Uploader.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="UploaderPlacementModel">
+        <Model value="UploaderPlacement"/>
+    </CActorModel>
     <CActorAction id="ZTerranMarineAttack" parent="GenericAttack" effectAttack="ZTerranGaussRifle">
         <LaunchAssets Model="MarineAttackLaunch" Sound="Marine_AttackLaunch"/>
         <ContainerAssets Model="MarineBunkerAttackLaunch" Sound="Marine_BunkerAttackLaunch"/>

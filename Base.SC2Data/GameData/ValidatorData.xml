@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorUnitType id="CasterIsZHCC">
+        <WhichUnit Value="Caster"/>
+        <Value value="CommandCenter2"/>
+    </CValidatorUnitType>
     <CValidatorPlayerRequirement id="HaveUnstableCore">
         <Find value="1"/>
         <Value value="HaveUnstableCore"/>

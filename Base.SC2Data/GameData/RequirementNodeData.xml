@@ -96,6 +96,10 @@
     <CRequirementAnd id="AndCountUpgradeGasExtractionCompleteOnly4054536818">
         <OperandArray value="CountUpgradeGasExtractionCompleteOnly4054536818"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndCountUpgradeGenetronTier2CompleteOnly729820030">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeGenetronTier2CompleteOnly729820030"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor2CompleteOnly">
         <OperandArray value="CountUpgradeJUICEModuleCompleteOnly"/>
         <OperandArray value="CountUpgradeZergArmor2CompleteOnly"/>
@@ -212,6 +216,11 @@
     <CRequirementAnd id="AndNot660069371CountUpgradeSuperEnergyGenerationQueuedOrBetterGTE1346723988CountUpgradeEnergyGenerationCompleteOnly30">
         <OperandArray value="Not660069371CountUpgradeSuperEnergyGenerationQueuedOrBetter"/>
         <OperandArray value="GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndNotCountUpgradeGenetronTier3QueuedOrBetterCountUpgradeGenetronTier2QueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="NotCountUpgradeGenetronTier3QueuedOrBetter"/>
+        <OperandArray value="CountUpgradeGenetronTier2QueuedOrBetter"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNotCountUpgradeSiegeTankModulationQueuedOrBetter">
         <OperandArray value="NotCountUpgradeSiegeTankModulationQueuedOrBetter"/>
@@ -382,6 +391,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ZergRallyPlus" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorwallphasedoutQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="wallphasedout" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitArmory2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Armory2" State="CompleteOnly"/>
@@ -434,6 +447,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CowFarm" State="CompleteOnly"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitFabricatorQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Fabricator" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGasVentQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GasVent" State="QueuedOrBetter"/>
@@ -458,6 +475,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="LoveMorales" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitManufacturerQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Manufacturer" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitMechaTechlabQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MechaTechlab" State="QueuedOrBetter"/>
@@ -481,6 +502,11 @@
     <CRequirementCountUnit id="CountUnitOperationCenterQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="OperationCenter" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitOutfittingStationQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="OutfittingStation" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitProbiusPylonQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -718,6 +744,28 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GasVentUpgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier2CompleteOnly1122740883">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="GenetronTier2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier2CompleteOnly729820030">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="GenetronTier2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier2QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="GenetronTier2" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier3CompleteOnly1161497588">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="GenetronTier3" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier3QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="GenetronTier3" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeHUGSAlgorythmCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HUGSAlgorythm" State="CompleteOnly"/>
@@ -924,7 +972,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDrops2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MoreCashDrops2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDrops2QueuedOrBetter">
@@ -933,17 +980,14 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDrops3QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MoreCashDrops3" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDrops4QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MoreCashDrops4" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDrops5QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="MoreCashDrops5" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMoreCashDropsQueuedOrBetter">
@@ -1426,6 +1470,10 @@
         <OperandArray index="0" value="CountBehaviorSiegeTankModulationCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGT>
+    <CRequirementGT id="GTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0">
+        <OperandArray index="0" value="CountBehaviorwallphasedoutQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
     <CRequirementGT id="GTCountUnitCowFarmCompleteOnlyCountUnitCow2CompleteOnly">
         <OperandArray index="0" value="CountUnitCowFarmCompleteOnly"/>
         <OperandArray index="1" value="CountUnitCow2CompleteOnly"/>
@@ -1574,6 +1622,18 @@
         <OperandArray index="0" value="CountUnitTarRoachQueuedOrBetter"/>
         <OperandArray index="1" value="100"/>
     </CRequirementLT>
+    <CRequirementLT id="LT3940970098CountUnitFabricatorQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitFabricatorQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3940970098CountUnitManufacturerQueuedOrBetter5">
+        <OperandArray index="0" value="CountUnitManufacturerQueuedOrBetter"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3940970098CountUnitOutfittingStationQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitOutfittingStationQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementLT>
     <CRequirementLT id="LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80">
         <OperandArray index="0" value="CountBehaviorFirelingCountDummyStackQueuedOrBetter"/>
         <OperandArray index="1" value="80"/>
@@ -1639,7 +1699,6 @@
         <OperandArray index="1" value="3"/>
     </CRequirementLT>
     <CRequirementLT id="LTSumCountUpgradeIncreaseCashPickupsCompleteOnlyOrCountUpgradeIncreaseCashPickupsQueuedOnlyCountUpgradeIncreaseCashPickupsInProgressOnly15">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountUpgradeIncreaseCashPickupsCompleteOnlyOrCountUpgradeIncreaseCashPickupsQueuedOnlyCountUpgradeIncreaseCashPickupsInProgressOnly"/>
         <OperandArray index="1" value="15"/>
     </CRequirementLT>
@@ -1829,6 +1888,14 @@
     <CRequirementNot id="NotCountUpgradeGasVentUpgradeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeGasVentUpgradeQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeGenetronTier2QueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeGenetronTier2QueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeGenetronTier3QueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeGenetronTier3QueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeHUGSAlgorythmQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeHUGSAlgorythmQueuedOrBetter"/>
     </CRequirementNot>
@@ -1860,7 +1927,6 @@
         <OperandArray index="0" value="CountUpgradeIncreaseCashPickupsInProgressOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeIncreaseCashPickupsQueuedOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeIncreaseCashPickupsQueuedOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeInfestedOffenseQueuedOrBetter">
@@ -1936,15 +2002,12 @@
         <OperandArray index="0" value="CountUpgradeMoreCashDrops2QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMoreCashDrops3QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMoreCashDrops3QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMoreCashDrops4QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMoreCashDrops4QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMoreCashDrops5QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeMoreCashDrops5QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMoreCashDropsQueuedOrBetter">
@@ -2099,6 +2162,9 @@
     </CRequirementNot>
     <CRequirementNot id="NotGTCountBehaviorProbiusPylonBuffAuraPowerQueuedOrBetterAtUnit0">
         <OperandArray index="0" value="GTCountBehaviorProbiusPylonBuffAuraPowerQueuedOrBetterAtUnit0"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0">
+        <OperandArray index="0" value="GTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
     </CRequirementNot>
     <CRequirementNot id="NotOrCountUnitSiegeTank2QueuedOrBetterCountUnitSiegeTankSieged2QueuedOrBetter">
         <OperandArray index="0" value="OrCountUnitSiegeTank2QueuedOrBetterCountUnitSiegeTankSieged2QueuedOrBetter"/>

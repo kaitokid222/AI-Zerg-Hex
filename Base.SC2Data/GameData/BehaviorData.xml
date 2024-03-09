@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorBuff id="OutfittingStationBuff">
+        <InfoIcon value="Assets\Textures\btn-upgrade-genetron-enhancedtargeting.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <Modification RangedWeaponRange="2">
+            <DamageDealtUnscaled index="Melee" value="1"/>
+            <DamageDealtUnscaled index="Ranged" value="1"/>
+            <DamageDealtUnscaled index="Splash" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="OutfittingStationAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="OutfittingStationAuraSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="wallphasedout">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Bury" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="GuardianShield">
         <Modification ShieldArmorBonus="16">
             <VitalRegenArray index="Shields" value="18"/>
@@ -13,6 +38,10 @@
         <InfoIcon value="Assets\Textures\btn-ability-stetmann-banelingmanashield.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="HasShieldLeft"/>
+        <Modification ShieldArmorBonus="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ProcessingCorePower">
+        <DisableValidatorArray index="3" removed="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SiegeTankDisableWeapon">
         <InfoFlags index="Hidden" value="1"/>

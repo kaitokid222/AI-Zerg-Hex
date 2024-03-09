@@ -24,6 +24,11 @@
         <EffectArray Operation="Set" Reference="Unit,Buggo,Collide[Land16]" Value="0"/>
         <EffectArray Operation="Set" Reference="Unit,Buggo,Collide[Land2]" Value="0"/>
         <EffectArray Operation="Set" Reference="Unit,Buggo,Collide[Land3]" Value="1"/>
+        <EffectArray Operation="Set" Reference="Unit,ACR,Collide[Land11]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,ACR,Collide[Land16]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,ACR,Collide[Land2]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,ACR,Collide[Land9]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,ACR,Collide[Land3]" Value="1"/>
     </CUpgrade>
     <CUpgrade id="CasualTraderImprovement">
         <EffectArray Operation="Set" Reference="Unit,GasTrader,Collide[Land11]" Value="0"/>
@@ -83,6 +88,9 @@
         <EffectArray Reference="Effect,L3Rifle,Amount" Value="1"/>
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="GenetronTier3">
+        <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
     </CUpgrade>
     <CUpgrade id="IncreaseCashPickups">
         <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
@@ -369,6 +377,9 @@
         <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Period" Value="0.060000"/>
         <EffectArray Operation="Subtract" Reference="Weapon,90mmCannons2,Cost.Vital[Energy]" Value="1"/>
         <MaxLevel value="30"/>
+    </CUpgrade>
+    <CUpgrade id="GenetronTier2">
+        <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level1.dds"/>
     </CUpgrade>
     <CUpgrade id="UnstableCore">
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Death]" Value="MechalingUnstableCoreExplode"/>
@@ -793,23 +804,17 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <EffectArray Reference="Unit,Tankling,LifeArmor" Value="1"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="10"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
+        <EffectArray Reference="Unit,MechaHydralisk,LifeArmor" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="1"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="0.500000"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
         <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
+        <EffectArray Operation="Set" Reference="Weapon,ZTerranGaussRifle,Period" Value="1.000000"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor2">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
         <LeaderAlias value="ZergArmor1"/>
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="20"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.000000"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
+        <EffectArray Reference="Unit,MechaHydralisk,LifeArmor" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="2"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="20"/>
         <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
@@ -818,16 +823,16 @@
         <EffectArray Reference="Unit,Cyclone3,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
+        <EffectArray Reference="Weapon,ZTerranGaussRifle,Range" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
         <LeaderAlias value="ZergArmor1"/>
         <EditorCategories value="Race:Zerg"/>
         <EffectArray Reference="Unit,Tankling,LifeArmor" Value="1"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="30"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="1.500000"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
+        <EffectArray Reference="Unit,MechaHydralisk,LifeArmor" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,MinScanRange" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="3"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="30"/>
         <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
@@ -843,10 +848,9 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
         <LeaderAlias value="ZergArmor1"/>
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="2.000000"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="40"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
+        <EffectArray Reference="Unit,MechaHydralisk,LifeArmor" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,MinScanRange" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="4"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="40"/>
         <EffectArray Reference="Unit,Marauder2,LifeArmor" Value="2"/>
@@ -865,10 +869,9 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
         <LeaderAlias value="ZergArmor1"/>
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,HydraliskDefender3v3,LifeRegenRate" Value="2.500000"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,MinScanRange" Value="1"/>
-        <EffectArray Reference="Weapon,NeedleSpinesDefender3v3,Range" Value="1"/>
+        <EffectArray Reference="Unit,MechaHydralisk,LifeArmor" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,MinScanRange" Value="1"/>
+        <EffectArray Reference="Weapon,MechaNeedleSpines,Range" Value="1"/>
         <EffectArray Reference="Effect,HydraliskNeedleSpinesRangedDamageEdit3v3,Amount" Value="5"/>
         <EffectArray Reference="Unit,HydraliskDefender3v3,LifeStart" Value="50"/>
         <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>

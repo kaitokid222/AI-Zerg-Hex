@@ -369,14 +369,6 @@
             <Name Value="Attribute006/Value004/Name"/>
         </Value>
         <Value>
-            <Id Value="5"/>
-            <Name Value="Attribute006/Value005/Name"/>
-        </Value>
-        <Value>
-            <Id Value="6"/>
-            <Name Value="Attribute006/Value006/Name"/>
-        </Value>
-        <Value>
             <Id Value="7"/>
             <Name Value="Attribute006/Value007/Name"/>
         </Value>
@@ -828,11 +820,6 @@
                 <Slot Id="6"/>
                 <Value Id="21554"/>
             </Default>
-        </Attribute>
-        <Attribute Namespace="999" Id="3200">
-            <ValueHidden Id="1094856755" Slot="6"/>
-            <ValueHidden Id="1094856756" Slot="6"/>
-            <ValueHidden Id="1094856758" Slot="6"/>
         </Attribute>
         <Attribute Namespace="999" Id="3002">
             <Default>

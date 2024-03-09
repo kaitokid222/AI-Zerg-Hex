@@ -31,6 +31,86 @@
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
     </CModel>
+    <CModel id="GenetronGeneratorPlacement" parent="Placement">
+        <Model value="Assets\Buildings\Genetron\Generator.m3"/>
+        <LowQualityModel value="Generator"/>
+        <EditorCategories value="Race:Genetron"/>
+    </CModel>
+    <CModel id="GenetronGeneratorBuild" parent="GenetronBuildingBuild">
+        <ScaleMax value="1.150000,1.150000,0.800000"/>
+        <ScaleMin value="1.150000,1.150000,0.800000"/>
+    </CModel>
+    <CModel id="GenetronGeneratorBirth" parent="BuildingEx">
+        <Model value="Assets\Buildings\Genetron\Generator.m3"/>
+        <EditorCategories value="Race:Genetron"/>
+        <Lighting value="Generator"/>
+        <Radius value="1.250000"/>
+        <SelectionRadius value="1.600000"/>
+    </CModel>
+    <CModel id="GenetronGeneratorDeath" parent="BuildingDeathEx" Race="Terran" low="FusionCoreDeathLow">
+        <Model value="Assets\Buildings\Terran\FusionCore_Silver_Death\FusionCore_Silver_Death.m3"/>
+        <EditorCategories value="Race:Genetron"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.633000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="0.966000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,01"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,01"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="0.633000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,02"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,02"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="1.666000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,02"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="0.966000"/>
+        </Events>
+        <Radius value="1.250000"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.750000"/>
+        <ShadowRadius value="1.750000"/>
+    </CModel>
+    <CModel id="GenetronGenerator" parent="BuildingEx">
+        <Model value="Assets\Buildings\Genetron\Generator.m3"/>
+        <EditorCategories value="Race:Genetron"/>
+        <Radius value="1.250000"/>
+        <SelectionRadius value="1.600000"/>
+    </CModel>
     <CModel id="GunTower">
         <Radius value="1.000000"/>
         <ScaleMax value="0.300000,0.300000,0.650000"/>
@@ -3247,6 +3327,30 @@
         <EditorCategories value="Race:Protoss"/>
         <ScaleMax value="0.700000,0.700000,1.200000"/>
         <ScaleMin value="0.700000,0.700000,1.200000"/>
+    </CModel>
+    <CModel id="Mantis" parent="StalkerBase">
+        <Model value="assets\units\Mantis.m3"/>
+        <TextureDeclares Prefix="stalker_">
+            <Adaptions TriggerOnSubstring="_Diffuse" Slot="main"/>
+        </TextureDeclares>
+    </CModel>
+    <CModel id="ProcessingCore">
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="ProcessingCoreBirth">
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="ProcessingCoreDeath">
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="UploaderBirth">
+        <Model value="Assets\Buildings\Genetron\Uploader.m3"/>
+    </CModel>
+    <CModel id="UploaderPlacement">
+        <Model value="Assets\Buildings\Genetron\Uploader.m3"/>
     </CModel>
     <CModel id="VdayLoveBuff" parent="PersistentSpellFX">
         <Model value="assets\units\storm_fx_medic_love_healingbeam_buffactive.m3"/>

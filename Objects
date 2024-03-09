@@ -507,7 +507,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.866" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
+    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.861" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -1029,7 +1029,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.399" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
+    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.4077" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
@@ -1383,173 +1383,209 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectPoint Id="1387841900" Position="113.2763,231.4038,0" Scale="1,1,1" Type="Normal" Name="Weather p2 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="227446701" Position="119.989,142.088,0" Scale="1,1,1" Type="Normal" Name="Omega 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="1691751936" Position="138.2131,62.6826,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1631657346" Position="86.8132,112.318,0" Scale="1,1,1" Type="Normal" Name="Weather p4 14" Color="0,0,0,0"/>
     <ObjectPoint Id="1396407973" Position="134,50,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 5" Color="0,0,0,0"/>
     <ObjectPoint Id="122478770" Position="184.446,95.4631,0" Scale="1,1,1" Type="Normal" Name="Weather p6 8" Color="0,0,0,0"/>
-    <ObjectPoint Id="1459795328" Position="157.002,112.0783,0" Scale="1,1,1" Type="Normal" Name="Omega 4" Color="0,0,0,0"/>
     <ObjectPoint Id="427204689" Position="231.136,247.6984,0" Scale="1,1,1" Type="Normal" Name="Corner 2" Color="0,0,0,0"/>
     <ObjectPoint Id="1035291590" Position="98.0844,104.0283,0" Scale="1,1,1" Type="Normal" Name="Infestors 8" Color="0,0,0,0"/>
     <ObjectPoint Id="2061205250" Position="57,93,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 4" Color="0,0,0,0"/>
     <ObjectPoint Id="433569490" Position="120,40,0" Scale="1,1,1" Type="Normal" Name="Terran Face 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="2122490185" Position="71.0554,111.1157,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="1628755685" Position="65.15,183.859,0" Scale="1,1,1" Type="Normal" Name="Weather p1 9" Color="0,0,0,0"/>
     <ObjectPoint Id="1434678068" Position="83.8972,194.4152,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="171624144" Position="122.2197,45.6718,0" Scale="1,1,1" Type="Normal" Name="Weather p5 7" Color="0,0,0,0"/>
-    <ObjectPoint Id="718945287" Position="120.0097,118.0598,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_5" Color="0,0,0,0"/>
-    <ObjectPoint Id="821890304" Position="134.5783,234.9506,0" Scale="1,1,1" Type="Normal" Name="Weather p2 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1069197325" Position="110.119,68.8725,0" Scale="1,1,1" Type="Normal" Name="Weather p5 11" Color="0,0,0,0"/>
     <ObjectPoint Id="1648156983" Position="52.094,109.9338,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 4" Color="0,0,0,0"/>
     <ObjectPoint Id="1500951910" Position="80.9885,60.8781,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 4" Color="0,0,0,0"/>
     <ObjectPoint Id="1518495724" Position="120.2292,99.466,0" Scale="1,1,1" Type="Normal" Name="Hydra B 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="214648867" Position="182.0517,160.2531,0" Scale="1,1,1" Type="Normal" Name="Weather p3 9" Color="0,0,0,0"/>
     <ObjectPoint Id="2068062657" Position="122.7558,24.153,0" Scale="1,1,1" Type="Normal" Name="Weather p5 3" Color="0,0,0,0"/>
     <ObjectPoint Id="473112688" Position="64.0671,70.9316,0" Scale="1,1,1" Type="Normal" Name="Weather p4 6" Color="0,0,0,0"/>
     <ObjectPoint Id="954637647" Position="188.5085,144.5686,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 3" Color="0,0,0,0"/>
     <ObjectPoint Id="1453258571" Position="42.4536,182.5756,0" Scale="1,1,1" Type="Normal" Name="Weather p1 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="1000391812" Position="67,187,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="2091187863" Position="110.8977,178.7692,0" Scale="1,1,1" Type="Normal" Name="Weather p2 12" Color="0,0,0,0"/>
     <ObjectPoint Id="244645663" Position="42.092,171.2873,0" Scale="1,1,1" Type="Normal" Name="Weather p1 1" Color="0,0,0,0"/>
-    <ObjectPoint Id="1527701636" Position="157.0424,195.1564,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="1869530866" Position="98.265,104.0441,0" Scale="1,1,1" Type="Normal" Name="Hydra B 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="573528611" Position="124,136.0097,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_3" Color="0,0,0,0"/>
     <ObjectPoint Id="317402179" Position="57.8544,94.3083,0" Scale="1,1,1" Type="Normal" Name="Weather p4 9" Color="0,0,0,0"/>
-    <ObjectPoint Id="913560529" Position="83.6528,60.8725,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="1375552357" Position="231.5361,8.5898,0" Scale="1,1,1" Type="Normal" Name="Corner 3" Color="0,0,0,0"/>
     <ObjectPoint Id="1813052249" Position="30,176,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1404460890" Position="177.255,71.8242,0" Scale="1,1,1" Type="Normal" Name="Weather p6 9" Color="0,0,0,0"/>
-    <ObjectPoint Id="1024552761" Position="91.0065,159.0451,0" Scale="1,1,1" Type="Normal" Name="Hydra 1" Color="0,0,0,0"/>
-    <ObjectPoint Id="133745824" Position="169.902,111.2197,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 6" Color="0,0,0,0"/>
     <ObjectPoint Id="575163800" Position="90.9841,97.1035,0" Scale="1,1,1" Type="Normal" Name="Hydra 4" Color="0,0,0,0"/>
     <ObjectPoint Id="1504473389" Position="31.7214,182.683,0" Scale="1,1,1" Type="Normal" Name="Weather p1 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="399249919" Position="131.9792,101.091,0" Scale="1,1,1" Type="Normal" Name="Omega 7" Color="0,0,0,0"/>
     <ObjectPoint Id="1603882893" Position="157.014,144.078,0" Scale="1,1,1" Type="Normal" Name="Omega 1" Color="0,0,0,0"/>
-    <ObjectPoint Id="805596086" Position="91.125,63.9072,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 5" Color="0,0,0,0"/>
     <ObjectPoint Id="631603954" Position="211.0466,191.0864,0" Scale="1,1,1" Type="Normal" Name="Weather p3 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="14960067" Position="104,53,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1400870392" Position="75.9091,78.8435,0" Scale="1,1,1" Type="Normal" Name="Weather p4 11" Color="0,0,0,0"/>
     <ObjectPoint Id="1503675907" Position="52.9001,144.2385,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 1" Color="0,0,0,0"/>
-    <ObjectPoint Id="1151317287" Position="126,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Center Right" Color="0,0,0,0"/>
-    <ObjectPoint Id="1724548232" Position="31.9494,171.8098,0" Scale="1,1,1" Type="Normal" Name="Weather p1 2" Color="0,0,0,0"/>
     <ObjectPoint Id="1188652380" Position="71.0556,144.9143,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="907473894" Position="90.7646,88.1213,0" Scale="1,1,1" Type="Normal" Name="Weather p4 12" Color="0,0,0,0"/>
     <ObjectPoint Id="1729920571" Position="44.795,79.8925,0" Scale="1,1,1" Type="Normal" Name="Blocker 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="1903193302" Position="58.5083,160.6228,0" Scale="1,1,1" Type="Normal" Name="Weather p1 6" Color="0,0,0,0"/>
     <ObjectPoint Id="504603184" Position="119.984,37.2434,0" Scale="1,1,1" Type="Normal" Name="Blocker 5" Color="0,0,0,0"/>
     <ObjectPoint Id="1954217478" Position="68,69,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 4" Color="0,0,0,0"/>
     <ObjectPoint Id="1932723074" Position="71,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Left" Color="0,0,0,0"/>
-    <ObjectPoint Id="25496535" Position="120.1098,138.0698,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_2" Color="0,0,0,0"/>
     <ObjectPoint Id="277280944" Position="48,80,0" Scale="1,1,1" Type="Normal" Name="Terran Face 4" Color="0,0,0,0"/>
     <ObjectPoint Id="789082752" Position="48,176,0" Scale="1,1,1" Type="Normal" Name="Terran Face 1" Color="0,0,0,0"/>
     <ObjectPoint Id="234157281" Position="172,187,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="226347483" Position="149.209,195.087,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="1426108555" Position="208.33,181.4326,0" Scale="1,1,1" Type="Normal" Name="Weather p3 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="1276499987" Position="135.46,151.1445,0" Scale="1,1,1" Type="Normal" Name="Weather p3 15" Color="0,0,0,0"/>
     <ObjectPoint Id="755628087" Position="210.9216,65.0861,0" Scale="1,1,1" Type="Normal" Name="Weather p6 5" Color="0,0,0,0"/>
     <ObjectPoint Id="1644201380" Position="141.9531,152.0488,0" Scale="1,1,1" Type="Normal" Name="Infestors 5" Color="0,0,0,0"/>
     <ObjectPoint Id="2099207875" Position="120.988,156.7192,0" Scale="1,1,1" Type="Normal" Name="Hydra B 2" Color="0,0,0,0"/>
     <ObjectPoint Id="7972946" Position="186.576,169.6926,0" Scale="1,1,1" Type="Normal" Name="Weather p3 8" Color="0,0,0,0"/>
+    <ObjectPoint Id="398235068" Position="106.015,190.4233,0" Scale="1,1,1" Type="Normal" Name="Weather p2 10" Color="0,0,0,0"/>
     <ObjectPoint Id="1654796346" Position="8.4965,8.8605,0" Scale="1,1,1" Type="Normal" Name="Corner 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="791791791" Position="53.0688,168.3662,0" Scale="1,1,1" Type="Normal" Name="Weather p1 7" Color="0,0,0,0"/>
     <ObjectPoint Id="1405432062" Position="156.0617,61.938,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="388878039" Position="99.1157,161.2368,0" Scale="1,1,1" Type="Normal" Name="Weather p1 14" Color="0,0,0,0"/>
     <ObjectPoint Id="304274518" Position="61.7307,253.879,0" Scale="1,1,1" Type="Normal" Name="Transmission_point" Color="0,0,0,0"/>
     <ObjectPoint Id="1035992730" Position="197.6462,182.0593,0" Scale="1,1,1" Type="Normal" Name="Weather p3 2" Color="0,0,0,0"/>
     <ObjectPoint Id="323652440" Position="76.3686,185.3703,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 1" Color="0,0,0,0"/>
     <ObjectPoint Id="2018738830" Position="95,102,0" Scale="1,1,1" Type="Normal" Name="Nydus4" Color="0,0,0,0"/>
     <ObjectPoint Id="217945257" Position="119.9375,114.2993,0" Scale="1,1,1" Type="Normal" Name="Omega 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="836749089" Position="166.3054,99.3022,0" Scale="1,1,1" Type="Normal" Name="Weather p6 11" Color="0,0,0,0"/>
     <ObjectPoint Id="1622640096" Position="98.2055,151.9257,0" Scale="1,1,1" Type="Normal" Name="Hydra B 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1621344438" Position="31.3581,83.705,0" Scale="1,1,1" Type="Normal" Name="Weather p4 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="810400673" Position="136.0285,50.2907,0" Scale="1,1,1" Type="Normal" Name="Weather p5 8" Color="0,0,0,0"/>
-    <ObjectPoint Id="1303921427" Position="145,102,0" Scale="1,1,1" Type="Normal" Name="Nydus6" Color="0,0,0,0"/>
     <ObjectPoint Id="88498885" Position="192,80,0" Scale="1,1,1" Type="Normal" Name="Terran Face 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="1323379293" Position="161.3203,73.531,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="1530557092" Position="208.9606,172.6552,0" Scale="1,1,1" Type="Normal" Name="Weather p3 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="1498141751" Position="195.0383,80.0454,0" Scale="1,1,1" Type="Normal" Name="Blocker 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="766154688" Position="106.2221,208.8864,0" Scale="1,1,1" Type="Normal" Name="Weather p2 6" Color="0,0,0,0"/>
     <ObjectPoint Id="1607993182" Position="208.875,76.5246,0" Scale="1,1,1" Type="Normal" Name="Weather p6 2" Color="0,0,0,0"/>
     <ObjectPoint Id="20243859" Position="120,116,0" Scale="1,1,1" Type="Normal" Name="Zerg Camera Bot" Color="0,0,0,0"/>
     <ObjectPoint Id="425948403" Position="141.779,104.0957,0" Scale="1,1,1" Type="Normal" Name="Hydra B 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="40432032" Position="42.2526,86.2285,0" Scale="1,1,1" Type="Normal" Name="Weather p4 1" Color="0,0,0,0"/>
     <ObjectPoint Id="160013978" Position="113.8916,221.3825,0" Scale="1,1,1" Type="Normal" Name="Weather p2 1" Color="0,0,0,0"/>
     <ObjectPoint Id="797376493" Position="82.6713,194.1743,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1769233779" Position="57,163,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1568293483" Position="114.7426,209.615,0" Scale="1,1,1" Type="Normal" Name="Weather p2 8" Color="0,0,0,0"/>
     <ObjectPoint Id="1030111713" Position="44.94,176.0808,0" Scale="1,1,1" Type="Normal" Name="Blocker 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="235845415" Position="104.8483,151.3288,0" Scale="1,1,1" Type="Normal" Name="Weather p1 15" Color="0,0,0,0"/>
     <ObjectPoint Id="217608878" Position="169.8698,145.219,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="1242498286" Position="198.4975,85.9704,0" Scale="1,1,1" Type="Normal" Name="Weather p6 4" Color="0,0,0,0"/>
     <ObjectPoint Id="603788487" Position="112.947,158.1025,0" Scale="1,1,1" Type="Normal" Name="Infestors 3" Color="0,0,0,0"/>
     <ObjectPoint Id="2047551973" Position="186.4631,177.3576,0" Scale="1,1,1" Type="Normal" Name="Weather p3 7" Color="0,0,0,0"/>
-    <ObjectPoint Id="1139938414" Position="41.7045,73.9372,0" Scale="1,1,1" Type="Normal" Name="Weather p4 4" Color="0,0,0,0"/>
     <ObjectPoint Id="1134144376" Position="183,163,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 3" Color="0,0,0,0"/>
     <ObjectPoint Id="873004648" Position="30,80,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="391058069" Position="146.5788,116.754,0" Scale="1,1,1" Type="Normal" Name="Infestors 12" Color="0,0,0,0"/>
     <ObjectPoint Id="1459000864" Position="192,176,0" Scale="1,1,1" Type="Normal" Name="Terran Face 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="148588242" Position="120.03,218.808,0" Scale="1,1,1" Type="Normal" Name="Blocker 2" Color="0,0,0,0"/>
     <ObjectPoint Id="743371141" Position="107.9614,101.0605,0" Scale="1,1,1" Type="Normal" Name="Omega 8" Color="0,0,0,0"/>
-    <ObjectPoint Id="1384876706" Position="120,234,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="510982451" Position="141.9912,104.04,0" Scale="1,1,1" Type="Normal" Name="Infestors 11" Color="0,0,0,0"/>
-    <ObjectPoint Id="566203817" Position="120,164,0" Scale="1,1,1" Type="Normal" Name="Nydus2" Color="0,0,0,0"/>
-    <ObjectPoint Id="210145406" Position="141.6865,152.14,0" Scale="1,1,1" Type="Normal" Name="Hydra B 3" Color="0,0,0,0"/>
     <ObjectPoint Id="1839602512" Position="105.0598,21.0153,0" Scale="1,1,1" Type="Normal" Name="Weather p5 5" Color="0,0,0,0"/>
     <ObjectPoint Id="44105760" Position="126.268,221.09,0" Scale="1,1,1" Type="Normal" Name="Weather p2 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="92203813" Position="148.9604,97.0942,0" Scale="1,1,1" Type="Normal" Name="Hydra 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="77981756" Position="29.0363,190.9423,0" Scale="1,1,1" Type="Normal" Name="Weather p1 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="855168132" Position="173,69,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="317035670" Position="29.0114,64.7961,0" Scale="1,1,1" Type="Normal" Name="Weather p4 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="2077519151" Position="141.9746,163.7944,0" Scale="1,1,1" Type="Normal" Name="Weather p3 13" Color="0,0,0,0"/>
     <ObjectPoint Id="1177115991" Position="120,140,0" Scale="1,1,1" Type="Normal" Name="Zerg Camera Top" Color="0,0,0,0"/>
     <ObjectPoint Id="1438781459" Position="31.254,77.5415,0" Scale="1,1,1" Type="Normal" Name="Weather p4 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="1632254216" Position="97.9211,151.9477,0" Scale="1,1,1" Type="Normal" Name="Infestors 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="2055316914" Position="146.7043,139.8786,0" Scale="1,1,1" Type="Normal" Name="Infestors 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="1596347129" Position="108.027,155.0102,0" Scale="1,1,1" Type="Normal" Name="Omega 9" Color="0,0,0,0"/>
     <ObjectPoint Id="1225492054" Position="136,203,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 2" Color="0,0,0,0"/>
     <ObjectPoint Id="1791806517" Position="120,22,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 5" Color="0,0,0,0"/>
-    <ObjectPoint Id="1667940152" Position="177.033,184.593,0" Scale="1,1,1" Type="Normal" Name="Weather p3 6" Color="0,0,0,0"/>
     <ObjectPoint Id="2110695787" Position="189.3366,77.2526,0" Scale="1,1,1" Type="Normal" Name="Weather p6 6" Color="0,0,0,0"/>
     <ObjectPoint Id="1381791125" Position="115.7583,24.3408,0" Scale="1,1,1" Type="Normal" Name="Weather p5 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="1441264246" Position="124,120.0297,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_6" Color="0,0,0,0"/>
-    <ObjectPoint Id="1723757530" Position="119.9853,109.9924,0" Scale="1,1,1" Type="Normal" Name="ramp_south" Color="0,0,0,0"/>
     <ObjectPoint Id="420964804" Position="194.9064,176.0234,0" Scale="1,1,1" Type="Normal" Name="Blocker 3" Color="0,0,0,0"/>
     <ObjectPoint Id="457314631" Position="169,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Right" Color="0,0,0,0"/>
     <ObjectPoint Id="1700860141" Position="56.0334,179.2431,0" Scale="1,1,1" Type="Normal" Name="Weather p1 8" Color="0,0,0,0"/>
     <ObjectPoint Id="606956995" Position="93.623,116.4453,0" Scale="1,1,1" Type="Normal" Name="Infestors 7" Color="0,0,0,0"/>
-    <ObjectPoint Id="213261456" Position="93.562,139.6118,0" Scale="1,1,1" Type="Normal" Name="Infestors 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1910508930" Position="120,128,0" Scale="1,1,1" Type="Normal" Name="Zerg Camera Center" Color="0,0,0,0"/>
     <ObjectPoint Id="164052764" Position="113.8964,47.0698,0" Scale="1,1,1" Type="Normal" Name="Weather p5 6" Color="0,0,0,0"/>
     <ObjectPoint Id="1969422520" Position="100.832,52.3977,0" Scale="1,1,1" Type="Normal" Name="Weather p5 9" Color="0,0,0,0"/>
-    <ObjectPoint Id="1573802919" Position="156.0583,195.4523,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="167489783" Position="185.7185,85.4763,0" Scale="1,1,1" Type="Normal" Name="Weather p6 7" Color="0,0,0,0"/>
     <ObjectPoint Id="858090890" Position="187.417,111.9013,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 6" Color="0,0,0,0"/>
-    <ObjectPoint Id="703594072" Position="120,216,0" Scale="1,1,1" Type="Normal" Name="Terran Face 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="1813473823" Position="120,92,0" Scale="1,1,1" Type="Normal" Name="Nydus5" Color="0,0,0,0"/>
-    <ObjectPoint Id="887794054" Position="131.927,155.2187,0" Scale="1,1,1" Type="Normal" Name="Omega 10" Color="0,0,0,0"/>
+    <ObjectPoint Id="1048287812" Position="152.1245,111.6323,0" Scale="1,1,1" Type="Normal" Name="Weather p6 14" Color="0,0,0,0"/>
+    <ObjectPoint Id="2067607168" Position="159.9062,75.475,0" Scale="1,1,1" Type="Normal" Name="Weather p6 10" Color="0,0,0,0"/>
     <ObjectPoint Id="118748518" Position="123.9311,209.3876,0" Scale="1,1,1" Type="Normal" Name="Weather p2 9" Color="0,0,0,0"/>
     <ObjectPoint Id="1304502023" Position="8.7353,247.205,0" Scale="1,1,1" Type="Normal" Name="Corner 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="827803467" Position="85.903,167.047,0" Scale="1,1,1" Type="Normal" Name="Weather p1 12" Color="0,0,0,0"/>
     <ObjectPoint Id="506046979" Position="113.893,33.812,0" Scale="1,1,1" Type="Normal" Name="Weather p5 1" Color="0,0,0,0"/>
     <ObjectPoint Id="1088162581" Position="197.8044,171.151,0" Scale="1,1,1" Type="Normal" Name="Weather p3 1" Color="0,0,0,0"/>
     <ObjectPoint Id="2136568927" Position="183,93,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="385572299" Position="114,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Center Left" Color="0,0,0,0"/>
+    <ObjectPoint Id="411168398" Position="82.9943,144.0187,0" Scale="1,1,1" Type="Normal" Name="Omega 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1369506819" Position="95,154,0" Scale="1,1,1" Type="Normal" Name="Nydus1" Color="0,0,0,0"/>
+    <ObjectPoint Id="397200923" Position="103.607,194.1484,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="356425931" Position="148.986,159.1145,0" Scale="1,1,1" Type="Normal" Name="Hydra 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="138852621" Position="116.0097,119.98,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_4" Color="0,0,0,0"/>
+    <ObjectPoint Id="2140857534" Position="126.9277,97.7441,0" Scale="1,1,1" Type="Normal" Name="Infestors 10" Color="0,0,0,0"/>
+    <ObjectPoint Id="921559064" Position="210,176,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="999191307" Position="120.006,170.2395,0" Scale="1,1,1" Type="Normal" Name="Hydra 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="2014058418" Position="157.8156,61.8955,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1641586980" Position="210,80,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="118827045" Position="79.5842,68.3627,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="227446701" Position="119.989,142.088,0" Scale="1,1,1" Type="Normal" Name="Omega 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="236751799" Position="128.8276,164.4494,0" Scale="1,1,1" Type="Normal" Name="Weather p2 15" Color="0,0,0,0"/>
+    <ObjectPoint Id="1691751936" Position="138.2131,62.6826,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1459795328" Position="157.002,112.0783,0" Scale="1,1,1" Type="Normal" Name="Omega 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="2122490185" Position="71.0554,111.1157,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="1628755685" Position="65.15,183.859,0" Scale="1,1,1" Type="Normal" Name="Weather p1 9" Color="0,0,0,0"/>
+    <ObjectPoint Id="171624144" Position="122.2197,45.6718,0" Scale="1,1,1" Type="Normal" Name="Weather p5 7" Color="0,0,0,0"/>
+    <ObjectPoint Id="718945287" Position="120.0097,118.0598,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_5" Color="0,0,0,0"/>
+    <ObjectPoint Id="821890304" Position="134.5783,234.9506,0" Scale="1,1,1" Type="Normal" Name="Weather p2 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="214648867" Position="182.0517,160.2531,0" Scale="1,1,1" Type="Normal" Name="Weather p3 9" Color="0,0,0,0"/>
+    <ObjectPoint Id="1000391812" Position="67,187,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="1527701636" Position="157.0424,195.1564,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1869530866" Position="98.265,104.0441,0" Scale="1,1,1" Type="Normal" Name="Hydra B 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="573528611" Position="124,136.0097,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_3" Color="0,0,0,0"/>
+    <ObjectPoint Id="913560529" Position="83.6528,60.8725,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="690325609" Position="155.6643,168.6484,0" Scale="1,1,1" Type="Normal" Name="Weather p3 12" Color="0,0,0,0"/>
+    <ObjectPoint Id="25114604" Position="125.4113,191.1147,0" Scale="1,1,1" Type="Normal" Name="Weather p2 11" Color="0,0,0,0"/>
+    <ObjectPoint Id="1375552357" Position="231.5361,8.5898,0" Scale="1,1,1" Type="Normal" Name="Corner 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="1391774744" Position="134.9348,105.1801,0" Scale="1,1,1" Type="Normal" Name="Weather p6 15" Color="0,0,0,0"/>
+    <ObjectPoint Id="1024552761" Position="91.0065,159.0451,0" Scale="1,1,1" Type="Normal" Name="Hydra 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="133745824" Position="169.902,111.2197,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="399249919" Position="131.9792,101.091,0" Scale="1,1,1" Type="Normal" Name="Omega 7" Color="0,0,0,0"/>
+    <ObjectPoint Id="805596086" Position="91.125,63.9072,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="2039972674" Position="105.0798,105.24,0" Scale="1,1,1" Type="Normal" Name="Weather p4 15" Color="0,0,0,0"/>
+    <ObjectPoint Id="14960067" Position="104,53,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="77493689" Position="111.9436,164.793,0" Scale="1,1,1" Type="Normal" Name="Weather p2 14" Color="0,0,0,0"/>
+    <ObjectPoint Id="1151317287" Position="126,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Center Right" Color="0,0,0,0"/>
+    <ObjectPoint Id="1724548232" Position="31.9494,171.8098,0" Scale="1,1,1" Type="Normal" Name="Weather p1 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1903193302" Position="58.5083,160.6228,0" Scale="1,1,1" Type="Normal" Name="Weather p1 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="25496535" Position="120.1098,138.0698,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_2" Color="0,0,0,0"/>
+    <ObjectPoint Id="226347483" Position="149.209,195.087,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1426108555" Position="208.33,181.4326,0" Scale="1,1,1" Type="Normal" Name="Weather p3 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="1400275596" Position="111.092,97.626,0" Scale="1,1,1" Type="Normal" Name="Weather p5 15" Color="0,0,0,0"/>
+    <ObjectPoint Id="715717855" Position="77.1474,179.322,0" Scale="1,1,1" Type="Normal" Name="Weather p1 10" Color="0,0,0,0"/>
+    <ObjectPoint Id="791791791" Position="53.0688,168.3662,0" Scale="1,1,1" Type="Normal" Name="Weather p1 7" Color="0,0,0,0"/>
+    <ObjectPoint Id="810400673" Position="136.0285,50.2907,0" Scale="1,1,1" Type="Normal" Name="Weather p5 8" Color="0,0,0,0"/>
+    <ObjectPoint Id="1303921427" Position="145,102,0" Scale="1,1,1" Type="Normal" Name="Nydus6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1724514303" Position="72.4472,163.5073,0" Scale="1,1,1" Type="Normal" Name="Weather p1 11" Color="0,0,0,0"/>
+    <ObjectPoint Id="161872787" Position="133.2443,65.3676,0" Scale="1,1,1" Type="Normal" Name="Weather p5 10" Color="0,0,0,0"/>
+    <ObjectPoint Id="1323379293" Position="161.3203,73.531,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right Pre 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="342764069" Position="128.0122,176.2644,0" Scale="1,1,1" Type="Normal" Name="Weather p2 13" Color="0,0,0,0"/>
+    <ObjectPoint Id="738628985" Position="73.9201,98.7277,0" Scale="1,1,1" Type="Normal" Name="Weather p4 10" Color="0,0,0,0"/>
+    <ObjectPoint Id="1530557092" Position="208.9606,172.6552,0" Scale="1,1,1" Type="Normal" Name="Weather p3 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="1498141751" Position="195.0383,80.0454,0" Scale="1,1,1" Type="Normal" Name="Blocker 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1698823929" Position="129.1955,81.1828,0" Scale="1,1,1" Type="Normal" Name="Weather p5 12" Color="0,0,0,0"/>
+    <ObjectPoint Id="766154688" Position="106.2221,208.8864,0" Scale="1,1,1" Type="Normal" Name="Weather p2 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="40432032" Position="42.2526,86.2285,0" Scale="1,1,1" Type="Normal" Name="Weather p4 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="116741665" Position="85.3632,150.177,0" Scale="1,1,1" Type="Normal" Name="Weather p1 13" Color="0,0,0,0"/>
+    <ObjectPoint Id="1242498286" Position="198.4975,85.9704,0" Scale="1,1,1" Type="Normal" Name="Weather p6 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="760393688" Position="157.7641,148.6452,0" Scale="1,1,1" Type="Normal" Name="Weather p3 14" Color="0,0,0,0"/>
+    <ObjectPoint Id="1139938414" Position="41.7045,73.9372,0" Scale="1,1,1" Type="Normal" Name="Weather p4 4" Color="0,0,0,0"/>
+    <ObjectPoint Id="391058069" Position="146.5788,116.754,0" Scale="1,1,1" Type="Normal" Name="Infestors 12" Color="0,0,0,0"/>
+    <ObjectPoint Id="148588242" Position="120.03,218.808,0" Scale="1,1,1" Type="Normal" Name="Blocker 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="391621667" Position="159.9968,182.6008,0" Scale="1,1,1" Type="Normal" Name="Weather p3 11" Color="0,0,0,0"/>
+    <ObjectPoint Id="1384876706" Position="120,234,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="510982451" Position="141.9912,104.04,0" Scale="1,1,1" Type="Normal" Name="Infestors 11" Color="0,0,0,0"/>
+    <ObjectPoint Id="566203817" Position="120,164,0" Scale="1,1,1" Type="Normal" Name="Nydus2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1499460378" Position="101.3535,94.5327,0" Scale="1,1,1" Type="Normal" Name="Weather p4 13" Color="0,0,0,0"/>
+    <ObjectPoint Id="210145406" Position="141.6865,152.14,0" Scale="1,1,1" Type="Normal" Name="Hydra B 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="92203813" Position="148.9604,97.0942,0" Scale="1,1,1" Type="Normal" Name="Hydra 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="77981756" Position="29.0363,190.9423,0" Scale="1,1,1" Type="Normal" Name="Weather p1 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="362866814" Position="110.061,85.0117,0" Scale="1,1,1" Type="Normal" Name="Weather p5 13" Color="0,0,0,0"/>
+    <ObjectPoint Id="855168132" Position="172.9682,68.8981,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Right 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="317035670" Position="29.0114,64.7961,0" Scale="1,1,1" Type="Normal" Name="Weather p4 5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1632254216" Position="97.9211,151.9477,0" Scale="1,1,1" Type="Normal" Name="Infestors 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="2055316914" Position="146.7043,139.8786,0" Scale="1,1,1" Type="Normal" Name="Infestors 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1596347129" Position="108.027,155.0102,0" Scale="1,1,1" Type="Normal" Name="Omega 9" Color="0,0,0,0"/>
+    <ObjectPoint Id="1667940152" Position="177.033,184.593,0" Scale="1,1,1" Type="Normal" Name="Weather p3 6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1441264246" Position="124,120.0297,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_6" Color="0,0,0,0"/>
+    <ObjectPoint Id="1723757530" Position="119.9853,109.9924,0" Scale="1,1,1" Type="Normal" Name="ramp_south" Color="0,0,0,0"/>
+    <ObjectPoint Id="1141930559" Position="139.1018,94.6325,0" Scale="1,1,1" Type="Normal" Name="Weather p6 13" Color="0,0,0,0"/>
+    <ObjectPoint Id="213261456" Position="93.562,139.6118,0" Scale="1,1,1" Type="Normal" Name="Infestors 1" Color="0,0,0,0"/>
+    <ObjectPoint Id="1573802919" Position="156.0583,195.4523,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas L 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="167489783" Position="185.7185,85.4763,0" Scale="1,1,1" Type="Normal" Name="Weather p6 7" Color="0,0,0,0"/>
+    <ObjectPoint Id="466636827" Position="128.8547,93.996,0" Scale="1,1,1" Type="Normal" Name="Weather p5 14" Color="0,0,0,0"/>
+    <ObjectPoint Id="703594072" Position="120,216,0" Scale="1,1,1" Type="Normal" Name="Terran Face 2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1813473823" Position="120,92,0" Scale="1,1,1" Type="Normal" Name="Nydus5" Color="0,0,0,0"/>
+    <ObjectPoint Id="887794054" Position="131.927,155.2187,0" Scale="1,1,1" Type="Normal" Name="Omega 10" Color="0,0,0,0"/>
     <ObjectPoint Id="1604504321" Position="127.1005,231.3173,0" Scale="1,1,1" Type="Normal" Name="Weather p2 3" Color="0,0,0,0"/>
     <ObjectPoint Id="689579350" Position="119.98,86.2114,0" Scale="1,1,1" Type="Normal" Name="Hydra 5" Color="0,0,0,0"/>
     <ObjectPoint Id="2080536937" Position="106,206,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="385572299" Position="114,128,0" Scale="1,1,1" Type="Normal" Name="Mecha Nydus Center Left" Color="0,0,0,0"/>
-    <ObjectPoint Id="411168398" Position="82.9943,144.0187,0" Scale="1,1,1" Type="Normal" Name="Omega 2" Color="0,0,0,0"/>
     <ObjectPoint Id="1398975995" Position="197.8876,74.64,0" Scale="1,1,1" Type="Normal" Name="Weather p6 1" Color="0,0,0,0"/>
-    <ObjectPoint Id="1369506819" Position="95,154,0" Scale="1,1,1" Type="Normal" Name="Nydus1" Color="0,0,0,0"/>
+    <ObjectPoint Id="427594378" Position="166.588,159.1357,0" Scale="1,1,1" Type="Normal" Name="Weather p3 10" Color="0,0,0,0"/>
     <ObjectPoint Id="1549161468" Position="136.8032,205.9992,0" Scale="1,1,1" Type="Normal" Name="Weather p2 7" Color="0,0,0,0"/>
-    <ObjectPoint Id="397200923" Position="103.607,194.1484,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 2" Color="0,0,0,0"/>
-    <ObjectPoint Id="356425931" Position="148.986,159.1145,0" Scale="1,1,1" Type="Normal" Name="Hydra 3" Color="0,0,0,0"/>
+    <ObjectPoint Id="1079287316" Position="154.076,95.2568,0" Scale="1,1,1" Type="Normal" Name="Weather p6 12" Color="0,0,0,0"/>
     <ObjectPoint Id="625624498" Position="161.7304,186.2282,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="138852621" Position="116.0097,119.98,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_4" Color="0,0,0,0"/>
     <ObjectPoint Id="1216836141" Position="145,154,0" Scale="1,1,1" Type="Normal" Name="Nydus3" Color="0,0,0,0"/>
     <ObjectPoint Id="2034292753" Position="82.9912,112.117,0" Scale="1,1,1" Type="Normal" Name="Omega 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="2140857534" Position="126.9277,97.7441,0" Scale="1,1,1" Type="Normal" Name="Infestors 10" Color="0,0,0,0"/>
-    <ObjectPoint Id="921559064" Position="210,176,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 3" Color="0,0,0,0"/>
     <ObjectPoint Id="1029535694" Position="126.06,33.6452,0" Scale="1,1,1" Type="Normal" Name="Weather p5 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="999191307" Position="120.006,170.2395,0" Scale="1,1,1" Type="Normal" Name="Hydra 2" Color="0,0,0,0"/>
     <ObjectPoint Id="1283499540" Position="53.0341,85.7275,0" Scale="1,1,1" Type="Normal" Name="Weather p4 8" Color="0,0,0,0"/>
     <ObjectPoint Id="646779108" Position="115.95,136.0297,0" Scale="1,1,1" Type="Normal" Name="3v3_spawn_1" Color="0,0,0,0"/>
     <ObjectPoint Id="865448941" Position="208.8916,82.6245,0" Scale="1,1,1" Type="Normal" Name="Weather p6 3" Color="0,0,0,0"/>
-    <ObjectPoint Id="2014058418" Position="157.8156,61.8955,0" Scale="1,1,1" Type="Normal" Name="Bonus Gas R 6" Color="0,0,0,0"/>
     <ObjectPoint Id="861294275" Position="55.0141,75.605,0" Scale="1,1,1" Type="Normal" Name="Weather p4 7" Color="0,0,0,0"/>
-    <ObjectPoint Id="1641586980" Position="210,80,0" Scale="1,1,1" Type="Normal" Name="Zerg Rally 6" Color="0,0,0,0"/>
     <ObjectPoint Id="1352576071" Position="119.9831,146.0007,0" Scale="1,1,1" Type="Normal" Name="ramp_north" Color="0,0,0,0"/>
     <ObjectPoint Id="1820048937" Position="112.9714,97.9667,0" Scale="1,1,1" Type="Normal" Name="Infestors 9" Color="0,0,0,0"/>
     <ObjectPoint Id="336703299" Position="126.9038,158.1362,0" Scale="1,1,1" Type="Normal" Name="Infestors 4" Color="0,0,0,0"/>
-    <ObjectPoint Id="118827045" Position="79.5842,68.3627,0" Scale="1,1,1" Type="Normal" Name="Zerg Flank Rally Left Pre 4" Color="0,0,0,0"/>
     <ObjectUnit Id="1047266173" Position="101,156,0" Scale="1,1,1" UnitType="DarkShrine"/>
     <ObjectUnit Id="502882156" Position="123,182,0" Rotation="0.5234" Scale="1,1,1" UnitType="UltraliskSpawner"/>
     <ObjectUnit Id="339936371" Position="86,131,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
@@ -1897,8 +1933,8 @@
     <ObjectUnit Id="1887568182" Position="89,125,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="13280885" Position="157.5,59.5,0" Rotation="5.7595" Scale="1,1,1" UnitType="GeyserBlocker"/>
     <ObjectUnit Id="646744011" Position="175.5793,185.683,0" Scale="1,1,1" UnitType="Defender"/>
-    <ObjectUnit Id="1349062427" Position="118,125,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="1292271678" Position="110,168,0" Scale="1,1,1" UnitType="DarkShrine"/>
+    <ObjectUnit Id="1349062427" Position="118,125,0" Scale="1,1,1" UnitType="Nest2"/>
     <ObjectUnit Id="1449841060" Position="100,85,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1796145461" Position="95,128,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="575374676" Position="93,158,0" Rotation="5.4975" Scale="1,1,1" UnitType="MineralExtractor"/>

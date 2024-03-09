@@ -12,6 +12,26 @@
         <NodeArray index="Use" Link="CountUpgradeGasVentUpgradeCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountBehaviorUpgradedVespeneHarvestingUnlimitedCompleteOnlyAtUnit"/>
     </CRequirement>
+    <CRequirement id="HaveGenetronTier2">
+        <NodeArray index="Use" Link="CountUpgradeGenetronTier2CompleteOnly1122740883"/>
+    </CRequirement>
+    <CRequirement id="HaveGenetronTier3">
+        <NodeArray index="Use" Link="CountUpgradeGenetronTier3CompleteOnly1161497588"/>
+    </CRequirement>
+    <CRequirement id="NotHaveFabricator">
+        <NodeArray index="Use" Link="LT3940970098CountUnitFabricatorQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="NotHaveOutfittingStation">
+        <NodeArray index="Use" Link="LT3940970098CountUnitOutfittingStationQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="PhaseOutWallReq">
+        <NodeArray index="Use" Link="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
+        <NodeArray index="Show" Link="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="PhaseBackWallReq">
+        <NodeArray index="Use" Link="GTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
+        <NodeArray index="Show" Link="GTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
+    </CRequirement>
     <CRequirement id="ProbiusPylonInactiveState">
         <NodeArray index="Use" Link="NotGTCountBehaviorGenerateMineralsQueuedOrBetterAtUnit0"/>
     </CRequirement>
@@ -36,6 +56,13 @@
     <CRequirement id="ResearchMoreCashDrops5">
         <NodeArray index="Use" Link="GTE3128881089CountUpgradeIncreaseCashPickupsCompleteOnly15"/>
         <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops5QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchGenetronTier2Equipment">
+        <NodeArray index="Show" Link="NotCountUpgradeGenetronTier2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchGenetronTier3Equipment">
+        <NodeArray index="Use" Link="AndCountUpgradeGenetronTier2CompleteOnly729820030"/>
+        <NodeArray index="Show" Link="AndNotCountUpgradeGenetronTier3QueuedOrBetterCountUpgradeGenetronTier2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchZergSpecialtySlowlingPackedMass3v3">
         <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
@@ -878,5 +905,8 @@
     </CRequirement>
     <CRequirement id="nothave3pylons">
         <NodeArray index="Use" Link="LT831937892CountUnitProbiusPylonQueuedOrBetter3"/>
+    </CRequirement>
+    <CRequirement id="NotHave5Manufacturers">
+        <NodeArray index="Use" Link="LT3940970098CountUnitManufacturerQueuedOrBetter5"/>
     </CRequirement>
 </Catalog>

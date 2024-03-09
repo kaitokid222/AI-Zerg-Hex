@@ -30,6 +30,14 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="Generator">
+        <Tooltip value="Button/Tooltip/BGenerator"/>
+        <AlertTooltip value="Button/Tooltip/BuildGenerator"/>
+    </CButton>
+    <CButton id="BuildGenetronGenerator" parent="CButtonGenetron" Icon="Assets\Textures\btn-building-genetron-generator.dds">
+        <Tooltip value="Button/Tooltip/BBuildGenetronGenerator"/>
+        <AlertTooltip value="Button/Tooltip/BuildBuildGenetronGenerator"/>
+    </CButton>
     <CButton id="InfestedOffense">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-attackspeedmastery.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-attackspeedmastery.dds"/>
@@ -39,6 +47,11 @@
         <Icon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-zerg-lurkerden-mecha.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="PhaseOut">
+        <Icon value="Assets\Textures\btn-ability-protoss-psytrousoxideoff.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psytrousoxideoff.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="MoreCashDrops2">
         <Icon value="Assets\Textures\btn-tips-resourcecaches.dds"/>
@@ -70,11 +83,21 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="MoreCashDrops"/>
     </CButton>
+    <CButton id="ResearchGenetronTier3" parent="CButtonGenetron" Icon="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level1.dds">
+        <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
+    </CButton>
+    <CButton id="StopPhaseOut">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="ResearchInfestedSpeedUp">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedciviliansleap.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedciviliansleap.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="TechVault"/>
     <CButton id="UnlockUpgradedGasVents">
         <Icon value="Assets\Textures\btn-ability-kerrigan-vespeneefficiency.dds"/>
         <EditorCategories value="Race:Zerg"/>
@@ -173,6 +196,8 @@
         <Icon value="Assets\Textures\btn-research-terran-microfiltering.dds"/>
         <AlertIcon value="Assets\Textures\btn-research-terran-automatedrefinery.dds"/>
     </CButton>
+    <CButton id="ResearchGenetronTier2" parent="CButtonGenetron" Icon="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level1.dds"/>
+    <CButton id="Uploader"/>
     <CButton id="UseJUICEtoheal">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>
     </CButton>
