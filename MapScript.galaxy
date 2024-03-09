@@ -13232,7 +13232,7 @@ void gf_create_defensive_egg_cluster (int lp_position) {
     // Variable Initialization
 
     // Implementation
-    if ((GameGetMissionTime() > (12 * 60))) {
+    if ((GameGetMissionTime() >= (12 * 60))) {
         if ((gv_difficulty == 5)) {
             lv_t = "CharEggSackOneEgg";
         }
