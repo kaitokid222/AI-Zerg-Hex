@@ -72,6 +72,10 @@
         <Backswing value="0"/>
         <Effect value="PunisherGrenadesLM"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="StratumMissilePod">
+        <MinScanRange value="8.5"/>
+        <Range value="8"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="SuppressionCannons">
         <MinScanRange value="8.5"/>
         <Range value="8"/>

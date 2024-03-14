@@ -18,6 +18,12 @@
     <CRequirement id="HaveGenetronTier3">
         <NodeArray index="Use" Link="CountUpgradeGenetronTier3CompleteOnly1161497588"/>
     </CRequirement>
+    <CRequirement id="HaveMadcapRounds">
+        <NodeArray index="Show" Link="CountUpgradeSpitfireMadcapRoundsCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveCalibratedEngines">
+        <NodeArray index="Show" Link="CountUpgradeCalibratedEnginesCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="NotHaveFabricator">
         <NodeArray index="Use" Link="LT3940970098CountUnitFabricatorQueuedOrBetter1"/>
     </CRequirement>
@@ -34,6 +40,10 @@
     </CRequirement>
     <CRequirement id="ProbiusPylonInactiveState">
         <NodeArray index="Use" Link="NotGTCountBehaviorGenerateMineralsQueuedOrBetterAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="ResearchRefittedNozzles">
+        <NodeArray index="Use" Link="CountUpgradeGenetronTier2CompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeRefittedNozzlesQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchMoreCashDrops2">
         <NodeArray index="Use" Link="CountUpgradeMoreCashDropsQueuedOrBetter906507071"/>
@@ -64,6 +74,13 @@
         <NodeArray index="Use" Link="AndCountUpgradeGenetronTier2CompleteOnly729820030"/>
         <NodeArray index="Show" Link="AndNotCountUpgradeGenetronTier3QueuedOrBetterCountUpgradeGenetronTier2QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchMadcapRounds">
+        <NodeArray index="Show" Link="NotCountUpgradeSpitfireMadcapRoundsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchCalibratedEngines">
+        <NodeArray index="Use" Link="CountUpgradeGenetronTier2CompleteOnly716022657"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCalibratedEnginesQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchZergSpecialtySlowlingPackedMass3v3">
         <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
         <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
@@ -75,6 +92,10 @@
     <CRequirement id="ResearchMoreCashDrops3">
         <NodeArray index="Use" Link="GTE1342794281CountUpgradeIncreaseCashPickupsCompleteOnly5"/>
         <NodeArray index="Show" Link="NotCountUpgradeMoreCashDrops3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchFirewallShields">
+        <NodeArray index="Use" Link="CountUpgradeGenetronTier2CompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeFirewallShieldQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="UpgradeFortificationInfested">
         <NodeArray index="Use" Link="And2331140635NotCountUpgradeFortificationQueuedOnlyNotCountUpgradeFortificationInProgressOnly"/>

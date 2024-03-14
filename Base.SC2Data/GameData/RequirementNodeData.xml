@@ -97,7 +97,6 @@
         <OperandArray value="CountUpgradeGasExtractionCompleteOnly4054536818"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeGenetronTier2CompleteOnly729820030">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeGenetronTier2CompleteOnly729820030"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeJUICEModuleCompleteOnlyCountUpgradeZergArmor2CompleteOnly">
@@ -218,7 +217,6 @@
         <OperandArray value="GTE1346723988CountUpgradeEnergyGenerationCompleteOnly30"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndNotCountUpgradeGenetronTier3QueuedOrBetterCountUpgradeGenetronTier2QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="NotCountUpgradeGenetronTier3QueuedOrBetter"/>
         <OperandArray value="CountUpgradeGenetronTier2QueuedOrBetter"/>
     </CRequirementAnd>
@@ -505,7 +503,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitOutfittingStationQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="OutfittingStation" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitProbiusPylonQueuedOrBetter">
@@ -583,6 +580,11 @@
     <CRequirementCountUpgrade id="CountUpgradeBase6DeadCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Base6Dead" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCalibratedEnginesCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CalibratedEngines" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeCasualTraderImprovementCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -748,13 +750,16 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GenetronTier2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeGenetronTier2CompleteOnly716022657">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="GenetronTier2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeGenetronTier2CompleteOnly729820030">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="GenetronTier2" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeGenetronTier2QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="GenetronTier2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeGenetronTier3CompleteOnly1161497588">
@@ -763,7 +768,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeGenetronTier3QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="GenetronTier3" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeHUGSAlgorythmCompleteOnly">
@@ -1165,6 +1169,11 @@
     <CRequirementCountUpgrade id="CountUpgradeSpawnBombersQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SpawnBombers" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeSpitfireMadcapRoundsCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpitfireMadcapRounds" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSuperEnergyGenerationQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1889,11 +1898,9 @@
         <OperandArray index="0" value="CountUpgradeGasVentUpgradeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeGenetronTier2QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeGenetronTier2QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeGenetronTier3QueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeGenetronTier3QueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeHUGSAlgorythmQueuedOrBetter">

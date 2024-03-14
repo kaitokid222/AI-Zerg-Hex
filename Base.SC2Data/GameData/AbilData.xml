@@ -64,15 +64,29 @@
         </InfoArray>
         <InfoArray index="Research3" Time="30" Upgrade="SpitfireMadcapRounds">
             <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="200"/>
-            <Button DefaultButtonFace="ResearchSpitfireMadcapRounds">
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchSpitfireMadcapRounds" Requirements="ResearchMadcapRounds">
                 <Flags index="ShowInGlossary" value="1"/>
             </Button>
         </InfoArray>
         <InfoArray index="Research4" Time="30" Upgrade="CalibratedEngines">
             <Resource index="Minerals" value="50"/>
             <Resource index="Vespene" value="100"/>
-            <Button DefaultButtonFace="ResearchSpitfireCalibratedEngines" Requirements="HaveGenetronTier2">
+            <Button DefaultButtonFace="ResearchSpitfireCalibratedEngines" Requirements="ResearchCalibratedEngines">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Research5" Time="30" Upgrade="FirewallShield">
+            <Resource index="Minerals" value="50"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="BlazeResearchFirewallShield" Requirements="ResearchFirewallShields">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Research6" Time="30" Upgrade="RefittedNozzles">
+            <Resource index="Minerals" value="50"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchBlazeRefittedNozzles" Requirements="ResearchRefittedNozzles">
                 <Flags index="ShowInGlossary" value="1"/>
             </Button>
         </InfoArray>
@@ -86,17 +100,17 @@
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train2" Time="28">
-            <Button DefaultButtonFace="FabricateEqualizer"/>
+            <Button DefaultButtonFace="FabricateEqualizer" Requirements="HaveGenetronTier2"/>
             <Unit value="Equalizer"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train3" Time="28">
-            <Button DefaultButtonFace="FabricateBlitzer"/>
+            <Button DefaultButtonFace="FabricateBlitzer" Requirements="HaveGenetronTier2"/>
             <Unit value="Blitzer"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
         <InfoArray index="Train4" Time="28">
-            <Button DefaultButtonFace="Blaze"/>
+            <Button DefaultButtonFace="Blaze" Requirements="HaveGenetronTier2"/>
             <Unit value="Blaze"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
@@ -105,7 +119,7 @@
             <Unit value="Aquila"/>
             <Flags index="AutoCast" value="1"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="28">
+        <InfoArray index="Train6" Time="15">
             <Button DefaultButtonFace="FabricateFixer"/>
             <Unit value="Fixer"/>
             <Flags index="AutoCast" value="1"/>

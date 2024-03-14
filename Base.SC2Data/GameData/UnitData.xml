@@ -267,12 +267,11 @@
         <AbilArray Link="Demolish"/>
         <CardLayouts index="0">
             <LayoutButtons index="3" AbilCmd="GenetronTrainEdit,Train1"/>
-            <LayoutButtons index="4" Face="FabricateBlitzer" AbilCmd="GenetronTrainEdit,Train3" Column="1"/>
-            <LayoutButtons index="5" Face="FabricateEqualizer" AbilCmd="GenetronTrainEdit,Train2" Column="3"/>
-            <LayoutButtons index="6" Face="FabricateAquila" AbilCmd="GenetronTrainEdit,Train5" Column="4"/>
-            <LayoutButtons index="7" Face="Scion_Overclock" AbilCmd="Scion_Overclock,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="8" Face="Blaze" AbilCmd="GenetronTrainEdit,Train4" Row="0" Column="2"/>
-            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="4" Face="FabricateBlitzer" AbilCmd="GenetronTrainEdit,Train3" Row="1" Column="1"/>
+            <LayoutButtons index="5" Face="FabricateEqualizer" AbilCmd="GenetronTrainEdit,Train2" Row="1" Column="2"/>
+            <LayoutButtons index="6" Face="Scion_Overclock" AbilCmd="Scion_Overclock,Execute" Column="4"/>
+            <LayoutButtons index="7" Face="Blaze" AbilCmd="GenetronTrainEdit,Train4" Row="1" Column="0"/>
+            <LayoutButtons index="8" Face="Demolish" AbilCmd="Demolish,Execute" Column="3"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="MechSpawner">
@@ -1055,9 +1054,16 @@
     <CUnit id="Mole">
         <Food value="0"/>
     </CUnit>
+    <CUnit id="MoleBurrowed">
+        <Food value="0"/>
+    </CUnit>
+    <CUnit id="MoleRooted">
+        <Sight value="16"/>
+        <Food value="0"/>
+    </CUnit>
     <CUnit id="Node">
         <Food value="0"/>
-        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Minerals" value="80"/>
     </CUnit>
     <CUnit id="OutfittingStation">
         <AbilArray index="2" Link="GenetronResearchEdit"/>
@@ -1065,6 +1071,8 @@
         <CardLayouts index="0">
             <LayoutButtons index="2" AbilCmd="GenetronResearchEdit,Research4" Column="1"/>
             <LayoutButtons index="3" AbilCmd="GenetronResearchEdit,Research3" Column="0"/>
+            <LayoutButtons Face="BlazeResearchFirewallShield" Type="AbilCmd" AbilCmd="GenetronResearchEdit,Research5" Row="1" Column="3"/>
+            <LayoutButtons Face="ResearchBlazeRefittedNozzles" Type="AbilCmd" AbilCmd="GenetronResearchEdit,Research6" Row="1" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Repulsor">
@@ -1165,7 +1173,7 @@
     </CUnit>
     <CUnit id="TechVault">
         <CostResource index="Minerals" value="0"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Vespene" value="45"/>
         <AbilArray index="1" removed="1"/>
         <AbilArray index="2" removed="1"/>
         <BehaviorArray Link="GenerateMineralsCowFarm"/>
