@@ -30,6 +30,9 @@
     <CRequirement id="NotHaveOutfittingStation">
         <NodeArray index="Use" Link="LT3940970098CountUnitOutfittingStationQueuedOrBetter1"/>
     </CRequirement>
+    <CRequirement id="NotHaveAnalysisTerminal">
+        <NodeArray index="Use" Link="LT3940970098CountUnitAnalysisTerminalQueuedOrBetter1"/>
+    </CRequirement>
     <CRequirement id="PhaseOutWallReq">
         <NodeArray index="Use" Link="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
         <NodeArray index="Show" Link="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>

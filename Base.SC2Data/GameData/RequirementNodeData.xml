@@ -393,6 +393,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="wallphasedout" State="QueuedOrBetterAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountUnit id="CountUnitAnalysisTerminalQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="AnalysisTerminal" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitArmory2CompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Armory2" State="CompleteOnly"/>
@@ -583,7 +588,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeCalibratedEnginesCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="CalibratedEngines" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeCasualTraderImprovementCompleteOnly">
@@ -1172,7 +1176,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSpitfireMadcapRoundsCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="SpitfireMadcapRounds" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSuperEnergyGenerationQueuedOrBetter">
@@ -1630,6 +1633,10 @@
     <CRequirementLT id="LT381415482CountUnitTarRoachQueuedOrBetter100">
         <OperandArray index="0" value="CountUnitTarRoachQueuedOrBetter"/>
         <OperandArray index="1" value="100"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3940970098CountUnitAnalysisTerminalQueuedOrBetter1">
+        <OperandArray index="0" value="CountUnitAnalysisTerminalQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
     </CRequirementLT>
     <CRequirementLT id="LT3940970098CountUnitFabricatorQueuedOrBetter1">
         <OperandArray index="0" value="CountUnitFabricatorQueuedOrBetter"/>

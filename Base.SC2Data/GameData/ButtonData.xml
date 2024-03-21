@@ -87,6 +87,11 @@
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
     </CButton>
+    <CButton id="ResearchBuildingDurability" parent="CButtonGenetron" Icon="Assets\Textures\btn-upgrade-swann-regenerativebiosteel.dds">
+        <Name value="Button/Name/ResearchVirtusSelfFixProtocol2"/>
+        <AlertTooltip value="Button/Tooltip/ResearchVirtusSelfFixProtocol2"/>
+        <Hotkey value="Button/Hotkey/ResearchVirtusSelfFixProtocol2"/>
+    </CButton>
     <CButton id="StopPhaseOut">
         <Icon value="Assets\Textures\btn-command-stop.dds"/>
         <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>

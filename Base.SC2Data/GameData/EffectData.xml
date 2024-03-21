@@ -6,6 +6,15 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectEnumArea id="AnalysisTerminalAuraSA">
+        <EditorCategories value=""/>
+        <SearchFilters value="Structure;Neutral,Enemy"/>
+        <AreaArray Radius="7.3" Effect="AnalysisTerminalAuraAB"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="AnalysisTerminalAuraAB">
+        <EditorCategories value=""/>
+        <Behavior value="AnalysisTerminalAuraBuff"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="OutfittingStationApplyBuff">
         <EditorCategories value=""/>
         <Behavior value="OutfittingStationBuff"/>

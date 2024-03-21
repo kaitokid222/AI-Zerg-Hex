@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorUnit id="AnalysisTerminal">
+        <On Terms="Abil.GenetronResearchEdit.Start" Send="AnimBracketStart StandWork Stand,Work,Start Stand,Work"/>
+        <On Terms="Abil.GenetronResearchEdit.Stop" Send="AnimBracketClear StandWork"/>
+        <PlacementActorModel value="AnalysisTerminalPlacementModel"/>
+    </CActorUnit>
     <CActorModel id="GenetronGeneratorBuild" parent="GenetronBuildingBuild">
         <Model value="GeneratorBuild"/>
     </CActorModel>
@@ -9162,6 +9167,19 @@
         <IconArcLength value="1.400000"/>
         <IconTint value="255,254,249,27"/>
     </CActorRange>
+    <CActorRange id="AnalysisTerminalAuraRange" parent="SiegeTankSiegedRange">
+        <On index="1" Terms="SelectionLocalUpdate.AnalysisTerminal.Start"/>
+        <On index="2" Terms="SelectionLocalUpdate.AnalysisTerminal.StartEditorGround"/>
+        <On index="3" Terms="SelectionLocalUpdate.AnalysisTerminal.Stop" Send="Destroy"/>
+        <On index="4" removed="1"/>
+        <On index="5" removed="1"/>
+        <On index="6" removed="1"/>
+        <Weapon value=""/>
+        <Range value="6.000000"/>
+        <IconScale value="0.008000,0.008000"/>
+        <IconArcLength value="1.400000"/>
+        <IconTint value="255,254,249,27"/>
+    </CActorRange>
     <CActorText id="AutomatedRefineryTextKicker1">
         <On Terms="ActorCreation" Send="TimerSet 0.100000 StartMover"/>
         <On Terms="ActorCreation" Send="TimerSet 2.000000 Die"/>
@@ -9512,6 +9530,10 @@
     </CActorUnit>
     <CActorModel id="ConstructionYardPlacementModel" parent="PlacementModel">
         <On Terms="ActorCreation" Send="Create ConstructionYardRange"/>
+        <On Terms="ActorDestruction" Target="MissileTurretProtectRange" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="AnalysisTerminalPlacementModel" parent="GenetronPlacementModel">
+        <On Terms="ActorCreation" Send="Create AnalysisTerminalAuraRange"/>
         <On Terms="ActorDestruction" Target="MissileTurretProtectRange" Send="Destroy"/>
     </CActorModel>
     <CActorModel id="SentryChronoBeamImpact">

@@ -35,7 +35,7 @@
             <Button Requirements=""/>
         </InfoArray>
         <InfoArray index="Build13">
-            <Button Requirements=""/>
+            <Button Requirements="NotHaveAnalysisTerminal"/>
         </InfoArray>
         <InfoArray index="Build14" Unit="GenetronGenerator">
             <Button Requirements=""/>

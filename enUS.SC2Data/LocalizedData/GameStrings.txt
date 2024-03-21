@@ -401,6 +401,7 @@ Attribute010/Value013/Name=Prebuilt!
 Behavior/Name/AbsorbingCloud=Absorbing Cloud
 Behavior/Name/AdeptWeaponRedirect=Adept Weapon Redirect
 Behavior/Name/Afterburner=Afterburner
+Behavior/Name/AnalysisTerminalAuraBuff=Analysis Terminal Aura Buff
 Behavior/Name/ArmoryBuff=Armory Buff
 Behavior/Name/Automated=Automated
 Behavior/Name/Bankling=Bankling
@@ -563,6 +564,7 @@ Behavior/Name/ZergRallyMinus=Zerg Rally Minus
 Behavior/Name/ZergRallyPlus=Zerg Rally Plus
 Behavior/Tooltip/AbsorbingCloud=This unit is slowed and leaks 3 energy per second.
 Behavior/Tooltip/Afterburner=Movement speed is greatly increased.
+Behavior/Tooltip/AnalysisTerminalAuraBuff=This structure has reduced incoming damage and regenerates.
 Behavior/Tooltip/ArmoryBuff=This unit has increased attack range and damage.
 Behavior/Tooltip/Automated=Gate closes itself when enemies are nearby.
 Behavior/Tooltip/Bankling=Gives zerg 2 minerals upon death
@@ -943,6 +945,7 @@ Button/Name/ResearchAdvancedBuild=Research Advanced Build
 Button/Name/ResearchBankling=Research Bankling
 Button/Name/ResearchBankling3v3=Research Bankling
 Button/Name/ResearchBomberSpawns=Research Bomber Spawns
+Button/Name/ResearchBuildingDurability=Research Building Durability
 Button/Name/ResearchChemicalPlant=Research Chemical Plant
 Button/Name/ResearchCombatShield=Research Combat Shield
 Button/Name/ResearchConservationL1=Research Conservation L1
@@ -987,6 +990,7 @@ Button/Name/ResearchTarSpawn3v3=Research Tar Spawn
 Button/Name/ResearchTier2Equipment=Research Tier 2 Equipment
 Button/Name/ResearchTier3Equipment=Research Tier 3 Equipment
 Button/Name/ResearchUnifiedArmor=Research Unified Armor
+Button/Name/ResearchVirtusSelfFixProtocol2=Research Building Durability
 Button/Name/ResearchWeaponCapacity=Research Weapon Capacity
 Button/Name/ResearchZergArmor1=Research Zerg Armor 1
 Button/Name/ResearchZergArmor13v3=Research Zerg Armor 1
@@ -1546,6 +1550,7 @@ Button/Tooltip/ResearchAdvancedBuild=Eliminates the cost of walls.<n/><n/><c val
 Button/Tooltip/ResearchBankling=Makes all <c val="ffff8a">Tanklings</c> give 2 minerals upon death.
 Button/Tooltip/ResearchBankling3v3=Makes all <c val="ffff8a">Tanklings</c> give 1 minerals upon creation.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchBomberSpawns=Allows to upgrade bunkers to make them spawn bombers.
+Button/Tooltip/ResearchBuildingDurability=<c val="FFFF80">Virtus</c> gain +<d ref="Behavior,SelffixProtocol,Modification.VitalRegenArray[Life]"/> health regeneration while in Lockdown Mode.
 Button/Tooltip/ResearchChemicalPlant=Enables building of the Chemical Plant, a structure producing gas and enabling the Firebat unit at Barracks.
 Button/Tooltip/ResearchCombatShield=<c val="ffff8a">Marines</c> gain +10 life.<n/><n/>Required for <c val="ffff8a">Veteran Marines</c>.
 Button/Tooltip/ResearchConservationL1=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 175% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 125% efficiency.
@@ -1590,6 +1595,7 @@ Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/
 Button/Tooltip/ResearchTier2Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Veteran Marine<n/>- Firebat<n/>- Italis
 Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Elite Marine<n/>- Siege Tank
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
+Button/Tooltip/ResearchVirtusSelfFixProtocol2=<c val="FFFF80">Defensive Buildings</c> gain health and armor.
 Button/Tooltip/ResearchWeaponCapacity=Increases the capacity of energy weapons by 200%.
 Button/Tooltip/ResearchZergArmor1=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchZergArmor13v3=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/><n/>- Increase <c val="ffff8a">Hydralisk Defender</c> attack damage, attack range and health.<n/><n/><c val="E1848D">Research is shared among your team.</c>
@@ -2585,6 +2591,8 @@ Effect/Name/AdvancedGateStartAutomationIssueOpen=Advanced Gate - Start Automatio
 Effect/Name/AdvancedGateStartAutomationSet=Advanced Gate - Start Automation (Set)
 Effect/Name/AdvancedGateToggleAutomationApply=Advanced Gate - Toggle Automation (Apply)
 Effect/Name/AdvancedGateToggleAutomationRemove=Advanced Gate - Toggle Automation (Remove)
+Effect/Name/AnalysisTerminalAuraAB=Analysis Terminal Aura AB
+Effect/Name/AnalysisTerminalAuraSA=Analysis Terminal Aura SA
 Effect/Name/AnimalAssignCallbackIncreaseCounter=Animal - Assign Callback (Increase Counter)
 Effect/Name/AnimalAssignCallbackSlot1Apply=Animal - Assign Callback Slot 1 (Apply)
 Effect/Name/AnimalAssignCallbackSlot1Set=Animal - Assign Callback Slot 1 (Set)
@@ -4039,6 +4047,7 @@ RequirementNode/Tooltip/LT2770029111SumCountUnitInfestedBunkerQueuedOrBetter60=M
 RequirementNode/Tooltip/LT3437118427CountUnitLoveMoralesQueuedOrBetter2=You can only have two Love Morales Healers!
 RequirementNode/Tooltip/LT3699583646CountUnitChaosDefilerQueuedOrBetter5=10 Stacks of Blood
 RequirementNode/Tooltip/LT381415482CountUnitTarRoachQueuedOrBetter100=Have Less Than 100
+RequirementNode/Tooltip/LT3940970098CountUnitAnalysisTerminalQueuedOrBetter1=You can only have 5 manufacturers.
 RequirementNode/Tooltip/LT3940970098CountUnitFabricatorQueuedOrBetter1=You can only have 5 manufacturers.
 RequirementNode/Tooltip/LT3940970098CountUnitManufacturerQueuedOrBetter5=You can only have 5 manufacturers.
 RequirementNode/Tooltip/LT3940970098CountUnitOutfittingStationQueuedOrBetter1=You can only have 5 manufacturers.
@@ -4358,6 +4367,7 @@ Upgrade/Name/Base3Dead=Base 3 Dead
 Upgrade/Name/Base4Dead=Base 4 Dead
 Upgrade/Name/Base5Dead=Base 5 Dead
 Upgrade/Name/Base6Dead=Base 6 Dead
+Upgrade/Name/BuildingDefenseUpgrade=Building Defense Upgrade
 Upgrade/Name/CasualNoCollide=Casual No Collide
 Upgrade/Name/CasualTraderImprovement=Casual Trader Improvement
 Upgrade/Name/ChemicalPlant=Chemical Plant

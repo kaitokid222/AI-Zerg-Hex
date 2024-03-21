@@ -29162,8 +29162,8 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     gv_tbp_button_terran_raynor = DialogControlLastCreated();
     libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 255, StringToText(""), StringExternal("Param/Value/795B13EC"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_button_terran_marauder = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 255, StringToText(""), StringExternal("Param/Value/1041A1C4"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_artanis = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 255, StringToText(""), StringExternal("Param/Value/BAA1AD4D"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_genetron = DialogControlLastCreated();
     libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 255, StringToText(""), StringExternal("Param/Value/6ADFE20E"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_button_terran_tank = DialogControlLastCreated();
     lv_i = 1;
@@ -29212,7 +29212,7 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((EventDialogControl() == gv_tbp_button_terran_random) || (EventDialogControl() == gv_tbp_button_terran_chaos) || (EventDialogControl() == gv_tbp_button_terran_ht) || (EventDialogControl() == gv_tbp_button_terran_v3x) || (EventDialogControl() == gv_tbp_button_terran_cash) || (EventDialogControl() == gv_tbp_button_terran_infested) || (EventDialogControl() == gv_tbp_button_terran_raynor) || (EventDialogControl() == gv_tbp_button_terran_marauder) || (EventDialogControl() == gv_tbp_button_terran_artanis) || (EventDialogControl() == gv_tbp_button_terran_tank) || (EventDialogControl() == gv_tbp_button_terran_probius) || (EventDialogControl() == gv_tbp_button_terran_karax)))) {
+        if (!(((EventDialogControl() == gv_tbp_button_terran_random) || (EventDialogControl() == gv_tbp_button_terran_chaos) || (EventDialogControl() == gv_tbp_button_terran_ht) || (EventDialogControl() == gv_tbp_button_terran_v3x) || (EventDialogControl() == gv_tbp_button_terran_cash) || (EventDialogControl() == gv_tbp_button_terran_infested) || (EventDialogControl() == gv_tbp_button_terran_raynor) || (EventDialogControl() == gv_tbp_button_terran_marauder) || (EventDialogControl() == gv_tbp_button_terran_tank) || (EventDialogControl() == gv_tbp_button_terran_probius) || (EventDialogControl() == gv_tbp_button_terran_karax) || (EventDialogControl() == gv_tbp_button_terran_genetron)))) {
             return false;
         }
     }
@@ -29230,10 +29230,10 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
     DialogControlSetEnabled(gv_tbp_button_terran_infested, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_raynor, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), true);
-    DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_probius, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_genetron, PlayerGroupSingle(EventPlayer()), true);
     autoA0AD69A2_val = EventDialogControl();
     if (autoA0AD69A2_val == gv_tbp_button_terran_random) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 1;
@@ -29267,10 +29267,6 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 8;
         DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), false);
     }
-    else if (autoA0AD69A2_val == gv_tbp_button_terran_artanis) {
-        gv_tbp_player_bonus_picks[EventPlayer()] = 9;
-        DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), false);
-    }
     else if (autoA0AD69A2_val == gv_tbp_button_terran_tank) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 10;
         DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), false);
@@ -29282,6 +29278,10 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
     else if (autoA0AD69A2_val == gv_tbp_button_terran_karax) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 12;
         DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_genetron) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 14;
+        DialogControlSetEnabled(gv_tbp_button_terran_genetron, PlayerGroupSingle(EventPlayer()), false);
     }
     else {
     }

@@ -89,6 +89,14 @@
         <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
         <EffectArray Reference="Unit,EliteMarine,Sight" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="BuildingDefenseUpgrade">
+        <Icon value="Assets\Textures\btn-ability-stetmann-garyselfhealing.dds"/>
+        <EffectArray Reference="Unit,Uploader,LifeMax" Value="50.0"/>
+        <EffectArray Reference="Unit,Uploader,LifeStart" Value="50.0"/>
+        <EffectArray Reference="Unit,Uploader,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,Uploader,LifeArmorLevel" Value="1"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
     <CUpgrade id="GenetronTier3">
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
     </CUpgrade>
