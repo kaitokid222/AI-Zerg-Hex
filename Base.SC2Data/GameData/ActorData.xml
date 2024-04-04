@@ -5,6 +5,35 @@
         <On Terms="Abil.GenetronResearchEdit.Stop" Send="AnimBracketClear StandWork"/>
         <PlacementActorModel value="AnalysisTerminalPlacementModel"/>
     </CActorUnit>
+    <CActorUnit id="Tombstone" parent="TerranBuilding" unitName="Tombstone">
+        <Aliases value="_UnitHuge"/>
+        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>
+        <On Terms="Abil.que5.Start" Send="AnimSetTimeScale ::Baseline 5.000000"/>
+        <On Terms="Abil.que5.Stop" Send="AnimSetTimeScale ::Baseline 1.000000"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="Create InfestationArmory"/>
+        <On Terms="Behavior.InfestedVisual.On" Send="StatusSet Infested 1"/>
+        <CreepHeightClass value="Small"/>
+        <DeathArray index="Normal" ModelLink="ArmoryDeath" SoundLink=""/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="Armory_Explode"/>
+        <PlacementSound value="Terran_BuildingPlacement"/>
+        <PlacementActorModel value="ArmoryPlacementModel"/>
+        <PortraitModel value="Tombstone"/>
+        <BarOffset value="115"/>
+        <BarWidth value="135"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Armory.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <NameOffset value="100"/>
+        <SoundArray index="Ready" value="Armory_Ready"/>
+        <SoundArray index="What" value="Armory_What"/>
+        <SoundArray index="Construction" value="Terran_ConstructionWhat"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Armory.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorModel id="GenetronGeneratorBuild" parent="GenetronBuildingBuild">
         <Model value="GeneratorBuild"/>
     </CActorModel>

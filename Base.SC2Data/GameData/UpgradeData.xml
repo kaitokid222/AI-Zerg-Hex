@@ -534,6 +534,7 @@
         <EffectArray Operation="Set" Reference="Weapon,SentryGun2,DisplayEffect" Value="SentryGunDamageUpgraded"/>
         <EffectArray Operation="Set" Reference="Weapon,SentryGun2,Effect" Value="SentryGunDamageUpgraded"/>
         <EffectArray Reference="Effect,SentryGunDamageUpgraded,Amount" Value="9"/>
+        <EffectArray Reference="Weapon,SentryGun2,Range" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ShockOverload">
         <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>

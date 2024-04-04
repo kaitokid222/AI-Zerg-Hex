@@ -130,6 +130,7 @@
 <Behavior id="ZergRallyPlus"/>
 <Behavior id="ZergRallyMinus"/>
 <Behavior id="ZergRallyEqual"/>
+<Behavior id="UnlimitedEnergy"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
@@ -155,7 +156,9 @@
 <Unit id="Viper"/>
 <Unit id="ShieldBattery"/>
 <Unit id="VespeneGeyser"/>
+<Unit id="BraxisAlphaDestructible2x2"/>
 <Unit id="ShapeHeart"/>
+<Unit id="Ice2x2NonConjoined"/>
 <Unit id="PickupPalletGas"/>
 <Unit id="PickupPalletMinerals"/>
 <Unit id="PickupScrapSalvage1x1"/>
@@ -177,6 +180,7 @@
 <Unit id="CharEggSackOneEgg"/>
 <Unit id="CharEggSackTwoEgg"/>
 <Unit id="CharEggSackThreeEgg"/>
+<Unit id="InfestedDominionHousing2"/>
 <Unit id="KaraxChampion"/>
 <Unit id="ZerglingCarbot"/>
 <Unit id="KerriganVoid"/>
@@ -248,6 +252,7 @@
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
 <Unit id="Barracks2"/>
+<Unit id="Tombstone"/>
 <Unit id="MechaDrone"/>
 <Unit id="SpaceTurkey"/>
 <Unit id="UglyTurkey"/>

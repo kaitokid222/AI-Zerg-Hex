@@ -361,6 +361,7 @@ Button/Hotkey/TechVault=S
 Button/Hotkey/TerrazineIncomex2=G
 Button/Hotkey/TerrazineIncomex3=G
 Button/Hotkey/TerrazineIncomex4=G
+Button/Hotkey/TombstoneInfo=Q
 Button/Hotkey/TrainBuilder=Q
 Button/Hotkey/TrainEliteMarine=Z
 Button/Hotkey/TrainFirebat=S

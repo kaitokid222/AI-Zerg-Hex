@@ -92,6 +92,9 @@
         <AlertTooltip value="Button/Tooltip/ResearchVirtusSelfFixProtocol2"/>
         <Hotkey value="Button/Hotkey/ResearchVirtusSelfFixProtocol2"/>
     </CButton>
+    <CButton id="TombstoneInfo">
+        <Icon value="Assets\Textures\btn-tips-fallenheroes.dds"/>
+    </CButton>
     <CButton id="StopPhaseOut">
         <Icon value="Assets\Textures\btn-command-stop.dds"/>
         <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
