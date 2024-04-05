@@ -35,6 +35,7 @@
 <Behavior id="TrackAndMirrorGenetronPowerSupply"/>
 <Behavior id="GenetronPowerSupplyTracker"/>
 <Behavior id="GenetronEnergyStateNotFull"/>
+<Behavior id="GenerateMineralsTombstone"/>
 <Behavior id="HUGSAlgorythm"/>
 <Behavior id="SiegeTankExpertise"/>
 <Behavior id="HiveKilled"/>

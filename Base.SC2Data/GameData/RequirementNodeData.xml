@@ -395,7 +395,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitAnalysisTerminalQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="AnalysisTerminal" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitArmory2CompleteOnly">
@@ -657,6 +656,14 @@
     <CRequirementCountUpgrade id="CountUpgradeEliteScopeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="EliteScope" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeEnableMineralProductionCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="EnableMineralProduction" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeEnableMineralProductionQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="EnableMineralProduction" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeEnergyCapacityQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1178,6 +1185,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SpitfireMadcapRounds" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStoptherainQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="Stoptherain" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeSuperEnergyGenerationQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SuperEnergyGeneration" State="QueuedOrBetter"/>
@@ -1258,6 +1270,22 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Tier3Equipment" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTombstoneLevel2CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="TombstoneLevel2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTombstoneLevel2QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="TombstoneLevel2" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTombstoneLevel3CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="TombstoneLevel3" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeTombstoneLevel3QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="TombstoneLevel3" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeUnifiedArmorCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="UnifiedArmor" State="CompleteOnly"/>
@@ -1265,6 +1293,30 @@
     <CRequirementCountUpgrade id="CountUpgradeUnifiedArmorQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="UnifiedArmor" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockInducerCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockInducer" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockInducerQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockInducer" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockPariahCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockPariah" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockPariahQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockPariah" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockUmbraCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockUmbra" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUnlockUmbraQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UnlockUmbra" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeUnstableCoreCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -1877,6 +1929,9 @@
     <CRequirementNot id="NotCountUpgradeEliteScopeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeEliteScopeQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeEnableMineralProductionQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeEnableMineralProductionQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeEnergyGenerationInProgressOnly">
         <OperandArray index="0" value="CountUpgradeEnergyGenerationInProgressOnly"/>
     </CRequirementNot>
@@ -2093,6 +2148,10 @@
     <CRequirementNot id="NotCountUpgradeSpawnBombersQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeSpawnBombersQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeStoptherainQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeStoptherainQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeSynteticAdrenalPumpsQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeSynteticAdrenalPumpsQueuedOrBetter"/>
     </CRequirementNot>
@@ -2117,8 +2176,23 @@
     <CRequirementNot id="NotCountUpgradeTier3EquipmentQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeTier3EquipmentQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeTombstoneLevel2QueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeTombstoneLevel2QueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeTombstoneLevel3QueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeTombstoneLevel3QueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeUnifiedArmorQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUnifiedArmorQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeUnlockInducerQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeUnlockInducerQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeUnlockPariahQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeUnlockPariahQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeUnlockUmbraQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeUnlockUmbraQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeUnstableCoreQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUnstableCoreQueuedOrBetter"/>

@@ -21,6 +21,13 @@
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="GenerateMineralsTombstone">
+        <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="3"/>
+        <PeriodicEffect value="GainMineral5Caster"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="OutfittingStationBuff">
         <InfoIcon value="Assets\Textures\btn-upgrade-genetron-enhancedtargeting.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="AutomatedAssimilator"/>
     <CButton id="BuildMechaExtractor">
         <Icon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
@@ -18,6 +19,11 @@
     </CButton>
     <CButton id="ConvertTerrazine">
         <Icon value="Assets\Textures\icon-mineral-terran.dds"/>
+    </CButton>
+    <CButton id="UnlockPariah">
+        <Icon value="Assets\Textures\btn-unit-keiron-pariah.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-keiron-pariah.dds"/>
+        <HotkeyAlias value=""/>
     </CButton>
     <CButton id="ExtractTerrazinex5">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
@@ -106,6 +112,20 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="TechVault"/>
+    <CButton id="UnlockUmbra">
+        <Icon value="Assets\Textures\btn-unit-keiron-umbra.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-keiron-umbra.dds"/>
+        <HotkeyAlias value=""/>
+    </CButton>
+    <CButton id="UnlockInducer">
+        <Icon value="Assets\Textures\btn-unit-keiron-inducer.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-keiron-inducer.dds"/>
+        <HotkeyAlias value=""/>
+    </CButton>
+    <CButton id="UpgradeTombstoneLevel">
+        <Icon value="Assets\Textures\btn-upgrade-karax-anionpulsecrystals.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-karax-anionpulsecrystals.dds"/>
+    </CButton>
     <CButton id="UnlockUpgradedGasVents">
         <Icon value="Assets\Textures\btn-ability-kerrigan-vespeneefficiency.dds"/>
         <EditorCategories value="Race:Zerg"/>
@@ -205,6 +225,10 @@
         <AlertIcon value="Assets\Textures\btn-research-terran-automatedrefinery.dds"/>
     </CButton>
     <CButton id="ResearchGenetronTier2" parent="CButtonGenetron" Icon="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level1.dds"/>
+    <CButton id="EnableMineralProduction">
+        <Icon value="Assets\Textures\btn-doodad-minerals.dds"/>
+        <AlertIcon value="Assets\Textures\btn-doodad-minerals.dds"/>
+    </CButton>
     <CButton id="Uploader"/>
     <CButton id="UseJUICEtoheal">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadhealth.dds"/>

@@ -15,6 +15,19 @@
         <EditorCategories value=""/>
         <Behavior value="AnalysisTerminalAuraBuff"/>
     </CEffectApplyBehavior>
+    <CEffectModifyPlayer id="GainMineral5Caster">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Resources index="Minerals" value="5"/>
+        <ResourcesCollected index="Minerals" value="5"/>
+    </CEffectModifyPlayer>
+    <CEffectDamage id="GamutOrbLMImpact">
+        <AttributeBonus index="Massive" value="120"/>
+        <ArmorReduction value="4"/>
+    </CEffectDamage>
+    <CEffectDamage id="MassiveSporeAGImpact">
+        <Amount value="20"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="OutfittingStationApplyBuff">
         <EditorCategories value=""/>
         <Behavior value="OutfittingStationBuff"/>
@@ -5453,6 +5466,7 @@
         <Cost Abil="TrainZMarauder,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainZFirebat,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainZMechs,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainMassalisk,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

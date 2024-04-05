@@ -5,6 +5,36 @@
         <On Terms="Abil.GenetronResearchEdit.Stop" Send="AnimBracketClear StandWork"/>
         <PlacementActorModel value="AnalysisTerminalPlacementModel"/>
     </CActorUnit>
+    <CActorUnit id="Citadel">
+        <Scale value="0.300000"/>
+    </CActorUnit>
+    <CActorUnit id="FeedingPool2" parent="ZergBuilding" unitName="SpecialZergSpawner">
+        <Model value="FeedingPool"/>
+        <BuildModel value="FeedingPool"/>
+        <DeathArray index="Normal" ModelLink="SpawningPoolDeath" SoundLink="Zerg_ExplosionMedium"/>
+        <DeathArray index="UnderConstruction" ModelLink="ZergBuildingDeath" SoundLink="SpineCrawler_Explode"/>
+        <PlacementModel value="FeedingPool"/>
+        <PlacementActorModel value="FeedingPoolPlacement"/>
+        <PortraitModel value="ZergBuildingEx2_Portrait"/>
+        <BarOffset value="60"/>
+        <BarWidth value="110"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-Xayid-feedingpool.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/FeedingPool2"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-buildingarmor.dds"/>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="SpawningPool_Ready"/>
+        <SoundArray index="What" value="SpawningPool_What"/>
+        <UnitIcon value="Assets\Textures\btn-building-Xayid-feedingpool.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-Xayid-feedingpool.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="FloatingTextMinerals5Caster" parent="FloatingTextActorDefault" effectPickup="GainMineral5Caster" actorCreate="GainMinerals5Text"/>
+    <CActorUnit id="Pariah">
+        <Scale value="1.200000"/>
+    </CActorUnit>
     <CActorUnit id="Tombstone" parent="TerranBuilding" unitName="Tombstone">
         <Aliases value="_UnitHuge"/>
         <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>

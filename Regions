@@ -626,4 +626,40 @@
             <quad value="15.075,128.4797,225.075,130.4797"/>
         </shape>
     </region>
+    <region id="105">
+        <name value="pocketbase 1"/>
+        <shape type="rect">
+            <quad value="20.5212,185.8312,36.7658,197.823"/>
+        </shape>
+    </region>
+    <region id="106">
+        <name value="pocketbase 3"/>
+        <shape type="rect">
+            <quad value="202.696,185.2797,218.9406,197.2714"/>
+        </shape>
+    </region>
+    <region id="107">
+        <name value="pocketbase 6"/>
+        <shape type="rect">
+            <quad value="202.2873,58.4426,218.532,70.4343"/>
+        </shape>
+    </region>
+    <region id="108">
+        <name value="pocketbase 4"/>
+        <shape type="rect">
+            <quad value="20.1267,58.4455,36.3713,70.4372"/>
+        </shape>
+    </region>
+    <region id="109">
+        <name value="pocketbase 5"/>
+        <shape type="rect">
+            <quad value="99.5373,13.5263,110.794,27.303"/>
+        </shape>
+    </region>
+    <region id="110">
+        <name value="pocketbase 2"/>
+        <shape type="rect">
+            <quad value="129.5305,227.2856,140.787,241.0622"/>
+        </shape>
+    </region>
 </Regions>

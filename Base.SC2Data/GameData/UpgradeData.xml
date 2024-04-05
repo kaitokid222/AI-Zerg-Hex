@@ -97,6 +97,7 @@
         <EffectArray Reference="Unit,Uploader,LifeArmorLevel" Value="1"/>
         <MaxLevel value="100"/>
     </CUpgrade>
+    <CUpgrade id="Stoptherain"/>
     <CUpgrade id="GenetronTier3">
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
     </CUpgrade>
@@ -168,6 +169,7 @@
         <EffectArray Operation="Multiply" Reference="Weapon,InfestedTerranCampaign,Period" Value="0.900000"/>
         <EffectArray Reference="Effect,HotSBanelingExplodeLargeSearch,AreaArray[0].Radius" Value="2"/>
     </CUpgrade>
+    <CUpgrade id="TombstoneLevel2"/>
     <CUpgrade id="OtherTeamDead"/>
     <CUpgrade id="SelfRecharchingBatteries">
         <EffectArray Reference="Unit,Mechaling,EnergyRegenRate" Value="1.000000"/>
@@ -389,6 +391,11 @@
     <CUpgrade id="GenetronTier2">
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level1.dds"/>
     </CUpgrade>
+    <CUpgrade id="TombstoneLevel3"/>
+    <CUpgrade id="UnlockPariah"/>
+    <CUpgrade id="UnlockInducer"/>
+    <CUpgrade id="UnlockUmbra"/>
+    <CUpgrade id="EnableMineralProduction"/>
     <CUpgrade id="UnstableCore">
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Death]" Value="MechalingUnstableCoreExplode"/>
     </CUpgrade>
@@ -708,6 +715,8 @@
         <EffectArray Reference="Effect,InfernalFlameThrower,Amount" Value="2"/>
         <EffectArray Reference="Weapon,TyphoonMissilePod,Level" Value="1"/>
         <EffectArray Reference="Effect,CycloneAttackWeaponDamage,Amount" Value="2"/>
+        <EffectArray Reference="Weapon,MassiveSporeAG,Level" Value="1"/>
+        <EffectArray Reference="Effect,MassiveSporeAGImpact,Amount" Value="6.25"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="100"/>
     </CUpgrade>
@@ -929,6 +938,7 @@
         <EffectArray Reference="Unit,Hellion2,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Marine3,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Marauder2,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Massalisk,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

@@ -4,9 +4,15 @@
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="stoptherain">
+        <NodeArray index="Show" Link="NotCountUpgradeStoptherainQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="GasVentUpgradeRequirement">
         <NodeArray index="Use" Link="AndCountUpgradeGasExtraction3CompleteOnly1267463215"/>
         <NodeArray index="Show" Link="NotCountUpgradeGasVentUpgradeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="HaveUnlockedPariah">
+        <NodeArray index="Use" Link="CountUpgradeUnlockPariahCompleteOnly"/>
     </CRequirement>
     <CRequirement id="HaveGasVentUpgrade">
         <NodeArray index="Use" Link="CountUpgradeGasVentUpgradeCompleteOnly"/>
@@ -24,6 +30,18 @@
     <CRequirement id="HaveCalibratedEngines">
         <NodeArray index="Show" Link="CountUpgradeCalibratedEnginesCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="HaveTombstoneLevel3">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel3CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveEnabledMineralProduction">
+        <NodeArray index="Use" Link="CountUpgradeEnableMineralProductionCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveUnlockedUmbra">
+        <NodeArray index="Use" Link="CountUpgradeUnlockUmbraCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveUnlockedInducer">
+        <NodeArray index="Use" Link="CountUpgradeUnlockInducerCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="NotHaveFabricator">
         <NodeArray index="Use" Link="LT3940970098CountUnitFabricatorQueuedOrBetter1"/>
     </CRequirement>
@@ -32,6 +50,9 @@
     </CRequirement>
     <CRequirement id="NotHaveAnalysisTerminal">
         <NodeArray index="Use" Link="LT3940970098CountUnitAnalysisTerminalQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="TombstoneLevel2Requirement">
+        <NodeArray index="Show" Link="NotCountUpgradeTombstoneLevel2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="PhaseOutWallReq">
         <NodeArray index="Use" Link="NotGTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
@@ -87,6 +108,27 @@
     <CRequirement id="ResearchZergSpecialtySlowlingPackedMass3v3">
         <NodeArray index="Use" Link="Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly"/>
         <NodeArray index="Show" Link="NotOrCountUpgradeZergSpecializationSlowlingPackedMass3v3QueuedOnlyCountUpgradeZergSpecializationSlowlingPackedMass3v3InProgressOnly"/>
+    </CRequirement>
+    <CRequirement id="TombstoneLevel3Requirement">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeTombstoneLevel3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="EnableMineralProductionRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeEnableMineralProductionQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="HaveTombstoneLevel2">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UnlockUmbraRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeUnlockUmbraQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UnlockPariahRequirement">
+        <NodeArray index="Show" Link="NotCountUpgradeUnlockPariahQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UnlockInducerRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel3CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeUnlockInducerQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="UpgradeCashPickups">
         <NodeArray index="Use" Link="And4188474517NotCountUpgradeIncreaseCashPickupsQueuedOnlyNotCountUpgradeIncreaseCashPickupsInProgressOnlyCountUpgradeMoreCashDrops2CompleteOnly"/>
