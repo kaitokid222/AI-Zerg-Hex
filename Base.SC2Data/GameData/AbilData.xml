@@ -52,32 +52,32 @@
     </CAbilBuild>
     <CAbilResearch id="TombstoneResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <InfoArray index="Research1" Time="30" Upgrade="TombstoneLevel2">
-            <Resource index="Vespene" value="500"/>
+        <InfoArray index="Research1" Time="20" Upgrade="TombstoneLevel2">
+            <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="UpgradeTombstoneLevel" Requirements="TombstoneLevel2Requirement"/>
         </InfoArray>
-        <InfoArray index="Research2" Time="45" Upgrade="TombstoneLevel3">
-            <Resource index="Vespene" value="1000"/>
+        <InfoArray index="Research2" Time="25" Upgrade="TombstoneLevel3">
+            <Resource index="Vespene" value="500"/>
             <Button DefaultButtonFace="UpgradeTombstoneLevel" Requirements="TombstoneLevel3Requirement"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="60" Upgrade="EnableMineralProduction">
-            <Resource index="Vespene" value="200"/>
+        <InfoArray index="Research3" Time="30" Upgrade="EnableMineralProduction">
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="EnableMineralProduction" Requirements="EnableMineralProductionRequirement"/>
         </InfoArray>
-        <InfoArray index="Research4" Time="15" Upgrade="UnlockPariah">
-            <Resource index="Vespene" value="200"/>
+        <InfoArray index="Research4" Time="10" Upgrade="UnlockPariah">
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="UnlockPariah" Requirements="UnlockPariahRequirement"/>
         </InfoArray>
-        <InfoArray index="Research5" Time="20" Upgrade="UnlockUmbra">
-            <Resource index="Vespene" value="400"/>
+        <InfoArray index="Research5" Time="10" Upgrade="UnlockUmbra">
+            <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="UnlockUmbra" Requirements="UnlockUmbraRequirement"/>
         </InfoArray>
-        <InfoArray index="Research6" Time="45" Upgrade="UnlockInducer">
-            <Resource index="Vespene" value="800"/>
+        <InfoArray index="Research6" Time="25" Upgrade="UnlockInducer">
+            <Resource index="Vespene" value="400"/>
             <Button DefaultButtonFace="UnlockInducer" Requirements="UnlockInducerRequirement"/>
         </InfoArray>
         <InfoArray index="Research7" Time="5" Upgrade="Stoptherain">
-            <Resource index="Vespene" value="1500"/>
+            <Resource index="Vespene" value="750"/>
             <Button DefaultButtonFace="ChooseRain" Requirements="stoptherain"/>
         </InfoArray>
     </CAbilResearch>

@@ -10289,7 +10289,6 @@ void gf_end_game (int lp_winner) {
             gf_shot_fireworks(20);
         }
 
-        Wait(8.0, c_timeGame);
         auto796E7148_g = gv_terrans;
         auto796E7148_var = -1;
         while (true) {
@@ -30242,7 +30241,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         if (autoAE518202_var < 0) { break; }
         gf_Game_Banks_handler("addgame", autoAE518202_var, (gv_players[autoAE518202_var].lv_elo - 0), 0, 0);
     }
-    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     UISetFrameVisible(gv_terrans, c_syncFrameTypeSupply, false);
     GameSetPauseable(false);
     gv_game_timer_setting = gf_get_timer_setting();
@@ -30272,6 +30270,8 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_create_income_dialog();
     gf_spawn_spaceballs();
     gf_fill_fw_grid();
+    libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
+    libNtve_gf_SetAllianceAspectForPlayerGroup(gv_terrans, c_allianceIdTrade, false);
     return true;
 }
 

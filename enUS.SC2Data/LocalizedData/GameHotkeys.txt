@@ -355,6 +355,7 @@ Button/Hotkey/StartArtillery=C
 Button/Hotkey/StimMarauder=F
 Button/Hotkey/StopArtillery=S
 Button/Hotkey/StopPhaseOut=D
+Button/Hotkey/StoptheRain=
 Button/Hotkey/Suicide=Z
 Button/Hotkey/SummonNydusCanalCreeper=W
 Button/Hotkey/SynteticAdrenalPumps=S

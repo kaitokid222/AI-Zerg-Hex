@@ -1091,6 +1091,7 @@ Button/Name/StartArtillery=Start Artillery
 Button/Name/StaticDischarge2=Static Discharge
 Button/Name/StopArtillery=Stop Artillery
 Button/Name/StopPhaseOut=Stop Phase Out
+Button/Name/StoptheRain=Stop the Rain
 Button/Name/StructureBurn=Structure Burn
 Button/Name/Suicide=Suicide
 Button/Name/SummonNydusCanalCreeper=Mutate into Creep Tower
@@ -1728,6 +1729,7 @@ Button/Tooltip/Stim=Injects the unit with powerful stimulants that greatly incre
 Button/Tooltip/StimMarauder=Injects the unit with powerful stimulants that greatly increase attack and movement speeds for a few seconds.
 Button/Tooltip/StopArtillery=Stop firing and enable movement.
 Button/Tooltip/StopPhaseOut=Stop phasing out the structure, preventing ground units from moving through it.
+Button/Tooltip/StoptheRain=Stops the rain in your sector of the map.
 Button/Tooltip/Strikeling=
 Button/Tooltip/StrikelingSpawner=Spawns fast moving suicide strikelings.
 Button/Tooltip/StructureBurn=Attacks set structures ablaze, dealing <d ref="Effect,RavatorBurnDamage,Amount/Behavior,RavatorStructureBurning,Period"/> damage per second and reducing armor by 5.<n/><n/>Burning damage is increased with attack upgrades.
@@ -2605,6 +2607,8 @@ DocInfo/PatchNote765=Big Spines have detection in a range of 14 now.
 DocInfo/PatchNote766=When terrans win a set of fireworks get shot.
 DocInfo/PatchNote767=Changed XP Reward from 50%-100% (<=d4/>=d5) %$ value to xp=(%$/5)*d(*2 if alive)
 DocInfo/PatchNote768=
+DocInfo/PatchNote769=Fixed Issues.
+DocInfo/PatchNote770=Halved all tombstone costs.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud

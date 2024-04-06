@@ -46,6 +46,14 @@
         <Period value="0.25"/>
         <PeriodicEffect value="OutfittingStationAuraSearchArea"/>
     </CBehaviorBuff>
+    <CBehaviorCreepSource id="makeCreep3x3Tombstone">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <Period value="0.5"/>
+        <Start value="Footprint3x3TombstoneCreepSStart"/>
+        <Birth value="Footprint2x2OverlordCreepSourceStart"/>
+        <Grown value="Footprint3x3TombstoneCreepSourceGrown"/>
+    </CBehaviorCreepSource>
     <CBehaviorBuff id="wallphasedout">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
