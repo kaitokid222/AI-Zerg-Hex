@@ -2609,6 +2609,7 @@ DocInfo/PatchNote767=Changed XP Reward from 50%-100% (<=d4/>=d5) %$ value to xp=
 DocInfo/PatchNote768=
 DocInfo/PatchNote769=Fixed Issues.
 DocInfo/PatchNote770=Halved all tombstone costs.
+DocInfo/PatchNote771=Fixed issues.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud

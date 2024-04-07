@@ -25,7 +25,6 @@
         <FlagArray index="AcquireRally" value="1"/>
         <LifeStart value="550"/>
         <LifeMax value="550"/>
-        <LifeArmor value="5"/>
         <Speed value="2.3984"/>
         <SpeedMultiplierCreep value="1.3"/>
         <Food value="0"/>
