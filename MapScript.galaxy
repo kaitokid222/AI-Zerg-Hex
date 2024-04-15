@@ -1176,8 +1176,10 @@ bool gv_mutator_mega_mecha_hydras;
 bool gv_mutator_mecha_buildings;
 bool gv_mutator_overlords;
 bool gv_mutator_massalisks;
+bool gv_mutator_active;
 int gv_tbp_dialog;
 int gv_tbp_dialog_info;
+int gv_tbp_zerg_flags;
 int[14] gv_tbp_dialog_info_rows;
 int gv_tbp_button_terran_random;
 int gv_tbp_button_terran_infested;
@@ -1198,6 +1200,16 @@ int[13] gv_tbp_labels_terran;
 int gv_tbp_progress_bar;
 int[9] gv_tbp_player_picked_terran;
 int gv_tbp_player_picked_terran_count;
+int gv_tbp_extra_vote_dialog;
+int[7] gv_difficulty_offset_votes;
+int gv_difficulty_offset_votes_result;
+int gv_tbp_extra_vote_dialog_difficulty_offset_plus;
+int gv_tbp_extra_vote_dialog_difficulty_offset_minus;
+int gv_tbp_extra_vote_dialog_difficulty_offset_neutral;
+int[7] gv_tbp_mutator_votes;
+int gv_tbp_mutator_vote_result;
+int gv_tbp_extra_vote_dialog_mutator_vote_yes;
+int gv_tbp_extra_vote_dialog_mutator_vote_no;
 int gv_ic_unit_count;
 
 void InitGlobals () {
@@ -1335,6 +1347,7 @@ void InitGlobals () {
     gv_prefuse_infestors_nests = UnitGroupEmpty();
     gv_tbp_dialog = c_invalidDialogId;
     gv_tbp_dialog_info = c_invalidDialogId;
+    gv_tbp_zerg_flags = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 13; init_i += 1) {
         gv_tbp_dialog_info_rows[init_i] = c_invalidDialogControlId;
     }
@@ -1356,6 +1369,12 @@ void InitGlobals () {
         gv_tbp_labels_terran[init_i] = c_invalidDialogControlId;
     }
     gv_tbp_progress_bar = c_invalidDialogControlId;
+    gv_tbp_extra_vote_dialog = c_invalidDialogId;
+    gv_tbp_extra_vote_dialog_difficulty_offset_plus = c_invalidDialogControlId;
+    gv_tbp_extra_vote_dialog_difficulty_offset_minus = c_invalidDialogControlId;
+    gv_tbp_extra_vote_dialog_difficulty_offset_neutral = c_invalidDialogControlId;
+    gv_tbp_extra_vote_dialog_mutator_vote_yes = c_invalidDialogControlId;
+    gv_tbp_extra_vote_dialog_mutator_vote_no = c_invalidDialogControlId;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1774,8 +1793,13 @@ int gf_get_level_from_xp (int lp_xp);
 int gf_get_needed_xp (int lp_level);
 void gf_Disable_timed_triggers ();
 void gf_Enable_timed_triggers ();
+int gf_tbp_get_difficulty_offset_vote_result ();
+int gf_tbp_get_mutator_vote_result ();
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int);
 void gf_tbp_refresh_dialog_labels ();
+string gf_tbp_transform_xp_string (int lp_pxp, int lp_nxp);
+string gf_tbp_transform_flags (int lp_player);
+string gf_tbp_get_zerg_flag_string ();
 void gf_ic_check_zerg_units ();
 bool gf_is_unit_broken (unit lp_u);
 int gf_ic_all_Zerg_unit_count ();
@@ -1969,6 +1993,8 @@ trigger gt_entrypoint;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_tbp_create;
 trigger gt_tbp_dialog_interaction;
+trigger gt_tbp_dialog_extra_vote_difficulty_offset_interaction;
+trigger gt_tbp_dialog_extra_vote_mutator_vote;
 trigger gt_everysecond;
 trigger gt_everytwoseconds;
 trigger gt_everythreeseconds;
@@ -3725,7 +3751,7 @@ void gf_run_cash_bonus_check () {
     // Implementation
     while ((lv_i <= 6)) {
         if ((gv_players[lv_i].lv_support_type == "Cash") && (gv_players[lv_i].lv_alive == true)) {
-            if ((gv_cash_drops[lv_i][3] == 0)) {
+            if ((gv_cash_drops[lv_i][3] <= 0)) {
                 gf_create_cash_transporter(lv_i);
                 if ((gv_players[lv_i].lv_more_cash_drop_level >= 3)) {
                     gv_cash_drops[lv_i][3] += 2;
@@ -10292,6 +10318,10 @@ void gf_end_game (int lp_winner) {
                     gf_Game_Banks_handler("save", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0, 0);
                     lv_score = gv_terrandata[autoC5308BE9_var].lv_strength;
                     lv_score = ((lv_score / 5) * gv_difficulty);
+                    if ((gv_mutator_active == true)) {
+                        lv_score = (lv_score + (lv_score / 5));
+                    }
+
                     if ((gv_players[autoC5308BE9_var].lv_alive == true)) {
                         gf_Game_Banks_handler("addxp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0, (lv_score * 2));
                     }
@@ -19786,7 +19816,7 @@ void gf_apply_mutator (int lp_mutator_id) {
     else {
         lv_rmid = lp_mutator_id;
     }
-    auto58E006D9_val = lp_mutator_id;
+    auto58E006D9_val = lv_rmid;
     if (auto58E006D9_val == 1) {
         autoFD72D12A_g = PlayerGroupAll();
         autoFD72D12A_var = -1;
@@ -19886,6 +19916,7 @@ void gf_apply_mutator (int lp_mutator_id) {
     }
     else {
     }
+    gv_mutator_active = true;
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/4896EF78") + StringToText(lv_mutator_desc_substring)));
 }
 
@@ -20109,6 +20140,109 @@ void gf_Enable_timed_triggers () {
     TriggerEnable(gt_checkhydras, true);
 }
 
+int gf_tbp_get_difficulty_offset_vote_result () {
+    // Variable Declarations
+    int lv_i;
+    int lv_p;
+    int lv_n;
+    int lv_m;
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int auto0E78FC64_val;
+
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        if ((PlayerStatus(lv_i) == c_playerStatusActive)) {
+            auto0E78FC64_val = gv_difficulty_offset_votes[lv_i];
+            if (auto0E78FC64_val == 0) {
+                lv_n += 1;
+            }
+            else if (auto0E78FC64_val == 1) {
+                lv_p += 1;
+            }
+            else if (auto0E78FC64_val == 2) {
+                lv_m += 1;
+            }
+            else {
+            }
+        }
+
+        lv_i += 1;
+    }
+    if (((lv_n >= 3) || (lv_m >= 3) || (lv_p >= 3))) {
+        if ((lv_n >= lv_m)) {
+            if ((lv_n >= lv_p)) {
+                lv_r = 0;
+            }
+            else {
+                lv_r = 1;
+            }
+        }
+        else {
+            if ((lv_m >= lv_p)) {
+                lv_r = 2;
+            }
+            else {
+                lv_r = 1;
+            }
+        }
+    }
+    else {
+        lv_r = 0;
+    }
+    return lv_r;
+}
+
+int gf_tbp_get_mutator_vote_result () {
+    // Variable Declarations
+    int lv_i;
+    int lv_y;
+    int lv_n;
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int auto711B208B_val;
+
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        if ((PlayerStatus(lv_i) == c_playerStatusActive)) {
+            auto711B208B_val = gv_tbp_mutator_votes[lv_i];
+            if (auto711B208B_val == 0) {
+                lv_n += 1;
+            }
+            else if (auto711B208B_val == 1) {
+                lv_y += 1;
+            }
+            else if (auto711B208B_val == 2) {
+                lv_n += 1;
+            }
+            else {
+            }
+        }
+
+        lv_i += 1;
+    }
+    if (((lv_n >= 4) || (lv_y >= 4))) {
+        if ((lv_n >= lv_y)) {
+            lv_r = 2;
+        }
+        else {
+            lv_r = 1;
+        }
+    }
+    else {
+        lv_r = 2;
+    }
+    return lv_r;
+}
+
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int) {
     // Variable Declarations
     text lv_r;
@@ -20194,7 +20328,7 @@ void gf_tbp_refresh_dialog_labels () {
             }
             libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringToText("") + StringToText("")) + (TextWithColor(PlayerName(gv_tbp_player_picked_terran[lv_i]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_tbp_player_picked_terran[lv_i], false))) + StringToText(""))) + (StringExternal("Param/Value/9A106EF6") + gf_get_bonus_name_text_from_bid(gv_tbp_player_bonus_picks[lv_i]))), PlayerGroupAll());
             lv_j = (lv_j + 1);
-            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringExternal("Param/Value/CAD22DBC") + IntToText(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/79799139") + IntToText(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/143320F9") + (IntToText(gf_get_needed_xp(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + StringExternal("Param/Value/8F2A688D")))), PlayerGroupAll());
+            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((((StringExternal("Param/Value/F21B9A6F") + IntToText(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/DC00FE01") + StringToText(gf_tbp_transform_xp_string(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp, gf_get_needed_xp(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp)))))) + StringExternal("Param/Value/A8EE55C3")) + StringExternal("Param/Value/A6E28041")) + (StringExternal("Param/Value/3C111172") + StringToText(gf_tbp_transform_flags(gv_tbp_player_picked_terran[lv_i])))), PlayerGroupAll());
             lv_j = (lv_j + 1);
         }
         else {
@@ -20205,6 +20339,191 @@ void gf_tbp_refresh_dialog_labels () {
         }
         lv_i = (lv_i + 1);
     }
+    libNtve_gf_SetDialogItemText(gv_tbp_zerg_flags, StringToText(gf_tbp_get_zerg_flag_string()), PlayerGroupAll());
+}
+
+string gf_tbp_transform_xp_string (int lp_pxp, int lp_nxp) {
+    // Variable Declarations
+    string lv_pxp;
+    string lv_nxp;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_pxp = "";
+    lv_nxp = "";
+
+    // Implementation
+    if ((StringLength(IntToString(lp_pxp)) >= 4)) {
+        if ((StringLength(IntToString(lp_pxp)) >= 5)) {
+            if ((StringLength(IntToString(lp_pxp)) >= 6)) {
+                if ((StringLength(IntToString(lp_pxp)) >= 7)) {
+                    lv_pxp = StringSub(IntToString(lp_pxp), 1, 1);
+                    lv_pxp = (lv_pxp + "m");
+                }
+                else {
+                    lv_pxp = StringSub(IntToString(lp_pxp), 1, 3);
+                    lv_pxp = (lv_pxp + "k");
+                }
+            }
+            else {
+                lv_pxp = StringSub(IntToString(lp_pxp), 1, 2);
+                lv_pxp = (lv_pxp + "k");
+            }
+        }
+        else {
+            lv_pxp = StringSub(IntToString(lp_pxp), 1, 1);
+            lv_pxp = (lv_pxp + "k");
+        }
+    }
+    else {
+        lv_pxp = IntToString(lp_pxp);
+    }
+    if ((lp_nxp >= 1000000)) {
+        lv_nxp = StringSub(IntToString(lp_nxp), 1, 1);
+        lv_nxp = (IntToString((StringToInt(lv_nxp) + 1)) + "m");
+    }
+    else {
+        lv_nxp = StringSub(IntToString(lp_nxp), 1, (StringFind(IntToString(lp_nxp), "000", c_stringCase) - 1));
+        lv_nxp = (lv_nxp + "k");
+    }
+    return (lv_pxp + ("/" + lv_nxp));
+}
+
+string gf_tbp_transform_flags (int lp_player) {
+    // Variable Declarations
+    string lv_return;
+    string lv_dos;
+    string lv_ms;
+    string lv_zt;
+
+    // Automatic Variable Declarations
+    int auto10517ED8_val;
+    int auto76B8C404_val;
+    int autoCED03BA8_val;
+
+    // Variable Initialization
+    lv_return = "";
+    lv_dos = "";
+    lv_ms = "";
+    lv_zt = "";
+
+    // Implementation
+    auto10517ED8_val = gv_difficulty_offset_votes[lp_player];
+    if (auto10517ED8_val == 0) {
+        lv_dos = "";
+    }
+    else if (auto10517ED8_val == 1) {
+        lv_dos = "d+";
+    }
+    else if (auto10517ED8_val == 2) {
+        lv_dos = "d-";
+    }
+    else {
+    }
+    if ((gf_is_sunday() == true)) {
+        auto76B8C404_val = gv_tbp_mutator_votes[lp_player];
+        if (auto76B8C404_val == 0) {
+            lv_ms = "";
+        }
+        else if (auto76B8C404_val == 1) {
+            lv_ms = "m-";
+        }
+        else if (auto76B8C404_val == 2) {
+            lv_ms = "m+";
+        }
+        else {
+        }
+    }
+    else {
+        autoCED03BA8_val = gv_tbp_mutator_votes[lp_player];
+        if (autoCED03BA8_val == 0) {
+            lv_ms = "";
+        }
+        else if (autoCED03BA8_val == 1) {
+            lv_ms = "m+";
+        }
+        else if (autoCED03BA8_val == 2) {
+            lv_ms = "m-";
+        }
+        else {
+        }
+    }
+    lv_zt = "";
+    return (lv_dos + (" " + (lv_ms + (" " + lv_zt))));
+}
+
+string gf_tbp_get_zerg_flag_string () {
+    // Variable Declarations
+    string lv_return;
+    string lv_ds;
+    string lv_ms;
+    int lv_xpr;
+    string lv_bi;
+    string lv_bo;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_return = "";
+    lv_ds = "";
+    lv_ms = "";
+    lv_xpr = 100;
+    lv_bi = "";
+    lv_bo = "";
+
+    // Implementation
+    if ((gf_tbp_get_difficulty_offset_vote_result() == 0)) {
+        lv_ds = "";
+    }
+    else {
+        if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
+            lv_ds = "d+";
+        }
+        else {
+            lv_ds = "d-";
+        }
+        lv_ds = (lv_ds + " ");
+    }
+    if ((gf_tbp_get_mutator_vote_result() == 0)) {
+        if ((gf_is_sunday() == true)) {
+            lv_ms = "m+";
+        }
+        else {
+            lv_ms = "";
+        }
+    }
+    else {
+        if ((gf_tbp_get_mutator_vote_result() == 1)) {
+            if ((gf_is_sunday() == true)) {
+                lv_ms = "";
+            }
+            else {
+                lv_ms = "m+";
+            }
+        }
+        else {
+            if ((gf_is_sunday() == true)) {
+                lv_ms = "m+";
+            }
+            else {
+                lv_ms = "";
+            }
+        }
+    }
+    if ((lv_ms == "m+")) {
+        lv_xpr = (lv_xpr + 20);
+    }
+
+    if ((lv_ms != "")) {
+        lv_ms = (lv_ms + "");
+    }
+
+    if (((lv_ms != "") || (lv_ds != ""))) {
+        lv_bi = "(";
+        lv_bo = ")";
+    }
+
+    lv_return = ((("XP " + IntToString(lv_xpr)) + ("% " + lv_bi)) + (lv_ds + ("" + (lv_ms + ("" + lv_bo)))));
+    return lv_return;
 }
 
 void gf_ic_check_zerg_units () {
@@ -20255,7 +20574,7 @@ bool gf_is_unit_broken (unit lp_u) {
     if ((UnitAbilityExists(lp_u, "move") == true) && (UnitAbilityExists(lp_u, "attack") == true)) {
     }
     else {
-        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2")) {
+        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg")) {
             lv_r = true;
         }
 
@@ -20317,7 +20636,6 @@ bool gt_StoptherainUpgradefinished_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Variable Initialization
     lv_player = UnitGetOwner(EventUnit());
-    lv_elo = gv_players[lv_player].lv_elo;
 
     // Conditions
     if (testConds) {
@@ -20335,6 +20653,7 @@ bool gt_StoptherainUpgradefinished_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    lv_elo = gv_players[lv_player].lv_elo;
     gv_players[lv_player].lv_weather = 0;
     gf_Remove_weather(gv_players[lv_player].lv_position);
     gf_Game_Banks_handler("changeweather", lv_player, lv_elo, 0, 0);
@@ -20554,7 +20873,10 @@ bool gt_MoreCashPickupResearchFinished_Func (bool testConds, bool runActions) {
         gv_cash_drops[UnitGetOwner(EventUnit())][2] = (gv_cash_drops[UnitGetOwner(EventUnit())][2] + 2);
     }
     else if (autoCB4F09A8_val == "MoreCashDrops3") {
-        gv_cash_drops[UnitGetOwner(EventUnit())][3] = (gv_cash_drops[UnitGetOwner(EventUnit())][3] - 1);
+        if ((gv_cash_drops[UnitGetOwner(EventUnit())][3] > 0)) {
+            gv_cash_drops[UnitGetOwner(EventUnit())][3] = (gv_cash_drops[UnitGetOwner(EventUnit())][3] - 1);
+        }
+
     }
     else if (autoCB4F09A8_val == "MoreCashDrops4") {
         while ((lv_i <= 6)) {
@@ -30287,10 +30609,30 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_set_up_visibility();
     gf_set_up_difficulty_init_modifiers();
     gf_init_event();
-    if ((gf_is_sunday() == true)) {
-        gf_apply_mutator(6);
+    if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/95BEBB37") + StringToText("")));
+        gv_difficulty = (gv_difficulty + 1);
     }
 
+    if ((gf_tbp_get_difficulty_offset_vote_result() == 2)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/5FBB9A1C") + StringToText("")));
+        gv_difficulty = (gv_difficulty - 1);
+    }
+
+    if ((gf_is_sunday() == true)) {
+        if ((gf_tbp_get_mutator_vote_result() == 1)) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/DCD7F7B1") + StringToText("")));
+        }
+        else {
+            gf_apply_mutator(gf_get_mutator_id_for_today());
+        }
+    }
+    else {
+        if ((gf_tbp_get_mutator_vote_result() == 1)) {
+            gf_apply_mutator(gf_roll_dice());
+        }
+
+    }
     gf_set_up_modify_players_init();
     gf_create_income_dialog();
     gf_spawn_spaceballs();
@@ -30361,15 +30703,17 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     }
     UnitPauseAll(true);
     libNtve_gf_HideGameUI(false, PlayerGroupAll());
-    DialogCreate(420, 600, c_anchorTopLeft, 200, 250, true);
+    DialogCreate(380, 695, c_anchorTopLeft, 100, 100, true);
     DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/5EDCD2AE"));
     gv_tbp_dialog_info = DialogLastCreated();
     lv_i = 1;
     libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (60 + (1 * 35)), (StringExternal("Param/Value/9429560E") + StringToText(gf_get_difficulty_label())), Color(100.00, 0.00, 0.00), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (50 + (2 * 35)), (StringExternal("Param/Value/40A406A6") + StringToText(gf_get_difficulty_label())), ColorWithAlpha(0,0,0,0), false, 2.0);
+    gv_tbp_zerg_flags = DialogControlLastCreated();
     while ((lv_i <= 12)) {
-        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + ((2 + lv_i) * 35)), StringExternal("Param/Value/29478174"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + ((3 + lv_i) * 35)), StringExternal("Param/Value/29478174"), ColorWithAlpha(0,0,0,0), false, 2.0);
         gv_tbp_labels_terran[lv_i] = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + (((2 + lv_i) * 35) + 22)), StringExternal("Param/Value/80B29AB2"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 370, 25, c_anchorTopLeft, 55, (40 + (((3 + lv_i) * 35) + 22)), StringExternal("Param/Value/80B29AB2"), ColorWithAlpha(0,0,0,0), false, 2.0);
         lv_i = (lv_i + 1);
         gv_tbp_labels_terran[lv_i] = DialogControlLastCreated();
         lv_i = (lv_i + 1);
@@ -30385,7 +30729,7 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
         gv_tbp_player_picked_terran[gv_tbp_player_picked_terran_count] = autoC1308021_var;
     }
     DialogSetVisible(gv_tbp_dialog_info, PlayerGroupAll(), true);
-    DialogCreate(800, 450, c_anchorTop, 20, 250, true);
+    DialogCreate(800, 440, c_anchorTopLeft, 480, 100, true);
     DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/B50B193C"));
     gv_tbp_dialog = DialogLastCreated();
     libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 75, StringToText(""), StringExternal("Param/Value/FFAF0AAB"), "Assets\\Textures\\ui_emoticons_random.dds");
@@ -30415,22 +30759,46 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     lv_i = 1;
     DialogControlCreate(DialogLastCreated(), c_triggerControlTypeProgressBar);
     libNtve_gf_SetDialogItemMinimumValue(DialogControlLastCreated(), 0.0, PlayerGroupAll());
-    libNtve_gf_SetDialogItemMaximumValue(DialogControlLastCreated(), 15.0, PlayerGroupAll());
-    libNtve_gf_SetDialogItemCurrentValue(DialogControlLastCreated(), 15.0, PlayerGroupAll());
+    libNtve_gf_SetDialogItemMaximumValue(DialogControlLastCreated(), 240.0, PlayerGroupAll());
+    libNtve_gf_SetDialogItemCurrentValue(DialogControlLastCreated(), 240.0, PlayerGroupAll());
     DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorBottom, 0, 40);
     gv_tbp_progress_bar = DialogControlLastCreated();
     DialogControlSetSize(DialogControlLastCreated(), PlayerGroupAll(), 350, 25);
+    DialogCreate(800, 250, c_anchorTopLeft, 480, 550, true);
+    DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/AA9DC100"));
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 100, StringExternal("Param/Value/C7EDCF26"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 285, 80, StringToText(""), StringExternal("Param/Value/9F6EE008"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_extra_vote_dialog_difficulty_offset_minus = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 350, 80, StringToText(""), StringExternal("Param/Value/32EBF7B9"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_extra_vote_dialog_difficulty_offset_neutral = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 415, 80, StringToText(""), StringExternal("Param/Value/303A6F94"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_extra_vote_dialog_difficulty_offset_plus = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 85, StringExternal("Param/Value/B73C9E4C"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    if ((gf_is_sunday() == true)) {
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 160, StringExternal("Param/Value/F9406FFA"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    }
+    else {
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 255, 60, c_anchorTopLeft, 40, 160, StringExternal("Param/Value/AEB0ACA3"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    }
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 350, 140, StringToText(""), StringExternal("Param/Value/BE23D86C"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_extra_vote_dialog_mutator_vote_yes = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 415, 140, StringToText(""), StringExternal("Param/Value/8497B802"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_extra_vote_dialog_mutator_vote_no = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 145, StringExternal("Param/Value/D018C08E"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    gv_tbp_extra_vote_dialog = DialogLastCreated();
+    DialogSetVisible(gv_tbp_extra_vote_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
-    lv_i = 15;
+    lv_i = 240;
     while ((lv_i >= 0)) {
         libNtve_gf_SetDialogItemCurrentValue(gv_tbp_progress_bar, IntToFixed(lv_i), PlayerGroupAll());
         lv_i = (lv_i - 1);
-        Wait(1.0, c_timeReal);
+        Wait(0.0625, c_timeReal);
     }
     DialogDestroy(gv_tbp_dialog);
     DialogDestroy(gv_tbp_dialog_info);
+    DialogDestroy(gv_tbp_extra_vote_dialog);
     UnitPauseAll(false);
     libNtve_gf_HideGameUI(true, PlayerGroupAll());
     auto8606355D_g = lv_players;
@@ -30539,6 +30907,98 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
 void gt_tbp_dialog_interaction_Init () {
     gt_tbp_dialog_interaction = TriggerCreate("gt_tbp_dialog_interaction_Func");
     TriggerAddEventDialogControl(gt_tbp_dialog_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_extra_vote_difficulty_offset_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto54B932E9_val;
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_extra_vote_dialog_difficulty_offset_plus) || (EventDialogControl() == gv_tbp_extra_vote_dialog_difficulty_offset_minus) || (EventDialogControl() == gv_tbp_extra_vote_dialog_difficulty_offset_neutral)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_plus, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_neutral, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_minus, PlayerGroupSingle(EventPlayer()), false);
+    auto54B932E9_val = EventDialogControl();
+    if (auto54B932E9_val == gv_tbp_extra_vote_dialog_difficulty_offset_neutral) {
+        gv_difficulty_offset_votes[EventPlayer()] = 0;
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_plus, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_minus, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto54B932E9_val == gv_tbp_extra_vote_dialog_difficulty_offset_plus) {
+        gv_difficulty_offset_votes[EventPlayer()] = 1;
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_neutral, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_minus, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto54B932E9_val == gv_tbp_extra_vote_dialog_difficulty_offset_minus) {
+        gv_difficulty_offset_votes[EventPlayer()] = 2;
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_neutral, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_plus, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else {
+    }
+    gf_tbp_refresh_dialog_labels();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init () {
+    gt_tbp_dialog_extra_vote_difficulty_offset_interaction = TriggerCreate("gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_extra_vote_difficulty_offset_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_extra_vote_mutator_vote
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_extra_vote_mutator_vote_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int autoD5529626_val;
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_extra_vote_dialog_mutator_vote_no) || (EventDialogControl() == gv_tbp_extra_vote_dialog_mutator_vote_yes)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_mutator_vote_yes, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_mutator_vote_no, PlayerGroupSingle(EventPlayer()), false);
+    autoD5529626_val = EventDialogControl();
+    if (autoD5529626_val == gv_tbp_extra_vote_dialog_mutator_vote_yes) {
+        gv_tbp_mutator_votes[EventPlayer()] = 1;
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_mutator_vote_no, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (autoD5529626_val == gv_tbp_extra_vote_dialog_mutator_vote_no) {
+        gv_tbp_mutator_votes[EventPlayer()] = 2;
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_mutator_vote_yes, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else {
+    }
+    gf_tbp_refresh_dialog_labels();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_extra_vote_mutator_vote_Init () {
+    gt_tbp_dialog_extra_vote_mutator_vote = TriggerCreate("gt_tbp_dialog_extra_vote_mutator_vote_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_extra_vote_mutator_vote, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -31178,6 +31638,8 @@ void InitTriggers () {
     gt_SporeCrawlerwantstoshoot_Init();
     gt_tbp_create_Init();
     gt_tbp_dialog_interaction_Init();
+    gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init();
+    gt_tbp_dialog_extra_vote_mutator_vote_Init();
     gt_everysecond_Init();
     gt_everytwoseconds_Init();
     gt_everythreeseconds_Init();

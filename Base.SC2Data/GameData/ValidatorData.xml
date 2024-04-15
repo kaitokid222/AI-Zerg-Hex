@@ -315,6 +315,7 @@
         <CombineArray value="IsChemplant"/>
         <CombineArray value="IsChemplantLarge"/>
         <CombineArray value="IsGasVent"/>
+        <CombineArray value="IsConverter"/>
     </CValidatorCombine>
     <CValidatorUnitType id="IsUpgradedRefinery">
         <Value value="UpgradedRefinery"/>
