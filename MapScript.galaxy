@@ -1046,6 +1046,11 @@ bool gv_is_eastern;
 bool gv_is_crazyminions;
 bool gv_is_night_king;
 bool gv_is_vday;
+bool gv_mutator_mega_mecha_hydras;
+bool gv_mutator_mecha_buildings;
+bool gv_mutator_overlords;
+bool gv_mutator_massalisks;
+bool gv_mutator_active;
 int gv_game_timer_setting;
 int gv_timelabel;
 int gv_game_timer;
@@ -1169,14 +1174,10 @@ int gv_viper_cloud_cd;
 int gv_armor_level;
 int gv_supply_upgrades;
 bool gv_is_setup_phase;
+int gv_infestor_dead_count;
 unitgroup gv_prefuse_infestors;
 unitgroup gv_prefuse_infestors_nests;
 point[5] gv_prefuse_infestors_nests_coords;
-bool gv_mutator_mega_mecha_hydras;
-bool gv_mutator_mecha_buildings;
-bool gv_mutator_overlords;
-bool gv_mutator_massalisks;
-bool gv_mutator_active;
 int gv_tbp_dialog;
 int gv_tbp_dialog_info;
 int gv_tbp_zerg_flags;
@@ -1214,6 +1215,7 @@ int[7] gv_tbp_zterran_votes;
 int gv_tbp_zterran_vote_result;
 int gv_tbp_extra_vote_dialog_zterran_vote_yes;
 int gv_tbp_extra_vote_dialog_zterran_vote_no;
+int[7] gv_tbp_torment_votes;
 int gv_ic_unit_count;
 
 void InitGlobals () {
@@ -1616,6 +1618,11 @@ bool gf_is_eastern ();
 bool gf_is_crazyminions ();
 bool gf_is_night_king ();
 bool gf_is_vday ();
+bool gf_is_sunday ();
+int gf_get_mutator_id_for_today ();
+int gf_get_day_of_year ();
+bool gf_is_leap_year (int lp_year);
+void gf_apply_mutator (int lp_mutator_id);
 void gf_kill_terran_team ();
 void gf_timer_terran_death ();
 int gf_get_timer_setting ();
@@ -1785,11 +1792,6 @@ void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
 void gf_try_prefuse_handler ();
 void gf_cleanup_prefuse_infestor_group ();
-bool gf_is_sunday ();
-int gf_get_mutator_id_for_today ();
-int gf_get_day_of_year ();
-bool gf_is_leap_year (int lp_year);
-void gf_apply_mutator (int lp_mutator_id);
 void gf_Init_Player_Toplists ();
 void gf_Generate_Toplist ();
 text gf_generate_name_string_text ();
@@ -1999,6 +2001,7 @@ trigger gt_ZergSupplyUpgrade;
 trigger gt_ZergArmor;
 trigger gt_entrypoint;
 trigger gt_SporeCrawlerwantstoshoot;
+trigger gt_Infestordied;
 trigger gt_tbp_create;
 trigger gt_tbp_dialog_interaction;
 trigger gt_tbp_dialog_extra_vote_difficulty_offset_interaction;
@@ -12118,6 +12121,221 @@ bool gf_is_vday () {
     return lv_r;
 }
 
+bool gf_is_sunday () {
+    // Variable Declarations
+    bool lv_return;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((GetDateTimeWeekday(CurrentDateTimeGet()) == 0)) {
+        lv_return = true;
+    }
+
+    return lv_return;
+}
+
+int gf_get_mutator_id_for_today () {
+    // Automatic Variable Declarations
+    // Implementation
+    return FixedToInt((ModF((((gf_get_day_of_year() / 12.0) - Floor((gf_get_day_of_year() / 12.0))) * 12.0), 12.0) + 1.0));
+}
+
+int gf_get_day_of_year () {
+    // Variable Declarations
+    int[13] lv_dim;
+    int lv_m;
+    int lv_i;
+    int lv_d;
+    int lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    lv_dim[1] = 31;
+    if ((gf_is_leap_year(GetDateTimeYear(CurrentDateTimeGet())) == true)) {
+        lv_dim[2] = 29;
+    }
+    else {
+        lv_dim[2] = 28;
+    }
+    lv_dim[3] = 31;
+    lv_dim[4] = 30;
+    lv_dim[5] = 31;
+    lv_dim[6] = 30;
+    lv_dim[7] = 31;
+    lv_dim[8] = 31;
+    lv_dim[9] = 30;
+    lv_dim[10] = 31;
+    lv_dim[11] = 30;
+    lv_dim[12] = 31;
+    lv_m = GetDateTimeMonth(CurrentDateTimeGet());
+    while ((lv_i < lv_m)) {
+        lv_r = (lv_r + lv_dim[lv_i]);
+        lv_i += 1;
+    }
+    lv_d = GetDateTimeDay(CurrentDateTimeGet());
+    lv_r = (lv_r + lv_d);
+    return lv_r;
+}
+
+bool gf_is_leap_year (int lp_year) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((((ModI(lp_year, 4) == 0) && (ModI(lp_year, 100) != 0)) || (ModI(lp_year, 400) == 0))) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+void gf_apply_mutator (int lp_mutator_id) {
+    // Variable Declarations
+    string lv_mutator_desc_substring;
+    int lv_rmid;
+
+    // Automatic Variable Declarations
+    int auto58E006D9_val;
+    playergroup autoFD72D12A_g;
+    int autoFD72D12A_var;
+    unitgroup autoB13968DC_g;
+    int autoB13968DC_u;
+    unit autoB13968DC_var;
+    unitgroup auto8E2B6C98_g;
+    int auto8E2B6C98_u;
+    unit auto8E2B6C98_var;
+    unitgroup autoEF4C864F_g;
+    int autoEF4C864F_u;
+    unit autoEF4C864F_var;
+    unitgroup autoCFCDB07F_g;
+    int autoCFCDB07F_u;
+    unit autoCFCDB07F_var;
+    unitgroup autoC4CBF8E9_g;
+    int autoC4CBF8E9_u;
+    unit autoC4CBF8E9_var;
+
+    // Variable Initialization
+    lv_mutator_desc_substring = "";
+
+    // Implementation
+    if ((lp_mutator_id > 6)) {
+        lv_rmid = (lp_mutator_id - 6);
+    }
+    else {
+        lv_rmid = lp_mutator_id;
+    }
+    auto58E006D9_val = lv_rmid;
+    if (auto58E006D9_val == 1) {
+        autoFD72D12A_g = PlayerGroupAll();
+        autoFD72D12A_var = -1;
+        while (true) {
+            autoFD72D12A_var = PlayerGroupNextPlayer(autoFD72D12A_g, autoFD72D12A_var);
+            if (autoFD72D12A_var < 0) { break; }
+            CatalogReferenceSet("Actor,AbsorbingCloud,Scale", autoFD72D12A_var, "2");
+            CatalogReferenceSet("Abil,AbsorbingCloud,Cost[0].Charge.TimeUse", autoFD72D12A_var, "45");
+            CatalogReferenceSet("Effect,AbsorbingCloud,RevealRadius", autoFD72D12A_var, "7");
+            CatalogReferenceSet("Effect,AbsorbingCloud,PeriodCount", autoFD72D12A_var, "52");
+            CatalogReferenceSet("Effect,AbsorbingCloudSearch,AreaArray[0].Radius", autoFD72D12A_var, "5");
+            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.VitalRegenArray[Life]", autoFD72D12A_var, "-1");
+            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.VitalRegenArray[Shields]", autoFD72D12A_var, "-1");
+            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.MoveSpeedMultiplier", autoFD72D12A_var, FixedToString(0.4, 1));
+        }
+        lv_mutator_desc_substring = "(ZH+ Style Absorbing Clouds)";
+    }
+    else if (auto58E006D9_val == 2) {
+        gv_mutator_mega_mecha_hydras = true;
+        TechTreeUpgradeAddLevel(7, "JUICEModule", 1);
+        TechTreeUpgradeAddLevel(7, "SynteticAdrenalPumps", 1);
+        TechTreeUpgradeAddLevel(7, "ImprovedLiquids", 1);
+        TechTreeUpgradeAddLevel(7, "HydralicAugment", 1);
+        TechTreeUpgradeAddLevel(7, "SelfRecharchingBatteries", 1);
+        lv_mutator_desc_substring = "(Mega-Mecha-Hydras!)";
+    }
+    else if (auto58E006D9_val == 3) {
+        GameSetToDLighting("AgriaNight");
+        gf_decrease_terran_vision();
+        lv_mutator_desc_substring = "(Night!)";
+    }
+    else if (auto58E006D9_val == 4) {
+        gv_mutator_mecha_buildings = true;
+        autoB13968DC_g = UnitGroup("Hive2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoB13968DC_u = UnitGroupCount(autoB13968DC_g, c_unitCountAll);
+        for (;; autoB13968DC_u -= 1) {
+            autoB13968DC_var = UnitGroupUnitFromEnd(autoB13968DC_g, autoB13968DC_u);
+            if (autoB13968DC_var == null) { break; }
+            ActorSend(libNtve_gf_MainActorofUnit(autoB13968DC_var), "ModelSwap Hatchery_Mecha");
+        }
+        auto8E2B6C98_g = UnitGroup("Nest2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto8E2B6C98_u = UnitGroupCount(auto8E2B6C98_g, c_unitCountAll);
+        for (;; auto8E2B6C98_u -= 1) {
+            auto8E2B6C98_var = UnitGroupUnitFromEnd(auto8E2B6C98_g, auto8E2B6C98_u);
+            if (auto8E2B6C98_var == null) { break; }
+            ActorSend(libNtve_gf_MainActorofUnit(auto8E2B6C98_var), "ModelSwap Hatchery_Mecha");
+        }
+        autoEF4C864F_g = UnitGroup("CreepTumor2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoEF4C864F_u = UnitGroupCount(autoEF4C864F_g, c_unitCountAll);
+        for (;; autoEF4C864F_u -= 1) {
+            autoEF4C864F_var = UnitGroupUnitFromEnd(autoEF4C864F_g, autoEF4C864F_u);
+            if (autoEF4C864F_var == null) { break; }
+            ActorSend(libNtve_gf_MainActorofUnit(autoEF4C864F_var), "ModelSwap LurkerDen_Mecha");
+        }
+        autoCFCDB07F_g = UnitGroup("LargeSpineCrawler", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoCFCDB07F_u = UnitGroupCount(autoCFCDB07F_g, c_unitCountAll);
+        for (;; autoCFCDB07F_u -= 1) {
+            autoCFCDB07F_var = UnitGroupUnitFromEnd(autoCFCDB07F_g, autoCFCDB07F_u);
+            if (autoCFCDB07F_var == null) { break; }
+            ActorSend(libNtve_gf_MainActorofUnit(autoCFCDB07F_var), "ModelSwap SpineCrawler_Mecha");
+        }
+        autoC4CBF8E9_g = UnitGroup("SpineCrawler", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoC4CBF8E9_u = UnitGroupCount(autoC4CBF8E9_g, c_unitCountAll);
+        for (;; autoC4CBF8E9_u -= 1) {
+            autoC4CBF8E9_var = UnitGroupUnitFromEnd(autoC4CBF8E9_g, autoC4CBF8E9_u);
+            if (autoC4CBF8E9_var == null) { break; }
+            ActorSend(libNtve_gf_MainActorofUnit(autoC4CBF8E9_var), "ModelSwap SpineCrawler_Mecha");
+        }
+        CatalogReferenceSet("Unit,Hive2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeArmor", 7) + 4)));
+        CatalogReferenceSet("Unit,Nest2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeArmor", 7) + 3)));
+        CatalogReferenceSet("Unit,CreepTumor2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeArmor", 7) + 2)));
+        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeArmor", 7) + 3)));
+        CatalogReferenceSet("Unit,SpineCrawler,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeArmor", 7) + 2)));
+        CatalogReferenceSet("Unit,Hive2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeMax", 7) + 2500)));
+        CatalogReferenceSet("Unit,Hive2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeStart", 7) + 2500)));
+        CatalogReferenceSet("Unit,Nest2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeMax", 7) + 1000)));
+        CatalogReferenceSet("Unit,Nest2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeStart", 7) + 1000)));
+        CatalogReferenceSet("Unit,CreepTumor2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeMax", 7) + 500)));
+        CatalogReferenceSet("Unit,CreepTumor2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeStart", 7) + 500)));
+        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeMax", 7) + 1000)));
+        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeStart", 7) + 1000)));
+        CatalogReferenceSet("Unit,SpineCrawler,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeMax", 7) + 100)));
+        CatalogReferenceSet("Unit,SpineCrawler,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeStart", 7) + 100)));
+        lv_mutator_desc_substring = "(Mecha-Buildings!)";
+    }
+    else if (auto58E006D9_val == 5) {
+        gv_mutator_overlords = true;
+        CatalogReferenceSet("Unit,Overlord,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeMax", 7) + 375)));
+        CatalogReferenceSet("Unit,Overlord,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeStart", 7) + 375)));
+        CatalogReferenceSet("Unit,Overlord,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeArmor", 7) + 1)));
+        CatalogReferenceSet("Unit,Overlord,Food", 7, IntToString(4));
+        lv_mutator_desc_substring = "(Overlords!)";
+    }
+    else if (auto58E006D9_val == 6) {
+        gv_mutator_massalisks = true;
+        lv_mutator_desc_substring = "(Massalisks!)";
+    }
+    else {
+    }
+    gv_mutator_active = true;
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/4896EF78") + StringToText(lv_mutator_desc_substring)));
+}
+
 void gf_kill_terran_team () {
     // Variable Declarations
     unitgroup lv_ccg;
@@ -19715,221 +19933,6 @@ void gf_cleanup_prefuse_infestor_group () {
     }
 }
 
-bool gf_is_sunday () {
-    // Variable Declarations
-    bool lv_return;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((GetDateTimeWeekday(CurrentDateTimeGet()) == 0)) {
-        lv_return = true;
-    }
-
-    return lv_return;
-}
-
-int gf_get_mutator_id_for_today () {
-    // Automatic Variable Declarations
-    // Implementation
-    return FixedToInt((ModF((((gf_get_day_of_year() / 12.0) - Floor((gf_get_day_of_year() / 12.0))) * 12.0), 12.0) + 1.0));
-}
-
-int gf_get_day_of_year () {
-    // Variable Declarations
-    int[13] lv_dim;
-    int lv_m;
-    int lv_i;
-    int lv_d;
-    int lv_r;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_i = 1;
-
-    // Implementation
-    lv_dim[1] = 31;
-    if ((gf_is_leap_year(GetDateTimeYear(CurrentDateTimeGet())) == true)) {
-        lv_dim[2] = 29;
-    }
-    else {
-        lv_dim[2] = 28;
-    }
-    lv_dim[3] = 31;
-    lv_dim[4] = 30;
-    lv_dim[5] = 31;
-    lv_dim[6] = 30;
-    lv_dim[7] = 31;
-    lv_dim[8] = 31;
-    lv_dim[9] = 30;
-    lv_dim[10] = 31;
-    lv_dim[11] = 30;
-    lv_dim[12] = 31;
-    lv_m = GetDateTimeMonth(CurrentDateTimeGet());
-    while ((lv_i < lv_m)) {
-        lv_r = (lv_r + lv_dim[lv_i]);
-        lv_i += 1;
-    }
-    lv_d = GetDateTimeDay(CurrentDateTimeGet());
-    lv_r = (lv_r + lv_d);
-    return lv_r;
-}
-
-bool gf_is_leap_year (int lp_year) {
-    // Variable Declarations
-    bool lv_r;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((((ModI(lp_year, 4) == 0) && (ModI(lp_year, 100) != 0)) || (ModI(lp_year, 400) == 0))) {
-        lv_r = true;
-    }
-
-    return lv_r;
-}
-
-void gf_apply_mutator (int lp_mutator_id) {
-    // Variable Declarations
-    string lv_mutator_desc_substring;
-    int lv_rmid;
-
-    // Automatic Variable Declarations
-    int auto58E006D9_val;
-    playergroup autoFD72D12A_g;
-    int autoFD72D12A_var;
-    unitgroup autoB13968DC_g;
-    int autoB13968DC_u;
-    unit autoB13968DC_var;
-    unitgroup auto8E2B6C98_g;
-    int auto8E2B6C98_u;
-    unit auto8E2B6C98_var;
-    unitgroup autoEF4C864F_g;
-    int autoEF4C864F_u;
-    unit autoEF4C864F_var;
-    unitgroup autoCFCDB07F_g;
-    int autoCFCDB07F_u;
-    unit autoCFCDB07F_var;
-    unitgroup autoC4CBF8E9_g;
-    int autoC4CBF8E9_u;
-    unit autoC4CBF8E9_var;
-
-    // Variable Initialization
-    lv_mutator_desc_substring = "";
-
-    // Implementation
-    if ((lp_mutator_id > 6)) {
-        lv_rmid = (lp_mutator_id - 6);
-    }
-    else {
-        lv_rmid = lp_mutator_id;
-    }
-    auto58E006D9_val = lv_rmid;
-    if (auto58E006D9_val == 1) {
-        autoFD72D12A_g = PlayerGroupAll();
-        autoFD72D12A_var = -1;
-        while (true) {
-            autoFD72D12A_var = PlayerGroupNextPlayer(autoFD72D12A_g, autoFD72D12A_var);
-            if (autoFD72D12A_var < 0) { break; }
-            CatalogReferenceSet("Actor,AbsorbingCloud,Scale", autoFD72D12A_var, "2");
-            CatalogReferenceSet("Abil,AbsorbingCloud,Cost[0].Charge.TimeUse", autoFD72D12A_var, "45");
-            CatalogReferenceSet("Effect,AbsorbingCloud,RevealRadius", autoFD72D12A_var, "7");
-            CatalogReferenceSet("Effect,AbsorbingCloud,PeriodCount", autoFD72D12A_var, "52");
-            CatalogReferenceSet("Effect,AbsorbingCloudSearch,AreaArray[0].Radius", autoFD72D12A_var, "5");
-            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.VitalRegenArray[Life]", autoFD72D12A_var, "-1");
-            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.VitalRegenArray[Shields]", autoFD72D12A_var, "-1");
-            CatalogReferenceSet("Behavior,AbsorbingCloud,Modification.MoveSpeedMultiplier", autoFD72D12A_var, FixedToString(0.4, 1));
-        }
-        lv_mutator_desc_substring = "(ZH+ Style Absorbing Clouds)";
-    }
-    else if (auto58E006D9_val == 2) {
-        gv_mutator_mega_mecha_hydras = true;
-        TechTreeUpgradeAddLevel(7, "JUICEModule", 1);
-        TechTreeUpgradeAddLevel(7, "SynteticAdrenalPumps", 1);
-        TechTreeUpgradeAddLevel(7, "ImprovedLiquids", 1);
-        TechTreeUpgradeAddLevel(7, "HydralicAugment", 1);
-        TechTreeUpgradeAddLevel(7, "SelfRecharchingBatteries", 1);
-        lv_mutator_desc_substring = "(Mega-Mecha-Hydras!)";
-    }
-    else if (auto58E006D9_val == 3) {
-        GameSetToDLighting("AgriaNight");
-        gf_decrease_terran_vision();
-        lv_mutator_desc_substring = "(Night!)";
-    }
-    else if (auto58E006D9_val == 4) {
-        gv_mutator_mecha_buildings = true;
-        autoB13968DC_g = UnitGroup("Hive2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoB13968DC_u = UnitGroupCount(autoB13968DC_g, c_unitCountAll);
-        for (;; autoB13968DC_u -= 1) {
-            autoB13968DC_var = UnitGroupUnitFromEnd(autoB13968DC_g, autoB13968DC_u);
-            if (autoB13968DC_var == null) { break; }
-            ActorSend(libNtve_gf_MainActorofUnit(autoB13968DC_var), "ModelSwap Hatchery_Mecha");
-        }
-        auto8E2B6C98_g = UnitGroup("Nest2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto8E2B6C98_u = UnitGroupCount(auto8E2B6C98_g, c_unitCountAll);
-        for (;; auto8E2B6C98_u -= 1) {
-            auto8E2B6C98_var = UnitGroupUnitFromEnd(auto8E2B6C98_g, auto8E2B6C98_u);
-            if (auto8E2B6C98_var == null) { break; }
-            ActorSend(libNtve_gf_MainActorofUnit(auto8E2B6C98_var), "ModelSwap Hatchery_Mecha");
-        }
-        autoEF4C864F_g = UnitGroup("CreepTumor2", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoEF4C864F_u = UnitGroupCount(autoEF4C864F_g, c_unitCountAll);
-        for (;; autoEF4C864F_u -= 1) {
-            autoEF4C864F_var = UnitGroupUnitFromEnd(autoEF4C864F_g, autoEF4C864F_u);
-            if (autoEF4C864F_var == null) { break; }
-            ActorSend(libNtve_gf_MainActorofUnit(autoEF4C864F_var), "ModelSwap LurkerDen_Mecha");
-        }
-        autoCFCDB07F_g = UnitGroup("LargeSpineCrawler", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoCFCDB07F_u = UnitGroupCount(autoCFCDB07F_g, c_unitCountAll);
-        for (;; autoCFCDB07F_u -= 1) {
-            autoCFCDB07F_var = UnitGroupUnitFromEnd(autoCFCDB07F_g, autoCFCDB07F_u);
-            if (autoCFCDB07F_var == null) { break; }
-            ActorSend(libNtve_gf_MainActorofUnit(autoCFCDB07F_var), "ModelSwap SpineCrawler_Mecha");
-        }
-        autoC4CBF8E9_g = UnitGroup("SpineCrawler", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoC4CBF8E9_u = UnitGroupCount(autoC4CBF8E9_g, c_unitCountAll);
-        for (;; autoC4CBF8E9_u -= 1) {
-            autoC4CBF8E9_var = UnitGroupUnitFromEnd(autoC4CBF8E9_g, autoC4CBF8E9_u);
-            if (autoC4CBF8E9_var == null) { break; }
-            ActorSend(libNtve_gf_MainActorofUnit(autoC4CBF8E9_var), "ModelSwap SpineCrawler_Mecha");
-        }
-        CatalogReferenceSet("Unit,Hive2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeArmor", 7) + 4)));
-        CatalogReferenceSet("Unit,Nest2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeArmor", 7) + 3)));
-        CatalogReferenceSet("Unit,CreepTumor2,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeArmor", 7) + 2)));
-        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeArmor", 7) + 3)));
-        CatalogReferenceSet("Unit,SpineCrawler,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeArmor", 7) + 2)));
-        CatalogReferenceSet("Unit,Hive2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeMax", 7) + 2500)));
-        CatalogReferenceSet("Unit,Hive2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Hive2,LifeStart", 7) + 2500)));
-        CatalogReferenceSet("Unit,Nest2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeMax", 7) + 1000)));
-        CatalogReferenceSet("Unit,Nest2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Nest2,LifeStart", 7) + 1000)));
-        CatalogReferenceSet("Unit,CreepTumor2,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeMax", 7) + 500)));
-        CatalogReferenceSet("Unit,CreepTumor2,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,CreepTumor2,LifeStart", 7) + 500)));
-        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeMax", 7) + 1000)));
-        CatalogReferenceSet("Unit,LargeSpineCrawler,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,LargeSpineCrawler,LifeStart", 7) + 1000)));
-        CatalogReferenceSet("Unit,SpineCrawler,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeMax", 7) + 100)));
-        CatalogReferenceSet("Unit,SpineCrawler,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,SpineCrawler,LifeStart", 7) + 100)));
-        lv_mutator_desc_substring = "(Mecha-Buildings!)";
-    }
-    else if (auto58E006D9_val == 5) {
-        gv_mutator_overlords = true;
-        CatalogReferenceSet("Unit,Overlord,LifeMax", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeMax", 7) + 375)));
-        CatalogReferenceSet("Unit,Overlord,LifeStart", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeStart", 7) + 375)));
-        CatalogReferenceSet("Unit,Overlord,LifeArmor", 7, IntToString((CatalogReferenceGetAsInt("Unit,Overlord,LifeArmor", 7) + 1)));
-        CatalogReferenceSet("Unit,Overlord,Food", 7, IntToString(4));
-        lv_mutator_desc_substring = "(Overlords!)";
-    }
-    else if (auto58E006D9_val == 6) {
-        gv_mutator_massalisks = true;
-        lv_mutator_desc_substring = "(Massalisks!)";
-    }
-    else {
-    }
-    gv_mutator_active = true;
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/4896EF78") + StringToText(lv_mutator_desc_substring)));
-}
-
 void gf_Init_Player_Toplists () {
     // Automatic Variable Declarations
     playergroup auto9BDC27D7_g;
@@ -20621,46 +20624,6 @@ void gf_ic_check_zerg_units () {
     int lv_duc;
 
     // Automatic Variable Declarations
-    playergroup autoEC742F30_g;
-    int autoEC742F30_var;
-    unitgroup autoF821B06A_g;
-    int autoF821B06A_u;
-    unit autoF821B06A_var;
-
-    // Variable Initialization
-    lv_ug = UnitGroupEmpty();
-
-    // Implementation
-    autoEC742F30_g = gv_terrans;
-    autoEC742F30_var = -1;
-    while (true) {
-        autoEC742F30_var = PlayerGroupNextPlayer(autoEC742F30_g, autoEC742F30_var);
-        if (autoEC742F30_var < 0) { break; }
-        lv_ug = UnitGroup(null, autoEC742F30_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoF821B06A_g = lv_ug;
-        autoF821B06A_u = UnitGroupCount(autoF821B06A_g, c_unitCountAll);
-        for (;; autoF821B06A_u -= 1) {
-            autoF821B06A_var = UnitGroupUnitFromEnd(autoF821B06A_g, autoF821B06A_u);
-            if (autoF821B06A_var == null) { break; }
-            if ((gf_is_unit_broken(autoF821B06A_var) == true)) {
-                UnitKill(autoF821B06A_var);
-                lv_duc += 1;
-            }
-
-        }
-    }
-    if ((lv_duc > 0)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/0C334C9F") + IntToText(lv_duc)));
-    }
-
-}
-
-void gf_ic_check_terran_units () {
-    // Variable Declarations
-    unitgroup lv_ug;
-    int lv_duc;
-
-    // Automatic Variable Declarations
     unitgroup autoA5F21B59_g;
     int autoA5F21B59_u;
     unit autoA5F21B59_var;
@@ -20688,6 +20651,46 @@ void gf_ic_check_terran_units () {
         else {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/DD16F0A0") + IntToText(lv_duc)));
         }
+    }
+
+}
+
+void gf_ic_check_terran_units () {
+    // Variable Declarations
+    unitgroup lv_ug;
+    int lv_duc;
+
+    // Automatic Variable Declarations
+    playergroup autoA8BCCB69_g;
+    int autoA8BCCB69_var;
+    unitgroup auto2EE183A2_g;
+    int auto2EE183A2_u;
+    unit auto2EE183A2_var;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+
+    // Implementation
+    autoA8BCCB69_g = gv_terrans;
+    autoA8BCCB69_var = -1;
+    while (true) {
+        autoA8BCCB69_var = PlayerGroupNextPlayer(autoA8BCCB69_g, autoA8BCCB69_var);
+        if (autoA8BCCB69_var < 0) { break; }
+        lv_ug = UnitGroup(null, autoA8BCCB69_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto2EE183A2_g = lv_ug;
+        auto2EE183A2_u = UnitGroupCount(auto2EE183A2_g, c_unitCountAll);
+        for (;; auto2EE183A2_u -= 1) {
+            auto2EE183A2_var = UnitGroupUnitFromEnd(auto2EE183A2_g, auto2EE183A2_u);
+            if (auto2EE183A2_var == null) { break; }
+            if ((gf_is_unit_broken(auto2EE183A2_var) == true)) {
+                UnitKill(auto2EE183A2_var);
+                lv_duc += 1;
+            }
+
+        }
+    }
+    if ((lv_duc > 0)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/23A29375") + IntToText(lv_duc)));
     }
 
 }
@@ -30798,6 +30801,26 @@ void gt_SporeCrawlerwantstoshoot_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Infestor died
+//--------------------------------------------------------------------------------------------------
+bool gt_Infestordied_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_infestor_dead_count += 1;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Infestordied_Init () {
+    gt_Infestordied = TriggerCreate("gt_Infestordied_Func");
+    TriggerAddEventPlayerEffectUsed(gt_Infestordied, c_playerAny, "InfestorDeathTriggerNoticeDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: tbp_create
 //--------------------------------------------------------------------------------------------------
 bool gt_tbp_create_Func (bool testConds, bool runActions) {
@@ -31492,6 +31515,7 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 20) + 59))) {
         gf_ic_check_zerg_units();
         gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
+        gf_ic_check_terran_units();
     }
 
     if ((gv_placement_mode == 2)) {
@@ -31814,6 +31838,7 @@ void InitTriggers () {
     gt_ZergArmor_Init();
     gt_entrypoint_Init();
     gt_SporeCrawlerwantstoshoot_Init();
+    gt_Infestordied_Init();
     gt_tbp_create_Init();
     gt_tbp_dialog_interaction_Init();
     gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init();

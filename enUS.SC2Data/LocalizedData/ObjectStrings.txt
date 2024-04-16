@@ -1890,6 +1890,7 @@ Effect/EditorPrefix/HyperElectrodeDisplacerSetShatter03=Commando -
 Effect/EditorPrefix/IgniteApplyBehavior=Fireling -
 Effect/EditorPrefix/ImpalerTentacleLM3v3=Spine Crawler -
 Effect/EditorPrefix/ImpalerTentacleU3v3=Spine Crawler -
+Effect/EditorPrefix/InfestorDeathTriggerNoticeDummy=AI Hex
 Effect/EditorPrefix/InitiateRequest=Energy Network -
 Effect/EditorPrefix/InitiateRequestDelay=Energy Network -
 Effect/EditorPrefix/InstantDischargeDamage=Shock Trooper -

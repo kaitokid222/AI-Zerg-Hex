@@ -5817,6 +5817,7 @@
         <Collide index="Locust" value="0"/>
         <Collide index="DisruptorPhased" value="1"/>
         <Collide index="Small" value="0"/>
+        <EffectArray index="Death" value="InfestorDeathTriggerNoticeDummy"/>
     </CUnit>
     <CUnit id="NapalmBomb">
         <Race value="Terr"/>

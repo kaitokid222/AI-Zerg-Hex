@@ -246,43 +246,8 @@
             <Id Value="8"/>
             <Name Value="Attribute007/Value008/Name"/>
             <Description Value="Attribute007/Value008/Desc"/>
-            <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier1.dds"/>
-        </Value>
-        <Value>
-            <Id Value="9"/>
-            <Name Value="Attribute007/Value009/Name"/>
-            <Description Value="Attribute007/Value009/Desc"/>
-            <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier2.dds"/>
-        </Value>
-        <Value>
-            <Id Value="10"/>
-            <Name Value="Attribute007/Value010/Name"/>
-            <Description Value="Attribute007/Value010/Desc"/>
-            <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier3.dds"/>
-        </Value>
-        <Value>
-            <Id Value="11"/>
-            <Name Value="Attribute007/Value011/Name"/>
-            <Description Value="Attribute007/Value011/Desc"/>
-            <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier4.dds"/>
-        </Value>
-        <Value>
-            <Id Value="12"/>
-            <Name Value="Attribute007/Value012/Name"/>
-            <Description Value="Attribute007/Value012/Desc"/>
-            <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier5.dds"/>
-        </Value>
-        <Value>
-            <Id Value="13"/>
-            <Name Value="Attribute007/Value013/Name"/>
-            <Description Value="Attribute007/Value013/Desc"/>
             <Icon Value="Assets\Textures\hud_bg_killcounter_skull_tier6.dds"/>
         </Value>
-        <Default>
-            <Slot Id="6"/>
-            <Value Id="13"/>
-            <Locked/>
-        </Default>
         <Default>
             <Slot Id="0"/>
             <Value Id="14"/>

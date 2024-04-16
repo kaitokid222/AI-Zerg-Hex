@@ -15,6 +15,9 @@
         <EditorCategories value=""/>
         <Behavior value="AnalysisTerminalAuraBuff"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="InfestorDeathTriggerNoticeDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectModifyPlayer id="GainMineral5Caster">
         <EditorCategories value=""/>
         <WhichPlayer Value="Caster"/>
