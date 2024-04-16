@@ -13,6 +13,7 @@
         <AlertIcon value="Assets\Textures\btn-tips-richminerals.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="EmpoweredShadowCannon" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-convergence.dds"/>
     <CButton id="StoptheRain">
         <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
         <AlertIcon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>

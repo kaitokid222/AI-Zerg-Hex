@@ -4,6 +4,13 @@
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="HaveUmbraShadowCannons">
+        <NodeArray index="Use" Link="CountUpgradeEmpowerShadowCannonCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UnlockUmbraShadowCannonRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeEmpowerShadowCannonQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="stoptherain">
         <NodeArray index="Show" Link="NotCountUpgradeStoptherainQueuedOrBetter"/>
     </CRequirement>

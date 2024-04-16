@@ -81,6 +81,7 @@ Button/Hotkey/DestroyStructure=V
 Button/Hotkey/DigesterCreepSpray=Z
 Button/Hotkey/DisableAutomation=W
 Button/Hotkey/DisableWeapon=Z
+Button/Hotkey/EmpoweredShadowCannon=W
 Button/Hotkey/EmpoweredWarp=W
 Button/Hotkey/EnableAutomation=Q
 Button/Hotkey/EnableJUICEModule=A

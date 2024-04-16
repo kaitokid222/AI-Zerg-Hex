@@ -25,6 +25,16 @@
         <AttributeBonus index="Massive" value="120"/>
         <ArmorReduction value="4"/>
     </CEffectDamage>
+    <CEffectLaunchMissile id="ShadowCannon">
+        <ImpactEffect value="UmbraShadowCannonSet2"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="UmbraShadowCannonAOE">
+        <ValidatorArray value="UmbraShadowCannonResearchCompleted"/>
+        <EditorCategories value="Race:Terran"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="ShadowCannonImpact"/>
+    </CEffectEnumArea>
     <CEffectDamage id="MassiveSporeAGImpact">
         <Amount value="20"/>
     </CEffectDamage>
@@ -102,9 +112,21 @@
         <InitialEffect value="ApplyBeingRepaired"/>
         <FinalEffect value="RemoveBeingRepaired"/>
     </CEffectCreateHealer>
+    <CEffectDamage id="Psythe">
+        <Amount value="16"/>
+    </CEffectDamage>
+    <CEffectSet id="UmbraShadowCannonSet2">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="ShadowCannonImpact"/>
+        <EffectArray value="UmbraShadowCannonAOE"/>
+    </CEffectSet>
     <CEffectDamage id="RepulsorSuppressionCannonsDamage">
         <ArmorReduction value="0"/>
         <Amount value="27"/>
+    </CEffectDamage>
+    <CEffectDamage id="ShadowCannonImpact">
+        <AttributeBonus index="Armored" value="0"/>
+        <Amount value="30"/>
     </CEffectDamage>
     <CEffectSwitch id="TrackGenetronPowerSupplyEnergySwitch">
         <CaseArray Validator="CasterIsZHCC" Effect="TrackGenetronPowerSupplyProcessingCoreAB"/>

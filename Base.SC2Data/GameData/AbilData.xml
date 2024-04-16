@@ -80,6 +80,10 @@
             <Resource index="Vespene" value="750"/>
             <Button DefaultButtonFace="ChooseRain" Requirements="stoptherain"/>
         </InfoArray>
+        <InfoArray index="Research8" Time="15" Upgrade="EmpowerShadowCannon">
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="EmpoweredShadowCannon" Requirements="UnlockUmbraShadowCannonRequirement"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilTrain id="TombstoneTrain">
         <EditorCategories value="AbilityorEffectType:Units"/>

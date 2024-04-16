@@ -70,6 +70,11 @@
         <Compare value="GT"/>
         <Vital value="Shields"/>
     </CValidatorUnitCompareVital>
+    <CValidatorPlayerRequirement id="UmbraShadowCannonResearchCompleted">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="HaveUmbraShadowCannons"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="TitanLE50Perc">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>

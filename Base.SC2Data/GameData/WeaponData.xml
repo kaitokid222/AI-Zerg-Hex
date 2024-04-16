@@ -64,6 +64,10 @@
     <CWeaponLegacy id="MassiveSporeAG">
         <Range value="4.5"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="Psythe">
+        <Range value="2"/>
+        <Period value="0.5"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PunisherGrenades2">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -74,6 +78,9 @@
         <DamagePoint value="0"/>
         <Backswing value="0"/>
         <Effect value="PunisherGrenadesLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShadowCannon">
+        <Period value="0.6"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="StratumMissilePod">
         <MinScanRange value="8.5"/>

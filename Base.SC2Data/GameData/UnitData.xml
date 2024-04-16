@@ -71,13 +71,13 @@
     </CUnit>
     <CUnit id="Inducer">
         <Food value="0"/>
-        <CostResource index="Minerals" value="240"/>
-        <CostResource index="Vespene" value="40"/>
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="80"/>
         <Attributes index="Massive" value="0"/>
     </CUnit>
     <CUnit id="Pariah">
         <Food value="0"/>
-        <CostResource index="Minerals" value="30"/>
+        <CostResource index="Minerals" value="20"/>
         <LifeStart value="120"/>
         <LifeMax value="120"/>
         <CardLayouts index="0">
@@ -127,8 +127,8 @@
             <LayoutButtons Face="MaterializePariah" Type="AbilCmd" AbilCmd="TombstoneTrain,Train1" Row="2" Column="0"/>
             <LayoutButtons Face="MaterializeUmbra" Type="AbilCmd" AbilCmd="TombstoneTrain,Train2" Row="2" Column="1"/>
             <LayoutButtons Face="MaterializeInducer" Type="AbilCmd" AbilCmd="TombstoneTrain,Train3" Row="2" Column="2"/>
-            <LayoutButtons Face="UnlockPariah" Type="AbilCmd" AbilCmd="TombstoneResearch,Research4" Row="1" Column="1"/>
             <LayoutButtons Face="UnlockUmbra" Type="AbilCmd" AbilCmd="TombstoneResearch,Research5" Row="1" Column="1"/>
+            <LayoutButtons Face="EmpoweredShadowCannon" Type="AbilCmd" AbilCmd="TombstoneResearch,Research8" Row="1" Column="1"/>
             <LayoutButtons Face="UnlockInducer" Type="AbilCmd" AbilCmd="TombstoneResearch,Research6" Row="1" Column="2"/>
             <LayoutButtons Face="MineralMining" Type="AbilCmd" AbilCmd="TombstoneResearch,Research3" Row="1" Column="3"/>
             <LayoutButtons Face="StoptheRain" Type="AbilCmd" AbilCmd="TombstoneResearch,Research7" Row="0" Column="4"/>
@@ -4682,11 +4682,13 @@
     <CUnit id="Umbra">
         <Food value="0"/>
         <CostResource index="Minerals" value="30"/>
-        <CostResource index="Vespene" value="20"/>
+        <CostResource index="Vespene" value="50"/>
         <CardLayouts index="0">
             <LayoutButtons index="10" Face="Unfuse" AbilCmd="FuseUnfuse,Execute" Row="1" Column="4"/>
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
+        <ShieldsStart value="200"/>
+        <ShieldsMax value="200"/>
     </CUnit>
     <CUnit id="Uploader">
         <FlagArray index="AlwaysThreatens" value="1"/>

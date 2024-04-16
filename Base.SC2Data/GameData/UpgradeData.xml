@@ -396,6 +396,7 @@
     <CUpgrade id="UnlockInducer"/>
     <CUpgrade id="UnlockUmbra"/>
     <CUpgrade id="EnableMineralProduction"/>
+    <CUpgrade id="EmpowerShadowCannon"/>
     <CUpgrade id="UnstableCore">
         <EffectArray Operation="Set" Reference="Unit,Mechaling,EffectArray[Death]" Value="MechalingUnstableCoreExplode"/>
     </CUpgrade>
