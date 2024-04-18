@@ -4019,9 +4019,10 @@
         <EnergyStart value="100"/>
         <EnergyMax value="100"/>
         <EnergyRegenRate value="6"/>
-        <AbilArray Link="TransferEnergyBattery"/>
+        <AbilArray Link="TransferEnergyMedivac"/>
         <BehaviorArray Link="EnergyBattery"/>
         <Speed value="4.5"/>
+        <Food value="0"/>
     </CUnit>
     <CUnit id="MeleeMinionHell">
         <DeathRevealRadius value="3"/>
@@ -6802,7 +6803,6 @@
         <EnergyMax value="0"/>
         <EnergyRegenRate value="0"/>
         <Speed value="5"/>
-        <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
         <AbilArray index="0" Link="stop"/>

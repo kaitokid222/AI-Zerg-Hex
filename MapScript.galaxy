@@ -1216,6 +1216,7 @@ int gv_tbp_zterran_vote_result;
 int gv_tbp_extra_vote_dialog_zterran_vote_yes;
 int gv_tbp_extra_vote_dialog_zterran_vote_no;
 int[7] gv_tbp_torment_votes;
+int gv_tbp_toplist_frame_dialog;
 int gv_ic_unit_count;
 
 void InitGlobals () {
@@ -1383,6 +1384,7 @@ void InitGlobals () {
     gv_tbp_extra_vote_dialog_mutator_vote_no = c_invalidDialogControlId;
     gv_tbp_extra_vote_dialog_zterran_vote_yes = c_invalidDialogControlId;
     gv_tbp_extra_vote_dialog_zterran_vote_no = c_invalidDialogControlId;
+    gv_tbp_toplist_frame_dialog = c_invalidDialogId;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -10783,15 +10785,15 @@ fixed gf_get_elo_difficulty (int lp_player) {
     lv_elo = gv_players[lp_player].lv_elo;
 
     // Implementation
-    if ((lv_elo < 1000)) {
+    if ((lv_elo < 1200)) {
         lv_result = 1.0;
     }
 
-    if ((lv_elo >= 1000) && (lv_elo < 1200)) {
+    if ((lv_elo >= 1200) && (lv_elo < 1400)) {
         lv_result = 2.0;
     }
 
-    if ((lv_elo >= 1200) && (lv_elo < 1400)) {
+    if ((lv_elo >= 1400) && (lv_elo < 1600)) {
         lv_result = 3.0;
     }
 
@@ -10799,39 +10801,39 @@ fixed gf_get_elo_difficulty (int lp_player) {
         lv_result = 4.0;
     }
 
-    if ((lv_elo >= 1600) && (lv_elo < 1800)) {
+    if ((lv_elo >= 1800) && (lv_elo < 2000)) {
         lv_result = 5.0;
     }
 
-    if ((lv_elo >= 1800) && (lv_elo < 2000)) {
+    if ((lv_elo >= 2000) && (lv_elo < 2200)) {
         lv_result = 6.0;
     }
 
-    if ((lv_elo >= 2000) && (lv_elo < 2200)) {
+    if ((lv_elo >= 2200) && (lv_elo < 2400)) {
         lv_result = 7.0;
     }
 
-    if ((lv_elo >= 2200) && (lv_elo < 2400)) {
+    if ((lv_elo >= 2400) && (lv_elo < 2600)) {
         lv_result = 8.0;
     }
 
-    if ((lv_elo >= 2400) && (lv_elo < 2600)) {
+    if ((lv_elo >= 2600) && (lv_elo < 2800)) {
         lv_result = 8.2;
     }
 
-    if ((lv_elo >= 2600) && (lv_elo < 2800)) {
+    if ((lv_elo >= 2800) && (lv_elo < 3000)) {
         lv_result = 8.4;
     }
 
-    if ((lv_elo >= 2800) && (lv_elo < 3000)) {
+    if ((lv_elo >= 3000) && (lv_elo < 3200)) {
         lv_result = 8.6;
     }
 
-    if ((lv_elo >= 3000) && (lv_elo < 3200)) {
+    if ((lv_elo >= 3200) && (lv_elo < 3400)) {
         lv_result = 8.8;
     }
 
-    if ((lv_elo >= 3200)) {
+    if ((lv_elo >= 4000)) {
         lv_result = 9.0;
     }
 
@@ -19121,38 +19123,33 @@ void gf_upgrade_start_spawners () {
 
     // Implementation
     if ((gv_upgrade_sets_left > 0)) {
-        if ((gf_is_3v3() == true)) {
-            gf_update_start_spawners_3v3();
+        while (true) {
+            lv_position = gv_players[gf_ai_get_random_player()].lv_position;
+            if ((gv_early_upgraded_positions[1] != lv_position) && (gv_early_upgraded_positions[2] != lv_position)) {
+                break;
+            }
+
+        }
+        auto27915776_g = UnitGroup(null, 7, RegionFromName(("spawner player zerg " + IntToString(lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 4);
+        auto27915776_u = UnitGroupCount(auto27915776_g, c_unitCountAll);
+        for (;; auto27915776_u -= 1) {
+            auto27915776_var = UnitGroupUnitFromEnd(auto27915776_g, auto27915776_u);
+            if (auto27915776_var == null) { break; }
+            if ((UnitHasBehavior2(auto27915776_var, "SpawnerUpgraded") == false) && (libNtve_gf_UnitIsUnderConstruction(auto27915776_var) == false) && ((UnitGetType(auto27915776_var) == "CreeperSpawner") || (UnitGetType(auto27915776_var) == "SlowlingSpawner"))) {
+                UnitCreateEffectUnit(auto27915776_var, "SpawnerUpgradeUpgradeSet2", auto27915776_var);
+                PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperSubtract, 40);
+            }
+
+        }
+        gv_upgrade_sets_left -= 1;
+        if ((gv_early_upgraded_positions[1] == 0) && (gv_early_upgraded_positions[2] == 0)) {
+            gv_early_upgraded_positions[1] = lv_position;
         }
         else {
-            while (true) {
-                lv_position = gv_players[gf_ai_get_random_player()].lv_position;
-                if ((gv_early_upgraded_positions[1] != lv_position) && (gv_early_upgraded_positions[2] != lv_position)) {
-                    break;
-                }
+            if ((gv_early_upgraded_positions[1] != 0) && (gv_early_upgraded_positions[2] == 0)) {
+                gv_early_upgraded_positions[2] = lv_position;
+            }
 
-            }
-            auto27915776_g = UnitGroup(null, 7, RegionFromName(("spawner player zerg " + IntToString(lv_position))), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 4);
-            auto27915776_u = UnitGroupCount(auto27915776_g, c_unitCountAll);
-            for (;; auto27915776_u -= 1) {
-                auto27915776_var = UnitGroupUnitFromEnd(auto27915776_g, auto27915776_u);
-                if (auto27915776_var == null) { break; }
-                if ((UnitHasBehavior2(auto27915776_var, "SpawnerUpgraded") == false) && (libNtve_gf_UnitIsUnderConstruction(auto27915776_var) == false) && ((UnitGetType(auto27915776_var) == "CreeperSpawner") || (UnitGetType(auto27915776_var) == "SlowlingSpawner"))) {
-                    UnitCreateEffectUnit(auto27915776_var, "SpawnerUpgradeUpgradeSet2", auto27915776_var);
-                    PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperSubtract, 40);
-                }
-
-            }
-            gv_upgrade_sets_left -= 1;
-            if ((gv_early_upgraded_positions[1] == 0) && (gv_early_upgraded_positions[2] == 0)) {
-                gv_early_upgraded_positions[1] = lv_position;
-            }
-            else {
-                if ((gv_early_upgraded_positions[1] != 0) && (gv_early_upgraded_positions[2] == 0)) {
-                    gv_early_upgraded_positions[2] = lv_position;
-                }
-
-            }
         }
     }
 
@@ -20706,7 +20703,7 @@ bool gf_is_unit_broken (unit lp_u) {
     if ((UnitAbilityExists(lp_u, "move") == true) && (UnitAbilityExists(lp_u, "attack") == true)) {
     }
     else {
-        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg") && (UnitGetType(lp_u) != "Defender") && (UnitGetType(lp_u) != "Builder") && (UnitGetType(lp_u) != "ACR") && (UnitGetType(lp_u) != "InfestedBuilder") && (UnitGetType(lp_u) != "Battery") && (UnitGetType(lp_u) != "AdvancedBattery") && (UnitGetType(lp_u) != "AdvancedBatteryPylon") && (UnitGetType(lp_u) != "HighDensityBattery") && (UnitGetType(lp_u) != "GasTrader") && (UnitGetType(lp_u) != "MineralTrader") && (UnitGetType(lp_u) != "Probe") && (UnitGetType(lp_u) != "FirebatZergHexOld") && (UnitGetType(lp_u) != "ChaosSlave") && (UnitGetType(lp_u) != "Probius") && (UnitGetType(lp_u) != "SiegeTank2") && (UnitGetType(lp_u) != "SiegeTank22") && (UnitGetType(lp_u) != "SiegeTankSieged2") && (UnitGetType(lp_u) != "SiegeTankSieged22") && (UnitGetType(lp_u) != "LoveMorales") && (UnitGetType(lp_u) != "Scion_Processor") && (UnitGetType(lp_u) != "Scion_ProcessorStatic") && (UnitGetType(lp_u) != "Fixer") && (UnitGetType(lp_u) != "Umbra")) {
+        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg") && (UnitGetType(lp_u) != "Defender") && (UnitGetType(lp_u) != "Builder") && (UnitGetType(lp_u) != "ACR") && (UnitGetType(lp_u) != "InfestedBuilder") && (UnitGetType(lp_u) != "Battery") && (UnitGetType(lp_u) != "AdvancedBattery") && (UnitGetType(lp_u) != "AdvancedBatteryPylon") && (UnitGetType(lp_u) != "HighDensityBattery") && (UnitGetType(lp_u) != "GasTrader") && (UnitGetType(lp_u) != "MineralTrader") && (UnitGetType(lp_u) != "Probe") && (UnitGetType(lp_u) != "FirebatZergHexOld") && (UnitGetType(lp_u) != "ChaosSlave") && (UnitGetType(lp_u) != "Probius") && (UnitGetType(lp_u) != "SiegeTank2") && (UnitGetType(lp_u) != "SiegeTank22") && (UnitGetType(lp_u) != "SiegeTankSieged2") && (UnitGetType(lp_u) != "SiegeTankSieged22") && (UnitGetType(lp_u) != "LoveMorales") && (UnitGetType(lp_u) != "Scion_Processor") && (UnitGetType(lp_u) != "Scion_ProcessorStatic") && (UnitGetType(lp_u) != "Fixer") && (UnitGetType(lp_u) != "Umbra") && (UnitGetType(lp_u) != "Fruit") && (UnitGetType(lp_u) != "Sheep2") && (UnitGetType(lp_u) != "Cow2") && (UnitGetType(lp_u) != "Buggo") && (UnitGetType(lp_u) != "Oggub") && (UnitGetType(lp_u) != "SpaceBalls")) {
             lv_r = true;
         }
 
@@ -28673,7 +28670,7 @@ bool gt_useidleunits_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "BanelingZergHex") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2")))) {
+        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "BanelingZergHex") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk")))) {
             return false;
         }
     }
@@ -29222,79 +29219,75 @@ bool gt_Feedidleinfestorsevery21s_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gf_is_pvp() == true)) {
-    }
-    else {
-        if ((UnitGroupCount(gv_feeding_infestors, c_unitCountAlive) > 0)) {
-            auto748CCE6B_g = gv_feeding_infestors;
-            auto748CCE6B_u = UnitGroupCount(auto748CCE6B_g, c_unitCountAll);
-            for (;; auto748CCE6B_u -= 1) {
-                auto748CCE6B_var = UnitGroupUnitFromEnd(auto748CCE6B_g, auto748CCE6B_u);
-                if (auto748CCE6B_var == null) { break; }
-                if ((UnitGetPropertyFixed(auto748CCE6B_var, c_unitPropEnergy, c_unitPropCurrent) >= 850.0)) {
-                    gf_send_infestor_home(auto748CCE6B_var, lv_np);
-                }
-
+    if ((UnitGroupCount(gv_feeding_infestors, c_unitCountAlive) > 0)) {
+        auto748CCE6B_g = gv_feeding_infestors;
+        auto748CCE6B_u = UnitGroupCount(auto748CCE6B_g, c_unitCountAll);
+        for (;; auto748CCE6B_u -= 1) {
+            auto748CCE6B_var = UnitGroupUnitFromEnd(auto748CCE6B_g, auto748CCE6B_u);
+            if (auto748CCE6B_var == null) { break; }
+            if ((UnitGetPropertyFixed(auto748CCE6B_var, c_unitPropEnergy, c_unitPropCurrent) >= 850.0)) {
+                gf_send_infestor_home(auto748CCE6B_var, lv_np);
             }
+
         }
+    }
 
-        while ((lv_i <= 12)) {
-            lv_infestors = UnitGroupEmpty();
-            if ((gv_infestors[lv_i].lv_spine != null)) {
-                if ((UnitGroupCount(gv_infestors[lv_i].lv_unit_group, c_unitCountAlive) > 1)) {
-                    auto156AEDC5_g = gv_infestors[lv_i].lv_unit_group;
-                    auto156AEDC5_u = UnitGroupCount(auto156AEDC5_g, c_unitCountAll);
-                    for (;; auto156AEDC5_u -= 1) {
-                        auto156AEDC5_var = UnitGroupUnitFromEnd(auto156AEDC5_g, auto156AEDC5_u);
-                        if (auto156AEDC5_var == null) { break; }
-                        if ((UnitGetPropertyFixed(auto156AEDC5_var, c_unitPropLife, c_unitPropCurrent) >= 180.0) && (UnitGetPropertyFixed(auto156AEDC5_var, c_unitPropEnergy, c_unitPropCurrent) < 400.0) && (UnitOrderCount(auto156AEDC5_var) == 0)) {
-                            UnitGroupAdd(lv_infestors, auto156AEDC5_var);
-                        }
-
+    while ((lv_i <= 12)) {
+        lv_infestors = UnitGroupEmpty();
+        if ((gv_infestors[lv_i].lv_spine != null)) {
+            if ((UnitGroupCount(gv_infestors[lv_i].lv_unit_group, c_unitCountAlive) > 1)) {
+                auto156AEDC5_g = gv_infestors[lv_i].lv_unit_group;
+                auto156AEDC5_u = UnitGroupCount(auto156AEDC5_g, c_unitCountAll);
+                for (;; auto156AEDC5_u -= 1) {
+                    auto156AEDC5_var = UnitGroupUnitFromEnd(auto156AEDC5_g, auto156AEDC5_u);
+                    if (auto156AEDC5_var == null) { break; }
+                    if ((UnitGetPropertyFixed(auto156AEDC5_var, c_unitPropLife, c_unitPropCurrent) >= 180.0) && (UnitGetPropertyFixed(auto156AEDC5_var, c_unitPropEnergy, c_unitPropCurrent) < 400.0) && (UnitOrderCount(auto156AEDC5_var) == 0)) {
+                        UnitGroupAdd(lv_infestors, auto156AEDC5_var);
                     }
-                }
 
-                if ((UnitGroupCount(lv_infestors, c_unitCountAlive) > 0)) {
-                    lv_cp = gf_get_closest_alive_player_position(UnitGetPosition(gv_infestors[lv_i].lv_spine));
-                    if ((RandomInt(1, 2) == 1)) {
-                        lv_angle = "Left";
-                        if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
-                        }
-                        else {
-                            lv_angle = "Right";
-                            if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
-                            }
-                            else {
-                                lv_angle = "guarded";
-                            }
-                        }
+                }
+            }
+
+            if ((UnitGroupCount(lv_infestors, c_unitCountAlive) > 0)) {
+                lv_cp = gf_get_closest_alive_player_position(UnitGetPosition(gv_infestors[lv_i].lv_spine));
+                if ((RandomInt(1, 2) == 1)) {
+                    lv_angle = "Left";
+                    if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
                     }
                     else {
                         lv_angle = "Right";
                         if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
                         }
                         else {
-                            lv_angle = "Left";
-                            if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
-                            }
-                            else {
-                                lv_angle = "guarded";
-                            }
+                            lv_angle = "guarded";
                         }
                     }
-                    if ((lv_angle != "guarded")) {
-                        UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp)))))), c_orderQueueReplace);
-                        UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp)))))), c_orderQueueAddToEnd);
-                        UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_cp)))), c_orderQueueAddToEnd);
-                        UnitGroupAddUnitGroup(gv_feeding_infestors, lv_infestors);
+                }
+                else {
+                    lv_angle = "Right";
+                    if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
                     }
-
+                    else {
+                        lv_angle = "Left";
+                        if ((UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (UnitGroupCount(UnitGroup("Italis", c_playerAny, RegionCircle(PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp))))), 12.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
+                        }
+                        else {
+                            lv_angle = "guarded";
+                        }
+                    }
+                }
+                if ((lv_angle != "guarded")) {
+                    UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally " + (lv_angle + (" Pre " + IntToString(lv_cp)))))), c_orderQueueReplace);
+                    UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally " + (lv_angle + (" " + IntToString(lv_cp)))))), c_orderQueueAddToEnd);
+                    UnitGroupIssueOrder(lv_infestors, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(lv_cp)))), c_orderQueueAddToEnd);
+                    UnitGroupAddUnitGroup(gv_feeding_infestors, lv_infestors);
                 }
 
             }
 
-            lv_i += 1;
         }
+
+        lv_i += 1;
     }
     return true;
 }
@@ -30811,6 +30804,7 @@ bool gt_Infestordied_Func (bool testConds, bool runActions) {
     }
 
     gv_infestor_dead_count += 1;
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/2DC7F79B") + IntToText(gv_infestor_dead_count)));
     return true;
 }
 
@@ -30946,6 +30940,11 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 200, StringExternal("Param/Value/94B4C808"), ColorWithAlpha(0,0,0,0), false, 2.0);
     gv_tbp_extra_vote_dialog = DialogLastCreated();
     DialogSetVisible(gv_tbp_extra_vote_dialog, PlayerGroupAll(), true);
+    DialogCreate(600, 150, c_anchorTopLeft, 1320, 100, true);
+    DialogSetTitle(DialogLastCreated(), (StringExternal("Param/Value/6447C871") + StringToText(gf_get_difficulty_label())));
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 550, 60, c_anchorTopLeft, 50, 80, StringExternal("Param/Value/D56FD7AB"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    gv_tbp_toplist_frame_dialog = DialogLastCreated();
+    DialogSetVisible(gv_tbp_toplist_frame_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
@@ -30958,6 +30957,7 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     DialogDestroy(gv_tbp_dialog);
     DialogDestroy(gv_tbp_dialog_info);
     DialogDestroy(gv_tbp_extra_vote_dialog);
+    DialogDestroy(gv_tbp_toplist_frame_dialog);
     UnitPauseAll(false);
     libNtve_gf_HideGameUI(true, PlayerGroupAll());
     auto8606355D_g = lv_players;
@@ -31333,15 +31333,12 @@ bool gt_everyfiveseconds_Func (bool testConds, bool runActions) {
     }
 
     gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
-    if ((gf_is_3v3() == false)) {
-        if ((gv_cloud_cd == 1)) {
-            gv_cloud_cd = 0;
-        }
+    if ((gv_cloud_cd == 1)) {
+        gv_cloud_cd = 0;
+    }
 
-        if ((gv_hydra_action_cooldown == true)) {
-            gv_hydra_action_cooldown = false;
-        }
-
+    if ((gv_hydra_action_cooldown == true)) {
+        gv_hydra_action_cooldown = false;
     }
 
     if ((gv_difficulty > 1) && (gv_armor_level > 0) && (gv_dead_creep_count > 0) && (gf_get_drone() != null)) {

@@ -179,6 +179,7 @@ Abil/EditorSuffix/TrainTradersCasual=- Casual
 Abil/EditorSuffix/TransferEnergyBattery=(Battery)
 Abil/EditorSuffix/TransferEnergyBatteryUser=(Battery>User)
 Abil/EditorSuffix/TransferEnergyGenerator=(Generator)
+Abil/EditorSuffix/TransferEnergyMedivac=(Medivac)
 Abil/EditorSuffix/TransferEnergyPylon=(Static Pylon)
 Abil/EditorSuffix/Unsiege2=(Edit)
 Abil/EditorSuffix/Unsiege22=(Edit) OLD

@@ -602,6 +602,50 @@
         </InfoArray>
         <Alert value="NoAlert"/>
     </CAbilTrain>
+    <CAbilEffectTarget id="TransferEnergyMedivac">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DataCollection value="heal"/>
+        <Effect index="0" value="TransferEnergyBatterySet"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <Cost>
+            <Charge Link="Abil/EnergyDisperse"/>
+            <Cooldown Link="Abil/EnergyDisperse"/>
+        </Cost>
+        <InterruptCost>
+            <Charge Link="Abil/heal"/>
+            <Cooldown Link="Abil/heal"/>
+        </InterruptCost>
+        <TargetFilters value="-;Self,Neutral,Enemy,Structure"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSEnergyFraction"/>
+        </TargetSorts>
+        <Range value="6"/>
+        <SmartValidatorArray value="TargetEnergyNotFull"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;Neutral,Enemy"/>
+        <AutoCastRange value="8"/>
+        <AutoCastValidatorArray value="CasterHasEnergy"/>
+        <AutoCastValidatorArray value="EnergyTransferAutocast"/>
+        <AutoCastValidatorArray value="TargetEnergyNotFull"/>
+        <Marker Link="Abil/MedivacHeal"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <UseMarkerArray index="Cast" value="0"/>
+        <UseMarkerArray index="Channel" value="0"/>
+        <AINotifyEffect value="heal"/>
+        <DefaultError value="MustTargetUnitWithEnergy"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="EnergyTransfer"/>
+        <AcquireAttackers value="1"/>
+        <FollowRange value="1.5"/>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="UpgradeGasVent">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="UpgradeGasVentSet"/>
