@@ -1175,6 +1175,8 @@ int gv_armor_level;
 int gv_supply_upgrades;
 bool gv_is_setup_phase;
 int gv_infestor_dead_count;
+bool gv_mass_infestor_death_exception;
+int gv_mass_infestor_death_exception_cooldown;
 unitgroup gv_prefuse_infestors;
 unitgroup gv_prefuse_infestors_nests;
 point[5] gv_prefuse_infestors_nests_coords;
@@ -1792,8 +1794,11 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+bool gf_check_infestor_dead_directive_override ();
 void gf_try_prefuse_handler ();
 void gf_cleanup_prefuse_infestor_group ();
+void gf_inject_extra_nest_positions ();
+void gf_recruit_defensive_hg_hydras ();
 void gf_Init_Player_Toplists ();
 void gf_Generate_Toplist ();
 text gf_generate_name_string_text ();
@@ -13252,7 +13257,7 @@ bool gf_is_area_around_point_save_nest (point lp_position) {
     for (;; auto0132F01A_u -= 1) {
         auto0132F01A_var = UnitGroupUnitFromEnd(auto0132F01A_g, auto0132F01A_u);
         if (auto0132F01A_var == null) { break; }
-        if (((UnitGetOwner(auto0132F01A_var) == 7) || (UnitGetOwner(auto0132F01A_var) == 0) || ((UnitGetType(auto0132F01A_var) == "Buggo") || (UnitGetType(auto0132F01A_var) == "Builder") || (UnitGetType(auto0132F01A_var) == "Battery") || (UnitGetType(auto0132F01A_var) == "AdvancedBattery") || (UnitGetType(auto0132F01A_var) == "HighDensityBattery") || (UnitGetType(auto0132F01A_var) == "ImmortalShakurasStasisCannonMissile")))) {
+        if (((UnitGetOwner(auto0132F01A_var) == 7) || (UnitGetOwner(auto0132F01A_var) == 0) || ((UnitGetType(auto0132F01A_var) == "Buggo") || (UnitGetType(auto0132F01A_var) == "Oggub") || (UnitGetType(auto0132F01A_var) == "Builder") || (UnitGetType(auto0132F01A_var) == "InfestedBuilder") || (UnitGetType(auto0132F01A_var) == "Battery") || (UnitGetType(auto0132F01A_var) == "AdvancedBattery") || (UnitGetType(auto0132F01A_var) == "HighDensityBattery") || (UnitGetType(auto0132F01A_var) == "ImmortalShakurasStasisCannonMissile")))) {
             UnitGroupRemove(lv_group, auto0132F01A_var);
         }
 
@@ -15445,11 +15450,11 @@ void gf_try_buy_hydras () {
 
     // Implementation
     if ((gv_difficulty > 2)) {
-        lv_payback += 50;
+        lv_payback += 10;
     }
 
     if ((gv_difficulty > 4)) {
-        lv_payback += 60;
+        lv_payback += 10;
     }
 
     if ((gv_difficulty > 6)) {
@@ -15850,87 +15855,90 @@ void gf_get_infestors () {
     lv_time = GameGetMissionTime();
 
     // Implementation
-    if ((gv_difficulty >= 3)) {
-        if ((gv_difficulty >= 5)) {
-            if ((gv_difficulty >= 7)) {
-                if ((gv_difficulty >= 10)) {
-                    lv_ncnt = 7;
+    if ((gv_mass_infestor_death_exception == false)) {
+        if ((gv_difficulty >= 3)) {
+            if ((gv_difficulty >= 5)) {
+                if ((gv_difficulty >= 7)) {
+                    if ((gv_difficulty >= 10)) {
+                        lv_ncnt = 7;
+                    }
+                    else {
+                        lv_ncnt = 5;
+                    }
                 }
                 else {
-                    lv_ncnt = 5;
+                    lv_ncnt = 3;
                 }
             }
             else {
-                lv_ncnt = 3;
+                lv_ncnt = 2;
             }
         }
         else {
-            lv_ncnt = 2;
+            lv_ncnt = 1;
         }
-    }
-    else {
-        lv_ncnt = 1;
-    }
-    if ((lv_time <= (11 * 60)) && (lv_ncnt < 1)) {
-        lv_ncnt = 1;
-    }
+        if ((lv_time <= (11 * 60)) && (lv_ncnt < 1)) {
+            lv_ncnt = 1;
+        }
 
-    while ((lv_i <= 12)) {
-        lv_p = PointFromName(("Infestors " + IntToString(lv_i)));
-        lv_cnt = UnitGroupCount(gv_infestors[lv_i].lv_unit_group, c_unitCountAlive);
-        if ((gv_infestors[lv_i].lv_spine != null)) {
-            if ((lv_cnt < lv_ncnt)) {
-                lv_extra_infestor_count = UnitGroupCount(gv_extra_infestors, c_unitCountAlive);
-                if ((lv_extra_infestor_count > 1)) {
-                    gf_add_infestors_to_local_group(lv_i);
-                }
-                else {
-                    if ((gv_is_crazyminions == true)) {
-                        lv_n_group = UnitGroup("Hellfort", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        while ((lv_i <= 12)) {
+            lv_p = PointFromName(("Infestors " + IntToString(lv_i)));
+            lv_cnt = UnitGroupCount(gv_infestors[lv_i].lv_unit_group, c_unitCountAlive);
+            if ((gv_infestors[lv_i].lv_spine != null)) {
+                if ((lv_cnt < lv_ncnt)) {
+                    lv_extra_infestor_count = UnitGroupCount(gv_extra_infestors, c_unitCountAlive);
+                    if ((lv_extra_infestor_count > 1)) {
+                        gf_add_infestors_to_local_group(lv_i);
+                    }
+                    else {
+                        if ((gv_is_crazyminions == true)) {
+                            lv_n_group = UnitGroup("Hellfort", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                            UnitGroupAddUnitGroup(lv_n_group_all, lv_n_group);
+                        }
+
+                        lv_n_group = UnitGroupEmpty();
+                        lv_n_group = UnitGroup("Nest2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
                         UnitGroupAddUnitGroup(lv_n_group_all, lv_n_group);
-                    }
+                        autoAD5C2F0D_g = lv_n_group_all;
+                        autoAD5C2F0D_u = UnitGroupCount(autoAD5C2F0D_g, c_unitCountAll);
+                        for (;; autoAD5C2F0D_u -= 1) {
+                            autoAD5C2F0D_var = UnitGroupUnitFromEnd(autoAD5C2F0D_g, autoAD5C2F0D_u);
+                            if (autoAD5C2F0D_var == null) { break; }
+                            if ((UnitOrderCount(autoAD5C2F0D_var) > 0)) {
+                                UnitGroupRemove(lv_n_group_all, autoAD5C2F0D_var);
+                            }
 
-                    lv_n_group = UnitGroupEmpty();
-                    lv_n_group = UnitGroup("Nest2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-                    UnitGroupAddUnitGroup(lv_n_group_all, lv_n_group);
-                    autoAD5C2F0D_g = lv_n_group_all;
-                    autoAD5C2F0D_u = UnitGroupCount(autoAD5C2F0D_g, c_unitCountAll);
-                    for (;; autoAD5C2F0D_u -= 1) {
-                        autoAD5C2F0D_var = UnitGroupUnitFromEnd(autoAD5C2F0D_g, autoAD5C2F0D_u);
-                        if (autoAD5C2F0D_var == null) { break; }
-                        if ((UnitOrderCount(autoAD5C2F0D_var) > 0)) {
-                            UnitGroupRemove(lv_n_group_all, autoAD5C2F0D_var);
                         }
-
-                    }
-                    if ((UnitGroupCount(lv_n_group_all, c_unitCountAlive) > 0)) {
-                        lv_n = UnitGroupClosestToPoint(lv_n_group_all, lv_p);
-                        if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 150)) {
-                            UnitIssueOrder(lv_n, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_p), c_orderQueueReplace);
-                            UnitIssueOrder(lv_n, Order(AbilityCommand("ZergTrain", 5)), c_orderQueueAddToEnd);
-                        }
-                        else {
-                            if ((gv_difficulty >= 3)) {
-                                if ((gv_difficulty >= 7)) {
-                                    PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 140);
-                                }
-                                else {
-                                    PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 75);
-                                }
+                        if ((UnitGroupCount(lv_n_group_all, c_unitCountAlive) > 0)) {
+                            lv_n = UnitGroupClosestToPoint(lv_n_group_all, lv_p);
+                            if ((PlayerGetPropertyInt(7, c_playerPropMinerals) > 50)) {
+                                UnitIssueOrder(lv_n, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_p), c_orderQueueReplace);
+                                UnitIssueOrder(lv_n, Order(AbilityCommand("ZergTrain", 5)), c_orderQueueAddToEnd);
                             }
                             else {
-                                PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 20);
+                                if ((gv_difficulty >= 3)) {
+                                    if ((gv_difficulty >= 7)) {
+                                        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 50);
+                                    }
+                                    else {
+                                        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 35);
+                                    }
+                                }
+                                else {
+                                    PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 20);
+                                }
                             }
                         }
-                    }
 
+                    }
                 }
+
             }
 
+            lv_i += 1;
         }
-
-        lv_i += 1;
     }
+
 }
 
 int gf_get_infestor_group_i (point lp_position) {
@@ -16477,13 +16485,13 @@ bool gf_is_area_around_point_safe (point lp_position) {
     lv_group = UnitGroupEmpty();
 
     // Implementation
-    lv_group = UnitGroup(null, c_playerAny, RegionCircle(lp_position, 15.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    lv_group = UnitGroup(null, c_playerAny, RegionCircle(lp_position, 14.5), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto2F85FE41_g = lv_group;
     auto2F85FE41_u = UnitGroupCount(auto2F85FE41_g, c_unitCountAll);
     for (;; auto2F85FE41_u -= 1) {
         auto2F85FE41_var = UnitGroupUnitFromEnd(auto2F85FE41_g, auto2F85FE41_u);
         if (auto2F85FE41_var == null) { break; }
-        if (((UnitGetOwner(auto2F85FE41_var) >= 7) || (UnitGetOwner(auto2F85FE41_var) == 0) || ((UnitGetType(auto2F85FE41_var) == "Buggo") || (UnitGetType(auto2F85FE41_var) == "Builder") || (UnitGetType(auto2F85FE41_var) == "Battery") || (UnitGetType(auto2F85FE41_var) == "AdvancedBattery") || (UnitGetType(auto2F85FE41_var) == "ImmortalShakurasStasisCannonMissile")))) {
+        if (((UnitGetOwner(auto2F85FE41_var) >= 7) || (UnitGetOwner(auto2F85FE41_var) == 0) || ((UnitGetType(auto2F85FE41_var) == "Buggo") || (UnitGetType(auto2F85FE41_var) == "Oggub") || (UnitGetType(auto2F85FE41_var) == "Builder") || (UnitGetType(auto2F85FE41_var) == "InfestedBuilder") || (UnitGetType(auto2F85FE41_var) == "Battery") || (UnitGetType(auto2F85FE41_var) == "AdvancedBattery") || (UnitGetType(auto2F85FE41_var) == "HighDensityBattery") || (UnitGetType(auto2F85FE41_var) == "ImmortalShakurasStasisCannonMissile")))) {
             UnitGroupRemove(lv_group, auto2F85FE41_var);
         }
 
@@ -19891,6 +19899,22 @@ void gf_get_unit_upgrades () {
 
 }
 
+bool gf_check_infestor_dead_directive_override () {
+    // Variable Declarations
+    bool lv_return;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gv_infestor_dead_count >= 10)) {
+        gv_mass_infestor_death_exception_cooldown = 2;
+        lv_return = true;
+    }
+
+    return lv_return;
+}
+
 void gf_try_prefuse_handler () {
     // Automatic Variable Declarations
     unitgroup autoB404B500_g;
@@ -19928,6 +19952,65 @@ void gf_cleanup_prefuse_infestor_group () {
         }
 
     }
+}
+
+void gf_inject_extra_nest_positions () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 4)) {
+        gv_dead_creep_count += 1;
+        gv_dead_creep[gv_dead_creep_count].lv_position = gv_prefuse_infestors_nests_coords[lv_i];
+        gv_dead_creep[gv_dead_creep_count].lv_unit_type = "Nest2";
+        lv_i += 1;
+    }
+}
+
+void gf_recruit_defensive_hg_hydras () {
+    // Variable Declarations
+    int lv_payback;
+
+    // Automatic Variable Declarations
+    unitgroup auto2A219317_g;
+    int auto2A219317_u;
+    unit auto2A219317_var;
+
+    // Variable Initialization
+    lv_payback = 10;
+
+    // Implementation
+    if ((gv_difficulty > 2)) {
+        lv_payback += 10;
+    }
+
+    if ((gv_difficulty > 4)) {
+        lv_payback += 10;
+    }
+
+    if ((gv_difficulty > 6)) {
+        lv_payback += 20;
+    }
+
+    if ((UnitGroupCount(gv_prefuse_infestors_nests, c_unitCountAlive) >= 1)) {
+        auto2A219317_g = gv_prefuse_infestors_nests;
+        auto2A219317_u = UnitGroupCount(auto2A219317_g, c_unitCountAll);
+        for (;; auto2A219317_u -= 1) {
+            auto2A219317_var = UnitGroupUnitFromEnd(auto2A219317_g, auto2A219317_u);
+            if (auto2A219317_var == null) { break; }
+            if ((UnitOrderCount(auto2A219317_var) == 0)) {
+                PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, lv_payback);
+                UnitIssueOrder(auto2A219317_var, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+                UnitIssueOrder(auto2A219317_var, Order(AbilityCommand("ZergTrain", 1)), c_orderQueueAddToEnd);
+            }
+
+        }
+    }
+
 }
 
 void gf_Init_Player_Toplists () {
@@ -20703,7 +20786,7 @@ bool gf_is_unit_broken (unit lp_u) {
     if ((UnitAbilityExists(lp_u, "move") == true) && (UnitAbilityExists(lp_u, "attack") == true)) {
     }
     else {
-        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg") && (UnitGetType(lp_u) != "Defender") && (UnitGetType(lp_u) != "Builder") && (UnitGetType(lp_u) != "ACR") && (UnitGetType(lp_u) != "InfestedBuilder") && (UnitGetType(lp_u) != "Battery") && (UnitGetType(lp_u) != "AdvancedBattery") && (UnitGetType(lp_u) != "AdvancedBatteryPylon") && (UnitGetType(lp_u) != "HighDensityBattery") && (UnitGetType(lp_u) != "GasTrader") && (UnitGetType(lp_u) != "MineralTrader") && (UnitGetType(lp_u) != "Probe") && (UnitGetType(lp_u) != "FirebatZergHexOld") && (UnitGetType(lp_u) != "ChaosSlave") && (UnitGetType(lp_u) != "Probius") && (UnitGetType(lp_u) != "SiegeTank2") && (UnitGetType(lp_u) != "SiegeTank22") && (UnitGetType(lp_u) != "SiegeTankSieged2") && (UnitGetType(lp_u) != "SiegeTankSieged22") && (UnitGetType(lp_u) != "LoveMorales") && (UnitGetType(lp_u) != "Scion_Processor") && (UnitGetType(lp_u) != "Scion_ProcessorStatic") && (UnitGetType(lp_u) != "Fixer") && (UnitGetType(lp_u) != "Umbra") && (UnitGetType(lp_u) != "Fruit") && (UnitGetType(lp_u) != "Sheep2") && (UnitGetType(lp_u) != "Cow2") && (UnitGetType(lp_u) != "Buggo") && (UnitGetType(lp_u) != "Oggub") && (UnitGetType(lp_u) != "SpaceBalls")) {
+        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg") && (UnitGetType(lp_u) != "Defender") && (UnitGetType(lp_u) != "Builder") && (UnitGetType(lp_u) != "ACR") && (UnitGetType(lp_u) != "InfestedBuilder") && (UnitGetType(lp_u) != "Battery") && (UnitGetType(lp_u) != "AdvancedBattery") && (UnitGetType(lp_u) != "AdvancedBatteryPylon") && (UnitGetType(lp_u) != "HighDensityBattery") && (UnitGetType(lp_u) != "GasTrader") && (UnitGetType(lp_u) != "MineralTrader") && (UnitGetType(lp_u) != "Probe") && (UnitGetType(lp_u) != "FirebatZergHexOld") && (UnitGetType(lp_u) != "ChaosSlave") && (UnitGetType(lp_u) != "Probius") && (UnitGetType(lp_u) != "SiegeTank2") && (UnitGetType(lp_u) != "SiegeTank22") && (UnitGetType(lp_u) != "SiegeTankSieged2") && (UnitGetType(lp_u) != "SiegeTankSieged22") && (UnitGetType(lp_u) != "LoveMorales") && (UnitGetType(lp_u) != "Scion_Processor") && (UnitGetType(lp_u) != "Scion_ProcessorStatic") && (UnitGetType(lp_u) != "Fixer") && (UnitGetType(lp_u) != "Umbra") && (UnitGetType(lp_u) != "Fruit") && (UnitGetType(lp_u) != "Sheep2") && (UnitGetType(lp_u) != "Cow2") && (UnitGetType(lp_u) != "Buggo") && (UnitGetType(lp_u) != "Oggub") && (UnitGetType(lp_u) != "SpaceBalls") && (UnitGetType(lp_u) != "IonStorm") && (UnitGetType(lp_u) != "ImmortalShakurasStasisCannonMissile")) {
             lv_r = true;
         }
 
@@ -27611,6 +27694,10 @@ bool gt_creepsourcedied_Func (bool testConds, bool runActions) {
     gv_dead_creep_count += 1;
     gv_dead_creep[gv_dead_creep_count].lv_position = lv_unit_position;
     gv_dead_creep[gv_dead_creep_count].lv_unit_type = lv_type;
+    if ((UnitGroupHasUnit(gv_prefuse_infestors_nests, lv_unit) == true)) {
+        UnitGroupRemove(gv_prefuse_infestors_nests, lv_unit);
+    }
+
     return true;
 }
 
@@ -27654,6 +27741,10 @@ bool gt_creepsourcerebuildstarted_Func (bool testConds, bool runActions) {
     }
 
     gf_rebuild_dead_creep_array(EventUnitProgressUnit());
+    if ((RegionContainsPoint(RegionCircle(PointFromId(1910508930), 10.0), lv_position) == true)) {
+        UnitGroupAdd(gv_prefuse_infestors_nests, EventUnitProgressUnit());
+    }
+
     return true;
 }
 
@@ -28935,7 +29026,7 @@ bool gt_checkhydras_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((GameGetMissionTime() >= gv_hydra_peacetime) && (UnitGroupCount(gv_outer_nests, c_unitCountAlive) > 0) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 150)) {
+    if ((GameGetMissionTime() >= gv_hydra_peacetime) && (UnitGroupCount(gv_outer_nests, c_unitCountAlive) > 0) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 50) && (gv_mass_infestor_death_exception == false)) {
         gf_try_buy_hydras();
     }
 
@@ -30804,7 +30895,6 @@ bool gt_Infestordied_Func (bool testConds, bool runActions) {
     }
 
     gv_infestor_dead_count += 1;
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/2DC7F79B") + IntToText(gv_infestor_dead_count)));
     return true;
 }
 
@@ -31230,6 +31320,10 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
         gf_update_pet_score();
     }
 
+    if ((GameGetMissionTime() == (1 + (17 * 60)))) {
+        gf_inject_extra_nest_positions();
+    }
+
     if ((gv_viper_cloud_cd > 0)) {
         gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
     }
@@ -31506,6 +31600,24 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
 
     gf_update_terrandata();
     gf_run_cash_bonus_check();
+    if ((FixedToInt(GameGetMissionTime()) >= ((60 * 18) + 59)) && (gv_difficulty > 4)) {
+        gf_recruit_defensive_hg_hydras();
+    }
+
+    if ((FixedToInt(GameGetMissionTime()) >= ((60 * 4) + 59))) {
+        gv_mass_infestor_death_exception = gf_check_infestor_dead_directive_override();
+        gv_infestor_dead_count = 0;
+        if ((gv_mass_infestor_death_exception == true)) {
+            if ((gv_mass_infestor_death_exception_cooldown > 0)) {
+                gv_mass_infestor_death_exception_cooldown -= 1;
+            }
+            else {
+                gv_mass_infestor_death_exception = false;
+            }
+        }
+
+    }
+
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 12) + 59))) {
     }
 
@@ -31625,17 +31737,14 @@ bool gt_every15minutes_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gf_is_3v3() == false)) {
-        lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-        lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-        lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-        lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-        lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
-        if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
-            lv_t = gf_get_hive();
-            UnitKill(lv_t);
-        }
-
+    lv_all_structures_count = UnitGroupCount(UnitGroup(null, 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    lv_hive_count = UnitGroupCount(UnitGroup("Hive2", 7, RegionEntireMap(), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    lv_hg_spine_count = UnitGroupCount(UnitGroup("LargeSpineCrawler", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    lv_spire_count = UnitGroupCount(UnitGroup("MineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    lv_spire_count = (lv_spire_count + UnitGroupCount(UnitGroup("GreaterMineralExtractor", 7, RegionFromId(1), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
+    if ((lv_hive_count == 1) && (lv_hg_spine_count == 0) && (lv_spire_count == 0) && (lv_all_structures_count < 5)) {
+        lv_t = gf_get_hive();
+        UnitKill(lv_t);
     }
 
     return true;

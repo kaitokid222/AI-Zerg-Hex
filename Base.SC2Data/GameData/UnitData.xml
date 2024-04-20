@@ -240,6 +240,10 @@
         <LifeMax value="1000"/>
         <ShieldsStart value="1000"/>
         <ShieldsMax value="1000"/>
+        <AbilArray Link="Demolish"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="Blaze">
         <Food value="0"/>
@@ -2118,13 +2122,13 @@
         </ReviveInfoBase>
     </CUnit>
     <CUnit id="MengskMarauder">
-        <LifeStart value="1000"/>
-        <LifeMax value="1000"/>
-        <LifeArmor value="5"/>
+        <LifeStart value="800"/>
+        <LifeMax value="800"/>
+        <LifeArmor value="4"/>
         <LifeRegenRate value="0.8007"/>
-        <EnergyStart value="100"/>
-        <EnergyMax value="700"/>
-        <ShieldsMax value="500"/>
+        <EnergyStart value="75"/>
+        <EnergyMax value="500"/>
+        <ShieldsMax value="400"/>
         <ShieldArmorName value="TitanShield"/>
         <ShieldArmorTip value="TitanShieldTT"/>
         <Speed value="0.6992"/>
@@ -5773,7 +5777,7 @@
         <LifeMax value="200"/>
         <LifeRegenRate value="1.25"/>
         <Food value="0"/>
-        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Minerals" value="50"/>
         <CostResource index="Vespene" value="0"/>
         <AbilArray index="2" Link="attack"/>
         <AbilArray index="3" Link="BuildSporeCrawler"/>
@@ -8274,7 +8278,7 @@
         <LateralAcceleration value="46"/>
         <Sight value="11"/>
         <CostCategory value="Army"/>
-        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Minerals" value="50"/>
         <AttackTargetPriority value="20"/>
         <AbilArray Link="move"/>
         <AbilArray Link="attack"/>

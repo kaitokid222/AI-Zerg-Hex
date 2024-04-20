@@ -660,6 +660,9 @@
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <AutoCastValidatorArray value="TitanLE50Perc"/>
+        <Cost index="0">
+            <Vital index="Energy" value="100"/>
+        </Cost>
         <!--Cost index="0">
             <Vital index="Energy" value="75"/>
             <Cooldown Link="GuardianShield" TimeUse="30"/>
@@ -763,7 +766,7 @@
     <CAbilEffectInstant id="StimpackMarauder">
         <Cost index="0">
             <Vital index="Life" value="0"/>
-            <Vital index="Energy" value="200"/>
+            <Vital index="Energy" value="300"/>
         </Cost>
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectInstant>

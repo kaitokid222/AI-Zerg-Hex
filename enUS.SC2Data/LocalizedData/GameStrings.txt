@@ -2613,6 +2613,10 @@ DocInfo/PatchNote778=Broken terran combat units get removed now.
 DocInfo/PatchNote779=Removed T2-Smith from lobby difficulty vote.
 DocInfo/PatchNote780=All Automatic Votes require 200 more hidden elo.
 DocInfo/PatchNote781=Medivacs can no longer charge structures.
+DocInfo/PatchNote782=Decreased Infestor and Hydralisk Cost 150 -> 50.
+DocInfo/PatchNote783=AI will pause hydra/infestor stock recover in some cases.
+DocInfo/PatchNote784=Nerfed Titan Marauder.
+DocInfo/PatchNote785=Improved AI. On Expert or higher difficulty at some point in the game the AI will build more Nests on the Highground to prevent backstabbing
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -3696,7 +3700,6 @@ Param/Value/2A0454A4= (A),
 Param/Value/2A0C4817=yes
 Param/Value/2C247614=Issuing Zerg balancing cost of: 
 Param/Value/2D30F9F1=<c val="F88D4E">The Zerg has left the game!</c>
-Param/Value/2DC7F79B=Killed Infestors: 
 Param/Value/2E438B93=Voting got started for a different event!
 Param/Value/2F3CF83B=Crazy Minions event is enabled!
 Param/Value/2F627A07=<c val="FF9797">Rock exploits have been terminated. Here is 30 gas for your efforts.</c>

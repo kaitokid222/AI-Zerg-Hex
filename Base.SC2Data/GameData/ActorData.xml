@@ -1343,7 +1343,7 @@
         </WireframeShield>
     </CActorUnit>
     <CActorUnit id="MengskMarauder">
-        <Scale value="2.000000"/>
+        <Scale value="1.800000"/>
     </CActorUnit>
     <CActorMissile id="MengskMarauderAttackMissile">
         <Scale value="1.400000"/>
@@ -1666,7 +1666,11 @@
         <Model value="MendBuff"/>
     </CActorModel>
     <CActorUnit id="AutomatedAssimilator">
+        <On Terms="UnitBirth.AutomatedAssimilator" Send="TimerSet 0.100000 HideGeyser"/>
+        <On Terms="TimerExpired; TimerName HideGeyser" Send="Create GeyserBuildFinishCovered"/>
+        <On Terms="ActorDestruction" Send="Create GeyserUncovered"/>
         <On Terms="Effect.GainGas6CasterText.Start" Send="Create AutomatedRefineryTextKicker6"/>
+        <Scale value="1.100000"/>
     </CActorUnit>
     <CActorText id="AutomatedRefineryTextKicker6">
         <Filter index="Ally" value="1"/>
