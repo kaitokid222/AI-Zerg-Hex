@@ -1799,6 +1799,7 @@ void gf_try_prefuse_handler ();
 void gf_cleanup_prefuse_infestor_group ();
 void gf_inject_extra_nest_positions ();
 void gf_recruit_defensive_hg_hydras ();
+void gf_recruit_defensive_hg_infestors ();
 void gf_Init_Player_Toplists ();
 void gf_Generate_Toplist ();
 text gf_generate_name_string_text ();
@@ -1818,7 +1819,9 @@ string gf_tbp_transform_flags (int lp_player);
 string gf_tbp_get_zerg_flag_string ();
 void gf_ic_check_zerg_units ();
 void gf_ic_check_terran_units ();
-bool gf_is_unit_broken (unit lp_u);
+bool gf_is_zerg_unit_broken (unit lp_u);
+bool gf_is_terran_combat_unit_broken (unit lp_u);
+bool gf_is_unittype_terran_combat_unit (string lp_ut);
 int gf_ic_all_Zerg_unit_count ();
 
 //--------------------------------------------------------------------------------------------------
@@ -10734,46 +10737,6 @@ fixed gf_get_pvote_difficulty (int lp_p) {
         else if (autoCF610398_val == "0008") {
             lv_result = 8;
         }
-        else if (autoCF610398_val == "0009") {
-            if ((gf_is_average_vote() == true)) {
-                lv_result = 8.2;
-            }
-            else {
-                lv_result = 9.0;
-            }
-        }
-        else if (autoCF610398_val == "0010") {
-            if ((gf_is_average_vote() == true)) {
-                lv_result = 8.4;
-            }
-            else {
-                lv_result = 10.0;
-            }
-        }
-        else if (autoCF610398_val == "0011") {
-            if ((gf_is_average_vote() == true)) {
-                lv_result = 8.6;
-            }
-            else {
-                lv_result = 11.0;
-            }
-        }
-        else if (autoCF610398_val == "0012") {
-            if ((gf_is_average_vote() == true)) {
-                lv_result = 8.8;
-            }
-            else {
-                lv_result = 12.0;
-            }
-        }
-        else if (autoCF610398_val == "0013") {
-            if ((gf_is_average_vote() == true)) {
-                lv_result = 9.0;
-            }
-            else {
-                lv_result = 13.0;
-            }
-        }
         else {
         }
     }
@@ -10802,7 +10765,7 @@ fixed gf_get_elo_difficulty (int lp_player) {
         lv_result = 3.0;
     }
 
-    if ((lv_elo >= 1400) && (lv_elo < 1600)) {
+    if ((lv_elo >= 1600) && (lv_elo < 1800)) {
         lv_result = 4.0;
     }
 
@@ -20013,6 +19976,48 @@ void gf_recruit_defensive_hg_hydras () {
 
 }
 
+void gf_recruit_defensive_hg_infestors () {
+    // Variable Declarations
+    int lv_payback;
+
+    // Automatic Variable Declarations
+    unitgroup auto9039A1B4_g;
+    int auto9039A1B4_u;
+    unit auto9039A1B4_var;
+
+    // Variable Initialization
+    lv_payback = 10;
+
+    // Implementation
+    if ((gv_difficulty > 2)) {
+        lv_payback += 10;
+    }
+
+    if ((gv_difficulty > 4)) {
+        lv_payback += 10;
+    }
+
+    if ((gv_difficulty > 6)) {
+        lv_payback += 20;
+    }
+
+    if ((UnitGroupCount(gv_prefuse_infestors_nests, c_unitCountAlive) >= 1)) {
+        auto9039A1B4_g = gv_prefuse_infestors_nests;
+        auto9039A1B4_u = UnitGroupCount(auto9039A1B4_g, c_unitCountAll);
+        for (;; auto9039A1B4_u -= 1) {
+            auto9039A1B4_var = UnitGroupUnitFromEnd(auto9039A1B4_g, auto9039A1B4_u);
+            if (auto9039A1B4_var == null) { break; }
+            if ((UnitOrderCount(auto9039A1B4_var) == 0)) {
+                PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, lv_payback);
+                UnitIssueOrder(auto9039A1B4_var, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+                UnitIssueOrder(auto9039A1B4_var, Order(AbilityCommand("ZergTrain", 5)), c_orderQueueAddToEnd);
+            }
+
+        }
+    }
+
+}
+
 void gf_Init_Player_Toplists () {
     // Automatic Variable Declarations
     playergroup auto9BDC27D7_g;
@@ -20718,7 +20723,7 @@ void gf_ic_check_zerg_units () {
     for (;; autoA5F21B59_u -= 1) {
         autoA5F21B59_var = UnitGroupUnitFromEnd(autoA5F21B59_g, autoA5F21B59_u);
         if (autoA5F21B59_var == null) { break; }
-        if ((gf_is_unit_broken(autoA5F21B59_var) == true)) {
+        if ((gf_is_zerg_unit_broken(autoA5F21B59_var) == true)) {
             UnitKill(autoA5F21B59_var);
             lv_duc += 1;
         }
@@ -20762,7 +20767,7 @@ void gf_ic_check_terran_units () {
         for (;; auto2EE183A2_u -= 1) {
             auto2EE183A2_var = UnitGroupUnitFromEnd(auto2EE183A2_g, auto2EE183A2_u);
             if (auto2EE183A2_var == null) { break; }
-            if ((gf_is_unit_broken(auto2EE183A2_var) == true)) {
+            if ((gf_is_terran_combat_unit_broken(auto2EE183A2_var) == true)) {
                 UnitKill(auto2EE183A2_var);
                 lv_duc += 1;
             }
@@ -20775,7 +20780,7 @@ void gf_ic_check_terran_units () {
 
 }
 
-bool gf_is_unit_broken (unit lp_u) {
+bool gf_is_zerg_unit_broken (unit lp_u) {
     // Variable Declarations
     bool lv_r;
 
@@ -20786,11 +20791,45 @@ bool gf_is_unit_broken (unit lp_u) {
     if ((UnitAbilityExists(lp_u, "move") == true) && (UnitAbilityExists(lp_u, "attack") == true)) {
     }
     else {
-        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg") && (UnitGetType(lp_u) != "Defender") && (UnitGetType(lp_u) != "Builder") && (UnitGetType(lp_u) != "ACR") && (UnitGetType(lp_u) != "InfestedBuilder") && (UnitGetType(lp_u) != "Battery") && (UnitGetType(lp_u) != "AdvancedBattery") && (UnitGetType(lp_u) != "AdvancedBatteryPylon") && (UnitGetType(lp_u) != "HighDensityBattery") && (UnitGetType(lp_u) != "GasTrader") && (UnitGetType(lp_u) != "MineralTrader") && (UnitGetType(lp_u) != "Probe") && (UnitGetType(lp_u) != "FirebatZergHexOld") && (UnitGetType(lp_u) != "ChaosSlave") && (UnitGetType(lp_u) != "Probius") && (UnitGetType(lp_u) != "SiegeTank2") && (UnitGetType(lp_u) != "SiegeTank22") && (UnitGetType(lp_u) != "SiegeTankSieged2") && (UnitGetType(lp_u) != "SiegeTankSieged22") && (UnitGetType(lp_u) != "LoveMorales") && (UnitGetType(lp_u) != "Scion_Processor") && (UnitGetType(lp_u) != "Scion_ProcessorStatic") && (UnitGetType(lp_u) != "Fixer") && (UnitGetType(lp_u) != "Umbra") && (UnitGetType(lp_u) != "Fruit") && (UnitGetType(lp_u) != "Sheep2") && (UnitGetType(lp_u) != "Cow2") && (UnitGetType(lp_u) != "Buggo") && (UnitGetType(lp_u) != "Oggub") && (UnitGetType(lp_u) != "SpaceBalls") && (UnitGetType(lp_u) != "IonStorm") && (UnitGetType(lp_u) != "ImmortalShakurasStasisCannonMissile")) {
+        if ((UnitGetType(lp_u) != "Overlord") && (UnitGetType(lp_u) != "Drone2") && (UnitGetType(lp_u) != "BlightbringerEgg") && (UnitGetType(lp_u) != "SwarmQueenMorphing") && (UnitGetType(lp_u) != "BlightbringerLargeEgg")) {
             lv_r = true;
         }
 
     }
+    return lv_r;
+}
+
+bool gf_is_terran_combat_unit_broken (unit lp_u) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitAbilityExists(lp_u, "move") == true) && (UnitAbilityExists(lp_u, "attack") == true)) {
+    }
+    else {
+        if ((gf_is_unittype_terran_combat_unit(UnitGetType(lp_u)) == true)) {
+            lv_r = true;
+        }
+
+    }
+    return lv_r;
+}
+
+bool gf_is_unittype_terran_combat_unit (string lp_ut) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if (((lp_ut == "Marine2") || (lp_ut == "VeteranMarine") || (lp_ut == "EliteMarine") || (lp_ut == "EliteMarineSkin1") || (lp_ut == "EliteMarineSkin2") || (lp_ut == "EliteMarineSkin3") || (lp_ut == "EliteMarineSkin4") || (lp_ut == "ShockTrooper") || (lp_ut == "Reaper2") || (lp_ut == "FirebatZergHex") || (lp_ut == "Italis") || (lp_ut == "ChaosLord") || (lp_ut == "ChaosCultist") || (lp_ut == "ChaosSpaceMarine") || (lp_ut == "ChaosDefiler") || (lp_ut == "InfestedTerranCampaign") || (lp_ut == "FirebatZergHexOld"))) {
+        lv_r = true;
+    }
+
     return lv_r;
 }
 
@@ -31320,8 +31359,11 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
         gf_update_pet_score();
     }
 
-    if ((GameGetMissionTime() == (1 + (17 * 60)))) {
-        gf_inject_extra_nest_positions();
+    if ((gv_difficulty > 3)) {
+        if ((GameGetMissionTime() == (1 + (17 * 60)))) {
+            gf_inject_extra_nest_positions();
+        }
+
     }
 
     if ((gv_viper_cloud_cd > 0)) {
@@ -31426,7 +31468,6 @@ bool gt_everyfiveseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
     if ((gv_cloud_cd == 1)) {
         gv_cloud_cd = 0;
     }
@@ -31462,6 +31503,7 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
     autoB76A211F_g = gv_terrans;
     autoB76A211F_var = -1;
     while (true) {
@@ -31544,6 +31586,14 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
     }
 
     gf_upgrade_start_spawners();
+    if ((FixedToInt(GameGetMissionTime()) >= ((60 * 18) + 59)) && (gv_difficulty > 4)) {
+        gf_recruit_defensive_hg_hydras();
+        if ((gv_difficulty > 5)) {
+            gf_recruit_defensive_hg_infestors();
+        }
+
+    }
+
     autoA0501AE3_g = gv_terrans;
     autoA0501AE3_var = -1;
     while (true) {
@@ -31600,10 +31650,6 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
 
     gf_update_terrandata();
     gf_run_cash_bonus_check();
-    if ((FixedToInt(GameGetMissionTime()) >= ((60 * 18) + 59)) && (gv_difficulty > 4)) {
-        gf_recruit_defensive_hg_hydras();
-    }
-
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 4) + 59))) {
         gv_mass_infestor_death_exception = gf_check_infestor_dead_directive_override();
         gv_infestor_dead_count = 0;
@@ -31622,9 +31668,12 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
     }
 
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 20) + 59))) {
-        gf_ic_check_zerg_units();
-        gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
-        gf_ic_check_terran_units();
+        if ((gv_ic_unit_count >= 600)) {
+            gf_ic_check_zerg_units();
+            gv_ic_unit_count = gf_ic_all_Zerg_unit_count();
+            gf_ic_check_terran_units();
+        }
+
     }
 
     if ((gv_placement_mode == 2)) {
