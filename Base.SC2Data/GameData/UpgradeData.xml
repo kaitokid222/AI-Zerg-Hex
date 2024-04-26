@@ -97,6 +97,15 @@
         <EffectArray Reference="Unit,Uploader,LifeArmorLevel" Value="1"/>
         <MaxLevel value="100"/>
     </CUpgrade>
+    <CUpgrade id="ChaosPowerArmorUpgrade">
+        <Icon value="assets\icon\ICON CSM Armor Lord.dds"/>
+        <EffectArray Reference="Unit,ChaosSlave,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,ChaosSlave,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="350"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="350"/>
+        <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
+    </CUpgrade>
     <CUpgrade id="Stoptherain"/>
     <CUpgrade id="GenetronTier3">
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
@@ -351,12 +360,6 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel3.dds"/>
         <EffectArray Reference="Unit,FirebatZergHex,LifeMax" Value="200"/>
         <EffectArray Reference="Unit,FirebatZergHex,LifeStart" Value="200"/>
-        <EffectArray Reference="Unit,ChaosSlave,LifeMax" Value="35"/>
-        <EffectArray Reference="Unit,ChaosSlave,LifeStart" Value="35"/>
-        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="325"/>
-        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="325"/>
-        <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
-        <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
     <CUpgrade id="LotsofBlood">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>
@@ -909,6 +912,12 @@
         <EffectArray Reference="Abil,ResearchDynamic,InfoArray[Research1].Resource[Minerals]" Value="1000"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="ZergDefenseDamage">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <EffectArray Reference="Effect,TanklingMeleeDamage,Amount" Value="0.75"/>
+        <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
+        <MaxLevel value="100"/>
     </CUpgrade>
     <CUpgrade id="ZergMovement">
         <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>

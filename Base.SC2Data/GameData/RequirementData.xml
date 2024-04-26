@@ -7,6 +7,10 @@
     <CRequirement id="HaveUmbraShadowCannons">
         <NodeArray index="Use" Link="CountUpgradeEmpowerShadowCannonCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="ChaosPowerArmorUpgradeRequirement">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
+        <NodeArray index="Show" Link="NotCountUpgradeChaosPowerArmorUpgradeQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="UnlockUmbraShadowCannonRequirement">
         <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeEmpowerShadowCannonQueuedOrBetter"/>

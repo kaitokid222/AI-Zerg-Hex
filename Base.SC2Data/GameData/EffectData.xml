@@ -6,6 +6,9 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectSet id="RemoveBomberSpawn">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectEnumArea id="AnalysisTerminalAuraSA">
         <EditorCategories value=""/>
         <SearchFilters value="Structure;Neutral,Enemy"/>
@@ -5905,7 +5908,7 @@
     <CEffectDamage id="DesecratedBolter" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="7"/>
+        <Amount value="8"/>
     </CEffectDamage>
     <CEffectSet id="ChaosPowerSwordEffectSet">
         <EditorCategories value="Race:Zerg"/>

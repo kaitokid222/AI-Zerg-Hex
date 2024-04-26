@@ -313,7 +313,7 @@
         <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification>
-            <VitalMaxArray index="Life" value="25"/>
+            <VitalMaxArray index="Life" value="35"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ConsumedBlood2">
@@ -321,14 +321,14 @@
         <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification>
-            <VitalRegenArray index="Life" value="1"/>
+            <VitalRegenArray index="Life" value="2.5"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ConsumedBlood3">
         <BehaviorFlags index="Permanent" value="1"/>
         <InfoIcon value="Assets\Textures\btn-doodad-zerg-ancientmeat.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Modification MoveSpeedBonus="0.3007"/>
+        <Modification MoveSpeedBonus="0.6015"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="BanelingCountDummyStack">
         <InfoFlags index="Hidden" value="1"/>

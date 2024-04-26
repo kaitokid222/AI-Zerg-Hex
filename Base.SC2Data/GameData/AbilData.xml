@@ -50,6 +50,11 @@
             <Button Requirements=""/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectInstant id="SelectInfestedMarineSpawn">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="RemoveBomberSpawn"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SelectInfestedMarineSpawn" Requirements="Bunkerupgraded"/>
+    </CAbilEffectInstant>
     <CAbilResearch id="TombstoneResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Time="20" Upgrade="TombstoneLevel2">
@@ -1214,6 +1219,10 @@
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchInfestedSpeedUp" Requirements="ResearchInfestedSpeedUp"/>
         </InfoArray>
+        <InfoArray index="Research25" Time="30" Upgrade="ChaosPowerArmorUpgrade">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="ResearchChaosPowerArmorUpgrade" Requirements="ChaosPowerArmorUpgradeRequirement"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilMorph id="BurrowFireling">
         <AbilSetId value="BrwD"/>
@@ -1790,10 +1799,10 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="MobileMode"/>
         <InfoArray index="0" Unit="SiegeTank22"/>
     </CAbilMorph>
-    <CAbilEffectInstant id="UpgradeBunker">
+    <CAbilEffectInstant id="SelectBomberSpawn">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="AddUpgradedBunker"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeBunker" Requirements="Bunkerupgradeable"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SelectBomberSpawn" Requirements="Bunkerupgradeable"/>
     </CAbilEffectInstant>
     <CAbilTrain id="ConstructionYardTrain">
         <EditorCategories value="AbilityorEffectType:Units"/>

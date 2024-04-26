@@ -12134,6 +12134,6 @@
             <Image value="Assets\Icon\Wireframe Chaos Lord.dds"/>
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
-        <Scale value="1.300000"/>
+        <Scale value="1.450000"/>
     </CActorUnit>
 </Catalog>

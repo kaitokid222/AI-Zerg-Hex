@@ -14,6 +14,14 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="EmpoweredShadowCannon" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-convergence.dds"/>
+    <CButton id="ResearchChaosPowerArmorUpgrade">
+        <Icon value="assets\icon\ICON CSM Armor Lord.dds"/>
+    </CButton>
+    <CButton id="SelectInfestedMarineSpawn">
+        <Icon value="Assets\Textures\btn-unit-zerg-infestedmarine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarine.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="StoptheRain">
         <Icon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
         <AlertIcon value="Assets\Textures\btn-minimap-toggleterrain.dds"/>
@@ -758,7 +766,7 @@
         <Icon value="Assets\Textures\btn-unit-zerg-infestedcolonist.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedcolonist.dds"/>
     </CButton>
-    <CButton id="UpgradeBunker">
+    <CButton id="SelectBomberSpawn">
         <Icon value="Assets\Textures\btn-unit-zerg-volatileinfested.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-volatileinfested.dds"/>
         <EditorCategories value="Race:Zerg"/>

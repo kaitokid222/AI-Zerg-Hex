@@ -593,6 +593,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CasualTraderImprovement" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeChaosPowerArmorUpgradeQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ChaosPowerArmorUpgrade" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeChemicalPlantCompleteOnly1337995533">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="ChemicalPlant" State="CompleteOnly"/>
@@ -659,12 +664,10 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeEmpowerShadowCannonCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="EmpowerShadowCannon" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeEmpowerShadowCannonQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="EmpowerShadowCannon" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeEnableMineralProductionCompleteOnly">
@@ -1914,6 +1917,10 @@
     <CRequirementNot id="NotCountUpgradeBase6DeadCompleteOnly">
         <OperandArray index="0" value="CountUpgradeBase6DeadCompleteOnly"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeChaosPowerArmorUpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeChaosPowerArmorUpgradeQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeChemicalPlantQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeChemicalPlantQueuedOrBetter"/>
     </CRequirementNot>
@@ -1939,7 +1946,6 @@
         <OperandArray index="0" value="CountUpgradeEliteScopeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeEmpowerShadowCannonQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeEmpowerShadowCannonQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeEnableMineralProductionQueuedOrBetter">
