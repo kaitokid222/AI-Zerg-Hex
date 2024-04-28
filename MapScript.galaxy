@@ -1220,6 +1220,11 @@ int gv_tbp_zterran_vote_result;
 int gv_tbp_extra_vote_dialog_zterran_vote_yes;
 int gv_tbp_extra_vote_dialog_zterran_vote_no;
 int[7] gv_tbp_torment_votes;
+int gv_tbp_tv_p1;
+int gv_tbp_tv_p2;
+int gv_tbp_tv_p3;
+int gv_tbp_tv_p4;
+int gv_tbp_tv_p5;
 int gv_tbp_toplist_frame_dialog;
 int gv_ic_unit_count;
 int[7] gv_ic_terran_combat_unit_counts;
@@ -1391,6 +1396,11 @@ void InitGlobals () {
     gv_tbp_extra_vote_dialog_mutator_vote_no = c_invalidDialogControlId;
     gv_tbp_extra_vote_dialog_zterran_vote_yes = c_invalidDialogControlId;
     gv_tbp_extra_vote_dialog_zterran_vote_no = c_invalidDialogControlId;
+    gv_tbp_tv_p1 = c_invalidDialogControlId;
+    gv_tbp_tv_p2 = c_invalidDialogControlId;
+    gv_tbp_tv_p3 = c_invalidDialogControlId;
+    gv_tbp_tv_p4 = c_invalidDialogControlId;
+    gv_tbp_tv_p5 = c_invalidDialogControlId;
     gv_tbp_toplist_frame_dialog = c_invalidDialogId;
 }
 
@@ -1818,6 +1828,8 @@ void gf_Enable_timed_triggers ();
 int gf_tbp_get_difficulty_offset_vote_result ();
 int gf_tbp_get_mutator_vote_result ();
 int gf_tbp_get_zterran_vote_result ();
+int gf_tbp_get_tv_winner_vote ();
+void gf_torment_special_units_refresh (int lp_d);
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int);
 void gf_tbp_refresh_dialog_labels ();
 string gf_tbp_transform_xp_string (int lp_pxp, int lp_nxp);
@@ -2023,6 +2035,7 @@ trigger gt_Infestordied;
 trigger gt_tbp_create;
 trigger gt_tbp_dialog_interaction;
 trigger gt_tbp_dialog_extra_vote_difficulty_offset_interaction;
+trigger gt_tbp_dialog_extra_vote_torment_level_interaction;
 trigger gt_tbp_dialog_extra_vote_mutator_vote;
 trigger gt_tbp_dialog_extra_vote_zterran_vote;
 trigger gt_everysecond;
@@ -5171,7 +5184,7 @@ string gf_get_difficulty_label () {
         lv_string = "Ultra Brutal";
     }
     else if (auto79CEC460_val == 8) {
-        lv_string = "Torment 1";
+        lv_string = "Torment";
     }
     else if (auto79CEC460_val == 9) {
         lv_string = "Torment 2";
@@ -7186,27 +7199,27 @@ void gf_shot_fireworks (int lp_waves) {
         lv_used_points[3] = gv_fw_grid[RandomInt(1, 8)][RandomInt(1, 8)];
         autoFBAE9688_val = RandomInt(1, 3);
         if (autoFBAE9688_val == 1) {
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
         }
         else if (autoFBAE9688_val == 2) {
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
         }
         else if (autoFBAE9688_val == 3) {
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksBlue", c_unitCreateIgnorePlacement, 0, lv_used_points[3]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksYellow", c_unitCreateIgnorePlacement, 0, lv_used_points[2]);
-            Wait(0.25, c_timeGame);
+            Wait(0.125, c_timeGame);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "FireworksRed", c_unitCreateIgnorePlacement, 0, lv_used_points[1]);
         }
         else {
@@ -10356,6 +10369,10 @@ void gf_end_game (int lp_winner) {
                         lv_score = (lv_score + (lv_score / 5));
                     }
 
+                    if ((gf_tbp_get_tv_winner_vote() > 0)) {
+                        lv_score = (lv_score + ((lv_score / 5) * gf_tbp_get_tv_winner_vote()));
+                    }
+
                     if ((gv_players[autoC5308BE9_var].lv_alive == true)) {
                         gf_Game_Banks_handler("addxp", autoC5308BE9_var, gv_players[autoC5308BE9_var].lv_elo, 0, (lv_score * 2));
                     }
@@ -10367,7 +10384,8 @@ void gf_end_game (int lp_winner) {
 
         }
         if ((lp_winner == 1)) {
-            gf_shot_fireworks(20);
+            gf_shot_fireworks(18);
+            Wait(3.0, c_timeGame);
         }
 
         auto796E7148_g = gv_terrans;
@@ -20397,6 +20415,131 @@ int gf_tbp_get_zterran_vote_result () {
     return lv_r;
 }
 
+int gf_tbp_get_tv_winner_vote () {
+    // Variable Declarations
+    int lv_i;
+    int[6] lv_d;
+    int lv_winner;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        if ((gv_tbp_torment_votes[lv_i] > 0)) {
+            lv_d[gv_tbp_torment_votes[lv_i]] += 1;
+        }
+
+        lv_i += 1;
+    }
+    lv_i = 1;
+    while ((lv_i <= 5)) {
+        if ((lv_d[lv_i] > 0)) {
+            if ((lv_winner == 0)) {
+                lv_winner = lv_i;
+            }
+            else {
+                if ((lv_d[lv_i] >= lv_d[lv_winner])) {
+                    lv_winner = lv_i;
+                }
+
+            }
+        }
+
+        lv_i += 1;
+    }
+    return lv_winner;
+}
+
+void gf_torment_special_units_refresh (int lp_d) {
+    // Automatic Variable Declarations
+    int autoA75F6658_val;
+
+    // Implementation
+    autoA75F6658_val = lp_d;
+    if (autoA75F6658_val == 1) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 0;
+        gv_req_infused = 0;
+        gv_req_torra = 0;
+    }
+    else if (autoA75F6658_val == 2) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 0;
+        gv_req_infused = 0;
+        gv_req_torra = 0;
+    }
+    else if (autoA75F6658_val == 3) {
+        gv_req_beastlings = 8;
+        gv_req_ravs = 0;
+        gv_req_infused = 0;
+        gv_req_torra = 0;
+    }
+    else if (autoA75F6658_val == 4) {
+        gv_req_beastlings = 10;
+        gv_req_ravs = 6;
+        gv_req_infused = 0;
+        gv_req_torra = 1;
+    }
+    else if (autoA75F6658_val == 5) {
+        gv_req_beastlings = 4;
+        gv_req_ravs = 4;
+        gv_req_infused = 2;
+        gv_req_torra = 2;
+    }
+    else if (autoA75F6658_val == 6) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 8;
+        gv_req_infused = 4;
+        gv_req_torra = 4;
+    }
+    else if (autoA75F6658_val == 7) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 8;
+        gv_req_infused = 6;
+        gv_req_torra = 6;
+    }
+    else if (autoA75F6658_val == 8) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 6;
+        gv_req_infused = 8;
+        gv_req_torra = 6;
+    }
+    else if (autoA75F6658_val == 9) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 4;
+        gv_req_infused = 10;
+        gv_req_torra = 6;
+    }
+    else if (autoA75F6658_val == 10) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 12;
+        gv_req_torra = 6;
+    }
+    else if (autoA75F6658_val == 11) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 10;
+        gv_req_torra = 8;
+    }
+    else if (autoA75F6658_val == 12) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 8;
+        gv_req_torra = 10;
+    }
+    else if (autoA75F6658_val == 13) {
+        gv_req_beastlings = 0;
+        gv_req_ravs = 2;
+        gv_req_infused = 6;
+        gv_req_torra = 12;
+    }
+    else {
+    }
+}
+
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int) {
     // Variable Declarations
     text lv_r;
@@ -20547,10 +20690,13 @@ string gf_tbp_transform_flags (int lp_player) {
     // Variable Declarations
     string lv_return;
     string lv_dos;
+    string lv_dos_spacer;
     string lv_ms;
+    string lv_ms_spacer;
     string lv_zt;
 
     // Automatic Variable Declarations
+    int auto560C78F7_val;
     int auto10517ED8_val;
     int auto76B8C404_val;
     int autoCED03BA8_val;
@@ -20559,21 +20705,48 @@ string gf_tbp_transform_flags (int lp_player) {
     // Variable Initialization
     lv_return = "";
     lv_dos = "";
+    lv_dos_spacer = "";
     lv_ms = "";
+    lv_ms_spacer = "";
     lv_zt = "";
 
     // Implementation
-    auto10517ED8_val = gv_difficulty_offset_votes[lp_player];
-    if (auto10517ED8_val == 0) {
-        lv_dos = "";
-    }
-    else if (auto10517ED8_val == 1) {
-        lv_dos = "d+";
-    }
-    else if (auto10517ED8_val == 2) {
-        lv_dos = "d-";
+    if ((gv_difficulty > 7)) {
+        auto560C78F7_val = gv_tbp_torment_votes[lp_player];
+        if (auto560C78F7_val == 0) {
+            lv_dos = "";
+        }
+        else if (auto560C78F7_val == 1) {
+            lv_dos = "t+1";
+        }
+        else if (auto560C78F7_val == 2) {
+            lv_dos = "t+2";
+        }
+        else if (auto560C78F7_val == 3) {
+            lv_dos = "t+3";
+        }
+        else if (auto560C78F7_val == 4) {
+            lv_dos = "t+4";
+        }
+        else if (auto560C78F7_val == 5) {
+            lv_dos = "t+5";
+        }
+        else {
+        }
     }
     else {
+        auto10517ED8_val = gv_difficulty_offset_votes[lp_player];
+        if (auto10517ED8_val == 0) {
+            lv_dos = "";
+        }
+        else if (auto10517ED8_val == 1) {
+            lv_dos = "d+";
+        }
+        else if (auto10517ED8_val == 2) {
+            lv_dos = "d-";
+        }
+        else {
+        }
     }
     if ((gf_is_sunday() == true)) {
         auto76B8C404_val = gv_tbp_mutator_votes[lp_player];
@@ -20615,7 +20788,15 @@ string gf_tbp_transform_flags (int lp_player) {
     }
     else {
     }
-    return (lv_dos + (" " + (lv_ms + (" " + lv_zt))));
+    if ((lv_dos != "")) {
+        lv_dos_spacer = " ";
+    }
+
+    if ((lv_ms != "")) {
+        lv_ms_spacer = " ";
+    }
+
+    return (lv_dos + (lv_dos_spacer + (lv_ms + (lv_ms_spacer + lv_zt))));
 }
 
 string gf_tbp_get_zerg_flag_string () {
@@ -20639,18 +20820,27 @@ string gf_tbp_get_zerg_flag_string () {
     lv_zts = "";
 
     // Implementation
-    if ((gf_tbp_get_difficulty_offset_vote_result() == 0)) {
-        lv_ds = "";
+    if ((gv_difficulty >= 8)) {
+        if ((gf_tbp_get_tv_winner_vote() > 0)) {
+            lv_ds = ("t" + IntToString((1 + gf_tbp_get_tv_winner_vote())));
+        }
+
     }
     else {
-        if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
-            lv_ds = "d+";
+        if ((gf_tbp_get_difficulty_offset_vote_result() != 0)) {
+            if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
+                lv_ds = "d+";
+            }
+            else {
+                lv_ds = "d-";
+            }
         }
-        else {
-            lv_ds = "d-";
-        }
+
+    }
+    if ((lv_ds != "")) {
         lv_ds = (lv_ds + " ");
     }
+
     if ((gf_tbp_get_mutator_vote_result() == 0)) {
         if ((gf_is_sunday() == true)) {
             lv_ms = "m+";
@@ -20694,6 +20884,13 @@ string gf_tbp_get_zerg_flag_string () {
 
     if ((lv_ms == "zt+")) {
         lv_xpr = (lv_xpr + 20);
+    }
+
+    if ((gv_difficulty >= 8)) {
+        if ((gf_tbp_get_tv_winner_vote() > 0)) {
+            lv_xpr = (lv_xpr + (gf_tbp_get_tv_winner_vote() * 20));
+        }
+
     }
 
     if ((lv_ms != "")) {
@@ -30826,6 +31023,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_Game_Banks_handler("load", 0, 0, 0, 0);
     gf_AnalysePlayerDifficultyVotes();
     gv_difficulty = gf_get_real_difficulty();
+    gv_difficulty = 8;
     gf_set_build();
     TriggerExecute(gt_tbp_create, true, true);
     gf_Enable_timed_triggers();
@@ -30857,16 +31055,25 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_set_up_visibility();
     gf_set_up_difficulty_init_modifiers();
     gf_init_event();
-    if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/95BEBB37") + StringToText("")));
-        gv_difficulty = (gv_difficulty + 1);
-    }
+    if ((gv_difficulty >= 8)) {
+        if ((gf_tbp_get_tv_winner_vote() > 0)) {
+            gv_difficulty = (gv_difficulty + gf_tbp_get_tv_winner_vote());
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringToText(gf_get_difficulty_label()) + (StringExternal("Param/Value/8EC3F5CE") + StringToText(""))));
+        }
 
-    if ((gf_tbp_get_difficulty_offset_vote_result() == 2)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/5FBB9A1C") + StringToText("")));
-        gv_difficulty = (gv_difficulty - 1);
     }
+    else {
+        if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/95BEBB37") + StringToText("")));
+            gv_difficulty = (gv_difficulty + 1);
+        }
 
+        if ((gf_tbp_get_difficulty_offset_vote_result() == 2)) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/5FBB9A1C") + StringToText("")));
+            gv_difficulty = (gv_difficulty - 1);
+        }
+
+    }
     if ((gf_is_sunday() == true)) {
         if ((gf_tbp_get_mutator_vote_result() == 1)) {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/DCD7F7B1") + StringToText("")));
@@ -30943,6 +31150,7 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     // Variable Declarations
     playergroup lv_players;
     int lv_i;
+    int lv_ev_dialog_size_height;
 
     // Automatic Variable Declarations
     playergroup auto2240D553_g;
@@ -30954,6 +31162,7 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
     lv_players = PlayerGroupEmpty();
+    lv_ev_dialog_size_height = 300;
 
     // Actions
     if (!runActions) {
@@ -30995,35 +31204,40 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
         if (autoC1308021_var < 0) { break; }
         gv_tbp_player_picked_terran_count = (gv_tbp_player_picked_terran_count + 1);
         gv_tbp_player_picked_terran[gv_tbp_player_picked_terran_count] = autoC1308021_var;
+        gv_tbp_player_bonus_picks[gv_tbp_player_picked_terran[gv_tbp_player_picked_terran_count]] = 1;
     }
     DialogSetVisible(gv_tbp_dialog_info, PlayerGroupAll(), true);
-    DialogCreate(800, 440, c_anchorTopLeft, 520, 100, true);
+    DialogCreate(900, 440, c_anchorTopLeft, 520, 100, true);
     DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/B50B193C"));
     gv_tbp_dialog = DialogLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 75, StringToText(""), StringExternal("Param/Value/FFAF0AAB"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_random = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 75, StringToText(""), StringExternal("Param/Value/54A95DC9"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_infested = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 75, StringToText(""), StringExternal("Param/Value/07755624"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_v3x = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 75, StringToText(""), StringExternal("Param/Value/5B64B55E"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_probius = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 165, StringToText(""), StringExternal("Param/Value/C41EEAA0"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_ht = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 165, StringToText(""), StringExternal("Param/Value/CDA9DFBE"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_karax = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 165, StringToText(""), StringExternal("Param/Value/615E49F9"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_chaos = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 165, StringToText(""), StringExternal("Param/Value/B845E20A"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_cash = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 50, 255, StringToText(""), StringExternal("Param/Value/43440836"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 60, 95, StringExternal("Param/Value/A1F0D249"), Color(22*100/255,128*100/255,0), false, 2.0);
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 190, 75, StringToText("At the start of the game three Medivacs with infinite energy drop Elite Marines in each zerg path. After the early game the Medivacs disappear."), StringExternal("Param/Value/FFAF0AAB"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_button_terran_raynor = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 220, 255, StringToText(""), StringExternal("Param/Value/795B13EC"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 360, 75, StringToText("Cash Transporters drop resources in your base in regular intervals. Adds upgrades to the construction to further improve this behaviour."), StringExternal("Param/Value/54A95DC9"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_cash = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 530, 75, StringToText("Replaces your start units with Karax. He is a versatile hero with strong crowd control, generates energy and passively buffs neaby structures efficiency by 50%."), StringExternal("Param/Value/07755624"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_karax = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 700, 75, StringToText("Removes you from the game as active player. AI controlled robotic forces assist your team to give them a good chance to take the upper hand. You can take over limited control in later stages of the game if it comes to that. Enjoy Netflix, your meal or discover the game without any obligations and watch your team how they handle different scenarios. "), StringExternal("Param/Value/5B64B55E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_genetron = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 60, 185, StringExternal("Param/Value/505FBFE9"), Color(150*100/255,150*100/255,30*100/255), false, 2.0);
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 190, 165, StringToText("Adds Operation Center Tech Building, Large Chemical Plant, Advanced Shock-Troopers, Combat Suit Reapers and an Improved Generator."), StringExternal("Param/Value/C41EEAA0"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_ht = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 360, 165, StringToText("At the start of the game a large amount of Marauders clears the outer zerg base, increasing the travel distance from rebuilt spawners. Adds a Titan Marauder to your start units which can be useful in various scenarios. Buggos are replaced by Oggubs which have a greatly increased gas generation rate."), StringExternal("Param/Value/CDA9DFBE"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_button_terran_marauder = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 390, 255, StringToText(""), StringExternal("Param/Value/1041A1C4"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_button_terran_artanis = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 560, 255, StringToText(""), StringExternal("Param/Value/6ADFE20E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 530, 165, StringToText("Adds a Siege Tank and a High Density Battery to your start units, giving you the opportunity to gather Expertise Stacks in the early game and deny Spawners for an extended amount of time."), StringExternal("Param/Value/615E49F9"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_button_terran_tank = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 700, 165, StringToText("Replaces Builders with Infested Builders which have access to different structures. Unable to build Refineries and instead relies on Gas Vents for gas production. Has no access to Wall or Sentry Gun and instead builds Bunkers. Those spawn Infested Marines which serve as \"Meatwall\". Infested Marines profit from many upgrades such as Fortification or Tier Upgrade."), StringExternal("Param/Value/B845E20A"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_infested = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 60, 275, StringExternal("Param/Value/6522E4AA"), Color(100.00, 0.00, 0.00), false, 2.0);
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 190, 255, StringToText("Adds Probius to your start Units. Probius is extremely tanky and fast, can deal with Spawner Units in the very early game and build Pylons and Cannons. Probius Pylons can turn into a Long Range Cannons and provide different auras which increase in strength with their related upgrade level."), StringExternal("Param/Value/43440836"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_probius = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 360, 255, StringToText("Improved Version of the classic Zerg Hex experience. Adds Chemical Plant, and tanky Firebats which use gas to their flamethrowers and carries Napalm Bombs from the Chemical Plants. Can build non-heroic Tanks and has cheaper Marines. Removes Gas Extraction."), StringExternal("Param/Value/795B13EC"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_v3x = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 530, 255, StringToText("Replaces your start units with Chaos Forces. Chaos Forces generate blood drops which need to get collected by slaves to recruit the Lord and greatly improve Chaos Space Marines. Has no early access to strong Shatter Damage. Falls off in the late game due to limited opportunity to gather blood."), StringExternal("Param/Value/1041A1C4"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_chaos = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 160, 80, c_anchorTopLeft, 700, 255, StringToText(""), StringExternal("Param/Value/6ADFE20E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_button_terran_random = DialogControlLastCreated();
+    DialogControlSetEnabled(gv_tbp_button_terran_random, PlayerGroupAll(), false);
     lv_i = 1;
     DialogControlCreate(DialogLastCreated(), c_triggerControlTypeProgressBar);
     libNtve_gf_SetDialogItemMinimumValue(DialogControlLastCreated(), 0.0, PlayerGroupAll());
@@ -31032,37 +31246,53 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorBottom, 0, 40);
     gv_tbp_progress_bar = DialogControlLastCreated();
     DialogControlSetSize(DialogControlLastCreated(), PlayerGroupAll(), 350, 25);
-    DialogCreate(800, 300, c_anchorTopLeft, 520, 550, true);
+    DialogCreate(900, 300, c_anchorTopLeft, 520, 550, true);
     DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/AA9DC100"));
-    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 100, StringExternal("Param/Value/C7EDCF26"), ColorWithAlpha(0,0,0,0), false, 2.0);
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 285, 80, StringToText(""), StringExternal("Param/Value/9F6EE008"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_extra_vote_dialog_difficulty_offset_minus = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 350, 80, StringToText(""), StringExternal("Param/Value/32EBF7B9"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_extra_vote_dialog_difficulty_offset_neutral = DialogControlLastCreated();
-    DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_neutral, PlayerGroupAll(), false);
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 415, 80, StringToText(""), StringExternal("Param/Value/303A6F94"), "Assets\\Textures\\ui_emoticons_random.dds");
-    gv_tbp_extra_vote_dialog_difficulty_offset_plus = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 85, StringExternal("Param/Value/B73C9E4C"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    if ((gv_difficulty <= 7)) {
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 100, StringExternal("Param/Value/C7EDCF26"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 385, 80, StringToText(""), StringExternal("Param/Value/9F6EE008"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_extra_vote_dialog_difficulty_offset_minus = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 80, StringToText(""), StringExternal("Param/Value/32EBF7B9"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_extra_vote_dialog_difficulty_offset_neutral = DialogControlLastCreated();
+        DialogControlSetEnabled(gv_tbp_extra_vote_dialog_difficulty_offset_neutral, PlayerGroupAll(), false);
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 80, StringToText(""), StringExternal("Param/Value/303A6F94"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_extra_vote_dialog_difficulty_offset_plus = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 85, StringExternal("Param/Value/B73C9E4C"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    }
+    else {
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 100, StringExternal("Param/Value/8294A17E"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 255, 80, StringToText(""), StringExternal("Param/Value/C6DEF3C4"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_tv_p5 = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 320, 80, StringToText(""), StringExternal("Param/Value/52FEC950"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_tv_p4 = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 385, 80, StringToText(""), StringExternal("Param/Value/BE7A5AFD"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_tv_p3 = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 80, StringToText(""), StringExternal("Param/Value/DF8A5B7A"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_tv_p2 = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 80, StringToText(""), StringExternal("Param/Value/6D5AD9B7"), "Assets\\Textures\\ui_emoticons_random.dds");
+        gv_tbp_tv_p1 = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 85, StringExternal("Param/Value/FB02E5E3"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    }
     if ((gf_is_sunday() == true)) {
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 160, StringExternal("Param/Value/F9406FFA"), ColorWithAlpha(0,0,0,0), false, 2.0);
     }
     else {
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 255, 60, c_anchorTopLeft, 40, 160, StringExternal("Param/Value/AEB0ACA3"), ColorWithAlpha(0,0,0,0), false, 2.0);
     }
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 350, 140, StringToText(""), StringExternal("Param/Value/BE23D86C"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 140, StringToText(""), StringExternal("Param/Value/BE23D86C"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_extra_vote_dialog_mutator_vote_yes = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 415, 140, StringToText(""), StringExternal("Param/Value/8497B802"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 140, StringToText(""), StringExternal("Param/Value/8497B802"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_extra_vote_dialog_mutator_vote_no = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 145, StringExternal("Param/Value/D018C08E"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 145, StringExternal("Param/Value/D018C08E"), ColorWithAlpha(0,0,0,0), false, 2.0);
     libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 255, 60, c_anchorTopLeft, 40, 215, StringExternal("Param/Value/18808CD8"), ColorWithAlpha(0,0,0,0), false, 2.0);
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 350, 200, StringToText(""), StringExternal("Param/Value/2A0C4817"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 200, StringToText(""), StringExternal("Param/Value/2A0C4817"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_extra_vote_dialog_zterran_vote_yes = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 415, 200, StringToText(""), StringExternal("Param/Value/4B25A17B"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 200, StringToText(""), StringExternal("Param/Value/4B25A17B"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_extra_vote_dialog_zterran_vote_no = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 490, 200, StringExternal("Param/Value/94B4C808"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 200, StringExternal("Param/Value/94B4C808"), ColorWithAlpha(0,0,0,0), false, 2.0);
     gv_tbp_extra_vote_dialog = DialogLastCreated();
     DialogSetVisible(gv_tbp_extra_vote_dialog, PlayerGroupAll(), true);
-    DialogCreate(600, 150, c_anchorTopLeft, 1320, 100, true);
+    DialogCreate(600, 150, c_anchorTopLeft, 1420, 100, true);
     DialogSetTitle(DialogLastCreated(), (StringExternal("Param/Value/6447C871") + StringToText(gf_get_difficulty_label())));
     libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 550, 60, c_anchorTopLeft, 50, 80, StringExternal("Param/Value/D56FD7AB"), ColorWithAlpha(0,0,0,0), false, 2.0);
     gv_tbp_toplist_frame_dialog = DialogLastCreated();
@@ -31107,7 +31337,7 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((EventDialogControl() == gv_tbp_button_terran_random) || (EventDialogControl() == gv_tbp_button_terran_chaos) || (EventDialogControl() == gv_tbp_button_terran_ht) || (EventDialogControl() == gv_tbp_button_terran_v3x) || (EventDialogControl() == gv_tbp_button_terran_cash) || (EventDialogControl() == gv_tbp_button_terran_infested) || (EventDialogControl() == gv_tbp_button_terran_raynor) || (EventDialogControl() == gv_tbp_button_terran_marauder) || (EventDialogControl() == gv_tbp_button_terran_artanis) || (EventDialogControl() == gv_tbp_button_terran_tank) || (EventDialogControl() == gv_tbp_button_terran_probius) || (EventDialogControl() == gv_tbp_button_terran_karax)))) {
+        if (!(((EventDialogControl() == gv_tbp_button_terran_random) || (EventDialogControl() == gv_tbp_button_terran_chaos) || (EventDialogControl() == gv_tbp_button_terran_ht) || (EventDialogControl() == gv_tbp_button_terran_v3x) || (EventDialogControl() == gv_tbp_button_terran_cash) || (EventDialogControl() == gv_tbp_button_terran_infested) || (EventDialogControl() == gv_tbp_button_terran_raynor) || (EventDialogControl() == gv_tbp_button_terran_marauder) || (EventDialogControl() == gv_tbp_button_terran_tank) || (EventDialogControl() == gv_tbp_button_terran_probius) || (EventDialogControl() == gv_tbp_button_terran_karax) || (EventDialogControl() == gv_tbp_button_terran_genetron)))) {
             return false;
         }
     }
@@ -31125,10 +31355,10 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
     DialogControlSetEnabled(gv_tbp_button_terran_infested, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_raynor, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), true);
-    DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_probius, PlayerGroupSingle(EventPlayer()), true);
     DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), true);
+    DialogControlSetEnabled(gv_tbp_button_terran_genetron, PlayerGroupSingle(EventPlayer()), true);
     autoA0AD69A2_val = EventDialogControl();
     if (autoA0AD69A2_val == gv_tbp_button_terran_random) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 1;
@@ -31162,10 +31392,6 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 8;
         DialogControlSetEnabled(gv_tbp_button_terran_marauder, PlayerGroupSingle(EventPlayer()), false);
     }
-    else if (autoA0AD69A2_val == gv_tbp_button_terran_artanis) {
-        gv_tbp_player_bonus_picks[EventPlayer()] = 9;
-        DialogControlSetEnabled(gv_tbp_button_terran_artanis, PlayerGroupSingle(EventPlayer()), false);
-    }
     else if (autoA0AD69A2_val == gv_tbp_button_terran_tank) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 10;
         DialogControlSetEnabled(gv_tbp_button_terran_tank, PlayerGroupSingle(EventPlayer()), false);
@@ -31177,6 +31403,10 @@ bool gt_tbp_dialog_interaction_Func (bool testConds, bool runActions) {
     else if (autoA0AD69A2_val == gv_tbp_button_terran_karax) {
         gv_tbp_player_bonus_picks[EventPlayer()] = 12;
         DialogControlSetEnabled(gv_tbp_button_terran_karax, PlayerGroupSingle(EventPlayer()), false);
+    }
+    else if (autoA0AD69A2_val == gv_tbp_button_terran_genetron) {
+        gv_tbp_player_bonus_picks[EventPlayer()] = 14;
+        DialogControlSetEnabled(gv_tbp_button_terran_genetron, PlayerGroupSingle(EventPlayer()), false);
     }
     else {
     }
@@ -31238,6 +31468,78 @@ bool gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Func (bool testConds
 void gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init () {
     gt_tbp_dialog_extra_vote_difficulty_offset_interaction = TriggerCreate("gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Func");
     TriggerAddEventDialogControl(gt_tbp_dialog_extra_vote_difficulty_offset_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_extra_vote_torment_level_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_extra_vote_torment_level_interaction_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto4D45DA46_val;
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_tv_p1) || (EventDialogControl() == gv_tbp_tv_p2) || (EventDialogControl() == gv_tbp_tv_p3) || (EventDialogControl() == gv_tbp_tv_p4) || (EventDialogControl() == gv_tbp_tv_p5)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetEnabled(gv_tbp_tv_p1, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_tv_p2, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_tv_p3, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_tv_p4, PlayerGroupSingle(EventPlayer()), false);
+    DialogControlSetEnabled(gv_tbp_tv_p5, PlayerGroupSingle(EventPlayer()), false);
+    auto4D45DA46_val = EventDialogControl();
+    if (auto4D45DA46_val == gv_tbp_tv_p1) {
+        gv_tbp_torment_votes[EventPlayer()] = 1;
+        DialogControlSetEnabled(gv_tbp_tv_p2, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p3, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p4, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p5, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto4D45DA46_val == gv_tbp_tv_p2) {
+        gv_tbp_torment_votes[EventPlayer()] = 2;
+        DialogControlSetEnabled(gv_tbp_tv_p1, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p3, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p4, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p5, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto4D45DA46_val == gv_tbp_tv_p3) {
+        gv_tbp_torment_votes[EventPlayer()] = 3;
+        DialogControlSetEnabled(gv_tbp_tv_p1, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p2, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p4, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p5, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto4D45DA46_val == gv_tbp_tv_p4) {
+        gv_tbp_torment_votes[EventPlayer()] = 4;
+        DialogControlSetEnabled(gv_tbp_tv_p1, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p2, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p3, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p5, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else if (auto4D45DA46_val == gv_tbp_tv_p5) {
+        gv_tbp_torment_votes[EventPlayer()] = 5;
+        DialogControlSetEnabled(gv_tbp_tv_p1, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p2, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p3, PlayerGroupSingle(EventPlayer()), true);
+        DialogControlSetEnabled(gv_tbp_tv_p4, PlayerGroupSingle(EventPlayer()), true);
+    }
+    else {
+    }
+    gf_tbp_refresh_dialog_labels();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_extra_vote_torment_level_interaction_Init () {
+    gt_tbp_dialog_extra_vote_torment_level_interaction = TriggerCreate("gt_tbp_dialog_extra_vote_torment_level_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_extra_vote_torment_level_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -32002,6 +32304,7 @@ void InitTriggers () {
     gt_tbp_create_Init();
     gt_tbp_dialog_interaction_Init();
     gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init();
+    gt_tbp_dialog_extra_vote_torment_level_interaction_Init();
     gt_tbp_dialog_extra_vote_mutator_vote_Init();
     gt_tbp_dialog_extra_vote_zterran_vote_Init();
     gt_everysecond_Init();
