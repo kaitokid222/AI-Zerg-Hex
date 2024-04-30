@@ -810,5 +810,12 @@
             <ValueHidden Id="1952657463" Slot="6"/>
             <ValueHidden Id="1952657464" Slot="6"/>
         </Attribute>
+        <Attribute Id="7">
+            <Default>
+                <Slot Id="6"/>
+                <Value Id="8"/>
+                <Locked/>
+            </Default>
+        </Attribute>
     </Variant>
 </Attributes>

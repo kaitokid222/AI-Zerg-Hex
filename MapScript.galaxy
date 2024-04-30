@@ -785,6 +785,13 @@ struct gs_team {
     playergroup lv_player_group;
 };
 
+struct gs_tgai_vars {
+    unit lv_cc;
+    unitgroup lv_builder;
+    unitgroup lv_manufacturer;
+    unitgroup lv_units;
+};
+
 struct gs_player {
     int lv_team;
     int lv_position;
@@ -958,6 +965,8 @@ int gv_t1_spawner_count;
 int gv_t2_spawner_count;
 gs_team[3] gv_teams;
 unitgroup gv_attack_drones;
+gs_tgai_vars[7] gv_tgai_vars;
+bool gv_no_genetron_players;
 playergroup gv_terrans;
 int gv_player_count;
 int[7] gv_positions;
@@ -1238,6 +1247,11 @@ void InitGlobals () {
         gv_teams[init_i].lv_player_group = PlayerGroupEmpty();
     }
     gv_attack_drones = UnitGroupEmpty();
+    for (init_i = 0; init_i <= 6; init_i += 1) {
+        gv_tgai_vars[init_i].lv_builder = UnitGroupEmpty();
+        gv_tgai_vars[init_i].lv_manufacturer = UnitGroupEmpty();
+        gv_tgai_vars[init_i].lv_units = UnitGroupEmpty();
+    }
     gv_terrans = PlayerGroupEmpty();
     for (init_i = 0; init_i <= 6; init_i += 1) {
         gv_players[init_i].lv_support_units = UnitGroupEmpty();
@@ -1416,6 +1430,9 @@ int gf_get_team_average_elo (int lp_team);
 int gf_calc_new_elo (int lp_winner_elo, int lp_loser_elo, string lp_output);
 bool gf_is_bigspine_fortified (unit lp_bigspine);
 bool gf_player_vulnerable_to_dronerush (int lp_player);
+void gf_init_tgai_players ();
+void gf_tgai_issue_orders_to_genetron_ai ();
+void gf_tgai_build_combat_unit (int lp_player);
 bool gf_unit_is_in_pocketbase (unit lp_u);
 void gf_add_afterlife_zerg_positions (unit lp_ice, int lp_closest_player);
 void gf_handle_dead_player_afterlife_start (int lp_player);
@@ -1846,6 +1863,7 @@ int gf_ic_update_terran_combat_unit_counts ();
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
+trigger gt_tgaievery6s;
 trigger gt_TombstoneMineralUpgradeFinished;
 trigger gt_StoptherainUpgradefinished;
 trigger gt_transporterbecameidle;
@@ -2372,6 +2390,82 @@ bool gf_player_vulnerable_to_dronerush (int lp_player) {
     }
 
     return lv_r;
+}
+
+void gf_init_tgai_players () {
+    // Variable Declarations
+    int lv_tgai_count;
+
+    // Automatic Variable Declarations
+    playergroup auto86BC7113_g;
+    int auto86BC7113_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto86BC7113_g = gv_terrans;
+    auto86BC7113_var = -1;
+    while (true) {
+        auto86BC7113_var = PlayerGroupNextPlayer(auto86BC7113_g, auto86BC7113_var);
+        if (auto86BC7113_var < 0) { break; }
+        if ((gv_players[auto86BC7113_var].lv_support_type == "Genetron")) {
+            lv_tgai_count += 1;
+            gv_tgai_vars[auto86BC7113_var].lv_cc = UnitGroupRandomUnit(UnitGroup("CommandCenter2", auto86BC7113_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+            UnitGroupAddUnitGroup(gv_tgai_vars[auto86BC7113_var].lv_manufacturer, UnitGroup("Manufacturer", auto86BC7113_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            UnitGroupAddUnitGroup(gv_tgai_vars[auto86BC7113_var].lv_builder, UnitGroup("ACR", auto86BC7113_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            UnitGroupAddUnitGroup(gv_tgai_vars[auto86BC7113_var].lv_units, UnitGroup("Spitfire", auto86BC7113_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            UnitIssueOrder(UnitGroupRandomUnit(UnitGroup("Repulsor", auto86BC7113_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive), Order(AbilityCommand("RepulsorBurrow", 0)), c_orderQueueAddToEnd);
+        }
+
+    }
+    if ((lv_tgai_count == 0)) {
+        gv_no_genetron_players = true;
+    }
+
+}
+
+void gf_tgai_issue_orders_to_genetron_ai () {
+    // Automatic Variable Declarations
+    playergroup auto230BB815_g;
+    int auto230BB815_var;
+
+    // Implementation
+    auto230BB815_g = gv_terrans;
+    auto230BB815_var = -1;
+    while (true) {
+        auto230BB815_var = PlayerGroupNextPlayer(auto230BB815_g, auto230BB815_var);
+        if (auto230BB815_var < 0) { break; }
+        if ((gv_players[auto230BB815_var].lv_support_type == "Genetron")) {
+            gf_tgai_build_combat_unit(auto230BB815_var);
+        }
+
+    }
+}
+
+void gf_tgai_build_combat_unit (int lp_player) {
+    // Variable Declarations
+    point lv_rally_point;
+
+    // Automatic Variable Declarations
+    unitgroup autoF9C5B154_g;
+    int autoF9C5B154_u;
+    unit autoF9C5B154_var;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_rally_point = PointFromName(("Zerg Rally " + IntToString(gv_players[lp_player].lv_position)));
+    autoF9C5B154_g = gv_tgai_vars[lp_player].lv_manufacturer;
+    autoF9C5B154_u = UnitGroupCount(autoF9C5B154_g, c_unitCountAll);
+    for (;; autoF9C5B154_u -= 1) {
+        autoF9C5B154_var = UnitGroupUnitFromEnd(autoF9C5B154_g, autoF9C5B154_u);
+        if (autoF9C5B154_var == null) { break; }
+        if ((UnitOrderCount(autoF9C5B154_var) == 0)) {
+            UnitIssueOrder(autoF9C5B154_var, OrderTargetingPoint(AbilityCommand("Rally", 0), lv_rally_point), c_orderQueueReplace);
+            UnitIssueOrder(autoF9C5B154_var, Order(AbilityCommand("GenetronTrainEdit", 0)), c_orderQueueAddToEnd);
+        }
+
+    }
 }
 
 bool gf_unit_is_in_pocketbase (unit lp_u) {
@@ -20233,6 +20327,7 @@ int gf_get_needed_xp (int lp_level) {
 void gf_Disable_timed_triggers () {
     // Automatic Variable Declarations
     // Implementation
+    TriggerEnable(gt_tgaievery6s, false);
     TriggerEnable(gt_everysecond, false);
     TriggerEnable(gt_everytwoseconds, false);
     TriggerEnable(gt_everythreeseconds, false);
@@ -20251,6 +20346,7 @@ void gf_Disable_timed_triggers () {
 void gf_Enable_timed_triggers () {
     // Automatic Variable Declarations
     // Implementation
+    TriggerEnable(gt_tgaievery6s, true);
     TriggerEnable(gt_everysecond, true);
     TriggerEnable(gt_everytwoseconds, true);
     TriggerEnable(gt_everythreeseconds, true);
@@ -21097,6 +21193,33 @@ int gf_ic_update_terran_combat_unit_counts () {
         lv_r = (lv_r + gv_ic_terran_combat_unit_counts[auto0105CC4B_var]);
     }
     return lv_r;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tgai every 6s
+//--------------------------------------------------------------------------------------------------
+bool gt_tgaievery6s_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_no_genetron_players == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_tgai_issue_orders_to_genetron_ai();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tgaievery6s_Init () {
+    gt_tgaievery6s = TriggerCreate("gt_tgaievery6s_Func");
+    TriggerAddEventTimePeriodic(gt_tgaievery6s, 6.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -31059,6 +31182,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         if ((gf_tbp_get_tv_winner_vote() > 0)) {
             gv_difficulty = (gv_difficulty + gf_tbp_get_tv_winner_vote());
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringToText(gf_get_difficulty_label()) + (StringExternal("Param/Value/8EC3F5CE") + StringToText(""))));
+            gf_torment_special_units_refresh(gv_difficulty);
         }
 
     }
@@ -31066,11 +31190,13 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         if ((gf_tbp_get_difficulty_offset_vote_result() == 1)) {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/95BEBB37") + StringToText("")));
             gv_difficulty = (gv_difficulty + 1);
+            gf_torment_special_units_refresh(gv_difficulty);
         }
 
         if ((gf_tbp_get_difficulty_offset_vote_result() == 2)) {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/5FBB9A1C") + StringToText("")));
             gv_difficulty = (gv_difficulty - 1);
+            gf_torment_special_units_refresh(gv_difficulty);
         }
 
     }
@@ -31090,6 +31216,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     }
     gf_set_up_modify_players_init();
     gf_create_income_dialog();
+    gf_init_tgai_players();
     gf_spawn_spaceballs();
     gf_fill_fw_grid();
     libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
@@ -31261,15 +31388,15 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     }
     else {
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 190, 60, c_anchorTopLeft, 40, 100, StringExternal("Param/Value/8294A17E"), ColorWithAlpha(0,0,0,0), false, 2.0);
-        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 255, 80, StringToText(""), StringExternal("Param/Value/C6DEF3C4"), "Assets\\Textures\\ui_emoticons_random.dds");
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 255, 80, StringToText("Greatly increased off-map income."), StringExternal("Param/Value/C6DEF3C4"), "Assets\\Textures\\ui_emoticons_random.dds");
         gv_tbp_tv_p5 = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 320, 80, StringToText(""), StringExternal("Param/Value/52FEC950"), "Assets\\Textures\\ui_emoticons_random.dds");
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 320, 80, StringToText("Every Spawner gets upgrades instantly for free."), StringExternal("Param/Value/52FEC950"), "Assets\\Textures\\ui_emoticons_random.dds");
         gv_tbp_tv_p4 = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 385, 80, StringToText(""), StringExternal("Param/Value/BE7A5AFD"), "Assets\\Textures\\ui_emoticons_random.dds");
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 385, 80, StringToText("Every Spawner Unit gets +5 HP."), StringExternal("Param/Value/BE7A5AFD"), "Assets\\Textures\\ui_emoticons_random.dds");
         gv_tbp_tv_p3 = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 80, StringToText(""), StringExternal("Param/Value/DF8A5B7A"), "Assets\\Textures\\ui_emoticons_random.dds");
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 450, 80, StringToText("Adds Speed 4 Upgrade."), StringExternal("Param/Value/DF8A5B7A"), "Assets\\Textures\\ui_emoticons_random.dds");
         gv_tbp_tv_p2 = DialogControlLastCreated();
-        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 80, StringToText(""), StringExternal("Param/Value/6D5AD9B7"), "Assets\\Textures\\ui_emoticons_random.dds");
+        libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 515, 80, StringToText("Adds Improved Kerrigan."), StringExternal("Param/Value/6D5AD9B7"), "Assets\\Textures\\ui_emoticons_random.dds");
         gv_tbp_tv_p1 = DialogControlLastCreated();
         libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 85, StringExternal("Param/Value/FB02E5E3"), ColorWithAlpha(0,0,0,0), false, 2.0);
     }
@@ -32115,6 +32242,7 @@ void gt_every15minutes_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
+    gt_tgaievery6s_Init();
     gt_TombstoneMineralUpgradeFinished_Init();
     gt_StoptherainUpgradefinished_Init();
     gt_transporterbecameidle_Init();
