@@ -915,8 +915,10 @@
     </CUpgrade>
     <CUpgrade id="ZergDefenseDamage">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
-        <EffectArray Reference="Effect,TanklingMeleeDamage,Amount" Value="0.75"/>
-        <EffectArray Reference="Weapon,ImpalerTentacle3v3,Level" Value="1"/>
+        <EffectArray Reference="Effect,ImpalerTentacleU,Chance" Value="1"/>
+        <EffectArray Reference="Weapon,ImpalerTentacle,Level" Value="1"/>
+        <EffectArray Reference="Weapon,ImpalerTentacle2,Level" Value="1"/>
+        <EffectArray Reference="Effect,SpineCrawlerDamageEdit,Chance" Value="1"/>
         <MaxLevel value="100"/>
     </CUpgrade>
     <CUpgrade id="ZergMovement">

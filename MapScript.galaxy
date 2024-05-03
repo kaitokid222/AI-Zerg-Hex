@@ -1186,7 +1186,7 @@ bool gv_is_setup_phase;
 int gv_infestor_dead_count;
 bool gv_mass_infestor_death_exception;
 int gv_mass_infestor_death_exception_cooldown;
-int gv_zhg_phase;
+int gv_zhg_recruit_phase;
 unitgroup gv_zhg_prefuse_infestors;
 unitgroup gv_zhg_hydras;
 unitgroup gv_prefuse_infestors_nests;
@@ -2885,7 +2885,7 @@ void gf_apply_support_casual () {
         lv_picked_bonus_int = gv_tbp_player_bonus_picks[auto18D3D132_var];
         if ((lv_picked_bonus_int == 1)) {
             lv_picked_bonus_int = RandomInt(2, 12);
-            if (((lv_picked_bonus_int == 13) || (lv_picked_bonus_int == 14))) {
+            if (((lv_picked_bonus_int == 9))) {
                 lv_picked_bonus_int = 5;
             }
 
@@ -20719,7 +20719,6 @@ void gf_tbp_refresh_dialog_labels () {
             else {
                 libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringToText("") + StringToText("")) + (TextWithColor(PlayerName(gv_tbp_player_picked_terran[lv_i]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_tbp_player_picked_terran[lv_i], false))) + StringToText(""))) + (StringExternal("Param/Value/D853AD01") + StringExternal("Param/Value/3F6CC9C6"))), PlayerGroupAll());
             }
-            libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((StringToText("") + StringToText("")) + (TextWithColor(PlayerName(gv_tbp_player_picked_terran[lv_i]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_tbp_player_picked_terran[lv_i], false))) + StringToText(""))) + (StringExternal("Param/Value/9A106EF6") + gf_get_bonus_name_text_from_bid(gv_tbp_player_bonus_picks[lv_i]))), PlayerGroupAll());
             lv_j = (lv_j + 1);
             libNtve_gf_SetDialogItemText(gv_tbp_labels_terran[lv_j], (((((StringExternal("Param/Value/F21B9A6F") + IntToText(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp))) + (StringExternal("Param/Value/DC00FE01") + StringToText(gf_tbp_transform_xp_string(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp, gf_get_needed_xp(gf_get_level_from_xp(gv_players[gv_tbp_player_picked_terran[lv_i]].lv_xp)))))) + StringExternal("Param/Value/A8EE55C3")) + StringExternal("Param/Value/A6E28041")) + (StringExternal("Param/Value/3C111172") + StringToText(gf_tbp_transform_flags(gv_tbp_player_picked_terran[lv_i])))), PlayerGroupAll());
             lv_j = (lv_j + 1);
@@ -29206,10 +29205,10 @@ bool gt_hydragotborn_Func (bool testConds, bool runActions) {
 
     if ((RegionContainsPoint(RegionFromId(1), lv_p) == true)) {
         if ((gv_mutator_mega_mecha_hydras == true)) {
-            UnitGroupAdd(gv_zhg_prefuse_infestors, libNtve_gf_LastReplacedUnit());
+            UnitGroupAdd(gv_zhg_hydras, libNtve_gf_LastReplacedUnit());
         }
         else {
-            UnitGroupAdd(gv_zhg_prefuse_infestors, EventUnitCreatedUnit());
+            UnitGroupAdd(gv_zhg_hydras, EventUnitCreatedUnit());
         }
     }
     else {
@@ -31130,7 +31129,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_Game_Banks_handler("load", 0, 0, 0, 0);
     gf_AnalysePlayerDifficultyVotes();
     gv_difficulty = gf_get_real_difficulty();
-    gv_difficulty = 8;
     gf_set_build();
     TriggerExecute(gt_tbp_create, true, true);
     gf_Enable_timed_triggers();
@@ -31401,11 +31399,6 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 275, 60, c_anchorTopLeft, 590, 200, StringExternal("Param/Value/94B4C808"), ColorWithAlpha(0,0,0,0), false, 2.0);
     gv_tbp_extra_vote_dialog = DialogLastCreated();
     DialogSetVisible(gv_tbp_extra_vote_dialog, PlayerGroupAll(), true);
-    DialogCreate(600, 150, c_anchorTopLeft, 1420, 100, true);
-    DialogSetTitle(DialogLastCreated(), (StringExternal("Param/Value/6447C871") + StringToText(gf_get_difficulty_label())));
-    libNtve_gf_CreateDialogItemLabel(DialogLastCreated(), 550, 60, c_anchorTopLeft, 50, 80, StringExternal("Param/Value/D56FD7AB"), ColorWithAlpha(0,0,0,0), false, 2.0);
-    gv_tbp_toplist_frame_dialog = DialogLastCreated();
-    DialogSetVisible(gv_tbp_toplist_frame_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
@@ -31989,12 +31982,12 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
 
     gf_upgrade_start_spawners();
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 18) + 59)) && (gv_difficulty > 4)) {
-        if ((gv_zhg_phase == 0)) {
+        if ((gv_zhg_recruit_phase == 0)) {
             if ((UnitGroupCount(gv_zhg_hydras, c_unitCountAlive) < 30)) {
                 gf_recruit_defensive_hg_hydras();
             }
 
-            gv_zhg_phase = 1;
+            gv_zhg_recruit_phase = 1;
         }
         else {
             if ((gv_difficulty > 5)) {
@@ -32004,7 +31997,7 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
 
             }
 
-            gv_zhg_phase = 0;
+            gv_zhg_recruit_phase = 0;
         }
     }
 
