@@ -735,9 +735,6 @@
         <Alert value="MorphComplete_Zerg"/>
         <Activity value="UI/Mutating"/>
     </CAbilMorph>
-    <CAbilEffectTarget id="PhaseCannon">
-        <CmdButtonArray index="Execute" Requirements="KaraxPhaseCannon"/>
-    </CAbilEffectTarget>
     <CAbilEffectTarget id="PowerFieldKarax">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="TechLabPowerFieldSet"/>
@@ -1222,6 +1219,14 @@
         <InfoArray index="Research25" Time="30" Upgrade="ChaosPowerArmorUpgrade">
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="ResearchChaosPowerArmorUpgrade" Requirements="ChaosPowerArmorUpgradeRequirement"/>
+        </InfoArray>
+        <InfoArray index="Research26" Time="30" Upgrade="RapidUnitTraining">
+            <Resource index="Vespene" value="600"/>
+            <Button DefaultButtonFace="ResearchRapidUnitTraining" Requirements="ResearchRapidUnitTraining"/>
+        </InfoArray>
+        <InfoArray index="Research27" Time="30" Upgrade="UpgradedImprovedCombatShield">
+            <Resource index="Vespene" value="900"/>
+            <Button DefaultButtonFace="UpgradeImprovedCombatShield" Requirements="UpgradeImprovedCombatShield"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilMorph id="BurrowFireling">

@@ -6,6 +6,18 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectSet id="DemonCrystalSet">
+        <ValidatorArray value="ZergProtectiveBaseMainAttackBarrier"/>
+        <EditorCategories value=""/>
+        <EffectArray value="DemonCrystal"/>
+        <EffectArray value="DemonCrystalAOE"/>
+    </CEffectSet>
+    <CEffectDamage id="DemonCrystal" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="45"/>
+        <AttributeBonus index="Structure" value="-25"/>
+    </CEffectDamage>
     <CEffectSet id="RemoveBomberSpawn">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -34,6 +46,17 @@
     <CEffectLaunchMissile id="ShadowCannon">
         <ImpactEffect value="UmbraShadowCannonSet2"/>
     </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="ShatterL3ApplyBehaviour">
+        <ValidatorArray index="0" value="HaveShatteringLaser"/>
+        <ValidatorArray value="NotStructureTarget"/>
+        <EditorCategories value=""/>
+        <Behavior value="ShatterL3"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="DemonCrystalApplyBehavior">
+        <ValidatorArray index="0" value="NotStructureTarget"/>
+        <EditorCategories value=""/>
+        <Behavior value="SpawnBlood2"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="UmbraShadowCannonAOE">
         <ValidatorArray value="UmbraShadowCannonResearchCompleted"/>
         <EditorCategories value="Race:Terran"/>
@@ -121,6 +144,12 @@
     <CEffectDamage id="Psythe">
         <Amount value="16"/>
     </CEffectDamage>
+    <CEffectEnumArea id="DemonCrystalAOE">
+        <EditorCategories value="Race:Terran"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="DemonCrystal"/>
+    </CEffectEnumArea>
     <CEffectSet id="UmbraShadowCannonSet2">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="ShadowCannonImpact"/>
@@ -5009,12 +5038,6 @@
         <ValidatorArray value="NotStructureTarget"/>
         <EditorCategories value=""/>
         <Behavior value="ShatterL2"/>
-    </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="ShatterL3ApplyBehaviour">
-        <ValidatorArray index="0" value="HaveShatteringLaser"/>
-        <ValidatorArray value="NotStructureTarget"/>
-        <EditorCategories value=""/>
-        <Behavior value="ShatterL3"/>
     </CEffectApplyBehavior>
     <CEffectEnumArea id="ShatterL2SearchArea">
         <EditorCategories value=""/>

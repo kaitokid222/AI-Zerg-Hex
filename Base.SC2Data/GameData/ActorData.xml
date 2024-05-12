@@ -32,6 +32,24 @@
         </Wireframe>
     </CActorUnit>
     <CActorModel id="FloatingTextMinerals5Caster" parent="FloatingTextActorDefault" effectPickup="GainMineral5Caster" actorCreate="GainMinerals5Text"/>
+    <CActorBeamSimple id="DemonFortFireBeam">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death ContentPlayOnce"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor {255,6,13 2.000000}"/>
+        <Model value="LaserDrillTripodBiggerAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorAction id="DemonCrystalAttackAction" parent="InterceptorAttack">
+        <On index="0" Terms="Effect.DemonCrystalSet.Start; At Caster"/>
+        <On index="1" removed="1"/>
+        <On index="2" removed="1"/>
+        <On index="3" removed="1"/>
+        <On index="4" removed="1"/>
+        <Beam value="DemonFortFireBeam"/>
+        <ImpactModel value="GenericAttackImpactModelElite"/>
+    </CActorAction>
     <CActorUnit id="Pariah">
         <Scale value="1.200000"/>
     </CActorUnit>
@@ -3950,7 +3968,6 @@
         <Macros value="PhysicsDeathsSwarmGround"/>
         <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
         <Model value="MinionHellMelee"/>
-        <Scale value="0.650000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="MinionHellMelee"/>
         <DeathArray index="Normal" ModelLink="MinionHellMeleeDeath" SoundLink="Minion_Footman_Hell_Death_Splat" VoiceLink="Minion_Footman_Hell_Vox_Death"/>
@@ -4004,7 +4021,6 @@
         <On index="74" Terms="AbilMorph.*.Cancel; MorphFrom Hatchery; MorphTo Lair" Send="AnimGroupRemove B"/>
         <On index="75" Terms="UnitBirth.Hellfort" Send="AnimPlay {} Stand PlayForever"/>
         <On index="76" removed="1"/>
-        <Scale value="0.830000"/>
         <EventDataFootprint index="0" Model="HatcheryFootprint"/>
         <DeathArray index="Normal" SoundLink="" VoiceLink="HatcheryDeathVoice"/>
         <DeathArray index="UnderConstruction" ModelLink="HatcheryDeathUnderConstruction" SoundLink="Hatchery_Explode"/>
@@ -4249,7 +4265,6 @@
         <Macros value="PhysicsDeathsSwarmGround"/>
         <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
         <Model value="MinionHellRanged"/>
-        <Scale value="0.650000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="MinionHellRanged"/>
         <DeathArray index="Normal" ModelLink="MinionHellRangedDeath" SoundLink="Minion_Footman_Hell_Death_Splat" VoiceLink="Minion_Footman_Hell_Vox_Death"/>
@@ -4546,6 +4561,7 @@
         <Wireframe>
             <Image value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_wizard_hell.dds"/>
         </Wireframe>
+        <Scale value="2.000000"/>
     </CActorUnit>
     <CActorAction id="MechalingAttack" parent="GenericAttack" effectAttack="MechaClawsDamage">
         <ImpactAttachQuery Methods="AMFilterTargetVolumes"/>

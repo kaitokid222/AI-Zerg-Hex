@@ -980,6 +980,7 @@ Button/Name/ResearchParalyzingShock=Research Paralyzing Shock
 Button/Name/ResearchPenetratingLaser=Research Penetrating Laser
 Button/Name/ResearchPrimalRapidRespawn=Research Primal Rapid Respawn
 Button/Name/ResearchPrimalRapidRespawn3v3=Research Primal Rapid Respawn
+Button/Name/ResearchRapidUnitTraining=Research Rapid Unit Training
 Button/Name/ResearchShatteringLaser=Research Shattering Laser
 Button/Name/ResearchShockBeam=Research Shock Beam
 Button/Name/ResearchShockOverload=Research Shock Overload
@@ -1133,6 +1134,7 @@ Button/Name/UpgradeGasVent=Upgrade Gas Vent
 Button/Name/UpgradeGeneratorCapability=Upgrade Generator Capability
 Button/Name/UpgradeGeneratorCapacity=Upgrade Generator Capacity
 Button/Name/UpgradeHydraliskSpawnSize=Upgrade Hydralisk Spawn Size
+Button/Name/UpgradeImprovedCombatShield=Upgrade Improved Combat Shield
 Button/Name/UpgradeKarax=Upgrade Karax
 Button/Name/UpgradeRefineryToUpgraded=Upgrade Refinery
 Button/Name/UpgradeSpawner=Upgrade Spawner
@@ -1600,6 +1602,7 @@ Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a"
 Button/Tooltip/ResearchPenetratingLaser=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/ResearchRapidUnitTraining=<c val="ffff8a">Units</c> can get recruited faster.
 Button/Tooltip/ResearchShatteringLaser=Upgrades all <c val="ffff8a">Marines</c> lasers to shatter upon impact, dealing 1/3/5 damage (depending on tier) to 2 nearby enemy units. Damage applies bonuses from the Armory and Penetrating Laser research.
 Button/Tooltip/ResearchShockBeam=Enables <c val="ffff8a">Shock Troopers</c> to fire in a constant beam, effectively increasing attack speed by 100%.
 Button/Tooltip/ResearchShockOverload=More than doubles the impact radius of <c val="ffff8a">Shock Trooper</c> weapons.
@@ -1796,6 +1799,7 @@ Button/Tooltip/UpgradeGasVent=Upgrades the gas vent to produce double as much ga
 Button/Tooltip/UpgradeGeneratorCapability=Upgrades the generator to produce +30 energy per second and +1000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeGeneratorCapacity=Upgrades the generator to have +4000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an additional life. [Max 3 upgrades]<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
+Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +30 life.<n/><c val="ffff8a">Elite Marines</c> gain +50 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeSpawner=Increase the number of spawns by 1.
@@ -2639,6 +2643,18 @@ DocInfo/PatchNote799=Removed Artanis Bonus.
 DocInfo/PatchNote800=Reworked Bonus Selection Dialog and gave all bonuses a description.
 DocInfo/PatchNote801=Made t2-6 accessable again through ingame vote at the start of a torment lobby.
 DocInfo/PatchNote802=Fixed issue.
+DocInfo/PatchNote803=Fixed Issues.
+DocInfo/PatchNote804=Increased Difficulty. On Ultra Brutal and higher at the 20 minute mark Spine Crawler Damage starts scaling with attack ups.
+DocInfo/PatchNote805=Added a second midgame crisis type and related stuff.
+DocInfo/PatchNote806=Egg Clusters on Torment or higher difficulty no longer spawn Demon Warriors.
+DocInfo/PatchNote807=Egg Clusters spawn slightly less Strikelings in some cases.
+DocInfo/PatchNote808=Nerfed Demon Fort. Range 13 -> 11, ATK Speed 1.4 -> 1.35, Damage 56 -> 45, HP 5000 -> 3000, Armor 1 -> 3.
+DocInfo/PatchNote809=Demon Crystal does less damage to structures. -25
+DocInfo/PatchNote810=Demon Wizards no longer attack players.
+DocInfo/PatchNote811=Karax can warp in Phase Cannons before 11 minutes now.
+DocInfo/PatchNote812=Fixed Wizard AI issues.
+DocInfo/PatchNote813=Increased Energy Generation Upgrade Cap 50 -> 60.
+DocInfo/PatchNote814=Added Upgrades: Rapid Unit Training and Improved Combat Shield.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -2856,6 +2872,10 @@ Effect/Name/DefenderLinkRemoveBuffSet=Defender Link (Remove Buff Set)
 Effect/Name/DefenderLinkRemoveBuffTargetSet=Defender Link (Remove Buff Target Set)
 Effect/Name/DefenderNanoRepair=Defender Nano Repair
 Effect/Name/DemolishDamage=Demolish (Damage)
+Effect/Name/DemonCrystal=Demon Crystal
+Effect/Name/DemonCrystalAOE=Demon Crystal AOE
+Effect/Name/DemonCrystalApplyBehavior=Demon Crystal Apply Behavior
+Effect/Name/DemonCrystalSet=Demon Crystal Set
 Effect/Name/DesecratedBolter=Desecrated Bolter
 Effect/Name/DestroySpawnerDamage=Destroy Spawner (Damage)
 Effect/Name/DestroySpawnerSet=Destroy Spawner (Set)
@@ -3698,6 +3718,7 @@ Param/Value/1608FB40=10 Minutes left before Zerg wins!
 Param/Value/168C7CC0=. <n/>Type "-rtv" or "-rtv xmas" if you also want to play the xmas event! <n/>3 more votes needed!
 Param/Value/169D7028=<c val="FFF980">H</c><c val="E7FA96">a</c><c val="CFFBAC">p</c><c val="B7FCC2">p</c><c val="A0FDD9">y</c> 
 Param/Value/16C13C90=<c val="FF9797">Assigning 2 players at random</c>
+Param/Value/16D50D1C=(requires 4 matching votes)
 Param/Value/18078A08=Gas is needed for everything. The more you have the better it is for you in the long run.
 Param/Value/18808CD8=Enable ZTerran:
 Param/Value/18909050=Your elo rating is: 
@@ -3756,6 +3777,7 @@ Param/Value/3DD3D3EA= has
 Param/Value/3E71042E=(Cost Add) New costs: 
 Param/Value/3EDE583D=To win the game you have to kill the Zerg Hive before the other team kills theirs!
 Param/Value/3F2E101C=<c val="FFFFC4">(
+Param/Value/3F6AE9FB=
 Param/Value/3F6CC9C6=left the game
 Param/Value/3F992C71=It's HNY-Event!
 Param/Value/3FA9BDBD="Ability Used"
@@ -3794,6 +3816,7 @@ Param/Value/52FEC950=+4
 Param/Value/53186217=Player
 Param/Value/54A95DC9=Cash
 Param/Value/579D07E4=<c val="FFFFC4">A </c><c val="FAED4B">
+Param/Value/57D802B2=
 Param/Value/5815D306=Timer mode switched!
 Param/Value/5962097F=-
 Param/Value/5A88A4D0=Signal Count: 
@@ -3819,6 +3842,7 @@ Param/Value/60A50E7B=winding:
 Param/Value/60BDC34D=Pick Your Race
 Param/Value/615E49F9=Tank
 Param/Value/620D30AD=Item 4 Row 3: text test text test text test text test text test text test text test text test text test text
+Param/Value/625E967F=Midgame Crisis disabled by player vote.
 Param/Value/62902AB2=
 Param/Value/639B940A=Welcome to the 3v3 mode!
 Param/Value/63FBE05C=
@@ -3843,6 +3867,7 @@ Param/Value/694737D4=empty null text
 Param/Value/6AABEA78=Zerg destroyed pumpkin! 
 Param/Value/6ADFE20E=Random
 Param/Value/6B925B3D=%)</c>
+Param/Value/6C709FC7=<n/><c val="FF0000">Zerg Difficulty: </c>
 Param/Value/6CE7ACA7=I am done here. You can keep my Elites. Good Luck!
 Param/Value/6D5AD9B7=+1
 Param/Value/6D92ED9A=Reapers dont use energy and have a strong attack against structures. (including the rock)
@@ -3853,7 +3878,6 @@ Param/Value/70429A66=I will come and support you!
 Param/Value/704B0AD1=Infested
 Param/Value/70CF1FCC=Valentines Day Event active!
 Param/Value/7164857E=0
-Param/Value/728C48F0=Zerg Ultra Brutal
 Param/Value/73BF34E4=Chaos
 Param/Value/740F8555=Kill the Hive on your side of the map.
 Param/Value/74473846=Kill the obelisk of every terran in the other team.
@@ -3908,7 +3932,6 @@ Param/Value/91B741E3=1000
 Param/Value/92A71DC2= / 
 Param/Value/93530990=You already use the original timer. And there is no way back from this.
 Param/Value/9398D9DE=Voting got started for a different event!
-Param/Value/9429560E=<c val="FF0000">Zerg Difficulty: </c>
 Param/Value/942F01AD=Zerg Minerals
 Param/Value/94B4C808=(req 4 votes; Replaces the default zerg buildings, spawners and units)
 Param/Value/94E41F97=Valentines Day Event is active!
@@ -3932,6 +3955,7 @@ Param/Value/9E9E757A=It's Halloween!
 Param/Value/9EE0E557=ratio hidden
 Param/Value/9F00C597=A 
 Param/Value/9F6EE008=-1
+Param/Value/9F8B195E=Disable Midgame Crisis:
 Param/Value/9FA748C7=Artanis
 Param/Value/9FA77B02=Build a Construction Yard!
 Param/Value/A000F254=Showing player stats
@@ -3946,8 +3970,11 @@ Param/Value/A5BD5F19=You need the Construction Yard for advanced structures.
 Param/Value/A600A254=
 Param/Value/A6791F10=Hammer
 Param/Value/A6E28041= 
+Param/Value/A7295820=no
 Param/Value/A7776EFA=<c val="FF9797">Rock exploits have been terminated.</c>
 Param/Value/A78F37AC=Extractor Remove Notice
+Param/Value/A88BECFD=yes
+Param/Value/A8980647=<c val="FF0000">Zerg Difficulty: </c>
 Param/Value/A8BB9DD4=Send Amount
 Param/Value/A8EE55C3=)
 Param/Value/A941D8BE= has 
@@ -4053,6 +4080,7 @@ Param/Value/E07D26ED=!
 Param/Value/E130816B=Gas is needed for everything. The more you have the better it is for you in the long run.
 Param/Value/E176759B=00110001 01010011 01010100 00100000 01000001 01010000 01010010 01001001 01001100
 Param/Value/E1ED0B77=I heard you need some help! We will take care about some of the zerg spawners. Good Luck!
+Param/Value/E31B502F=<n/><c val="FF0000">Crisis Type: </c>
 Param/Value/E372FAEE= more votes needed!
 Param/Value/E4B0AABC= refunded!
 Param/Value/E4CB8C23= researched 
@@ -4336,7 +4364,7 @@ Unit/Name/GreaterTerrazineExtractor=Greater Terrazine Extractor
 Unit/Name/HalloweenSapper=Halloween Sapper
 Unit/Name/HeavyMineralTrader=Heavy Mineral Trader
 Unit/Name/HeavyVespeneTrader=Heavy Vespene Trader
-Unit/Name/Hellfort=Hellfort
+Unit/Name/Hellfort=Demon Fort
 Unit/Name/Hellion2=Hellion
 Unit/Name/HighDensityBattery=High Density Battery
 Unit/Name/Hive2=Hive
@@ -4387,7 +4415,7 @@ Unit/Name/MechaSpineCrawler=Mecha Spine Crawler
 Unit/Name/MechaTechlab=Mecha Techlab
 Unit/Name/MechaTerrazineExtractor=Terrazine Extractor
 Unit/Name/Mechaling=Mechaling
-Unit/Name/MeleeMinionHell=Melee Minion
+Unit/Name/MeleeMinionHell=Demon Warrior
 Unit/Name/MengskMarauder=Titan Marauder
 Unit/Name/MineralContainer=Mineral Container
 Unit/Name/MineralExtractor=Mineral Extractor
@@ -4428,7 +4456,7 @@ Unit/Name/ProbiusPylon=Probius Pylon
 Unit/Name/Pumpkin=Pumpkin
 Unit/Name/Pumpkin2=Pumpkin
 Unit/Name/Pumpkin3=Pumpkin
-Unit/Name/RangedMinionHell=Ranged Minion
+Unit/Name/RangedMinionHell=Demon Sniper
 Unit/Name/Ravager2=Ravager
 Unit/Name/Ravator=Ravator
 Unit/Name/RavatorSpawner=Ravator Spawner
@@ -4492,7 +4520,7 @@ Unit/Name/Uploader2=Wall
 Unit/Name/VeteranMarine=Veteran Marine
 Unit/Name/Wall2=Wall
 Unit/Name/WeaponNapalmBombMissile=Weapon - Napalm Bomb Missile
-Unit/Name/WizardMinion=Wizard Minion
+Unit/Name/WizardMinion=Demon Wizard
 Unit/Name/ZerglingCarbot=Cuteling
 Unit/Name/ZerglingCarbot2=Cuteling Boss 2
 Unit/Name/ZerglingCarbot3=Cuteling Boss 3
@@ -4604,6 +4632,7 @@ Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
 Upgrade/Name/PlasmaCannons=Plasma Cannons
 Upgrade/Name/PrimalRapidRespawn=Primal Rapid Respawn
+Upgrade/Name/RapidUnitTraining=Rapid Unit Training
 Upgrade/Name/RecyclingProtocol=Recycling Protocol
 Upgrade/Name/RecyclingProtocol2=Recycling Protocol 2
 Upgrade/Name/SelfRecharchingBatteries=Self Recharching Batteries
@@ -4635,6 +4664,7 @@ Upgrade/Name/UnlockPariah=Unlock Pariah
 Upgrade/Name/UnlockUmbra=Unlock Umbra
 Upgrade/Name/UnstableCore=Unstable Core
 Upgrade/Name/UpgradedCombatShield=Upgraded Combat Shield
+Upgrade/Name/UpgradedImprovedCombatShield=Upgraded Improved Combat Shield
 Upgrade/Name/WeaponCapacity=Weapon Capacity
 Upgrade/Name/ZCCEnergyUpgrade=ZCC Energy Upgrade
 Upgrade/Name/ZergArmor1=Zerg Armor 1
@@ -4665,6 +4695,7 @@ Weapon/Name/BeastlingClaws=Claws
 Weapon/Name/ChaosPowerSword=Chaos Power Sword
 Weapon/Name/ChaosSword=Chaos Sword
 Weapon/Name/Consume=Consume
+Weapon/Name/DemonCrystal=Demon Crystal
 Weapon/Name/DesecratedBolter=Desecrated Bolter
 Weapon/Name/Firebat=Perdition Flamethrower
 Weapon/Name/Firebat2=Flamethrower

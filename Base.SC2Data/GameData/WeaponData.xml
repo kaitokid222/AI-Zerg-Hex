@@ -61,6 +61,18 @@
         <Period value="0.15"/>
         <Effect value="L2MinigunSet"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="DemonCrystal">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-unit-void-deathgripcrystal.dds"/>
+        <TargetFilters value="Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="11"/>
+        <Range value="11"/>
+        <Period value="1.35"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="DemonCrystalSet"/>
+        <RandomDelayMax value="0.0625"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MassiveSporeAG">
         <Range value="4.5"/>
     </CWeaponLegacy>
@@ -234,8 +246,8 @@
         <DisplayEffect value="MinionHellMeleeDamage"/>
         <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign"/>
         <MinScanRange value="0.875"/>
-        <Range value="0.875"/>
-        <Period value="1.5"/>
+        <Range value="1"/>
+        <Period value="1"/>
         <DamagePoint value="0.22"/>
         <Backswing value="0.12"/>
         <Effect value="MinionHellMeleeDamage"/>

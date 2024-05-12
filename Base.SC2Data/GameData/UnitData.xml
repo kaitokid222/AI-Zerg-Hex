@@ -4046,8 +4046,8 @@
         <Collide index="Locust" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Summoned" value="1"/>
-        <LifeStart value="55"/>
-        <LifeMax value="55"/>
+        <LifeStart value="15"/>
+        <LifeMax value="15"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
@@ -4106,6 +4106,7 @@
         <TauntDuration index="Dance" value="5"/>
     </CUnit>
     <CUnit id="Hellfort">
+        <DeathTime value="5"/>
         <DeathRevealRadius value="3"/>
         <ReviveType value="Hatchery"/>
         <Race value="Zerg"/>
@@ -4134,25 +4135,27 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Structure" value="1"/>
-        <LifeStart value="1000"/>
-        <LifeMax value="1000"/>
-        <LifeArmor value="1"/>
-        <LifeRegenRate value="5"/>
+        <LifeStart value="3000"/>
+        <LifeMax value="3000"/>
+        <LifeArmor value="3"/>
+        <LifeRegenRate value="15"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
         <StationaryTurningRate value="719.4726"/>
         <TurningRate value="719.4726"/>
-        <Sight value="13"/>
+        <Sight value="14"/>
         <CostCategory value="Economy"/>
-        <CostResource index="Minerals" value="470"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="que5"/>
         <AbilArray Link="Rally"/>
         <AbilArray Link="ZergTrain"/>
         <AbilArray Link="AbsorbingCloud"/>
-        <BehaviorArray Link="CreepGrowthCustomLargeEven"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="CreepGrowthCustomHuge"/>
         <BehaviorArray Link="SpawnBuggoUponDeath"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <WeaponArray Link="DemonCrystal" Turret="PhotonCannon"/>
         <EffectArray index="Create" value="HatcheryCreateSet"/>
         <EffectArray index="Birth" value="HatcheryBirthSet"/>
         <CardLayouts>
@@ -4185,7 +4188,6 @@
             <Charge Link="Hatchery/Revive"/>
             <Cooldown Link="Hatchery/Revive"/>
         </ReviveInfoBase>
-        <DeathTime value="5"/>
     </CUnit>
     <CUnit id="Nexus">
         <CostResource index="Minerals" value="50"/>
@@ -4439,8 +4441,8 @@
         <Collide index="Locust" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Summoned" value="1"/>
-        <LifeStart value="45"/>
-        <LifeMax value="45"/>
+        <LifeStart value="10"/>
+        <LifeMax value="10"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
@@ -4808,10 +4810,13 @@
         <Collide index="Locust" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Summoned" value="1"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
+        <LifeStart value="750"/>
+        <LifeMax value="750"/>
         <LifeRegenRate value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <EnergyStart value="150"/>
+        <EnergyMax value="2000"/>
+        <EnergyRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
         <Speed value="3"/>
         <SpeedMultiplierCreep value="1.3"/>
@@ -4868,9 +4873,6 @@
         </Fidget>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <EnergyStart value="150"/>
-        <EnergyMax value="2000"/>
-        <EnergyRegenRate value="2"/>
     </CUnit>
     <CUnit id="SmallPresent" parent="ITEM">
         <Race value="Terr"/>
@@ -6696,12 +6698,14 @@
                 <Row value="1"/>
                 <Column value="1"/>
             </LayoutButtons>
+            <LayoutButtons Face="UpgradeImprovedCombatShield" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research27" Row="1" Column="1"/>
             <LayoutButtons Face="ResearchShockBeam" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research16" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchShockOverload" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research2" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchHyperElectrodes" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research7" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchParalyzingShock" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research22" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchInfestedSpeedUp" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research24" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchMobileSquadTraining" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research12" Row="2" Column="1"/>
+            <LayoutButtons Face="ResearchRapidUnitTraining" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research26" Row="2" Column="1"/>
             <LayoutButtons Face="ResearchHeavyPlating" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research18" Row="1" Column="2"/>
             <LayoutButtons Face="ResearchBomberSpawns" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research19" Row="1" Column="2"/>
             <LayoutButtons Face="ResearchChaosPowerArmorUpgrade" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research25" Row="1" Column="2"/>

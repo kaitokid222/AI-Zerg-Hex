@@ -106,6 +106,20 @@
         <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
         <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
+    <CUpgrade id="RapidUnitTraining">
+        <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train1].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train2].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train3].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train4].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train5].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train8].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train9].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train10].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train11].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train12].Time" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train13].Time" Value="1.000000"/>
+    </CUpgrade>
     <CUpgrade id="Stoptherain"/>
     <CUpgrade id="GenetronTier3">
         <Icon value="Assets\Textures\btn-upgrade-genetron-lightmechweapons-level2.dds"/>
@@ -410,6 +424,25 @@
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
     <CUpgrade id="HUGSAlgorythm"/>
+    <CUpgrade id="UpgradedImprovedCombatShield">
+        <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeMax" Value="30"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeStart" Value="30"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="175"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="175"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="35"/>
+    </CUpgrade>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
         <EffectArray Reference="Unit,Marine2,EnergyMax" Value="120"/>
@@ -637,6 +670,8 @@
         <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="50"/>
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
         <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeMax" Value="50"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeStart" Value="50"/>
         <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="175"/>
         <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="175"/>
         <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="35"/>
@@ -721,6 +756,7 @@
         <EffectArray Reference="Effect,CycloneAttackWeaponDamage,Amount" Value="2"/>
         <EffectArray Reference="Weapon,MassiveSporeAG,Level" Value="1"/>
         <EffectArray Reference="Effect,MassiveSporeAGImpact,Amount" Value="6.25"/>
+        <EffectArray Reference="Effect,MinionHellMeleeDamage,Amount" Value="2"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="100"/>
     </CUpgrade>
