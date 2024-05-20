@@ -6609,11 +6609,25 @@
             <LayoutButtons index="2" Face="SelectBuilder" Type="SelectBuilder" AbilCmd="ArmoryResearch,Research9" Row="1" Column="3"/>
             <LayoutButtons index="3" Face="Demolish" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
             <LayoutButtons index="4" Face="ResearchOvercharge" AbilCmd="ArmoryResearch2,Research1" Row="0" Column="0"/>
-            <LayoutButtons index="5" Face="ResearchPenetratingLaser" AbilCmd="ArmoryResearch2,Research3" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="ResearchOverclockedRifles" AbilCmd="ArmoryResearch2,Research29" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="ResearchShatteringLaser" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research4" Row="1" Column="0"/>
             <LayoutButtons index="7" Face="ResearchDeflectiveShatter" AbilCmd="ArmoryResearch2,Research5" Row="1" Column="0"/>
             <LayoutButtons index="8" Face="ResearchInstantDischarge" AbilCmd="ArmoryResearch2,Research15" Column="2"/>
             <LayoutButtons index="9" Face="Halt" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
+            <LayoutButtons>
+                <Face value="ResearchPenetratingLaser"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ArmoryResearch2,Research3"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
+                <SubmenuAbilState value=""/>
+                <SubmenuCardId value=""/>
+                <SubmenuFullSubCmdValidation value="0"/>
+                <SubmenuIsSticky value="0"/>
+                <ShowInGlossary value="1"/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
             <LayoutButtons>
                 <Face value="InfestedOffense"/>
                 <Type value="AbilCmd"/>
@@ -6684,21 +6698,9 @@
                 <Row value="2"/>
                 <Column value="2"/>
             </LayoutButtons>
-            <LayoutButtons>
-                <Face value="UpgradeCombatShield"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ArmoryResearch2,Research14"/>
-                <Behavior value=""/>
-                <Requirements value=""/>
-                <SubmenuAbilState value=""/>
-                <SubmenuCardId value=""/>
-                <SubmenuFullSubCmdValidation value="0"/>
-                <SubmenuIsSticky value="0"/>
-                <ShowInGlossary value="1"/>
-                <Row value="1"/>
-                <Column value="1"/>
-            </LayoutButtons>
+            <LayoutButtons Face="UpgradeCombatShield" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research14" Row="1" Column="1"/>
             <LayoutButtons Face="UpgradeImprovedCombatShield" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research27" Row="1" Column="1"/>
+            <LayoutButtons Face="UpgradeImprovedCombatShield2" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research28" Row="1" Column="1"/>
             <LayoutButtons Face="ResearchShockBeam" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research16" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchShockOverload" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research2" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchHyperElectrodes" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research7" Row="0" Column="3"/>

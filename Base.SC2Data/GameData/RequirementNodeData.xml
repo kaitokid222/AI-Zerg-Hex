@@ -150,14 +150,18 @@
         <OperandArray value="OrCountBehaviorBarracksNearbyCompleteOnlyAtUnit2838502704CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeMarineMobileSquadTrainingCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly"/>
         <OperandArray value="CountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnly">
+        <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly"/>
+        <OperandArray value="CountUpgradeUpgradedCombatShieldCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnlyCountUpgradeUpgradedImprovedCombatShieldCompleteOnly">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly"/>
         <OperandArray value="CountUpgradeUpgradedCombatShieldCompleteOnly"/>
+        <OperandArray value="CountUpgradeUpgradedImprovedCombatShieldCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUpgradeTier3EquipmentCompleteOnlyLT3699583646CountUnitChaosDefilerQueuedOrBetter5">
         <OperandArray value="CountUpgradeTier3EquipmentCompleteOnly"/>
@@ -971,6 +975,16 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MarineOvercharge" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeMarineOverclockedRiflesCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MarineOverclockedRifles" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeMarineOverclockedRiflesQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="MarineOverclockedRifles" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeMarinePenetratingLaserQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="MarinePenetratingLaser" State="QueuedOrBetter"/>
@@ -1121,7 +1135,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeRapidUnitTrainingQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="RapidUnitTraining" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeRecyclingProtocol2QueuedOrBetter">
@@ -1354,16 +1367,24 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeUpgradedCombatShieldCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="UpgradedCombatShield" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeUpgradedCombatShieldQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="UpgradedCombatShield" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeUpgradedImprovedCombatShield2QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="UpgradedImprovedCombatShield2" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUpgradedImprovedCombatShieldCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="UpgradedImprovedCombatShield" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
         <Count Link="UpgradedImprovedCombatShield" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeWeaponCapacityQueuedOrBetter">
@@ -1782,10 +1803,10 @@
         <OperandArray index="0" value="CountUpgradeGasExtractionQueuedOrBetter"/>
         <OperandArray index="1" value="1"/>
     </CRequirementLT>
-    <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly60">
+    <CRequirementLT id="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly100">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly"/>
-        <OperandArray index="1" value="60"/>
+        <OperandArray index="1" value="100"/>
     </CRequirementLT>
     <CRequirementLT id="LTSumCountUpgradeFirelingsCompleteOnlyOrCountUpgradeFirelingsQueuedOnlyCountUpgradeFirelingsInProgressOnly8">
         <OperandArray index="0" value="SumCountUpgradeFirelingsCompleteOnlyOrCountUpgradeFirelingsQueuedOnlyCountUpgradeFirelingsInProgressOnly"/>
@@ -2092,6 +2113,10 @@
     <CRequirementNot id="NotCountUpgradeMarineOverchargeQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeMarineOverchargeQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeMarineOverclockedRiflesQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeMarineOverclockedRiflesQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeMarinePenetratingLaserQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeMarinePenetratingLaserQueuedOrBetter"/>
     </CRequirementNot>
@@ -2159,7 +2184,6 @@
         <OperandArray index="0" value="CountUpgradePrimalRapidRespawnQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeRapidUnitTrainingQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeRapidUnitTrainingQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeRecyclingProtocol2QueuedOrBetter">
@@ -2246,8 +2270,11 @@
     <CRequirementNot id="NotCountUpgradeUpgradedCombatShieldQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUpgradedCombatShieldQueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter">
+    <CRequirementNot id="NotCountUpgradeUpgradedImprovedCombatShield2QueuedOrBetter">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeUpgradedImprovedCombatShield2QueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeWeaponCapacityQueuedOrBetter">

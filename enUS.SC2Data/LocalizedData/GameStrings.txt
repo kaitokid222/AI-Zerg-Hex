@@ -974,6 +974,7 @@ Button/Name/ResearchInstantDischarge=Research Instant Discharge
 Button/Name/ResearchMechaUltralisk=Research Mecha Ultralisk
 Button/Name/ResearchMobileSquadTraining=Research Mobile Squad Training
 Button/Name/ResearchOvercharge=Research Overcharge
+Button/Name/ResearchOverclockedRifles=Research Overclocked Rifles
 Button/Name/ResearchPackedMass=Research Packed Mass
 Button/Name/ResearchPackedMass3v3=Research Packed Mass
 Button/Name/ResearchParalyzingShock=Research Paralyzing Shock
@@ -1135,6 +1136,7 @@ Button/Name/UpgradeGeneratorCapability=Upgrade Generator Capability
 Button/Name/UpgradeGeneratorCapacity=Upgrade Generator Capacity
 Button/Name/UpgradeHydraliskSpawnSize=Upgrade Hydralisk Spawn Size
 Button/Name/UpgradeImprovedCombatShield=Upgrade Improved Combat Shield
+Button/Name/UpgradeImprovedCombatShield2=Upgrade Improved Combat Shield II
 Button/Name/UpgradeKarax=Upgrade Karax
 Button/Name/UpgradeRefineryToUpgraded=Upgrade Refinery
 Button/Name/UpgradeSpawner=Upgrade Spawner
@@ -1596,6 +1598,7 @@ Button/Tooltip/ResearchInstantDischarge=Enables <c val="ffff8a">Shock Troopers</
 Button/Tooltip/ResearchMechaUltralisk=Upgrades Ultralisks to be Mecha Ultralisks instead and gain +1 Armor.
 Button/Tooltip/ResearchMobileSquadTraining=Allows <c val="ffff8a">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.
 Button/Tooltip/ResearchOvercharge=Enables <c val="ffff8a">Marines</c> to use the Overcharge ability. Overcharge doubles the attack speed for a short duration, can be used once every 30 seconds.
+Button/Tooltip/ResearchOverclockedRifles=Upgrades <c val="ffff8a">Marines</c> and <c val="ffff8a">Veteran Marines</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPackedMass=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.
 Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a">Shock Troopers</c> to become paralyzed, decreasing their damage and speed by 50% for 2 seconds.
@@ -1793,13 +1796,14 @@ Button/Tooltip/Unstoppable=Gate can not be blocked trying to close.
 Button/Tooltip/UpgradeBunkerCapacity=Increases the number of spawns by 2.
 Button/Tooltip/UpgradeCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +30 life.<n/><c val="ffff8a">Elite Marines</c> gain +50 life.
 Button/Tooltip/UpgradeEnergyGeneration=Upgrades the generator to produce +3 energy per second.<n/><n/>Can be upgraded 50 times.
-Button/Tooltip/UpgradeEnergyGenerationIssue=Upgrades the generator to produce +3 energy per second.<n/><n/>Can be upgraded 50 times.
+Button/Tooltip/UpgradeEnergyGenerationIssue=Upgrades the generator to produce +3 energy per second.<n/><n/>Can be upgraded 100 times.
 Button/Tooltip/UpgradeFirelings=Firelings gain <c val="ffff8a">+15hp</c>, also increases the rate at which they burn slightly. [Max 8 upgrades]
 Button/Tooltip/UpgradeGasVent=Upgrades the gas vent to produce double as much gas.
 Button/Tooltip/UpgradeGeneratorCapability=Upgrades the generator to produce +30 energy per second and +1000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeGeneratorCapacity=Upgrades the generator to have +4000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an additional life. [Max 3 upgrades]<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
-Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +30 life.<n/><c val="ffff8a">Elite Marines</c> gain +50 life.
+Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
+Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeSpawner=Increase the number of spawns by 1.
@@ -2655,6 +2659,15 @@ DocInfo/PatchNote811=Karax can warp in Phase Cannons before 11 minutes now.
 DocInfo/PatchNote812=Fixed Wizard AI issues.
 DocInfo/PatchNote813=Increased Energy Generation Upgrade Cap 50 -> 60.
 DocInfo/PatchNote814=Added Upgrades: Rapid Unit Training and Improved Combat Shield.
+DocInfo/PatchNote815=Fixed issue.
+DocInfo/PatchNote816=Increased Energy Generation Upgrade Cap 60 -> 100.
+DocInfo/PatchNote817=Decreased Energy Generation Upgrade Base Cost 32 -> 26.
+DocInfo/PatchNote818=Decreased Improved Combat Shield Upgrade Effect: T2 30 -> 20, T3 50 -> 35, CSM 35 -> 20, CL 175 -> 100
+DocInfo/PatchNote819=Decreased Improved Combat Shield Upgrade Cost 900 -> 450.
+DocInfo/PatchNote820=Added Improved Combat Shield II Upgrade.
+DocInfo/PatchNote821=Decreased Rapid Unit Training Upgrade Cost 600 -> 300.
+DocInfo/PatchNote822=Decreased Penetrating Laser Upgrade Cost 250 -> 200.
+DocInfo/PatchNote823=Added Overclocked Rifles Upgrade.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4607,6 +4620,7 @@ Upgrade/Name/MarineConservationL2=Marine Conservation L2
 Upgrade/Name/MarineConservationL3=Marine Conservation L3
 Upgrade/Name/MarineMobileSquadTraining=Marine Mobile Squad Training
 Upgrade/Name/MarineOvercharge=Marine Overcharge
+Upgrade/Name/MarineOverclockedRifles=Marine Overclocked Rifles
 Upgrade/Name/MarinePenetratingLaser=Marine Penetrating Laser
 Upgrade/Name/MarineShatteringLaser=Marine Shattering Laser
 Upgrade/Name/MarineShatteringLaserUpgrade=Marine Shattering Laser Upgrade
@@ -4665,6 +4679,7 @@ Upgrade/Name/UnlockUmbra=Unlock Umbra
 Upgrade/Name/UnstableCore=Unstable Core
 Upgrade/Name/UpgradedCombatShield=Upgraded Combat Shield
 Upgrade/Name/UpgradedImprovedCombatShield=Upgraded Improved Combat Shield
+Upgrade/Name/UpgradedImprovedCombatShield2=Upgraded Improved Combat Shield II
 Upgrade/Name/WeaponCapacity=Weapon Capacity
 Upgrade/Name/ZCCEnergyUpgrade=ZCC Energy Upgrade
 Upgrade/Name/ZergArmor1=Zerg Armor 1

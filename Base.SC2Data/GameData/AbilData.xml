@@ -1140,7 +1140,7 @@
             <Button DefaultButtonFace="ResearchShockOverload" Requirements="ResearchShockOverload"/>
         </InfoArray>
         <InfoArray index="Research3" Time="30" Upgrade="MarinePenetratingLaser">
-            <Resource index="Vespene" value="250"/>
+            <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="ResearchPenetratingLaser" Requirements="ResearchPenetratingLaser"/>
         </InfoArray>
         <InfoArray index="Research4" Time="30" Upgrade="MarineShatteringLaser">
@@ -1221,12 +1221,20 @@
             <Button DefaultButtonFace="ResearchChaosPowerArmorUpgrade" Requirements="ChaosPowerArmorUpgradeRequirement"/>
         </InfoArray>
         <InfoArray index="Research26" Time="30" Upgrade="RapidUnitTraining">
-            <Resource index="Vespene" value="600"/>
+            <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="ResearchRapidUnitTraining" Requirements="ResearchRapidUnitTraining"/>
         </InfoArray>
         <InfoArray index="Research27" Time="30" Upgrade="UpgradedImprovedCombatShield">
-            <Resource index="Vespene" value="900"/>
+            <Resource index="Vespene" value="450"/>
             <Button DefaultButtonFace="UpgradeImprovedCombatShield" Requirements="UpgradeImprovedCombatShield"/>
+        </InfoArray>
+        <InfoArray index="Research28" Time="30" Upgrade="UpgradedImprovedCombatShield2">
+            <Resource index="Vespene" value="600"/>
+            <Button DefaultButtonFace="UpgradeImprovedCombatShield2" Requirements="UpgradeImprovedCombatShield2"/>
+        </InfoArray>
+        <InfoArray index="Research29" Time="20" Upgrade="MarineOverclockedRifles">
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="ResearchOverclockedRifles" Requirements="ResearchOverclockedRifles"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilMorph id="BurrowFireling">
@@ -3405,7 +3413,7 @@
         <Effect index="0" value="GeneratorIssueUpgradeSet"/>
         <Flags index="AutoCast" value="1"/>
         <Cost>
-            <Resource index="Minerals" value="32"/>
+            <Resource index="Minerals" value="26"/>
             <Charge CountMax="1" CountStart="1" Link="Abil/OrderUpgradeGenerator"/>
             <Cooldown Link="Abil/OrderUpgradeGenerator"/>
         </Cost>
@@ -3756,7 +3764,7 @@
     <CAbilResearch id="GeneratorResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Time="5" Upgrade="EnergyGeneration">
-            <Resource index="Minerals" value="32"/>
+            <Resource index="Minerals" value="26"/>
             <Resource index="Vespene" value="0"/>
             <Charge CountMax="1"/>
             <Button DefaultButtonFace="UpgradeEnergyGeneration" Requirements="UpgradeEnergyGeneration"/>

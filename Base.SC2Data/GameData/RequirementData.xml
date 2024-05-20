@@ -11,6 +11,9 @@
         <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
         <NodeArray index="Show" Link="NotCountUpgradeChaosPowerArmorUpgradeQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchOverclockedRifles">
+        <NodeArray index="Show" Link="NotCountUpgradeMarineOverclockedRiflesQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchRapidUnitTraining">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRapidUnitTrainingQueuedOrBetter"/>
@@ -22,6 +25,10 @@
     <CRequirement id="UpgradeImprovedCombatShield">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UpgradeImprovedCombatShield2">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnlyCountUpgradeUpgradedImprovedCombatShieldCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeUpgradedImprovedCombatShield2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="stoptherain">
         <NodeArray index="Show" Link="NotCountUpgradeStoptherainQueuedOrBetter"/>
@@ -778,6 +785,7 @@
         <NodeArray index="Show" Link="NotCountUpgradeTier2EquipmentQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchPenetratingLaser">
+        <NodeArray index="Use" Link="CountUpgradeMarineOverclockedRiflesCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaserQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchShatteringLaser">
@@ -944,7 +952,7 @@
     </CRequirement>
     <CRequirement id="UpgradeEnergyGeneration">
         <NodeArray index="Use" Link="And2331140635NotCountUpgradeEnergyGenerationQueuedOnlyNotCountUpgradeEnergyGenerationInProgressOnly"/>
-        <NodeArray index="Show" Link="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly60"/>
+        <NodeArray index="Show" Link="LTSumCountUpgradeEnergyGenerationCompleteOnlyOrCountUpgradeEnergyGenerationQueuedOnlyCountUpgradeEnergyGenerationInProgressOnly100"/>
     </CRequirement>
     <CRequirement id="UpgradeZergAttack">
         <NodeArray index="Use" Link="And2331140635NotCountUpgradeZergAttackQueuedOnlyNotCountUpgradeZergAttackInProgressOnly"/>

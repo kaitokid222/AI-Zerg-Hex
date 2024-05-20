@@ -17,6 +17,11 @@
     <CButton id="ResearchChaosPowerArmorUpgrade">
         <Icon value="assets\icon\ICON CSM Armor Lord.dds"/>
     </CButton>
+    <CButton id="ResearchOverclockedRifles">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="ResearchRapidUnitTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
@@ -143,6 +148,11 @@
         <HotkeyAlias value=""/>
     </CButton>
     <CButton id="UpgradeImprovedCombatShield">
+        <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="UpgradeImprovedCombatShield2">
         <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
         <EditorCategories value="Race:Terran"/>

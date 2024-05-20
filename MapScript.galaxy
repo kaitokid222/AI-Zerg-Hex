@@ -950,6 +950,12 @@ struct gs_zerg_sector {
     int lv_threat_score;
 };
 
+struct gs_initial_map_state {
+    point lv_position;
+    string lv_type;
+    int lv_owner;
+};
+
 struct gs_mgc_positions {
     unitgroup lv_ug_all;
     unitgroup lv_ug_spawners;
@@ -1178,6 +1184,8 @@ int gv_zerg_drop_cd;
 int gv_viper_cloud_cd;
 int gv_armor_level;
 int gv_supply_upgrades;
+gs_initial_map_state[1000] gv_initial_map_state;
+int gv_initial_map_state_count;
 bool gv_is_setup_phase;
 int gv_infestor_dead_count;
 bool gv_mass_infestor_death_exception;
@@ -1830,6 +1838,7 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+void gf_save_initial_map_state ();
 bool gf_check_infestor_dead_directive_override ();
 void gf_mgc_set_crisis_type (int lp_type);
 string gf_mgc_get_crisis_name_by_type (int lp_t);
@@ -2061,6 +2070,7 @@ trigger gt_Vipergetsattacked;
 trigger gt_ViperCloudgotused;
 trigger gt_ZergSupplyUpgrade;
 trigger gt_ZergArmor;
+trigger gt_adddefenseup;
 trigger gt_entrypoint;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
@@ -19457,7 +19467,7 @@ void gf_get_attackup () {
 
     if ((lv_time >= lv_peacetime) && (ModI(lv_time, lv_interval) == 0) && (TechTreeUpgradeCount(7, "ZergAttack", c_techCountQueuedOrBetter) < lv_max_upgrade)) {
         TechTreeUpgradeAddLevel(7, "ZergAttack", lv_upcnt);
-        if ((gv_difficulty >= 7) && (lv_time > (20 * 60))) {
+        if ((gv_difficulty >= 7) && (lv_time > (19 * 60))) {
             TechTreeUpgradeAddLevel(7, "ZergDefenseDamage", 1);
         }
 
@@ -19545,6 +19555,28 @@ void gf_get_unit_upgrades () {
 
     }
 
+}
+
+void gf_save_initial_map_state () {
+    // Automatic Variable Declarations
+    unitgroup auto59F1EB51_g;
+    int auto59F1EB51_u;
+    unit auto59F1EB51_var;
+
+    // Implementation
+    auto59F1EB51_g = UnitGroup(null, 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterRawResource) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto59F1EB51_u = UnitGroupCount(auto59F1EB51_g, c_unitCountAll);
+    for (;; auto59F1EB51_u -= 1) {
+        auto59F1EB51_var = UnitGroupUnitFromEnd(auto59F1EB51_g, auto59F1EB51_u);
+        if (auto59F1EB51_var == null) { break; }
+        if (((UnitGetType(auto59F1EB51_var) == "Hive2") || (UnitGetType(auto59F1EB51_var) == "Nest2") || (UnitGetType(auto59F1EB51_var) == "MineralExtractor") || (UnitGetType(auto59F1EB51_var) == "CreepTumor2") || (UnitGetType(auto59F1EB51_var) == "SpineCrawler") || (UnitGetType(auto59F1EB51_var) == "LargeSpineCrawler") || (UnitGetType(auto59F1EB51_var) == "GeyserBlocker") || (UnitGetType(auto59F1EB51_var) == "SlowlingSpawner") || (UnitGetType(auto59F1EB51_var) == "CreeperSpawner"))) {
+            gv_initial_map_state_count += 1;
+            gv_initial_map_state[gv_initial_map_state_count].lv_position = UnitGetPosition(auto59F1EB51_var);
+            gv_initial_map_state[gv_initial_map_state_count].lv_type = UnitGetType(auto59F1EB51_var);
+            gv_initial_map_state[gv_initial_map_state_count].lv_owner = 7;
+        }
+
+    }
 }
 
 bool gf_check_infestor_dead_directive_override () {
@@ -31253,6 +31285,33 @@ void gt_ZergArmor_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -add defenseup
+//--------------------------------------------------------------------------------------------------
+bool gt_adddefenseup_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TechTreeUpgradeAddLevel(7, "ZergDefenseDamage", 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_adddefenseup_Init () {
+    gt_adddefenseup = TriggerCreate("gt_adddefenseup_Func");
+    TriggerAddEventChatMessage(gt_adddefenseup, c_playerAny, "-add defenseup", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: entry point
 //--------------------------------------------------------------------------------------------------
 bool gt_entrypoint_Func (bool testConds, bool runActions) {
@@ -32695,6 +32754,7 @@ void InitTriggers () {
     gt_ViperCloudgotused_Init();
     gt_ZergSupplyUpgrade_Init();
     gt_ZergArmor_Init();
+    gt_adddefenseup_Init();
     gt_entrypoint_Init();
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();

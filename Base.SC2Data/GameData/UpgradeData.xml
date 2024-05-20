@@ -106,6 +106,13 @@
         <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
         <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
+    <CUpgrade id="MarineOverclockedRifles">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L2Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="RapidUnitTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
         <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train1].Time" Value="1.000000"/>
@@ -426,22 +433,41 @@
     <CUpgrade id="HUGSAlgorythm"/>
     <CUpgrade id="UpgradedImprovedCombatShield">
         <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
-        <EffectArray Reference="Unit,VeteranMarine,LifeMax" Value="30"/>
-        <EffectArray Reference="Unit,VeteranMarine,LifeStart" Value="30"/>
-        <EffectArray Reference="Unit,EliteMarine,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarine,LifeStart" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin1,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin1,LifeStart" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin2,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin4,LifeMax" Value="50"/>
-        <EffectArray Reference="Unit,EliteMarineSkin4,LifeStart" Value="50"/>
-        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="175"/>
-        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="175"/>
-        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="35"/>
-        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="100"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="100"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="20"/>
+    </CUpgrade>
+    <CUpgrade id="UpgradedImprovedCombatShield2">
+        <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,VeteranMarine,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarine,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin1,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin2,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin3,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeMax" Value="35"/>
+        <EffectArray Reference="Unit,EliteMarineSkin4,LifeStart" Value="35"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeMax" Value="100"/>
+        <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="100"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="20"/>
+        <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="20"/>
     </CUpgrade>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>
@@ -951,10 +977,10 @@
     </CUpgrade>
     <CUpgrade id="ZergDefenseDamage">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
-        <EffectArray Reference="Effect,ImpalerTentacleU,Chance" Value="1"/>
+        <EffectArray Reference="Effect,ImpalerTentacleU,Amount" Value="1"/>
         <EffectArray Reference="Weapon,ImpalerTentacle,Level" Value="1"/>
         <EffectArray Reference="Weapon,ImpalerTentacle2,Level" Value="1"/>
-        <EffectArray Reference="Effect,SpineCrawlerDamageEdit,Chance" Value="1"/>
+        <EffectArray Reference="Effect,SpineCrawlerDamageEdit,Amount" Value="2"/>
         <MaxLevel value="100"/>
     </CUpgrade>
     <CUpgrade id="ZergMovement">
