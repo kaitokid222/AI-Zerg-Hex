@@ -2602,7 +2602,7 @@
         <Flags index="RequireTargetVision" value="0"/>
         <CursorEffect value="IonBeamSearch"/>
         <Cost>
-            <Resource index="Minerals" value="500"/>
+            <Resource index="Minerals" value="800"/>
         </Cost>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="ItalisTeleport">
@@ -3780,6 +3780,10 @@
         <InfoArray index="Research6" Time="5" Upgrade="SuperEnergyGeneration">
             <Resource index="Minerals" value="2500"/>
             <Button DefaultButtonFace="UpgradeSuperEnergyGeneration" Requirements="UpgradeSuperEnergyGeneration"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="5" Upgrade="EnergyCapacity2">
+            <Resource index="Minerals" value="600"/>
+            <Button DefaultButtonFace="UpgradeGeneratorCapacity2" Requirements="UpgradeEnergyCapacity2"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="ConstructionYardResearch">

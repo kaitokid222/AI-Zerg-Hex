@@ -106,6 +106,10 @@
         <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
         <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
+    <CUpgrade id="EnergyCapacity2">
+        <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
+        <EffectArray Reference="Unit,Generator,EnergyMax" Value="10000"/>
+    </CUpgrade>
     <CUpgrade id="MarineOverclockedRifles">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
@@ -681,7 +685,7 @@
         <EffectArray Reference="Effect,StaticDischargeDamageT4,Amount" Value="1"/>
         <EffectArray Reference="Effect,StaticDischargeDamageT5,Amount" Value="1"/>
         <EffectArray Reference="Unit,TechLab3,ShieldRegenRate" Value="1.000000"/>
-        <MaxLevel value="40"/>
+        <MaxLevel value="100"/>
     </CUpgrade>
     <CUpgrade id="UnifiedArmor"/>
     <CUpgrade id="UpgradedCombatShield">

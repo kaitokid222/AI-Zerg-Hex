@@ -2480,6 +2480,7 @@ Requirement/EditorPrefix/UnlockUmbraShadowCannonRequirement=tombstone
 Requirement/EditorPrefix/UpgradeCashPickups=Cash -
 Requirement/EditorPrefix/UpgradeEnergyCapability=Generator -
 Requirement/EditorPrefix/UpgradeEnergyCapacity=Generator -
+Requirement/EditorPrefix/UpgradeEnergyCapacity2=Generator -
 Requirement/EditorPrefix/UpgradeEnergyGeneration=Generator -
 Requirement/EditorPrefix/UpgradeSuperEnergyGeneration=Generator -
 Requirement/EditorPrefix/stoptherain=tombstone
@@ -2789,7 +2790,7 @@ Requirement/Name/TechLabRequireCharges2=Tech Lab Require Charges 2
 Requirement/Name/TechLabRequireCharges20=Tech Lab Require Charges 20
 Requirement/Name/TechLabRequireCharges25=Tech Lab Require Charges 25
 Requirement/Name/TechLabRequireCharges4=Tech Lab Require Charges 4
-Requirement/Name/TechLabRequireCharges40=Tech Lab Require Charges 40
+Requirement/Name/TechLabRequireCharges40=Tech Lab Require Charges 60
 Requirement/Name/TerrazineConverter=Terrazine Converter
 Requirement/Name/TerrazineDoubler2Requirement=Terrazine Doubler 2 Requirement
 Requirement/Name/TerrazineDoubler3Requirement=Terrazine Doubler 3 Requirement
@@ -2807,6 +2808,7 @@ Requirement/Name/UpgradeCashPickups=Upgrade Cash Pickups
 Requirement/Name/UpgradeCombatShield=Upgrade Combat Shield
 Requirement/Name/UpgradeEnergyCapability=Upgrade Energy Capability
 Requirement/Name/UpgradeEnergyCapacity=Upgrade Energy Capacity
+Requirement/Name/UpgradeEnergyCapacity2=Upgrade Energy Capacity II
 Requirement/Name/UpgradeEnergyGeneration=Upgrade Energy Generation
 Requirement/Name/UpgradeFortification=Upgrade Fortification
 Requirement/Name/UpgradeFortificationInfested=Upgrade Fortification Infested
@@ -2857,6 +2859,7 @@ RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgr
 RequirementNode/Name/AndCountUnitConstructionYardCompleteOnly2255243434CountUpgradeChemicalPlantCompleteOnly1337995533=CountUnit(ConstructionYard,CompleteOnly){Construction Yard} && CountUpgrade(ChemicalPlant,CompleteOnly){Research Chemical Plant}
 RequirementNode/Name/AndCountUnitHiveMindEmulatorCompleteOnly=CountUnit(HiveMindEmulator,CompleteOnly) && ()
 RequirementNode/Name/AndCountUpgradeCasualTraderImprovementCompleteOnly=CountUpgrade(CasualTraderImprovement,CompleteOnly) && ()
+RequirementNode/Name/AndCountUpgradeEnergyCapacityCompleteOnlyGTE3015538167CountUpgradeEnergyGenerationCompleteOnly40=CountUpgrade(EnergyCapacity,CompleteOnly) && CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 40}40
 RequirementNode/Name/AndCountUpgradeGasExtraction2CompleteOnly427659588=CountUpgrade(GasExtraction2,CompleteOnly){Complete Gas Extraction 2} && ()
 RequirementNode/Name/AndCountUpgradeGasExtraction3CompleteOnly1267463215=CountUpgrade(GasExtraction3,CompleteOnly){Complete Gas Extraction 3} && ()
 RequirementNode/Name/AndCountUpgradeGasExtractionCompleteOnly4054536818=CountUpgrade(GasExtraction,CompleteOnly){Complete Gas Extraction 1} && ()
@@ -2893,7 +2896,6 @@ RequirementNode/Name/AndLTCountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountB
 RequirementNode/Name/AndNot143893411CountUnitHiveMindEmulatorQueuedOrBetterNot542624544CountUpgradeOtherTeamDeadCompleteOnly=!{Only one Zerg Control Center!}CountUnit(HiveMindEmulator,QueuedOrBetter) && !{The other team must be alive}CountUpgrade(OtherTeamDead,CompleteOnly)
 RequirementNode/Name/AndNot1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnitNot1682142376CountBehaviorTrafficTowerCargoEmptyCompleteOnlyAtUnit=!{Select Transport Unit}CountBehavior(TrafficTowerTransportUnitUndefined,CompleteOnlyAtUnit) && !{Select Cargo Value}CountBehavior(TrafficTowerCargoEmpty,CompleteOnlyAtUnit)
 RequirementNode/Name/AndNot3435105652GTCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1=!{No double Modulation}CountBehavior(SiegeTankModulation,CompleteOnlyAtUnit) > 1 && ()
-RequirementNode/Name/AndNot660069371CountUpgradeEnergyCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=!{Already Completed}CountUpgrade(EnergyCapacity,QueuedOrBetter) && CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5
 RequirementNode/Name/AndNot660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=!{Already Completed}CountUpgrade(EnergyGenerationCapacity,QueuedOrBetter) && CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5
 RequirementNode/Name/AndNot660069371CountUpgradeSuperEnergyGenerationQueuedOrBetterGTE1346723988CountUpgradeEnergyGenerationCompleteOnly30=!{Already Completed}CountUpgrade(SuperEnergyGeneration,QueuedOrBetter) && CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 30}30
 RequirementNode/Name/AndNotCountUpgradeGenetronTier3QueuedOrBetterCountUpgradeGenetronTier2QueuedOrBetter=!CountUpgrade(GenetronTier3,QueuedOrBetter) && CountUpgrade(GenetronTier2,QueuedOrBetter)
@@ -3012,9 +3014,12 @@ RequirementNode/Name/CountUpgradeEmpowerShadowCannonCompleteOnly=CountUpgrade(Em
 RequirementNode/Name/CountUpgradeEmpowerShadowCannonQueuedOrBetter=CountUpgrade(EmpowerShadowCannon,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeEnableMineralProductionCompleteOnly=CountUpgrade(EnableMineralProduction,CompleteOnly)
 RequirementNode/Name/CountUpgradeEnableMineralProductionQueuedOrBetter=CountUpgrade(EnableMineralProduction,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeEnergyCapacity2QueuedOrBetter=CountUpgrade(EnergyCapacity2,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeEnergyCapacityCompleteOnly=CountUpgrade(EnergyCapacity,CompleteOnly)
 RequirementNode/Name/CountUpgradeEnergyCapacityQueuedOrBetter=CountUpgrade(EnergyCapacity,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeEnergyGenerationCapacityQueuedOrBetter=CountUpgrade(EnergyGenerationCapacity,QueuedOrBetter)
 RequirementNode/Name/CountUpgradeEnergyGenerationCompleteOnly=CountUpgrade(EnergyGeneration,CompleteOnly)
+RequirementNode/Name/CountUpgradeEnergyGenerationCompleteOnly660069371=CountUpgrade(EnergyGeneration,CompleteOnly){Already Completed}
 RequirementNode/Name/CountUpgradeEnergyGenerationInProgressOnly=CountUpgrade(EnergyGeneration,InProgressOnly)
 RequirementNode/Name/CountUpgradeEnergyGenerationQueuedOnly=CountUpgrade(EnergyGeneration,QueuedOnly)
 RequirementNode/Name/CountUpgradeFirelingsCompleteOnly=CountUpgrade(Firelings,CompleteOnly)
@@ -3249,15 +3254,17 @@ RequirementNode/Name/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUnit4=
 RequirementNode/Name/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {25 Charges}25
 RequirementNode/Name/GTE2085714489CountUpgradeMinuteUpgradeQueuedOrBetter10=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 10 minutes}10
 RequirementNode/Name/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 5}5
+RequirementNode/Name/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly6600693715=CountUpgrade(EnergyGeneration,CompleteOnly){Already Completed} >= {Generator Level 5}5
 RequirementNode/Name/GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 100 Blood Stacks}100
 RequirementNode/Name/GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need 10 Stacks of Blood!}10
+RequirementNode/Name/GTE3015538167CountUpgradeEnergyGenerationCompleteOnly40=CountUpgrade(EnergyGeneration,CompleteOnly) >= {Generator Level 40}40
 RequirementNode/Name/GTE3128881089CountUpgradeIncreaseCashPickupsCompleteOnly15=CountUpgrade(IncreaseCashPickups,CompleteOnly) >= {Have Bigger Cash Drops 15}15
 RequirementNode/Name/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {1 charge}1
 RequirementNode/Name/GTE3417746048CountUpgradeFortificationCompleteOnly3=CountUpgrade(Fortification,CompleteOnly) >= {Fortification 3}3
 RequirementNode/Name/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {2 charges}2
 RequirementNode/Name/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=CountBehavior(BloodStacks,QueuedOrBetter) >= {10 Stacks of Blood}10
 RequirementNode/Name/GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11=CountUpgrade(MinuteUpgrade,QueuedOrBetter) >= {Need to wait 11 minutes}11
-RequirementNode/Name/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {40 charges}40
+RequirementNode/Name/GTE4249658091CountBehaviorTechLabChargeCompleteOnlyAtUnit60=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) >= {60 charges}60
 RequirementNode/Name/GTE875194640CountUpgradeIncreaseCashPickupsCompleteOnly10=CountUpgrade(IncreaseCashPickups,CompleteOnly) >= {Have Bigger Cash Drops 10}10
 RequirementNode/Name/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=CountBehavior(BloodStacks,QueuedOrBetter) >= {You need one Stacks of Blood!}1
 RequirementNode/Name/GTECountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) >= 1
@@ -3265,7 +3272,7 @@ RequirementNode/Name/GTECountBehaviorTechLabChargeCompleteOnlyAtUnit25=CountBeha
 RequirementNode/Name/LT1405264593CountBehaviorLarvaCountDummyStackQueuedOrBetter5=CountBehavior(LarvaCountDummyStack,QueuedOrBetter) < {Only 5 Larva}5
 RequirementNode/Name/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=CountBehavior(SpawnsBombers,QueuedOrBetterAtUnit) < {Bunker isnt upgraded already}1
 RequirementNode/Name/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=CountUnit(StrikelingSpawner,QueuedOrBetter) < {Max Reached}(30 + (30 * CountUpgrade(DoubleStrikelings,CompleteOnly)))
-RequirementNode/Name/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) < {Maxed}40
+RequirementNode/Name/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit100=CountBehavior(TechLabCharge,CompleteOnlyAtUnit) < {Maxed}100
 RequirementNode/Name/LT1676206664CountUnitMechaTechlabQueuedOrBetter1=CountUnit(MechaTechlab,QueuedOrBetter) < {You can only have one Mecha Techlab!}1
 RequirementNode/Name/LT2011835200CountUnitChaosLordQueuedOrBetter1=CountUnit(ChaosLord,QueuedOrBetter) < {You can only have 1 Chaos Lord!}1
 RequirementNode/Name/LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1=CountUnit(GreaterTerrazineExtractor,QueuedOrBetter) < {Maximum 1 Greater Terrazine Extractor}1
@@ -3319,7 +3326,6 @@ RequirementNode/Name/Not445539353CountUpgradeZergSpecializationSlowlingPackedMas
 RequirementNode/Name/Not445539353CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly=!{Research Completed}CountUpgrade(ZergSpecializationStrikelingDualHit,CompleteOnly)
 RequirementNode/Name/Not445539353CountUpgradeZergSpecializationTanklingBanklingCompleteOnly=!{Research Completed}CountUpgrade(ZergSpecializationTanklingBankling,CompleteOnly)
 RequirementNode/Name/Not542624544CountUpgradeOtherTeamDeadCompleteOnly=!{The other team must be alive}CountUpgrade(OtherTeamDead,CompleteOnly)
-RequirementNode/Name/Not660069371CountUpgradeEnergyCapacityQueuedOrBetter=!{Already Completed}CountUpgrade(EnergyCapacity,QueuedOrBetter)
 RequirementNode/Name/Not660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetter=!{Already Completed}CountUpgrade(EnergyGenerationCapacity,QueuedOrBetter)
 RequirementNode/Name/Not660069371CountUpgradeSuperEnergyGenerationQueuedOrBetter=!{Already Completed}CountUpgrade(SuperEnergyGeneration,QueuedOrBetter)
 RequirementNode/Name/Not860072457CountUnitConstructionYardQueuedOrBetter=!{Only one Construction Yard}CountUnit(ConstructionYard,QueuedOrBetter)
@@ -3351,6 +3357,8 @@ RequirementNode/Name/NotCountUpgradeDoubledRewardsQueuedOrBetter=!CountUpgrade(D
 RequirementNode/Name/NotCountUpgradeEliteScopeQueuedOrBetter=!CountUpgrade(EliteScope,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeEmpowerShadowCannonQueuedOrBetter=!CountUpgrade(EmpowerShadowCannon,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeEnableMineralProductionQueuedOrBetter=!CountUpgrade(EnableMineralProduction,QueuedOrBetter)
+RequirementNode/Name/NotCountUpgradeEnergyCapacity2QueuedOrBetter=!CountUpgrade(EnergyCapacity2,QueuedOrBetter)
+RequirementNode/Name/NotCountUpgradeEnergyCapacityQueuedOrBetter=!CountUpgrade(EnergyCapacity,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeEnergyGenerationInProgressOnly=!CountUpgrade(EnergyGeneration,InProgressOnly)
 RequirementNode/Name/NotCountUpgradeEnergyGenerationQueuedOnly=!CountUpgrade(EnergyGeneration,QueuedOnly)
 RequirementNode/Name/NotCountUpgradeFirelingsInProgressOnly=!CountUpgrade(Firelings,InProgressOnly)
@@ -4011,6 +4019,7 @@ Upgrade/EditorPrefix/ZergSpecializationTanklingBankling=Zerg Specialization -
 Upgrade/EditorSuffix/AdvancedCombatShieldCopy=(Edit)
 Upgrade/EditorSuffix/ChaosPowerArmorUpgrade=(CSM)
 Upgrade/EditorSuffix/EnergyCapacity=(+4000)
+Upgrade/EditorSuffix/EnergyCapacity2=(+10k)
 Upgrade/EditorSuffix/EnergyGeneration=(+3)
 Upgrade/EditorSuffix/EnergyGenerationCapacity=(+30) (+1000)
 Upgrade/EditorSuffix/Firelings=3v3

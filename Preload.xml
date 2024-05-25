@@ -4,6 +4,7 @@
 <Asset path="assets\textures\ui_emoticons_theart.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_random.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_zerg.dds" Type="Image"/>
+<Asset path="assets\dialog\minimap.tga" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_infested.dds" Type="Image"/>
 <Asset path="assets\textures\ui_emoticons_locust.dds" Type="Image"/>
 <Asset path="assets\textures\hud_bg_mechanicicon_coin.dds" Type="Image"/>

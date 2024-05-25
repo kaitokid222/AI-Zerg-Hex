@@ -398,6 +398,7 @@ Button/Hotkey/UpgradeFirelings=W
 Button/Hotkey/UpgradeGasVent=Q
 Button/Hotkey/UpgradeGeneratorCapability=E
 Button/Hotkey/UpgradeGeneratorCapacity=R
+Button/Hotkey/UpgradeGeneratorCapacity2=R
 Button/Hotkey/UpgradeHydraliskSpawnSize=
 Button/Hotkey/UpgradeImprovedCombatShield=S
 Button/Hotkey/UpgradeImprovedCombatShield2=S

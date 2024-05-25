@@ -1134,6 +1134,7 @@ Button/Name/UpgradeFirelings=Upgrade Firelings
 Button/Name/UpgradeGasVent=Upgrade Gas Vent
 Button/Name/UpgradeGeneratorCapability=Upgrade Generator Capability
 Button/Name/UpgradeGeneratorCapacity=Upgrade Generator Capacity
+Button/Name/UpgradeGeneratorCapacity2=Upgrade Generator Capacity II
 Button/Name/UpgradeHydraliskSpawnSize=Upgrade Hydralisk Spawn Size
 Button/Name/UpgradeImprovedCombatShield=Upgrade Improved Combat Shield
 Button/Name/UpgradeImprovedCombatShield2=Upgrade Improved Combat Shield II
@@ -1254,7 +1255,7 @@ Button/Tooltip/ChaosSpaceMarine=General-purpose Choas Warrior.<n/><n/><c val="#C
 Button/Tooltip/CharEggSackOneEgg=Spawns Zerg Units every 45 seconds.
 Button/Tooltip/CharEggSackThreeEgg=Spawns Zerg Units every 45 seconds.
 Button/Tooltip/CharEggSackTwoEgg=Spawns Zerg Units every 45 seconds.
-Button/Tooltip/ChargeUp=Increase the amount of charges by one. Charges can be spent on abilities.<n/><n/>Each charge held increases the Tech Labs damage by +1 and shield regen by +1 hp/s.<n/><n/>Can hold a maximum of 40 charges.
+Button/Tooltip/ChargeUp=Increase the amount of charges by one. Charges can be spent on abilities.<n/><n/>Each charge held increases the Tech Labs damage by +1 and shield regen by +1 hp/s.<n/><n/>Can hold a maximum of 100 charges.
 Button/Tooltip/ChemicalPlant=Coolant Tower for the Fusion Reactors deep inside the platform. Destroy all Coolant Towers on a platform, and the platform will explode.
 Button/Tooltip/ChooseAsh=Select Having Ash Weather Effect!
 Button/Tooltip/ChooseAttackBuff=Increase Damage and Range of nearby units by 1 and also increases the Attack Speed by 40%.
@@ -1417,7 +1418,7 @@ Button/Tooltip/Investment5=Increases the mineral gain of the Operation Center fr
 Button/Tooltip/Investment6=Increases the mineral gain of the Operation Center from +93 to +183 per 5 seconds.
 Button/Tooltip/Investment7=Increases the mineral gain of the Operation Center from +183  to +381 per 5 seconds.
 Button/Tooltip/IonBeam=
-Button/Tooltip/IonCannon=Launches a devastating beam from the sky lasting for 20 seconds, target area can be repositioned and will leave a damaging trail lasting for another 60 seconds.<n/><n/>Deals up to 600 damage to a Hive and inflicted damage can not be regenerated from.</c><n/><n/><c val="49D3F1">Costs 40 charges</c>
+Button/Tooltip/IonCannon=Launches a devastating beam from the sky lasting for 20 seconds, target area can be repositioned and will leave a damaging trail lasting for another 60 seconds.<n/><n/>Deals up to 600 damage to a Hive and inflicted damage can not be regenerated from.</c><n/><n/><c val="49D3F1">Costs 60 charges</c>
 Button/Tooltip/IonStorm=
 Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="Abil,ItalisTeleport,CastIntroTime[0]"/> seconds to cast and another <d ref="Abil,ItalisTeleport,FinishTime[0]"/> seconds to instantiate after teleportation.<n/><n/>Ability can only be used once every <d ref="Abil,ItalisTeleport,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
@@ -1801,6 +1802,7 @@ Button/Tooltip/UpgradeFirelings=Firelings gain <c val="ffff8a">+15hp</c>, also i
 Button/Tooltip/UpgradeGasVent=Upgrades the gas vent to produce double as much gas.
 Button/Tooltip/UpgradeGeneratorCapability=Upgrades the generator to produce +30 energy per second and +1000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeGeneratorCapacity=Upgrades the generator to have +4000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
+Button/Tooltip/UpgradeGeneratorCapacity2=Upgrades the generator to have +10000 more energy capacity.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an additional life. [Max 3 upgrades]<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
@@ -2668,6 +2670,9 @@ DocInfo/PatchNote820=Added Improved Combat Shield II Upgrade.
 DocInfo/PatchNote821=Decreased Rapid Unit Training Upgrade Cost 600 -> 300.
 DocInfo/PatchNote822=Decreased Penetrating Laser Upgrade Cost 250 -> 200.
 DocInfo/PatchNote823=Added Overclocked Rifles Upgrade.
+DocInfo/PatchNote824=Tech Lab can hold 100 Charges now.
+DocInfo/PatchNote825=Increased Ion Cannon Cost 40 -> 60 Charges, 500 -> 800 Minerals.
+DocInfo/PatchNote826=Added Generator Capacity II Upgrade.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -3498,7 +3503,7 @@ Effect/Name/TechLabChargesCost1=Tech Lab Charges Cost 1
 Effect/Name/TechLabChargesCost2=Tech Lab Charges Cost 2
 Effect/Name/TechLabChargesCost20=Tech Lab Charges Cost 20
 Effect/Name/TechLabChargesCost4=Tech Lab Charges Cost 4
-Effect/Name/TechLabChargesCost40=Tech Lab Charges Cost 40
+Effect/Name/TechLabChargesCost40=Tech Lab Charges Cost 60
 Effect/Name/TechLabEnergyWarpPersistent=Tech Lab - Energy Warp (Persistent)
 Effect/Name/TechLabEnergyWarpSet=Tech Lab - Energy Warp (Set)
 Effect/Name/TechLabIonCannonSet=Tech Lab - Ion Cannon (Set)
@@ -3724,6 +3729,7 @@ Param/Value/1384C7EF=Karax died.
 Param/Value/13F996AD= got 
 Param/Value/142E685E=Let's erase any trace that it was our doing.
 Param/Value/14915329=You dont have 1900 or more Elo. Sorry :(
+Param/Value/149D5C46=2
 Param/Value/14F5EB1D=Issuing Zerg balancing cost of: 
 Param/Value/153E8050=Issuing Zerg balancing cost of: 
 Param/Value/1591E1A1=mineral income per minute
@@ -3953,6 +3959,8 @@ Param/Value/95792C97=Rock the vote started by player
 Param/Value/95869415=:
 Param/Value/95BEBB37=Difficulty increased by player vote.
 Param/Value/96E1241D=Exploit Turned Off: 
+Param/Value/9753C624=Position Pick
+Param/Value/97629A9E=5
 Param/Value/98B11280=Wizard
 Param/Value/999A3F6F=
 Param/Value/9A106EF6=    
@@ -3998,6 +4006,7 @@ Param/Value/AA9DC100=Modify Settings Vote
 Param/Value/AABF85ED=
 Param/Value/AAE1FBEF=xx:xx
 Param/Value/ADA5D506=<c val="FF5959">Note:</c> <c val="FF9797">Must have 2 Zerg when playing with 6 or more players</c>
+Param/Value/AEA22F25=1
 Param/Value/AEA338C3=Map vision:
 Param/Value/AEB0ACA3=Enable Random Mutator:
 Param/Value/AEE0EC62= received high density batteries!
@@ -4104,6 +4113,8 @@ Param/Value/E951A043=e2s try buy supply
 Param/Value/E9F748BF=</c><c val="FFFFC4"> returned with: </c>
 Param/Value/EBD7812F=Rock the vote started by player 
 Param/Value/EC047E91=Removing Zerg resources accordingly
+Param/Value/ED2886E8=6
+Param/Value/EDDBE1A1=3
 Param/Value/EEBA0F70=More minerals - more stuff!
 Param/Value/EF4330DB=Artanis
 Param/Value/F08F264B=Number of spawners: 
@@ -4122,6 +4133,7 @@ Param/Value/F766B22E=00110001 01010011 01010100 00100000 01000001 01010000 01010
 Param/Value/F80D3675=Add 3 more Fruit Farms!
 Param/Value/F88788AB=Terran death before 11 minutes..
 Param/Value/F9406FFA=Disable Mutator:
+Param/Value/F9440A32=4
 Param/Value/F9A82BD7=Genetron
 Param/Value/F9D556F6=t2
 Param/Value/FAA1DE4C=
@@ -4160,6 +4172,7 @@ RequirementNode/Tooltip/CountUnitChemicalPlantCompleteOnly3355057371=Chemical Pl
 RequirementNode/Tooltip/CountUnitConstructionYardCompleteOnly2255243434=Construction Yard
 RequirementNode/Tooltip/CountUpgradeAdvancedBuildCompleteOnly3080158053=Research Advanced Build
 RequirementNode/Tooltip/CountUpgradeChemicalPlantCompleteOnly1337995533=Research Chemical Plant
+RequirementNode/Tooltip/CountUpgradeEnergyGenerationCompleteOnly660069371=Already Completed
 RequirementNode/Tooltip/CountUpgradeGameTime215CompleteOnly2123455989=Available at 2.15 min
 RequirementNode/Tooltip/CountUpgradeGasExtraction2CompleteOnly427659588=Complete Gas Extraction 2
 RequirementNode/Tooltip/CountUpgradeGasExtraction3CompleteOnly1267463215=Complete Gas Extraction 3
@@ -4207,21 +4220,23 @@ RequirementNode/Tooltip/GTE1803743989CountBehaviorTechLabChargeCompleteOnlyAtUni
 RequirementNode/Tooltip/GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25=25 Charges
 RequirementNode/Tooltip/GTE2085714489CountUpgradeMinuteUpgradeQueuedOrBetter10=Need to wait 10 minutes
 RequirementNode/Tooltip/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly5=Generator Level 5
+RequirementNode/Tooltip/GTE2261618747CountUpgradeEnergyGenerationCompleteOnly6600693715=Generator Level 5
 RequirementNode/Tooltip/GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100=You need 100 Blood Stacks
 RequirementNode/Tooltip/GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10=You need 10 Stacks of Blood!
+RequirementNode/Tooltip/GTE3015538167CountUpgradeEnergyGenerationCompleteOnly40=Generator Level 40
 RequirementNode/Tooltip/GTE3128881089CountUpgradeIncreaseCashPickupsCompleteOnly15=Have Bigger Cash Drops 15
 RequirementNode/Tooltip/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=1 charge
 RequirementNode/Tooltip/GTE3417746048CountUpgradeFortificationCompleteOnly3=Fortification 3
 RequirementNode/Tooltip/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=2 charges
 RequirementNode/Tooltip/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=10 Stacks of Blood
 RequirementNode/Tooltip/GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11=Need to wait 11 minutes
-RequirementNode/Tooltip/GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40=40 charges
+RequirementNode/Tooltip/GTE4249658091CountBehaviorTechLabChargeCompleteOnlyAtUnit60=60 charges
 RequirementNode/Tooltip/GTE875194640CountUpgradeIncreaseCashPickupsCompleteOnly10=Have Bigger Cash Drops 10
 RequirementNode/Tooltip/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=You need one Stacks of Blood!
 RequirementNode/Tooltip/LT1405264593CountBehaviorLarvaCountDummyStackQueuedOrBetter5=Only 5 Larva
 RequirementNode/Tooltip/LT1411894355CountBehaviorSpawnsBombersQueuedOrBetterAtUnit1=Bunker isnt upgraded already
 RequirementNode/Tooltip/LT1509654895CountUnitStrikelingSpawnerQueuedOrBetterSum30Mul30CountUpgradeDoubleStrikelingsCompleteOnly=Max Reached
-RequirementNode/Tooltip/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40=Maxed
+RequirementNode/Tooltip/LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit100=Maxed
 RequirementNode/Tooltip/LT1676206664CountUnitMechaTechlabQueuedOrBetter1=You can only have one Mecha Techlab!
 RequirementNode/Tooltip/LT2011835200CountUnitChaosLordQueuedOrBetter1=You can only have 1 Chaos Lord!
 RequirementNode/Tooltip/LT2316682573CountUnitGreaterTerrazineExtractorQueuedOrBetter1=Maximum 1 Greater Terrazine Extractor
@@ -4258,7 +4273,6 @@ RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationSlowlingPacked
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationStrikelingDualHitCompleteOnly=Research Completed
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationTanklingBanklingCompleteOnly=Research Completed
 RequirementNode/Tooltip/Not542624544CountUpgradeOtherTeamDeadCompleteOnly=The other team must be alive
-RequirementNode/Tooltip/Not660069371CountUpgradeEnergyCapacityQueuedOrBetter=Already Completed
 RequirementNode/Tooltip/Not660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetter=Already Completed
 RequirementNode/Tooltip/Not660069371CountUpgradeSuperEnergyGenerationQueuedOrBetter=Already Completed
 RequirementNode/Tooltip/Not860072457CountUnitConstructionYardQueuedOrBetter=Only one Construction Yard
@@ -4581,6 +4595,7 @@ Upgrade/Name/EliteScope=Elite Scope
 Upgrade/Name/EmpowerShadowCannon=Empower Shadow Cannon
 Upgrade/Name/EnableMineralProduction=Enable Mineral Production
 Upgrade/Name/EnergyCapacity=Energy Capacity
+Upgrade/Name/EnergyCapacity2=Energy Capacity II
 Upgrade/Name/EnergyGeneration=Energy Generation
 Upgrade/Name/EnergyGenerationCapacity=Energy Generation Capacity
 Upgrade/Name/Firelings=Firelings

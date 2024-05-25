@@ -147,6 +147,10 @@
         <AlertIcon value="Assets\Textures\btn-unit-keiron-inducer.dds"/>
         <HotkeyAlias value=""/>
     </CButton>
+    <CButton id="UpgradeGeneratorCapacity2">
+        <Icon value="Assets\Textures\btn-ability-protoss-forcefield-red.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-forcefield-red.dds"/>
+    </CButton>
     <CButton id="UpgradeImprovedCombatShield">
         <Icon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-techupgrade-terran-combatshield-color.dds"/>

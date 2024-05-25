@@ -4697,7 +4697,7 @@
         <EditorCategories value=""/>
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="TechLabCharge"/>
-        <Count value="40"/>
+        <Count value="60"/>
     </CEffectRemoveBehavior>
     <CEffectRemoveBehavior id="TechLabChargesCost2">
         <EditorCategories value=""/>

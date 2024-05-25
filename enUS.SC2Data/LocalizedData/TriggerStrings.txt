@@ -1796,6 +1796,7 @@ Variable/Name/2982E263=newcomer_players
 Variable/Name/29F9F0FF=r
 Variable/Name/2A314741=y
 Variable/Name/2A3F1D00=r
+Variable/Name/2A43281E=tbp_minimap_dialog
 Variable/Name/2A6B521D=gametime_text
 Variable/Name/2A787B2C=barracks
 Variable/Name/2A7C8C2C=point

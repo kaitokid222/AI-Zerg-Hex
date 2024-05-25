@@ -1928,7 +1928,7 @@
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-karax-chronowave.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <MaxStackCount value="40"/>
+        <MaxStackCount value="100"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="UnifiedArmorActiveLeech">
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -22,6 +22,10 @@
         <NodeArray index="Use" Link="CountUpgradeTombstoneLevel2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeEmpowerShadowCannonQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="UpgradeEnergyCapacity2">
+        <NodeArray index="Use" Link="AndCountUpgradeEnergyCapacityCompleteOnlyGTE3015538167CountUpgradeEnergyGenerationCompleteOnly40"/>
+        <NodeArray index="Show" Link="NotCountUpgradeEnergyCapacity2QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="UpgradeImprovedCombatShield">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter"/>
@@ -868,7 +872,7 @@
         <NodeArray index="Use" Link="AndCountBehaviorInfestorDigestingCompleteOnlyAtUnit2429948297LT2473741311CountUnitRavager2QueuedOrBetter30CountUpgradeZergArmor2CompleteOnly1814853743"/>
     </CRequirement>
     <CRequirement id="TechLabChargeUp">
-        <NodeArray index="Use" Link="LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit40"/>
+        <NodeArray index="Use" Link="LT1571759901CountBehaviorTechLabChargeCompleteOnlyAtUnit100"/>
     </CRequirement>
     <CRequirement id="TechLabRequireCharges1">
         <NodeArray index="Use" Link="GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1"/>
@@ -883,7 +887,7 @@
         <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnly729820030GTE1887071987CountBehaviorTechLabChargeCompleteOnlyAtUnit25"/>
     </CRequirement>
     <CRequirement id="TechLabRequireCharges40">
-        <NodeArray index="Use" Link="GTE499750596CountBehaviorTechLabChargeCompleteOnlyAtUnit40"/>
+        <NodeArray index="Use" Link="GTE4249658091CountBehaviorTechLabChargeCompleteOnlyAtUnit60"/>
     </CRequirement>
     <CRequirement id="TechLabRequireCharges20">
         <NodeArray index="Use" Link="GTE1566082727CountBehaviorTechLabChargeCompleteOnlyAtUnit20"/>
@@ -907,7 +911,8 @@
         <NodeArray index="Use" Link="AndNot660069371CountUpgradeEnergyGenerationCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5"/>
     </CRequirement>
     <CRequirement id="UpgradeEnergyCapacity">
-        <NodeArray index="Use" Link="AndNot660069371CountUpgradeEnergyCapacityQueuedOrBetterGTE2261618747CountUpgradeEnergyGenerationCompleteOnly5"/>
+        <NodeArray index="Use" Link="GTE2261618747CountUpgradeEnergyGenerationCompleteOnly6600693715"/>
+        <NodeArray index="Show" Link="NotCountUpgradeEnergyCapacityQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="UpgradeZergHydraliskSpawnSize">
         <NodeArray index="Use" Link="And2331140635NotCountUpgradeHydraliskSpawnSizeQueuedOnlyNotCountUpgradeHydraliskSpawnSizeInProgressOnly"/>

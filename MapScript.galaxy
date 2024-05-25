@@ -1250,6 +1250,7 @@ int gv_tbp_tv_p3;
 int gv_tbp_tv_p4;
 int gv_tbp_tv_p5;
 int gv_tbp_toplist_frame_dialog;
+int gv_tbp_minimap_dialog;
 int gv_ic_unit_count;
 int[7] gv_ic_terran_combat_unit_counts;
 int gv_ic_terran_combat_unit_total_count;
@@ -1434,6 +1435,7 @@ void InitGlobals () {
     gv_tbp_tv_p4 = c_invalidDialogControlId;
     gv_tbp_tv_p5 = c_invalidDialogControlId;
     gv_tbp_toplist_frame_dialog = c_invalidDialogId;
+    gv_tbp_minimap_dialog = c_invalidDialogId;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -31709,6 +31711,17 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
 
     gv_tbp_extra_vote_dialog = DialogLastCreated();
     DialogSetVisible(gv_tbp_extra_vote_dialog, PlayerGroupAll(), true);
+    DialogCreate(570, 605, c_anchorTopLeft, 1420, 100, true);
+    DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/9753C624"));
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 512, 512, c_anchorTopLeft, 30, 70, StringToText(""), "assets\\dialog\\minimap.tga", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 90, 200, StringToText(""), StringExternal("Param/Value/AEA22F25"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTop, 10, 100, StringToText(""), StringExternal("Param/Value/149D5C46"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopRight, 90, 200, StringToText(""), StringExternal("Param/Value/EDDBE1A1"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomRight, 90, 160, StringToText(""), StringExternal("Param/Value/ED2886E8"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottom, 10, 70, StringToText(""), StringExternal("Param/Value/97629A9E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomLeft, 90, 160, StringToText(""), StringExternal("Param/Value/F9440A32"), "Assets\\Textures\\ui_emoticons_random.dds");
+    gv_tbp_minimap_dialog = DialogLastCreated();
+    DialogSetVisible(gv_tbp_minimap_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
