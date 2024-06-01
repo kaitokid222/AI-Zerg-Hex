@@ -263,6 +263,7 @@ Button/Hotkey/ResearchPackedMass=D
 Button/Hotkey/ResearchPackedMass3v3=Q
 Button/Hotkey/ResearchParalyzingShock=R
 Button/Hotkey/ResearchPenetratingLaser=Z
+Button/Hotkey/ResearchPenetratingLaser2=Z
 Button/Hotkey/ResearchPrimalRapidRespawn=D
 Button/Hotkey/ResearchPrimalRapidRespawn3v3=D
 Button/Hotkey/ResearchRapidUnitTraining=X

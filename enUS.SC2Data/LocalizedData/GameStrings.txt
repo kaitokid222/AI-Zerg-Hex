@@ -979,6 +979,7 @@ Button/Name/ResearchPackedMass=Research Packed Mass
 Button/Name/ResearchPackedMass3v3=Research Packed Mass
 Button/Name/ResearchParalyzingShock=Research Paralyzing Shock
 Button/Name/ResearchPenetratingLaser=Research Penetrating Laser
+Button/Name/ResearchPenetratingLaser2=Research Penetrating Laser II
 Button/Name/ResearchPrimalRapidRespawn=Research Primal Rapid Respawn
 Button/Name/ResearchPrimalRapidRespawn3v3=Research Primal Rapid Respawn
 Button/Name/ResearchRapidUnitTraining=Research Rapid Unit Training
@@ -1604,6 +1605,7 @@ Button/Tooltip/ResearchPackedMass=Doubles the health of all <c val="ffff8a">Slow
 Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">Slowlings</c>, but have their movement speed reduced by 40%.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a">Shock Troopers</c> to become paralyzed, decreasing their damage and speed by 50% for 2 seconds.
 Button/Tooltip/ResearchPenetratingLaser=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
+Button/Tooltip/ResearchPenetratingLaser2=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchRapidUnitTraining=<c val="ffff8a">Units</c> can get recruited faster.
@@ -2673,7 +2675,12 @@ DocInfo/PatchNote823=Added Overclocked Rifles Upgrade.
 DocInfo/PatchNote824=Tech Lab can hold 100 Charges now.
 DocInfo/PatchNote825=Increased Ion Cannon Cost 40 -> 60 Charges, 500 -> 800 Minerals.
 DocInfo/PatchNote826=Added Generator Capacity II Upgrade.
-DocInfo/PatchNote827=Players can pick their positions now.
+DocInfo/PatchNote827=Fixed Issues.
+DocInfo/PatchNote828=Players can pick their positions now.
+DocInfo/PatchNote829=Players randomly forced into a mid position because 2 and 5 are the only free ones get compensated.
+DocInfo/PatchNote830=Added new Crisis Type.
+DocInfo/PatchNote831=Increased Karax Phase Cannon Cooldown 10s -> 12s
+DocInfo/PatchNote832=Added Penetrating Laser II Upgrade.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4639,6 +4646,7 @@ Upgrade/Name/MarineMobileSquadTraining=Marine Mobile Squad Training
 Upgrade/Name/MarineOvercharge=Marine Overcharge
 Upgrade/Name/MarineOverclockedRifles=Marine Overclocked Rifles
 Upgrade/Name/MarinePenetratingLaser=Marine Penetrating Laser
+Upgrade/Name/MarinePenetratingLaser2=Marine Penetrating Laser II
 Upgrade/Name/MarineShatteringLaser=Marine Shattering Laser
 Upgrade/Name/MarineShatteringLaserUpgrade=Marine Shattering Laser Upgrade
 Upgrade/Name/MechaZerg3v3=Mecha Zerg

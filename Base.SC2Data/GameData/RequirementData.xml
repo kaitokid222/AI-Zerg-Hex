@@ -14,6 +14,10 @@
     <CRequirement id="ResearchOverclockedRifles">
         <NodeArray index="Show" Link="NotCountUpgradeMarineOverclockedRiflesQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchPenetratingLaser2">
+        <NodeArray index="Use" Link="AndCountUpgradeMarinePenetratingLaserCompleteOnlyCountUpgradeTier3EquipmentQueuedOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaser2QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchRapidUnitTraining">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRapidUnitTrainingQueuedOrBetter"/>

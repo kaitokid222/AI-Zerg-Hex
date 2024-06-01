@@ -154,6 +154,7 @@
 <Unit id="Probe"/>
 <Unit id="SpineCrawler"/>
 <Unit id="Overlord"/>
+<Unit id="PlanetaryFortress"/>
 <Unit id="NydusCanal"/>
 <Unit id="Viper"/>
 <Unit id="ShieldBattery"/>
@@ -166,6 +167,9 @@
 <Unit id="PickupScrapSalvage1x1"/>
 <Unit id="PickupScrapSalvage2x2"/>
 <Unit id="PickupScrapSalvage3x3"/>
+<Unit id="WarPig"/>
+<Unit id="DevilDog"/>
+<Unit id="HelsAngelAssault"/>
 <Unit id="Artanis"/>
 <Unit id="Hercules"/>
 <Unit id="Raynor"/>

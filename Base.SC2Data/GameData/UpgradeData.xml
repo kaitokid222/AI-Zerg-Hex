@@ -117,6 +117,19 @@
         <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="1"/>
         <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="1"/>
     </CUpgrade>
+    <CUpgrade id="MarinePenetratingLaser2">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L2Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L3Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ReaperDoublePistorDamage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Effect,TwinBolter,Amount" Value="1"/>
+        <EffectArray Reference="Effect,DesecratedBolter,Amount" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="RapidUnitTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
         <EffectArray Operation="Subtract" Reference="Abil,BarracksTrain2,InfoArray[Train1].Time" Value="1.000000"/>

@@ -6629,6 +6629,20 @@
                 <Column value="0"/>
             </LayoutButtons>
             <LayoutButtons>
+                <Face value="ResearchPenetratingLaser2"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ArmoryResearch2,Research30"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
+                <SubmenuAbilState value=""/>
+                <SubmenuCardId value=""/>
+                <SubmenuFullSubCmdValidation value="0"/>
+                <SubmenuIsSticky value="0"/>
+                <ShowInGlossary value="1"/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons>
                 <Face value="InfestedOffense"/>
                 <Type value="AbilCmd"/>
                 <AbilCmd value="ArmoryResearch2,Research23"/>
@@ -6684,20 +6698,7 @@
                 <Row value="0"/>
                 <Column value="1"/>
             </LayoutButtons>
-            <LayoutButtons>
-                <Face value="ResearchEliteScope"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ArmoryResearch2,Research13"/>
-                <Behavior value=""/>
-                <Requirements value=""/>
-                <SubmenuAbilState value=""/>
-                <SubmenuCardId value=""/>
-                <SubmenuFullSubCmdValidation value="0"/>
-                <SubmenuIsSticky value="0"/>
-                <ShowInGlossary value="1"/>
-                <Row value="2"/>
-                <Column value="2"/>
-            </LayoutButtons>
+            <LayoutButtons Face="ResearchEliteScope" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research13" Row="2" Column="2"/>
             <LayoutButtons Face="UpgradeCombatShield" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research14" Row="1" Column="1"/>
             <LayoutButtons Face="UpgradeImprovedCombatShield" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research27" Row="1" Column="1"/>
             <LayoutButtons Face="UpgradeImprovedCombatShield2" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research28" Row="1" Column="1"/>

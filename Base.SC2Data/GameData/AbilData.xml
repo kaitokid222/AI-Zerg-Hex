@@ -50,6 +50,11 @@
             <Button Requirements=""/>
         </InfoArray>
     </CAbilBuild>
+    <CAbilEffectTarget id="PhaseCannon">
+        <Cost index="0">
+            <Cooldown TimeUse="12"/>
+        </Cost>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="SelectInfestedMarineSpawn">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="RemoveBomberSpawn"/>
@@ -1235,6 +1240,10 @@
         <InfoArray index="Research29" Time="20" Upgrade="MarineOverclockedRifles">
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchOverclockedRifles" Requirements="ResearchOverclockedRifles"/>
+        </InfoArray>
+        <InfoArray index="Research30" Time="20" Upgrade="MarinePenetratingLaser2">
+            <Resource index="Vespene" value="600"/>
+            <Button DefaultButtonFace="ResearchPenetratingLaser2" Requirements="ResearchPenetratingLaser2"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilMorph id="BurrowFireling">

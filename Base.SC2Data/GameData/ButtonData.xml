@@ -22,6 +22,11 @@
         <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="ResearchPenetratingLaser2">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="ResearchRapidUnitTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>
