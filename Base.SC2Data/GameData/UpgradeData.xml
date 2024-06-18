@@ -110,6 +110,20 @@
         <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
         <EffectArray Reference="Unit,Generator,EnergyMax" Value="10000"/>
     </CUpgrade>
+    <CUpgrade id="RapidEnergyTransfer">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="50.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyBatteryFast,RechargeVitalRate" Value="50.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyPylonOther,RechargeVitalRate" Value="50.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyPylonPylon,RechargeVitalRate" Value="50.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyBatterySlow,RechargeVitalRate" Value="50.000000"/>
+    </CUpgrade>
+    <CUpgrade id="MarineConservationL4">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,L1Rifle,Cost.Vital[Energy]" Value="0.33"/>
+        <EffectArray Operation="Set" Reference="Weapon,L2Rifle,Cost.Vital[Energy]" Value="0.66"/>
+        <EffectArray Operation="Set" Reference="Weapon,L3Rifle,Cost.Vital[Energy]" Value="1"/>
+    </CUpgrade>
     <CUpgrade id="MarineOverclockedRifles">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
@@ -129,6 +143,27 @@
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
         <EffectArray Reference="Effect,TwinBolter,Amount" Value="1"/>
         <EffectArray Reference="Effect,DesecratedBolter,Amount" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="MarinePenetratingLaser3">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EffectArray Reference="Effect,L1Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L2Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,L3Rifle,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL1Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL2Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ShatterL3Damage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,ReaperDoublePistorDamage,Amount" Value="1"/>
+        <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
+        <EffectArray Reference="Effect,TwinBolter,Amount" Value="1"/>
+        <EffectArray Reference="Effect,DesecratedBolter,Amount" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="RapidEnergyTransfer2">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="75.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyBatteryFast,RechargeVitalRate" Value="75.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyPylonOther,RechargeVitalRate" Value="75.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyPylonPylon,RechargeVitalRate" Value="75.000000"/>
+        <EffectArray Reference="Effect,TransferEnergyBatterySlow,RechargeVitalRate" Value="75.000000"/>
     </CUpgrade>
     <CUpgrade id="RapidUnitTraining">
         <Icon value="Assets\Textures\btn-ability-stetmann-stetelliteoverloadspeed.dds"/>

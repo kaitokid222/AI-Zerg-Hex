@@ -14,8 +14,24 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="EmpoweredShadowCannon" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-convergence.dds"/>
+    <CButton id="RapidEnergyTransfer2">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="ResearchChaosPowerArmorUpgrade">
         <Icon value="assets\icon\ICON CSM Armor Lord.dds"/>
+    </CButton>
+    <CButton id="RapidEnergyTransfer">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchConservationL4">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ResearchConservationL1"/>
     </CButton>
     <CButton id="ResearchOverclockedRifles">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
@@ -23,6 +39,11 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="ResearchPenetratingLaser2">
+        <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchPenetratingLaser3">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <EditorCategories value="Race:Terran"/>

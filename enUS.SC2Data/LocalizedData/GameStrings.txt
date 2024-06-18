@@ -8,6 +8,7 @@ Abil/Name/AnimalMove=Animal Move
 Abil/Name/AnimalRequestFarm=Animal Request Farm
 Abil/Name/ArmNapalmBomb=Arm Napalm Bomb
 Abil/Name/ArmoryResearch2=Armory - Research
+Abil/Name/ArmoryResearch3=Armory - Research2
 Abil/Name/AutomaticChargingDisable=Automatic Charging Disable
 Abil/Name/AutomaticChargingEnable=Automatic Charging Enable 
 Abil/Name/BanelingExplodeZergHex=Explode
@@ -932,6 +933,8 @@ Button/Name/Pylon=Warp In Probius Pylon
 Button/Name/PylonClassic=Warp In Pylon
 Button/Name/PylonOvercharge=Overcharge
 Button/Name/Raise2=Raise
+Button/Name/RapidEnergyTransfer=Rapid Energy Transfer
+Button/Name/RapidEnergyTransfer2=Rapid Energy Transfer II
 Button/Name/ReaperSuitUpgrade=Reaper Suit Upgrade
 Button/Name/RecruitChaosCultist=Recruit Chaos Cultist
 Button/Name/RecruitChaosLord=Recruit Chaos Lord
@@ -953,6 +956,7 @@ Button/Name/ResearchCombatShield=Research Combat Shield
 Button/Name/ResearchConservationL1=Research Conservation L1
 Button/Name/ResearchConservationL2=Research Conservation L2
 Button/Name/ResearchConservationL3=Research Conservation L3
+Button/Name/ResearchConservationL4=Research Conservation L4
 Button/Name/ResearchDeflectiveShatter=Research Deflective Shatter
 Button/Name/ResearchDualHit=Research Dual Hit
 Button/Name/ResearchDualHit3v3=Research Dual Hit
@@ -980,6 +984,7 @@ Button/Name/ResearchPackedMass3v3=Research Packed Mass
 Button/Name/ResearchParalyzingShock=Research Paralyzing Shock
 Button/Name/ResearchPenetratingLaser=Research Penetrating Laser
 Button/Name/ResearchPenetratingLaser2=Research Penetrating Laser II
+Button/Name/ResearchPenetratingLaser3=Research Penetrating Laser III
 Button/Name/ResearchPrimalRapidRespawn=Research Primal Rapid Respawn
 Button/Name/ResearchPrimalRapidRespawn3v3=Research Primal Rapid Respawn
 Button/Name/ResearchRapidUnitTraining=Research Rapid Unit Training
@@ -1554,6 +1559,8 @@ Button/Tooltip/PylonClassic=Creates a field that powers other structures.
 Button/Tooltip/PylonOvercharge=Turns pylon into a long range turret.
 Button/Tooltip/Raise2=Raises the structure, preventing ground units from moving across it.
 Button/Tooltip/RangedMinionHell=
+Button/Tooltip/RapidEnergyTransfer=Increases the transfer rate of the power grid and batteries by <c val="ffff8a">50</c>.
+Button/Tooltip/RapidEnergyTransfer2=Increases the transfer rate of the power grid and batteries by <c val="ffff8a">75</c>.
 Button/Tooltip/Ravager2=
 Button/Tooltip/Ravator=
 Button/Tooltip/RavatorSpawner=
@@ -1579,6 +1586,7 @@ Button/Tooltip/ResearchCombatShield=<c val="ffff8a">Marines</c> gain +10 life.<n
 Button/Tooltip/ResearchConservationL1=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 175% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 125% efficiency.
 Button/Tooltip/ResearchConservationL2=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 200% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 175% efficiency.<n/><c val="ffff8a">Elite Marine</c>: 125% efficiency.
 Button/Tooltip/ResearchConservationL3=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 200% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 200% efficiency.<n/><c val="ffff8a">Elite Marine</c>: 200% efficiency.
+Button/Tooltip/ResearchConservationL4=Improves the energy efficiency of <c val="ffff8a">Marines</c>.<n/><n/><c val="ffff8a">Standard Marine</c>: 300% efficiency.<n/><c val="ffff8a">Veteran Marine</c>: 300% efficiency.<n/><c val="ffff8a">Elite Marine</c>: 300% efficiency.
 Button/Tooltip/ResearchDeflectiveShatter=Improves <c val="ffff8a">Marines</c> laser shattering to deal as much damage as the initial impact.
 Button/Tooltip/ResearchDualHit=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.
 Button/Tooltip/ResearchDualHit3v3=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.<n/><n/><c val="E1848D">Research is shared among your team.</c>
@@ -1606,6 +1614,7 @@ Button/Tooltip/ResearchPackedMass3v3=Doubles the health of all <c val="ffff8a">S
 Button/Tooltip/ResearchParalyzingShock=Causing enemies struck by <c val="ffff8a">Shock Troopers</c> to become paralyzed, decreasing their damage and speed by 50% for 2 seconds.
 Button/Tooltip/ResearchPenetratingLaser=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPenetratingLaser2=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
+Button/Tooltip/ResearchPenetratingLaser3=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchRapidUnitTraining=<c val="ffff8a">Units</c> can get recruited faster.
@@ -2681,6 +2690,8 @@ DocInfo/PatchNote829=Players randomly forced into a mid position because 2 and 5
 DocInfo/PatchNote830=Added new Crisis Type.
 DocInfo/PatchNote831=Increased Karax Phase Cannon Cooldown 10s -> 12s
 DocInfo/PatchNote832=Added Penetrating Laser II Upgrade.
+DocInfo/PatchNote833=Fixed Issue.
+DocInfo/PatchNote834=Added Penetrating Laser III, Conservation L4, Rapid Energy Transfer I & II Upgrades.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4194,6 +4205,7 @@ RequirementNode/Tooltip/CountUpgradeImprovedFarmingQueuedOrBetter724438663=Compl
 RequirementNode/Tooltip/CountUpgradeInstantDischargeCompleteOnly2503394132=Research at the Armory
 RequirementNode/Tooltip/CountUpgradeMarineConservationL1CompleteOnly2205661302=Complete Conservation L1
 RequirementNode/Tooltip/CountUpgradeMarineConservationL2CompleteOnly1428761563=Complete Conservation L2
+RequirementNode/Tooltip/CountUpgradeMarineConservationL3CompleteOnly999169436=Complete Conservation L3
 RequirementNode/Tooltip/CountUpgradeMarineMobileSquadTrainingCompleteOnly2353791563=Mobile Squad Training Research
 RequirementNode/Tooltip/CountUpgradeMarineOverchargeCompleteOnly2503394132=Research at the Armory
 RequirementNode/Tooltip/CountUpgradeMarineShatteringLaserCompleteOnly4238821561=Complete Shattering Laser
@@ -4234,11 +4246,13 @@ RequirementNode/Tooltip/GTE2686350439CountBehaviorBloodStacksQueuedOrBetter100=Y
 RequirementNode/Tooltip/GTE2722478423CountBehaviorBloodStacksQueuedOrBetter10=You need 10 Stacks of Blood!
 RequirementNode/Tooltip/GTE3015538167CountUpgradeEnergyGenerationCompleteOnly40=Generator Level 40
 RequirementNode/Tooltip/GTE3128881089CountUpgradeIncreaseCashPickupsCompleteOnly15=Have Bigger Cash Drops 15
+RequirementNode/Tooltip/GTE3241362357CountUpgradeEnergyGenerationCompleteOnly80=Generator Level 80
 RequirementNode/Tooltip/GTE3374015796CountBehaviorTechLabChargeCompleteOnlyAtUnit1=1 charge
 RequirementNode/Tooltip/GTE3417746048CountUpgradeFortificationCompleteOnly3=Fortification 3
 RequirementNode/Tooltip/GTE3487459219CountBehaviorTechLabChargeCompleteOnlyAtUnit2=2 charges
 RequirementNode/Tooltip/GTE3699583646CountBehaviorBloodStacksQueuedOrBetter10=10 Stacks of Blood
 RequirementNode/Tooltip/GTE3867355700CountUpgradeMinuteUpgradeQueuedOrBetter11=Need to wait 11 minutes
+RequirementNode/Tooltip/GTE3902944008CountUpgradeEnergyGenerationCompleteOnly60=Generator Level 60
 RequirementNode/Tooltip/GTE4249658091CountBehaviorTechLabChargeCompleteOnlyAtUnit60=60 charges
 RequirementNode/Tooltip/GTE875194640CountUpgradeIncreaseCashPickupsCompleteOnly10=Have Bigger Cash Drops 10
 RequirementNode/Tooltip/GTE889848497CountBehaviorBloodStacksQueuedOrBetter1=You need one Stacks of Blood!
@@ -4642,11 +4656,13 @@ Upgrade/Name/LotsofBlood=Lots of Blood
 Upgrade/Name/MarineConservationL1=Marine Conservation L1
 Upgrade/Name/MarineConservationL2=Marine Conservation L2
 Upgrade/Name/MarineConservationL3=Marine Conservation L3
+Upgrade/Name/MarineConservationL4=Marine Conservation L4
 Upgrade/Name/MarineMobileSquadTraining=Marine Mobile Squad Training
 Upgrade/Name/MarineOvercharge=Marine Overcharge
 Upgrade/Name/MarineOverclockedRifles=Marine Overclocked Rifles
 Upgrade/Name/MarinePenetratingLaser=Marine Penetrating Laser
 Upgrade/Name/MarinePenetratingLaser2=Marine Penetrating Laser II
+Upgrade/Name/MarinePenetratingLaser3=Marine Penetrating Laser III
 Upgrade/Name/MarineShatteringLaser=Marine Shattering Laser
 Upgrade/Name/MarineShatteringLaserUpgrade=Marine Shattering Laser Upgrade
 Upgrade/Name/MechaZerg3v3=Mecha Zerg
@@ -4671,6 +4687,8 @@ Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
 Upgrade/Name/PlasmaCannons=Plasma Cannons
 Upgrade/Name/PrimalRapidRespawn=Primal Rapid Respawn
+Upgrade/Name/RapidEnergyTransfer=Rapid Energy Transfer
+Upgrade/Name/RapidEnergyTransfer2=Rapid Energy Transfer II
 Upgrade/Name/RapidUnitTraining=Rapid Unit Training
 Upgrade/Name/RecyclingProtocol=Recycling Protocol
 Upgrade/Name/RecyclingProtocol2=Recycling Protocol 2

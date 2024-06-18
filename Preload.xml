@@ -198,6 +198,11 @@
 <Unit id="Generator"/>
 <Unit id="ACR"/>
 <Unit id="Spitfire"/>
+<Unit id="Xayidling"/>
+<Unit id="Mendling"/>
+<Unit id="Casnolisk"/>
+<Unit id="Eroder"/>
+<Unit id="Grub"/>
 <Unit id="MineralTrader"/>
 <Unit id="GasTrader"/>
 <Unit id="SiegeTank2"/>

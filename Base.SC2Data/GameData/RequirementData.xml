@@ -11,12 +11,20 @@
         <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly729820030"/>
         <NodeArray index="Show" Link="NotCountUpgradeChaosPowerArmorUpgradeQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchConservationL4">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL3CompleteOnly999169436"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL4QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchOverclockedRifles">
         <NodeArray index="Show" Link="NotCountUpgradeMarineOverclockedRiflesQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchPenetratingLaser2">
-        <NodeArray index="Use" Link="AndCountUpgradeMarinePenetratingLaserCompleteOnlyCountUpgradeTier3EquipmentQueuedOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeMarinePenetratingLaserCompleteOnlyCountUpgradeTier2EquipmentCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaser2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchPenetratingLaser3">
+        <NodeArray index="Use" Link="AndCountUpgradeMarinePenetratingLaser2CompleteOnlyCountUpgradeTier3EquipmentCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaser3QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchRapidUnitTraining">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
@@ -30,6 +38,10 @@
         <NodeArray index="Use" Link="AndCountUpgradeEnergyCapacityCompleteOnlyGTE3015538167CountUpgradeEnergyGenerationCompleteOnly40"/>
         <NodeArray index="Show" Link="NotCountUpgradeEnergyCapacity2QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="UpgradeRapidEnergyTransfer">
+        <NodeArray index="Use" Link="AndCountUpgradeTier2EquipmentCompleteOnlyGTE3902944008CountUpgradeEnergyGenerationCompleteOnly60"/>
+        <NodeArray index="Show" Link="NotCountUpgradeRapidEnergyTransferQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="UpgradeImprovedCombatShield">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeUpgradedImprovedCombatShieldQueuedOrBetter"/>
@@ -37,6 +49,10 @@
     <CRequirement id="UpgradeImprovedCombatShield2">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeUpgradedCombatShieldCompleteOnlyCountUpgradeUpgradedImprovedCombatShieldCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeUpgradedImprovedCombatShield2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UpgradeRapidEnergyTransfer2">
+        <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyGTE3241362357CountUpgradeEnergyGenerationCompleteOnly80CountUpgradeRapidEnergyTransferCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeRapidEnergyTransfer2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="stoptherain">
         <NodeArray index="Show" Link="NotCountUpgradeStoptherainQueuedOrBetter"/>
