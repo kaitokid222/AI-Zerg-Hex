@@ -110,6 +110,41 @@
         <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
         <EffectArray Reference="Unit,Generator,EnergyMax" Value="10000"/>
     </CUpgrade>
+    <CUpgrade id="IncreasedPylonIncome">
+        <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <AffectedUnitArray value="ProbiusPylon"/>
+    </CUpgrade>
+    <CUpgrade id="ProbiusWallShields">
+        <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,Wall2,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="2.000000"/>
+    </CUpgrade>
+    <CUpgrade id="ProbiusL2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Unit,Probius,CostResource[Minerals]" Value="0"/>
+        <EffectArray Operation="Set" Reference="Unit,Probius,CostResource[Vespene]" Value="0"/>
+        <EffectArray Reference="Unit,Probius,Speed" Value="1.000000"/>
+        <EffectArray Operation="Set" Reference="Unit,Probius,ShieldRegenDelay" Value="3.000000"/>
+    </CUpgrade>
+    <CUpgrade id="WallShields2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,Wall2,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="50"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="2.000000"/>
+    </CUpgrade>
     <CUpgrade id="RapidEnergyTransfer">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
         <EffectArray Reference="Effect,TransferEnergyGenerator,RechargeVitalRate" Value="50.000000"/>
@@ -520,6 +555,42 @@
         <EffectArray Reference="Unit,ChaosLord,LifeStart" Value="100"/>
         <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="20"/>
         <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="20"/>
+    </CUpgrade>
+    <CUpgrade id="WallShields3">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="100"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsStart" Value="100"/>
+        <EffectArray Reference="Unit,Wall2,ShieldRegenRate" Value="4.000000"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsMax" Value="100"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsStart" Value="100"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldRegenRate" Value="4.000000"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="100"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="100"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="4.000000"/>
+    </CUpgrade>
+    <CUpgrade id="WallShields4">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="200"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsStart" Value="200"/>
+        <EffectArray Reference="Unit,Wall2,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsMax" Value="200"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsStart" Value="200"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="200"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="200"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="8.000000"/>
+    </CUpgrade>
+    <CUpgrade id="WallShields5">
+        <Icon value="Assets\Textures\btn-upgrade-keiron-shields-level3.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="800"/>
+        <EffectArray Reference="Unit,Wall2,ShieldsStart" Value="800"/>
+        <EffectArray Reference="Unit,Wall2,ShieldRegenRate" Value="32.000000"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsMax" Value="800"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldsStart" Value="800"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldRegenRate" Value="32.000000"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="800"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="800"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="32.000000"/>
     </CUpgrade>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>

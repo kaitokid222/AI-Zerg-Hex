@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="EnergizeWalls" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
     <CButton id="AutomatedAssimilator"/>
     <CButton id="BuildMechaExtractor">
         <Icon value="Assets\Textures\btn-building-zerg-extractor-mecha.dds"/>
@@ -14,6 +15,52 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="EmpoweredShadowCannon" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-convergence.dds"/>
+    <CButton id="IncreasedPylonIncome">
+        <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradePhotonCannonArmor">
+        <Icon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradePhotonCannonDamage">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <AlertTooltip value="Button/Name/UpgradePhotonCannonDamage2"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradeWallShield" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <HotkeyAlias value="EnergizeWalls"/>
+    </CButton>
+    <CButton id="ShieldBattery2">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradeWallShield2" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <HotkeyAlias value="EnergizeWalls"/>
+    </CButton>
+    <CButton id="UpgradeWallShield3" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <HotkeyAlias value="EnergizeWalls"/>
+    </CButton>
+    <CButton id="UpgradeWallShield4" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
+        <Icon value="Assets\Textures\btn-upgrade-keiron-shields-level3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-keiron-shields-level3.dds"/>
+        <HotkeyAlias value="EnergizeWalls"/>
+    </CButton>
+    <CButton id="WarpInCannonForge">
+        <Icon value="Assets\Textures\btn-building-protoss-forge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-forge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="RapidEnergyTransfer2">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
@@ -46,6 +93,11 @@
     <CButton id="ResearchPenetratingLaser3">
         <Icon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-concentratedbeam.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchProbiusL2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="ResearchRapidUnitTraining">

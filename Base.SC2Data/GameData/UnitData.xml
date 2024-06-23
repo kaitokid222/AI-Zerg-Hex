@@ -21,6 +21,25 @@
         <Footprint value="Footprint2x2Contour"/>
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
+    <CUnit id="Forge">
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="50"/>
+        <AbilArray Link="Demolish"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="2" Face="Demolish" AbilCmd="Demolish,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="3" Face="EnergizeWalls" AbilCmd="ForgeResearch,Research10" Column="4"/>
+            <LayoutButtons index="4" Face="UpgradeWallShield" AbilCmd="ForgeResearch,Research11" Column="4"/>
+            <LayoutButtons index="5" Face="UpgradeWallShield2" AbilCmd="ForgeResearch,Research12" Column="4"/>
+            <LayoutButtons index="6" Face="UpgradeWallShield3" AbilCmd="ForgeResearch,Research13" Column="4"/>
+            <LayoutButtons index="7" Face="UpgradeWallShield4" AbilCmd="ForgeResearch,Research14" Column="4"/>
+            <LayoutButtons index="8" Face="IncreasedPylonIncome" AbilCmd="ForgeResearch,Research15" Column="3"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+            <LayoutButtons index="12" removed="1"/>
+            <LayoutButtons index="13" removed="1"/>
+        </CardLayouts>
+    </CUnit>
     <CUnit id="Massalisk">
         <FlagArray index="AcquireRally" value="1"/>
         <LifeStart value="550"/>
@@ -30,6 +49,12 @@
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
+    </CUnit>
+    <CUnit id="ShieldBattery">
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="15"/>
+        <Footprint value="Footprint1x1Contour"/>
+        <PlacementFootprint value="Footprint1x1Contour"/>
     </CUnit>
     <CUnit id="SpecialZergSpawner" parent="CBuildingXayid">
         <LifeStart value="450"/>
@@ -4205,11 +4230,15 @@
         <CostResource index="Minerals" value="0"/>
         <BehaviorArray index="0" Link="PowerUserBaseDefenseSmall"/>
         <BehaviorArray index="1" Link="UnderConstruction"/>
-        <BehaviorArray index="2" Link="PhotonCannonTimedLife"/>
+        <BehaviorArray index="2" removed="1"/>
         <Attributes index="Armored" value="0"/>
         <Attributes index="Mechanical" value="1"/>
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1"/>
+        <AbilArray Link="Demolish"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="2"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="PickupEnergy100">
         <AbilArray index="0" Link="PickupHNYgift"/>
@@ -4311,6 +4340,8 @@
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Pylon" Type="AbilCmd" AbilCmd="ProtossBuild,Build2" Row="2" Column="0"/>
             <LayoutButtons Face="PhotonCannon" Type="AbilCmd" AbilCmd="ProtossBuild,Build8" Row="2" Column="1"/>
+            <LayoutButtons Face="ShieldBattery2" Type="AbilCmd" AbilCmd="ProtossBuild,Build22" Row="2" Column="2"/>
+            <LayoutButtons Face="WarpInCannonForge" Type="AbilCmd" AbilCmd="ProtossBuild,Build5" Row="2" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="PBl1">
             <LayoutButtons Face="Nexus" Type="AbilCmd" AbilCmd="ProtossBuild,Build1" Row="0" Column="0"/>
@@ -9439,6 +9470,7 @@
         <AbilArray Link="ProcessingCoreTrain"/>
         <AbilArray Link="GenetronTrainEdit"/>
         <AbilArray Link="GenetronResearchEdit"/>
+        <AbilArray Link="ArmoryResearch3"/>
         <BehaviorArray index="0" Link="GenerateGas"/>
         <BehaviorArray index="1" Link="GenerateMineral"/>
         <BehaviorArray index="2" removed="1"/>
@@ -9473,6 +9505,7 @@
             <LayoutButtons Face="CoreSystemRecharge" Type="AbilCmd" AbilCmd="CoreSystemRecharge,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="ResearchGenetronTier2" Type="AbilCmd" AbilCmd="GenetronResearchEdit,Research1" Row="0" Column="3"/>
             <LayoutButtons Face="ResearchGenetronTier3" Type="AbilCmd" AbilCmd="GenetronResearchEdit,Research2" Row="0" Column="3"/>
+            <LayoutButtons Face="ResearchProbiusL2" Type="AbilCmd" AbilCmd="ArmoryResearch3,Research3" Row="0" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="SelfDestruct2" Type="AbilCmd" AbilCmd="SelfDestruct,Execute" Row="0" Column="0"/>

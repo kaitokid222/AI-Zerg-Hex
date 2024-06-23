@@ -4,6 +4,15 @@
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="OnlyOneCannonForge">
+        <NodeArray index="Use" Link="Not3805471138CountUnitForgeQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchIncreasedPylonIncome">
+        <NodeArray index="Show" Link="LTCountUpgradeIncreasedPylonIncomeQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="HaveCannonForge">
+        <NodeArray index="Use" Link="CountUnitForgeCompleteOnly3890156851"/>
+    </CRequirement>
     <CRequirement id="HaveUmbraShadowCannons">
         <NodeArray index="Use" Link="CountUpgradeEmpowerShadowCannonCompleteOnly"/>
     </CRequirement>
@@ -15,6 +24,25 @@
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL3CompleteOnly999169436"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL4QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchShieldWalls2">
+        <NodeArray index="Use" Link="CountUpgradeProbiusWallShieldsCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeWallShields2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldWalls3">
+        <NodeArray index="Use" Link="CountUpgradeWallShields2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeWallShields3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldWalls4">
+        <NodeArray index="Use" Link="CountUpgradeWallShields3CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeWallShields4QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldWalls5">
+        <NodeArray index="Use" Link="CountUpgradeWallShields4CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeWallShields5QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchWallShields">
+        <NodeArray index="Show" Link="NotCountUpgradeProbiusWallShieldsQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchOverclockedRifles">
         <NodeArray index="Show" Link="NotCountUpgradeMarineOverclockedRiflesQueuedOrBetter"/>
     </CRequirement>
@@ -25,6 +53,9 @@
     <CRequirement id="ResearchPenetratingLaser3">
         <NodeArray index="Use" Link="AndCountUpgradeMarinePenetratingLaser2CompleteOnlyCountUpgradeTier3EquipmentCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarinePenetratingLaser3QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchProbiusL2">
+        <NodeArray index="Show" Link="NotCountUpgradeProbiusL2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchRapidUnitTraining">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyCountUpgradeMarineMobileSquadTrainingCompleteOnly"/>
@@ -53,6 +84,10 @@
     <CRequirement id="UpgradeRapidEnergyTransfer2">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnlyGTE3241362357CountUpgradeEnergyGenerationCompleteOnly80CountUpgradeRapidEnergyTransferCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeRapidEnergyTransfer2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="BuildCannonForge">
+        <NodeArray index="Use" Link="CountUpgradeProbiusL2CompleteOnly1886579244"/>
+        <NodeArray index="Show" Link="NotCountUnitForgeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="stoptherain">
         <NodeArray index="Show" Link="NotCountUpgradeStoptherainQueuedOrBetter"/>

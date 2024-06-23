@@ -53,6 +53,9 @@
     <CActorUnit id="Pariah">
         <Scale value="1.200000"/>
     </CActorUnit>
+    <CActorUnit id="ShieldBattery">
+        <Scale value="0.600000"/>
+    </CActorUnit>
     <CActorUnit id="Tombstone" parent="TerranBuilding" unitName="Tombstone">
         <Aliases value="_UnitHuge"/>
         <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>
@@ -4175,6 +4178,7 @@
         <On Terms="Behavior.ProbiusPylonOvercharge.On" Send="AnimBracketStart Overcharge Stand,Morph,Start Stand,Alternate Stand,Morph,End OpeningPlayForever"/>
         <On Terms="Behavior.ProbiusPylonOvercharge.Off" Send="AnimBracketStop Overcharge"/>
         <On Terms="Effect.AutoHarvestVespeneU1.Start" Send="Create AutomatedRefineryTextKicker1"/>
+        <On Terms="Effect.AutoHarvestVespeneU2.Start" Send="Create AutomatedRefineryTextKicker2"/>
         <AnimBlendTime value="0.750000"/>
         <BuildModel value="PylonBirth"/>
         <DeathArray index="Normal" ModelLink="PylonDeath" SoundLink="Pylon_Explode"/>

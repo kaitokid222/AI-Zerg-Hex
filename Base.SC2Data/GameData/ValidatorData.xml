@@ -12,12 +12,24 @@
         <Find value="1"/>
         <Value value="HaveHUGS"/>
     </CValidatorPlayerRequirement>
+    <CValidatorUnitType id="IsTerranGateLowered">
+        <Value value="TerranGateLowered"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsKaraxCannon">
+        <Value value="KaraxPhotonCannon"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsTerranWall">
+        <Value value="Wall2"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="IsPhotonCannonKarax">
         <Value value="KaraxPhotonCannon"/>
     </CValidatorUnitType>
     <CValidatorCombine id="IsPhotonCannonOrKhaydarinMonolith">
         <CombineArray value="IsPhotonCannonKarax"/>
     </CValidatorCombine>
+    <CValidatorUnitType id="IsTerranGate">
+        <Value value="TerranGate"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareVital id="LifeLE50Perc">
         <WhichUnit Value="Caster"/>
         <Compare value="LE"/>
@@ -618,6 +630,18 @@
         <Value value="1"/>
         <Behavior value="UnstableCore"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="UnitOrTerranWalls">
+        <CombineArray value="NotStructure"/>
+        <CombineArray value="IsPhotonCannon"/>
+        <CombineArray value="IsKhaydarinMonolith"/>
+        <CombineArray value="IsMissileTurret"/>
+        <CombineArray value="HasSOARadar"/>
+        <CombineArray value="IsTerranWall"/>
+        <CombineArray value="IsTerranGate"/>
+        <CombineArray value="IsTerranGateLowered"/>
+        <CombineArray value="IsForge"/>
+        <CombineArray value="IsKaraxCannon"/>
+    </CValidatorCombine>
     <CValidatorCombine id="UnitisChaos">
         <CombineArray value="IsChaosMarine"/>
         <CombineArray value="IsChaosLord"/>

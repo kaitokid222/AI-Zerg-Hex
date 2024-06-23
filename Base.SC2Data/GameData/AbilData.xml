@@ -60,6 +60,36 @@
             <Resource index="Vespene" value="1200"/>
             <Button DefaultButtonFace="ResearchConservationL4" Requirements="ResearchConservationL4"/>
         </InfoArray>
+        <InfoArray index="Research3" Time="30" Upgrade="ProbiusL2">
+            <Resource index="Vespene" value="125"/>
+            <Button DefaultButtonFace="ResearchProbiusL2" Requirements="ResearchProbiusL2"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="ForgeResearch">
+        <InfoArray index="Research10" Time="45" Upgrade="ProbiusWallShields">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="EnergizeWalls" Requirements="ResearchWallShields"/>
+        </InfoArray>
+        <InfoArray index="Research11" Time="45" Upgrade="WallShields2">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="UpgradeWallShield" Requirements="ResearchShieldWalls2"/>
+        </InfoArray>
+        <InfoArray index="Research12" Time="45" Upgrade="WallShields3">
+            <Resource index="Vespene" value="400"/>
+            <Button DefaultButtonFace="UpgradeWallShield2" Requirements="ResearchShieldWalls3"/>
+        </InfoArray>
+        <InfoArray index="Research13" Time="45" Upgrade="WallShields4">
+            <Resource index="Vespene" value="800"/>
+            <Button DefaultButtonFace="UpgradeWallShield3" Requirements="ResearchShieldWalls4"/>
+        </InfoArray>
+        <InfoArray index="Research14" Time="45" Upgrade="WallShields5">
+            <Resource index="Vespene" value="1600"/>
+            <Button DefaultButtonFace="UpgradeWallShield4" Requirements="ResearchShieldWalls5"/>
+        </InfoArray>
+        <InfoArray index="Research15" Time="20" Upgrade="IncreasedPylonIncome">
+            <Resource index="Vespene" value="50"/>
+            <Button DefaultButtonFace="IncreasedPylonIncome" Requirements="ResearchIncreasedPylonIncome"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="PhaseCannon">
         <Cost index="0">
@@ -71,6 +101,11 @@
         <Effect index="0" value="RemoveBomberSpawn"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SelectInfestedMarineSpawn" Requirements="Bunkerupgraded"/>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="ShieldBatteryRechargeChanneled">
+        <Range index="0" value="9"/>
+        <AutoCastRange value="9"/>
+        <AutoCastValidatorArray index="1" value="UnitOrTerranWalls"/>
+    </CAbilEffectTarget>
     <CAbilResearch id="TombstoneResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Research1" Time="20" Upgrade="TombstoneLevel2">
@@ -2329,6 +2364,9 @@
             <Button Requirements="OnlyOneOrbitalAssimilator"/>
             <ValidatorArray index="0" removed="1"/>
         </InfoArray>
+        <InfoArray index="Build5">
+            <Button DefaultButtonFace="WarpInCannonForge" Requirements="BuildCannonForge"/>
+        </InfoArray>
         <InfoArray index="Build8" Time="3">
             <Charge>
                 <CountMax value="3"/>
@@ -2340,6 +2378,9 @@
         </InfoArray>
         <InfoArray index="Build9" Unit="Pylon" Time="15">
             <Button DefaultButtonFace="PylonClassic"/>
+        </InfoArray>
+        <InfoArray index="Build22" Time="15">
+            <Button Requirements="HaveCannonForge"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilEffectInstant id="ReaperAfterburner">

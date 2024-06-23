@@ -804,6 +804,7 @@ Button/Name/EnableAutomation=Enable Automation
 Button/Name/EnableJUICEModule=Enable J.U.I.C.E. Module
 Button/Name/EnableMineralProduction=Enable Mineral Production
 Button/Name/EnableWeapon=Enable Weapon
+Button/Name/EnergizeWalls=Energize Walls
 Button/Name/EnergizedShield=Energized Shield
 Button/Name/EnergyCore=Energy Core
 Button/Name/EnergyGeneration=Energy Generation
@@ -840,6 +841,7 @@ Button/Name/IncreaseGas50=Increase 50
 Button/Name/IncreaseMinerals50=Increase 50
 Button/Name/IncreasePower=Increased Power
 Button/Name/IncreaseSupply=Increase Supply
+Button/Name/IncreasedPylonIncome=Increased Pylon Income
 Button/Name/InfestedOffense=Infested Offense
 Button/Name/InfestorAdvancedMutation=Advanced Mutation
 Button/Name/InfestorTransportLoad=Load
@@ -929,6 +931,7 @@ Button/Name/PowerField=Power Field
 Button/Name/PowerFieldKarax=Power Field
 Button/Name/PreConnectWithTarget=Pre Connect With Target
 Button/Name/Probe=Build Probius
+Button/Name/ProtossGroundWeaponsLevel12=Upgrades the damage dealt by Photon Cannons.
 Button/Name/Pylon=Warp In Probius Pylon
 Button/Name/PylonClassic=Warp In Pylon
 Button/Name/PylonOvercharge=Overcharge
@@ -987,6 +990,7 @@ Button/Name/ResearchPenetratingLaser2=Research Penetrating Laser II
 Button/Name/ResearchPenetratingLaser3=Research Penetrating Laser III
 Button/Name/ResearchPrimalRapidRespawn=Research Primal Rapid Respawn
 Button/Name/ResearchPrimalRapidRespawn3v3=Research Primal Rapid Respawn
+Button/Name/ResearchProbiusL2=Research Probius L2
 Button/Name/ResearchRapidUnitTraining=Research Rapid Unit Training
 Button/Name/ResearchShatteringLaser=Research Shattering Laser
 Button/Name/ResearchShockBeam=Research Shock Beam
@@ -1034,6 +1038,7 @@ Button/Name/SendToTopRight=Send To Top-Right
 Button/Name/SentrySupercharge=Plasma Cannons
 Button/Name/Shed=Shed
 Button/Name/SheepLink=Sheep Link
+Button/Name/ShieldBattery2=Warp in Shield Battery
 Button/Name/SiegeMode2=Siege Mode
 Button/Name/SiegeTankEnableModulation=Enable Modulation
 Button/Name/SiegeTankExpertise=Siege Tank Expertise
@@ -1145,6 +1150,9 @@ Button/Name/UpgradeHydraliskSpawnSize=Upgrade Hydralisk Spawn Size
 Button/Name/UpgradeImprovedCombatShield=Upgrade Improved Combat Shield
 Button/Name/UpgradeImprovedCombatShield2=Upgrade Improved Combat Shield II
 Button/Name/UpgradeKarax=Upgrade Karax
+Button/Name/UpgradePhotonCannonArmor=Upgrade Photon Cannon Armor
+Button/Name/UpgradePhotonCannonDamage=Upgrade Photon Cannon Damage
+Button/Name/UpgradePhotonCannonDamage2=Upgrades Photon Cannon Damage
 Button/Name/UpgradeRefineryToUpgraded=Upgrade Refinery
 Button/Name/UpgradeSpawner=Upgrade Spawner
 Button/Name/UpgradeSpawner2=Upgrade Spawner
@@ -1155,9 +1163,14 @@ Button/Name/UpgradeSpawnerStrikeling=Upgrade Spawner
 Button/Name/UpgradeSuperEnergyGeneration=Upgrade Super Energy Generation
 Button/Name/UpgradeToAdvancedGate=Upgrade To Advanced Gate
 Button/Name/UpgradeTombstoneLevel=Upgrade Tombstone Level
+Button/Name/UpgradeWallShield=Upgrade Wall Shield
+Button/Name/UpgradeWallShield2=Upgrade Wall Shield
+Button/Name/UpgradeWallShield3=Upgrade Wall Shield
+Button/Name/UpgradeWallShield4=Upgrade Wall Shield
 Button/Name/Uploader=Build Wall
 Button/Name/UseJUICEtoRegenerateShield=Use J.U.I.C.E. to Regenerate Shield
 Button/Name/UseJUICEtoheal=Use J.U.I.C.E. to heal
+Button/Name/WarpInCannonForge=Warp In Cannon Forge
 Button/Name/WarpInItalis=Warp In Italis
 Button/Name/WarpInMineralGenerator=Warp In Mineral Generator
 Button/Name/WeatherSelection=Weather Selection
@@ -1326,6 +1339,7 @@ Button/Tooltip/EnableAutomation=Enables automation and remains open until enemie
 Button/Tooltip/EnableJUICEModule=Allows Mechalings and Mecha Hydralisks to use energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/EnableMineralProduction=Allows your Tombstone to slowly generate Minerals.
 Button/Tooltip/EnableWeapon=Re-enable weapon fire.
+Button/Tooltip/EnergizeWalls=Walls can have an upgradeable shield.
 Button/Tooltip/EnergizedShield=Energises the shield of the Titan Marauder. Refill the shield and creates a range 2 aura that reduces all incoming attack damage to friendly units by 2. Lasts <d time="15"/>.
 Button/Tooltip/EnergyCore=The Italis can remain alive while the Command Center is destroyed.
 Button/Tooltip/EnergyGeneration=Infestor gains 3 energy per attack.
@@ -1403,6 +1417,7 @@ Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="fff
 Button/Tooltip/IncreaseMinerals50=Adjust Mineral cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
 Button/Tooltip/IncreasePower=Every Blood Stack increases HP by 1.
 Button/Tooltip/IncreaseSupply=Increases your supply by <c val="ffff8a">+45</c>.
+Button/Tooltip/IncreasedPylonIncome=Doubles the Pylon Income when in inactive state. Halved income when emitting an aura.
 Button/Tooltip/Inducer=Siege unit that launches an orb which must return before firing again.
 Button/Tooltip/InfestedBuilder=Can build and repair structures.
 Button/Tooltip/InfestedOffense=Increases <c val="ffff8a">Infested Marines</c> Weapon Range by 2, Damage by 1, Weapon Speed by 10%.<n/>Increases <c val="ffff8a">Bomber</c> AOE Range by 2.
@@ -1554,6 +1569,7 @@ Button/Tooltip/ProduceMineralText02=<s val="MercDescription">+2</s><IMG path="As
 Button/Tooltip/ProduceMineralText04=<s val="Kicker_Minerals">+4</s>
 Button/Tooltip/ProduceMineralText06=<s val="Kicker_Minerals">+6</s>
 Button/Tooltip/ProduceMineralText08=<s val="Kicker_Minerals">+8</s>
+Button/Tooltip/ProtossGroundWeaponsLevel12=Upgrades the damage dealt by Photon Cannons.
 Button/Tooltip/Pylon=Provides powerful buffs, creates a powerfield for photon cannons and generates resources when no aura is selected.
 Button/Tooltip/PylonClassic=Creates a field that powers other structures.
 Button/Tooltip/PylonOvercharge=Turns pylon into a long range turret.
@@ -1617,6 +1633,7 @@ Button/Tooltip/ResearchPenetratingLaser2=Upgrades all <c val="ffff8a">Marines</c
 Button/Tooltip/ResearchPenetratingLaser3=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/ResearchProbiusL2=Unlocks <c val="ffff8a">Cannon Forge</c> and improves <c val="ffff8a">Probius</c>.<n/>Reduces Cost to 0<n/>Decreases Shield Regen Delay 15 -> 3<n/>Increases Move Speed by 1
 Button/Tooltip/ResearchRapidUnitTraining=<c val="ffff8a">Units</c> can get recruited faster.
 Button/Tooltip/ResearchShatteringLaser=Upgrades all <c val="ffff8a">Marines</c> lasers to shatter upon impact, dealing 1/3/5 damage (depending on tier) to 2 nearby enemy units. Damage applies bonuses from the Armory and Penetrating Laser research.
 Button/Tooltip/ResearchShockBeam=Enables <c val="ffff8a">Shock Troopers</c> to fire in a constant beam, effectively increasing attack speed by 100%.
@@ -1666,6 +1683,7 @@ Button/Tooltip/SendToTopRight=Send to: [Player Name]<n/><n/>Spawn a transport to
 Button/Tooltip/SentryGun2=
 Button/Tooltip/SentrySupercharge=Enables usage of plasma cannons required for Siege Tanks. Sentry Guns have their damage increased at the cost of 1 additional energy per shot.
 Button/Tooltip/SheepFarm=
+Button/Tooltip/ShieldBattery2=Restores shields to nearby friendly units and structures.
 Button/Tooltip/ShockTrooper=
 Button/Tooltip/SiegeMode2=Deploys into Siege Mode. In this mode Siege Tanks can fire its long range plasma cannon as well as upgrading it.
 Button/Tooltip/SiegeTank=
@@ -1818,6 +1836,8 @@ Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an a
 Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
+Button/Tooltip/UpgradePhotonCannonArmor=Upgrades the armor and life of Photon Cannons.
+Button/Tooltip/UpgradePhotonCannonDamage=Upgrades the armor and life of Photon Cannons.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeSpawner=Increase the number of spawns by 1.
 Button/Tooltip/UpgradeSpawner2=Increase the number of spawns by 2.
@@ -1828,6 +1848,10 @@ Button/Tooltip/UpgradeSpawnerStrikeling=Increase the number of spawns by 1 and a
 Button/Tooltip/UpgradeSuperEnergyGeneration=Upgrades the generator to produce +150 energy per second.<n/><n/><c val="E8E191">Overcapacity:</c><n/>Energy production is reduced to 75% when more than 5000 energy is stored.
 Button/Tooltip/UpgradeToAdvancedGate=Upgrade to a more advanced Gate. Opens and closes faster and cannot be blocked by units.<n/><n/>Can enable automated control to close itself only when enemies are nearby.
 Button/Tooltip/UpgradeTombstoneLevel=Upgrading your Tombstone unlocks more units and allows you to change the pace of the game in your teams favor.
+Button/Tooltip/UpgradeWallShield=Improves Shield of Terran Passive Defense further.
+Button/Tooltip/UpgradeWallShield2=Improves Shield of Terran Passive Defense further.
+Button/Tooltip/UpgradeWallShield3=Improves Shield of Terran Passive Defense further.
+Button/Tooltip/UpgradeWallShield4=Improves Shield of Terran Passive Defense further.
 Button/Tooltip/UpgradedRefinery=
 Button/Tooltip/Uploader=Protects against enemies.
 Button/Tooltip/Uploader2=Key defense structure.
@@ -1835,6 +1859,7 @@ Button/Tooltip/UseJUICEtoRegenerateShield=Restores the Mecha Shield in 4 seconds
 Button/Tooltip/UseJUICEtoheal=Heals 100 HP in 5 seconds. Uses 25 Energy.
 Button/Tooltip/VeteranMarine=
 Button/Tooltip/Wall2=
+Button/Tooltip/WarpInCannonForge=<c val="ffff8a">Contains Upgrades</c> for Probius.<n/><c val="ffff8a">Shield Batteries</c> can be used.
 Button/Tooltip/WarpInItalis=Superior ranged unit. Deals high damage with minor splash and is capable of teleporting across the map. Does not require energy to fire its weapon.<n/><n/><c val="49D3F1">Costs 25 charges</c>
 Button/Tooltip/WarpInMineralGenerator=Rapidly generates minerals.<n/>Can be overcharged.
 Button/Tooltip/WarpInSpirit=Superior ranged unit. Deals high damage with minor splash and is capable of teleporting across the map. Does not require energy to fire its weapon.<n/><n/><c val="49D3F1">Costs 25 charges</c>
@@ -4190,6 +4215,7 @@ RequirementNode/Tooltip/CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697=
 RequirementNode/Tooltip/CountUnitArmory2CompleteOnly609241497=Armory
 RequirementNode/Tooltip/CountUnitChemicalPlantCompleteOnly3355057371=Chemical Plant
 RequirementNode/Tooltip/CountUnitConstructionYardCompleteOnly2255243434=Construction Yard
+RequirementNode/Tooltip/CountUnitForgeCompleteOnly3890156851=Cannon Forge
 RequirementNode/Tooltip/CountUpgradeAdvancedBuildCompleteOnly3080158053=Research Advanced Build
 RequirementNode/Tooltip/CountUpgradeChemicalPlantCompleteOnly1337995533=Research Chemical Plant
 RequirementNode/Tooltip/CountUpgradeEnergyGenerationCompleteOnly660069371=Already Completed
@@ -4213,6 +4239,7 @@ RequirementNode/Tooltip/CountUpgradeMoreCashDropsQueuedOrBetter906507071=Complet
 RequirementNode/Tooltip/CountUpgradeOperationCenterReaperSuitUpgradeCompleteOnly3717036268=Reaper Suit Upgrade (Operation Center)
 RequirementNode/Tooltip/CountUpgradeOtherTeamDeadCompleteOnly411158712=The other team must be dead
 RequirementNode/Tooltip/CountUpgradeParalyzingShockCompleteOnly2664485168=Research at Armory
+RequirementNode/Tooltip/CountUpgradeProbiusL2CompleteOnly1886579244=Research at the Command Center
 RequirementNode/Tooltip/CountUpgradeShockOverloadCompleteOnly445003062=Complete Shock Overload
 RequirementNode/Tooltip/CountUpgradeSiegeTankModulationCompleteOnly3535617815=Upgrade with Modulation
 RequirementNode/Tooltip/CountUpgradeSiegeTankPlasmaShardsCompleteOnly3340885314=Upgrade with Plasma Shards
@@ -4289,6 +4316,7 @@ RequirementNode/Tooltip/Not225427478CountUnitProbiusQueuedOrBetter=Only one Prob
 RequirementNode/Tooltip/Not3435105652GTCountBehaviorSiegeTankModulationCompleteOnlyAtUnit1=No double Modulation
 RequirementNode/Tooltip/Not3445088064OrCountUnitNapalmBombQueuedOrBetterAtUnitCountBehaviorNapalmPayloadChemicalPlantCompleteOnlyAtUnit=No Napalm Bomb at this Chemical Plant
 RequirementNode/Tooltip/Not3805471138CountUnitArmory2QueuedOrBetter=Only one Armory
+RequirementNode/Tooltip/Not3805471138CountUnitForgeQueuedOrBetter=Only one Armory
 RequirementNode/Tooltip/Not4073818821CountUnitTechLab3QueuedOrBetter=Only one Tech Lab
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationCreeperFerocityCompleteOnly=Research Completed
 RequirementNode/Tooltip/Not445539353CountUpgradeZergSpecializationSlowlingPackedMass3v3CompleteOnly=Research Completed
@@ -4399,6 +4427,7 @@ Unit/Name/FirebatZergHex=Firebat
 Unit/Name/FirebatZergHexOld=Firebat
 Unit/Name/Fireling=Fireling
 Unit/Name/Flower=Flower
+Unit/Name/Forge=Cannon Forge
 Unit/Name/FragmentBlast=Fragment Blast
 Unit/Name/FragmentBlastShardMissile=Fragment Blast Shard Missile
 Unit/Name/Fruit=Fruit
@@ -4641,6 +4670,7 @@ Upgrade/Name/ImprovedFarming=Improved Farming
 Upgrade/Name/ImprovedFarming2=Improved Farming 2
 Upgrade/Name/ImprovedLiquids=Improved Liquids
 Upgrade/Name/IncreaseCashPickups=Increase Cash Pickups
+Upgrade/Name/IncreasedPylonIncome=IncreasedPylonIncome
 Upgrade/Name/InfestedOffense=Infested Offense
 Upgrade/Name/InfestedSpeedUp=Infested Speed Up
 Upgrade/Name/InstantDischarge=Instant Discharge
@@ -4687,6 +4717,8 @@ Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
 Upgrade/Name/PlasmaCannons=Plasma Cannons
 Upgrade/Name/PrimalRapidRespawn=Primal Rapid Respawn
+Upgrade/Name/ProbiusL2=Probius L2
+Upgrade/Name/ProbiusWallShields=Probius Wall Shields
 Upgrade/Name/RapidEnergyTransfer=Rapid Energy Transfer
 Upgrade/Name/RapidEnergyTransfer2=Rapid Energy Transfer II
 Upgrade/Name/RapidUnitTraining=Rapid Unit Training
@@ -4723,6 +4755,10 @@ Upgrade/Name/UnstableCore=Unstable Core
 Upgrade/Name/UpgradedCombatShield=Upgraded Combat Shield
 Upgrade/Name/UpgradedImprovedCombatShield=Upgraded Improved Combat Shield
 Upgrade/Name/UpgradedImprovedCombatShield2=Upgraded Improved Combat Shield II
+Upgrade/Name/WallShields2=Wall Shields 2
+Upgrade/Name/WallShields3=Wall Shields 3
+Upgrade/Name/WallShields4=Wall Shields 4
+Upgrade/Name/WallShields5=Wall Shields 5
 Upgrade/Name/WeaponCapacity=Weapon Capacity
 Upgrade/Name/ZCCEnergyUpgrade=ZCC Energy Upgrade
 Upgrade/Name/ZergArmor1=Zerg Armor 1

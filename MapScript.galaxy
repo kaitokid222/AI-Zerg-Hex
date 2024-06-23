@@ -837,6 +837,7 @@ struct gs_player {
     int lv_more_cash_drop_level;
     bool lv_left_the_game;
     bool lv_forced_random_mid;
+    bool lv_probius_increased_income;
 };
 
 struct gs_afterlife_zerg_positions {
@@ -1963,6 +1964,8 @@ trigger gt_TechLabWarpItalisCost;
 trigger gt_TechLabChargeApply;
 trigger gt_IonCannonNotification;
 trigger gt_GasExtractionFinished;
+trigger gt_probiusincreasedincomefinished;
+trigger gt_probiuspylonfinished;
 trigger gt_EnergyUpgradeFinished;
 trigger gt_PickupLocatorUpgradeFinished;
 trigger gt_PickupDoublerUpgradeFinished;
@@ -3136,6 +3139,7 @@ void gf_apply_support_casual () {
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
             TransmissionSendForPlayerSelect(PlayerGroupSingle(auto18D3D132_var), TransmissionSourceFromUnit(lv_portrait_unit, true, false, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", null, StringExternal("Param/Value/D8768EEA"), StringExternal("Param/Value/50F21B3E"), 5.0, c_transmissionDurationAdd, false, c_maxPlayers, false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("CommandCenterTrain2", 7), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch3", 2), true);
             gv_players[auto18D3D132_var].lv_support_type = "Probius";
         }
         else if (auto4C710A49_val == 12) {
@@ -5962,6 +5966,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronTrainEdit", 5), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronResearchEdit", 0), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronResearchEdit", 1), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 2), false);
     if ((libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogUnit, "SCV", "InnerRadius", c_playerAny) == 0.3125)) {
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "ACR", "InnerRadius", lp_player, 0.3125);
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "Scavenger", "InnerRadius", lp_player, 0.3125);
@@ -22228,8 +22233,16 @@ bool gt_PowerAuraGotClicked_Func (bool testConds, bool runActions) {
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraPower", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraAttack", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraDefense", 1);
-    UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
-    UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    if ((gv_players[UnitGetOwner(lv_pylon)].lv_probius_increased_income == true)) {
+        UnitBehaviorRemove(lv_pylon, "GenerateMineralsCowFarm", 1);
+        UnitBehaviorRemove(lv_pylon, "UpgradedVespeneHarvestingUnlimited", 1);
+        UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
+        UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    }
+    else {
+        UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
+        UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    }
     UnitBehaviorAdd(lv_pylon, "ProbiusPylonBuffAuraPower", lv_pylon, 1);
     return true;
 }
@@ -22259,8 +22272,16 @@ bool gt_AttackAuraGotClicked_Func (bool testConds, bool runActions) {
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraPower", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraAttack", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraDefense", 1);
-    UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
-    UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    if ((gv_players[UnitGetOwner(lv_pylon)].lv_probius_increased_income == true)) {
+        UnitBehaviorRemove(lv_pylon, "GenerateMineralsCowFarm", 1);
+        UnitBehaviorRemove(lv_pylon, "UpgradedVespeneHarvestingUnlimited", 1);
+        UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
+        UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    }
+    else {
+        UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
+        UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    }
     UnitBehaviorAdd(lv_pylon, "ProbiusPylonBuffAuraAttack", lv_pylon, 1);
     return true;
 }
@@ -22290,8 +22311,16 @@ bool gt_DefenseAuraGotClicked_Func (bool testConds, bool runActions) {
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraPower", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraAttack", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraDefense", 1);
-    UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
-    UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    if ((gv_players[UnitGetOwner(lv_pylon)].lv_probius_increased_income == true)) {
+        UnitBehaviorRemove(lv_pylon, "GenerateMineralsCowFarm", 1);
+        UnitBehaviorRemove(lv_pylon, "UpgradedVespeneHarvestingUnlimited", 1);
+        UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
+        UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    }
+    else {
+        UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
+        UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+    }
     UnitBehaviorAdd(lv_pylon, "ProbiusPylonBuffAuraDefense", lv_pylon, 1);
     return true;
 }
@@ -22321,8 +22350,16 @@ bool gt_InactiveStateGotClicked_Func (bool testConds, bool runActions) {
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraPower", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraAttack", 1);
     UnitBehaviorRemove(lv_pylon, "ProbiusPylonBuffAuraDefense", 1);
-    UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
-    UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    if ((gv_players[UnitGetOwner(lv_pylon)].lv_probius_increased_income == true)) {
+        UnitBehaviorRemove(lv_pylon, "GenerateMinerals", 1);
+        UnitBehaviorRemove(lv_pylon, "VespeneHarvestingUnlimited", 1);
+        UnitBehaviorAdd(lv_pylon, "GenerateMineralsCowFarm", lv_pylon, 1);
+        UnitBehaviorAdd(lv_pylon, "UpgradedVespeneHarvestingUnlimited", lv_pylon, 1);
+    }
+    else {
+        UnitBehaviorAdd(lv_pylon, "GenerateMinerals", lv_pylon, 1);
+        UnitBehaviorAdd(lv_pylon, "VespeneHarvestingUnlimited", lv_pylon, 1);
+    }
     return true;
 }
 
@@ -24004,6 +24041,87 @@ bool gt_GasExtractionFinished_Func (bool testConds, bool runActions) {
 void gt_GasExtractionFinished_Init () {
     gt_GasExtractionFinished = TriggerCreate("gt_GasExtractionFinished_Func");
     TriggerAddEventUnitResearchProgress(gt_GasExtractionFinished, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: probius increased income finished
+//--------------------------------------------------------------------------------------------------
+bool gt_probiusincreasedincomefinished_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    unitgroup auto91F062DC_g;
+    int auto91F062DC_u;
+    unit auto91F062DC_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "Forge"))) {
+            return false;
+        }
+
+        if (!((libNtve_gf_TriggeringProgressUpgrade() == "IncreasedPylonIncome"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_players[UnitGetOwner(EventUnit())].lv_probius_increased_income = true;
+    auto91F062DC_g = UnitGroup("ProbiusPylon", UnitGetOwner(EventUnit()), RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto91F062DC_u = UnitGroupCount(auto91F062DC_g, c_unitCountAll);
+    for (;; auto91F062DC_u -= 1) {
+        auto91F062DC_var = UnitGroupUnitFromEnd(auto91F062DC_g, auto91F062DC_u);
+        if (auto91F062DC_var == null) { break; }
+        if ((UnitHasBehavior2(auto91F062DC_var, "ProbiusPylonBuffAuraAttack") == false) && (UnitHasBehavior2(auto91F062DC_var, "ProbiusPylonBuffAuraDefense") == false) && (UnitHasBehavior2(auto91F062DC_var, "ProbiusPylonBuffAuraPower") == false)) {
+            UnitBehaviorRemove(auto91F062DC_var, "GenerateMinerals", 1);
+            UnitBehaviorRemove(auto91F062DC_var, "VespeneHarvestingUnlimited", 1);
+            UnitBehaviorAdd(auto91F062DC_var, "GenerateMineralsCowFarm", auto91F062DC_var, 1);
+            UnitBehaviorAdd(auto91F062DC_var, "UpgradedVespeneHarvestingUnlimited", auto91F062DC_var, 1);
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_probiusincreasedincomefinished_Init () {
+    gt_probiusincreasedincomefinished = TriggerCreate("gt_probiusincreasedincomefinished_Func");
+    TriggerAddEventUnitResearchProgress(gt_probiusincreasedincomefinished, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: probius pylon finished
+//--------------------------------------------------------------------------------------------------
+bool gt_probiuspylonfinished_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnitProgressUnit()) == "ProbiusPylon"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_players[UnitGetOwner(EventUnitProgressUnit())].lv_probius_increased_income == true)) {
+        UnitBehaviorRemove(EventUnitProgressUnit(), "GenerateMinerals", 1);
+        UnitBehaviorRemove(EventUnitProgressUnit(), "VespeneHarvestingUnlimited", 1);
+        UnitBehaviorAdd(EventUnitProgressUnit(), "GenerateMineralsCowFarm", EventUnitProgressUnit(), 1);
+        UnitBehaviorAdd(EventUnitProgressUnit(), "UpgradedVespeneHarvestingUnlimited", EventUnitProgressUnit(), 1);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_probiuspylonfinished_Init () {
+    gt_probiuspylonfinished = TriggerCreate("gt_probiuspylonfinished_Func");
+    TriggerAddEventUnitConstructProgress(gt_probiuspylonfinished, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -33012,6 +33130,8 @@ void InitTriggers () {
     gt_TechLabChargeApply_Init();
     gt_IonCannonNotification_Init();
     gt_GasExtractionFinished_Init();
+    gt_probiusincreasedincomefinished_Init();
+    gt_probiuspylonfinished_Init();
     gt_EnergyUpgradeFinished_Init();
     gt_PickupLocatorUpgradeFinished_Init();
     gt_PickupDoublerUpgradeFinished_Init();
