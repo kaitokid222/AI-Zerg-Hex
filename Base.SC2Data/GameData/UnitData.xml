@@ -33,11 +33,27 @@
             <LayoutButtons index="6" Face="UpgradeWallShield3" AbilCmd="ForgeResearch,Research13" Column="4"/>
             <LayoutButtons index="7" Face="UpgradeWallShield4" AbilCmd="ForgeResearch,Research14" Column="4"/>
             <LayoutButtons index="8" Face="IncreasedPylonIncome" AbilCmd="ForgeResearch,Research15" Column="3"/>
-            <LayoutButtons index="9" removed="1"/>
-            <LayoutButtons index="10" removed="1"/>
-            <LayoutButtons index="11" removed="1"/>
-            <LayoutButtons index="12" removed="1"/>
-            <LayoutButtons index="13" removed="1"/>
+            <LayoutButtons index="9" Face="UpgradePhotonCannonDamage" AbilCmd="ForgeResearch,Research16" Column="0"/>
+            <LayoutButtons index="10" Face="UpgradePhotonCannonDamage2" AbilCmd="ForgeResearch,Research17" Column="0"/>
+            <LayoutButtons index="11">
+                <Face value="UpgradePhotonCannonArmor"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ForgeResearch,Research18"/>
+                <Requirements value=""/>
+                <Row value="0"/>
+                <Column value="1"/>
+            </LayoutButtons>
+            <LayoutButtons index="12" Face="SuperCannons" Type="AbilCmd" AbilCmd="ForgeResearch,Research19" Requirements=""/>
+            <LayoutButtons index="13">
+                <Face value="UpgradeShieldBattery"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ForgeResearch,Research20"/>
+                <Requirements value=""/>
+                <Row value="0"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons Face="UpgradeShieldBattery2" Type="AbilCmd" AbilCmd="ForgeResearch,Research21" Row="0" Column="2"/>
+            <LayoutButtons Face="UpgradeShieldBatteryRechargeRate" Type="AbilCmd" AbilCmd="ForgeResearch,Research22" Row="1" Column="2"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Massalisk">
@@ -53,6 +69,10 @@
     <CUnit id="ShieldBattery">
         <CostResource index="Minerals" value="50"/>
         <CostResource index="Vespene" value="15"/>
+        <AbilArray Link="Demolish"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="3"/>
+        </CardLayouts>
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1Contour"/>
     </CUnit>

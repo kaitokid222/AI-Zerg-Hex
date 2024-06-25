@@ -24,9 +24,34 @@
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL3CompleteOnly999169436"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL4QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchPhotonCannonArmor">
+        <NodeArray index="Show" Link="NotCountUpgradeProbiusCannonArmorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldBatteryImprovement2">
+        <NodeArray index="Use" Link="CountUpgradeImprovedShieldBatteryCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedShieldBattery2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldBatteryImprovement">
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedShieldBatteryQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchProbiusSuperCannons">
+        <NodeArray index="Use" Link="CountUpgradeProbiusCannonArmorCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeSuperCannonsQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldBatteryRechargerate">
+        <NodeArray index="Use" Link="CountUpgradeImprovedShieldBattery2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeImprovedShieldBatteryRechargeRateQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchShieldWalls2">
         <NodeArray index="Use" Link="CountUpgradeProbiusWallShieldsCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeWallShields2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchPhotonCannonDamage">
+        <NodeArray index="Show" Link="NotCountUpgradeProbiusCannonDamageQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchProbiusCannonDamage2">
+        <NodeArray index="Use" Link="CountUpgradeProbiusCannonDamageCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeProbiusCannonDamage2QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchShieldWalls3">
         <NodeArray index="Use" Link="CountUpgradeWallShields2CompleteOnly"/>

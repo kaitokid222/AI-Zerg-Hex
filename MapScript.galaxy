@@ -5886,11 +5886,10 @@ void gf_buff_players () {
         if (auto0709C50B_var < 0) { break; }
         if ((gv_players[auto0709C50B_var].lv_forced_random_mid == true)) {
             libNtve_gf_CreateUnitsWithDefaultFacing(2, "Marine2", 0, auto0709C50B_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto0709C50B_var].lv_position))));
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, auto0709C50B_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto0709C50B_var].lv_position))));
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, auto0709C50B_var, PointFromName(("Zerg Rally " + IntToString(gv_players[auto0709C50B_var].lv_position))));
             UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
             lv_generator = UnitGroupRandomUnit(UnitGroup("Generator", auto0709C50B_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), c_unitCountAlive);
-            UnitSetPropertyFixed(lv_generator, c_unitPropEnergy, (UnitGetPropertyInt(lv_generator, c_unitPropEnergy, c_unitPropCurrent) + 99999));
-            UnitSetPropertyFixed(lv_generator, c_unitPropEnergyMax, (UnitGetPropertyInt(lv_generator, c_unitPropEnergyMax, c_unitPropCurrent) + 99999));
+            UnitSetPropertyFixed(lv_generator, c_unitPropEnergy, (UnitGetPropertyInt(lv_generator, c_unitPropEnergy, c_unitPropCurrent) + 5000));
         }
 
     }

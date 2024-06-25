@@ -90,6 +90,34 @@
             <Resource index="Vespene" value="50"/>
             <Button DefaultButtonFace="IncreasedPylonIncome" Requirements="ResearchIncreasedPylonIncome"/>
         </InfoArray>
+        <InfoArray index="Research16" Time="20" Upgrade="ProbiusCannonDamage">
+            <Resource index="Vespene" value="75"/>
+            <Button DefaultButtonFace="UpgradePhotonCannonDamage" Requirements="ResearchPhotonCannonDamage"/>
+        </InfoArray>
+        <InfoArray index="Research17" Time="20" Upgrade="ProbiusCannonDamage2">
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="UpgradePhotonCannonDamage2" Requirements="ResearchProbiusCannonDamage2"/>
+        </InfoArray>
+        <InfoArray index="Research18" Time="20" Upgrade="ProbiusCannonArmor">
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="UpgradePhotonCannonArmor" Requirements="ResearchPhotonCannonArmor"/>
+        </InfoArray>
+        <InfoArray index="Research19" Time="20" Upgrade="SuperCannons">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="SuperCannons" Requirements="ResearchProbiusSuperCannons"/>
+        </InfoArray>
+        <InfoArray index="Research20" Time="20" Upgrade="ImprovedShieldBattery">
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="UpgradeShieldBattery" Requirements="ResearchShieldBatteryImprovement"/>
+        </InfoArray>
+        <InfoArray index="Research21" Time="20" Upgrade="ImprovedShieldBattery2">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="UpgradeShieldBattery2" Requirements="ResearchShieldBatteryImprovement2"/>
+        </InfoArray>
+        <InfoArray index="Research22" Time="20" Upgrade="ImprovedShieldBatteryRechargeRate">
+            <Resource index="Vespene" value="300"/>
+            <Button DefaultButtonFace="UpgradeShieldBatteryRechargeRate" Requirements="ResearchShieldBatteryRechargerate"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="PhaseCannon">
         <Cost index="0">

@@ -20,6 +20,16 @@
         <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="UpgradeShieldBattery">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="SuperCannons">
+        <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="UpgradePhotonCannonArmor">
         <Icon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
@@ -30,6 +40,24 @@
         <AlertTooltip value="Button/Name/UpgradePhotonCannonDamage2"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradePhotonCannonDamage2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
+        <AlertTooltip value="Button/Name/UpgradePhotonCannonDamage2"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="UpgradeShieldBattery2">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="UpgradeShieldBattery"/>
+    </CButton>
+    <CButton id="UpgradeShieldBatteryRechargeRate">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="UpgradeShieldBattery"/>
     </CButton>
     <CButton id="UpgradeWallShield" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>

@@ -110,9 +110,52 @@
         <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
         <EffectArray Reference="Unit,Generator,EnergyMax" Value="10000"/>
     </CUpgrade>
+    <CUpgrade id="ImprovedShieldBattery2">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EffectArray Operation="Multiply" Reference="Unit,ShieldBattery,EnergyRegenRate" Value="5.000000"/>
+        <LeaderAlias value="ImprovedShieldBattery"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedShieldBatteryRechargeRate">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EffectArray Operation="Multiply" Reference="Effect,ShieldBatteryRechargeChanneled,RechargeVitalRate" Value="3.000000"/>
+        <LeaderAlias value="ImprovedShieldBattery"/>
+    </CUpgrade>
+    <CUpgrade id="ProbiusCannonArmor">
+        <Icon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="150"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="150"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="12"/>
+    </CUpgrade>
     <CUpgrade id="IncreasedPylonIncome">
         <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <AffectedUnitArray value="ProbiusPylon"/>
+    </CUpgrade>
+    <CUpgrade id="SuperCannons">
+        <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="900"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="900"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="12"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldsStart" Value="1050"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldsMax" Value="1050"/>
+        <EffectArray Operation="Set" Reference="Unit,PhotonCannon,ShieldRegenDelay" Value="2.000000"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+    </CUpgrade>
+    <CUpgrade id="ProbiusCannonDamage">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+        <LeaderAlias value="ProbiusCannonArmor"/>
+    </CUpgrade>
+    <CUpgrade id="ProbiusCannonDamage2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+        <LeaderAlias value="ProbiusCannonArmor"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
         <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
@@ -132,6 +175,12 @@
         <EffectArray Operation="Set" Reference="Unit,Probius,CostResource[Vespene]" Value="0"/>
         <EffectArray Reference="Unit,Probius,Speed" Value="1.000000"/>
         <EffectArray Operation="Set" Reference="Unit,Probius,ShieldRegenDelay" Value="3.000000"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedShieldBattery">
+        <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EffectArray Reference="Unit,ShieldBattery,EnergyMax" Value="200"/>
+        <EffectArray Reference="Unit,ShieldBattery,EnergyStart" Value="50"/>
+        <EffectArray Reference="Unit,ShieldBattery,EnergyRegenRate" Value="0.5625"/>
     </CUpgrade>
     <CUpgrade id="WallShields2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
