@@ -266,6 +266,7 @@
     <CWeaponLegacy id="PhotonCannon">
         <TargetFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <MinScanRange value="7"/>
+        <Period value="0.7"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="PunisherGrenades">
         <Range value="5.5"/>

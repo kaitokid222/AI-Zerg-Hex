@@ -139,23 +139,18 @@
         <EffectArray Reference="Unit,PhotonCannon,ShieldsMax" Value="1050"/>
         <EffectArray Operation="Set" Reference="Unit,PhotonCannon,ShieldRegenDelay" Value="2.000000"/>
         <EffectArray Reference="Unit,PhotonCannon,ShieldRegenRate" Value="8.000000"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
-        <LeaderAlias value="ProbiusCannonArmor"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
-        <LeaderAlias value="ProbiusCannonArmor"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
         <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
