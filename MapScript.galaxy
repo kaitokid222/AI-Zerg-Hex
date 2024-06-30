@@ -23956,12 +23956,29 @@ void gt_TechLabWarpItalisCost_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_TechLabChargeApply_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    unitgroup auto54392B83_g;
+    int auto54392B83_u;
+    unit auto54392B83_var;
+
     // Actions
     if (!runActions) {
         return true;
     }
 
     libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "TechLabCharge", UnitBehaviorCount(EventUnit(), EventUnitBehavior()));
+    if ((gv_players[UnitGetOwner(EventUnit())].lv_support_type == "Probius")) {
+        if ((UnitGetType(EventUnit()) == "TechLab3")) {
+            auto54392B83_g = UnitGroup("ProbiusPylon", UnitGetOwner(EventUnit()), RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto54392B83_u = UnitGroupCount(auto54392B83_g, c_unitCountAll);
+            for (;; auto54392B83_u -= 1) {
+                auto54392B83_var = UnitGroupUnitFromEnd(auto54392B83_g, auto54392B83_u);
+                if (auto54392B83_var == null) { break; }
+                libNtve_gf_SetBehaviorCount(auto54392B83_var, EventUnitBehavior(), auto54392B83_var, UnitBehaviorCount(EventUnit(), EventUnitBehavior()));
+            }
+        }
+
+    }
+
     return true;
 }
 
@@ -24079,7 +24096,10 @@ bool gt_probiusincreasedincomefinished_Func (bool testConds, bool runActions) {
             UnitBehaviorAdd(auto91F062DC_var, "GenerateMineralsCowFarm", auto91F062DC_var, 1);
             UnitBehaviorAdd(auto91F062DC_var, "UpgradedVespeneHarvestingUnlimited", auto91F062DC_var, 1);
         }
-
+        else {
+            UnitBehaviorAdd(auto91F062DC_var, "GenerateMinerals", auto91F062DC_var, 1);
+            UnitBehaviorAdd(auto91F062DC_var, "VespeneHarvestingUnlimited", auto91F062DC_var, 1);
+        }
     }
     return true;
 }

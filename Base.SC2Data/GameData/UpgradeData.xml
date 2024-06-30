@@ -124,33 +124,52 @@
         <Icon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
         <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="150"/>
         <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="150"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="12"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="8"/>
     </CUpgrade>
     <CUpgrade id="IncreasedPylonIncome">
         <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <AffectedUnitArray value="ProbiusPylon"/>
     </CUpgrade>
+    <CUpgrade id="ShieldDensity2">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldArmor" Value="10"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldArmor" Value="10"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldArmor" Value="10"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldArmor" Value="10"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldArmor" Value="10"/>
+    </CUpgrade>
+    <CUpgrade id="ShieldDensity3">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldArmor" Value="15"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldArmor" Value="15"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldArmor" Value="15"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldArmor" Value="15"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldArmor" Value="15"/>
+    </CUpgrade>
     <CUpgrade id="SuperCannons">
         <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="900"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="900"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="12"/>
-        <EffectArray Reference="Unit,PhotonCannon,ShieldsStart" Value="1050"/>
-        <EffectArray Reference="Unit,PhotonCannon,ShieldsMax" Value="1050"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="600"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="600"/>
+        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="8"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldsStart" Value="750"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldsMax" Value="750"/>
         <EffectArray Operation="Set" Reference="Unit,PhotonCannon,ShieldRegenDelay" Value="2.000000"/>
         <EffectArray Reference="Unit,PhotonCannon,ShieldRegenRate" Value="8.000000"/>
-        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
-        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
-        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
-        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
-        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="2"/>
-        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="15"/>
+        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
+        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
         <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
@@ -600,6 +619,14 @@
         <EffectArray Reference="Unit,ChaosSpaceMarine,LifeStart" Value="20"/>
         <EffectArray Reference="Unit,ChaosSpaceMarine,LifeMax" Value="20"/>
     </CUpgrade>
+    <CUpgrade id="ShieldDensity">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <EffectArray Reference="Unit,Wall2,ShieldArmor" Value="5"/>
+        <EffectArray Reference="Unit,TerranGate,ShieldArmor" Value="5"/>
+        <EffectArray Reference="Unit,PhotonCannon,ShieldArmor" Value="5"/>
+        <EffectArray Reference="Unit,TerranGateLowered,ShieldArmor" Value="5"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldArmor" Value="5"/>
+    </CUpgrade>
     <CUpgrade id="WallShields3">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
         <EffectArray Reference="Unit,Wall2,ShieldsMax" Value="100"/>
@@ -1042,14 +1069,13 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
         <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="30"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
+        <!--<EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>-->
     </CUpgrade>
     <CUpgrade id="Tier3Equipment">
         <LeaderAlias value="Tier2Equipment"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel2.dds"/>
         <EffectArray Reference="Effect,InfestedTerranCampaign,Amount" Value="1"/>
         <EffectArray Reference="Effect,ServitorStrikeDamageA,Amount" Value="30"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.250000"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>

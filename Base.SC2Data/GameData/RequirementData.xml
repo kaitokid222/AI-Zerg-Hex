@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="15ProbiusCannonLimit">
+        <NodeArray index="Use" Link="LT554857793SumCountUnitPhotonCannonQueuedOrBetter15"/>
+    </CRequirement>
     <CRequirement id="CasualTraderImprovement">
         <NodeArray index="Use" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
         <NodeArray index="Show" Link="AndCountUpgradeCasualTraderImprovementCompleteOnly"/>
@@ -11,7 +14,7 @@
         <NodeArray index="Show" Link="LTCountUpgradeIncreasedPylonIncomeQueuedOrBetter1"/>
     </CRequirement>
     <CRequirement id="HaveCannonForge">
-        <NodeArray index="Use" Link="CountUnitForgeCompleteOnly3890156851"/>
+        <NodeArray index="Use" Link="CountUnitForgeCompleteOnly3441208851"/>
     </CRequirement>
     <CRequirement id="HaveUmbraShadowCannons">
         <NodeArray index="Use" Link="CountUpgradeEmpowerShadowCannonCompleteOnly"/>
@@ -35,12 +38,20 @@
         <NodeArray index="Show" Link="NotCountUpgradeImprovedShieldBatteryQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchProbiusSuperCannons">
-        <NodeArray index="Use" Link="CountUpgradeProbiusCannonArmorCompleteOnly"/>
+        <NodeArray index="Use" Link="AndCountUpgradeProbiusCannonArmorCompleteOnlyCountUpgradeProbiusCannonDamage2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeSuperCannonsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchShieldBatteryRechargerate">
         <NodeArray index="Use" Link="CountUpgradeImprovedShieldBattery2CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeImprovedShieldBatteryRechargeRateQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldDensity2">
+        <NodeArray index="Use" Link="CountUpgradeShieldDensityCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeShieldDensity2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldDensity3">
+        <NodeArray index="Use" Link="CountUpgradeShieldDensity2CompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeShieldDensity3QueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchShieldWalls2">
         <NodeArray index="Use" Link="CountUpgradeProbiusWallShieldsCompleteOnly"/>
@@ -52,6 +63,10 @@
     <CRequirement id="ResearchProbiusCannonDamage2">
         <NodeArray index="Use" Link="CountUpgradeProbiusCannonDamageCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeProbiusCannonDamage2QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchShieldDensity">
+        <NodeArray index="Use" Link="CountUpgradeProbiusWallShieldsCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeShieldDensityQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchShieldWalls3">
         <NodeArray index="Use" Link="CountUpgradeWallShields2CompleteOnly"/>
@@ -173,7 +188,7 @@
         <NodeArray index="Show" Link="GTCountBehaviorwallphasedoutQueuedOrBetterAtUnit0"/>
     </CRequirement>
     <CRequirement id="ProbiusPylonInactiveState">
-        <NodeArray index="Use" Link="NotGTCountBehaviorGenerateMineralsQueuedOrBetterAtUnit0"/>
+        <NodeArray index="Use" Link="NotOrAndGTCountBehaviorGenerateMineralsQueuedOrBetterAtUnit0NotCountUpgradeIncreasedPylonIncomeCompleteOnlyGTCountBehaviorGenerateMineralsCowFarmQueuedOrBetterAtUnit0"/>
     </CRequirement>
     <CRequirement id="ResearchRefittedNozzles">
         <NodeArray index="Use" Link="CountUpgradeGenetronTier2CompleteOnly729820030"/>

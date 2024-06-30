@@ -54,6 +54,9 @@
             </LayoutButtons>
             <LayoutButtons Face="UpgradeShieldBattery2" Type="AbilCmd" AbilCmd="ForgeResearch,Research21" Row="0" Column="2"/>
             <LayoutButtons Face="UpgradeShieldBatteryRechargeRate" Type="AbilCmd" AbilCmd="ForgeResearch,Research22" Row="1" Column="2"/>
+            <LayoutButtons Face="UpgradeShieldDensity" Type="AbilCmd" AbilCmd="ForgeResearch,Research23" Row="1" Column="3"/>
+            <LayoutButtons Face="UpgradeShieldDensity2" Type="AbilCmd" AbilCmd="ForgeResearch,Research24" Row="1" Column="3"/>
+            <LayoutButtons Face="UpgradeShieldDensity3" Type="AbilCmd" AbilCmd="ForgeResearch,Research25" Row="1" Column="3"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Massalisk">
@@ -75,6 +78,7 @@
         </CardLayouts>
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1Contour"/>
+        <BehaviorArray Link="EnergyUserDefenseStructure"/>
     </CUnit>
     <CUnit id="SpecialZergSpawner" parent="CBuildingXayid">
         <LifeStart value="450"/>
@@ -4434,8 +4438,7 @@
         <CostResource index="Vespene" value="10"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
-        <AbilArray Link="attackProtossPylon"/>
-        <AbilArray Link="stopProtossPylon"/>
+        <AbilArray Link="attackProtossBuilding"/>
         <AbilArray Link="ChoosePowerBuff"/>
         <AbilArray Link="ChooseDefenseBuff"/>
         <AbilArray Link="ChooseAttackBuff"/>
@@ -4447,6 +4450,7 @@
         <BehaviorArray Link="GenerateMinerals"/>
         <BehaviorArray Link="VespeneHarvestingUnlimited"/>
         <BehaviorArray Link="ProbiusPylon3v3"/>
+        <BehaviorArray Link="StaticDischarge"/>
         <TurretArray value="PylonCrystalRotate"/>
         <TurretArray value="PylonRingRotate"/>
         <CardLayouts>
@@ -4458,7 +4462,6 @@
             <LayoutButtons Face="ChoosePowerBuff" Type="AbilCmd" AbilCmd="ChoosePowerBuff,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ChooseAttackBuff" Type="AbilCmd" AbilCmd="ChooseAttackBuff,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="ChooseDefenseBuff" Type="AbilCmd" AbilCmd="ChooseDefenseBuff,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="PylonOvercharge" Type="AbilCmd" AbilCmd="PylonOvercharge,Execute" Row="1" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="0" Column="0"/>
@@ -4475,7 +4478,7 @@
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
         <GlossaryPriority value="18"/>
         <HotkeyCategory value="Unit/Category/ProtossUnits"/>
-        <WeaponArray Link="PylonOverchargeCannon" Turret="PhotonCannon"/>
+        <WeaponArray Link="StaticDischarge" Turret="PhotonCannon"/>
     </CUnit>
     <CUnit id="RangedMinionHell">
         <DeathRevealRadius value="3"/>

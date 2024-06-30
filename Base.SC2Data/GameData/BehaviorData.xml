@@ -46,6 +46,53 @@
         <Period value="0.25"/>
         <PeriodicEffect value="OutfittingStationAuraSearchArea"/>
     </CBehaviorBuff>
+    <CBehaviorPowerUser id="PowerUserBaseDefenseSmall">
+        <PowerStageArray index="0">
+            <Modification>
+                <AbilClassEnableArray index="CAbilEffectInstant" value="1"/>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+        <PowerStageArray index="1">
+            <Modification>
+                <AbilClassEnableArray index="CAbilEffectInstant" value="1"/>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+    </CBehaviorPowerUser>
+    <CBehaviorPowerUser id="PowerUserQueue">
+        <PowerStageArray index="0">
+            <Modification>
+                <AbilClassEnableArray index="CAbilEffectInstant" value="1"/>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+        <PowerStageArray index="1">
+            <Modification>
+                <AbilClassEnableArray index="CAbilEffectInstant" value="1"/>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+    </CBehaviorPowerUser>
+    <CBehaviorPowerUser id="PowerUserQueueSmall">
+        <PowerStageArray index="0">
+            <Modification>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+        <PowerStageArray index="1">
+            <Modification>
+                <AbilLinkEnableArray value="Demolish"/>
+            </Modification>
+        </PowerStageArray>
+    </CBehaviorPowerUser>
+    <CBehaviorBuff id="StaticDischargeProbiusPylonOvercharge">
+        <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="0.55"/>
+        <PeriodicEffect value="StaticDischargeSearchArea"/>
+    </CBehaviorBuff>
     <CBehaviorCreepSource id="makeCreep3x3Tombstone">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
@@ -733,9 +780,7 @@
         <Duration value="30"/>
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
-        <Modification>
-            <WeaponEnableArray value="PylonOverchargeCannon"/>
-        </Modification>
+        <Modification AttackSpeedMultiplier="3" RangedWeaponRange="7"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ProbiusPylonTimedLife" parent="TimedLife">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>

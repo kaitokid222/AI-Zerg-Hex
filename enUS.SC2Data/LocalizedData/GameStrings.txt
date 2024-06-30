@@ -541,6 +541,7 @@ Behavior/Name/SpawnFromRight=Spawn From Right
 Behavior/Name/SpawnProtection=Spawn Protection
 Behavior/Name/StalkerSpeedBuff=Stalker Speed Buff
 Behavior/Name/StaticDischarge=Static Discharge
+Behavior/Name/StaticDischargeProbiusPylonOvercharge=Static Discharge Probius Pylon Overcharge
 Behavior/Name/StrikelingShielded=Shielded
 Behavior/Name/StrikelingShielded3v3=Shielded
 Behavior/Name/TarRoachInfection=Tar Roach Infection
@@ -688,6 +689,7 @@ Behavior/Tooltip/SpawnFromLeft=Zerg units appear from the left side.
 Behavior/Tooltip/SpawnFromRight=Zerg units appear from the right side.
 Behavior/Tooltip/SpawnProtection=Unit is invulnerable for 30 seconds.
 Behavior/Tooltip/StaticDischarge=Deals damage based on stored charges to nearby enemy units.
+Behavior/Tooltip/StaticDischargeProbiusPylonOvercharge=Deals damage based on stored charges to nearby enemy units.
 Behavior/Tooltip/StrikelingShielded=Absorbs one additional hit
 Behavior/Tooltip/StrikelingShielded3v3=Absorbs one additional hit
 Behavior/Tooltip/TarRoachInfection=This unit is infected and will spawn a Tar Roach on dying.
@@ -1158,6 +1160,9 @@ Button/Name/UpgradeRefineryToUpgraded=Upgrade Refinery
 Button/Name/UpgradeShieldBattery=Upgrade Shield Battery
 Button/Name/UpgradeShieldBattery2=Upgrade Shield Battery 2
 Button/Name/UpgradeShieldBatteryRechargeRate=Upgrade Shield Battery Recharge Rate
+Button/Name/UpgradeShieldDensity=Upgrade Shield Density
+Button/Name/UpgradeShieldDensity2=Upgrade Shield Density 2
+Button/Name/UpgradeShieldDensity3=Upgrade Shield Density 3
 Button/Name/UpgradeSpawner=Upgrade Spawner
 Button/Name/UpgradeSpawner2=Upgrade Spawner
 Button/Name/UpgradeSpawner3=Upgrade Spawner
@@ -1174,7 +1179,7 @@ Button/Name/UpgradeWallShield4=Upgrade Wall Shield
 Button/Name/Uploader=Build Wall
 Button/Name/UseJUICEtoRegenerateShield=Use J.U.I.C.E. to Regenerate Shield
 Button/Name/UseJUICEtoheal=Use J.U.I.C.E. to heal
-Button/Name/WarpInCannonForge=Warp In Cannon Forge
+Button/Name/WarpInCannonForge=Warp In Probius Forge
 Button/Name/WarpInItalis=Warp In Italis
 Button/Name/WarpInMineralGenerator=Warp In Mineral Generator
 Button/Name/WeatherSelection=Weather Selection
@@ -1637,7 +1642,7 @@ Button/Tooltip/ResearchPenetratingLaser2=Upgrades all <c val="ffff8a">Marines</c
 Button/Tooltip/ResearchPenetratingLaser3=Upgrades all <c val="ffff8a">Marines</c> and <c val="ffff8a">Reaper</c> weapons to deal +1 damage.
 Button/Tooltip/ResearchPrimalRapidRespawn=Decreases the train time from 8 to 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
 Button/Tooltip/ResearchPrimalRapidRespawn3v3=Decreases spawn time by 4 seconds for Primal Roaches.<n/><n/><c val="E1848D">Research is shared among your team.</c>
-Button/Tooltip/ResearchProbiusL2=Unlocks <c val="ffff8a">Cannon Forge</c> and improves <c val="ffff8a">Probius</c>.<n/>Reduces Cost to 0<n/>Decreases Shield Regen Delay 15 -> 3<n/>Increases Move Speed by 1
+Button/Tooltip/ResearchProbiusL2=Unlocks <c val="ffff8a">Probius Forge</c> and improves <c val="ffff8a">Probius</c>.<n/>Reduces Cost to 0<n/>Decreases Shield Regen Delay 15 -> 3<n/>Increases Move Speed by 1
 Button/Tooltip/ResearchRapidUnitTraining=<c val="ffff8a">Units</c> can get recruited faster.
 Button/Tooltip/ResearchShatteringLaser=Upgrades all <c val="ffff8a">Marines</c> lasers to shatter upon impact, dealing 1/3/5 damage (depending on tier) to 2 nearby enemy units. Damage applies bonuses from the Armory and Penetrating Laser research.
 Button/Tooltip/ResearchShockBeam=Enables <c val="ffff8a">Shock Troopers</c> to fire in a constant beam, effectively increasing attack speed by 100%.
@@ -1774,7 +1779,7 @@ Button/Tooltip/StrikelingSpawner=Spawns fast moving suicide strikelings.
 Button/Tooltip/StructureBurn=Attacks set structures ablaze, dealing <d ref="Effect,RavatorBurnDamage,Amount/Behavior,RavatorStructureBurning,Period"/> damage per second and reducing armor by 5.<n/><n/>Burning damage is increased with attack upgrades.
 Button/Tooltip/Suicide=Kills itself and generates Blood.
 Button/Tooltip/SummonNydusCanalCreeper=Summons a Creep Tower at the target location. Creep Tower can launch creep in a chosen direction.<n/><n/><c val="D95200">Increase Terrazine income of every player in  your team by 20%.</c></n></n><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Photon Cannons</c> to be stronger.
+Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Photon Cannons</c> to be stronger.<n/>Increases HP by 600.<n/>Increases HP Armor by 8.<n/>Increases Shield by 750.<n/>Sets Shield Regeneration Delay to 2 seconds.<n/>Increases Shield Regeneration Rate by 8.<n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
 Button/Tooltip/SynteticAdrenalPumps=Increases Mechaling Attack Speed by 100%<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Tankling=
 Button/Tooltip/TanklingSpawner=
@@ -1841,13 +1846,16 @@ Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an a
 Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
-Button/Tooltip/UpgradePhotonCannonArmor=Upgrades the armor and life of Photon Cannons.
-Button/Tooltip/UpgradePhotonCannonDamage=Upgrades the damage of Photon Cannons.
-Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades the damage of Photon Cannons.
+Button/Tooltip/UpgradePhotonCannonArmor=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases HP by 150.<n/>Increases HP Armor by 8.
+Button/Tooltip/UpgradePhotonCannonDamage1=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
+Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeShieldBattery=Increases Shield Battery Energy Maximum, Starting Amount and Regeneration by 100%
 Button/Tooltip/UpgradeShieldBattery2=Increases Shield Battery Energy Regeneration by 500%.
 Button/Tooltip/UpgradeShieldBatteryRechargeRate=Increases Shield Battery Recharge Rate greatly.
+Button/Tooltip/UpgradeShieldDensity=Increases Shield Armor by 5.
+Button/Tooltip/UpgradeShieldDensity2=Increases Shield Armor by 10.
+Button/Tooltip/UpgradeShieldDensity3=Increases Shield Armor by 15.
 Button/Tooltip/UpgradeSpawner=Increase the number of spawns by 1.
 Button/Tooltip/UpgradeSpawner2=Increase the number of spawns by 2.
 Button/Tooltip/UpgradeSpawner3=Increase the number of spawns by 3.
@@ -2733,6 +2741,16 @@ DocInfo/PatchNote838=- Added Probius L2 Upgrade
 DocInfo/PatchNote839=- Added Shield Battery and Cannon Forge
 DocInfo/PatchNote840=- Added New unique mechanics
 DocInfo/PatchNote841=Fixed issue.
+DocInfo/PatchNote842=Fixed issue for real this time.
+DocInfo/PatchNote843=Reverted Photon Cannon Base Atk Speed.
+DocInfo/PatchNote844=Adjusted Probius Balance.
+DocInfo/PatchNote845=Fixed Issues.
+DocInfo/PatchNote846=Increased Probius Cannon Stack Limit 3 -> 5 and reduced Cooldown 30 -> 20.
+DocInfo/PatchNote847=Limited Maximum Amount of active Photon Cannons to 15.
+DocInfo/PatchNote848=Changed Probius Pylon Weapon to Static Discharge and removed Overcharge Ability.
+DocInfo/PatchNote849=Renamed Cannon Forge to Probius Forge.
+DocInfo/PatchNote850=Added Upgrade set "Shield Density" to give Shields +5/10/15 armor.
+DocInfo/PatchNote851=Shield Batteries are considered as an Energy User now, so Energy Warp and Batteries can charge them.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4231,7 +4249,7 @@ RequirementNode/Tooltip/CountBehaviorZergRallyPlusCompleteOnlyAtUnit455390697=
 RequirementNode/Tooltip/CountUnitArmory2CompleteOnly609241497=Armory
 RequirementNode/Tooltip/CountUnitChemicalPlantCompleteOnly3355057371=Chemical Plant
 RequirementNode/Tooltip/CountUnitConstructionYardCompleteOnly2255243434=Construction Yard
-RequirementNode/Tooltip/CountUnitForgeCompleteOnly3890156851=Cannon Forge
+RequirementNode/Tooltip/CountUnitForgeCompleteOnly3441208851=Probius Forge
 RequirementNode/Tooltip/CountUpgradeAdvancedBuildCompleteOnly3080158053=Research Advanced Build
 RequirementNode/Tooltip/CountUpgradeChemicalPlantCompleteOnly1337995533=Research Chemical Plant
 RequirementNode/Tooltip/CountUpgradeEnergyGenerationCompleteOnly660069371=Already Completed
@@ -4318,6 +4336,7 @@ RequirementNode/Tooltip/LT3940970098CountUnitManufacturerQueuedOrBetter5=You can
 RequirementNode/Tooltip/LT3940970098CountUnitOutfittingStationQueuedOrBetter1=You can only have 5 manufacturers.
 RequirementNode/Tooltip/LT459509116CountBehaviorFirelingCountDummyStackQueuedOrBetter80=You cant have more than 80 Firelings!
 RequirementNode/Tooltip/LT518456723SumCountUnitGasVentQueuedOrBetter20=Max 20
+RequirementNode/Tooltip/LT554857793SumCountUnitPhotonCannonQueuedOrBetter15=Max 15
 RequirementNode/Tooltip/LT831937892CountUnitProbiusPylonQueuedOrBetter3=You can only have three pylons.
 RequirementNode/Tooltip/Not143893411CountUnitHiveMindEmulatorQueuedOrBetter=Only one Zerg Control Center!
 RequirementNode/Tooltip/Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit=Select Transport Unit
@@ -4443,7 +4462,7 @@ Unit/Name/FirebatZergHex=Firebat
 Unit/Name/FirebatZergHexOld=Firebat
 Unit/Name/Fireling=Fireling
 Unit/Name/Flower=Flower
-Unit/Name/Forge=Cannon Forge
+Unit/Name/Forge=Probius Forge
 Unit/Name/FragmentBlast=Fragment Blast
 Unit/Name/FragmentBlastShardMissile=Fragment Blast Shard Missile
 Unit/Name/Fruit=Fruit
@@ -4747,6 +4766,9 @@ Upgrade/Name/RapidUnitTraining=Rapid Unit Training
 Upgrade/Name/RecyclingProtocol=Recycling Protocol
 Upgrade/Name/RecyclingProtocol2=Recycling Protocol 2
 Upgrade/Name/SelfRecharchingBatteries=Self Recharching Batteries
+Upgrade/Name/ShieldDensity=Shield Density
+Upgrade/Name/ShieldDensity2=Shield Density 2
+Upgrade/Name/ShieldDensity3=Shield Density 3
 Upgrade/Name/ShockBeam=Shock Beam
 Upgrade/Name/ShockOverload=Shock Overload
 Upgrade/Name/SiegeTankBetterVersion=Siege Tank Better Version

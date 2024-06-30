@@ -50,6 +50,9 @@
         <Beam value="DemonFortFireBeam"/>
         <ImpactModel value="GenericAttackImpactModelElite"/>
     </CActorAction>
+    <CActorUnit id="Forge">
+        <Scale value="0.950000"/>
+    </CActorUnit>
     <CActorUnit id="Pariah">
         <Scale value="1.200000"/>
     </CActorUnit>

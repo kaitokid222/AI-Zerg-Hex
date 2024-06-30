@@ -37,13 +37,13 @@
     </CButton>
     <CButton id="UpgradePhotonCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
-        <AlertTooltip value="Button/Name/UpgradePhotonCannonDamage2"/>
+        <AlertTooltip value="Button/Tooltip/UpgradePhotonCannonDamage1"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <Tooltip value="Button/Tooltip/UpgradePhotonCannonDamage1"/>
     </CButton>
     <CButton id="UpgradePhotonCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
-        <AlertTooltip value="Button/Name/UpgradePhotonCannonDamage2"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
@@ -56,6 +56,24 @@
     <CButton id="UpgradeShieldBatteryRechargeRate">
         <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="UpgradeShieldBattery"/>
+    </CButton>
+    <CButton id="UpgradeShieldDensity">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="UpgradeShieldBattery"/>
+    </CButton>
+    <CButton id="UpgradeShieldDensity2">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="UpgradeShieldBattery"/>
+    </CButton>
+    <CButton id="UpgradeShieldDensity3">
+        <Icon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="UpgradeShieldBattery"/>
     </CButton>
