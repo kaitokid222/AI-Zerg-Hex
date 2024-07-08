@@ -5518,6 +5518,7 @@
         <Cost Abil="TrainZFirebat,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainZMechs,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainMassalisk,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainEroder,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

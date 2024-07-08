@@ -932,6 +932,7 @@
         <EffectArray Reference="Weapon,NeedleSpines2,Level" Value="1"/>
         <EffectArray Reference="Weapon,PrimalRoachMelee,Level" Value="1"/>
         <EffectArray Reference="Weapon,KaiserBlades,Level" Value="1"/>
+        <EffectArray Reference="Weapon,EroderStrike,Level" Value="1"/>
         <EffectArray Reference="Weapon,TarRoachMelee,Level" Value="1"/>
         <EffectArray Reference="Weapon,FirelingClaws,Level" Value="1"/>
         <EffectArray Reference="Weapon,HydraliskNeedleSpines2,Level" Value="1"/>
@@ -1206,6 +1207,7 @@
         <EffectArray Reference="Unit,Marine3,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Marauder2,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Massalisk,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,Eroder,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

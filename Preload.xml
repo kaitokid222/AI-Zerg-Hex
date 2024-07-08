@@ -134,6 +134,7 @@
 <Behavior id="ZergRallyEqual"/>
 <Behavior id="UnlimitedEnergy"/>
 <Behavior id="UpgradedVespeneHarvestingUnlimited"/>
+<Behavior id="SpawnProtection"/>
 <Behavior id="GenerateMineralsCowFarm"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
@@ -194,9 +195,13 @@
 <Unit id="KerriganVoid"/>
 <Unit id="AiurRockDebris2x2"/>
 <Unit id="PickupNovaTechnology"/>
+<Unit id="ProcessingCore"/>
+<Unit id="Node"/>
 <Unit id="Manufacturer"/>
 <Unit id="Uploader"/>
 <Unit id="Repulsor"/>
+<Unit id="RelayTower"/>
+<Unit id="TechVault"/>
 <Unit id="Generator"/>
 <Unit id="ACR"/>
 <Unit id="Spitfire"/>

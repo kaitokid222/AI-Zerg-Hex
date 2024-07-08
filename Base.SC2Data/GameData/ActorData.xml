@@ -56,6 +56,9 @@
     <CActorUnit id="Pariah">
         <Scale value="1.200000"/>
     </CActorUnit>
+    <CActorUnit id="ProcessingCore">
+        <Scale value="0.700000"/>
+    </CActorUnit>
     <CActorUnit id="ShieldBattery">
         <Scale value="0.600000"/>
     </CActorUnit>
@@ -831,6 +834,61 @@
     </CActorUnit>
     <CActorUnit id="TechVault">
         <Scale value="0.600000"/>
+    </CActorUnit>
+    <CActorUnit id="EroderSpawner" parent="ZergBuildingEx" unitName="EroderSpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter UltraliskCavern_Ambience"/>
+        <On index="65" Terms="UnitConstruction.EroderSpawner.Start" Send="Create SpawnerBuild"/>
+        <On index="66" Terms="UnitConstruction.EroderSpawner.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="67" Terms="UnitConstruction.EroderSpawner.Finish" Send="Destroy"/>
+        <On index="68" Terms="UnitBirth.EroderSpawner.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="69" Terms="UnitBirth.EroderSpawner.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="70" Terms="UnitBirth.EroderSpawner.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="71" Terms="UnitDeath.EroderSpawner" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="72" Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Target="" Send="DeathCustomize Detached"/>
+        <On index="73" removed="1"/>
+        <On index="74" removed="1"/>
+        <On index="75" removed="1"/>
+        <On index="76" removed="1"/>
+        <Model value="BiomassCavern"/>
+        <Scale value="0.680000"/>
+        <EventDataFootprint index="0" Model="UltraliskCavernFootprint"/>
+        <BuildModel value="BiomassCavern"/>
+        <DeathArray index="Normal" ModelLink="UltraliskCavernDeath" SoundLink="UltraliskCavern_Explode" VoiceLink="UltraliskCavernDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="UltraliskCavernDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PlacementModel value="UltraliskSpawnerPlacement"/>
+        <PortraitModel value="UltraliskCavernPortrait"/>
+        <BarOffset value="110"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-UltraliskCavern.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="UltraliskCavern_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="UltraliskCavern_GroupYes"/>
+        <GroupSoundArray index="Attack" value="UltraliskCavern_GroupAttack"/>
+        <GroupSoundArray index="Board" value="UltraliskCavern_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-ultraliskcavern.dds"/>
+        <NameOffset value="110"/>
+        <SoundArray index="Birth" value="UltraliskCavern_Birth"/>
+        <SoundArray index="Ready" value="UltraliskCavern_Ready"/>
+        <SoundArray index="Help" value="UltraliskCavern_Help"/>
+        <SoundArray index="What" value="UltraliskCavern_What"/>
+        <SoundArray index="Yes" value="UltraliskCavern_Yes"/>
+        <SoundArray index="Attack" value="UltraliskCavern_Attack"/>
+        <SoundArray index="Pissed" value="UltraliskCavern_Pissed"/>
+        <SoundArray index="Movement" value="UltraliskCavern_Movement"/>
+        <SoundArray index="Turning" value="UltraliskCavern_Turning"/>
+        <SoundArray index="Board" value="UltraliskCavern_Board"/>
+        <SoundArray index="Click" value="UltraliskCavern_Click"/>
+        <SoundArray index="ClickError" value="UltraliskCavern_ClickError"/>
+        <SoundArray index="Highlight" value="UltraliskCavern_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-xayid-biomasscavern.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-xayid-biomasscavern.dds"/>
+        </Wireframe>
     </CActorUnit>
     <CActorUnit id="Uploader">
         <Aliases value="_UnitMedium"/>

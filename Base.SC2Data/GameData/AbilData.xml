@@ -613,6 +613,27 @@
         </InfoArray>
         <Alert value="NoAlert"/>
     </CAbilTrain>
+    <CAbilTrain id="TrainEroder">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <InfoArray index="Train1" Time="8" Effect="ApplyPrecursorSpawner">
+            <Charge>
+                <CountMax value="3"/>
+                <CountStart value="2"/>
+                <CountUse value="1"/>
+                <Link value="Abil/TrainSpawner"/>
+                <Location value="Unit"/>
+            </Charge>
+            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Button DefaultButtonFace="Eroder"/>
+            <Unit value="Eroder"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+        <Alert value="NoAlert"/>
+    </CAbilTrain>
     <CAbilTrain id="TrainZMechs">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>

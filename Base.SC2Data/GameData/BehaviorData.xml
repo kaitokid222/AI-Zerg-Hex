@@ -86,6 +86,11 @@
             </Modification>
         </PowerStageArray>
     </CBehaviorPowerUser>
+    <CBehaviorBuff id="EroderAttackReduction">
+        <InfoIcon value="Assets\Textures\btn-ability-dehaka-damagereductionwhilemoving.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification AttackSpeedMultiplier="0.5"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="StaticDischargeProbiusPylonOvercharge">
         <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
