@@ -57,6 +57,17 @@
         <EditorCategories value=""/>
         <Behavior value="SpawnBlood2"/>
     </CEffectApplyBehavior>
+    <CEffectEnumArea id="PylonStaticDischargeSearchArea">
+        <EditorCategories value=""/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Cloaked,Dead,Invulnerable"/>
+        <TargetSorts RequestCount="3">
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <AreaArray Radius="7.4" Effect="StaticDischargeDamageSwitch"/>
+        <MaxCount value="3"/>
+    </CEffectEnumArea>
     <CEffectEnumArea id="UmbraShadowCannonAOE">
         <ValidatorArray value="UmbraShadowCannonResearchCompleted"/>
         <EditorCategories value="Race:Terran"/>

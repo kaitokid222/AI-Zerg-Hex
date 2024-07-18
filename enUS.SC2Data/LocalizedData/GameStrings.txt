@@ -543,7 +543,7 @@ Behavior/Name/SpawnFromRight=Spawn From Right
 Behavior/Name/SpawnProtection=Spawn Protection
 Behavior/Name/StalkerSpeedBuff=Stalker Speed Buff
 Behavior/Name/StaticDischarge=Static Discharge
-Behavior/Name/StaticDischargeProbiusPylonOvercharge=Static Discharge Probius Pylon Overcharge
+Behavior/Name/StaticDischargePylon=Static Discharge Pylon
 Behavior/Name/StrikelingShielded=Shielded
 Behavior/Name/StrikelingShielded3v3=Shielded
 Behavior/Name/TarRoachInfection=Tar Roach Infection
@@ -691,7 +691,7 @@ Behavior/Tooltip/SpawnFromLeft=Zerg units appear from the left side.
 Behavior/Tooltip/SpawnFromRight=Zerg units appear from the right side.
 Behavior/Tooltip/SpawnProtection=Unit is invulnerable for 30 seconds.
 Behavior/Tooltip/StaticDischarge=Deals damage based on stored charges to nearby enemy units.
-Behavior/Tooltip/StaticDischargeProbiusPylonOvercharge=Deals damage based on stored charges to nearby enemy units.
+Behavior/Tooltip/StaticDischargePylon=Deals damage based on stored charges to nearby enemy units.
 Behavior/Tooltip/StrikelingShielded=Absorbs one additional hit
 Behavior/Tooltip/StrikelingShielded3v3=Absorbs one additional hit
 Behavior/Tooltip/TarRoachInfection=This unit is infected and will spawn a Tar Roach on dying.
@@ -1108,7 +1108,7 @@ Button/Name/StoptheRain=Stop the Rain
 Button/Name/StructureBurn=Structure Burn
 Button/Name/Suicide=Suicide
 Button/Name/SummonNydusCanalCreeper=Mutate into Creep Tower
-Button/Name/SuperCannons=Super Cannons
+Button/Name/SuperCannons=Super Pylons
 Button/Name/SynteticAdrenalPumps=Syntetic Adrenal Pumps
 Button/Name/TarInfection=Tar Infection
 Button/Name/TarRush=Tar Rush
@@ -1155,9 +1155,9 @@ Button/Name/UpgradeHydraliskSpawnSize=Upgrade Hydralisk Spawn Size
 Button/Name/UpgradeImprovedCombatShield=Upgrade Improved Combat Shield
 Button/Name/UpgradeImprovedCombatShield2=Upgrade Improved Combat Shield II
 Button/Name/UpgradeKarax=Upgrade Karax
-Button/Name/UpgradePhotonCannonArmor=Upgrade Photon Cannon Armor
-Button/Name/UpgradePhotonCannonDamage=Upgrade Photon Cannon Damage
-Button/Name/UpgradePhotonCannonDamage2=Upgrade Photon Cannon Damage 2
+Button/Name/UpgradePhotonCannonArmor=Upgrade Pylon Armor
+Button/Name/UpgradePhotonCannonDamage=Upgrade Pylon Damage
+Button/Name/UpgradePhotonCannonDamage2=Upgrade Pylon Damage 2
 Button/Name/UpgradeRefineryToUpgraded=Upgrade Refinery
 Button/Name/UpgradeShieldBattery=Upgrade Shield Battery
 Button/Name/UpgradeShieldBattery2=Upgrade Shield Battery 2
@@ -1783,7 +1783,7 @@ Button/Tooltip/StrikelingSpawner=Spawns fast moving suicide strikelings.
 Button/Tooltip/StructureBurn=Attacks set structures ablaze, dealing <d ref="Effect,RavatorBurnDamage,Amount/Behavior,RavatorStructureBurning,Period"/> damage per second and reducing armor by 5.<n/><n/>Burning damage is increased with attack upgrades.
 Button/Tooltip/Suicide=Kills itself and generates Blood.
 Button/Tooltip/SummonNydusCanalCreeper=Summons a Creep Tower at the target location. Creep Tower can launch creep in a chosen direction.<n/><n/><c val="D95200">Increase Terrazine income of every player in  your team by 20%.</c></n></n><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Photon Cannons</c> to be stronger.<n/>Increases HP by 600.<n/>Increases HP Armor by 8.<n/>Increases Shield by 750.<n/>Sets Shield Regeneration Delay to 2 seconds.<n/>Increases Shield Regeneration Rate by 8.<n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
+Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Probius Pylons</c> to be stronger.<n/>Increases HP by 600.<n/>Increases HP Armor by 8.<n/>Increases Shield by 750.<n/>Sets Shield Regeneration Delay to 2 seconds.<n/>Increases Shield Regeneration Rate by 8.<n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
 Button/Tooltip/SynteticAdrenalPumps=Increases Mechaling Attack Speed by 100%<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Tankling=
 Button/Tooltip/TanklingSpawner=
@@ -1850,9 +1850,9 @@ Button/Tooltip/UpgradeHydraliskSpawnSize=Makes Hydralisks spawn having with an a
 Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
-Button/Tooltip/UpgradePhotonCannonArmor=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases HP by 150.<n/>Increases HP Armor by 8.
-Button/Tooltip/UpgradePhotonCannonDamage1=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
-Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades <c val="ffff8a">Photon Cannons</c><n/>Increases Weapon Range by 1.<n/>Increases Weapon Damage by 10.<n/>Decreases Weapon Cooldown by 0.2s.
+Button/Tooltip/UpgradePhotonCannonArmor=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases HP by 150.<n/>Increases HP Armor by 8.
+Button/Tooltip/UpgradePhotonCannonDamage1=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
+Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeShieldBattery=Increases Shield Battery Energy Maximum, Starting Amount and Regeneration by 100%
 Button/Tooltip/UpgradeShieldBattery2=Increases Shield Battery Energy Regeneration by 500%.
@@ -2766,6 +2766,11 @@ DocInfo/PatchNote859=- Spawner and Creep Sources have Spawn Protection for 30s (
 DocInfo/PatchNote860=- Added Eroder (Tank) for Armor 4+ (5+)
 DocInfo/PatchNote861=- Stronger Eroder (7+)
 DocInfo/PatchNote862=- Faster Drone Building (7+)
+DocInfo/PatchNote863=Increased Eroder HP 500/1000 -> 600/1200, Base Speed 1.6 -> 1.8, Size +10%
+DocInfo/PatchNote864=Removed Probius Photon Cannons, Shield Batteries and depending upgrades.
+DocInfo/PatchNote865=Instead remaining upgrades empower Probius Pylons.
+DocInfo/PatchNote866=Removed whole Tombstone Mechanic. Dead Players just get Karax. Pocket Base Expansion remains.
+DocInfo/PatchNote867=Crisis spawners rerally if the target player dies.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -3369,6 +3374,7 @@ Effect/Name/PylonBuffPowerApply=Pylon Buff Power Apply
 Effect/Name/PylonBuffPowerAuraApply=Pylon Buff Power Aura Apply
 Effect/Name/PylonBuffPowerSearchArea=Pylon Buff Power Search Area
 Effect/Name/PylonOverchargeApply=Pylon Overcharge Apply
+Effect/Name/PylonStaticDischargeSearchArea=Pylon Static Discharge (Search Area)
 Effect/Name/RavagerArtilleryCP=Ravager Artillery (CP)
 Effect/Name/RavagerArtilleryDP=Ravager Artillery (DP)
 Effect/Name/RavagerArtilleryDamage=Ravager Artillery (Damage)
@@ -4771,9 +4777,9 @@ Upgrade/Name/ParalyzingShock=Paralyzing Shock
 Upgrade/Name/PickupLocator=Pickup Locator
 Upgrade/Name/PlasmaCannons=Plasma Cannons
 Upgrade/Name/PrimalRapidRespawn=Primal Rapid Respawn
-Upgrade/Name/ProbiusCannonArmor=Probius Cannon Armor
-Upgrade/Name/ProbiusCannonDamage=Probius Cannon Damage
-Upgrade/Name/ProbiusCannonDamage2=Probius Cannon Damage 2
+Upgrade/Name/ProbiusCannonArmor=Probius Pylon Armor
+Upgrade/Name/ProbiusCannonDamage=Probius Pylon Damage
+Upgrade/Name/ProbiusCannonDamage2=Probius Pylon Damage 2
 Upgrade/Name/ProbiusL2=Probius L2
 Upgrade/Name/ProbiusWallShields=Probius Wall Shields
 Upgrade/Name/RapidEnergyTransfer=Rapid Energy Transfer
@@ -4795,7 +4801,7 @@ Upgrade/Name/SiegeTankRange=Siege Tank Range
 Upgrade/Name/SolarWeapons=Solar Weapons
 Upgrade/Name/SpawnBombers=Spawn Bombers
 Upgrade/Name/Stoptherain=Stop the rain
-Upgrade/Name/SuperCannons=Super Cannons
+Upgrade/Name/SuperCannons=Super Pylons
 Upgrade/Name/SuperEnergyGeneration=Super Energy Generation
 Upgrade/Name/SynteticAdrenalPumps=Syntetic Adrenal Pumps
 Upgrade/Name/TarInfection=Tar Infection
@@ -4884,6 +4890,7 @@ Weapon/Name/ParticleDisruptors2=Particle Disruptors Copy
 Weapon/Name/PhaseDisruptors2=Phase Disruptors Copy
 Weapon/Name/PunisherGrenades2=Punisher Grenades
 Weapon/Name/PylonOverchargeCannon=Pylon Overcharge Cannon
+Weapon/Name/PylonStaticDischarge=Pylon Static Discharge
 Weapon/Name/RavatorWeapon=Plasma Discharge
 Weapon/Name/ReaperDoublePistol=Double Pistol
 Weapon/Name/ReaperExplosiveCharge=Explosive Charge
@@ -4901,6 +4908,7 @@ Weapon/Tip/ChaosPowerSword=Inlaid with foul sigils dedicated to the Chaos Gods, 
 Weapon/Tip/ChaosSword=Inlaid with foul sigils dedicated to the Chaos Gods, this tainted Power Sword cuts through enemies with ease. Elegant and merciless, this blade is a manifestation of the wielder's utter disdain for the weak and blind slaves of the False Emperor.
 Weapon/Tip/DesecratedBolter=The Desecrated Bolter is wielded by many in the twisted ranks of the traitorous Chaos Space Marines. firing rocket-propelled projectiles almost 20mm in caliber that explode after penetrating the target, causing incredible amounts of damage.The firepower of these defaced weapons have been proven time and again to the detriment of many who have had the misfortune to stand in the way of these dark warriors
 Weapon/Tip/LaserPistol=The Laser Pistol is a smaller Marine Rifle.
+Weapon/Tip/PylonStaticDischarge=Targets the closest nearby enemies every attack. Deals increased damage with more charges.
 Weapon/Tip/RavatorWeapon=Can only attack structures
 Weapon/Tip/StaticDischarge=Targets the closest nearby enemies every attack. Deals increased damage with more charges.
 Weapon/Tip/TanklingMelee=Deals true damage.

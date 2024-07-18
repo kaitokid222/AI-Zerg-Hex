@@ -26,8 +26,8 @@
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="SuperCannons">
-        <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
+        <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="UpgradePhotonCannonArmor">
@@ -36,11 +36,11 @@
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="UpgradePhotonCannonDamage">
+        <Tooltip value="Button/Tooltip/UpgradePhotonCannonDamage1"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <AlertTooltip value="Button/Tooltip/UpgradePhotonCannonDamage1"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <EditorCategories value="Race:Protoss"/>
-        <Tooltip value="Button/Tooltip/UpgradePhotonCannonDamage1"/>
     </CButton>
     <CButton id="UpgradePhotonCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>

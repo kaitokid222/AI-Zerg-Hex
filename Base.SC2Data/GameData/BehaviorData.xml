@@ -91,12 +91,12 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="StaticDischargeProbiusPylonOvercharge">
+    <CBehaviorBuff id="StaticDischargePylon">
         <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="0.55"/>
-        <PeriodicEffect value="StaticDischargeSearchArea"/>
+        <PeriodicEffect value="PylonStaticDischargeSearchArea"/>
     </CBehaviorBuff>
     <CBehaviorCreepSource id="makeCreep3x3Tombstone">
         <InfoFlags index="Hidden" value="1"/>

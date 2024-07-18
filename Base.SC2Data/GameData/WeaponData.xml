@@ -109,6 +109,22 @@
     <CWeaponLegacy id="ShadowCannon">
         <Period value="0.6"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="PylonStaticDischarge">
+        <EditorCategories value=""/>
+        <Options index="CanInitiateAttackOrder" value="0"/>
+        <Options index="RequireEnabledAttackAbil" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
+        <DisplayEffect value="StaticDischargeDamageT1"/>
+        <DisplayAttackCount value="3"/>
+        <TargetFilters value="Ground,Visible;Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <ChaseFilters value="-;Player,Ally,Neutral,Enemy"/>
+        <AcquireCallForHelpFilters value="-;Player,Ally,Neutral,Enemy"/>
+        <MinScanRange value="7"/>
+        <Range value="7"/>
+        <Period value="0.55"/>
+        <Effect value="StaticDischargeDamageT1"/>
+        <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="StratumMissilePod">
         <MinScanRange value="8.5"/>
         <Range value="8"/>

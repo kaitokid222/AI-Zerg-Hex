@@ -122,9 +122,9 @@
     </CUpgrade>
     <CUpgrade id="ProbiusCannonArmor">
         <Icon value="Assets\Textures\BTN-Upgrade-Protoss-GroundArmorLevel1.dds"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="150"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="150"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="8"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeMax" Value="150"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeStart" Value="150"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeArmor" Value="8"/>
     </CUpgrade>
     <CUpgrade id="IncreasedPylonIncome">
         <Icon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
@@ -148,28 +148,37 @@
     </CUpgrade>
     <CUpgrade id="SuperCannons">
         <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeMax" Value="600"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeStart" Value="600"/>
-        <EffectArray Reference="Unit,PhotonCannon,LifeArmor" Value="8"/>
-        <EffectArray Reference="Unit,PhotonCannon,ShieldsStart" Value="750"/>
-        <EffectArray Reference="Unit,PhotonCannon,ShieldsMax" Value="750"/>
-        <EffectArray Operation="Set" Reference="Unit,PhotonCannon,ShieldRegenDelay" Value="2.000000"/>
-        <EffectArray Reference="Unit,PhotonCannon,ShieldRegenRate" Value="8.000000"/>
-        <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
-        <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeMax" Value="600"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeStart" Value="600"/>
+        <EffectArray Reference="Unit,ProbiusPylon,LifeArmor" Value="8"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="750"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="750"/>
+        <EffectArray Operation="Set" Reference="Unit,ProbiusPylon,ShieldRegenDelay" Value="2.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
+        <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
+        <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
         <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
@@ -182,6 +191,9 @@
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="50"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="50"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="50"/>
     </CUpgrade>
     <CUpgrade id="ProbiusL2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
@@ -207,6 +219,9 @@
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="50"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="50"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="50"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="2.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="50"/>
     </CUpgrade>
     <CUpgrade id="RapidEnergyTransfer">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
@@ -638,6 +653,9 @@
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="100"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="100"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="4.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="100"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="4.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="100"/>
     </CUpgrade>
     <CUpgrade id="WallShields4">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
@@ -650,6 +668,9 @@
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="200"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="200"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="200"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="8.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="200"/>
     </CUpgrade>
     <CUpgrade id="WallShields5">
         <Icon value="Assets\Textures\btn-upgrade-keiron-shields-level3.dds"/>
@@ -662,6 +683,9 @@
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsMax" Value="800"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldsStart" Value="800"/>
         <EffectArray Reference="Unit,TerranGateLowered,ShieldRegenRate" Value="32.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="800"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="32.000000"/>
+        <EffectArray Reference="Unit,ProbiusPylon,ShieldsStart" Value="800"/>
     </CUpgrade>
     <CUpgrade id="WeaponCapacity">
         <Icon value="Assets\Textures\btn-upgrade-tychus-weapons-level1.dds"/>

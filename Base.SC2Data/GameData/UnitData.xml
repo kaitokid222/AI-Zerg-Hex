@@ -26,10 +26,10 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="Eroder">
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
         <LifeArmor value="2"/>
-        <Speed value="1.6015"/>
+        <Speed value="1.8007"/>
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
@@ -63,17 +63,7 @@
                 <Column value="1"/>
             </LayoutButtons>
             <LayoutButtons index="12" Face="SuperCannons" Type="AbilCmd" AbilCmd="ForgeResearch,Research19" Requirements=""/>
-            <LayoutButtons index="13">
-                <Face value="UpgradeShieldBattery"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ForgeResearch,Research20"/>
-                <Requirements value=""/>
-                <Row value="0"/>
-                <Column value="2"/>
-            </LayoutButtons>
-            <LayoutButtons Face="UpgradeShieldBattery2" Type="AbilCmd" AbilCmd="ForgeResearch,Research21" Row="0" Column="2"/>
-            <LayoutButtons Face="UpgradeShieldBatteryRechargeRate" Type="AbilCmd" AbilCmd="ForgeResearch,Research22" Row="1" Column="2"/>
-            <LayoutButtons Face="UpgradeShieldDensity" Type="AbilCmd" AbilCmd="ForgeResearch,Research23" Row="1" Column="3"/>
+            <LayoutButtons index="13" Face="UpgradeShieldDensity" Type="AbilCmd" AbilCmd="ForgeResearch,Research23" Requirements="" Column="3"/>
             <LayoutButtons Face="UpgradeShieldDensity2" Type="AbilCmd" AbilCmd="ForgeResearch,Research24" Row="1" Column="3"/>
             <LayoutButtons Face="UpgradeShieldDensity3" Type="AbilCmd" AbilCmd="ForgeResearch,Research25" Row="1" Column="3"/>
         </CardLayouts>
@@ -4386,8 +4376,6 @@
             <LayoutButtons Face="AttackWorker" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Pylon" Type="AbilCmd" AbilCmd="ProtossBuild,Build2" Row="2" Column="0"/>
-            <LayoutButtons Face="PhotonCannon" Type="AbilCmd" AbilCmd="ProtossBuild,Build8" Row="2" Column="1"/>
-            <LayoutButtons Face="ShieldBattery2" Type="AbilCmd" AbilCmd="ProtossBuild,Build22" Row="2" Column="2"/>
             <LayoutButtons Face="WarpInCannonForge" Type="AbilCmd" AbilCmd="ProtossBuild,Build5" Row="2" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="PBl1">
@@ -4459,7 +4447,7 @@
         <CostCategory value="Economy"/>
         <CostResource index="Minerals" value="10"/>
         <CostResource index="Vespene" value="10"/>
-        <AttackTargetPriority value="11"/>
+        <AttackTargetPriority value="20"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="attackProtossBuilding"/>
         <AbilArray Link="ChoosePowerBuff"/>
@@ -4473,7 +4461,7 @@
         <BehaviorArray Link="GenerateMinerals"/>
         <BehaviorArray Link="VespeneHarvestingUnlimited"/>
         <BehaviorArray Link="ProbiusPylon3v3"/>
-        <BehaviorArray Link="StaticDischarge"/>
+        <BehaviorArray Link="StaticDischargePylon"/>
         <TurretArray value="PylonCrystalRotate"/>
         <TurretArray value="PylonRingRotate"/>
         <CardLayouts>
@@ -4485,6 +4473,7 @@
             <LayoutButtons Face="ChoosePowerBuff" Type="AbilCmd" AbilCmd="ChoosePowerBuff,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ChooseAttackBuff" Type="AbilCmd" AbilCmd="ChooseAttackBuff,Execute" Row="1" Column="1"/>
             <LayoutButtons Face="ChooseDefenseBuff" Type="AbilCmd" AbilCmd="ChooseDefenseBuff,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="PylonOvercharge" Type="AbilCmd" AbilCmd="PylonOvercharge,Execute" Row="1" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="0" Column="0"/>
@@ -4501,7 +4490,8 @@
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
         <GlossaryPriority value="18"/>
         <HotkeyCategory value="Unit/Category/ProtossUnits"/>
-        <WeaponArray Link="StaticDischarge" Turret="PhotonCannon"/>
+        <WeaponArray Link="PylonStaticDischarge" Turret="PhotonCannon"/>
+        <WeaponArray Link="PylonOverchargeCannon" Turret="PhotonCannon"/>
     </CUnit>
     <CUnit id="RangedMinionHell">
         <DeathRevealRadius value="3"/>

@@ -8,6 +8,9 @@
     <CActorUnit id="Citadel">
         <Scale value="0.300000"/>
     </CActorUnit>
+    <CActorUnit id="Eroder">
+        <Scale value="1.100000"/>
+    </CActorUnit>
     <CActorUnit id="FeedingPool2" parent="ZergBuilding" unitName="SpecialZergSpawner">
         <Model value="FeedingPool"/>
         <BuildModel value="FeedingPool"/>
