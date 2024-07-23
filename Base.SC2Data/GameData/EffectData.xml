@@ -18,6 +18,10 @@
         <Amount value="45"/>
         <AttributeBonus index="Structure" value="-25"/>
     </CEffectDamage>
+    <CEffectRemoveBehavior id="TechLabWarpRemoveProtection">
+        <EditorCategories value=""/>
+        <BehaviorLink value="SpawnProtection"/>
+    </CEffectRemoveBehavior>
     <CEffectSet id="RemoveBomberSpawn">
         <EditorCategories value=""/>
     </CEffectSet>
@@ -67,6 +71,12 @@
         </TargetSorts>
         <AreaArray Radius="7.4" Effect="StaticDischargeDamageSwitch"/>
         <MaxCount value="3"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="TechLabEnergyWarpProtectionRemoveSearch">
+        <EditorCategories value=""/>
+        <SearchFilters value="Invulnerable;Self,Player,Ally,Neutral,Missile,Dead"/>
+        <AreaArray Radius="3" Effect="TechLabWarpRemoveProtection"/>
+        <MaxCount value="15"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="UmbraShadowCannonAOE">
         <ValidatorArray value="UmbraShadowCannonResearchCompleted"/>
@@ -4492,6 +4502,7 @@
         <PeriodCount value="100"/>
         <PeriodicEffectArray value="TechLabWarpEnergySearch"/>
         <PeriodicPeriodArray value="0"/>
+        <FinalEffect value="TechLabEnergyWarpProtectionRemoveSearch"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="TechLabPowerFieldApplyBehaviorEnemies">
         <EditorCategories value="Race:Protoss"/>

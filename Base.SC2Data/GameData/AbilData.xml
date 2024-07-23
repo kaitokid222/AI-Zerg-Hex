@@ -3759,7 +3759,7 @@
             <Button DefaultButtonFace="TrainInfestedBuilder"/>
             <Unit value="InfestedBuilder"/>
         </InfoArray>
-        <InfoArray index="Train8" Time="60">
+        <InfoArray index="Train8" Time="30">
             <Button DefaultButtonFace="Probe" Requirements="OnlyOneProbius"/>
             <Unit value="Probius"/>
         </InfoArray>

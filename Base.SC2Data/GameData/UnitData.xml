@@ -26,9 +26,9 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="Eroder">
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
-        <LifeArmor value="2"/>
+        <LifeStart value="650"/>
+        <LifeMax value="650"/>
+        <LifeArmor value="3"/>
         <Speed value="1.8007"/>
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
@@ -39,6 +39,7 @@
             <LayoutButtons index="5" removed="1"/>
         </CardLayouts>
         <Radius value="0.5"/>
+        <FlagArray index="AcquireRally" value="1"/>
     </CUnit>
     <CUnit id="Forge">
         <CostResource index="Minerals" value="50"/>
@@ -92,6 +93,27 @@
         <Footprint value="Footprint1x1Contour"/>
         <PlacementFootprint value="Footprint1x1Contour"/>
         <BehaviorArray Link="EnergyUserDefenseStructure"/>
+    </CUnit>
+    <CUnit id="KokCritter" parent="Critter">
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <Response value="Flee"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <LifeRegenRate value="2"/>
+        <Speed value="2.25"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="CritterEatFruit"/>
+        <AbilArray Link="CritterSeekFruit"/>
+        <BehaviorArray index="0" Link="CritterFleeTrigger"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="kokButton" Type="Passive" Row="2" Column="0"/>
+        </CardLayouts>
+        <TacticalAI value="Drone"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
     </CUnit>
     <CUnit id="SpecialZergSpawner" parent="CBuildingXayid">
         <LifeStart value="450"/>
@@ -4803,6 +4825,7 @@
         <BehaviorArray Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <EffectArray index="Birth" value="IncomeSpawnerCreated"/>
         <CardLayouts>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
@@ -5350,10 +5373,10 @@
         <AbilArray Link="CritterEatFruit"/>
         <AbilArray Link="CritterSeekFruit"/>
         <BehaviorArray index="0" Link="CritterFleeTrigger"/>
-        <TacticalAI value="Drone"/>
         <CardLayouts index="0">
             <LayoutButtons Face="heXnab" Type="Passive" Row="2" Column="0"/>
         </CardLayouts>
+        <TacticalAI value="Drone"/>
     </CUnit>
     <CUnit id="BanelingZergHex" parent="Baneling">
         <Name value="Unit/Name/BanelingZergHex"/>
@@ -5404,11 +5427,10 @@
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
         <Collide index="Small" value="0"/>
-        <LifeStart value="1000"/>
-        <LifeMax value="1000"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="4"/>
-        <Food value="-25"/>
         <CostResource index="Minerals" value="650"/>
         <CostResource index="Vespene" value="0"/>
         <AbilArray index="2" Link="Rally"/>
@@ -5420,6 +5442,7 @@
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
         <BehaviorArray Link="BanelingSpawnerSpawnTimer"/>
+        <BehaviorArray Link="BanelingSpawnerDisabler"/>
         <EffectArray index="Birth" value="IncomeSpawnerLargeCreated"/>
         <CardLayouts index="0">
             <LayoutButtons index="2" Face="SpawnBaneling" AbilCmd="LargeSpawnerTrainBaneling,Train1"/>
@@ -7035,6 +7058,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <EffectArray index="Birth" value="IncomeSpawnerCreated"/>
         <CardLayouts index="0">
             <LayoutButtons index="2" Face="SpawnCreeper" AbilCmd="TrainCreeper,Train1"/>
@@ -8056,6 +8080,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Cancel" AbilCmd="que5,CancelLast"/>
             <LayoutButtons index="1" Face="CancelBuilding" AbilCmd="BuildInProgress,Cancel" Column="4"/>
@@ -8480,6 +8505,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts index="0">
             <LayoutButtons index="2" Face="SpawnPrimalRoach" AbilCmd="TrainPrimalRoach,Train1"/>
             <LayoutButtons index="3" Face="UpgradeSpawner" AbilCmd="UpgradePrimalRoachSpawnerInstant,Execute"/>
@@ -8638,6 +8664,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts index="0">
             <LayoutButtons index="2" Face="SpawnRoach" AbilCmd="TrainRoach,Train1"/>
             <LayoutButtons index="3" Face="CancelBuilding" AbilCmd="UpgradeRoachSpawner,255" Row="2" Column="4"/>
@@ -8965,6 +8992,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts index="0">
             <LayoutButtons index="2" Face="SpawnUltralisk2" AbilCmd="TrainUltralisk,Train1"/>
             <LayoutButtons index="3" Face="UpgradeSpawner" Type="AbilCmd" AbilCmd="UpgradeUltraliskSpawnerInstant,Execute" Requirements="" Row="2"/>
@@ -9208,6 +9236,7 @@
         <BehaviorArray index="2" Link="RefundOnDeath"/>
         <BehaviorArray index="3" Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="CancelBuilding" AbilCmd="UpgradeTanklingSpawner,255"/>
             <LayoutButtons index="1" Face="Cancel" AbilCmd="que5,CancelLast"/>
@@ -10322,6 +10351,7 @@
         <BehaviorArray Link="RefundOnDeath"/>
         <BehaviorArray Link="IsSpawner"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
         <CardLayouts>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>

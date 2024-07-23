@@ -37,6 +37,7 @@
 <Behavior id="GenetronPowerSupplyTracker"/>
 <Behavior id="GenetronEnergyStateNotFull"/>
 <Behavior id="GenerateMineralsTombstone"/>
+<Behavior id="SpawnerSlowDown"/>
 <Behavior id="HUGSAlgorythm"/>
 <Behavior id="SiegeTankExpertise"/>
 <Behavior id="HiveKilled"/>
@@ -155,6 +156,7 @@
 <Unit id="Zealot"/>
 <Unit id="WarpPrism"/>
 <Unit id="Probe"/>
+<Unit id="RoachWarren"/>
 <Unit id="SpineCrawler"/>
 <Unit id="Overlord"/>
 <Unit id="PlanetaryFortress"/>
@@ -209,6 +211,7 @@
 <Unit id="GasTrader"/>
 <Unit id="SiegeTank2"/>
 <Unit id="RavatorSpawner"/>
+<Unit id="BanelingSpawner"/>
 <Unit id="Torralisk"/>
 <Unit id="Ravator"/>
 <Unit id="BanelingZergHex"/>
@@ -299,4 +302,5 @@
 <Unit id="Hive2"/>
 <Unit id="CommandCenter2"/>
 <Unit id="HalloweenSapper"/>
+<Unit id="KokCritter"/>
 </Preload>

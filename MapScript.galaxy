@@ -952,6 +952,11 @@ struct gs_zerg_sector {
     int lv_threat_score;
 };
 
+struct gs_banelings_groups {
+    point lv_position;
+    unitgroup lv_unit_group;
+};
+
 struct gs_initial_map_state {
     point lv_position;
     string lv_type;
@@ -1147,6 +1152,8 @@ point[7][51] gv_tdead_extra_positions_creep_sources;
 int[7] gv_tdead_extra_positions_creep_sources_counts;
 point[7][51] gv_tdead_extra_positions_spines;
 int[7] gv_tdead_extra_positions_spines_count;
+point[7][51] gv_tdead_extra_positions_bnests;
+int[7] gv_tdead_extra_positions_bnests_count;
 point[7][152] gv_extra_t1_positions;
 int[7] gv_extra_t1_positions_counts;
 point[1001] gv_possible_positions_t1;
@@ -1194,6 +1201,14 @@ int gv_zerg_drop_cd;
 int gv_viper_cloud_cd;
 int gv_armor_level;
 int gv_supply_upgrades;
+bool gv_banelings_enabled;
+int gv_banelings_activation_offset;
+gs_banelings_groups[11] gv_banelings_groups;
+int gv_banelings_groups_max;
+int gv_banelings_max_units_in_group;
+bool gv_start_scale_zerg;
+int gv_scale_zerg_max;
+int gv_scale_zerg_stage;
 gs_initial_map_state[1000] gv_initial_map_state;
 int gv_initial_map_state_count;
 bool gv_is_setup_phase;
@@ -1401,6 +1416,9 @@ void InitGlobals () {
         gv_heatmap[init_i].lv_zerg_orderable = UnitGroupEmpty();
     }
     gv_zerg_drop_cd = 180;
+    for (init_i = 0; init_i <= 10; init_i += 1) {
+        gv_banelings_groups[init_i].lv_unit_group = UnitGroupEmpty();
+    }
     gv_is_setup_phase = true;
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_mgc_positions[init_i].lv_ug_all = UnitGroupEmpty();
@@ -1636,7 +1654,7 @@ int gf_get_player_at_position (int lp_position);
 void gf_finalise_map ();
 void gf_change_ownerships ();
 void gf_replace_geysers ();
-void gf_spawn_spaceballs ();
+void gf_spawn_critter ();
 bool gf_is_game_over ();
 bool gf_is_terran_dead ();
 bool gf_is_zerg_dead ();
@@ -1859,6 +1877,16 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+int gf_banelings_get_baneling_group_i_start ();
+int gf_banelings_get_baneling_group_i_max ();
+int gf_banelings_get_smallest_group_as_int_id ();
+bool gf_banelings_spawners_left ();
+unitgroup gf_banelings_get_all_unassigned_banelings_as_ug ();
+void gf_banelings_init_vars ();
+void gf_banelings_activate_spawners ();
+void gf_banelings_manage ();
+void gf_scale_zerg (int lp_percent);
+void gf_scale_zerg_start_init ();
 void gf_save_initial_map_state ();
 bool gf_check_infestor_dead_directive_override ();
 void gf_mgc_set_crisis_type (int lp_type);
@@ -2097,6 +2125,7 @@ trigger gt_ZergSupplyUpgrade;
 trigger gt_ZergArmor;
 trigger gt_adddefenseup;
 trigger gt_entrypoint;
+trigger gt_testdev55;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
 trigger gt_spawnwarfieldforces;
@@ -10206,18 +10235,21 @@ void gf_replace_geysers () {
     }
 }
 
-void gf_spawn_spaceballs () {
+void gf_spawn_critter () {
     // Variable Declarations
     point lv_p;
     int lv_r;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_r = RandomInt(1, 40);
 
     // Implementation
+    lv_r = RandomInt(1, 40);
     lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_r))));
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpaceBalls", 0, 0, lv_p);
+    lv_r = RandomInt(1, 40);
+    lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_r))));
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "KokCritter", 0, 0, lv_p);
 }
 
 bool gf_is_game_over () {
@@ -17215,7 +17247,7 @@ void gf_get_possible_positions () {
     for (;; auto641AD434_u -= 1) {
         auto641AD434_var = UnitGroupUnitFromEnd(auto641AD434_g, auto641AD434_u);
         if (auto641AD434_var == null) { break; }
-        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "Stargate") || (UnitGetType(auto641AD434_var) == "DarkShrine") || (UnitGetType(auto641AD434_var) == "Ice2x2NonConjoined") || (UnitGetType(auto641AD434_var) == "ProcessingCore") || (UnitGetType(auto641AD434_var) == "RelayTower") || (UnitGetType(auto641AD434_var) == "Node") || (UnitGetType(auto641AD434_var) == "TechVault"))) {
+        if (((UnitGetType(auto641AD434_var) == "StrikelingSpawner") || (UnitGetType(auto641AD434_var) == "RavatorSpawner") || (UnitGetType(auto641AD434_var) == "GreaterMineralExtractor") || (UnitGetType(auto641AD434_var) == "BrutaliskSpawner") || (UnitGetType(auto641AD434_var) == "RoachSpawner") || (UnitGetType(auto641AD434_var) == "UltraliskSpawner") || (UnitGetType(auto641AD434_var) == "AiurRockDebris2x2") || (UnitGetType(auto641AD434_var) == "Pylon") || (UnitGetType(auto641AD434_var) == "Stargate") || (UnitGetType(auto641AD434_var) == "DarkShrine") || (UnitGetType(auto641AD434_var) == "Ice2x2NonConjoined") || (UnitGetType(auto641AD434_var) == "ProcessingCore") || (UnitGetType(auto641AD434_var) == "RelayTower") || (UnitGetType(auto641AD434_var) == "Node") || (UnitGetType(auto641AD434_var) == "TechVault") || (UnitGetType(auto641AD434_var) == "RoachWarren"))) {
             auto1469AB90_val = UnitGetType(auto641AD434_var);
             if (auto1469AB90_val == "StrikelingSpawner") {
                 gv_possible_positions_t1_count += 1;
@@ -17278,6 +17310,11 @@ void gf_get_possible_positions () {
                 lv_cp = gf_get_closest_position(UnitGetPosition(auto641AD434_var));
                 gv_tdead_extra_positions_creep_sources_counts[lv_cp] += 1;
                 gv_tdead_extra_positions_creep_sources[lv_cp][gv_tdead_extra_positions_creep_sources_counts[lv_cp]] = UnitGetPosition(auto641AD434_var);
+            }
+            else if (auto1469AB90_val == "RoachWarren") {
+                lv_cp = gf_get_closest_position(UnitGetPosition(auto641AD434_var));
+                gv_tdead_extra_positions_bnests_count[lv_cp] += 1;
+                gv_tdead_extra_positions_bnests[lv_cp][gv_tdead_extra_positions_bnests_count[lv_cp]] = UnitGetPosition(auto641AD434_var);
             }
             else {
             }
@@ -17865,6 +17902,23 @@ void gf_inject_extra_positions (int lp_position) {
         }
         lv_i += 1;
     }
+    lv_i = 1;
+    if ((gv_difficulty >= 7)) {
+        while ((lv_i <= gv_tdead_extra_positions_bnests_count[lp_position])) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "BanelingSpawner", 0, 7, gv_tdead_extra_positions_bnests[lp_position][lv_i]);
+            if ((GameGetMissionTime() > (35 + ((22 - gv_banelings_activation_offset) * 60)))) {
+                UnitBehaviorRemove(UnitLastCreated(), "BanelingSpawnerDisabler", 1);
+                if ((gv_banelings_enabled == false)) {
+                    gv_banelings_enabled = true;
+                }
+
+            }
+
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromId(1910508930)), c_orderQueueReplace);
+            lv_i += 1;
+        }
+    }
+
 }
 
 int gf_get_position_of_alive_player_with_least_spawners () {
@@ -18139,7 +18193,7 @@ void gf_focus_weakest () {
         for (;; auto2F5FAF1E_u -= 1) {
             auto2F5FAF1E_var = UnitGroupUnitFromEnd(auto2F5FAF1E_g, auto2F5FAF1E_u);
             if (auto2F5FAF1E_var == null) { break; }
-            if (((UnitGetType(auto2F5FAF1E_var) == "BanelingSpawner") || (UnitGetType(auto2F5FAF1E_var) == "BeastlingSpawner") || (UnitGetType(auto2F5FAF1E_var) == "InfusedRoachSpawner") || (UnitGetType(auto2F5FAF1E_var) == "RavatorSpawner") || (UnitGetType(auto2F5FAF1E_var) == "TorraliskSpawner"))) {
+            if (((UnitGetType(auto2F5FAF1E_var) == "BeastlingSpawner") || (UnitGetType(auto2F5FAF1E_var) == "InfusedRoachSpawner") || (UnitGetType(auto2F5FAF1E_var) == "RavatorSpawner") || (UnitGetType(auto2F5FAF1E_var) == "TorraliskSpawner"))) {
                 lv_full_point_name = ("Zerg Flank Rally " + (lv_rally_side + (" Pre " + IntToString(lv_target_position))));
                 UnitIssueOrder(auto2F5FAF1E_var, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(lv_full_point_name)), c_orderQueueReplace);
                 UnitIssueOrder(auto2F5FAF1E_var, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_position)))), c_orderQueueAddToEnd);
@@ -19725,6 +19779,339 @@ void gf_get_unit_upgrades () {
 
     }
 
+}
+
+int gf_banelings_get_baneling_group_i_start () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gv_banelings_groups_max == 2)) {
+        lv_i = 1;
+    }
+    else {
+        if ((gv_banelings_groups_max == 4)) {
+            lv_i = 3;
+        }
+        else {
+            if ((gv_banelings_groups_max == 8)) {
+                lv_i = 3;
+            }
+
+        }
+    }
+    return lv_i;
+}
+
+int gf_banelings_get_baneling_group_i_max () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((gv_banelings_groups_max == 2)) {
+        lv_i = 2;
+    }
+    else {
+        if ((gv_banelings_groups_max == 4)) {
+            lv_i = 6;
+        }
+        else {
+            if ((gv_banelings_groups_max == 8)) {
+                lv_i = 10;
+            }
+
+        }
+    }
+    return lv_i;
+}
+
+int gf_banelings_get_smallest_group_as_int_id () {
+    // Variable Declarations
+    int lv_i;
+    int lv_max;
+    int lv_r;
+    int lv_tmp_lowest;
+    int lv_tmp_lowest_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_max = gf_banelings_get_baneling_group_i_max();
+
+    // Implementation
+    lv_i = gf_banelings_get_baneling_group_i_start();
+    while ((lv_i <= lv_max)) {
+        if ((lv_i == gf_banelings_get_baneling_group_i_start())) {
+            lv_tmp_lowest = UnitGroupCount(gv_banelings_groups[lv_i].lv_unit_group, c_unitCountAlive);
+            lv_tmp_lowest_index = lv_i;
+        }
+        else {
+            if ((UnitGroupCount(gv_banelings_groups[lv_i].lv_unit_group, c_unitCountAlive) < lv_tmp_lowest)) {
+                lv_tmp_lowest = UnitGroupCount(gv_banelings_groups[lv_i].lv_unit_group, c_unitCountAlive);
+                lv_tmp_lowest_index = lv_i;
+            }
+            else {
+                if ((UnitGroupCount(gv_banelings_groups[lv_i].lv_unit_group, c_unitCountAlive) == lv_tmp_lowest)) {
+                    if ((gf_flip_coin() == 1)) {
+                        lv_tmp_lowest = UnitGroupCount(gv_banelings_groups[lv_i].lv_unit_group, c_unitCountAlive);
+                        lv_tmp_lowest_index = lv_i;
+                    }
+
+                }
+
+            }
+        }
+        lv_i += 1;
+    }
+    lv_r = lv_tmp_lowest_index;
+    return lv_r;
+}
+
+bool gf_banelings_spawners_left () {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitGroupCount(UnitGroup("BanelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0)) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+unitgroup gf_banelings_get_all_unassigned_banelings_as_ug () {
+    // Variable Declarations
+    unitgroup lv_r;
+    bool lv_assigned;
+    int lv_i;
+    int lv_max;
+
+    // Automatic Variable Declarations
+    unitgroup auto967CA21D_g;
+    int auto967CA21D_u;
+    unit auto967CA21D_var;
+
+    // Variable Initialization
+    lv_r = UnitGroupEmpty();
+    lv_max = gf_banelings_get_baneling_group_i_max();
+
+    // Implementation
+    auto967CA21D_g = UnitGroup("BanelingZergHex", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto967CA21D_u = UnitGroupCount(auto967CA21D_g, c_unitCountAll);
+    for (;; auto967CA21D_u -= 1) {
+        auto967CA21D_var = UnitGroupUnitFromEnd(auto967CA21D_g, auto967CA21D_u);
+        if (auto967CA21D_var == null) { break; }
+        lv_assigned = false;
+        lv_i = gf_banelings_get_baneling_group_i_start();
+        while ((lv_i <= lv_max)) {
+            if ((UnitGroupHasUnit(gv_banelings_groups[lv_i].lv_unit_group, auto967CA21D_var) == true)) {
+                lv_assigned = true;
+            }
+
+            lv_i += 1;
+        }
+        if ((lv_assigned == false)) {
+            UnitGroupAdd(lv_r, auto967CA21D_var);
+        }
+
+    }
+    return lv_r;
+}
+
+void gf_banelings_init_vars () {
+    // Automatic Variable Declarations
+    // Implementation
+    gv_banelings_groups[1].lv_position = PointFromId(1177115991);
+    gv_banelings_groups[2].lv_position = PointFromId(20243859);
+    gv_banelings_groups[3].lv_position = PointFromId(381968211);
+    gv_banelings_groups[4].lv_position = PointFromId(299619688);
+    gv_banelings_groups[5].lv_position = PointFromId(710338726);
+    gv_banelings_groups[6].lv_position = PointFromId(1352331062);
+    gv_banelings_groups[7].lv_position = PointFromId(1596347129);
+    gv_banelings_groups[8].lv_position = PointFromId(887794054);
+    gv_banelings_groups[9].lv_position = PointFromId(743371141);
+    gv_banelings_groups[10].lv_position = PointFromId(399249919);
+    if ((gv_difficulty == 7)) {
+        gv_banelings_groups_max = 2;
+        gv_banelings_max_units_in_group = 40;
+    }
+    else {
+        gv_banelings_activation_offset = (gv_difficulty - 7);
+        if ((gv_difficulty == 8)) {
+            gv_banelings_groups_max = 4;
+            gv_banelings_max_units_in_group = 25;
+        }
+        else {
+            gv_banelings_groups_max = 8;
+            gv_banelings_max_units_in_group = 15;
+        }
+    }
+}
+
+void gf_banelings_activate_spawners () {
+    // Variable Declarations
+    int lv_c;
+
+    // Automatic Variable Declarations
+    unitgroup auto31FF86A7_g;
+    int auto31FF86A7_u;
+    unit auto31FF86A7_var;
+
+    // Variable Initialization
+
+    // Implementation
+    auto31FF86A7_g = UnitGroup("BanelingSpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto31FF86A7_u = UnitGroupCount(auto31FF86A7_g, c_unitCountAll);
+    for (;; auto31FF86A7_u -= 1) {
+        auto31FF86A7_var = UnitGroupUnitFromEnd(auto31FF86A7_g, auto31FF86A7_u);
+        if (auto31FF86A7_var == null) { break; }
+        UnitBehaviorRemove(auto31FF86A7_var, "BanelingSpawnerDisabler", 1);
+        lv_c += 1;
+    }
+    if ((lv_c > 0)) {
+        gv_banelings_enabled = true;
+    }
+
+}
+
+void gf_banelings_manage () {
+    // Variable Declarations
+    int lv_i;
+    int lv_max;
+    bool lv_assigned;
+    unitgroup lv_attack_ug;
+    unitgroup lv_temp_ug;
+    int lv_temp_target_ug_index;
+    int lv_target;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = gf_banelings_get_baneling_group_i_start();
+    lv_max = gf_banelings_get_baneling_group_i_max();
+    lv_attack_ug = UnitGroupEmpty();
+    lv_temp_ug = UnitGroupEmpty();
+
+    // Implementation
+    if ((UnitGroupCount(gv_banelings_groups[gf_banelings_get_smallest_group_as_int_id()].lv_unit_group, c_unitCountAlive) < gv_banelings_max_units_in_group)) {
+        lv_temp_ug = gf_banelings_get_all_unassigned_banelings_as_ug();
+        lv_temp_target_ug_index = gf_banelings_get_smallest_group_as_int_id();
+        UnitGroupAddUnitGroup(gv_banelings_groups[lv_temp_target_ug_index].lv_unit_group, lv_temp_ug);
+        UnitGroupIssueOrder(lv_temp_ug, OrderTargetingPoint(AbilityCommand("attack", 0), gv_banelings_groups[lv_temp_target_ug_index].lv_position), c_orderQueueReplace);
+        lv_assigned = true;
+    }
+
+    if ((lv_assigned == false) && (UnitGroupCount(gf_banelings_get_all_unassigned_banelings_as_ug(), c_unitCountAlive) >= 30)) {
+        UnitGroupAddUnitGroup(lv_attack_ug, gf_banelings_get_all_unassigned_banelings_as_ug());
+        if ((gv_difficulty == 13)) {
+            lv_target = gf_ai_get_weakest_player();
+        }
+        else {
+            lv_target = gf_ai_get_random_player();
+        }
+        if ((gf_flip_coin() == 1)) {
+            UnitGroupIssueOrder(lv_attack_ug, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally Left Pre " + IntToString(gv_players[lv_target].lv_position)))), c_orderQueueReplace);
+        }
+        else {
+            UnitGroupIssueOrder(lv_attack_ug, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Flank Rally Right Pre " + IntToString(gv_players[lv_target].lv_position)))), c_orderQueueReplace);
+        }
+        UnitGroupIssueOrder(lv_attack_ug, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(gv_players[lv_target].lv_position)))), c_orderQueueAddToEnd);
+    }
+
+}
+
+void gf_scale_zerg (int lp_percent) {
+    // Variable Declarations
+    fixed lv_decreased_spawn_speed;
+    int[3][9] lv_unit_hp_new;
+    int lv_i;
+    int lv_j;
+    int lv_s;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_decreased_spawn_speed = 1.0;
+    lv_i = 1;
+    lv_j = 1;
+
+    // Implementation
+    lv_unit_hp_new[1][1] = 25;
+    lv_unit_hp_new[1][2] = 30;
+    lv_unit_hp_new[1][3] = 50;
+    lv_unit_hp_new[1][4] = 90;
+    lv_unit_hp_new[1][5] = 120;
+    lv_unit_hp_new[1][6] = 155;
+    lv_unit_hp_new[1][7] = 650;
+    lv_unit_hp_new[1][8] = 400;
+    while ((lv_j <= 8)) {
+        lv_unit_hp_new[2][lv_j] = FixedToInt((lv_unit_hp_new[1][lv_j] + ((lv_unit_hp_new[1][lv_j] / 100.0) * (lp_percent + lp_percent))));
+        lv_j += 1;
+    }
+    lv_j = 1;
+    if ((gv_difficulty >= 11)) {
+        while ((lv_j <= 8)) {
+            lv_unit_hp_new[2][lv_j] = (lv_unit_hp_new[2][lv_j] + 10);
+            lv_j += 1;
+        }
+    }
+
+    if ((gv_difficulty >= 7)) {
+        lv_unit_hp_new[2][7] = (lv_unit_hp_new[2][7] * 2);
+    }
+
+    if ((lp_percent > 0)) {
+        lv_decreased_spawn_speed = (lv_decreased_spawn_speed - (lp_percent / 100.0));
+        libNtve_gf_CatalogReferenceSetAsReal("Behavior,SpawnerSlowDown,Modification.TimeScale", 7, lv_decreased_spawn_speed);
+        CatalogReferenceSet("Unit,Slowling,LifeMax", 7, IntToString(lv_unit_hp_new[2][1]));
+        CatalogReferenceSet("Unit,Slowling,LifeStart", 7, IntToString(lv_unit_hp_new[2][1]));
+        CatalogReferenceSet("Unit,Creeper,LifeMax", 7, IntToString(lv_unit_hp_new[2][2]));
+        CatalogReferenceSet("Unit,Creeper,LifeStart", 7, IntToString(lv_unit_hp_new[2][2]));
+        CatalogReferenceSet("Unit,Tankling,LifeMax", 7, IntToString(lv_unit_hp_new[2][3]));
+        CatalogReferenceSet("Unit,Tankling,LifeStart", 7, IntToString(lv_unit_hp_new[2][3]));
+        CatalogReferenceSet("Unit,Roach2,LifeMax", 7, IntToString(lv_unit_hp_new[2][4]));
+        CatalogReferenceSet("Unit,Roach2,LifeStart", 7, IntToString(lv_unit_hp_new[2][4]));
+        CatalogReferenceSet("Unit,PrimalRoach2,LifeMax", 7, IntToString(lv_unit_hp_new[2][5]));
+        CatalogReferenceSet("Unit,PrimalRoach2,LifeStart", 7, IntToString(lv_unit_hp_new[2][5]));
+        CatalogReferenceSet("Unit,Ultralisk2,LifeMax", 7, IntToString(lv_unit_hp_new[2][6]));
+        CatalogReferenceSet("Unit,Ultralisk2,LifeStart", 7, IntToString(lv_unit_hp_new[2][6]));
+        CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(lv_unit_hp_new[2][7]));
+        CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(lv_unit_hp_new[2][7]));
+        CatalogReferenceSet("Unit,Brutalisk2,LifeMax", 7, IntToString(lv_unit_hp_new[2][8]));
+        CatalogReferenceSet("Unit,Brutalisk2,LifeStart", 7, IntToString(lv_unit_hp_new[2][8]));
+    }
+
+}
+
+void gf_scale_zerg_start_init () {
+    // Automatic Variable Declarations
+    // Implementation
+    gv_start_scale_zerg = true;
+    if ((gv_difficulty == 5)) {
+        gv_scale_zerg_max = 10;
+    }
+    else {
+        if ((gv_difficulty >= 6) && (gv_difficulty <= 7)) {
+            gv_scale_zerg_max = 20;
+        }
+        else {
+            if ((gv_difficulty >= 8) && (gv_difficulty <= 10)) {
+                gv_scale_zerg_max = 30;
+            }
+            else {
+                if ((gv_difficulty >= 11)) {
+                    gv_scale_zerg_max = 40;
+                }
+
+            }
+        }
+    }
 }
 
 void gf_save_initial_map_state () {
@@ -29579,7 +29966,7 @@ bool gt_specialunitgotborn_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_type == "Beastling") || (lv_type == "BanelingZergHex") || (lv_type == "Ravator") || (lv_type == "Torralisk") || (lv_type == "InfusedRoach") || (lv_type == "Cyclone3") || (lv_type == "Hellion2")))) {
+        if (!(((lv_type == "Beastling") || (lv_type == "Ravator") || (lv_type == "Torralisk") || (lv_type == "InfusedRoach") || (lv_type == "Cyclone3") || (lv_type == "Hellion2")))) {
             return false;
         }
     }
@@ -29670,7 +30057,7 @@ bool gt_useidleunits_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "BanelingZergHex") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder")))) {
+        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder")))) {
             return false;
         }
     }
@@ -30780,6 +31167,10 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         if (!((UnitGetType(EventUnitProgressUnit()) != "CharEggSackThreeEgg"))) {
             return false;
         }
+
+        if (!((UnitGetType(EventUnitProgressUnit()) != "BanelingSpawner"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -31846,9 +32237,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_set_up_visibility();
     gf_init_event();
     if ((gv_difficulty >= 7)) {
-        CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(1200));
-        CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(1200));
-        CatalogReferenceSet("Unit,Eroder,LifeArmor", 7, IntToString(4));
+        CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(1300));
+        CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(1300));
+        CatalogReferenceSet("Unit,Eroder,LifeArmor", 7, IntToString(5));
+        gf_banelings_init_vars();
     }
 
     if ((gv_difficulty >= 8)) {
@@ -31891,7 +32283,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_set_up_modify_players_init();
     gf_create_income_dialog();
     gf_init_tgai_players();
-    gf_spawn_spaceballs();
+    gf_spawn_critter();
     gf_fill_fw_grid();
     libNtve_gf_SetAllianceAspectForPlayerGroup(PlayerGroupAll(), c_allianceIdTrade, false);
     libNtve_gf_SetAllianceAspectForPlayerGroup(gv_terrans, c_allianceIdTrade, false);
@@ -31902,6 +32294,44 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
 void gt_entrypoint_Init () {
     gt_entrypoint = TriggerCreate("gt_entrypoint_Func");
     TriggerAddEventMapInit(gt_entrypoint);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: -test dev 55
+//--------------------------------------------------------------------------------------------------
+bool gt_testdev55_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_SetAllianceBetweenTwoPlayerGroups(gv_zerg, PlayerGroupSingle(lv_player), libNtve_ge_AllianceSetting_AllyWithSharedVisionControlAndSpending);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_testdev55_Init () {
+    gt_testdev55 = TriggerCreate("gt_testdev55_Func");
+    TriggerAddEventChatMessage(gt_testdev55, c_playerAny, "-test dev 55", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -32791,6 +33221,28 @@ bool gt_everysecond_Func (bool testConds, bool runActions) {
 
     }
 
+    if ((gv_difficulty >= 7)) {
+        if ((GameGetMissionTime() == (35 + ((22 - gv_banelings_activation_offset) * 60)))) {
+            gf_banelings_activate_spawners();
+        }
+
+    }
+
+    if ((gv_difficulty >= 5)) {
+        if ((gv_difficulty == 5)) {
+            if ((GameGetMissionTime() == (35 + (14 * 60)))) {
+                gf_scale_zerg_start_init();
+            }
+
+        }
+        else {
+            if ((GameGetMissionTime() == (35 + (9 * 60)))) {
+                gf_scale_zerg_start_init();
+            }
+
+        }
+    }
+
     if ((gv_viper_cloud_cd > 0)) {
         gv_viper_cloud_cd = (gv_viper_cloud_cd - 1);
     }
@@ -33013,6 +33465,10 @@ bool gt_every30seconds_Func (bool testConds, bool runActions) {
     }
 
     gf_upgrade_start_spawners();
+    if ((gv_banelings_enabled == true)) {
+        gf_banelings_manage();
+    }
+
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 18) + 59)) && (gv_difficulty > 4)) {
         if ((gv_zhg_recruit_phase == 0)) {
             if ((UnitGroupCount(gv_zhg_hydras, c_unitCountAlive) < 30)) {
@@ -33089,6 +33545,14 @@ bool gt_everyminute_Func (bool testConds, bool runActions) {
 
     gf_update_terrandata();
     gf_run_cash_bonus_check();
+    if ((gv_start_scale_zerg == true)) {
+        if ((gv_scale_zerg_stage < gv_scale_zerg_max)) {
+            gv_scale_zerg_stage = (gv_scale_zerg_stage + 2);
+            gf_scale_zerg(gv_scale_zerg_stage);
+        }
+
+    }
+
     if ((FixedToInt(GameGetMissionTime()) >= ((60 * 4) + 59))) {
         gv_mass_infestor_death_exception = gf_check_infestor_dead_directive_override();
         gv_infestor_dead_count = 0;
@@ -33436,6 +33900,7 @@ void InitTriggers () {
     gt_ZergArmor_Init();
     gt_adddefenseup_Init();
     gt_entrypoint_Init();
+    gt_testdev55_Init();
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();
     gt_spawnwarfieldforces_Init();

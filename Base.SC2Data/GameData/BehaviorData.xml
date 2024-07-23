@@ -91,6 +91,25 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ProdigalEngineerProductionTarget">
+        <DisableValidatorArray index="0" removed="1"/>
+        <Modification TimeScale="1.5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnerSlowDown">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\icon-1v1-zerg.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BanelingSpawnerDisabler">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\icon-1v1-zerg.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Modification TimeScale="0.01"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="StaticDischargePylon">
         <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -893,10 +912,6 @@
             <DamageDealtUnscaled index="Ranged" value="1"/>
             <DamageDealtUnscaled index="Splash" value="1"/>
         </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="ProdigalEngineerProductionTarget">
-        <DisableValidatorArray index="0" removed="1"/>
-        <Modification TimeScale="1.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ScannerSweepTimed">
         <EditorCategories value="AbilityorEffectType:Units"/>
