@@ -2354,11 +2354,11 @@
     <CAbilEffectInstant id="PylonOvercharge">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoTooltipPriority value="1"/>
-        <Effect index="0" value="PylonOverchargeApply"/>
+        <Effect index="0" value="PylonOverchargeApplySet"/>
         <Flags index="Transient" value="1"/>
         <Cost>
             <Charge Link="Abil/Stimpack"/>
-            <Cooldown Link="Abil/Stimpack" TimeUse="180"/>
+            <Cooldown Link="Abil/Stimpack" TimeUse="60"/>
         </Cost>
         <InterruptCost>
             <Charge Link="Abil/Stimpack"/>

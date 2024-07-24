@@ -159,6 +159,8 @@
         <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
         <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
         <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
@@ -169,6 +171,8 @@
         <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
         <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel2.dds"/>
@@ -179,6 +183,8 @@
         <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
         <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
+        <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
         <Icon value="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>

@@ -91,6 +91,13 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="AfterlifeHeroTriggerNotice">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="AfterlifeHeroDiedTriggerDummy"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ProdigalEngineerProductionTarget">
         <DisableValidatorArray index="0" removed="1"/>
         <Modification TimeScale="1.5"/>
@@ -116,6 +123,13 @@
         <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
         <Period value="0.55"/>
         <PeriodicEffect value="PylonStaticDischargeSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="StaticDischargePylonOvercharged">
+        <InfoIcon value="Assets\Textures\btn-upgrade-artanis-healingpsionicstorm.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="0.4"/>
+        <PeriodicEffect value="PylonStaticOverchargedSearchArea"/>
     </CBehaviorBuff>
     <CBehaviorCreepSource id="makeCreep3x3Tombstone">
         <InfoFlags index="Hidden" value="1"/>
@@ -804,7 +818,8 @@
         <Duration value="30"/>
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
-        <Modification AttackSpeedMultiplier="3" RangedWeaponRange="7"/>
+        <Modification AttackSpeedMultiplier="1.3" RangedWeaponRange="2"/>
+        <FinalEffect value="PylonOverchargeRemoveSet"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ProbiusPylonTimedLife" parent="TimedLife">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>

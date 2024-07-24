@@ -6,6 +6,18 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="PylonApplyStaticDischarge">
+        <EditorCategories value=""/>
+        <Behavior value="StaticDischargePylon"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="PylonApplyStaticOvercharge">
+        <EditorCategories value=""/>
+        <Behavior value="StaticDischargePylonOvercharged"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="PylonRemoveStaticDischarge">
+        <EditorCategories value=""/>
+        <BehaviorLink value="StaticDischargePylon"/>
+    </CEffectRemoveBehavior>
     <CEffectSet id="DemonCrystalSet">
         <ValidatorArray value="ZergProtectiveBaseMainAttackBarrier"/>
         <EditorCategories value=""/>
@@ -18,6 +30,35 @@
         <Amount value="45"/>
         <AttributeBonus index="Structure" value="-25"/>
     </CEffectDamage>
+    <CEffectSet id="PylonOverchargeApplySet">
+        <EditorCategories value=""/>
+        <EffectArray value="PylonOverchargeApply"/>
+        <EffectArray value="PylonRemoveStaticDischarge"/>
+        <EffectArray value="PylonApplyStaticOvercharge"/>
+    </CEffectSet>
+    <CEffectSet id="PylonOverchargeRemoveSet">
+        <EditorCategories value=""/>
+        <EffectArray value="PylonRemoveStaticOvercharge"/>
+        <EffectArray value="PylonApplyStaticDischarge"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="PylonRemoveStaticOvercharge">
+        <EditorCategories value=""/>
+        <BehaviorLink value="StaticDischargePylonOvercharged"/>
+    </CEffectRemoveBehavior>
+    <CEffectEnumArea id="PylonStaticOverchargedSearchArea">
+        <EditorCategories value=""/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Cloaked,Dead,Invulnerable"/>
+        <TargetSorts RequestCount="3">
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <AreaArray Radius="9.4" Effect="StaticDischargeDamageSwitch"/>
+        <MaxCount value="5"/>
+    </CEffectEnumArea>
+    <CEffectSet id="AfterlifeHeroDiedTriggerDummy">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectRemoveBehavior id="TechLabWarpRemoveProtection">
         <EditorCategories value=""/>
         <BehaviorLink value="SpawnProtection"/>

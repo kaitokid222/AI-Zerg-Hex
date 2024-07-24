@@ -79,6 +79,12 @@
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
     </CUnit>
+    <CUnit id="PlanetaryFortress">
+        <LifeStart value="2500"/>
+        <LifeMax value="2500"/>
+        <LifeArmor value="5"/>
+        <BehaviorArray Link="SpawnBuggoUponDeath"/>
+    </CUnit>
     <CUnit id="ProcessingCore">
         <Footprint value="Footprint4x4Nest"/>
         <PlacementFootprint value="Footprint4x4Nest"/>
@@ -114,6 +120,8 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
+        <Attributes index="Biological" value="0"/>
+        <Attributes index="Mechanical" value="1"/>
     </CUnit>
     <CUnit id="SpecialZergSpawner" parent="CBuildingXayid">
         <LifeStart value="450"/>
@@ -7656,9 +7664,13 @@
     </CUnit>
     <CUnit id="SiegeTank2" parent="SiegeTank">
         <Name value="Unit/Name/SiegeTank2"/>
+        <FlagArray index="AlwaysThreatens" value="1"/>
+        <PushPriority value="12"/>
+        <Response value="Nothing"/>
         <LifeStart value="500"/>
         <LifeMax value="500"/>
         <EnergyMax value="3000"/>
+        <Speed value="2"/>
         <Food value="0"/>
         <CostResource index="Minerals" value="400"/>
         <CostResource index="Vespene" value="100"/>
@@ -7666,31 +7678,27 @@
         <BehaviorArray Link="EnergyUserUtillityAutomatic"/>
         <BehaviorArray Link="SiegeTankDisableWeapon"/>
         <WeaponArray index="0" Link="90mmCannons2"/>
+        <EffectArray index="Birth" value="SiegeTankCreateRevealTrigger"/>
+        <EffectArray index="Death" value="SiegeTankDeathRevertUpgradesTrigger"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="SiegeMode2" AbilCmd="Siege,Execute"/>
             <LayoutButtons index="6" Face="SiegeTankExpertiseWeapon" Type="Passive" Requirements="SiegeTankBetterVersion" Row="1" Column="4"/>
         </CardLayouts>
+        <Radius value="1"/>
+        <InnerRadius value="1"/>
+        <MinimapRadius value="1.5"/>
         <LeaderAlias value="SiegeTank2"/>
         <HotkeyAlias value="SiegeTank2"/>
         <SelectAlias value="SiegeTank2"/>
         <SubgroupAlias value="SiegeTank2"/>
-        <RankDisplay value="Never"/>
-        <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
-        <PushPriority value="12"/>
-        <FlagArray index="AlwaysThreatens" value="1"/>
-        <Response value="Nothing"/>
-        <Speed value="2"/>
         <GlossaryStrongArray index="0" removed="1"/>
         <GlossaryStrongArray index="1" removed="1"/>
         <GlossaryStrongArray index="2" removed="1"/>
         <GlossaryWeakArray index="0" removed="1"/>
         <GlossaryWeakArray index="1" removed="1"/>
         <GlossaryWeakArray index="2" removed="1"/>
-        <Radius value="1"/>
-        <InnerRadius value="1"/>
-        <MinimapRadius value="1.5"/>
-        <EffectArray index="Birth" value="SiegeTankCreateRevealTrigger"/>
-        <EffectArray index="Death" value="SiegeTankDeathRevertUpgradesTrigger"/>
+        <HotkeyCategory value="Unit/Category/ZergHexTerran"/>
+        <RankDisplay value="Never"/>
     </CUnit>
     <CUnit id="SiegeTankSieged2" parent="SiegeTankSieged">
         <Description value="Button/Tooltip/SiegeTankSieged2"/>

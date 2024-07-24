@@ -1201,6 +1201,9 @@ int gv_zerg_drop_cd;
 int gv_viper_cloud_cd;
 int gv_armor_level;
 int gv_supply_upgrades;
+bool gv_firelings_enabled;
+int gv_firelings_upgrade_level;
+int gv_firelings_difficulty;
 bool gv_banelings_enabled;
 int gv_banelings_activation_offset;
 gs_banelings_groups[11] gv_banelings_groups;
@@ -1877,6 +1880,7 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+string gf_afterlife_get_hero_unit_type (int lp_player);
 int gf_banelings_get_baneling_group_i_start ();
 int gf_banelings_get_baneling_group_i_max ();
 int gf_banelings_get_smallest_group_as_int_id ();
@@ -2126,6 +2130,7 @@ trigger gt_ZergArmor;
 trigger gt_adddefenseup;
 trigger gt_entrypoint;
 trigger gt_testdev55;
+trigger gt_afterlife_hero_died;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
 trigger gt_spawnwarfieldforces;
@@ -5819,26 +5824,41 @@ string gf_level_to_rank_icon (int lp_level, int lp_games) {
 
 void gf_create_karax_for_player (int lp_player, point lp_p) {
     // Variable Declarations
+    string lv_ut;
     point lv_spawn_point;
 
     // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
-    if ((UnitGroupCount(UnitGroup("KaraxChampion", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (PlayerStatus(lp_player) == c_playerStatusActive)) {
+    lv_ut = gf_afterlife_get_hero_unit_type(lp_player);
+    if ((gv_players[lp_player].lv_alive == false)) {
+        lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[gf_ai_get_random_player()].lv_position)));
+    }
+    else {
         lv_spawn_point = PointFromName(("Zerg Rally " + IntToString(gv_players[lp_player].lv_position)));
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
-        if ((lp_p != null)) {
-            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lp_p), c_orderQueueReplace);
-        }
+    }
+    if ((lv_ut == "KaraxChampion")) {
+        if ((UnitGroupCount(UnitGroup("KaraxChampion", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0) && (PlayerStatus(lp_player) == c_playerStatusActive)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "KaraxChampion", c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
+            if ((lp_p != null)) {
+                UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), lp_p), c_orderQueueReplace);
+            }
 
-        if ((gv_players[lp_player].lv_alive == false)) {
-            Wait(2.0, c_timeGame);
-            CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+            if ((gv_players[lp_player].lv_alive == false)) {
+                Wait(1.5, c_timeGame);
+                CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+            }
+
         }
 
     }
-
+    else {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_ut, c_unitCreateIgnorePlacement, lp_player, lv_spawn_point);
+        UnitBehaviorAdd(UnitLastCreated(), "AfterlifeHeroTriggerNotice", UnitLastCreated(), 1);
+        Wait(1.5, c_timeGame);
+        CameraPan(lp_player, lv_spawn_point, 0.0, -1, 10.0, false);
+    }
 }
 
 void gf_buff_players () {
@@ -19781,6 +19801,53 @@ void gf_get_unit_upgrades () {
 
 }
 
+string gf_afterlife_get_hero_unit_type (int lp_player) {
+    // Variable Declarations
+    string lv_return;
+
+    // Automatic Variable Declarations
+    string autoC0F986B4_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoC0F986B4_val = gv_players[lp_player].lv_support_type;
+    if (autoC0F986B4_val == "Army") {
+        lv_return = "ChaosLord";
+    }
+    else if (autoC0F986B4_val == "Hightech") {
+        lv_return = "KaraxChampion";
+    }
+    else if (autoC0F986B4_val == "v3x") {
+        lv_return = "KaraxChampion";
+    }
+    else if (autoC0F986B4_val == "Cash") {
+        lv_return = "CashTransporter";
+    }
+    else if (autoC0F986B4_val == "Infested") {
+        lv_return = "KaraxChampion";
+    }
+    else if (autoC0F986B4_val == "Raynor") {
+        lv_return = "KaraxChampion";
+    }
+    else if (autoC0F986B4_val == "Marauder") {
+        lv_return = "MengskMarauder";
+    }
+    else if (autoC0F986B4_val == "Tank") {
+        lv_return = "SiegeTank2";
+    }
+    else if (autoC0F986B4_val == "Probius") {
+        lv_return = "Probius";
+    }
+    else if (autoC0F986B4_val == "Karax") {
+        lv_return = "KaraxChampion";
+    }
+    else {
+        lv_return = "KaraxChampion";
+    }
+    return lv_return;
+}
+
 int gf_banelings_get_baneling_group_i_start () {
     // Variable Declarations
     int lv_i;
@@ -32335,6 +32402,38 @@ void gt_testdev55_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: afterlife_hero_died
+//--------------------------------------------------------------------------------------------------
+bool gt_afterlife_hero_died_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_owner;
+    point lv_no_point;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_owner = UnitGetOwner(EventPlayerEffectUsedUnit(c_effectUnitCaster));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/5ACFED61"));
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/ED4F3D03"));
+    Wait(10.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupSingle(lv_owner), c_messageAreaChat, StringExternal("Param/Value/D8E24CAD"));
+    Wait(10.0, c_timeGame);
+    gf_create_karax_for_player(lv_owner, lv_no_point);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_afterlife_hero_died_Init () {
+    gt_afterlife_hero_died = TriggerCreate("gt_afterlife_hero_died_Func");
+    TriggerAddEventPlayerEffectUsed(gt_afterlife_hero_died, c_playerAny, "AfterlifeHeroDiedTriggerDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Spore Crawler wants to shoot
 //--------------------------------------------------------------------------------------------------
 bool gt_SporeCrawlerwantstoshoot_Func (bool testConds, bool runActions) {
@@ -33901,6 +34000,7 @@ void InitTriggers () {
     gt_adddefenseup_Init();
     gt_entrypoint_Init();
     gt_testdev55_Init();
+    gt_afterlife_hero_died_Init();
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();
     gt_spawnwarfieldforces_Init();
