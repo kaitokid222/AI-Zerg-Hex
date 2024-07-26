@@ -2130,6 +2130,7 @@ trigger gt_ZergArmor;
 trigger gt_adddefenseup;
 trigger gt_entrypoint;
 trigger gt_testdev55;
+trigger gt_testdevnovaequipment;
 trigger gt_afterlife_hero_died;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
@@ -32402,6 +32403,47 @@ void gt_testdev55_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: -test dev nova equipment
+//--------------------------------------------------------------------------------------------------
+bool gt_testdevnovaequipment_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    point lv_p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TechTreeUpgradeAddLevel(lv_player, "NovaArmorApolloInfantrySuit", 1);
+    TechTreeUpgradeAddLevel(lv_player, "NovaGadgetHolographicDecoy", 1);
+    TechTreeUpgradeAddLevel(lv_player, "NovaWeaponBlazefireBlade", 1);
+    TechTreeUpgradeAddLevel(lv_player, "NovaHelmetRangefinderOculus", 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_testdevnovaequipment_Init () {
+    gt_testdevnovaequipment = TriggerCreate("gt_testdevnovaequipment_Func");
+    TriggerAddEventChatMessage(gt_testdevnovaequipment, c_playerAny, "-test dev nova equipment", true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: afterlife_hero_died
 //--------------------------------------------------------------------------------------------------
 bool gt_afterlife_hero_died_Func (bool testConds, bool runActions) {
@@ -34000,6 +34042,7 @@ void InitTriggers () {
     gt_adddefenseup_Init();
     gt_entrypoint_Init();
     gt_testdev55_Init();
+    gt_testdevnovaequipment_Init();
     gt_afterlife_hero_died_Init();
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();

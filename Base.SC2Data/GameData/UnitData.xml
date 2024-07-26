@@ -1596,8 +1596,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Heroic" value="1"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="1700"/>
+        <LifeMax value="1700"/>
         <LifeArmor value="3"/>
         <LifeArmorName value="Unit/LifeArmorName/ArmorOfTheDarkGods"/>
         <LifeArmorTip value="Unit/LifeArmorTooltip/ArmorOfTheDarkGods"/>
@@ -1610,8 +1610,8 @@
         <TurningRate value="999.8437"/>
         <Sight value="10"/>
         <CostCategory value="Army"/>
-        <CostResource index="Minerals" value="50"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="900"/>
+        <CostResource index="Vespene" value="70"/>
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
@@ -1622,8 +1622,8 @@
         <AbilArray Link="Charge"/>
         <BehaviorArray Link="SwordUserEnemyNearbyRangedDisabler"/>
         <BehaviorArray Link="LotsofBlood"/>
-        <WeaponArray Link="ChaosPowerSword"/>
-        <WeaponArray Link="TwinBolter"/>
+        <WeaponArray Link="ChaosDefilerPunch"/>
+        <WeaponArray Link="CrucioShockCannon"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -9783,7 +9783,7 @@
             <LayoutButtons index="5" Face="BuildEventTechCenter" Type="AbilCmd" AbilCmd="BuildBuilder,Build22" Row="1" Column="1"/>
             <LayoutButtons index="6" Face="BuildOperationCenter" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build5" Row="0" Column="1"/>
             <LayoutButtons Face="BuildLargeChemicalPlant" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build6" Row="2" Column="1"/>
-            <LayoutButtons Face="HiveMindEmulator" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build7" Row="2" Column="2"/>
+            <LayoutButtons Face="BuildCloakCharge" Type="AbilCmd" AbilCmd="BuildBuilder,Build24" Row="2" Column="2"/>
         </CardLayouts>
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>

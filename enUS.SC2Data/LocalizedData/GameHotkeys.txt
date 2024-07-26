@@ -15,6 +15,7 @@ Button/Hotkey/BuildArmory=A
 Button/Hotkey/BuildBattery=W
 Button/Hotkey/BuildChaosDefiler=D
 Button/Hotkey/BuildChemicalPlant=X
+Button/Hotkey/BuildCloakCharge=C
 Button/Hotkey/BuildConstructionYard=Q
 Button/Hotkey/BuildConverter=D
 Button/Hotkey/BuildCowFarm=C

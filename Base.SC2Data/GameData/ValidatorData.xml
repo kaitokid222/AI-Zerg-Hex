@@ -4,6 +4,10 @@
         <WhichUnit Value="Caster"/>
         <Value value="CommandCenter2"/>
     </CValidatorUnitType>
+    <CValidatorLocationEnumArea id="EnemiesNearbyDefiler">
+        <AreaArray Compare="GT" Count="1" Radius="5"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CValidatorLocationEnumArea>
     <CValidatorPlayerRequirement id="HaveUnstableCore">
         <Find value="1"/>
         <Value value="HaveUnstableCore"/>

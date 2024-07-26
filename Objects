@@ -507,7 +507,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8586" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
+    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8562" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -1029,7 +1029,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.412" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
+    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.4165" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
@@ -2623,6 +2623,7 @@
     <ObjectUnit Id="1914718920" Position="129.5,59.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="635451572" Position="134,130,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
     <ObjectUnit Id="925159948" Position="110,92,0" Scale="1,1,1" UnitType="DarkShrine"/>
+    <ObjectUnit Id="1882945141" Position="120.9328,229.884,0" Rotation="6.1896" Scale="1,1,1" UnitType="ChaosDefiler"/>
     <ObjectUnit Id="1419286513" Position="122.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="547716498" Position="197.5,87.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1003278492" Position="134,128,0" Rotation="5.9338" Scale="1,1,1" UnitType="GreaterMineralExtractor"/>
@@ -3075,6 +3076,7 @@
     <ObjectUnit Id="1077618667" Position="95,123,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="1800194088" Position="57,93,0" Rotation="4.9428" Scale="1,1,1" UnitType="AiurRockDebris2x2"/>
     <ObjectUnit Id="98771244" Position="89,133,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
+    <ObjectUnit Id="1287268947" Position="126.1445,230.0097,0" Rotation="3.8881" Scale="1,1,1" UnitType="Mole"/>
     <ObjectUnit Id="1931005049" Position="121.5,29.5,0" Rotation="3.7204" Scale="1,1,1" UnitType="Marine2"/>
     <ObjectUnit Id="2143522518" Position="122.5,57.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
     <ObjectUnit Id="1775701594" Position="119.5,61.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="Wall2"/>
@@ -4298,6 +4300,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1437433846" Position="137,160,0" Rotation="5.707" Scale="1,1,1" UnitType="RoachSpawner"/>
+    <ObjectUnit Id="1292874915" Position="124.9685,232.5488,0" Rotation="0.2897" Scale="1,1,1" UnitType="Virtus"/>
     <ObjectUnit Id="1403439442" Position="116,48,0" Rotation="0.7851" Scale="1,1,1" UnitType="RelayTower">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>

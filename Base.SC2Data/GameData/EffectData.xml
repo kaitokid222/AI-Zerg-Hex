@@ -6,6 +6,10 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectDamage id="ChaosDefilerPunch" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="160"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="PylonApplyStaticDischarge">
         <EditorCategories value=""/>
         <Behavior value="StaticDischargePylon"/>

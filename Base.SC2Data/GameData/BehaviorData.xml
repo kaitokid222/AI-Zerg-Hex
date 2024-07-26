@@ -131,6 +131,16 @@
         <Period value="0.4"/>
         <PeriodicEffect value="PylonStaticOverchargedSearchArea"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="DefilerEnemyNearbyRangedDisabler">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="EnemiesNearbyDefiler"/>
+        <Modification>
+            <WeaponDisableArray value="LaserPistol"/>
+            <WeaponDisableArray value="TwinBolter"/>
+            <WeaponDisableArray value="CrucioShockCannon"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorCreepSource id="makeCreep3x3Tombstone">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>

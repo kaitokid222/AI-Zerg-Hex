@@ -10,6 +10,18 @@
         </Cost>
         <Period value="2"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="ChaosDefilerPunch">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="assets\icon\ICON Defiler.dds"/>
+        <TargetFilters value="Ground,Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="2"/>
+        <Cost>
+            <Cooldown Link="Weapon/TwinBolter"/>
+        </Cost>
+        <Period value="0.9"/>
+        <DamagePoint value="0.888"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="ChaosSword">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>

@@ -37,6 +37,7 @@
 <Behavior id="GenetronPowerSupplyTracker"/>
 <Behavior id="GenetronEnergyStateNotFull"/>
 <Behavior id="GenerateMineralsTombstone"/>
+<Behavior id="AfterlifeHeroTriggerNotice"/>
 <Behavior id="SpawnerSlowDown"/>
 <Behavior id="HUGSAlgorythm"/>
 <Behavior id="SiegeTankExpertise"/>
@@ -137,7 +138,6 @@
 <Behavior id="UpgradedVespeneHarvestingUnlimited"/>
 <Behavior id="SpawnProtection"/>
 <Behavior id="GenerateMineralsCowFarm"/>
-<Behavior id="AfterlifeHeroTriggerNotice"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
@@ -206,6 +206,8 @@
 <Unit id="RelayTower"/>
 <Unit id="TechVault"/>
 <Unit id="Generator"/>
+<Unit id="Mole"/>
+<Unit id="Virtus"/>
 <Unit id="ACR"/>
 <Unit id="Spitfire"/>
 <Unit id="MineralTrader"/>
@@ -273,6 +275,7 @@
 <Unit id="MechaDrone"/>
 <Unit id="SpaceTurkey"/>
 <Unit id="UglyTurkey"/>
+<Unit id="ChaosDefiler"/>
 <Unit id="InfestorZergHex3v3"/>
 <Unit id="Candy2"/>
 <Unit id="Candy3"/>

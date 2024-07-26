@@ -20,6 +20,12 @@
         <AlertIcon value="Assets\Textures\btn-building-protoss-pylon.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="BuildCloakCharge">
+        <Icon value="Assets\Textures\btn-ability-genetron-teslacloakcharge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-genetron-teslacloakcharge.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <Universal value="1"/>
+    </CButton>
     <CButton id="UpgradeShieldBattery">
         <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
