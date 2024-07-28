@@ -206,10 +206,9 @@
 <Unit id="RelayTower"/>
 <Unit id="TechVault"/>
 <Unit id="Generator"/>
-<Unit id="Mole"/>
-<Unit id="Virtus"/>
 <Unit id="ACR"/>
 <Unit id="Spitfire"/>
+<Unit id="Eroder"/>
 <Unit id="MineralTrader"/>
 <Unit id="GasTrader"/>
 <Unit id="SiegeTank2"/>
@@ -275,7 +274,6 @@
 <Unit id="MechaDrone"/>
 <Unit id="SpaceTurkey"/>
 <Unit id="UglyTurkey"/>
-<Unit id="ChaosDefiler"/>
 <Unit id="InfestorZergHex3v3"/>
 <Unit id="Candy2"/>
 <Unit id="Candy3"/>

@@ -939,6 +939,13 @@ struct gs_infestors {
     unitgroup lv_unit_group;
 };
 
+struct gs_mgc_positions {
+    unitgroup lv_ug_all;
+    unitgroup lv_ug_spawners;
+    point[4][4] lv_position_sets;
+    int lv_state;
+};
+
 struct gs_spawnergroups {
     unitgroup lv_left;
     unitgroup lv_right;
@@ -961,13 +968,6 @@ struct gs_initial_map_state {
     point lv_position;
     string lv_type;
     int lv_owner;
-};
-
-struct gs_mgc_positions {
-    unitgroup lv_ug_all;
-    unitgroup lv_ug_spawners;
-    point[4][4] lv_position_sets;
-    int lv_state;
 };
 
 //--------------------------------------------------------------------------------------------------
@@ -1130,6 +1130,14 @@ gs_infestors[13] gv_infestors;
 unitgroup gv_extra_infestors;
 unitgroup gv_reserved_infestors;
 unitgroup gv_feeding_infestors;
+int gv_mgc_type;
+gs_mgc_positions[9] gv_mgc_positions;
+int gv_mgc_warfield_base_count;
+int gv_mgc_demon_fort_count;
+unitgroup gv_egg_cluster_large_spines;
+point[7] gv_defensive_egg_cluster_positions;
+int[7] gv_defensive_egg_cluster_marker;
+int gv_mgc_position_count;
 bool gv_omega_active;
 int gv_omega_target_player;
 int gv_omega_placement_cooldown;
@@ -1218,14 +1226,6 @@ bool gv_is_setup_phase;
 int gv_infestor_dead_count;
 bool gv_mass_infestor_death_exception;
 int gv_mass_infestor_death_exception_cooldown;
-int gv_mgc_type;
-gs_mgc_positions[9] gv_mgc_positions;
-int gv_mgc_warfield_base_count;
-int gv_mgc_demon_fort_count;
-unitgroup gv_egg_cluster_large_spines;
-point[7] gv_defensive_egg_cluster_positions;
-int[7] gv_defensive_egg_cluster_marker;
-int gv_mgc_position_count;
 int gv_zhg_recruit_phase;
 unitgroup gv_zhg_prefuse_infestors;
 unitgroup gv_zhg_hydras;
@@ -1401,6 +1401,11 @@ void InitGlobals () {
     gv_extra_infestors = UnitGroupEmpty();
     gv_reserved_infestors = UnitGroupEmpty();
     gv_feeding_infestors = UnitGroupEmpty();
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_mgc_positions[init_i].lv_ug_all = UnitGroupEmpty();
+        gv_mgc_positions[init_i].lv_ug_spawners = UnitGroupEmpty();
+    }
+    gv_egg_cluster_large_spines = UnitGroupEmpty();
     gv_omega_ping = c_invalidPingId;
     gv_build = "";
     gv_req_beastlings = 4;
@@ -1423,11 +1428,6 @@ void InitGlobals () {
         gv_banelings_groups[init_i].lv_unit_group = UnitGroupEmpty();
     }
     gv_is_setup_phase = true;
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_mgc_positions[init_i].lv_ug_all = UnitGroupEmpty();
-        gv_mgc_positions[init_i].lv_ug_spawners = UnitGroupEmpty();
-    }
-    gv_egg_cluster_large_spines = UnitGroupEmpty();
     gv_zhg_prefuse_infestors = UnitGroupEmpty();
     gv_zhg_hydras = UnitGroupEmpty();
     gv_prefuse_infestors_nests = UnitGroupEmpty();
@@ -1805,6 +1805,17 @@ unit gf_get_infestor_for_torra ();
 void gf_move_infestors (int lp_infestors_group_id);
 void gf_add_infestors_to_local_group (int lp_infestors_group_id);
 void gf_reserve_infestors ();
+void gf_mgc_set_crisis_type (int lp_type);
+string gf_mgc_get_crisis_name_by_type (int lp_t);
+void gf_mgc_add_position_set (unit lp_creep_source);
+void gf_mgc_handle_midgame_crisis_position_creation ();
+void gf_mgc_create_mgc_position ();
+void gf_create_new_warfield_base ();
+void gf_create_new_demon_fort ();
+void gf_Create_wave_and_send_from_to (int lp_spawner_type, point lp_origin, point lp_target);
+void gf_create_new_egg_cluster ();
+void gf_create_defensive_egg_cluster (int lp_position);
+void gf_handle_defensive_egg_cluster_markers ();
 void gf_buy_omega ();
 void gf_place_cocoon (int lp_target_terran);
 void gf_order_omega (unit lp_omega);
@@ -1893,17 +1904,6 @@ void gf_scale_zerg (int lp_percent);
 void gf_scale_zerg_start_init ();
 void gf_save_initial_map_state ();
 bool gf_check_infestor_dead_directive_override ();
-void gf_mgc_set_crisis_type (int lp_type);
-string gf_mgc_get_crisis_name_by_type (int lp_t);
-void gf_mgc_add_position_set (unit lp_creep_source);
-void gf_mgc_handle_midgame_crisis_position_creation ();
-void gf_mgc_create_mgc_position ();
-void gf_create_new_warfield_base ();
-void gf_create_new_demon_fort ();
-void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target);
-void gf_create_new_egg_cluster ();
-void gf_create_defensive_egg_cluster (int lp_position);
-void gf_handle_defensive_egg_cluster_markers ();
 void gf_try_prefuse_handler ();
 void gf_cleanup_prefuse_infestor_group ();
 void gf_inject_extra_nest_positions ();
@@ -2102,6 +2102,8 @@ trigger gt_add_infestor_to_group;
 trigger gt_spinedies;
 trigger gt_infestorgetsattacked;
 trigger gt_Feedidleinfestorsevery21s;
+trigger gt_spawnwarfieldforces;
+trigger gt_EggClusterTriggerDummy;
 trigger gt_Cocoongotspawned;
 trigger gt_Cocoonspawnfinished;
 trigger gt_CocoonorOmegadies;
@@ -2134,8 +2136,6 @@ trigger gt_testdevnovaequipment;
 trigger gt_afterlife_hero_died;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
-trigger gt_spawnwarfieldforces;
-trigger gt_EggClusterTriggerDummy;
 trigger gt_tbp_create;
 trigger gt_tbp_dialog_interaction;
 trigger gt_tbp_dialog_minimap_interaction;
@@ -11027,28 +11027,8 @@ fixed gf_get_elo_difficulty (int lp_player) {
         lv_result = 7.0;
     }
 
-    if ((lv_elo >= 2400) && (lv_elo < 2600)) {
+    if ((lv_elo >= 2400)) {
         lv_result = 8.0;
-    }
-
-    if ((lv_elo >= 2600) && (lv_elo < 2800)) {
-        lv_result = 8.2;
-    }
-
-    if ((lv_elo >= 2800) && (lv_elo < 3000)) {
-        lv_result = 8.4;
-    }
-
-    if ((lv_elo >= 3000) && (lv_elo < 3200)) {
-        lv_result = 8.6;
-    }
-
-    if ((lv_elo >= 3200) && (lv_elo < 3400)) {
-        lv_result = 8.8;
-    }
-
-    if ((lv_elo >= 4000)) {
-        lv_result = 9.0;
     }
 
     return lv_result;
@@ -16070,6 +16050,432 @@ void gf_reserve_infestors () {
 
 }
 
+void gf_mgc_set_crisis_type (int lp_type) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_type != 0)) {
+        gv_mgc_type = lp_type;
+        if ((lp_type == 2)) {
+            TriggerEnable(gt_spawnhellforces, true);
+            TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, true);
+            TriggerEnable(gt_resetwizardactioncooldown, true);
+            TriggerEnable(gt_removefortdebrisactorfix, true);
+        }
+
+        if ((lp_type == 3)) {
+            TriggerEnable(gt_spawnwarfieldforces, true);
+        }
+
+    }
+    else {
+        gv_mgc_type = 0;
+    }
+}
+
+string gf_mgc_get_crisis_name_by_type (int lp_t) {
+    // Variable Declarations
+    string lv_r;
+
+    // Automatic Variable Declarations
+    int autoA15EC56F_val;
+
+    // Variable Initialization
+    lv_r = "";
+
+    // Implementation
+    autoA15EC56F_val = lp_t;
+    if (autoA15EC56F_val == 0) {
+        lv_r = "No Crisis";
+    }
+    else if (autoA15EC56F_val == 1) {
+        lv_r = "Egg Clusters";
+    }
+    else if (autoA15EC56F_val == 2) {
+        lv_r = "Demon Forts";
+    }
+    else if (autoA15EC56F_val == 3) {
+        lv_r = "Possessed Terrans";
+    }
+    else {
+        lv_r = "No Crisis";
+    }
+    return lv_r;
+}
+
+void gf_mgc_add_position_set (unit lp_creep_source) {
+    // Variable Declarations
+    unitgroup lv_local_ug;
+    int lv_spawner_count;
+
+    // Automatic Variable Declarations
+    unitgroup auto0B36CA3E_g;
+    int auto0B36CA3E_u;
+    unit auto0B36CA3E_var;
+
+    // Variable Initialization
+    lv_local_ug = UnitGroupEmpty();
+
+    // Implementation
+    gv_mgc_position_count = (gv_mgc_position_count + 1);
+    gv_mgc_positions[gv_mgc_position_count].lv_position_sets[1][1] = UnitGetPosition(lp_creep_source);
+    lv_local_ug = UnitGroup(null, 0, RegionCircle(gv_mgc_positions[gv_mgc_position_count].lv_position_sets[1][1], 4.5), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto0B36CA3E_g = lv_local_ug;
+    auto0B36CA3E_u = UnitGroupCount(auto0B36CA3E_g, c_unitCountAll);
+    for (;; auto0B36CA3E_u -= 1) {
+        auto0B36CA3E_var = UnitGroupUnitFromEnd(auto0B36CA3E_g, auto0B36CA3E_u);
+        if (auto0B36CA3E_var == null) { break; }
+        if (((UnitGetType(auto0B36CA3E_var) == "ShieldBattery") || (UnitGetType(auto0B36CA3E_var) == "RoboticsBay"))) {
+            if ((UnitGetType(auto0B36CA3E_var) == "ShieldBattery")) {
+                gv_mgc_positions[gv_mgc_position_count].lv_position_sets[2][1] = UnitGetPosition(auto0B36CA3E_var);
+                UnitRemove(auto0B36CA3E_var);
+            }
+            else {
+                lv_spawner_count = (lv_spawner_count + 1);
+                gv_mgc_positions[gv_mgc_position_count].lv_position_sets[3][lv_spawner_count] = UnitGetPosition(auto0B36CA3E_var);
+                UnitRemove(auto0B36CA3E_var);
+            }
+        }
+
+    }
+    UnitRemove(lp_creep_source);
+}
+
+void gf_mgc_handle_midgame_crisis_position_creation () {
+    // Variable Declarations
+    int lv_time;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_time = FixedToInt(GameGetMissionTime());
+
+    // Implementation
+    if ((lv_time == (15 * 60))) {
+        if ((gv_difficulty >= 5)) {
+            gf_mgc_create_mgc_position();
+            gf_mgc_create_mgc_position();
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+    if ((lv_time == (16 * 60))) {
+        if ((gv_difficulty >= 6)) {
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+    if ((lv_time == (17 * 60))) {
+        if ((gv_difficulty >= 6)) {
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+    if ((lv_time == (18 * 60))) {
+        if ((gv_difficulty >= 7)) {
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+    if ((lv_time == (19 * 60))) {
+        if ((gv_difficulty >= 8)) {
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+    if ((lv_time == (20 * 60))) {
+        if ((gv_difficulty >= 8)) {
+            gf_mgc_create_mgc_position();
+        }
+
+    }
+
+}
+
+void gf_mgc_create_mgc_position () {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((gv_mgc_type == 1)) {
+        gf_create_new_egg_cluster();
+    }
+    else {
+        if ((gv_mgc_type == 2)) {
+            if ((gv_mgc_demon_fort_count < 8)) {
+                gf_create_new_demon_fort();
+            }
+
+        }
+        else {
+            if ((gv_mgc_type == 3)) {
+                if ((gv_mgc_warfield_base_count < 8)) {
+                    gf_create_new_warfield_base();
+                }
+
+            }
+
+        }
+    }
+}
+
+void gf_create_new_warfield_base () {
+    // Variable Declarations
+    int lv_pid;
+    int lv_done;
+    int lv_rand;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    while ((lv_done == 0)) {
+        lv_rand = RandomInt(1, 8);
+        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
+            lv_pid = lv_rand;
+            lv_done = 1;
+        }
+
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "PlanetaryFortress", 0, 7, gv_mgc_positions[lv_pid].lv_position_sets[1][1]);
+    UnitGroupAdd(gv_mgc_positions[lv_pid].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
+    gv_mgc_positions[lv_pid].lv_state = 1;
+    gv_mgc_warfield_base_count += 1;
+}
+
+void gf_create_new_demon_fort () {
+    // Variable Declarations
+    int lv_pid;
+    int lv_done;
+    int lv_rand;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    while ((lv_done == 0)) {
+        lv_rand = RandomInt(1, 8);
+        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
+            lv_pid = lv_rand;
+            lv_done = 1;
+        }
+
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Hellfort", 0, 7, gv_mgc_positions[lv_pid].lv_position_sets[1][1]);
+    UnitGroupAdd(gv_mgc_positions[lv_pid].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
+    gv_mgc_positions[lv_pid].lv_state = 1;
+    gv_mgc_demon_fort_count += 1;
+}
+
+void gf_Create_wave_and_send_from_to (int lp_spawner_type, point lp_origin, point lp_target) {
+    // Variable Declarations
+    int lv_amount;
+    unitgroup lv_result_ug;
+
+    // Automatic Variable Declarations
+    int auto19930C9E_val;
+
+    // Variable Initialization
+    lv_result_ug = UnitGroupEmpty();
+
+    // Implementation
+    auto19930C9E_val = gv_armor_level;
+    if (auto19930C9E_val == 2) {
+        lv_amount = 3;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Roach2", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+    }
+    else if (auto19930C9E_val == 3) {
+        lv_amount = 3;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "PrimalRoach2", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+    }
+    else if (auto19930C9E_val == 4) {
+        lv_amount = 2;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Ultralisk2", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+        lv_amount = 1;
+        lv_amount = (lv_amount + (lp_spawner_type * 1));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Eroder", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+    }
+    else if (auto19930C9E_val == 5) {
+        lv_amount = 2;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Eroder", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+        lv_amount = 2;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Brutalisk2", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+    }
+    else {
+        lv_amount = 3;
+        lv_amount = (lv_amount + (lp_spawner_type * 2));
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Slowling", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Creeper", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+        libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Tankling", 0, 7, lp_origin);
+        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
+    }
+    UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueReplace);
+}
+
+void gf_create_new_egg_cluster () {
+    // Variable Declarations
+    int lv_egg_cluster_id;
+    int lv_done;
+    int lv_rand;
+    int lv_cap;
+    int lv_sci;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_sci = 1;
+
+    // Implementation
+    while ((lv_done == 0)) {
+        lv_rand = RandomInt(1, 8);
+        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
+            lv_egg_cluster_id = lv_rand;
+            lv_done = 1;
+        }
+
+    }
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CreepTumor2", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[1][1]);
+    UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
+    if ((gv_difficulty >= 7)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "LargeSpineCrawler", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[2][1]);
+        UnitGroupAdd(gv_egg_cluster_large_spines, UnitLastCreated());
+    }
+    else {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpineCrawler", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[2][1]);
+    }
+    UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+    UnitGroupAdd(gv_outer_smallspines, UnitLastCreated());
+    while ((lv_sci <= 3)) {
+        if ((gv_difficulty < 5)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][3]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        else if ((gv_difficulty == 5)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        else if ((gv_difficulty == 6)) {
+            if ((lv_sci > 1)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+        }
+        else if ((gv_difficulty == 7)) {
+            if ((lv_sci > 1)) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+            }
+        }
+        else if ((gv_difficulty >= 8) && (gv_difficulty <= 11)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        else if ((gv_difficulty >= 12)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
+            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
+        }
+        if ((gv_difficulty <= 5)) {
+            lv_sci = (lv_sci + 2);
+        }
+
+        if ((gv_difficulty <= 7) && (gv_difficulty >= 6)) {
+            lv_sci = (lv_sci + 1);
+        }
+
+        lv_sci = (lv_sci + 1);
+    }
+    if ((gv_difficulty <= 5)) {
+    }
+    lv_cap = gf_get_closest_alive_player_position_from_group(UnitGroupCenterOfGroup(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners), gv_terrans);
+    UnitGroupIssueOrder(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueReplace);
+    gv_mgc_positions[lv_egg_cluster_id].lv_state = 1;
+}
+
+void gf_create_defensive_egg_cluster (int lp_position) {
+    // Variable Declarations
+    string lv_t;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((GameGetMissionTime() >= (12 * 60))) {
+        if ((gv_difficulty == 5)) {
+            lv_t = "CharEggSackOneEgg";
+        }
+        else if ((gv_difficulty > 5) && (gv_difficulty <= 7)) {
+            lv_t = "CharEggSackTwoEgg";
+        }
+        else if ((gv_difficulty >= 8)) {
+            lv_t = "CharEggSackThreeEgg";
+        }
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_t, c_unitCreateIgnorePlacement, 7, gv_defensive_egg_cluster_positions[lp_position]);
+        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_position)))), c_orderQueueReplace);
+    }
+    else {
+        gv_defensive_egg_cluster_marker[lp_position] = 1;
+    }
+}
+
+void gf_handle_defensive_egg_cluster_markers () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    if ((GameGetMissionTime() == (12 * 60))) {
+        while ((lv_i <= 6)) {
+            if ((gv_defensive_egg_cluster_marker[lv_i] == 1)) {
+                gf_create_defensive_egg_cluster(lv_i);
+            }
+
+            lv_i += 1;
+        }
+    }
+
+}
+
 void gf_buy_omega () {
     // Variable Declarations
     int lv_p;
@@ -19846,6 +20252,13 @@ string gf_afterlife_get_hero_unit_type (int lp_player) {
     else {
         lv_return = "KaraxChampion";
     }
+    if ((gv_players[lp_player].lv_support_type == "Probius")) {
+        lv_return = "Probius";
+    }
+    else {
+        lv_return = "KaraxChampion";
+    }
+    lv_return = "KaraxChampion";
     return lv_return;
 }
 
@@ -20218,549 +20631,6 @@ bool gf_check_infestor_dead_directive_override () {
     }
 
     return lv_return;
-}
-
-void gf_mgc_set_crisis_type (int lp_type) {
-    // Automatic Variable Declarations
-    // Implementation
-    if ((lp_type != 0)) {
-        gv_mgc_type = lp_type;
-        if ((lp_type == 2)) {
-            TriggerEnable(gt_spawnhellforces, true);
-            TriggerEnable(gt_buildinggetsattackedtrydefendwithwizards, true);
-            TriggerEnable(gt_resetwizardactioncooldown, true);
-            TriggerEnable(gt_removefortdebrisactorfix, true);
-        }
-
-        if ((lp_type == 3)) {
-            TriggerEnable(gt_spawnwarfieldforces, true);
-        }
-
-    }
-    else {
-        gv_mgc_type = 0;
-    }
-}
-
-string gf_mgc_get_crisis_name_by_type (int lp_t) {
-    // Variable Declarations
-    string lv_r;
-
-    // Automatic Variable Declarations
-    int autoA15EC56F_val;
-
-    // Variable Initialization
-    lv_r = "";
-
-    // Implementation
-    autoA15EC56F_val = lp_t;
-    if (autoA15EC56F_val == 0) {
-        lv_r = "No Crisis";
-    }
-    else if (autoA15EC56F_val == 1) {
-        lv_r = "Egg Clusters";
-    }
-    else if (autoA15EC56F_val == 2) {
-        lv_r = "Demon Forts";
-    }
-    else if (autoA15EC56F_val == 3) {
-        lv_r = "Possessed Terrans";
-    }
-    else {
-        lv_r = "No Crisis";
-    }
-    return lv_r;
-}
-
-void gf_mgc_add_position_set (unit lp_creep_source) {
-    // Variable Declarations
-    unitgroup lv_local_ug;
-    int lv_spawner_count;
-
-    // Automatic Variable Declarations
-    unitgroup auto0B36CA3E_g;
-    int auto0B36CA3E_u;
-    unit auto0B36CA3E_var;
-
-    // Variable Initialization
-    lv_local_ug = UnitGroupEmpty();
-
-    // Implementation
-    gv_mgc_position_count = (gv_mgc_position_count + 1);
-    gv_mgc_positions[gv_mgc_position_count].lv_position_sets[1][1] = UnitGetPosition(lp_creep_source);
-    lv_local_ug = UnitGroup(null, 0, RegionCircle(gv_mgc_positions[gv_mgc_position_count].lv_position_sets[1][1], 4.5), UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    auto0B36CA3E_g = lv_local_ug;
-    auto0B36CA3E_u = UnitGroupCount(auto0B36CA3E_g, c_unitCountAll);
-    for (;; auto0B36CA3E_u -= 1) {
-        auto0B36CA3E_var = UnitGroupUnitFromEnd(auto0B36CA3E_g, auto0B36CA3E_u);
-        if (auto0B36CA3E_var == null) { break; }
-        if (((UnitGetType(auto0B36CA3E_var) == "ShieldBattery") || (UnitGetType(auto0B36CA3E_var) == "RoboticsBay"))) {
-            if ((UnitGetType(auto0B36CA3E_var) == "ShieldBattery")) {
-                gv_mgc_positions[gv_mgc_position_count].lv_position_sets[2][1] = UnitGetPosition(auto0B36CA3E_var);
-                UnitRemove(auto0B36CA3E_var);
-            }
-            else {
-                lv_spawner_count = (lv_spawner_count + 1);
-                gv_mgc_positions[gv_mgc_position_count].lv_position_sets[3][lv_spawner_count] = UnitGetPosition(auto0B36CA3E_var);
-                UnitRemove(auto0B36CA3E_var);
-            }
-        }
-
-    }
-    UnitRemove(lp_creep_source);
-}
-
-void gf_mgc_handle_midgame_crisis_position_creation () {
-    // Variable Declarations
-    int lv_time;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_time = FixedToInt(GameGetMissionTime());
-
-    // Implementation
-    if ((lv_time == (15 * 60))) {
-        if ((gv_difficulty >= 5)) {
-            gf_mgc_create_mgc_position();
-            gf_mgc_create_mgc_position();
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-    if ((lv_time == (16 * 60))) {
-        if ((gv_difficulty >= 6)) {
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-    if ((lv_time == (17 * 60))) {
-        if ((gv_difficulty >= 6)) {
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-    if ((lv_time == (18 * 60))) {
-        if ((gv_difficulty >= 7)) {
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-    if ((lv_time == (19 * 60))) {
-        if ((gv_difficulty >= 8)) {
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-    if ((lv_time == (20 * 60))) {
-        if ((gv_difficulty >= 8)) {
-            gf_mgc_create_mgc_position();
-        }
-
-    }
-
-}
-
-void gf_mgc_create_mgc_position () {
-    // Automatic Variable Declarations
-    // Implementation
-    if ((gv_mgc_type == 1)) {
-        gf_create_new_egg_cluster();
-    }
-    else {
-        if ((gv_mgc_type == 2)) {
-            if ((gv_mgc_demon_fort_count < 8)) {
-                gf_create_new_demon_fort();
-            }
-
-        }
-        else {
-            if ((gv_mgc_type == 3)) {
-                if ((gv_mgc_warfield_base_count < 8)) {
-                    gf_create_new_warfield_base();
-                }
-
-            }
-
-        }
-    }
-}
-
-void gf_create_new_warfield_base () {
-    // Variable Declarations
-    int lv_pid;
-    int lv_done;
-    int lv_rand;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    while ((lv_done == 0)) {
-        lv_rand = RandomInt(1, 8);
-        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
-            lv_pid = lv_rand;
-            lv_done = 1;
-        }
-
-    }
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "PlanetaryFortress", 0, 7, gv_mgc_positions[lv_pid].lv_position_sets[1][1]);
-    UnitGroupAdd(gv_mgc_positions[lv_pid].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
-    gv_mgc_positions[lv_pid].lv_state = 1;
-    gv_mgc_warfield_base_count += 1;
-}
-
-void gf_create_new_demon_fort () {
-    // Variable Declarations
-    int lv_pid;
-    int lv_done;
-    int lv_rand;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    while ((lv_done == 0)) {
-        lv_rand = RandomInt(1, 8);
-        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
-            lv_pid = lv_rand;
-            lv_done = 1;
-        }
-
-    }
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Hellfort", 0, 7, gv_mgc_positions[lv_pid].lv_position_sets[1][1]);
-    UnitGroupAdd(gv_mgc_positions[lv_pid].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
-    gv_mgc_positions[lv_pid].lv_state = 1;
-    gv_mgc_demon_fort_count += 1;
-}
-
-void gf_Create_wave_and_send_from_to (int lp_pool, point lp_origin, point lp_target) {
-    // Variable Declarations
-    int[9] lv_us;
-    int lv_up;
-    int lv_rand;
-    int lv_i;
-    unitgroup lv_result_ug;
-
-    // Automatic Variable Declarations
-    int auto4930659F_val;
-
-    // Variable Initialization
-    lv_i = 1;
-    lv_result_ug = UnitGroupEmpty();
-
-    // Implementation
-    while (((lp_pool - lv_up) > 0)) {
-        if (((lp_pool - lv_up) > 1)) {
-            lv_rand = RandomInt(1, 100);
-            if ((gv_difficulty < 8)) {
-                if ((lv_rand >= 0) && (lv_rand < 20)) {
-                    lv_us[1] = (lv_us[1] + 2);
-                    lv_up = (lv_up + 1);
-                }
-                else if ((lv_rand >= 20) && (lv_rand < 40)) {
-                    lv_us[2] = (lv_us[2] + 2);
-                    lv_up = (lv_up + 1);
-                }
-                else if ((lv_rand >= 40) && (lv_rand < 50)) {
-                    lv_us[3] = (lv_us[3] + 3);
-                    lv_up = (lv_up + 2);
-                }
-                else if ((lv_rand >= 50) && (lv_rand < 70)) {
-                    lv_us[4] = (lv_us[4] + 1);
-                    lv_up = (lv_up + 4);
-                }
-                else if ((lv_rand >= 70) && (lv_rand < 85)) {
-                    lv_us[5] = (lv_us[5] + 1);
-                    lv_up = (lv_up + 5);
-                }
-                else if ((lv_rand >= 85) && (lv_rand < 95)) {
-                    lv_us[6] = (lv_us[6] + 1);
-                    lv_up = (lv_up + 6);
-                }
-                else if ((lv_rand >= 95)) {
-                    lv_us[7] = (lv_us[7] + 1);
-                    lv_up = (lv_up + 7);
-                }
-            }
-            else {
-                if ((lv_rand >= 0) && (lv_rand < 10)) {
-                    lv_us[1] = (lv_us[1] + 2);
-                    lv_up = (lv_up + 1);
-                }
-                else if ((lv_rand >= 10) && (lv_rand < 20)) {
-                    lv_us[2] = (lv_us[2] + 2);
-                    lv_up = (lv_up + 1);
-                }
-                else if ((lv_rand >= 20) && (lv_rand < 50)) {
-                    lv_us[3] = (lv_us[3] + 3);
-                    lv_up = (lv_up + 2);
-                }
-                else if ((lv_rand >= 50) && (lv_rand < 70)) {
-                    lv_us[5] = (lv_us[5] + 1);
-                    lv_up = (lv_up + 5);
-                }
-                else if ((lv_rand >= 70) && (lv_rand < 80)) {
-                    lv_us[6] = (lv_us[6] + 1);
-                    lv_up = (lv_up + 6);
-                }
-                else if ((lv_rand >= 80) && (lv_rand < 95)) {
-                    lv_us[7] = (lv_us[7] + 1);
-                    lv_up = (lv_up + 7);
-                }
-                else if ((lv_rand >= 95)) {
-                    lv_us[8] = (lv_us[8] + 1);
-                    lv_up = (lv_up + 8);
-                }
-            }
-        }
-        else {
-            if ((gv_difficulty > 6)) {
-                if ((gf_flip_coin() == 1)) {
-                    lv_us[8] = (lv_us[8] + 1);
-                }
-                else {
-                    lv_us[3] = (lv_us[3] + 3);
-                }
-                lv_up = (lv_up + 1);
-            }
-            else {
-                lv_us[3] = (lv_us[3] + 5);
-                lv_up = (lv_up + 1);
-            }
-        }
-    }
-    while ((lv_i <= 8)) {
-        if ((lv_us[lv_i] > 0)) {
-            if ((lv_i >= 1) && (lv_i <= 4)) {
-                auto4930659F_val = lv_i;
-                if (auto4930659F_val == 1) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Slowling", 0, 7, lp_origin);
-                }
-                else if (auto4930659F_val == 2) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Creeper", 0, 7, lp_origin);
-                }
-                else if (auto4930659F_val == 3) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Strikeling", 0, 7, lp_origin);
-                }
-                else if (auto4930659F_val == 4) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Tankling", 0, 7, lp_origin);
-                }
-                else {
-                }
-            }
-            else if ((lv_i == 5)) {
-                if ((gv_armor_level >= 2)) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Roach2", 0, 7, lp_origin);
-                }
-                else {
-                    if ((gf_flip_coin() == 1)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 3), "Strikeling", 0, 7, lp_origin);
-                    }
-                    else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 2), "Slowling", 0, 7, lp_origin);
-                    }
-                }
-            }
-            else if ((lv_i == 6)) {
-                if ((gv_armor_level >= 3)) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "PrimalRoach2", 0, 7, lp_origin);
-                }
-                else {
-                    if ((gf_flip_coin() == 1)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "Strikeling", 0, 7, lp_origin);
-                    }
-                    else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 3), "Slowling", 0, 7, lp_origin);
-                    }
-                }
-            }
-            else if ((lv_i == 7)) {
-                if ((gv_armor_level >= 4)) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Ultralisk2", 0, 7, lp_origin);
-                }
-                else {
-                    if ((gf_flip_coin() == 1)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 6), "Strikeling", 0, 7, lp_origin);
-                    }
-                    else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 5), "Slowling", 0, 7, lp_origin);
-                    }
-                }
-            }
-            else if ((lv_i == 8)) {
-                if ((gv_armor_level >= 5)) {
-                    libNtve_gf_CreateUnitsWithDefaultFacing(lv_us[lv_i], "Ultralisk2", 0, 7, lp_origin);
-                }
-                else {
-                    if ((gf_flip_coin() == 1)) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 7), "Strikeling", 0, 7, lp_origin);
-                    }
-                    else {
-                        libNtve_gf_CreateUnitsWithDefaultFacing((lv_us[lv_i] * 6), "Slowling", 0, 7, lp_origin);
-                    }
-                }
-            }
-        }
-
-        UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
-        lv_i = (lv_i + 1);
-    }
-    UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueReplace);
-}
-
-void gf_create_new_egg_cluster () {
-    // Variable Declarations
-    int lv_egg_cluster_id;
-    int lv_done;
-    int lv_rand;
-    int lv_cap;
-    int lv_sci;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_sci = 1;
-
-    // Implementation
-    while ((lv_done == 0)) {
-        lv_rand = RandomInt(1, 8);
-        if ((gv_mgc_positions[lv_rand].lv_state == 0)) {
-            lv_egg_cluster_id = lv_rand;
-            lv_done = 1;
-        }
-
-    }
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "CreepTumor2", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[1][1]);
-    UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_outer_tumors, UnitLastCreated());
-    if ((gv_difficulty >= 7)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "LargeSpineCrawler", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[2][1]);
-        UnitGroupAdd(gv_egg_cluster_large_spines, UnitLastCreated());
-    }
-    else {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpineCrawler", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[2][1]);
-    }
-    UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-    UnitGroupAdd(gv_outer_smallspines, UnitLastCreated());
-    while ((lv_sci <= 3)) {
-        if ((gv_difficulty < 5)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][3]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-        }
-        else if ((gv_difficulty == 5)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-        }
-        else if ((gv_difficulty == 6)) {
-            if ((lv_sci > 1)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            }
-        }
-        else if ((gv_difficulty == 7)) {
-            if ((lv_sci > 1)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][2]);
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackOneEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][1]);
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-                UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-            }
-        }
-        else if ((gv_difficulty >= 8) && (gv_difficulty <= 11)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackTwoEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-        }
-        else if ((gv_difficulty >= 12)) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CharEggSackThreeEgg", 0, 7, gv_mgc_positions[lv_egg_cluster_id].lv_position_sets[3][lv_sci]);
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_all, UnitLastCreated());
-            UnitGroupAdd(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, UnitLastCreated());
-        }
-        if ((gv_difficulty <= 5)) {
-            lv_sci = (lv_sci + 2);
-        }
-
-        if ((gv_difficulty <= 7) && (gv_difficulty >= 6)) {
-            lv_sci = (lv_sci + 1);
-        }
-
-        lv_sci = (lv_sci + 1);
-    }
-    if ((gv_difficulty <= 5)) {
-    }
-    lv_cap = gf_get_closest_alive_player_position_from_group(UnitGroupCenterOfGroup(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners), gv_terrans);
-    UnitGroupIssueOrder(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueReplace);
-    gv_mgc_positions[lv_egg_cluster_id].lv_state = 1;
-}
-
-void gf_create_defensive_egg_cluster (int lp_position) {
-    // Variable Declarations
-    string lv_t;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((GameGetMissionTime() >= (12 * 60))) {
-        if ((gv_difficulty == 5)) {
-            lv_t = "CharEggSackOneEgg";
-        }
-        else if ((gv_difficulty > 5) && (gv_difficulty <= 7)) {
-            lv_t = "CharEggSackTwoEgg";
-        }
-        else if ((gv_difficulty >= 8)) {
-            lv_t = "CharEggSackThreeEgg";
-        }
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_t, c_unitCreateIgnorePlacement, 7, gv_defensive_egg_cluster_positions[lp_position]);
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_position)))), c_orderQueueReplace);
-    }
-    else {
-        gv_defensive_egg_cluster_marker[lp_position] = 1;
-    }
-}
-
-void gf_handle_defensive_egg_cluster_markers () {
-    // Variable Declarations
-    int lv_i;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_i = 1;
-
-    // Implementation
-    if ((GameGetMissionTime() == (12 * 60))) {
-        while ((lv_i <= 6)) {
-            if ((gv_defensive_egg_cluster_marker[lv_i] == 1)) {
-                gf_create_defensive_egg_cluster(lv_i);
-            }
-
-            lv_i += 1;
-        }
-    }
-
 }
 
 void gf_try_prefuse_handler () {
@@ -30774,6 +30644,113 @@ void gt_Feedidleinfestorsevery21s_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: spawn warfield forces
+//--------------------------------------------------------------------------------------------------
+bool gt_spawnwarfieldforces_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unitgroup lv_group;
+    unitgroup lv_agroup;
+    int lv_offset;
+
+    // Automatic Variable Declarations
+    unitgroup autoC45F6AFA_g;
+    int autoC45F6AFA_u;
+    unit autoC45F6AFA_var;
+
+    // Variable Initialization
+    lv_group = UnitGroupEmpty();
+    lv_agroup = UnitGroupEmpty();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_difficulty >= 5)) {
+        lv_offset = (gv_difficulty - 5);
+    }
+    else {
+        lv_offset = 1;
+    }
+    autoC45F6AFA_g = UnitGroup("PlanetaryFortress", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoC45F6AFA_u = UnitGroupCount(autoC45F6AFA_g, c_unitCountAll);
+    for (;; autoC45F6AFA_u -= 1) {
+        autoC45F6AFA_var = UnitGroupUnitFromEnd(autoC45F6AFA_g, autoC45F6AFA_u);
+        if (autoC45F6AFA_var == null) { break; }
+        libNtve_gf_CreateUnitsAtPoint2((12 + lv_offset), "WarPig", 0, 7, UnitGetPosition(autoC45F6AFA_var));
+        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
+        libNtve_gf_CreateUnitsAtPoint2((6 + lv_offset), "DevilDog", 0, 7, UnitGetPosition(autoC45F6AFA_var));
+        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
+        if ((gv_difficulty >= 7)) {
+            libNtve_gf_CreateUnitsAtPoint2(2, "HelsAngelAssault", 0, 7, UnitGetPosition(autoC45F6AFA_var));
+        }
+        else {
+            libNtve_gf_CreateUnitsAtPoint2(1, "HelsAngelAssault", 0, 7, UnitGetPosition(autoC45F6AFA_var));
+        }
+        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
+        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup)))))), c_orderQueueReplace);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_spawnwarfieldforces_Init () {
+    gt_spawnwarfieldforces = TriggerCreate("gt_spawnwarfieldforces_Func");
+    TriggerEnable(gt_spawnwarfieldforces, false);
+    TriggerAddEventTimePeriodic(gt_spawnwarfieldforces, 45.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Egg Cluster Trigger Dummy
+//--------------------------------------------------------------------------------------------------
+bool gt_EggClusterTriggerDummy_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_type;
+    unit lv_unit;
+    point lv_pos;
+    point lv_rt_pos;
+    int lv_pool;
+
+    // Automatic Variable Declarations
+    string auto568EEEB1_val;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_unit = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_type = UnitGetType(lv_unit);
+    lv_pos = UnitGetPosition(lv_unit);
+    lv_rt_pos = UnitRallyPointTargetPoint(lv_unit, 1, 1);
+    auto568EEEB1_val = lv_type;
+    if (auto568EEEB1_val == "CharEggSackOneEgg") {
+        lv_pool = 1;
+    }
+    else if (auto568EEEB1_val == "CharEggSackTwoEgg") {
+        lv_pool = 2;
+    }
+    else if (auto568EEEB1_val == "CharEggSackThreeEgg") {
+        lv_pool = 3;
+    }
+    else {
+    }
+    if ((gv_ic_unit_count < 2000)) {
+        gf_Create_wave_and_send_from_to(lv_pool, lv_pos, lv_rt_pos);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_EggClusterTriggerDummy_Init () {
+    gt_EggClusterTriggerDummy = TriggerCreate("gt_EggClusterTriggerDummy_Func");
+    TriggerAddEventPlayerEffectUsed(gt_EggClusterTriggerDummy, 7, "EggClusterDummy");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Cocoon got spawned
 //--------------------------------------------------------------------------------------------------
 bool gt_Cocoongotspawned_Func (bool testConds, bool runActions) {
@@ -32308,7 +32285,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(1300));
         CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(1300));
         CatalogReferenceSet("Unit,Eroder,LifeArmor", 7, IntToString(5));
-        gf_banelings_init_vars();
     }
 
     if ((gv_difficulty >= 8)) {
@@ -32333,6 +32309,10 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         }
 
     }
+    if ((gv_difficulty >= 7)) {
+        gf_banelings_init_vars();
+    }
+
     gf_set_up_difficulty_init_modifiers();
     if ((gf_is_sunday() == true)) {
         if ((gf_tbp_get_mutator_vote_result() == 1)) {
@@ -32513,113 +32493,6 @@ bool gt_Infestordied_Func (bool testConds, bool runActions) {
 void gt_Infestordied_Init () {
     gt_Infestordied = TriggerCreate("gt_Infestordied_Func");
     TriggerAddEventPlayerEffectUsed(gt_Infestordied, c_playerAny, "InfestorDeathTriggerNoticeDummy");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: spawn warfield forces
-//--------------------------------------------------------------------------------------------------
-bool gt_spawnwarfieldforces_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unitgroup lv_group;
-    unitgroup lv_agroup;
-    int lv_offset;
-
-    // Automatic Variable Declarations
-    unitgroup autoC45F6AFA_g;
-    int autoC45F6AFA_u;
-    unit autoC45F6AFA_var;
-
-    // Variable Initialization
-    lv_group = UnitGroupEmpty();
-    lv_agroup = UnitGroupEmpty();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((gv_difficulty >= 5)) {
-        lv_offset = (gv_difficulty - 5);
-    }
-    else {
-        lv_offset = 1;
-    }
-    autoC45F6AFA_g = UnitGroup("PlanetaryFortress", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoC45F6AFA_u = UnitGroupCount(autoC45F6AFA_g, c_unitCountAll);
-    for (;; autoC45F6AFA_u -= 1) {
-        autoC45F6AFA_var = UnitGroupUnitFromEnd(autoC45F6AFA_g, autoC45F6AFA_u);
-        if (autoC45F6AFA_var == null) { break; }
-        libNtve_gf_CreateUnitsAtPoint2((12 + lv_offset), "WarPig", 0, 7, UnitGetPosition(autoC45F6AFA_var));
-        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
-        libNtve_gf_CreateUnitsAtPoint2((6 + lv_offset), "DevilDog", 0, 7, UnitGetPosition(autoC45F6AFA_var));
-        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
-        if ((gv_difficulty >= 7)) {
-            libNtve_gf_CreateUnitsAtPoint2(2, "HelsAngelAssault", 0, 7, UnitGetPosition(autoC45F6AFA_var));
-        }
-        else {
-            libNtve_gf_CreateUnitsAtPoint2(1, "HelsAngelAssault", 0, 7, UnitGetPosition(autoC45F6AFA_var));
-        }
-        UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
-        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup)))))), c_orderQueueReplace);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_spawnwarfieldforces_Init () {
-    gt_spawnwarfieldforces = TriggerCreate("gt_spawnwarfieldforces_Func");
-    TriggerEnable(gt_spawnwarfieldforces, false);
-    TriggerAddEventTimePeriodic(gt_spawnwarfieldforces, 45.0, c_timeGame);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Egg Cluster Trigger Dummy
-//--------------------------------------------------------------------------------------------------
-bool gt_EggClusterTriggerDummy_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    string lv_type;
-    unit lv_unit;
-    point lv_pos;
-    point lv_rt_pos;
-    int lv_pool;
-
-    // Automatic Variable Declarations
-    string auto568EEEB1_val;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    lv_unit = EventPlayerEffectUsedUnit(c_effectUnitCaster);
-    lv_type = UnitGetType(lv_unit);
-    lv_pos = UnitGetPosition(lv_unit);
-    lv_rt_pos = UnitRallyPointTargetPoint(lv_unit, 1, 1);
-    auto568EEEB1_val = lv_type;
-    if (auto568EEEB1_val == "CharEggSackOneEgg") {
-        lv_pool = 30;
-    }
-    else if (auto568EEEB1_val == "CharEggSackTwoEgg") {
-        lv_pool = 50;
-    }
-    else if (auto568EEEB1_val == "CharEggSackThreeEgg") {
-        lv_pool = 70;
-    }
-    else {
-    }
-    if ((gv_ic_unit_count < 2000)) {
-        gf_Create_wave_and_send_from_to(lv_pool, lv_pos, lv_rt_pos);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_EggClusterTriggerDummy_Init () {
-    gt_EggClusterTriggerDummy = TriggerCreate("gt_EggClusterTriggerDummy_Func");
-    TriggerAddEventPlayerEffectUsed(gt_EggClusterTriggerDummy, 7, "EggClusterDummy");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -34014,6 +33887,8 @@ void InitTriggers () {
     gt_spinedies_Init();
     gt_infestorgetsattacked_Init();
     gt_Feedidleinfestorsevery21s_Init();
+    gt_spawnwarfieldforces_Init();
+    gt_EggClusterTriggerDummy_Init();
     gt_Cocoongotspawned_Init();
     gt_Cocoonspawnfinished_Init();
     gt_CocoonorOmegadies_Init();
@@ -34046,8 +33921,6 @@ void InitTriggers () {
     gt_afterlife_hero_died_Init();
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();
-    gt_spawnwarfieldforces_Init();
-    gt_EggClusterTriggerDummy_Init();
     gt_tbp_create_Init();
     gt_tbp_dialog_interaction_Init();
     gt_tbp_dialog_minimap_interaction_Init();
