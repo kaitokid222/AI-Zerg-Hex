@@ -25,6 +25,12 @@
         <Footprint value="Footprint2x2Contour"/>
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
+    <CUnit id="CloakCharge">
+        <CostResource index="Minerals" value="20"/>
+        <CostResource index="Vespene" value="10"/>
+        <Footprint value="Footprint1x1Contour"/>
+        <PlacementFootprint value="Footprint1x1Contour"/>
+    </CUnit>
     <CUnit id="Eroder">
         <LifeStart value="650"/>
         <LifeMax value="650"/>
@@ -88,6 +94,36 @@
     <CUnit id="ProcessingCore">
         <Footprint value="Footprint4x4Nest"/>
         <PlacementFootprint value="Footprint4x4Nest"/>
+    </CUnit>
+    <CUnit id="Corroslash" parent="CUnitXayid">
+        <Attributes index="Armored" value="1"/>
+        <LifeStart value="145"/>
+        <LifeMax value="145"/>
+        <LifeArmor value="1"/>
+        <Speed value="2.8125"/>
+        <Sight value="10"/>
+        <Food value="-3"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="75"/>
+        <WeaponArray Link="EvisceratorSpines"/>
+        <CardLayouts index="0">
+            <LayoutButtons>
+                <Face value="BattleFrenzy"/>
+                <Type value="Passive"/>
+                <Requirements value="UseBattleFrenzy"/>
+                <ShowInGlossary value="0"/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
+        </CardLayouts>
+        <Radius value="0.6875"/>
+        <SeparationRadius value="0.6875"/>
+        <InnerRadius value="0.5"/>
+        <CargoSize value="4"/>
+        <SubgroupPriority value="70"/>
+        <MinimapRadius value="0.6875"/>
+        <GlossaryPriority value="9"/>
+        <GlossaryAlias value="Reviler"/>
     </CUnit>
     <CUnit id="ShieldBattery">
         <CostResource index="Minerals" value="50"/>
@@ -153,7 +189,6 @@
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="100"/>
         <ScoreKill value="100"/>
@@ -589,7 +624,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint3x3CreepContour"/>
         <PlacementFootprint value="Footprint3x3Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>
@@ -877,7 +911,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>
@@ -949,7 +982,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>
@@ -1294,7 +1326,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>
@@ -3924,6 +3955,7 @@
         <HotkeyCategory value=""/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="SpineCrawlerWeapon3v3" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -4846,7 +4878,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="350"/>
         <ScoreKill value="400"/>
@@ -5419,7 +5450,7 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
         <Attributes index="Light" value="1"/>
-        <LifeArmor value="3"/>
+        <LifeArmor value="8"/>
         <GlossaryStrongArray index="0" removed="1"/>
         <GlossaryStrongArray index="1" removed="1"/>
         <GlossaryStrongArray index="2" removed="1"/>
@@ -5479,6 +5510,7 @@
         <SelectAlias value="BanelingSpawner"/>
         <SubgroupAlias value="BanelingSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="DynamicNearbyResource4x4" parent="PATHINGBLOCKER">
         <Mob value="None"/>
@@ -6018,7 +6050,7 @@
         <LifeMax value="100"/>
         <VisionHeight value="4"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Vespene" value="400"/>
+        <CostResource index="Vespene" value="200"/>
         <AbilArray Link="move"/>
         <ScoreMake value="200"/>
         <ScoreResult value="BuildOrder"/>
@@ -6184,6 +6216,7 @@
         <SubgroupAlias value="InfusedRoachSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <Subtitle value="UnitSubtitle/LargeSpawner"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="InfusedRoach">
         <DeathRevealRadius value="3"/>
@@ -6321,6 +6354,7 @@
         <SelectAlias value="BeastlingSpawner"/>
         <SubgroupAlias value="BeastlingSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="RavatorSpawner" parent="EvolutionChamber">
         <Name value="Unit/Name/RavatorSpawner"/>
@@ -6364,6 +6398,7 @@
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <LifeStart value="900"/>
         <LifeMax value="900"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="TorraliskSpawner" parent="UltraliskCavern">
         <Name value="Unit/Name/TorraliskSpawner"/>
@@ -6416,6 +6451,7 @@
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <TechTreeUnlockedUnitArray index="0" removed="1"/>
         <Subtitle value="UnitSubtitle/LargeSpawner"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="WeaponNapalmBombMissile" parent="MISSILE">
         <Race value="Terr"/>
@@ -7085,7 +7121,7 @@
             <LayoutButtons Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="CreeperSpawner"/>
         <HotkeyAlias value="CreeperSpawner"/>
@@ -8100,7 +8136,7 @@
             <LayoutButtons index="5" Face="ResetRally" AbilCmd="ZergResetRally,Execute"/>
             <LayoutButtons index="6" Face="CopyRally" Type="Passive" AbilCmd="" Row="0"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="BrutaliskSpawner"/>
         <HotkeyAlias value="BrutaliskSpawner"/>
@@ -8533,7 +8569,7 @@
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LifeStart value="350"/>
         <LifeMax value="350"/>
@@ -8692,7 +8728,7 @@
             <LayoutButtons Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="RoachSpawner"/>
         <HotkeyAlias value="RoachSpawner"/>
@@ -8891,6 +8927,7 @@
         <Attributes index="Heroic" value="1"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
         <BehaviorArray Link="Detector14"/>
+        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="HiveSpineCrawler" parent="SpineCrawler">
         <Name value="Unit/Name/HiveSpineCrawler"/>
@@ -8905,6 +8942,7 @@
         <HotkeyAlias value="HiveSpineCrawler"/>
         <SelectAlias value="HiveSpineCrawler"/>
         <SubgroupAlias value="HiveSpineCrawler"/>
+        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="SpineCrawlerEdit" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -8954,6 +8992,7 @@
         <KillDisplay value="Always"/>
         <RankDisplay value="Always"/>
         <WeaponArray index="0" Link="ImpalerTentacle3v3"/>
+        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="Ultralisk2" parent="Ultralisk">
         <Name value="Unit/Name/Ultralisk2"/>
@@ -9017,7 +9056,7 @@
             <LayoutButtons index="5" Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LifeStart value="400"/>
         <LifeMax value="400"/>
@@ -9261,7 +9300,7 @@
             <LayoutButtons index="10" removed="1"/>
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="TanklingSpawner"/>
         <HotkeyAlias value="TanklingSpawner"/>
@@ -9308,7 +9347,7 @@
             <LayoutButtons index="6" Face="CopyRally" Requirements="" Row="0" Column="2"/>
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
-        <Footprint value="Footprint2x2CreepContour"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="StrikelingSpawner"/>
         <HotkeyAlias value="StrikelingSpawner"/>
@@ -9759,7 +9798,14 @@
             <LayoutButtons index="6" Face="TerranBuild" Type="Submenu" AbilCmd="" SubmenuCardId="TBl1" Row="2"/>
             <LayoutButtons index="7" Face="Halt" AbilCmd="TerranBuild,Halt" Row="2" Column="4"/>
             <LayoutButtons index="8" Face="BuildTechStructure" SubmenuCardId="0003" Column="1"/>
-            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="9">
+                <Face value="BuildCloakCharge"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="BuildBuilder,Build24"/>
+                <SubmenuCardId value=""/>
+                <Row value="1"/>
+                <Column value="0"/>
+            </LayoutButtons>
             <LayoutButtons index="10" removed="1"/>
         </CardLayouts>
         <CardLayouts index="1">
@@ -10164,7 +10210,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepTumor"/>
         <PlacementFootprint value="Footprint2x2CreepTumor"/>
         <ScoreMake value="100"/>
         <ScoreKill value="600"/>
@@ -10212,7 +10257,7 @@
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
         <CardLayouts index="1" removed="1"/>
-        <Footprint value="Footprint4x4Nest"/>
+        <Footprint value=""/>
         <PlacementFootprint value="Footprint4x4Nest"/>
         <Sight value="13"/>
         <CostResource index="Minerals" value="470"/>
@@ -10373,7 +10418,6 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
-        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>

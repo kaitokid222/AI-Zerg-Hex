@@ -10,6 +10,9 @@
         <EditorCategories value="Race:Zerg"/>
         <Amount value="160"/>
     </CEffectDamage>
+    <CEffectEnumArea id="CloakChargeFieldSA">
+        <AreaArray index="0" Radius="6.5"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="PylonApplyStaticDischarge">
         <EditorCategories value=""/>
         <Behavior value="StaticDischargePylon"/>
@@ -1906,7 +1909,7 @@
     <CEffectModifyPlayer id="CreateNapalmBombRefund">
         <EditorCategories value=""/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Vespene" value="400"/>
+        <Resources index="Vespene" value="200"/>
     </CEffectModifyPlayer>
     <CEffectSet id="CreateNapalmBombSet">
         <EditorCategories value=""/>

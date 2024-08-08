@@ -4171,7 +4171,7 @@
             <Button DefaultButtonFace="BuildTerrazineGenerator" Requirements=""/>
         </InfoArray>
         <InfoArray index="Build24" Unit="CloakCharge" Time="2">
-            <Button DefaultButtonFace="BuildCloakCharge"/>
+            <Button DefaultButtonFace="BuildCloakCharge" Requirements="HaveTier2Equipment"/>
         </InfoArray>
         <FlagArray index="PeonFidgetAcross" value="1"/>
     </CAbilBuild>

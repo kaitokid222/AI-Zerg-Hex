@@ -62,6 +62,65 @@
     <CActorUnit id="ProcessingCore">
         <Scale value="0.700000"/>
     </CActorUnit>
+    <CActorUnit id="Corroslash" parent="GenericUnitXayid" unitName="Corroslash">
+        <Aliases value="_UnitMedium"/>
+        <On Terms="ActorCreation; ValidateUnit HasBattleFrenzy" Send="ModelSwap RevilerUpgrade"/>
+        <On Terms="Upgrade.BattleFrenzy.Add" Send="ModelSwap RevilerUpgrade"/>
+        <Model value="Reviler"/>
+        <Scale value="0.600000"/>
+        <Baselines index="Stand" BlendOut="0.250000"/>
+        <Baselines index="Walk" BlendOut="0.250000"/>
+        <BuildModel value="Reviler"/>
+        <DeathArray index="Normal" ModelLink="RoachDeath" SoundLink="Roach_Explode" VoiceLink="RevilerDeathVoice"/>
+        <DeathArray index="Disintegrate" ModelLink="RoachDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="RoachDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ModelLink="RoachDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="BloodReduced"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Reviler"/>
+        <PortraitModel value="RoachPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.8085"/>
+        <BarOffset value="60"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-Xayid-Reviler.dds"/>
+        </GroupIcon>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="Reviler_Ready"/>
+        <SoundArray index="What" value="Reviler_What"/>
+        <SoundArray index="Yes" value="Reviler_Yes"/>
+        <SoundArray index="Attack" value="Reviler_Attack"/>
+        <SoundArray index="Pissed" value="Reviler_Attack"/>
+        <UnitIcon value="Assets\Textures\btn-unit-Xayid-Reviler.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-Xayid-Reviler.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="ShieldBattery">
         <Scale value="0.600000"/>
     </CActorUnit>
@@ -147,6 +206,12 @@
             <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorRange id="TeslaCloakChargeRangeEnemy">
+        <Range value="6.500000"/>
+    </CActorRange>
+    <CActorRange id="TeslaCloakChargeRangeFriendly">
+        <Range value="6.500000"/>
+    </CActorRange>
     <CActorUnit id="Tombstone" parent="TerranBuilding" unitName="Tombstone">
         <Aliases value="_UnitHuge"/>
         <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>

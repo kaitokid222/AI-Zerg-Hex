@@ -1315,6 +1315,7 @@ Button/Tooltip/ConvertTerrazine=Convert 40 Terrazine to 10 Minerals every 3 seco
 Button/Tooltip/Converter=
 Button/Tooltip/CopyRally=Setting rally point on another spawner will copy its rally path.
 Button/Tooltip/CorrosiveBile2=Launch a missile at the target location, dealing <d ref="Effect,RavagerCorrosiveBileDamage,Amount"/> damage to all units in the area upon impact.<n/><n/><c val="#ColorAttackInfo">Can destroy Protoss Force Fields.</c>
+Button/Tooltip/Corroslash=Ranged attacker.<n/><n/><c val="FFFF80">Can attack ground and air units.</c>
 Button/Tooltip/CowFarm=
 Button/Tooltip/CreateNapalmBomb=Creates a Napalm Bomb to be picked up by a Firebat. (By right clicking on the Chemical Plant)<n/><n/>Can be launched a short distance from the Firebat and deals 1000 damage to units and structures in target area.
 Button/Tooltip/CreepRegeneration=Infestor regenerates life rapidly while on creep and not being attacked for 2 seconds.
@@ -1591,7 +1592,7 @@ Button/Tooltip/ProduceMineralText08=<s val="Kicker_Minerals">+8</s>
 Button/Tooltip/ProtossGroundWeaponsLevel12=Upgrades the damage dealt by Photon Cannons.
 Button/Tooltip/Pylon=Provides powerful buffs, creates a powerfield for photon cannons and generates resources when no aura is selected.
 Button/Tooltip/PylonClassic=Creates a field that powers other structures.
-Button/Tooltip/PylonOvercharge=Increases Pylon Range by 2 and attack speed by 30%.
+Button/Tooltip/PylonOvercharge=Increases Pylon Range by 2 and attack speed by 30% and can hit 2 more targets.
 Button/Tooltip/Raise2=Raises the structure, preventing ground units from moving across it.
 Button/Tooltip/RangedMinionHell=
 Button/Tooltip/RapidEnergyTransfer=Increases the transfer rate of the power grid and batteries by <c val="ffff8a">50</c>.
@@ -2795,6 +2796,12 @@ DocInfo/PatchNote881=Fixed Issue.
 DocInfo/PatchNote882=Fixed Probius Pylon Overcharge. Decreased Cooldown 180s -> 60s.
 DocInfo/PatchNote883=Buffed Banelings. HP 30 -> 80, Base Speed 2 -> 2.8.
 DocInfo/PatchNote884=Egg Clusters Spawn Behavior Changed.
+DocInfo/PatchNote885=Fixed Front Rally Redirection Issue.
+DocInfo/PatchNote886=Increased Baneling Armor 3 -> 8.
+DocInfo/PatchNote887=High-Tech SCVs can use Cloak Charge.
+DocInfo/PatchNote888=Fixed Issue.
+DocInfo/PatchNote889=Decreased Stronger Cocoon HP 7000 -> 6000.
+DocInfo/PatchNote890=Removed Spawner Collision.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4496,6 +4503,7 @@ Unit/Name/CommandCenter2=Command Center
 Unit/Name/Commando=Commando
 Unit/Name/ConstructionYard=Construction Yard
 Unit/Name/Converter=Converter
+Unit/Name/Corroslash=Corroslash
 Unit/Name/Cow2=Cow
 Unit/Name/CowFarm=Cow Farm
 Unit/Name/CreepTumor2=Creep Tumor

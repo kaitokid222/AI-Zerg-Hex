@@ -1891,6 +1891,7 @@ void gf_get_attackup ();
 void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
+bool gf_is_front_path_blocked (int lp_player);
 string gf_afterlife_get_hero_unit_type (int lp_player);
 int gf_banelings_get_baneling_group_i_start ();
 int gf_banelings_get_baneling_group_i_max ();
@@ -3008,6 +3009,7 @@ void gf_apply_support_casual () {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 21), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("GeneratorResearch", 5), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilder", 23), true);
             autoDBE3DB51_g = UnitGroup("Battery", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             autoDBE3DB51_u = UnitGroupCount(autoDBE3DB51_g, c_unitCountAll);
             for (;; autoDBE3DB51_u -= 1) {
@@ -6008,6 +6010,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronResearchEdit", 0), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronResearchEdit", 1), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 2), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilder", 23), false);
     if ((libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogUnit, "SCV", "InnerRadius", c_playerAny) == 0.3125)) {
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "ACR", "InnerRadius", lp_player, 0.3125);
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "Scavenger", "InnerRadius", lp_player, 0.3125);
@@ -16272,6 +16275,7 @@ void gf_create_new_demon_fort () {
 
 void gf_Create_wave_and_send_from_to (int lp_spawner_type, point lp_origin, point lp_target) {
     // Variable Declarations
+    string lv_angle;
     int lv_amount;
     unitgroup lv_result_ug;
 
@@ -16279,6 +16283,7 @@ void gf_Create_wave_and_send_from_to (int lp_spawner_type, point lp_origin, poin
     int auto19930C9E_val;
 
     // Variable Initialization
+    lv_angle = "";
     lv_result_ug = UnitGroupEmpty();
 
     // Implementation
@@ -16325,7 +16330,25 @@ void gf_Create_wave_and_send_from_to (int lp_spawner_type, point lp_origin, poin
         libNtve_gf_CreateUnitsWithDefaultFacing(lv_amount, "Tankling", 0, 7, lp_origin);
         UnitGroupAddUnitGroup(lv_result_ug, UnitLastCreatedGroup());
     }
-    UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueReplace);
+    if ((gf_flip_coin() == 1)) {
+        if ((gf_flip_coin() == 1)) {
+            lv_angle = "Left";
+        }
+        else {
+            lv_angle = "Right";
+        }
+        UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(((("Zerg Flank Rally " + lv_angle) + " Pre ") + IntToString(gf_get_closest_alive_player_position(lp_target))))), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueAddToEnd);
+    }
+    else {
+        if ((gf_is_front_path_blocked(gf_get_player_at_position(gf_get_closest_alive_player_position(lp_target))) == true)) {
+            UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Front Rally Pre " + IntToString(gf_get_closest_alive_player_position(lp_target))))), c_orderQueueReplace);
+            UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueAddToEnd);
+        }
+        else {
+            UnitGroupIssueOrder(lv_result_ug, OrderTargetingPoint(AbilityCommand("attack", 0), lp_target), c_orderQueueReplace);
+        }
+    }
 }
 
 void gf_create_new_egg_cluster () {
@@ -18674,7 +18697,13 @@ void gf_add_spawner_to_front (unit lp_spawner, int lp_player_position) {
         UnitGroupRemove(gv_spawnergroups[lp_player_position].lv_left, lp_spawner);
     }
 
-    UnitIssueOrder(lp_spawner, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_player_position)))), c_orderQueueReplace);
+    if ((gf_is_front_path_blocked(gf_get_player_at_position(lp_player_position)) == true)) {
+        UnitIssueOrder(lp_spawner, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Front Rally Pre " + IntToString(lp_player_position)))), c_orderQueueReplace);
+        UnitIssueOrder(lp_spawner, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_player_position)))), c_orderQueueAddToEnd);
+    }
+    else {
+        UnitIssueOrder(lp_spawner, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lp_player_position)))), c_orderQueueReplace);
+    }
 }
 
 void gf_manage_spawners (int lp_player_position) {
@@ -20206,6 +20235,21 @@ void gf_get_unit_upgrades () {
 
     }
 
+}
+
+bool gf_is_front_path_blocked (int lp_player) {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((PointPathingCost(PointFromName(("Zerg Front Rally Pre " + IntToString(gv_players[lp_player].lv_position))), PointFromName(("Terran Face " + IntToString(gv_players[lp_player].lv_position)))) > 30)) {
+        lv_r = true;
+    }
+
+    return lv_r;
 }
 
 string gf_afterlife_get_hero_unit_type (int lp_player) {
@@ -30784,8 +30828,8 @@ bool gt_Cocoongotspawned_Func (bool testConds, bool runActions) {
         libNtve_gf_ShareVisionofUnit(lv_cocoon, true, auto4663D198_var);
     }
     if ((gv_difficulty >= 6)) {
-        UnitSetPropertyFixed(lv_cocoon, c_unitPropLifeMax, 7000.0);
-        UnitSetPropertyFixed(lv_cocoon, c_unitPropLife, 7000.0);
+        UnitSetPropertyFixed(lv_cocoon, c_unitPropLifeMax, 6000.0);
+        UnitSetPropertyFixed(lv_cocoon, c_unitPropLife, 6000.0);
     }
 
     return true;
@@ -31164,6 +31208,7 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
     playergroup lv_player_group;
     int lv_target_position;
     bool lv_unit_got_replaced;
+    unit lv_unit;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -31277,15 +31322,20 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
     }
 
     if ((lv_unit_got_replaced == true)) {
-        UnitIssueOrder(libNtve_gf_LastReplacedUnit(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_position)))), c_orderQueueReplace);
-        UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_all, libNtve_gf_LastReplacedUnit());
-        UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_front, libNtve_gf_LastReplacedUnit());
+        lv_unit = libNtve_gf_LastReplacedUnit();
     }
     else {
-        UnitIssueOrder(EventUnitProgressUnit(), OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_position)))), c_orderQueueReplace);
-        UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_all, EventUnitProgressUnit());
-        UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_front, EventUnitProgressUnit());
+        lv_unit = EventUnitProgressUnit();
     }
+    if ((gf_is_front_path_blocked(gf_get_player_at_position(lv_target_position)) == true)) {
+        UnitIssueOrder(lv_unit, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Front Rally Pre " + IntToString(lv_target_position)))), c_orderQueueReplace);
+        UnitIssueOrder(lv_unit, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_position)))), c_orderQueueAddToEnd);
+    }
+    else {
+        UnitIssueOrder(lv_unit, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_target_position)))), c_orderQueueReplace);
+    }
+    UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_all, lv_unit);
+    UnitGroupAdd(gv_spawnergroups[lv_target_position].lv_front, lv_unit);
     return true;
 }
 
