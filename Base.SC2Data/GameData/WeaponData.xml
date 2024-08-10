@@ -131,8 +131,8 @@
         <TargetFilters value="Ground,Visible;Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <ChaseFilters value="-;Player,Ally,Neutral,Enemy"/>
         <AcquireCallForHelpFilters value="-;Player,Ally,Neutral,Enemy"/>
-        <MinScanRange value="7"/>
-        <Range value="7"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
         <Period value="0.55"/>
         <Effect value="StaticDischargeDamageT1"/>
         <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>

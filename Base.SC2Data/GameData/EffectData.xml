@@ -60,7 +60,7 @@
         <TargetSorts RequestCount="3">
             <SortArray value="TSDistance"/>
         </TargetSorts>
-        <AreaArray Radius="9.4" Effect="StaticDischargeDamageSwitch"/>
+        <AreaArray Radius="8.4" Effect="StaticDischargeDamageSwitch"/>
         <MaxCount value="5"/>
     </CEffectEnumArea>
     <CEffectSet id="AfterlifeHeroDiedTriggerDummy">
@@ -117,7 +117,7 @@
         <TargetSorts RequestCount="3">
             <SortArray value="TSDistance"/>
         </TargetSorts>
-        <AreaArray Radius="7.4" Effect="StaticDischargeDamageSwitch"/>
+        <AreaArray Radius="6.4" Effect="StaticDischargeDamageSwitch"/>
         <MaxCount value="3"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="TechLabEnergyWarpProtectionRemoveSearch">

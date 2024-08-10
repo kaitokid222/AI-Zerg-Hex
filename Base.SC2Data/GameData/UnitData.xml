@@ -195,6 +195,7 @@
         <SubgroupPriority value="30"/>
         <MinimapRadius value="1.25"/>
         <GlossaryPriority value="3"/>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="Inducer">
         <Food value="0"/>
@@ -624,6 +625,7 @@
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
+        <Footprint value="Footprint3x3CreepContour"/>
         <PlacementFootprint value="Footprint3x3Creep"/>
         <ScoreMake value="200"/>
         <ScoreKill value="250"/>
@@ -922,6 +924,7 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <TechTreeUnlockedUnitArray value="Zergling"/>
         <TechTreeUnlockedUnitArray value="Queen"/>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="FirebatSpawner">
         <DeathRevealRadius value="3"/>
@@ -993,6 +996,7 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <TechTreeUnlockedUnitArray value="Zergling"/>
         <TechTreeUnlockedUnitArray value="Queen"/>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="MechaExtractor">
         <DeathRevealRadius value="3"/>
@@ -1337,6 +1341,7 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <TechTreeUnlockedUnitArray value="Zergling"/>
         <TechTreeUnlockedUnitArray value="Queen"/>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="Mole">
         <Food value="0"/>
@@ -3955,7 +3960,6 @@
         <HotkeyCategory value=""/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="SpineCrawlerWeapon3v3" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -4893,6 +4897,7 @@
             <Charge Link="UltraliskCavern/Revive"/>
             <Cooldown Link="UltraliskCavern/Revive"/>
         </ReviveInfoBase>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="Umbra">
         <Food value="0"/>
@@ -5510,7 +5515,6 @@
         <SelectAlias value="BanelingSpawner"/>
         <SubgroupAlias value="BanelingSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="DynamicNearbyResource4x4" parent="PATHINGBLOCKER">
         <Mob value="None"/>
@@ -6216,7 +6220,6 @@
         <SubgroupAlias value="InfusedRoachSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <Subtitle value="UnitSubtitle/LargeSpawner"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="InfusedRoach">
         <DeathRevealRadius value="3"/>
@@ -6354,7 +6357,6 @@
         <SelectAlias value="BeastlingSpawner"/>
         <SubgroupAlias value="BeastlingSpawner"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="RavatorSpawner" parent="EvolutionChamber">
         <Name value="Unit/Name/RavatorSpawner"/>
@@ -6398,7 +6400,6 @@
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <LifeStart value="900"/>
         <LifeMax value="900"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="TorraliskSpawner" parent="UltraliskCavern">
         <Name value="Unit/Name/TorraliskSpawner"/>
@@ -6451,7 +6452,6 @@
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <TechTreeUnlockedUnitArray index="0" removed="1"/>
         <Subtitle value="UnitSubtitle/LargeSpawner"/>
-        <Footprint value=""/>
     </CUnit>
     <CUnit id="WeaponNapalmBombMissile" parent="MISSILE">
         <Race value="Terr"/>
@@ -7121,7 +7121,7 @@
             <LayoutButtons Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="CreeperSpawner"/>
         <HotkeyAlias value="CreeperSpawner"/>
@@ -8136,7 +8136,7 @@
             <LayoutButtons index="5" Face="ResetRally" AbilCmd="ZergResetRally,Execute"/>
             <LayoutButtons index="6" Face="CopyRally" Type="Passive" AbilCmd="" Row="0"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="BrutaliskSpawner"/>
         <HotkeyAlias value="BrutaliskSpawner"/>
@@ -8569,7 +8569,7 @@
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LifeStart value="350"/>
         <LifeMax value="350"/>
@@ -8728,7 +8728,7 @@
             <LayoutButtons Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="RoachSpawner"/>
         <HotkeyAlias value="RoachSpawner"/>
@@ -8927,7 +8927,6 @@
         <Attributes index="Heroic" value="1"/>
         <BehaviorArray Link="NoAlliedAttacks"/>
         <BehaviorArray Link="Detector14"/>
-        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="HiveSpineCrawler" parent="SpineCrawler">
         <Name value="Unit/Name/HiveSpineCrawler"/>
@@ -8942,7 +8941,6 @@
         <HotkeyAlias value="HiveSpineCrawler"/>
         <SelectAlias value="HiveSpineCrawler"/>
         <SubgroupAlias value="HiveSpineCrawler"/>
-        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="SpineCrawlerEdit" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -8992,7 +8990,6 @@
         <KillDisplay value="Always"/>
         <RankDisplay value="Always"/>
         <WeaponArray index="0" Link="ImpalerTentacle3v3"/>
-        <Footprint value="Footprint2x2ZergSpineCrawler"/>
     </CUnit>
     <CUnit id="Ultralisk2" parent="Ultralisk">
         <Name value="Unit/Name/Ultralisk2"/>
@@ -9056,7 +9053,7 @@
             <LayoutButtons index="5" Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LifeStart value="400"/>
         <LifeMax value="400"/>
@@ -9300,7 +9297,7 @@
             <LayoutButtons index="10" removed="1"/>
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="TanklingSpawner"/>
         <HotkeyAlias value="TanklingSpawner"/>
@@ -9347,7 +9344,7 @@
             <LayoutButtons index="6" Face="CopyRally" Requirements="" Row="0" Column="2"/>
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
-        <Footprint value=""/>
+        <Footprint value="Footprint2x2CreepContour"/>
         <PlacementFootprint value="Footprint2x2Creep"/>
         <LeaderAlias value="StrikelingSpawner"/>
         <HotkeyAlias value="StrikelingSpawner"/>
@@ -10220,6 +10217,7 @@
         <GlossaryPriority value="10"/>
         <HotkeyCategory value="Unit/Category/ZergHexZerg"/>
         <TechTreeUnlockedUnitArray value="Impaler"/>
+        <Footprint value="Footprint2x2CreepTumor"/>
     </CUnit>
     <CUnit id="Nest2" parent="Hatchery">
         <Name value="Unit/Name/Nest2"/>
@@ -10257,7 +10255,7 @@
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
         <CardLayouts index="1" removed="1"/>
-        <Footprint value=""/>
+        <Footprint value="Footprint4x4Nest"/>
         <PlacementFootprint value="Footprint4x4Nest"/>
         <Sight value="13"/>
         <CostResource index="Minerals" value="470"/>
@@ -10432,6 +10430,7 @@
         <LifeArmor value="2"/>
         <Food value="-4"/>
         <EffectArray index="Birth" value="IncomeSpawnerCreated"/>
+        <Footprint value="Footprint2x2CreepContour"/>
     </CUnit>
     <CUnit id="FragmentBlast" parent="MISSILE_INVULNERABLE">
         <Race value="Terr"/>

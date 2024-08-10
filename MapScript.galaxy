@@ -1754,6 +1754,7 @@ void gf_spawn_eggs (int lp_position, int lp_egg_count, int lp_front);
 void gf_spawn_unit_from_egg (int lp_et, point lp_origin, point lp_target);
 void gf_define_egg_spawn_points ();
 void gf_f2_point (point lp_point, bool lp_force);
+bool gf_unit_is_in_zerg_highground (unit lp_u);
 void gf_scout_bonus_gasses ();
 void gf_attack_a_bonus_gas ();
 void gf_refresh_bonus_gasses_data ();
@@ -14277,6 +14278,23 @@ void gf_f2_point (point lp_point, bool lp_force) {
         gv_f2_cooldown = 10;
     }
 
+}
+
+bool gf_unit_is_in_zerg_highground (unit lp_u) {
+    // Variable Declarations
+    int lv_i;
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    if ((libNtve_gf_UnitInRegion(lp_u, RegionFromName("zerg highground")) == true)) {
+        lv_r = true;
+    }
+
+    return lv_r;
 }
 
 void gf_scout_bonus_gasses () {
