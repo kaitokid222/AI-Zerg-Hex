@@ -32,8 +32,8 @@
         <PlacementFootprint value="Footprint1x1Contour"/>
     </CUnit>
     <CUnit id="Eroder">
-        <LifeStart value="650"/>
-        <LifeMax value="650"/>
+        <LifeStart value="625"/>
+        <LifeMax value="625"/>
         <LifeArmor value="3"/>
         <Speed value="1.8007"/>
         <Food value="0"/>
@@ -8343,9 +8343,9 @@
         <FlagArray index="AcquireRally" value="1"/>
         <FlagArray index="ArmySelect" value="0"/>
         <PushPriority value="15"/>
-        <LifeStart value="15000"/>
-        <LifeMax value="15000"/>
-        <LifeArmor value="1"/>
+        <LifeStart value="20000"/>
+        <LifeMax value="20000"/>
+        <LifeArmor value="2"/>
         <LifeRegenRate value="0"/>
         <Speed value="1.8984"/>
         <VisionHeight value="1"/>

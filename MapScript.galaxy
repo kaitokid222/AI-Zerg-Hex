@@ -1894,6 +1894,7 @@ void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
 bool gf_is_front_path_blocked (int lp_player);
 string gf_afterlife_get_hero_unit_type (int lp_player);
+void gf_firelings_set_vars ();
 int gf_banelings_get_baneling_group_i_start ();
 int gf_banelings_get_baneling_group_i_max ();
 int gf_banelings_get_smallest_group_as_int_id ();
@@ -3131,6 +3132,9 @@ void gf_apply_support_casual () {
         }
         else if (auto4C710A49_val == 7) {
             gf_create_raynor_support_forplayer(auto18D3D132_var);
+            TechTreeUpgradeAddLevel(auto18D3D132_var, "MarineShatteringLaser", 1);
+            TechTreeUpgradeAddLevel(auto18D3D132_var, "MarineOverclockedRifles", 1);
+            TechTreeUpgradeAddLevel(auto18D3D132_var, "MarineOvercharge", 1);
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "Raynor", c_unitCreateIgnorePlacement, 0, PointFromId(304274518));
             lv_portrait_unit = UnitLastCreated();
             UnitGroupAdd(gv_transmission_units, lv_portrait_unit);
@@ -20324,6 +20328,10 @@ string gf_afterlife_get_hero_unit_type (int lp_player) {
     return lv_return;
 }
 
+void gf_firelings_set_vars () {
+    // Automatic Variable Declarations
+}
+
 int gf_banelings_get_baneling_group_i_start () {
     // Variable Declarations
     int lv_i;
@@ -32350,8 +32358,8 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_set_up_visibility();
     gf_init_event();
     if ((gv_difficulty >= 7)) {
-        CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(1300));
-        CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(1300));
+        CatalogReferenceSet("Unit,Eroder,LifeMax", 7, IntToString(1250));
+        CatalogReferenceSet("Unit,Eroder,LifeStart", 7, IntToString(1250));
         CatalogReferenceSet("Unit,Eroder,LifeArmor", 7, IntToString(5));
     }
 
@@ -33485,7 +33493,7 @@ bool gt_everytenseconds_Func (bool testConds, bool runActions) {
     }
 
     gf_gather_infestor_groups();
-    if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 35000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
+    if ((gv_armor_level >= 5) && (gv_difficulty >= 4) && (PlayerGetPropertyInt(7, c_playerPropMinerals) >= 20000) && (gv_omega_placement_cooldown == 0) && (gv_omega_active == false)) {
         gv_omega_placement_cooldown = 3;
         gf_buy_omega();
     }

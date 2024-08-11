@@ -408,7 +408,7 @@
             <Value>7/28/2024</Value>
             <Value>8/1/2024</Value>
             <Value>8/2/2024</Value>
-            <Value>8/10/2024</Value>
+            <Value>8/11/2024</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -600,7 +600,7 @@
             <Value>881,884</Value>
             <Value>885,886,887</Value>
             <Value>888</Value>
-            <Value>889,890,891</Value>
+            <Value>889,890,891,892,893,894,895</Value>
         </Notes>
     </PatchNote>
     <Preload>

@@ -2070,7 +2070,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="OmegaliskEnhancePlatingApply"/>
         <Cost>
-            <Resource index="Minerals" value="35000"/>
+            <Resource index="Minerals" value="20000"/>
             <Charge CountMax="1" CountStart="1" CountUse="1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="EnhancePlating" Requirements="RequirementOmegaliskEnhancePlating"/>
@@ -2146,7 +2146,7 @@
         <Name value="Abil/Name/HiveBuildOmegaliskCocoonZergHex"/>
         <TargetMessage value="Abil/TargetMessage/HiveBuildOmegaliskCocoonZergHex"/>
         <InfoArray index="Build1" Unit="OmegaliskCocoon2" Time="0">
-            <Resource index="Minerals" value="35000"/>
+            <Resource index="Minerals" value="20000"/>
             <Cooldown TimeStart="0" TimeUse="1"/>
             <Button DefaultButtonFace="SpawnOmegaliskCocoon" Requirements="OmegaliskRequirement"/>
         </InfoArray>
