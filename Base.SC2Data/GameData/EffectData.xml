@@ -13,6 +13,10 @@
     <CEffectEnumArea id="CloakChargeFieldSA">
         <AreaArray index="0" Radius="6.5"/>
     </CEffectEnumArea>
+    <CEffectDamage id="EvisceratorSpinesLMImpact">
+        <Amount value="8"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="PylonApplyStaticDischarge">
         <EditorCategories value=""/>
         <Behavior value="StaticDischargePylon"/>
@@ -5589,6 +5593,7 @@
         <Cost Abil="TrainZMechs,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainMassalisk,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainEroder,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainCorroslash,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

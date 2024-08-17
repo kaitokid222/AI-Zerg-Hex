@@ -26,6 +26,11 @@
         <EditorCategories value="Race:Terran"/>
         <Universal value="1"/>
     </CButton>
+    <CButton id="SpawnCorroslash">
+        <Icon value="Assets\Textures\btn-unit-xayid-reviler.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-xayid-reviler.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="UpgradeShieldBattery">
         <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>

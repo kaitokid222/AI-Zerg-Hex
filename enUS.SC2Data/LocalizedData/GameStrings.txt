@@ -197,6 +197,7 @@ Abil/Name/TradeMineralsInitial=Trade Minerals (Initial)
 Abil/Name/TraderFlight=Trader - Flight
 Abil/Name/TrainBomber=Train Bomber
 Abil/Name/TrainBrutalisk=Train Brutalisk
+Abil/Name/TrainCorroslash=Train Corroslash
 Abil/Name/TrainCowFarm=Train Cow
 Abil/Name/TrainCowLink=Train Cow (Link)
 Abil/Name/TrainCreeper=Train Creeper
@@ -1064,6 +1065,7 @@ Button/Name/SpawnBomber=Spawn Bomber
 Button/Name/SpawnBruta3v3=Spawn Bruta
 Button/Name/SpawnBrutalisk=Spawn Brutalisk
 Button/Name/SpawnCherry=Spawn Cherry
+Button/Name/SpawnCorroslash=Spawn Corroslash
 Button/Name/SpawnCow=Spawn Cow
 Button/Name/SpawnCreeper=Spawn Creeper
 Button/Name/SpawnCreeper3v3=Spawn Creeper
@@ -1316,6 +1318,7 @@ Button/Tooltip/Converter=
 Button/Tooltip/CopyRally=Setting rally point on another spawner will copy its rally path.
 Button/Tooltip/CorrosiveBile2=Launch a missile at the target location, dealing <d ref="Effect,RavagerCorrosiveBileDamage,Amount"/> damage to all units in the area upon impact.<n/><n/><c val="#ColorAttackInfo">Can destroy Protoss Force Fields.</c>
 Button/Tooltip/Corroslash=Ranged attacker.<n/><n/><c val="FFFF80">Can attack ground and air units.</c>
+Button/Tooltip/CorroslashSpawner=
 Button/Tooltip/CowFarm=
 Button/Tooltip/CreateNapalmBomb=Creates a Napalm Bomb to be picked up by a Firebat. (By right clicking on the Chemical Plant)<n/><n/>Can be launched a short distance from the Firebat and deals 1000 damage to units and structures in target area.
 Button/Tooltip/CreepRegeneration=Infestor regenerates life rapidly while on creep and not being attacked for 2 seconds.
@@ -1730,6 +1733,7 @@ Button/Tooltip/SpawnBomber=Bombers suicide and create a damaging area of effect.
 Button/Tooltip/SpawnBruta3v3=Only elite soldiers may bring it down.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnBrutalisk=Tanky melee creature.
 Button/Tooltip/SpawnCherry=Spawn cherry every 6 seconds.
+Button/Tooltip/SpawnCorroslash=
 Button/Tooltip/SpawnCow=Cows eat fruit to gain <c val="58BEF5">(+<d ref="Effect,CowMineralGainDisplay,Resources[Minerals]"/>)</c> minerals.<n/><n/><c val="E8E191">Can be respawned when farms are in higher numbers than cows.</c>
 Button/Tooltip/SpawnCowUpgraded=Cows eat fruit to gain <c val="58BEF5">(+5)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
 Button/Tooltip/SpawnCowUpgraded2=Cows eat fruit to gain <c val="58BEF5">(+7)</c> minerals.<n/><n/><c val="E8E191">Charge refreshes when cow dies.</c>
@@ -2807,6 +2811,10 @@ DocInfo/PatchNote892=Raynor Bonus starts with Overcharge, Shattering Laser and O
 DocInfo/PatchNote893=Reduced Eroder HP 650/1300 -> 625/1250.
 DocInfo/PatchNote894=Increased Omegalisk HP 15000 -> 20000, Armor 1 -> 2.
 DocInfo/PatchNote895=Decreased Omegalisk Cost 35000 -> 20000.
+DocInfo/PatchNote896=Added Corroslash Zerg Unit. It is a ranged attacker and basically an improved Creeper without Ferocity.
+DocInfo/PatchNote897=On Expert or higher Tankling Spawners get replaced with Corroslash Spawners.
+DocInfo/PatchNote898=On Expert to Ultra Brutal there is a Chance that Creeper Spawners also get replaced.
+DocInfo/PatchNote899=On Torment every built Creeper Spawner gets replaced.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -4509,6 +4517,7 @@ Unit/Name/Commando=Commando
 Unit/Name/ConstructionYard=Construction Yard
 Unit/Name/Converter=Converter
 Unit/Name/Corroslash=Corroslash
+Unit/Name/CorroslashSpawner=Corroslash Spawner
 Unit/Name/Cow2=Cow
 Unit/Name/CowFarm=Cow Farm
 Unit/Name/CreepTumor2=Creep Tumor

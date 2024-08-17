@@ -217,6 +217,7 @@
             <Value>1.140</Value>
             <Value>1.143</Value>
             <Value>1.144</Value>
+            <Value>1.145</Value>
         </Version>
         <Date>
             <Value>9/6/2021</Value>
@@ -409,6 +410,7 @@
             <Value>8/1/2024</Value>
             <Value>8/2/2024</Value>
             <Value>8/11/2024</Value>
+            <Value>8/17/2024</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -601,6 +603,7 @@
             <Value>885,886,887</Value>
             <Value>888</Value>
             <Value>889,890,891,892,893,894,895</Value>
+            <Value>896,897,898,899</Value>
         </Notes>
     </PatchNote>
     <Preload>

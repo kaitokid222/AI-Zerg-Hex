@@ -35,6 +35,11 @@
         <DamagePoint value="0.888"/>
         <Effect value="ChaosSwordEffectSet"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="EvisceratorSpines">
+        <MinScanRange value="4"/>
+        <Range value="4"/>
+        <Period value="0.9"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="Firebat">
         <Period value="1"/>
     </CWeaponLegacy>

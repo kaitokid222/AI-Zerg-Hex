@@ -578,6 +578,27 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
+    <CAbilTrain id="TrainCorroslash">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <InfoArray index="Train1" Time="4" Effect="ApplyPrecursorSpawner">
+            <Charge>
+                <CountMax value="4"/>
+                <CountStart value="2"/>
+                <CountUse value="1"/>
+                <Link value="Abil/TrainSpawner"/>
+                <Location value="Unit"/>
+            </Charge>
+            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Button DefaultButtonFace="SpawnCorroslash"/>
+            <Unit value="Corroslash"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+        <Alert value="NoAlert"/>
+    </CAbilTrain>
     <CAbilTrain id="TrainHeavyweightMechs">
         <InfoArray index="Train2">
             <Button Requirements=""/>

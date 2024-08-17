@@ -31347,6 +31347,26 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
         }
     }
 
+    if ((lv_unit_got_replaced == false) && (gv_difficulty >= 5) && ((UnitGetType(EventUnitProgressUnit()) == "TanklingSpawner") || (UnitGetType(EventUnitProgressUnit()) == "CreeperSpawner"))) {
+        if ((UnitGetType(EventUnitProgressUnit()) == "CreeperSpawner")) {
+            if ((gv_difficulty <= 7)) {
+                if ((gf_flip_coin() == 1)) {
+                    libNtve_gf_ReplaceUnit(EventUnitProgressUnit(), "CorroslashSpawner", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+                    lv_unit_got_replaced = true;
+                }
+
+            }
+            else {
+                libNtve_gf_ReplaceUnit(EventUnitProgressUnit(), "CorroslashSpawner", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+                lv_unit_got_replaced = true;
+            }
+        }
+        else {
+            libNtve_gf_ReplaceUnit(EventUnitProgressUnit(), "CorroslashSpawner", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+            lv_unit_got_replaced = true;
+        }
+    }
+
     if ((lv_unit_got_replaced == true)) {
         lv_unit = libNtve_gf_LastReplacedUnit();
     }
@@ -32302,6 +32322,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_Game_Banks_handler("load", 0, 0, 0, 0);
     gf_AnalysePlayerDifficultyVotes();
     gv_difficulty = gf_get_real_difficulty();
+    gv_difficulty = 13;
     if ((gv_difficulty >= 5)) {
         lv_d = gf_roll_dice();
         if (((lv_d == 1) || (lv_d == 2))) {
@@ -32387,6 +32408,7 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     }
     if ((gv_difficulty >= 7)) {
         gf_banelings_init_vars();
+        TechTreeUpgradeAddLevel(7, "BattleFrenzy", 1);
     }
 
     gf_set_up_difficulty_init_modifiers();

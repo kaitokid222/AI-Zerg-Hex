@@ -332,6 +332,7 @@ Button/Hotkey/SpawnBeastling=Q
 Button/Hotkey/SpawnBeastling3v3=Z
 Button/Hotkey/SpawnBruta3v3=F
 Button/Hotkey/SpawnBrutalisk=Q
+Button/Hotkey/SpawnCorroslash=Q
 Button/Hotkey/SpawnCow=S
 Button/Hotkey/SpawnCreeper=Q
 Button/Hotkey/SpawnCreeper3v3=W

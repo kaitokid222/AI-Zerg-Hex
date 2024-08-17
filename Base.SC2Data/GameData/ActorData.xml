@@ -8,6 +8,60 @@
     <CActorUnit id="Citadel">
         <Scale value="0.300000"/>
     </CActorUnit>
+    <CActorUnit id="CorroslashSpawner" parent="ZergBuildingEx" unitName="CorroslashSpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter BanelingNest_Ambience"/>
+        <On index="65" Terms="UnitConstruction.CorroslashSpawner.Start" Send="Create SpawnerBuild"/>
+        <On index="66" Terms="UnitConstruction.CorroslashSpawner.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="67" Terms="UnitConstruction.CorroslashSpawner.Finish" Send="Destroy"/>
+        <On index="68" Terms="UnitBirth.CorroslashSpawner.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="69" Terms="UnitBirth.CorroslashSpawner.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="70" Terms="UnitBirth.CorroslashSpawner.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="71" Terms="UnitDeath.CorroslashSpawner" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="72" Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Target="" Send="DeathCustomize Detached"/>
+        <On index="73" removed="1"/>
+        <On index="74" removed="1"/>
+        <On index="75" removed="1"/>
+        <On index="76" removed="1"/>
+        <Model value="CatalystPit"/>
+        <Scale value="0.680000"/>
+        <EventDataFootprint index="0" Model="BanelingNestFootprint"/>
+        <BuildModel value="CatalystPit"/>
+        <DeathArray index="Normal" ModelLink="InfestationPitDeath" SoundLink="BanelingNest_Explode" VoiceLink="BanelingNestDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="BanelingNestDeathUnderConstruction" SoundLink="EvolutionChamber_Explode"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PlacementModel value="CatalystPitBuild"/>
+        <PortraitModel value="CatalystPit"/>
+        <BarOffset value="125"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-xayid-catalystpit.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="BanelingNest_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="BanelingNest_GroupYes"/>
+        <GroupSoundArray index="Attack" value="BanelingNest_GroupAttack"/>
+        <GroupSoundArray index="Board" value="BanelingNest_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-xayid-catalystpit.dds"/>
+        <SoundArray index="Birth" value="BanelingNest_Birth"/>
+        <SoundArray index="Ready" value="BanelingNest_Ready"/>
+        <SoundArray index="Help" value="BanelingNest_Help"/>
+        <SoundArray index="What" value="BanelingNest_What"/>
+        <SoundArray index="Yes" value="BanelingNest_Yes"/>
+        <SoundArray index="Attack" value="BanelingNest_Attack"/>
+        <SoundArray index="Pissed" value="BanelingNest_Pissed"/>
+        <SoundArray index="Movement" value="BanelingNest_Movement"/>
+        <SoundArray index="Turning" value="BanelingNest_Turning"/>
+        <SoundArray index="Board" value="BanelingNest_Board"/>
+        <SoundArray index="Click" value="BanelingNest_Click"/>
+        <SoundArray index="ClickError" value="BanelingNest_ClickError"/>
+        <SoundArray index="Highlight" value="BanelingNest_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-xayid-catalystpit.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-xayid-catalystpit.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="Eroder">
         <Scale value="1.210000"/>
     </CActorUnit>
@@ -67,7 +121,7 @@
         <On Terms="ActorCreation; ValidateUnit HasBattleFrenzy" Send="ModelSwap RevilerUpgrade"/>
         <On Terms="Upgrade.BattleFrenzy.Add" Send="ModelSwap RevilerUpgrade"/>
         <Model value="Reviler"/>
-        <Scale value="0.600000"/>
+        <Scale value="0.650000"/>
         <Baselines index="Stand" BlendOut="0.250000"/>
         <Baselines index="Walk" BlendOut="0.250000"/>
         <BuildModel value="Reviler"/>
