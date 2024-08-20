@@ -570,6 +570,7 @@ Behavior/Tooltip/AnalysisTerminalAuraBuff=This structure has reduced incoming da
 Behavior/Tooltip/ArmoryBuff=This unit has increased attack range and damage.
 Behavior/Tooltip/Automated=Gate closes itself when enemies are nearby.
 Behavior/Tooltip/Bankling=Gives zerg 2 minerals upon death
+Behavior/Tooltip/BattleFrenzy=<c val="FFFF80">Corroslash</c> attacks increase attack speed up to 34%. Lasts <d ref="Behavior,BattleFrenzy,Duration"/> seconds. Continued attacks will refresh duration.
 Behavior/Tooltip/BloodStacks=When you have gathered 100 stacks you can recruit the Chaos Lord.
 Behavior/Tooltip/ConstructionYardAuraBuffMain=This structure has reduced incoming damage and regenerates.
 Behavior/Tooltip/ConsumedBlood=Increases the maximum HP of this unit by 35.

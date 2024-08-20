@@ -1119,6 +1119,7 @@
         <EffectArray Reference="Unit,Marine3,LifeMax" Value="5"/>
         <EffectArray Reference="Unit,Marine3,LifeStart" Value="5"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
         <EffectArray Operation="Set" Reference="Weapon,ZTerranGaussRifle,Period" Value="1.000000"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor2">
@@ -1135,6 +1136,7 @@
         <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
         <EffectArray Reference="Weapon,ZTerranGaussRifle,Range" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor3">
@@ -1156,6 +1158,7 @@
         <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor4">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level3.dds"/>
@@ -1178,6 +1181,7 @@
         <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
     </CUpgrade>
     <CUpgrade id="ZergArmor5">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
@@ -1197,6 +1201,7 @@
         <EffectArray Reference="Unit,Hellion2,LifeMax" Value="10"/>
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
+        <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
     </CUpgrade>
     <CUpgrade id="HydraliskSpawnSize">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-regenrate.dds"/>

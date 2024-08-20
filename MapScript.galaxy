@@ -30065,7 +30065,7 @@ bool gt_useidleunits_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder")))) {
+        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder") || (UnitGetType(EventUnit()) == "Corroslash")))) {
             return false;
         }
     }
@@ -32322,7 +32322,6 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
     gf_Game_Banks_handler("load", 0, 0, 0, 0);
     gf_AnalysePlayerDifficultyVotes();
     gv_difficulty = gf_get_real_difficulty();
-    gv_difficulty = 13;
     if ((gv_difficulty >= 5)) {
         lv_d = gf_roll_dice();
         if (((lv_d == 1) || (lv_d == 2))) {
