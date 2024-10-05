@@ -3,12 +3,15 @@
     <CWeaponLegacy id="90mmCannons2">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="10"/>
         <Cost>
             <Vital index="Energy" value="40"/>
         </Cost>
         <Period value="2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ArtanisMeleeVoidUlnar">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ChaosDefilerPunch">
         <EditorCategories value="Race:Zerg"/>
@@ -35,10 +38,13 @@
         <DamagePoint value="0.888"/>
         <Effect value="ChaosSwordEffectSet"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="Dehaka">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="EvisceratorSpines">
         <MinScanRange value="4"/>
         <Range value="4"/>
-        <Period value="0.9"/>
+        <Period value="0.85"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="Firebat">
         <Period value="1"/>
@@ -64,6 +70,17 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="GlaiveWurm">
         <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HotSBanelingExplode">
+        <!--TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Ground,Visible;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/-->
+        <TargetFilters value="Ground,Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HotSBanelingExplodeBuilding">
+        <TargetFilters value="Ground,Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="IBF7Flamethrower">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfernalFlameThrower">
         <Range value="4"/>
@@ -108,6 +125,9 @@
     <CWeaponLegacy id="MassiveSporeAG">
         <Range value="4.5"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="PrologueZeratul">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="Psythe">
         <Range value="2"/>
         <Period value="0.5"/>
@@ -122,6 +142,12 @@
         <DamagePoint value="0"/>
         <Backswing value="0"/>
         <Effect value="PunisherGrenadesLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="RaynorWeapon">
+        <Range value="7.5"/>
+        <Period value="0.5"/>
+        <Backswing value="0.45"/>
+        <TargetFilters value="Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShadowCannon">
         <Period value="0.6"/>
@@ -210,6 +236,7 @@
     <CWeaponLegacy id="MengskMarauder">
         <Range value="8"/>
         <Period value="1.3"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MercLanerGoblinSapperWeaponMelee">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -755,7 +782,7 @@
     <CWeaponLegacy id="TwinBolter">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Icon\ICON CSM Twin Bolter.dds"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="0.4"/>
         <DamagePoint value="0.05"/>
         <Backswing value="0.75"/>

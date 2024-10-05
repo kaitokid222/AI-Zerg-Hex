@@ -138,6 +138,7 @@
 <Behavior id="UpgradedVespeneHarvestingUnlimited"/>
 <Behavior id="SpawnProtection"/>
 <Behavior id="GenerateMineralsCowFarm"/>
+<Behavior id="MarauderALSpeedBuff"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
@@ -269,6 +270,7 @@
 <Unit id="CreepTumor2"/>
 <Unit id="GreaterMineralExtractor"/>
 <Unit id="Italis"/>
+<Unit id="AatroxArthasCritter"/>
 <Unit id="KokCritter"/>
 <Unit id="Barracks2"/>
 <Unit id="MechaDrone"/>

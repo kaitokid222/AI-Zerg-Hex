@@ -21,6 +21,15 @@
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ALHBuff">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-garyselfhealing.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="35"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="GenerateMineralsTombstone">
         <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -102,6 +111,13 @@
         <DisableValidatorArray index="0" removed="1"/>
         <Modification TimeScale="1.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SpawnGeyserUponDeath">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="CreateGeyser">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SpawnerSlowDown">
         <Alignment value="Negative"/>
         <InfoFlags index="Hidden" value="1"/>
@@ -140,6 +156,12 @@
             <WeaponDisableArray value="TwinBolter"/>
             <WeaponDisableArray value="CrucioShockCannon"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MarauderALSpeedBuff">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification MoveSpeedMultiplier="3"/>
     </CBehaviorBuff>
     <CBehaviorCreepSource id="makeCreep3x3Tombstone">
         <InfoFlags index="Hidden" value="1"/>

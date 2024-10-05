@@ -13,10 +13,24 @@
     <CEffectEnumArea id="CloakChargeFieldSA">
         <AreaArray index="0" Radius="6.5"/>
     </CEffectEnumArea>
+    <CEffectCreateUnit id="CreateGeyser">
+        <EditorCategories value=""/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="NormalizeSpawnOffset" value="0"/>
+        <SpawnOwner Value="Target"/>
+        <SpawnUnit value="VespeneGeyser"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="EvisceratorSpinesLMImpact">
         <Amount value="8"/>
         <Death value="Disintegrate"/>
     </CEffectDamage>
+    <CEffectEnumArea id="HotSBanelingExplodeLargeHealSearchAll">
+        <SearchFilters value="Ground,Visible;Ally,Enemy,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="PylonApplyStaticDischarge">
         <EditorCategories value=""/>
         <Behavior value="StaticDischargePylon"/>

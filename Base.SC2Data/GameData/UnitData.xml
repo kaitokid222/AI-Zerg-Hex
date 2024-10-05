@@ -13,6 +13,101 @@
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
     </CUnit>
+    <!--CUnit id="ZealotHallucination">-->
+    <!--        <DeathRevealRadius value="3"/>-->
+    <!--        <ReviveType value="Zealot"/>-->
+    <!--        <Race value="Prot"/>-->
+    <!--        <Mob value="Multiplayer"/>-->
+    <!--        <FlagArray index="PreventDestroy" value="1"/>-->
+    <!--        <FlagArray index="UseLineOfSight" value="1"/>-->
+    <!--        <FlagArray index="ArmySelect" value="1"/>-->
+    <!--        <PlaneArray index="Ground" value="1"/>-->
+    <!--        <Collide index="Ground" value="1"/>-->
+    <!--        <Collide index="Small" value="1"/>-->
+    <!--        <Collide index="ForceField" value="1"/>-->
+    <!--        <Attributes index="Light" value="1"/>-->
+    <!--        <Attributes index="Biological" value="1"/>-->
+    <!--        <LifeStart value="100"/>-->
+    <!--        <LifeMax value="100"/>-->
+    <!--        <LifeArmor value="1"/>-->
+    <!--        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>-->
+    <!--        <ShieldsStart value="50"/>-->
+    <!--        <ShieldsMax value="50"/>-->
+    <!--        <ShieldRegenDelay value="10"/>-->
+    <!--        <ShieldRegenRate value="2"/>-->
+    <!--        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>-->
+    <!--        <Speed value="2.75"/>-->
+    <!--        <Acceleration value="1000"/>-->
+    <!--        <LateralAcceleration value="46.0625"/>-->
+    <!--        <StationaryTurningRate value="999.8437"/>-->
+    <!--        <TurningRate value="999.8437"/>-->
+    <!--        <Sight value="9"/>-->
+    <!--        <Food value="-2"/>-->
+    <!--        <CostCategory value="Army"/>-->
+    <!--        <CostResource index="Minerals" value="100"/>-->
+    <!--        <AttackTargetPriority value="21"/>-->
+    <!--        <DamageDealtXP value="1"/>-->
+    <!--        <DamageTakenXP value="1"/>-->
+    <!--        <KillXP value="20"/>-->
+    <!--        <AbilArray Link="stop"/>-->
+    <!--        <AbilArray Link="attack"/>-->
+    <!--        <AbilArray Link="move"/>-->
+    <!--        <AbilArray Link="Warpable"/>-->
+    <!--        <AbilArray Link="ProgressRally"/>-->
+    <!--        <WeaponArray Link="PsiBlades"/>-->
+    <!--        <CardLayouts>-->
+    <!--            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>-->
+    <!--            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>-->
+    <!--            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>-->
+    <!--            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>-->
+    <!--            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>-->
+    <!--            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="ProgressRally,Rally1" Row="2" Column="4"/>-->
+    <!--        </CardLayouts>-->
+    <!--        <SeparationRadius value="0.375"/>-->
+    <!--        <InnerRadius value="0.375"/>-->
+    <!--        <CargoSize value="2"/>-->
+    <!--        <ScoreMake value="100"/>-->
+    <!--        <ScoreKill value="100"/>-->
+    <!--        <ScoreResult value="BuildOrder"/>-->
+    <!--        <SubgroupPriority value="5"/>-->
+    <!--        <MinimapRadius value="0.375"/>-->
+    <!--        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>-->
+    <!--        <TacticalAI value="Zealot"/>-->
+    <!--        <LeaderAlias value="Zealot"/>-->
+    <!--        <HotkeyAlias value="Zealot"/>-->
+    <!--        <SelectAlias value="Zealot"/>-->
+    <!--        <SubgroupAlias value="Zealot"/>-->
+    <!--        <GlossaryCategory value="Unit/Category/ProtossUnits"/>-->
+    <!--        <GlossaryPriority value="20"/>-->
+    <!--        <GlossaryStrongArray value="Marauder"/>-->
+    <!--        <GlossaryStrongArray value="Zergling"/>-->
+    <!--        <GlossaryStrongArray value="Immortal"/>-->
+    <!--        <GlossaryWeakArray value="Hellion"/>-->
+    <!--        <GlossaryWeakArray value="Roach"/>-->
+    <!--        <GlossaryWeakArray value="Colossus"/>-->
+    <!--        <HotkeyCategory value="Unit/Category/ProtossUnits"/>-->
+    <!--        <AIEvaluateAlias value="Zealot"/>-->
+    <!--        <Fidget>-->
+    <!--            <ChanceArray index="Anim" value="20"/>-->
+    <!--            <ChanceArray index="Idle" value="70"/>-->
+    <!--            <ChanceArray index="Turn" value="10"/>-->
+    <!--        </Fidget>-->
+    <!--        <TauntDuration index="Cheer" value="5"/>-->
+    <!--        <TauntDuration index="Dance" value="5"/>-->
+    <!--        <ReviveInfoBase>-->
+    <!--            <Charge Link="Zealot/Revive"/>-->
+    <!--            <Cooldown Link="Zealot/Revive"/>-->
+    <!--        </ReviveInfoBase>-->
+    <!--    </CUnit-->
+    <CUnit id="ArtanisVoid">
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <!--EnergyStart value="200"/>
+        <EnergyMax value="200"/>
+        <EnergyRegenRate value="5.5"/-->
+        <ShieldsStart value="1000"/>
+        <ShieldsMax value="1000"/>
+    </CUnit>
     <CUnit id="Casnolisk">
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
@@ -111,6 +206,11 @@
             <Cooldown Link="BanelingNest/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="Dehaka">
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <LifeArmor value="29"/>
+    </CUnit>
     <CUnit id="Eroder">
         <LifeStart value="625"/>
         <LifeMax value="625"/>
@@ -155,6 +255,30 @@
             <LayoutButtons Face="UpgradeShieldDensity3" Type="AbilCmd" AbilCmd="ForgeResearch,Research25" Row="1" Column="3"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="AatroxArthasCritter" parent="Critter">
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <Response value="Flee"/>
+        <Attributes index="Massive" value="1"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeRegenRate value="2"/>
+        <Speed value="1"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="CritterEatFruit"/>
+        <AbilArray Link="CritterSeekFruit"/>
+        <BehaviorArray index="0" Link="CritterFleeTrigger"/>
+        <BehaviorArray Link="SpawnGeyserUponDeath"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="AatroxArthasButton" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="AatroxArthasLButton" Type="Passive" Row="2" Column="1"/>
+        </CardLayouts>
+        <TacticalAI value="Drone"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+    </CUnit>
     <CUnit id="Massalisk">
         <FlagArray index="AcquireRally" value="1"/>
         <LifeStart value="550"/>
@@ -177,8 +301,8 @@
     </CUnit>
     <CUnit id="Corroslash" parent="CUnitXayid">
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="45"/>
-        <LifeMax value="45"/>
+        <LifeStart value="55"/>
+        <LifeMax value="55"/>
         <LifeArmor value="1"/>
         <Speed value="1.6015"/>
         <Sight value="10"/>
@@ -193,15 +317,26 @@
                 <Column value="0"/>
             </LayoutButtons>
         </CardLayouts>
-        <Radius value="0.6875"/>
-        <SeparationRadius value="0.325"/>
-        <InnerRadius value="0.5"/>
+        <Radius value="0.3125"/>
+        <SeparationRadius value="0.2"/>
+        <InnerRadius value="0.3125"/>
         <CargoSize value="1"/>
         <SubgroupPriority value="70"/>
-        <MinimapRadius value="0.325"/>
+        <MinimapRadius value="0.2"/>
         <GlossaryPriority value="9"/>
         <GlossaryAlias value="Reviler"/>
         <FlagArray index="AcquireRally" value="1"/>
+    </CUnit>
+    <CUnit id="Raynor">
+        <Speed value="3.5"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="0"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="TossGrenade" AbilCmd="TossGrenade,Execute" Column="1"/>
+            <LayoutButtons index="6" Face="ExperimentalPlasmaGun" AbilCmd="ExperimentalPlasmaGun,Execute" Column="2"/>
+            <LayoutButtons index="7" Face="TheMorosDevice" AbilCmd="TheMorosDevice,Execute" Column="3"/>
+            <LayoutButtons index="8" removed="1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="ShieldBattery">
         <CostResource index="Minerals" value="50"/>
@@ -455,6 +590,10 @@
     </CUnit>
     <CUnit id="Blaze">
         <Food value="0"/>
+        <LifeStart value="800"/>
+        <LifeMax value="800"/>
+        <CostResource index="Minerals" value="0"/>
+        <CostResource index="Vespene" value="0"/>
     </CUnit>
     <CUnit id="Blitzer">
         <Food value="0"/>
@@ -10563,6 +10702,12 @@
         <ShieldsMax value="400"/>
         <Speed value="3.5"/>
         <!--BehaviorArray Link="SOACheatDeathSupply2"/-->
+    </CUnit>
+    <CUnit id="ZeratulVoidAiur01">
+        <LifeRegenDelay value="5"/>
+        <LifeRegenRate value="5"/>
+        <ShieldRegenDelay value="5"/>
+        <ShieldRegenRate value="7"/>
     </CUnit>
     <CUnit id="Zergling">
         <FlagArray index="AcquireRally" value="1"/>

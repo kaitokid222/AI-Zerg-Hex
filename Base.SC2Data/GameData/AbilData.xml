@@ -65,6 +65,22 @@
             <Button DefaultButtonFace="ResearchProbiusL2" Requirements="ResearchProbiusL2"/>
         </InfoArray>
     </CAbilResearch>
+    <CAbilEffectTarget id="ArtanisLightningDash">
+        <Cost index="0">
+            <!--Vital index="Energy" value="50"/-->
+            <Cooldown TimeUse="2"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="ExperimentalPlasmaGun">
+        <Cost index="0">
+            <Charge TimeUse="5"/>
+            <Cooldown TimeUse="3"/>
+        </Cost>
+        <Range index="0" value="10"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="ExplodeHeal">
+        <TargetFilters value="-;Player,Ally,Neutral"/>
+    </CAbilEffectInstant>
     <CAbilResearch id="ForgeResearch">
         <InfoArray index="Research10" Time="45" Upgrade="ProbiusWallShields">
             <Resource index="Vespene" value="100"/>
@@ -145,6 +161,13 @@
         <Range index="0" value="9"/>
         <AutoCastRange value="9"/>
         <AutoCastValidatorArray index="1" value="UnitOrTerranWalls"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="TheMorosDevice">
+        <Cost index="0">
+            <Charge TimeUse="5"/>
+            <Cooldown TimeUse="3"/>
+        </Cost>
+        <Range index="0" value="12"/>
     </CAbilEffectTarget>
     <CAbilResearch id="TombstoneResearch">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -578,6 +601,13 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
+    <CAbilEffectTarget id="TossGrenade">
+        <Cost index="0">
+            <Charge TimeUse="5"/>
+            <Cooldown TimeUse="3"/>
+        </Cost>
+        <Range index="0" value="8"/>
+    </CAbilEffectTarget>
     <CAbilTrain id="TrainCorroslash">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>

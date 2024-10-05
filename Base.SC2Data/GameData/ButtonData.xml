@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="AatroxArthasLButton">
+        <Icon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
+    </CButton>
     <CButton id="EnergizeWalls" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
     <CButton id="AutomatedAssimilator"/>
     <CButton id="BuildMechaExtractor">
@@ -2124,5 +2128,9 @@
     <CButton id="kokButton">
         <Icon value="Assets\Textures\btn-unit-collection-siegetankstatic-commando.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-collection-siegetankstatic-commando.dds"/>
+    </CButton>
+    <CButton id="AatroxArthasButton">
+        <Icon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
     </CButton>
 </Catalog>
