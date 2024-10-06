@@ -1931,6 +1931,7 @@ int gf_tbp_get_tv_winner_vote ();
 void gf_torment_special_units_refresh (int lp_d);
 void gf_disable_button_for_all_players (int lp_position);
 void gf_disable_all_buttons_for_player (int lp_player);
+int gf_tbp_get_used_button_pos_id (int lp_button);
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int);
 void gf_tbp_refresh_dialog_labels ();
 string gf_tbp_transform_xp_string (int lp_pxp, int lp_nxp);
@@ -21421,12 +21422,52 @@ void gf_disable_button_for_all_players (int lp_position) {
 void gf_disable_all_buttons_for_player (int lp_player) {
     // Automatic Variable Declarations
     // Implementation
+    DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[1], PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[2], PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[3], PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[4], PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[5], PlayerGroupSingle(lp_player), false);
     DialogControlSetEnabled(gv_tbp_minimap_buttons[6], PlayerGroupSingle(lp_player), false);
+}
+
+int gf_tbp_get_used_button_pos_id (int lp_button) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int auto05ABC57C_val;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_button == gv_tbp_minimap_button_random)) {
+        lv_r = 0;
+    }
+    else {
+        auto05ABC57C_val = lp_button;
+        if (auto05ABC57C_val == gv_tbp_minimap_buttons[1]) {
+            lv_r = 1;
+        }
+        else if (auto05ABC57C_val == gv_tbp_minimap_buttons[2]) {
+            lv_r = 2;
+        }
+        else if (auto05ABC57C_val == gv_tbp_minimap_buttons[3]) {
+            lv_r = 3;
+        }
+        else if (auto05ABC57C_val == gv_tbp_minimap_buttons[4]) {
+            lv_r = 4;
+        }
+        else if (auto05ABC57C_val == gv_tbp_minimap_buttons[5]) {
+            lv_r = 5;
+        }
+        else if (auto05ABC57C_val == gv_tbp_minimap_buttons[6]) {
+            lv_r = 6;
+        }
+        else {
+        }
+    }
+    return lv_r;
 }
 
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int) {
@@ -32684,8 +32725,6 @@ bool gt_tbp_dialog_minimap_interaction_Func (bool testConds, bool runActions) {
     int lv_picked_position;
 
     // Automatic Variable Declarations
-    int autoB778C8B8_val;
-
     // Variable Initialization
     lv_i = 1;
 
@@ -32702,58 +32741,33 @@ bool gt_tbp_dialog_minimap_interaction_Func (bool testConds, bool runActions) {
     }
 
     lv_former_position = gv_tbp_minimap_position_picks[EventPlayer()];
-    if ((EventDialogControl() == gv_tbp_minimap_button_random)) {
-        lv_picked_position = 0;
-    }
-    else {
-        autoB778C8B8_val = EventDialogControl();
-        if (autoB778C8B8_val == gv_tbp_minimap_buttons[1]) {
-            lv_picked_position = 1;
-        }
-        else if (autoB778C8B8_val == gv_tbp_minimap_buttons[2]) {
-            lv_picked_position = 2;
-        }
-        else if (autoB778C8B8_val == gv_tbp_minimap_buttons[3]) {
-            lv_picked_position = 3;
-        }
-        else if (autoB778C8B8_val == gv_tbp_minimap_buttons[4]) {
-            lv_picked_position = 4;
-        }
-        else if (autoB778C8B8_val == gv_tbp_minimap_buttons[5]) {
-            lv_picked_position = 5;
-        }
-        else if (autoB778C8B8_val == gv_tbp_minimap_buttons[6]) {
-            lv_picked_position = 6;
-        }
-        else {
-        }
-    }
+    lv_picked_position = gf_tbp_get_used_button_pos_id(EventDialogControl());
     gf_disable_all_buttons_for_player(EventPlayer());
     if ((lv_picked_position == 0)) {
-        if ((lv_former_position != 0)) {
-            libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_former_position], IntToText(lv_former_position), PlayerGroupAll());
-            DialogControlSetSize(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), 60, 60);
-        }
-
         DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupSingle(EventPlayer()), false);
     }
     else {
         gf_disable_button_for_all_players(lv_picked_position);
         DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupSingle(EventPlayer()), true);
-        libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_picked_position], TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_picked_position], PlayerName(EventPlayer()), PlayerGroupAll());
         DialogControlSetSize(gv_tbp_minimap_buttons[lv_picked_position], PlayerGroupAll(), 200, 60);
     }
+    if ((lv_former_position != 0)) {
+        libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_former_position], IntToText(lv_former_position), PlayerGroupAll());
+        DialogControlSetSize(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), 60, 60);
+        DialogControlSetEnabled(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), true);
+    }
+
     gv_tbp_minimap_position_picks[EventPlayer()] = lv_picked_position;
     gv_tbp_minimap_position_picks_cross[lv_picked_position] = EventPlayer();
     gv_tbp_minimap_position_picks_cross[lv_former_position] = 0;
     while ((lv_i <= 6)) {
-        if ((gv_tbp_minimap_position_picks[lv_i] == 0)) {
+        if ((gv_tbp_minimap_position_picks_cross[lv_i] == 0)) {
             DialogControlSetEnabled(gv_tbp_minimap_buttons[lv_i], PlayerGroupSingle(EventPlayer()), true);
         }
 
         lv_i += 1;
     }
-    lv_i = 1;
     gf_tbp_refresh_dialog_labels();
     return true;
 }

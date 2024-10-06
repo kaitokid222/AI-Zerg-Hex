@@ -39,6 +39,7 @@
 <Behavior id="GenerateMineralsTombstone"/>
 <Behavior id="AfterlifeHeroTriggerNotice"/>
 <Behavior id="SpawnerSlowDown"/>
+<Behavior id="MarauderALSpeedBuff"/>
 <Behavior id="HUGSAlgorythm"/>
 <Behavior id="SiegeTankExpertise"/>
 <Behavior id="HiveKilled"/>
@@ -138,7 +139,6 @@
 <Behavior id="UpgradedVespeneHarvestingUnlimited"/>
 <Behavior id="SpawnProtection"/>
 <Behavior id="GenerateMineralsCowFarm"/>
-<Behavior id="MarauderALSpeedBuff"/>
 <Effect id="SpawnerUpgradeUpgradeSet2"/>
 <Effect id="RavagerArtilleryCP"/>
 <Light id="Agria"/>
