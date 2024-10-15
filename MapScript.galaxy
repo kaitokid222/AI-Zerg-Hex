@@ -1281,10 +1281,12 @@ int gv_tbp_tv_p4;
 int gv_tbp_tv_p5;
 int gv_tbp_toplist_frame_dialog;
 int[7] gv_tbp_minimap_position_picks;
-int[7] gv_tbp_minimap_position_picks_cross;
+int[13] gv_tbp_minimap_position_picks_cross;
 int gv_tbp_minimap_dialog;
 int[7] gv_tbp_minimap_buttons;
 int[7] gv_tbp_minimap_add_archon_buttons;
+int[7] gv_tbp_minimap_remove_archon_buttons;
+int[7] gv_tbp_minimap_archon_slot_buttons;
 int gv_tbp_minimap_button_random;
 int gv_ic_unit_count;
 int[7] gv_ic_terran_combat_unit_counts;
@@ -1479,6 +1481,12 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 6; init_i += 1) {
         gv_tbp_minimap_add_archon_buttons[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 6; init_i += 1) {
+        gv_tbp_minimap_remove_archon_buttons[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 6; init_i += 1) {
+        gv_tbp_minimap_archon_slot_buttons[init_i] = c_invalidDialogControlId;
     }
     gv_tbp_minimap_button_random = c_invalidDialogControlId;
 }
@@ -1933,11 +1941,19 @@ int gf_tbp_mgc_get_vote_result ();
 int gf_tbp_get_zterran_vote_result ();
 int gf_tbp_get_tv_winner_vote ();
 void gf_torment_special_units_refresh (int lp_d);
-void gf_tbp_archon_create_player_slot (int lp_position);
+void gf_tbp_archon_create_player_slot (int lp_position, int lp_player);
 void gf_tbp_archon_create_add_player_slot (int lp_position, int lp_player);
+void gf_tbp_archon_create_remove_player_slot (int lp_position, int lp_player);
+void gf_tbp_archon_remove_add_player_slot (int lp_position, int lp_player);
+void gf_tbp_archon_remove_remove_player_slot (int lp_position, int lp_player);
+void gf_tbp_archon_remove_player_slot (int lp_position, int lp_player);
+void gf_tbp_make_player_position_random (int lp_player);
 void gf_disable_button_for_all_players (int lp_position);
 void gf_disable_all_buttons_for_player (int lp_player);
 int gf_tbp_get_used_button_pos_id (int lp_button);
+int gf_tbp_get_used_add_archon_button_pos_id (int lp_button);
+int gf_tbp_get_used_remove_archon_button_pos_id (int lp_button);
+int gf_tbp_get_used_archon_slot_button_pos_id (int lp_button);
 text gf_get_bonus_name_text_from_bid (int lp_bonus_int);
 void gf_tbp_refresh_dialog_labels ();
 string gf_tbp_transform_xp_string (int lp_pxp, int lp_nxp);
@@ -2151,6 +2167,9 @@ trigger gt_afterlife_hero_died;
 trigger gt_SporeCrawlerwantstoshoot;
 trigger gt_Infestordied;
 trigger gt_tbp_dialog_minimap_interaction;
+trigger gt_tbp_dialog_minimap_add_archon_button_interaction;
+trigger gt_tbp_dialog_minimap_remove_archon_button_interaction;
+trigger gt_tbp_dialog_minimap_archon_slot_button_interaction;
 trigger gt_tbp_create;
 trigger gt_tbp_dialog_interaction;
 trigger gt_tbp_dialog_extra_vote_difficulty_offset_interaction;
@@ -21419,31 +21438,40 @@ void gf_torment_special_units_refresh (int lp_d) {
     }
 }
 
-void gf_tbp_archon_create_player_slot (int lp_position) {
+void gf_tbp_archon_create_player_slot (int lp_position, int lp_player) {
     // Automatic Variable Declarations
     int auto75C24C29_val;
 
     // Implementation
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 90, 200, StringToText(""), StringExternal("Param/Value/6E661D79"), "Assets\\Textures\\ui_emoticons_random.dds");
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTop, 5, 100, StringToText(""), StringExternal("Param/Value/24D928B1"), "Assets\\Textures\\ui_emoticons_random.dds");
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopRight, 85, 200, StringToText(""), StringExternal("Param/Value/7A9FCBD2"), "Assets\\Textures\\ui_emoticons_random.dds");
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 90, 150, StringToText(""), StringExternal("Param/Value/B1A9D2DC"), "Assets\\Textures\\ui_emoticons_random.dds");
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottom, 5, 40, StringToText(""), StringExternal("Param/Value/3CA9AA21"), "Assets\\Textures\\ui_emoticons_random.dds");
-    libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomRight, 85, 150, StringToText(""), StringExternal("Param/Value/2CF7A641"), "Assets\\Textures\\ui_emoticons_random.dds");
-    auto75C24C29_val = lp_position;
-    if (auto75C24C29_val == 1) {
-    }
-    else if (auto75C24C29_val == 2) {
-    }
-    else if (auto75C24C29_val == 3) {
-    }
-    else if (auto75C24C29_val == 4) {
-    }
-    else if (auto75C24C29_val == 5) {
-    }
-    else if (auto75C24C29_val == 6) {
+    if ((gv_tbp_minimap_archon_slot_buttons[lp_position] == c_invalidDialogControlId)) {
+        auto75C24C29_val = lp_position;
+        if (auto75C24C29_val == 1) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorTopLeft, 90, 235, StringToText(""), StringExternal("Param/Value/6E661D79"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (auto75C24C29_val == 2) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorTop, 5, 125, StringToText(""), StringExternal("Param/Value/24D928B1"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (auto75C24C29_val == 3) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorTopRight, 85, 235, StringToText(""), StringExternal("Param/Value/7A9FCBD2"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (auto75C24C29_val == 4) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorBottomLeft, 90, 140, StringToText(""), StringExternal("Param/Value/B1A9D2DC"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (auto75C24C29_val == 5) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorBottom, 5, 20, StringToText(""), StringExternal("Param/Value/3CA9AA21"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (auto75C24C29_val == 6) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 200, 60, c_anchorBottomRight, 85, 140, StringToText(""), StringExternal("Param/Value/2CF7A641"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else {
+        }
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+        DialogControlSetEnabled(DialogControlLastCreated(), PlayerGroupSingle(lp_player), false);
+        gv_tbp_minimap_archon_slot_buttons[lp_position] = DialogControlLastCreated();
     }
     else {
+        DialogControlSetVisible(gv_tbp_minimap_archon_slot_buttons[lp_position], PlayerGroupAll(), true);
+        DialogControlSetEnabled(gv_tbp_minimap_archon_slot_buttons[lp_position], PlayerGroupSingle(lp_player), false);
     }
 }
 
@@ -21452,30 +21480,111 @@ void gf_tbp_archon_create_add_player_slot (int lp_position, int lp_player) {
     int autoE3FFEFFC_val;
 
     // Implementation
-    autoE3FFEFFC_val = lp_position;
-    if (autoE3FFEFFC_val == 1) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 25, 220, StringToText(""), StringExternal("Param/Value/B69164CB"), "Assets\\Textures\\ui_emoticons_random.dds");
-    }
-    else if (autoE3FFEFFC_val == 2) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 135, 60, StringToText(""), StringExternal("Param/Value/9B52C4A7"), "Assets\\Textures\\ui_emoticons_random.dds");
-    }
-    else if (autoE3FFEFFC_val == 3) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopRight, 25, 220, StringToText(""), StringExternal("Param/Value/5DFA8A1F"), "Assets\\Textures\\ui_emoticons_random.dds");
-    }
-    else if (autoE3FFEFFC_val == 4) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 25, 150, StringToText(""), StringExternal("Param/Value/685DFEF7"), "Assets\\Textures\\ui_emoticons_random.dds");
-    }
-    else if (autoE3FFEFFC_val == 5) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 135, 20, StringToText(""), StringExternal("Param/Value/4EF50D0B"), "Assets\\Textures\\ui_emoticons_random.dds");
-    }
-    else if (autoE3FFEFFC_val == 6) {
-        libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomRight, 25, 150, StringToText(""), StringExternal("Param/Value/7DCF3A8B"), "Assets\\Textures\\ui_emoticons_random.dds");
+    if ((gv_tbp_minimap_add_archon_buttons[lp_position] == c_invalidDialogControlId)) {
+        autoE3FFEFFC_val = lp_position;
+        if (autoE3FFEFFC_val == 1) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 25, 180, StringToText(""), StringExternal("Param/Value/B69164CB"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoE3FFEFFC_val == 2) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 135, 70, StringToText(""), StringExternal("Param/Value/9B52C4A7"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoE3FFEFFC_val == 3) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopRight, 25, 180, StringToText(""), StringExternal("Param/Value/5DFA8A1F"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoE3FFEFFC_val == 4) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 25, 195, StringToText(""), StringExternal("Param/Value/685DFEF7"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoE3FFEFFC_val == 5) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 135, 75, StringToText(""), StringExternal("Param/Value/4EF50D0B"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoE3FFEFFC_val == 6) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomRight, 25, 195, StringToText(""), StringExternal("Param/Value/7DCF3A8B"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else {
+        }
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupSingle(lp_player), true);
+        gv_tbp_minimap_add_archon_buttons[lp_position] = DialogControlLastCreated();
     }
     else {
+        DialogControlSetVisible(gv_tbp_minimap_add_archon_buttons[lp_position], PlayerGroupSingle(lp_player), true);
     }
-    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
-    DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupSingle(lp_player), true);
-    gv_tbp_minimap_add_archon_buttons[lp_position] = DialogControlLastCreated();
+}
+
+void gf_tbp_archon_create_remove_player_slot (int lp_position, int lp_player) {
+    // Automatic Variable Declarations
+    int autoDCB5A029_val;
+
+    // Implementation
+    if ((gv_tbp_minimap_remove_archon_buttons[lp_position] == c_invalidDialogControlId)) {
+        autoDCB5A029_val = lp_position;
+        if (autoDCB5A029_val == 1) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 25, 180, StringToText(""), StringExternal("Param/Value/6B046046"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoDCB5A029_val == 2) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopLeft, 135, 70, StringToText(""), StringExternal("Param/Value/FA20E2F0"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoDCB5A029_val == 3) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorTopRight, 25, 180, StringToText(""), StringExternal("Param/Value/988BD567"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoDCB5A029_val == 4) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 25, 195, StringToText(""), StringExternal("Param/Value/102CE03C"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoDCB5A029_val == 5) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomLeft, 135, 75, StringToText(""), StringExternal("Param/Value/284D9D62"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else if (autoDCB5A029_val == 6) {
+            libNtve_gf_CreateDialogItemButton(gv_tbp_minimap_dialog, 60, 60, c_anchorBottomRight, 25, 195, StringToText(""), StringExternal("Param/Value/E22017B0"), "Assets\\Textures\\ui_emoticons_random.dds");
+        }
+        else {
+        }
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
+        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupSingle(lp_player), true);
+        gv_tbp_minimap_remove_archon_buttons[lp_position] = DialogControlLastCreated();
+    }
+    else {
+        DialogControlSetVisible(gv_tbp_minimap_remove_archon_buttons[lp_position], PlayerGroupSingle(lp_player), true);
+    }
+}
+
+void gf_tbp_archon_remove_add_player_slot (int lp_position, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogControlSetVisible(gv_tbp_minimap_add_archon_buttons[lp_position], PlayerGroupSingle(lp_player), false);
+}
+
+void gf_tbp_archon_remove_remove_player_slot (int lp_position, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogControlSetVisible(gv_tbp_minimap_remove_archon_buttons[lp_position], PlayerGroupSingle(lp_player), false);
+}
+
+void gf_tbp_archon_remove_player_slot (int lp_position, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogControlSetVisible(gv_tbp_minimap_archon_slot_buttons[lp_position], PlayerGroupSingle(lp_player), false);
+    DialogControlSetVisible(gv_tbp_minimap_archon_slot_buttons[lp_position], PlayerGroupAll(), false);
+}
+
+void gf_tbp_make_player_position_random (int lp_player) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    gv_tbp_minimap_position_picks_cross[gv_tbp_minimap_position_picks[lp_player]] = 0;
+    gv_tbp_minimap_position_picks[lp_player] = 0;
+    DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupSingle(lp_player), false);
+    while ((lv_i <= 6)) {
+        if ((gv_tbp_minimap_position_picks_cross[lv_i] == 0)) {
+            DialogControlSetEnabled(gv_tbp_minimap_buttons[lv_i], PlayerGroupSingle(lp_player), true);
+        }
+
+        lv_i += 1;
+    }
 }
 
 void gf_disable_button_for_all_players (int lp_position) {
@@ -21531,6 +21640,108 @@ int gf_tbp_get_used_button_pos_id (int lp_button) {
         }
         else {
         }
+    }
+    return lv_r;
+}
+
+int gf_tbp_get_used_add_archon_button_pos_id (int lp_button) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int autoF03EAD3E_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoF03EAD3E_val = lp_button;
+    if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[1]) {
+        lv_r = 1;
+    }
+    else if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[2]) {
+        lv_r = 2;
+    }
+    else if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[3]) {
+        lv_r = 3;
+    }
+    else if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[4]) {
+        lv_r = 4;
+    }
+    else if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[5]) {
+        lv_r = 5;
+    }
+    else if (autoF03EAD3E_val == gv_tbp_minimap_add_archon_buttons[6]) {
+        lv_r = 6;
+    }
+    else {
+    }
+    return lv_r;
+}
+
+int gf_tbp_get_used_remove_archon_button_pos_id (int lp_button) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int auto0B644250_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0B644250_val = lp_button;
+    if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[1]) {
+        lv_r = 1;
+    }
+    else if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[2]) {
+        lv_r = 2;
+    }
+    else if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[3]) {
+        lv_r = 3;
+    }
+    else if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[4]) {
+        lv_r = 4;
+    }
+    else if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[5]) {
+        lv_r = 5;
+    }
+    else if (auto0B644250_val == gv_tbp_minimap_remove_archon_buttons[6]) {
+        lv_r = 6;
+    }
+    else {
+    }
+    return lv_r;
+}
+
+int gf_tbp_get_used_archon_slot_button_pos_id (int lp_button) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    int auto47837688_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto47837688_val = lp_button;
+    if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[1]) {
+        lv_r = 1;
+    }
+    else if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[2]) {
+        lv_r = 2;
+    }
+    else if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[3]) {
+        lv_r = 3;
+    }
+    else if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[4]) {
+        lv_r = 4;
+    }
+    else if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[5]) {
+        lv_r = 5;
+    }
+    else if (auto47837688_val == gv_tbp_minimap_archon_slot_buttons[6]) {
+        lv_r = 6;
+    }
+    else {
     }
     return lv_r;
 }
@@ -32819,6 +33030,7 @@ bool gt_tbp_dialog_minimap_interaction_Func (bool testConds, bool runActions) {
         gf_tbp_archon_create_add_player_slot(lv_picked_position, EventPlayer());
     }
     if ((lv_former_position != 0)) {
+        gf_tbp_archon_remove_add_player_slot(lv_former_position, EventPlayer());
         libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_former_position], IntToText(lv_former_position), PlayerGroupAll());
         DialogControlSetSize(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), 60, 60);
         DialogControlSetEnabled(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), true);
@@ -32842,6 +33054,113 @@ bool gt_tbp_dialog_minimap_interaction_Func (bool testConds, bool runActions) {
 void gt_tbp_dialog_minimap_interaction_Init () {
     gt_tbp_dialog_minimap_interaction = TriggerCreate("gt_tbp_dialog_minimap_interaction_Func");
     TriggerAddEventDialogControl(gt_tbp_dialog_minimap_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_minimap_add_archon_button_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_minimap_add_archon_button_interaction_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_position;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_minimap_add_archon_buttons[1]) || (EventDialogControl() == gv_tbp_minimap_add_archon_buttons[2]) || (EventDialogControl() == gv_tbp_minimap_add_archon_buttons[3]) || (EventDialogControl() == gv_tbp_minimap_add_archon_buttons[4]) || (EventDialogControl() == gv_tbp_minimap_add_archon_buttons[5]) || (EventDialogControl() == gv_tbp_minimap_add_archon_buttons[6])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_position = gf_tbp_get_used_add_archon_button_pos_id(EventDialogControl());
+    gf_tbp_archon_remove_add_player_slot(lv_position, EventPlayer());
+    gf_tbp_archon_create_remove_player_slot(lv_position, EventPlayer());
+    gf_tbp_archon_create_player_slot(lv_position, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_minimap_add_archon_button_interaction_Init () {
+    gt_tbp_dialog_minimap_add_archon_button_interaction = TriggerCreate("gt_tbp_dialog_minimap_add_archon_button_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_minimap_add_archon_button_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_minimap_remove_archon_button_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_minimap_remove_archon_button_interaction_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_position;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[1]) || (EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[2]) || (EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[3]) || (EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[4]) || (EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[5]) || (EventDialogControl() == gv_tbp_minimap_remove_archon_buttons[6])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_position = gf_tbp_get_used_remove_archon_button_pos_id(EventDialogControl());
+    gf_tbp_archon_remove_player_slot(lv_position, EventPlayer());
+    gf_tbp_make_player_position_random(gv_tbp_minimap_position_picks_cross[(lv_position + 6)]);
+    gf_tbp_archon_remove_remove_player_slot(lv_position, EventPlayer());
+    gf_tbp_archon_create_add_player_slot(lv_position, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_minimap_remove_archon_button_interaction_Init () {
+    gt_tbp_dialog_minimap_remove_archon_button_interaction = TriggerCreate("gt_tbp_dialog_minimap_remove_archon_button_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_minimap_remove_archon_button_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: tbp_dialog_minimap_archon_slot_button_interaction
+//--------------------------------------------------------------------------------------------------
+bool gt_tbp_dialog_minimap_archon_slot_button_interaction_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_position;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[1]) || (EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[2]) || (EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[3]) || (EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[4]) || (EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[5]) || (EventDialogControl() == gv_tbp_minimap_archon_slot_buttons[6])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_position = gf_tbp_get_used_archon_slot_button_pos_id(EventDialogControl());
+    gf_tbp_archon_remove_player_slot(lv_position, EventPlayer());
+    gf_tbp_make_player_position_random(gv_tbp_minimap_position_picks_cross[(lv_position + 6)]);
+    gf_tbp_archon_remove_remove_player_slot(lv_position, EventPlayer());
+    gf_tbp_archon_create_add_player_slot(lv_position, EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_tbp_dialog_minimap_archon_slot_button_interaction_Init () {
+    gt_tbp_dialog_minimap_archon_slot_button_interaction = TriggerCreate("gt_tbp_dialog_minimap_archon_slot_button_interaction_Func");
+    TriggerAddEventDialogControl(gt_tbp_dialog_minimap_archon_slot_button_interaction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -33014,22 +33333,23 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     DialogCreate(570, 605, c_anchorTopLeft, 1420, 100, true);
     DialogSetTitle(DialogLastCreated(), StringExternal("Param/Value/9753C624"));
     libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 512, 512, c_anchorTopLeft, 30, 70, StringToText(""), "assets\\dialog\\minimap.tga", c_triggerImageTypeNormal, true, Color(100,100,100), c_triggerBlendModeNormal);
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 90, 220, StringToText(""), StringExternal("Param/Value/AEA22F25"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopLeft, 90, 180, StringToText(""), StringExternal("Param/Value/AEA22F25"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[1] = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTop, 5, 60, StringToText(""), StringExternal("Param/Value/149D5C46"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTop, 5, 70, StringToText(""), StringExternal("Param/Value/149D5C46"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[2] = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopRight, 85, 220, StringToText(""), StringExternal("Param/Value/EDDBE1A1"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorTopRight, 85, 180, StringToText(""), StringExternal("Param/Value/EDDBE1A1"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[3] = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomLeft, 90, 150, StringToText(""), StringExternal("Param/Value/F9440A32"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomLeft, 90, 195, StringToText(""), StringExternal("Param/Value/F9440A32"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[4] = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottom, 5, 20, StringToText(""), StringExternal("Param/Value/97629A9E"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottom, 5, 75, StringToText(""), StringExternal("Param/Value/97629A9E"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[5] = DialogControlLastCreated();
-    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomRight, 85, 150, StringToText(""), StringExternal("Param/Value/ED2886E8"), "Assets\\Textures\\ui_emoticons_random.dds");
+    libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 60, 60, c_anchorBottomRight, 85, 195, StringToText(""), StringExternal("Param/Value/ED2886E8"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_buttons[6] = DialogControlLastCreated();
     libNtve_gf_CreateDialogItemButton(DialogLastCreated(), 120, 60, c_anchorCenter, 5, 20, StringToText(""), StringExternal("Param/Value/CDB3F065"), "Assets\\Textures\\ui_emoticons_random.dds");
     gv_tbp_minimap_button_random = DialogControlLastCreated();
     DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupAll(), false);
     gv_tbp_minimap_dialog = DialogLastCreated();
+    gf_tbp_archon_create_player_slot(0, 0);
     DialogSetVisible(gv_tbp_minimap_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);
@@ -34125,6 +34445,9 @@ void InitTriggers () {
     gt_SporeCrawlerwantstoshoot_Init();
     gt_Infestordied_Init();
     gt_tbp_dialog_minimap_interaction_Init();
+    gt_tbp_dialog_minimap_add_archon_button_interaction_Init();
+    gt_tbp_dialog_minimap_remove_archon_button_interaction_Init();
+    gt_tbp_dialog_minimap_archon_slot_button_interaction_Init();
     gt_tbp_create_Init();
     gt_tbp_dialog_interaction_Init();
     gt_tbp_dialog_extra_vote_difficulty_offset_interaction_Init();
