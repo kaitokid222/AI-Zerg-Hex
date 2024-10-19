@@ -58,6 +58,7 @@ Abil/Name/DefenderUnlink=Defender Unlink
 Abil/Name/Demolish=Demolish
 Abil/Name/DestroyStructure=Destroy Structure
 Abil/Name/EatFruitCow=Eat Fruit
+Abil/Name/EatFruitFruitinator=Eat Fruit
 Abil/Name/EatFruitSheep=Eat Fruit
 Abil/Name/EnableEnemySensorOff=Enable Enemy Sensor (Off)
 Abil/Name/EnableEnemySensorOn=Enable Enemy Sensor (On)
@@ -539,6 +540,7 @@ Behavior/Name/RoachTarRushSpeed=Roach - Tar Rush Speed
 Behavior/Name/SiegeTankCooldown=Cooldown
 Behavior/Name/SiegeTankExpertise=Siege Tank Expertise
 Behavior/Name/SiegeTankFragmentBlastFireDamage=Siege Tank - Fragment Blast (Fire Damage)
+Behavior/Name/SmithDoingStuffCooldown=Smith Doing Stuff Cooldown
 Behavior/Name/SpawnFromCenter=Spawn From Center
 Behavior/Name/SpawnFromLeft=Spawn From Left
 Behavior/Name/SpawnFromRight=Spawn From Right
@@ -691,6 +693,7 @@ Behavior/Tooltip/RavatorStructureBurning=Structure takes damage over time and ha
 Behavior/Tooltip/RoachTarRushSpeed=Spawned early to have increased movement and attack speed.
 Behavior/Tooltip/SiegeTankCooldown=The Siege Tank needs cooling down before using abilities or performing an upgrade.
 Behavior/Tooltip/SiegeTankExpertise=Improves the tank weapon each 30 kills while in tank  mode. Maximum of 30 upgrades.
+Behavior/Tooltip/SmithDoingStuffCooldown=Cooldown
 Behavior/Tooltip/SpawnFromCenter=Zerg units appear from the center.
 Behavior/Tooltip/SpawnFromLeft=Zerg units appear from the left side.
 Behavior/Tooltip/SpawnFromRight=Zerg units appear from the right side.
@@ -1060,6 +1063,7 @@ Button/Name/SiegeTankModulate=Modulate
 Button/Name/SiegeTankRangeUpgraded=Range Upgraded
 Button/Name/SiegeTankUpgradeRange=Upgrade Range
 Button/Name/SkinSwitchPanel=Skin Switch Panel
+Button/Name/Smith=<Smith>
 Button/Name/SolidFoundation=Solid Foundation
 Button/Name/Spawn5Firelings=Spawn 5 Firelings
 Button/Name/SpawnBaneling=Spawn Baneling
@@ -1399,10 +1403,14 @@ Button/Tooltip/Flower=
 Button/Tooltip/Fortification=Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val="E8E191">Walls and Gates</c>: +30% health and +1 armor.<n/><c val="E8E191">Tech Structures</c>: +35 hp.<n/><c val="E8E191">Other</c>: +20 hp. <c val="C0C0C0">(Fruit Farm excluded)</c><n/><n/>Can be upgraded 30 times.
 Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage to enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
 Button/Tooltip/FruitFarm=
+Button/Tooltip/Fruitinator=Converts Fruit to Minerals most effectively.
 Button/Tooltip/GainBounty=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
 Button/Tooltip/GainBountyTextKicker=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
 Button/Tooltip/GainGas2Text=<s val="MercDescription"><c val="8AFF91">+2</c></s><IMG path="Assets\Textures\icon-gas-terran.dds" height="18" width="18"/>
+Button/Tooltip/GainMinerals16Text=<s val="MercDescription">+16</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
+Button/Tooltip/GainMinerals17Text=<s val="MercDescription">+17</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals1Text=<s val="MercDescription">+1</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
+Button/Tooltip/GainMinerals20Text=<s val="MercDescription">+20</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals2Text=<s val="MercDescription">+2</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals3Text=<s val="MercDescription">+3</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
 Button/Tooltip/GainMinerals4Text=<s val="MercDescription">+4</s><IMG path="Assets\Textures\icon-mineral.dds" height="18" width="18"/>
@@ -1730,6 +1738,8 @@ Button/Tooltip/SkinSwitchPanel=Allows to select <c val="ffff8a">Elite Marine Ski
 Button/Tooltip/Slowling=Slow melee creature.
 Button/Tooltip/SlowlingSpawner=
 Button/Tooltip/SmallPresent=Contains a gift!
+Button/Tooltip/Smith=
+Button/Tooltip/SmithCritter=Scans and identifies glitches. A highly intelligent Lab Bot looking for fun.
 Button/Tooltip/SolidFoundation=After 5 minutes of being constructed, the Construction Yard gains a solid foundation.<n/><n/><c val="ffff8a">Effects:</c><n/>- Health increased by <d ref="Behavior,SolidFoundation,Modification.VitalMaxArray[Life]"/>.<n/>- Double gas income from Gas Extraction.
 Button/Tooltip/SpaceBalls=A highly intelligent and friendly creature.
 Button/Tooltip/Spawn5Firelings=Can set itself ablaze to get high movement and attack speed while burning itself to death. Will also ignite upon taking damage.
@@ -2840,6 +2850,7 @@ DocInfo/PatchNote913=Added AatroxArthas Critter which spawns a geyser on death.
 DocInfo/PatchNote914=Fixed issue.
 DocInfo/PatchNote915=Buffed Titan Marauder of dead players.
 DocInfo/PatchNote916=Reworked Position Pick Dialog Interaction.
+DocInfo/PatchNote917=Zeratul, Raynor, Probius can no longer attack allies.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -2909,6 +2920,7 @@ Effect/Name/AnimalMoveBogus=Animal - Move (Bogus)
 Effect/Name/AnimalMoveIssueRequest=Animal - Move (Issue Request)
 Effect/Name/AnimalMoveSwitch=Animal - Move (Switch)
 Effect/Name/AnimalOrderFruitOrderCow=Animal - Order Fruit (Order Cow)
+Effect/Name/AnimalOrderFruitOrderFruitinator=Animal - Order Fruit (Order Fruitinator)
 Effect/Name/AnimalOrderFruitOrderSet=Animal - Order Fruit (Order Set)
 Effect/Name/AnimalOrderFruitOrderSheep=Animal - Order Fruit (Order Sheep)
 Effect/Name/AnimalOrderFruitSearch=Animal - Order Fruit (Search)
@@ -2916,6 +2928,7 @@ Effect/Name/AnimalOrderFruitSet=Animal - Order Fruit (Set)
 Effect/Name/AnimalOrderStopIssue=Animal - Order Stop (Issue)
 Effect/Name/AnimalPriority1=Animal - Priority 1
 Effect/Name/AnimalPriority2=Animal - Priority 2
+Effect/Name/AnimalPriority3=Animal - Priority 3
 Effect/Name/AnimalSheepDeathIncreaseCharge=Animal - Sheep Death (Increase Charge)
 Effect/Name/AnimalSheepFarmIncreaseCharge=Animal - Sheep Farm (Increase Charge)
 Effect/Name/AnimalSlot1FinalRemovePriority=Animal - Slot 1 Final (Remove Priority)
@@ -3071,6 +3084,7 @@ Effect/Name/DisableDigestingSet=Disable Digesting (Set)
 Effect/Name/DummyEffect=Dummy Effect
 Effect/Name/EatFruitCowSet=Eat Fruit
 Effect/Name/EatFruitCritterSet=Eat Fruit (Set)
+Effect/Name/EatFruitFruitinatorSet=Eat Fruit
 Effect/Name/EatFruitRemoveFruit=Eat Fruit
 Effect/Name/EatFruitSheepSet=Eat Fruit
 Effect/Name/EggClusterCooldownAB=Egg Cluster Cooldown AB
@@ -3186,9 +3200,12 @@ Effect/Name/GainGas2=Gain Gas 2
 Effect/Name/GainGas2ConverterText=Gain Gas 2 (Converter) (Text)
 Effect/Name/GainGas6CasterText=Gain Gas 6 (Caster) (Text)
 Effect/Name/GainMineral1=Gain Mineral 1
+Effect/Name/GainMineral16TargetText=Gain Mineral 16 (Target) (Text)
+Effect/Name/GainMineral17TargetText=Gain Mineral 17 (Target) (Text)
 Effect/Name/GainMineral1Caster=Gain Mineral 1 (Caster)
 Effect/Name/GainMineral1CasterText=Gain Mineral 1 (Caster) (Text)
 Effect/Name/GainMineral1DecayingFruitText=Gain Mineral 1 (Decaying Fruit) (Text)
+Effect/Name/GainMineral20TargetText=Gain Mineral 20 (Target) (Text)
 Effect/Name/GainMineral2Caster=Gain Mineral 2 (Caster)
 Effect/Name/GainMineral2ConverterText=Gain Mineral 2 (Converter) (Text)
 Effect/Name/GainMineral2TargetText=Gain Mineral 2 (Target) (Text)
@@ -3615,6 +3632,8 @@ Effect/Name/SignalInitialSetDelay=Signal (Initial Set Delay)
 Effect/Name/SlaveCollectBloodSet=Slave Collect Blood Set
 Effect/Name/SlaveMovementIssueOrder=Slave Movement Issue Order
 Effect/Name/SlaveNearbySearch=Slave - Nearby Search
+Effect/Name/SmithDoingStuffApplyCooldown=Smith Doing Stuff Apply Cooldown
+Effect/Name/SmithDoingStuffTriggerDummy=Smith Doing Stuff Trigger Dummy
 Effect/Name/SpawnBanelingsDummy=Spawn Banelings Dummy
 Effect/Name/SpawnBeastlingDummy3v3=Spawn BeastlingDummy
 Effect/Name/SpawnBrutaDummy3v3=Spawn Bruta Dummy
@@ -4598,6 +4617,7 @@ Unit/Name/FragmentBlast=Fragment Blast
 Unit/Name/FragmentBlastShardMissile=Fragment Blast Shard Missile
 Unit/Name/Fruit=Fruit
 Unit/Name/FruitFarm=Fruit Farm
+Unit/Name/Fruitinator=Fruitinator
 Unit/Name/GasTrader=Gas Trader
 Unit/Name/GasVent=Gas Vent
 Unit/Name/Generator=Generator
@@ -4728,6 +4748,7 @@ Unit/Name/SiegeTankZergHex2=Siege Tank
 Unit/Name/Slowling=Slowling
 Unit/Name/SlowlingSpawner=Slowling Spawner
 Unit/Name/SmallPresent=Small Present
+Unit/Name/SmithCritter=Smith
 Unit/Name/SpaceBalls=SpaceBalls
 Unit/Name/SpaceTurkey=Space Turkey
 Unit/Name/SpecialZergSpawner=Special Zerg Spawner

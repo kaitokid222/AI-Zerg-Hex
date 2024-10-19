@@ -714,6 +714,7 @@
         <EffectArray Operation="Set" Reference="Effect,EatFruitCowSet,EffectArray[0]" Value="GainMineral5TargetText"/>
         <EffectArray Operation="Set" Reference="Effect,SheepMineralGainDisplay,Resources[Minerals]" Value="3"/>
         <EffectArray Operation="Set" Reference="Effect,CowMineralGainDisplay,Resources[Minerals]" Value="5"/>
+        <EffectArray Operation="Set" Reference="Effect,EatFruitFruitinatorSet,EffectArray[0]" Value="GainMineral17TargetText"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
     </CUpgrade>
     <CUpgrade id="ImprovedFarming2">
@@ -721,6 +722,7 @@
         <EffectArray Operation="Set" Reference="Effect,EatFruitCowSet,EffectArray[0]" Value="GainMineral7TargetText"/>
         <EffectArray Operation="Set" Reference="Effect,CowMineralGainDisplay,Resources[Minerals]" Value="7"/>
         <EffectArray Operation="Set" Reference="Effect,SheepMineralGainDisplay,Resources[Minerals]" Value="4"/>
+        <EffectArray Operation="Set" Reference="Effect,EatFruitFruitinatorSet,EffectArray[0]" Value="GainMineral20TargetText"/>
         <Icon value="Assets\Textures\btn-progression-hornerhan-11-mechhealing.dds"/>
     </CUpgrade>
     <CUpgrade id="Investment1"/>

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorUnitCompareBehaviorCount id="AnimalAnimalPriorityGTE3">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="AnimalAnimalPriority"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="CasterIsZHCC">
         <WhichUnit Value="Caster"/>
         <Value value="CommandCenter2"/>

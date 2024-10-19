@@ -71,12 +71,29 @@
             <Cooldown TimeUse="2"/>
         </Cost>
     </CAbilEffectTarget>
+    <CAbilEffectTarget id="EatFruitFruitinator">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="EatFruitFruitinatorSet"/>
+        <Flags index="AbortOnAllianceChange" value="0"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Charge Link="Abil/EatCherry"/>
+            <Cooldown Link="Abil/EatCherry" TimeUse="8"/>
+        </Cost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.35"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="TargetIsRipenedFruit"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Eat"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="ExperimentalPlasmaGun">
         <Cost index="0">
             <Charge TimeUse="5"/>
             <Cooldown TimeUse="3"/>
         </Cost>
         <Range index="0" value="10"/>
+        <TargetFilters index="0" value="-;Self,Player,Ally,Missile,Dead,Invulnerable"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="ExplodeHeal">
         <TargetFilters value="-;Player,Ally,Neutral"/>
@@ -157,6 +174,9 @@
         <Effect index="0" value="RemoveBomberSpawn"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SelectInfestedMarineSpawn" Requirements="Bunkerupgraded"/>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="ShadowBlade">
+        <TargetFilters index="0" value="Ground,Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="ShieldBatteryRechargeChanneled">
         <Range index="0" value="9"/>
         <AutoCastRange value="9"/>

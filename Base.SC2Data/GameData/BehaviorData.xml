@@ -30,6 +30,21 @@
             <VitalMaxArray index="Life" value="35"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SmithDoingStuffCooldown">
+        <InfoIcon value="Assets\Textures\btn-critter-labbot.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="45"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SmithDoingStuff">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="45"/>
+        <PeriodicEffect value="SmithDoingStuffTriggerDummy"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="GenerateMineralsTombstone">
         <InfoIcon value="Assets\Textures\icon-mineral-protoss.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1064,7 +1079,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="AnimalAnimalPriority">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <MaxStackCount value="2"/>
+        <MaxStackCount value="3"/>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ApplySpawnBonus1">

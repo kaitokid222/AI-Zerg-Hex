@@ -2125,6 +2125,9 @@
     <CButton id="heXnab">
         <Icon value="Assets\Textures\btn-ability-mengsk-ghost-supercloak.dds"/>
     </CButton>
+    <CButton id="Smith">
+        <Icon value="Assets\Textures\btn-critter-labbot.dds"/>
+    </CButton>
     <CButton id="kokButton">
         <Icon value="Assets\Textures\btn-unit-collection-siegetankstatic-commando.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-collection-siegetankstatic-commando.dds"/>

@@ -307,4 +307,5 @@
 <Unit id="Hive2"/>
 <Unit id="CommandCenter2"/>
 <Unit id="HalloweenSapper"/>
+<Unit id="SmithCritter"/>
 </Preload>

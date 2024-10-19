@@ -125,6 +125,9 @@
     <CWeaponLegacy id="MassiveSporeAG">
         <Range value="4.5"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="ParticleBeam">
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PrologueZeratul">
         <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>

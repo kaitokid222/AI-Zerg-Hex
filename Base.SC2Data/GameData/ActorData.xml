@@ -12,6 +12,38 @@
     <CActorUnit id="Citadel">
         <Scale value="0.300000"/>
     </CActorUnit>
+    <CActorModel id="FloatingTextMinerals16Target" parent="FloatingTextActorDefault" effectPickup="GainMineral4TargetText" actorCreate="GainMinerals4Text">
+        <On index="0" Terms="Effect.GainMineral16TargetText.Start" Send="Create"/>
+        <On index="1" Terms="ActorCreation" Send="Create GainMinerals16Text"/>
+    </CActorModel>
+    <CActorModel id="FloatingTextMinerals17Target" parent="FloatingTextActorDefault" effectPickup="GainMineral4TargetText" actorCreate="GainMinerals4Text">
+        <On index="0" Terms="Effect.GainMineral17TargetText.Start" Send="Create"/>
+        <On index="1" Terms="ActorCreation" Send="Create GainMinerals17Text"/>
+    </CActorModel>
+    <CActorModel id="FloatingTextMinerals20Target" parent="FloatingTextActorDefault" effectPickup="GainMineral4TargetText" actorCreate="GainMinerals4Text">
+        <On index="0" Terms="Effect.GainMineral20TargetText.Start" Send="Create"/>
+        <On index="1" Terms="ActorCreation" Send="Create GainMinerals20Text"/>
+    </CActorModel>
+    <CActorUnit id="Fruitinator" parent="GenericUnitCritter" unitName="Fruitinator">
+        <Aliases value="_UnitSmall"/>
+        <Model value="CleaningBot"/>
+        <BuildModel value="CleaningBot"/>
+        <DeathArray index="Normal" ModelLink="CleaningBotDeath" SoundLink="CleaningBot_Explode"/>
+        <PlacementModel value="CleaningBot"/>
+        <PortraitModel value="CleaningBotPortrait"/>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-critter-cleaningbot.dds"/>
+        </GroupIcon>
+        <SoundArray index="What" value="UtilityBot_What"/>
+        <SoundArray index="Yes" value="UtilityBot_What"/>
+        <UnitIcon value="Assets\Textures\Wireframe-critter-cleaningbot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-critter-cleaningbot.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="CorroslashSpawner" parent="ZergBuildingEx" unitName="CorroslashSpawner">
         <Aliases value="_UnitHuge"/>
         <Macros value="UpgradeSpawnerMacro"/>
@@ -194,6 +226,42 @@
         <UnitIcon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorText id="GainMinerals16Text" parent="PickupTextDefault">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <FixedSize value="20"/>
+    </CActorText>
+    <CActorText id="GainMinerals17Text" parent="PickupTextDefault">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <FixedSize value="20"/>
+    </CActorText>
+    <CActorText id="GainMinerals20Text" parent="PickupTextDefault">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <FixedSize value="20"/>
+    </CActorText>
+    <CActorUnit id="SmithCritter" parent="GenericUnitCritter" unitName="SmithCritter">
+        <Aliases value="_UnitSmall"/>
+        <Model value="LabBot"/>
+        <BuildModel value="LabBot"/>
+        <DeathArray index="Normal" ModelLink="LabBotDeath" SoundLink="LabBot_Death"/>
+        <PlacementModel value="LabBot"/>
+        <PortraitModel value="LabBotPortrait"/>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-critter-labbot.dds"/>
+        </GroupIcon>
+        <UnitIcon value="Assets\Textures\btn-critter-labbot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-critter-labbot.dds"/>
         </Wireframe>
     </CActorUnit>
     <CActorUnit id="Pariah">

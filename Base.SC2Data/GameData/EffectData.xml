@@ -6,6 +6,18 @@
         <Amount value="100"/>
         <Death value="Blast"/>
     </CEffectDamage>
+    <CEffectIssueOrder id="AnimalOrderFruitOrderFruitinator">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="EatFruitFruitinator"/>
+        <Target Value="TargetUnit"/>
+    </CEffectIssueOrder>
+    <CEffectApplyBehavior id="AnimalPriority3">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="AnimalAnimalPriority"/>
+        <Count value="3"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="ChaosDefilerPunch" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Amount value="160"/>
@@ -21,13 +33,42 @@
         <CreateFlags index="Placement" value="0"/>
         <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
         <CreateFlags index="NormalizeSpawnOffset" value="0"/>
-        <SpawnOwner Value="Target"/>
+        <SpawnOwner Value="Neutral"/>
         <SpawnUnit value="VespeneGeyser"/>
     </CEffectCreateUnit>
+    <CEffectSet id="EatFruitFruitinatorSet">
+        <EditorCategories value=""/>
+        <EffectArray value="GainMineral16TargetText"/>
+        <EffectArray value="EatFruitRemoveFruit"/>
+        <EffectArray value="StopMovingIssueStopOrder"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="SmithDoingStuffApplyCooldown">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SmithDoingStuffCooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="SmithDoingStuffTriggerDummy">
+        <EditorCategories value=""/>
+        <EffectArray value="SmithDoingStuffApplyCooldown"/>
+    </CEffectSet>
     <CEffectDamage id="EvisceratorSpinesLMImpact">
         <Amount value="8"/>
         <Death value="Disintegrate"/>
     </CEffectDamage>
+    <CEffectModifyPlayer id="GainMineral16TargetText">
+        <EditorCategories value=""/>
+        <Resources index="Minerals" value="16"/>
+        <ResourcesCollected index="Minerals" value="16"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="GainMineral17TargetText">
+        <EditorCategories value=""/>
+        <Resources index="Minerals" value="17"/>
+        <ResourcesCollected index="Minerals" value="17"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="GainMineral20TargetText">
+        <EditorCategories value=""/>
+        <Resources index="Minerals" value="20"/>
+        <ResourcesCollected index="Minerals" value="20"/>
+    </CEffectModifyPlayer>
     <CEffectEnumArea id="HotSBanelingExplodeLargeHealSearchAll">
         <SearchFilters value="Ground,Visible;Ally,Enemy,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
@@ -1317,8 +1358,9 @@
     <CEffectSet id="AnimalOrderFruitOrderSet">
         <ValidatorArray value="TargerIsCurrentRipenedFruit"/>
         <EditorCategories value=""/>
-        <EffectArray value="AnimalOrderFruitOrderCow"/>
+        <EffectArray value="AnimalOrderFruitOrderFruitinator"/>
         <EffectArray value="AnimalOrderFruitOrderSheep"/>
+        <EffectArray value="AnimalOrderFruitOrderCow"/>
     </CEffectSet>
     <CEffectIssueOrder id="AnimalOrderFruitOrderSheep">
         <EditorCategories value=""/>

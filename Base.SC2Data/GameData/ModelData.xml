@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CModel id="CleaningBot">
+        <SelectionLayer value="1"/>
+    </CModel>
     <CModel id="Tombstone" parent="ArmoryBase">
         <Model value="assets\doodads\storm_doodad_kingscrest_tombstones_00.m3"/>
     </CModel>
