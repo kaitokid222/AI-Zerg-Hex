@@ -42,6 +42,9 @@
         <EffectArray value="EatFruitRemoveFruit"/>
         <EffectArray value="StopMovingIssueStopOrder"/>
     </CEffectSet>
+    <CEffectEnumArea id="GyreAnnexSA">
+        <SearchFilters value="Ground;Self,Structure,Missile,Stasis,Dead,Hidden"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="SmithDoingStuffApplyCooldown">
         <WhichUnit Value="Caster"/>
         <Behavior value="SmithDoingStuffCooldown"/>

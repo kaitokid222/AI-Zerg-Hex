@@ -1908,6 +1908,8 @@ void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
 void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position);
 void gf_smith_remove_last_used_effect (unit lp_unit);
+unitgroup gf_smith_get_upgradeable_units (int lp_owner, point lp_position);
+unitgroup gf_smith_get_chargeable_units (int lp_owner, point lp_position);
 bool gf_is_front_path_blocked (int lp_player);
 string gf_afterlife_get_hero_unit_type (int lp_player);
 void gf_firelings_set_vars ();
@@ -11593,6 +11595,13 @@ void gf_spawn_sappers () {
         gv_sapper_level = (gv_sapper_level + 1);
     }
 
+    if ((GameGetMissionTime() >= (25 * 60)) && (gv_sapper_level == 3)) {
+        CatalogReferenceSet("Unit,HalloweenSapper,LifeMax", 7, "1000");
+        CatalogReferenceSet("Unit,HalloweenSapper,LifeStart", 7, "1000");
+        CatalogReferenceSet("Unit,HalloweenSapper,LifeArmor", 7, "7");
+        gv_sapper_level = (gv_sapper_level + 1);
+    }
+
     if ((GameGetMissionTime() >= (12 * 60))) {
         lv_amount = (lv_amount + 1);
     }
@@ -20320,9 +20329,13 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
     int lv_rnd;
     bool lv_loop;
     unitgroup lv_ug;
+    unit lv_u;
+    string lv_n_ut;
 
     // Automatic Variable Declarations
     int autoA57586D2_val;
+    string auto968B0C03_val;
+    int auto9F2DF62D_val;
 
     // Variable Initialization
     lv_ug = UnitGroupEmpty();
@@ -20331,7 +20344,9 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
     if ((gv_smith_last_used_effect_id > 0)) {
         lv_loop = true;
     }
-
+    else {
+        lv_rnd = gf_roll_dice();
+    }
     while ((lv_loop == true)) {
         lv_rnd = gf_roll_dice();
         if ((lv_rnd != gv_smith_last_used_effect_id)) {
@@ -20354,9 +20369,116 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
         gv_smith_last_used_effect_id = 3;
     }
     else if (autoA57586D2_val == 4) {
-        lv_ug = UnitGroup("Sheep2", lp_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        UnitGroupAddUnitGroup(lv_ug, UnitGroup("Cow2", lp_owner, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+        lv_ug = gf_smith_get_upgradeable_units(lp_owner, lp_position);
+        lv_u = UnitGroupRandomUnit(lv_ug, c_unitCountAlive);
+        if ((lv_u != null)) {
+            auto968B0C03_val = UnitGetType(lv_u);
+            if (auto968B0C03_val == "Sheep2") {
+                lv_n_ut = "Cow2";
+            }
+            else if (auto968B0C03_val == "Cow2") {
+                lv_n_ut = "Fruitinator";
+            }
+            else if (auto968B0C03_val == "Marine2") {
+                if ((gf_flip_coin() == 1)) {
+                    lv_n_ut = "VeteranMarine";
+                }
+                else {
+                    if ((gf_flip_coin() == 1)) {
+                        lv_n_ut = "VeteranMarine";
+                    }
+                    else {
+                        lv_n_ut = "ChaosSpaceMarine";
+                    }
+                }
+            }
+            else if (auto968B0C03_val == "VeteranMarine") {
+                if ((gf_flip_coin() == 1)) {
+                    lv_n_ut = "EliteMarine";
+                }
+                else {
+                    if ((gf_flip_coin() == 1)) {
+                        lv_n_ut = "EliteMarineSkin1";
+                    }
+                    else {
+                        if ((gf_flip_coin() == 1)) {
+                            lv_n_ut = "EliteMarineSkin2";
+                        }
+                        else {
+                            lv_n_ut = "EliteMarineSkin3";
+                        }
+                    }
+                }
+            }
+            else if (auto968B0C03_val == "Battery") {
+                lv_n_ut = "AdvancedBattery";
+            }
+            else if (auto968B0C03_val == "AdvancedBattery") {
+                lv_n_ut = "HighDensityBattery";
+            }
+            else if (auto968B0C03_val == "EliteMarine") {
+                if ((RandomInt(1, 100) == 1)) {
+                    auto9F2DF62D_val = gf_roll_dice();
+                    if (auto9F2DF62D_val == 1) {
+                        lv_n_ut = "Mantis";
+                    }
+                    else if (auto9F2DF62D_val == 2) {
+                        lv_n_ut = "ChaosDefiler";
+                    }
+                    else if (auto9F2DF62D_val == 3) {
+                        lv_n_ut = "Jaina";
+                    }
+                    else if (auto9F2DF62D_val == 4) {
+                        lv_n_ut = "ChaosLord";
+                    }
+                    else if (auto9F2DF62D_val == 5) {
+                        lv_n_ut = "AatroxArthasCritter";
+                    }
+                    else if (auto9F2DF62D_val == 6) {
+                        lv_n_ut = "PickupPalletGas";
+                    }
+                    else {
+                    }
+                    if ((gf_roll_dice() == 1)) {
+                        lv_n_ut = "Mantis";
+                    }
+                    else {
+                        lv_n_ut = "ChaosDefiler";
+                    }
+                }
+
+            }
+            else {
+            }
+        }
+
+        if ((lv_n_ut != null)) {
+            UnitKill(lv_u);
+            if ((lv_n_ut == "PickupPalletGas")) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletGas", 0, lp_owner, lp_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletMinerals", 0, lp_owner, lp_position);
+            }
+            else {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_n_ut, 0, lp_owner, lp_position);
+            }
+        }
+
         gv_smith_last_used_effect_id = 4;
+    }
+    else if (autoA57586D2_val == 5) {
+        lv_ug = gf_smith_get_chargeable_units(lp_owner, lp_position);
+        lv_u = UnitGroupRandomUnit(lv_ug, c_unitCountAlive);
+        if ((lv_u != null)) {
+            UnitSetPropertyFixed(lv_u, c_unitPropEnergyMax, (UnitGetPropertyInt(lv_u, c_unitPropEnergyMax, c_unitPropCurrent) * 5));
+            UnitSetPropertyFixed(lv_u, c_unitPropEnergy, (UnitGetPropertyInt(lv_u, c_unitPropEnergyMax, c_unitPropCurrent) * 5));
+        }
+
+        gv_smith_last_used_effect_id = 5;
+    }
+    else if (autoA57586D2_val == 6) {
+        UnitSetPropertyFixed(lp_unit, c_unitPropLifeMax, (UnitGetPropertyInt(lp_unit, c_unitPropLifeMax, c_unitPropCurrent) + 50));
+        UnitSetPropertyFixed(lp_unit, c_unitPropShieldsMax, (UnitGetPropertyInt(lp_unit, c_unitPropShieldsMax, c_unitPropCurrent) + 50));
+        gv_smith_last_used_effect_id = 6;
     }
     else {
     }
@@ -20379,6 +20501,46 @@ void gf_smith_remove_last_used_effect (unit lp_unit) {
     }
     else {
     }
+}
+
+unitgroup gf_smith_get_upgradeable_units (int lp_owner, point lp_position) {
+    // Variable Declarations
+    unitgroup lv_result_ug;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_result_ug = UnitGroupEmpty();
+
+    // Implementation
+    lv_result_ug = UnitGroup("Sheep2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("Cow2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("Marine2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("VeteranMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("EliteMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("Battery", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("AdvancedBattery", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    return lv_result_ug;
+}
+
+unitgroup gf_smith_get_chargeable_units (int lp_owner, point lp_position) {
+    // Variable Declarations
+    unitgroup lv_result_ug;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_result_ug = UnitGroupEmpty();
+
+    // Implementation
+    lv_result_ug = UnitGroup("Marine2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("VeteranMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("EliteMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("FirebatZergHex", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("Battery", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("AdvancedBattery", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("HighDensityBattery", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("SiegeTank2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("SiegeTankSieged2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    return lv_result_ug;
 }
 
 bool gf_is_front_path_blocked (int lp_player) {
@@ -27976,6 +28138,7 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
     // Variable Declarations
     point lv_p;
     int lv_r;
+    string lv_ut;
 
     // Automatic Variable Declarations
     int autoD80274B5_val;
@@ -27998,17 +28161,25 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
     lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_r))));
     autoD80274B5_val = RandomInt(1, 3);
     if (autoD80274B5_val == 1) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Pumpkin", 0, 15, lv_p);
+        lv_ut = "Pumpkin";
     }
     else if (autoD80274B5_val == 2) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Pumpkin2", 0, 15, lv_p);
+        lv_ut = "Pumpkin2";
     }
     else if (autoD80274B5_val == 3) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Pumpkin3", 0, 15, lv_p);
+        lv_ut = "Pumpkin3";
     }
     else {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Pumpkin", 0, 15, lv_p);
+        lv_ut = "Pumpkin";
     }
+    if ((gf_flip_coin() == 1)) {
+        if ((gf_flip_coin() == 1)) {
+            lv_ut = "MegaPumpkin";
+        }
+
+    }
+
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_ut, 0, 0, lv_p);
     gf_revealpickup(UnitLastCreated());
     return true;
 }
@@ -28017,7 +28188,7 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
 void gt_spawnpumpkin_Init () {
     gt_spawnpumpkin = TriggerCreate("gt_spawnpumpkin_Func");
     TriggerEnable(gt_spawnpumpkin, false);
-    TriggerAddEventTimePeriodic(gt_spawnpumpkin, 20.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_spawnpumpkin, 10.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -28031,7 +28202,7 @@ bool gt_pumpkindies_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((UnitGetType(EventUnit()) == "Pumpkin") || (UnitGetType(EventUnit()) == "Pumpkin2") || (UnitGetType(EventUnit()) == "Pumpkin3")))) {
+        if (!(((UnitGetType(EventUnit()) == "Pumpkin") || (UnitGetType(EventUnit()) == "Pumpkin2") || (UnitGetType(EventUnit()) == "Pumpkin3") || (UnitGetType(EventUnit()) == "MegaPumpkin")))) {
             return false;
         }
     }
@@ -28042,18 +28213,32 @@ bool gt_pumpkindies_Func (bool testConds, bool runActions) {
     }
 
     UnitRemove(EventUnit());
-    if ((libNtve_gf_KillingPlayer() < 7)) {
-        gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins = (gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins + 1);
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "PickupNovaTechnology", 0, libNtve_gf_KillingPlayer(), UnitGetPosition(EventUnit()));
-    }
-    else {
-        gv_zerg_pumpkins = (gv_zerg_pumpkins + 1);
-        PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 20);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/6AABEA78") + (IntToText(gv_zerg_pumpkins) + StringExternal("Param/Value/33DAD69F"))));
-        if ((gv_zerg_pumpkins == 10)) {
+    if ((UnitGetType(EventUnit()) == "MegaPumpkin")) {
+        if ((libNtve_gf_KillingPlayer() < 7)) {
+            gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins = (gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins + 1);
+            libNtve_gf_CreateUnitsWithDefaultFacing(15, "PickupNovaTechnology", 0, libNtve_gf_KillingPlayer(), UnitGetPosition(EventUnit()));
+        }
+        else {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/22248B00") + StringToText("")));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/A1CBAF31") + StringToText("")));
             gf_spawn_sappers();
         }
+    }
+    else {
+        if ((libNtve_gf_KillingPlayer() < 7)) {
+            gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins = (gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins + 1);
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "PickupNovaTechnology", 0, libNtve_gf_KillingPlayer(), UnitGetPosition(EventUnit()));
+        }
+        else {
+            gv_zerg_pumpkins = (gv_zerg_pumpkins + 1);
+            PlayerModifyPropertyInt(7, c_playerPropMinerals, c_playerPropOperAdd, 20);
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/6AABEA78") + (IntToText(gv_zerg_pumpkins) + StringExternal("Param/Value/33DAD69F"))));
+            if ((gv_zerg_pumpkins == 10)) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/97FDD7DB") + StringToText("")));
+                gf_spawn_sappers();
+            }
 
+        }
     }
     return true;
 }
@@ -28072,22 +28257,20 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_player;
     point lv_card_position;
-    int lv_team;
-    int lv_enemy;
-    point lv_zerg_point;
     int lv_rand;
-    int lv_reward_cnt;
+    int lv_reward_multi;
+    int lv_end_count;
+    string lv_unit_type;
 
     // Automatic Variable Declarations
-    int autoF9E27BBA_val;
     int auto082B3130_val;
 
     // Variable Initialization
     lv_player = EventPlayer();
     lv_card_position = UnitGetPosition(EventUnit());
-    lv_team = gv_players[lv_player].lv_team;
-    lv_rand = RandomInt(3, 10);
-    lv_reward_cnt = 1;
+    lv_rand = RandomInt(1, 21);
+    lv_reward_multi = 1;
+    lv_end_count = 1;
 
     // Actions
     if (!runActions) {
@@ -28095,43 +28278,105 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     }
 
     if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
-        lv_reward_cnt = (lv_reward_cnt + 1);
+        lv_reward_multi = (lv_reward_multi + 1);
     }
 
-    autoF9E27BBA_val = RandomInt(1, 1);
-    if (autoF9E27BBA_val == 2) {
+    auto082B3130_val = lv_rand;
+    if (auto082B3130_val == 1) {
+        lv_unit_type = "EliteMarineSkin1";
+        lv_end_count = (2 * lv_reward_multi);
     }
-    else if (autoF9E27BBA_val == 1) {
-        auto082B3130_val = lv_rand;
-        if (auto082B3130_val == 3) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "Sheep2", 0, lv_player, lv_card_position);
+    else if (auto082B3130_val == 2) {
+        lv_unit_type = "EliteMarineSkin2";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 3) {
+        lv_unit_type = "EliteMarineSkin3";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 4) {
+        lv_unit_type = "EliteMarineSkin4";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 5) {
+        lv_unit_type = "VeteranMarine";
+        lv_end_count = (4 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 6) {
+        lv_unit_type = "Marine2";
+        lv_end_count = (8 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 7) {
+        lv_unit_type = "Mantis";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 8) {
+        lv_unit_type = "Fruitinator";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 9) {
+        lv_unit_type = "PickupPalletGas";
+        lv_end_count = (7 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 10) {
+        lv_unit_type = "PickupPalletMinerals";
+        lv_end_count = (7 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 11) {
+        lv_unit_type = "AdvancedBattery";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 12) {
+        lv_unit_type = "HighDensityBattery";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 13) {
+        lv_unit_type = "SmithCritter";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 14) {
+        lv_unit_type = "AatroxArthasCritter";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 15) {
+        lv_unit_type = "ChaosSpaceMarine";
+        lv_end_count = (4 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 16) {
+        lv_unit_type = "ChaosLord";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 17) {
+        lv_unit_type = "ChaosCultist";
+        lv_end_count = (9 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 18) {
+        lv_unit_type = "SiegeTank22";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 19) {
+        lv_unit_type = "FirebatZergHexOld";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 20) {
+        lv_unit_type = "FirebatZergHex";
+        lv_end_count = (5 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 20) {
+        lv_unit_type = "EliteMarine";
+        lv_end_count = (3 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 21) {
+        lv_unit_type = "Buggo";
+        if ((gf_flip_coin() == 1)) {
+            lv_unit_type = "Oggub";
         }
-        else if (auto082B3130_val == 4) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "Reaper2", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 5) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "Battery", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 6) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "AdvancedBattery", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 7) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "VeteranMarine", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 8) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "Marine2", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 9) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "ShockTrooper", 0, lv_player, lv_card_position);
-        }
-        else if (auto082B3130_val == 10) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(lv_reward_cnt, "Cow2", 0, lv_player, lv_card_position);
-        }
-        else {
-        }
+
+        lv_end_count = (1 * lv_reward_multi);
     }
     else {
     }
+    libNtve_gf_CreateUnitsWithDefaultFacing(lv_end_count, lv_unit_type, 0, lv_player, lv_card_position);
     return true;
 }
 
@@ -33139,10 +33384,8 @@ bool gt_tbp_dialog_minimap_interaction_Func (bool testConds, bool runActions) {
         DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupSingle(EventPlayer()), true);
         libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_picked_position], PlayerName(EventPlayer()), PlayerGroupAll());
         DialogControlSetSize(gv_tbp_minimap_buttons[lv_picked_position], PlayerGroupAll(), 200, 60);
-        gf_tbp_archon_create_add_player_slot(lv_picked_position, EventPlayer());
     }
     if ((lv_former_position != 0)) {
-        gf_tbp_archon_remove_add_player_slot(lv_former_position, EventPlayer());
         libNtve_gf_SetDialogItemText(gv_tbp_minimap_buttons[lv_former_position], IntToText(lv_former_position), PlayerGroupAll());
         DialogControlSetSize(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), 60, 60);
         DialogControlSetEnabled(gv_tbp_minimap_buttons[lv_former_position], PlayerGroupAll(), true);
@@ -33461,7 +33704,6 @@ bool gt_tbp_create_Func (bool testConds, bool runActions) {
     gv_tbp_minimap_button_random = DialogControlLastCreated();
     DialogControlSetEnabled(gv_tbp_minimap_button_random, PlayerGroupAll(), false);
     gv_tbp_minimap_dialog = DialogLastCreated();
-    gf_tbp_archon_create_player_slot(0, 0);
     DialogSetVisible(gv_tbp_minimap_dialog, PlayerGroupAll(), true);
     gf_tbp_refresh_dialog_labels();
     DialogSetVisible(gv_tbp_dialog, PlayerGroupAll(), true);

@@ -301,6 +301,59 @@
         <LifeRegenDelay value="2"/>
         <LifeArmorLevel value="6"/>
     </CUnit>
+    <CUnit id="Gyre">
+        <PlaneArray index="Ground" value="1"/>
+        <LifeStart value="50"/>
+        <LifeMax value="50"/>
+        <LifeArmor value="0"/>
+        <LifeRegenRate value="0"/>
+        <EnergyMax value="300"/>
+        <ShieldsStart value="15"/>
+        <ShieldsMax value="15"/>
+        <Sight value="32"/>
+        <Food value="0"/>
+        <CostResource index="Minerals" value="500"/>
+        <CostResource index="Vespene" value="500"/>
+        <AbilArray index="6" removed="1"/>
+        <AbilArray index="7" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6" Face="GyreAnnex" AbilCmd="GyreAnnex,Execute" Column="0"/>
+            <LayoutButtons index="7" Face="Detector" Type="Passive" AbilCmd="" Column="1"/>
+            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+            <LayoutButtons index="12" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="MegaPumpkin">
+        <DeathRevealRadius value="3"/>
+        <FlagArray index="CreateVisible" value="1"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Destructible" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <EditorFlags index="NeutralDefault" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <LifeStart value="10000"/>
+        <LifeMax value="10000"/>
+        <LifeArmor value="7"/>
+        <StationaryTurningRate value="0"/>
+        <TurningRate value="0"/>
+        <Sight value="2.5"/>
+        <AbilArray Link="MassiveKnockover"/>
+        <Footprint value="FootprintDoodad2x2"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Destructible,ObjectFamily:Melee"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+    </CUnit>
     <CUnit id="SmithCritter" parent="Critter">
         <FlagArray index="PlayerRevivable" value="0"/>
         <Attributes index="Biological" value="0"/>
@@ -5399,7 +5452,6 @@
         <DeathRevealRadius value="3"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="Uncommandable" value="1"/>
-        <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Destructible" value="1"/>
         <FogVisibility value="Snapshot"/>
         <EditorFlags index="NeutralDefault" value="1"/>
@@ -5609,7 +5661,6 @@
         <DeathRevealRadius value="3"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="Uncommandable" value="1"/>
-        <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Destructible" value="1"/>
         <FogVisibility value="Snapshot"/>
         <EditorFlags index="NeutralDefault" value="1"/>
@@ -5638,7 +5689,6 @@
         <DeathRevealRadius value="3"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="Uncommandable" value="1"/>
-        <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Destructible" value="1"/>
         <FogVisibility value="Snapshot"/>
         <EditorFlags index="NeutralDefault" value="1"/>

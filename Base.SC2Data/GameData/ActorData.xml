@@ -5066,6 +5066,38 @@
             <Image value="Assets\Textures\Wireframe-Zerg-Zergling.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="MegaPumpkin" parent="GenericUnitStandardNoAutoSoundLinks" unitName="MegaPumpkin">
+        <On Terms="UnitDeathCustomize; ModelVariation 0" Send="DeathCustomize Variation0"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 1" Send="DeathCustomize Variation1"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 2" Send="DeathCustomize Variation2"/>
+        <On Terms="UnitDeathCustomize; ModelVariation 3" Send="DeathCustomize Variation3"/>
+        <Model value="pumpkin3"/>
+        <Scale value="6.000000"/>
+        <DeathArray index="Normal" ModelLink="StoreFrontCityPropsDeath00" SoundLink="Destructible_StoreFrontCityPropsDeath"/>
+        <DeathCustoms ModelLink="StoreFrontCityPropsDeath00" Name="Variation0"/>
+        <DeathCustoms ModelLink="StoreFrontCityPropsDeath01" Name="Variation1"/>
+        <DeathCustoms ModelLink="StoreFrontCityPropsDeath02" Name="Variation2"/>
+        <DeathCustoms ModelLink="StoreFrontCityPropsDeath03" Name="Variation3"/>
+        <DeathCustoms SoundLink="Destructible_StoreFront_plants" Name="Variation0"/>
+        <DeathCustoms SoundLink="Destructible_StoreFront_plants" Name="Variation1"/>
+        <DeathCustoms SoundLink="Destructible_StoreFront_bench" Name="Variation2"/>
+        <BarOffset value="22"/>
+        <BarWidth value="45"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-missing-kaeo.dds"/>
+        </GroupIcon>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <StatusBarFlags index="Magazine" value="0"/>
+        <Wireframe>
+            <Image value="Assets\Textures\btn-missing-kaeo.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="xmascandy2" parent="GenericUnitStandardNoAutoSoundLinks" unitName="Candy2">
         <On Terms="UnitDeath" Send="Create UI_Pickup_NovaTechnology_ActorSound"/>
         <Model value="xmascandy2"/>

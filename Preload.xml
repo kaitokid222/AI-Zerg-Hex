@@ -273,6 +273,7 @@
 <Unit id="AatroxArthasCritter"/>
 <Unit id="KokCritter"/>
 <Unit id="Barracks2"/>
+<Unit id="SmithCritter"/>
 <Unit id="MechaDrone"/>
 <Unit id="SpaceTurkey"/>
 <Unit id="UglyTurkey"/>
@@ -291,9 +292,6 @@
 <Unit id="Present2"/>
 <Unit id="Present3"/>
 <Unit id="LargePresent"/>
-<Unit id="Pumpkin"/>
-<Unit id="Pumpkin2"/>
-<Unit id="Pumpkin3"/>
 <Unit id="Candy"/>
 <Unit id="SpaceBalls"/>
 <Unit id="DynamicNearbyResource4x4"/>
@@ -307,5 +305,4 @@
 <Unit id="Hive2"/>
 <Unit id="CommandCenter2"/>
 <Unit id="HalloweenSapper"/>
-<Unit id="SmithCritter"/>
 </Preload>

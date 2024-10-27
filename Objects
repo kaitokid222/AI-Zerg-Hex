@@ -2805,7 +2805,6 @@
     </ObjectUnit>
     <ObjectUnit Id="1358863740" Position="143,156,0" Rotation="5.7595" Scale="1,1,1" UnitType="StrikelingSpawner"/>
     <ObjectUnit Id="40542428" Position="49.5,182.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
-    <ObjectUnit Id="1102837263" Position="124.121,233.0737,0" Rotation="4.1555" Scale="1,1,1" UnitType="SmithCritter"/>
     <ObjectUnit Id="1477258100" Position="45,178,0" Rotation="4.666" Scale="1,1,1" UnitType="DynamicNearbyResource4x4">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
