@@ -11406,6 +11406,7 @@ void gf_init_event () {
         }
     }
     gv_is_af_event = gf_is_af_event();
+    gv_is_halloween = true;
     if ((gf_tbp_get_zterran_vote_result() == 1) && (gv_is_af_event == false)) {
         gv_is_af_event = true;
     }
@@ -20486,21 +20487,10 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
 
 void gf_smith_remove_last_used_effect (unit lp_unit) {
     // Automatic Variable Declarations
-    int auto0DC4D1F1_val;
-
     // Implementation
-    auto0DC4D1F1_val = gv_smith_last_used_effect_id;
-    if (auto0DC4D1F1_val == 1) {
-        UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraDefense", 1);
-    }
-    else if (auto0DC4D1F1_val == 2) {
-        UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraAttack", 1);
-    }
-    else if (auto0DC4D1F1_val == 3) {
-        UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraPower", 1);
-    }
-    else {
-    }
+    UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraDefense", 1);
+    UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraAttack", 1);
+    UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraPower", 1);
 }
 
 unitgroup gf_smith_get_upgradeable_units (int lp_owner, point lp_position) {
@@ -28172,11 +28162,8 @@ bool gt_spawnpumpkin_Func (bool testConds, bool runActions) {
     else {
         lv_ut = "Pumpkin";
     }
-    if ((gf_flip_coin() == 1)) {
-        if ((gf_flip_coin() == 1)) {
-            lv_ut = "MegaPumpkin";
-        }
-
+    if ((gf_roll_dice() == 1)) {
+        lv_ut = "MegaPumpkin";
     }
 
     libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_ut, 0, 0, lv_p);
@@ -28216,7 +28203,7 @@ bool gt_pumpkindies_Func (bool testConds, bool runActions) {
     if ((UnitGetType(EventUnit()) == "MegaPumpkin")) {
         if ((libNtve_gf_KillingPlayer() < 7)) {
             gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins = (gv_players[libNtve_gf_KillingPlayer()].lv_killed_pumpkins + 1);
-            libNtve_gf_CreateUnitsWithDefaultFacing(15, "PickupNovaTechnology", 0, libNtve_gf_KillingPlayer(), UnitGetPosition(EventUnit()));
+            libNtve_gf_CreateUnitsWithDefaultFacing(5, "PickupNovaTechnology", 0, libNtve_gf_KillingPlayer(), UnitGetPosition(EventUnit()));
         }
         else {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/22248B00") + StringToText("")));
@@ -28268,7 +28255,7 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_player = EventPlayer();
     lv_card_position = UnitGetPosition(EventUnit());
-    lv_rand = RandomInt(1, 21);
+    lv_rand = RandomInt(1, 35);
     lv_reward_multi = 1;
     lv_end_count = 1;
 
@@ -28284,27 +28271,27 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     auto082B3130_val = lv_rand;
     if (auto082B3130_val == 1) {
         lv_unit_type = "EliteMarineSkin1";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 2) {
         lv_unit_type = "EliteMarineSkin2";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 3) {
         lv_unit_type = "EliteMarineSkin3";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 4) {
         lv_unit_type = "EliteMarineSkin4";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 5) {
         lv_unit_type = "VeteranMarine";
-        lv_end_count = (4 * lv_reward_multi);
+        lv_end_count = (2 * lv_reward_multi);
     }
     else if (auto082B3130_val == 6) {
         lv_unit_type = "Marine2";
-        lv_end_count = (8 * lv_reward_multi);
+        lv_end_count = (4 * lv_reward_multi);
     }
     else if (auto082B3130_val == 7) {
         lv_unit_type = "Mantis";
@@ -28312,15 +28299,15 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     }
     else if (auto082B3130_val == 8) {
         lv_unit_type = "Fruitinator";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 9) {
         lv_unit_type = "PickupPalletGas";
-        lv_end_count = (7 * lv_reward_multi);
+        lv_end_count = (3 * lv_reward_multi);
     }
     else if (auto082B3130_val == 10) {
         lv_unit_type = "PickupPalletMinerals";
-        lv_end_count = (7 * lv_reward_multi);
+        lv_end_count = (3 * lv_reward_multi);
     }
     else if (auto082B3130_val == 11) {
         lv_unit_type = "AdvancedBattery";
@@ -28340,7 +28327,7 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     }
     else if (auto082B3130_val == 15) {
         lv_unit_type = "ChaosSpaceMarine";
-        lv_end_count = (4 * lv_reward_multi);
+        lv_end_count = (2 * lv_reward_multi);
     }
     else if (auto082B3130_val == 16) {
         lv_unit_type = "ChaosLord";
@@ -28348,7 +28335,7 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     }
     else if (auto082B3130_val == 17) {
         lv_unit_type = "ChaosCultist";
-        lv_end_count = (9 * lv_reward_multi);
+        lv_end_count = (5 * lv_reward_multi);
     }
     else if (auto082B3130_val == 18) {
         lv_unit_type = "SiegeTank22";
@@ -28360,19 +28347,71 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
     }
     else if (auto082B3130_val == 20) {
         lv_unit_type = "FirebatZergHex";
-        lv_end_count = (5 * lv_reward_multi);
-    }
-    else if (auto082B3130_val == 20) {
-        lv_unit_type = "EliteMarine";
-        lv_end_count = (3 * lv_reward_multi);
+        lv_end_count = (2 * lv_reward_multi);
     }
     else if (auto082B3130_val == 21) {
+        lv_unit_type = "EliteMarine";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 22) {
         lv_unit_type = "Buggo";
         if ((gf_flip_coin() == 1)) {
             lv_unit_type = "Oggub";
         }
 
         lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 23) {
+        lv_unit_type = "EliteMarine";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 24) {
+        lv_unit_type = "EliteMarineSkin1";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 25) {
+        lv_unit_type = "EliteMarineSkin2";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 26) {
+        lv_unit_type = "EliteMarineSkin3";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 27) {
+        lv_unit_type = "EliteMarineSkin4";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 28) {
+        lv_unit_type = "VeteranMarine";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 29) {
+        lv_unit_type = "Marine2";
+        lv_end_count = (4 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 30) {
+        lv_unit_type = "PickupPalletGas";
+        lv_end_count = (3 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 31) {
+        lv_unit_type = "PickupPalletMinerals";
+        lv_end_count = (3 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 32) {
+        lv_unit_type = "AdvancedBattery";
+        lv_end_count = (1 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 33) {
+        lv_unit_type = "ChaosSpaceMarine";
+        lv_end_count = (2 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 34) {
+        lv_unit_type = "ChaosCultist";
+        lv_end_count = (5 * lv_reward_multi);
+    }
+    else if (auto082B3130_val == 35) {
+        lv_unit_type = "FirebatZergHex";
+        lv_end_count = (2 * lv_reward_multi);
     }
     else {
     }

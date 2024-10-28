@@ -5072,7 +5072,7 @@
         <On Terms="UnitDeathCustomize; ModelVariation 2" Send="DeathCustomize Variation2"/>
         <On Terms="UnitDeathCustomize; ModelVariation 3" Send="DeathCustomize Variation3"/>
         <Model value="pumpkin3"/>
-        <Scale value="6.000000"/>
+        <Scale value="3.000000"/>
         <DeathArray index="Normal" ModelLink="StoreFrontCityPropsDeath00" SoundLink="Destructible_StoreFrontCityPropsDeath"/>
         <DeathCustoms ModelLink="StoreFrontCityPropsDeath00" Name="Variation0"/>
         <DeathCustoms ModelLink="StoreFrontCityPropsDeath01" Name="Variation1"/>

@@ -341,8 +341,8 @@
         <Collide index="ForceField" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="10000"/>
-        <LifeMax value="10000"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
         <LifeArmor value="7"/>
         <StationaryTurningRate value="0"/>
         <TurningRate value="0"/>
@@ -5463,8 +5463,8 @@
         <Collide index="ForceField" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeArmor value="1"/>
         <StationaryTurningRate value="0"/>
         <TurningRate value="0"/>
@@ -5672,8 +5672,8 @@
         <Collide index="ForceField" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeArmor value="1"/>
         <StationaryTurningRate value="0"/>
         <TurningRate value="0"/>
@@ -5700,8 +5700,8 @@
         <Collide index="ForceField" value="1"/>
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeArmor value="1"/>
         <StationaryTurningRate value="0"/>
         <TurningRate value="0"/>
