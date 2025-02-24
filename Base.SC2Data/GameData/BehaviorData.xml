@@ -30,6 +30,49 @@
             <VitalMaxArray index="Life" value="35"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="TraderXMASBuff">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <DamageDealtUnscaled index="Melee" value="25"/>
+            <DamageDealtUnscaled index="Ranged" value="3"/>
+            <VitalMaxArray index="Life" value="30"/>
+            <VitalRegenArray index="Life" value="2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Warm">
+        <InfoIcon value="Assets\Textures\btn-upgrade-tychus-firebat-wildflamefuel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Period value="8"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PeriodicBloodSpawn">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="6"/>
+        <PeriodicEffect value="BloodAltarRandomLocationBloodPersistent"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FrostySlow">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="UnitNOThasWarmBuff"/>
+        <Duration value="3"/>
+        <Modification MoveSpeedMultiplier="0.9"/>
+        <MaxStackCount value="5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FirebatSpreadsWarmth">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-tychus-firebat-wildflamefuel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="8"/>
+        <PeriodicEffect value="FirebatAntidebuffTriggerDummy"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SmithDoingStuffCooldown">
         <InfoIcon value="Assets\Textures\btn-critter-labbot.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -126,6 +169,13 @@
     <CBehaviorBuff id="ProdigalEngineerProductionTarget">
         <DisableValidatorArray index="0" removed="1"/>
         <Modification TimeScale="1.5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FirebatWarmthAuraCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-tychus-firebat-wildflamefuel.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="8"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SpawnGeyserUponDeath">
         <InfoFlags index="Hidden" value="1"/>

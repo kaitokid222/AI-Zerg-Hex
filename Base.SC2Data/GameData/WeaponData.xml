@@ -100,6 +100,16 @@
         <DamagePoint value="0.3332"/>
         <Effect value="HotSUltraliskKaiserBladesDamage"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="Snowball">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="assets\textures\storm_snowflake_single_00.dds"/>
+        <DisplayEffect value="FrostyWeaponImpactDamage"/>
+        <TargetFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="5.5"/>
+        <Period value="1.3"/>
+        <Effect value="FrostyWeaponLM"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="L2Minigun">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -170,6 +180,16 @@
         <Period value="0.55"/>
         <Effect value="StaticDischargeDamageT1"/>
         <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SpawnerSnowball">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="assets\textures\storm_snowflake_single_00.dds"/>
+        <DisplayEffect value="FrostyWeaponImpactDamage"/>
+        <TargetFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="11"/>
+        <Period value="1.1"/>
+        <Effect value="FrostyWeaponLM"/>
+        <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="StratumMissilePod">
         <MinScanRange value="8.5"/>

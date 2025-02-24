@@ -42,19 +42,89 @@
         <EffectArray value="EatFruitRemoveFruit"/>
         <EffectArray value="StopMovingIssueStopOrder"/>
     </CEffectSet>
+    <CEffectCreatePersistent id="BloodAltarRandomLocationBloodPersistent">
+        <Flags index="RandomOffset" value="1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="BloodAltarSpawnBloodSpawn"/>
+        <PeriodicOffsetArray value="-1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="-1.5,-0.5,0"/>
+        <PeriodicOffsetArray value="-1.5,0.5,0"/>
+        <PeriodicOffsetArray value="-1.5,1.5,0"/>
+        <PeriodicOffsetArray value="-0.5,-1.5,0"/>
+        <PeriodicOffsetArray value="-0.5,1.5,0"/>
+        <PeriodicOffsetArray value="0.5,-1.5,0"/>
+        <PeriodicOffsetArray value="0.5,1.5,0"/>
+        <PeriodicOffsetArray value="1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="1.5,-0.5,0"/>
+        <PeriodicOffsetArray value="1.5,0.5,0"/>
+        <PeriodicOffsetArray value="1.5,1.5,0"/>
+    </CEffectCreatePersistent>
+    <CEffectCreateUnit id="BloodAltarSpawnBloodSpawn">
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <CreateFlags index="NormalizeSpawnOffset" value="0"/>
+        <SpawnUnit value="Blood"/>
+    </CEffectCreateUnit>
+    <CEffectApplyBehavior id="FirebatApplyWarmBuff">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Warm"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="GyreAnnexSA">
         <SearchFilters value="Ground;Self,Structure,Missile,Stasis,Dead,Hidden"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="FrostyWeaponLM">
+        <ValidatorArray index="0" value="ZergProtectiveBaseMainAttackBarrier"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="FrostyWeaponImpactSet"/>
+        <AmmoUnit value="FrostyWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="FrostyWeaponImpactSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="FrostyWeaponImpactDamage"/>
+        <EffectArray value="FrostySlowAOE"/>
+        <EffectArray value="FrostySlowAB"/>
+    </CEffectSet>
+    <CEffectDamage id="FrostyWeaponImpactDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="3"/>
+        <Death value="Freeze"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="FrostySlowAOE">
+        <EditorCategories value="Race:Terran"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="FrostySlowAB"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="FrostySlowAB">
+        <ValidatorArray index="0" value="PunisherGrenadesSlowTargetFilters"/>
+        <ValidatorArray value="NotStructure"/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="FrostySlow"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="FirebatSpreadWarmSA">
+        <EditorCategories value=""/>
+        <SearchFilters value="Ground;Neutral,Enemy,Structure,Missile"/>
+        <AreaArray Radius="3" Effect="FirebatApplyWarmBuff"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="SmithDoingStuffApplyCooldown">
         <WhichUnit Value="Caster"/>
         <Behavior value="SmithDoingStuffCooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FirebatAntidebuffauraCooldown">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="FirebatWarmthAuraCooldown"/>
     </CEffectApplyBehavior>
     <CEffectSet id="SmithDoingStuffTriggerDummy">
         <EditorCategories value=""/>
         <EffectArray value="SmithDoingStuffApplyCooldown"/>
     </CEffectSet>
     <CEffectDamage id="EvisceratorSpinesLMImpact">
-        <Amount value="8"/>
+        <Amount value="6"/>
         <Death value="Disintegrate"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="GainMineral16TargetText">
@@ -127,6 +197,11 @@
     </CEffectEnumArea>
     <CEffectSet id="AfterlifeHeroDiedTriggerDummy">
         <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectSet id="FirebatAntidebuffTriggerDummy">
+        <EditorCategories value=""/>
+        <EffectArray value="FirebatSpreadWarmSA"/>
+        <EffectArray value="FirebatAntidebuffauraCooldown"/>
     </CEffectSet>
     <CEffectRemoveBehavior id="TechLabWarpRemoveProtection">
         <EditorCategories value=""/>
@@ -4137,7 +4212,7 @@
     <CEffectModifyPlayer id="GeneratorUpgradeDoubleCostFixGiveMinerals">
         <EditorCategories value=""/>
         <WhichPlayer Value="Caster"/>
-        <Resources index="Minerals" value="32"/>
+        <Resources index="Minerals" value="26"/>
     </CEffectModifyPlayer>
     <CEffectSet id="IncomeExtractorRemoveNotice">
         <EditorCategories value=""/>
@@ -5597,7 +5672,7 @@
         <EditorCategories value="Race:Protoss"/>
         <AINotifyFlags index="HurtFriend" value="1"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
-        <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="-;Player,Ally,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="1.2" Effect="ShockBlastRifleSetApply"/>
         <SearchFlags index="CallForHelp" value="1"/>
     </CEffectEnumArea>
@@ -5653,6 +5728,7 @@
         <Cost Abil="TrainMassalisk,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainEroder,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
         <Cost Abil="TrainCorroslash,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
+        <Cost Abil="TrainFrosty,Train1" ChargeCountUse="-1" CooldownOperation="Add"/>
     </CEffectModifyUnit>
     <CEffectDamage id="L1Rifle" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

@@ -1038,6 +1038,7 @@ bool gv_game_has_ended;
 int gv_reward_related_deaths;
 int gv_difficulty;
 int gv_voted_difficulty;
+bool gv_is_winter;
 bool gv_is_af_event;
 bool gv_is_thxg;
 int gv_rtv_thxg;
@@ -1688,6 +1689,8 @@ fixed gf_get_elo_difficulty (int lp_player);
 bool gf_is_average_vote ();
 int gf_get_real_difficulty ();
 int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real);
+bool gf_is_winter ();
+void gf_winter_make_snow ();
 void gf_Enable_AF_Event ();
 void gf_af_replace_spawners ();
 void gf_af_initial_model_swap ();
@@ -1695,6 +1698,7 @@ void gf_af_model_swap (unit lp_unit);
 bool gf_is_af_event ();
 void gf_enable_thxg_setting ();
 bool gf_is_thxg ();
+int gf_thxg_get_turkey_color (unit lp_unit);
 void gf_spawn_turkey ();
 void gf_init_event ();
 int gf_get_lobby_event_setting ();
@@ -1704,6 +1708,8 @@ void gf_spawn_heart ();
 void gf_enable_halloween_settings ();
 void gf_disable_halloween_settings ();
 void gf_spawn_sappers ();
+bool gf_can_spawn_smith ();
+bool gf_can_spawn_smith_for_player (int lp_player);
 void gf_enable_xmas_settings ();
 void gf_enable_hny_settings ();
 void gf_enable_crazyminions_settings ();
@@ -1870,6 +1876,7 @@ int gf_get_position_of_alive_player_with_most_spawners ();
 int gf_where_toplace_next_spawner ();
 int gf_get_rr_target_position ();
 void gf_add_default_rallies ();
+int gf_get_frosty_spawner_count ();
 void gf_focus_weakest ();
 void gf_add_spawner_to_left (unit lp_spawner, int lp_player_position);
 void gf_add_spawner_to_right (unit lp_spawner, int lp_player_position);
@@ -2021,6 +2028,7 @@ trigger gt_italis;
 trigger gt_inf;
 trigger gt_immortal;
 trigger gt_eggclustertest;
+trigger gt_createfrostyspawners;
 trigger gt_makemegenetron;
 trigger gt_cheat;
 trigger gt_disabletutorial;
@@ -3013,6 +3021,7 @@ void gf_apply_support_casual () {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 15), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 16), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 24), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 11), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 0), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BarracksTrain2", 1), false);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch2", 17), false);
@@ -3048,6 +3057,8 @@ void gf_apply_support_casual () {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilderScalingStructures", 5), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("GeneratorResearch", 5), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilder", 23), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch3", 3), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch3", 4), true);
             autoDBE3DB51_g = UnitGroup("Battery", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             autoDBE3DB51_u = UnitGroupCount(autoDBE3DB51_g, c_unitCountAll);
             for (;; autoDBE3DB51_u -= 1) {
@@ -6067,6 +6078,9 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("GenetronResearchEdit", 1), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 2), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilder", 23), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 3), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 4), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilderScalingStructures", 11), false);
     if ((libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogUnit, "SCV", "InnerRadius", c_playerAny) == 0.3125)) {
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "ACR", "InnerRadius", lp_player, 0.3125);
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "Scavenger", "InnerRadius", lp_player, 0.3125);
@@ -6138,10 +6152,6 @@ bool gf_is_player_banned (int lp_player) {
     }
     else {
         lv_handle = PlayerHandle(lp_player);
-        if (((lv_handle == "1-S2-1-2096409") || (lv_handle == "1-S2-1-12552245"))) {
-            lv_r = true;
-        }
-
     }
     return lv_r;
 }
@@ -6331,12 +6341,17 @@ void gf_settle_player (int lp_player) {
     else {
         lv_pos = gf_get_random_free_position();
     }
+    if ((gv_positions[lv_pos] == 0)) {
+    }
+    else {
+        lv_pos = gf_get_random_free_position();
+    }
     gv_players[lp_player].lv_position = lv_pos;
+    gv_positions[lv_pos] = lp_player;
     if (((lv_pos == 2) || (lv_pos == 5)) && (lv_k >= 4)) {
         gv_players[lp_player].lv_forced_random_mid = true;
     }
 
-    gv_positions[lv_pos] = lp_player;
     gv_positions_taken = (gv_positions_taken + 1);
 }
 
@@ -11148,6 +11163,37 @@ int gf_transform_voted_difficulty_real (fixed lp_voted_difficulty_real) {
     return lv_result;
 }
 
+bool gf_is_winter () {
+    // Variable Declarations
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if (((GetDateTimeMonth(CurrentDateTimeGet()) == 11) || (GetDateTimeMonth(CurrentDateTimeGet()) == 12) || (GetDateTimeMonth(CurrentDateTimeGet()) == 1))) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+void gf_winter_make_snow () {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_i = 1;
+
+    // Implementation
+    while ((lv_i <= 6)) {
+        gf_Remove_weather(lv_i);
+        gf_Create_weather(lv_i, 3, true);
+        lv_i = (lv_i + 1);
+    }
+}
+
 void gf_Enable_AF_Event () {
     // Variable Declarations
     unitgroup lv_unit_group;
@@ -11324,10 +11370,32 @@ bool gf_is_thxg () {
     // Variable Initialization
 
     // Implementation
-    if ((GetDateTimeMonth(CurrentDateTimeGet()) == 11) && ((GetDateTimeDay(CurrentDateTimeGet()) == 22) || (GetDateTimeDay(CurrentDateTimeGet()) == 23) || (GetDateTimeDay(CurrentDateTimeGet()) == 24) || (GetDateTimeDay(CurrentDateTimeGet()) == 25) || (GetDateTimeDay(CurrentDateTimeGet()) == 26))) {
+    if ((GetDateTimeMonth(CurrentDateTimeGet()) == 11) && ((GetDateTimeDay(CurrentDateTimeGet()) == 27) || (GetDateTimeDay(CurrentDateTimeGet()) == 28) || (GetDateTimeDay(CurrentDateTimeGet()) == 29))) {
         lv_r = true;
     }
 
+    return lv_r;
+}
+
+int gf_thxg_get_turkey_color (unit lp_unit) {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    if ((UnitHasBehavior2(EventUnit(), "SMGlowBlue") == true)) {
+        lv_r = 1;
+    }
+    else {
+        if ((UnitHasBehavior2(EventUnit(), "SMGlowGreen") == true)) {
+            lv_r = 2;
+        }
+        else {
+            lv_r = 3;
+        }
+    }
     return lv_r;
 }
 
@@ -11335,8 +11403,11 @@ void gf_spawn_turkey () {
     // Variable Declarations
     point lv_p;
     int lv_r;
+    int lv_color;
 
     // Automatic Variable Declarations
+    int auto86512378_val;
+
     // Variable Initialization
     lv_r = RandomInt(1, 40);
 
@@ -11353,8 +11424,23 @@ void gf_spawn_turkey () {
             libNtve_gf_CreateUnitsWithDefaultFacing(1, "SpaceTurkey", 0, 0, lv_p);
         }
     }
+    lv_color = RandomInt(1, 3);
     libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloStart");
-    libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloSetColor 255,0,0");
+    auto86512378_val = lv_color;
+    if (auto86512378_val == 1) {
+        UnitBehaviorAdd(UnitLastCreated(), "SMGlowBlue", UnitLastCreated(), 1);
+        libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloSetColor 0,255,255");
+    }
+    else if (auto86512378_val == 2) {
+        UnitBehaviorAdd(UnitLastCreated(), "SMGlowGreen", UnitLastCreated(), 1);
+        libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloSetColor 0,255,0");
+    }
+    else if (auto86512378_val == 3) {
+        UnitBehaviorAdd(UnitLastCreated(), "SMGlowRed", UnitLastCreated(), 1);
+        libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "HaloSetColor 255,0,0");
+    }
+    else {
+    }
     gf_revealpickup(UnitLastCreated());
 }
 
@@ -11406,7 +11492,6 @@ void gf_init_event () {
         }
     }
     gv_is_af_event = gf_is_af_event();
-    gv_is_halloween = true;
     if ((gf_tbp_get_zterran_vote_result() == 1) && (gv_is_af_event == false)) {
         gv_is_af_event = true;
     }
@@ -11675,6 +11760,40 @@ void gf_spawn_sappers () {
         gv_special_unit_array[gv_special_unit_count].lv_birthtime = FixedToInt(GameGetMissionTime());
         gv_special_unit_array[gv_special_unit_count].lv_unit = autoB5D83C2E_var;
     }
+}
+
+bool gf_can_spawn_smith () {
+    // Variable Declarations
+    int lv_c;
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_c = UnitGroupCount(UnitGroup("SmithCritter", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    if ((lv_c <= 4)) {
+        lv_r = true;
+    }
+
+    return lv_r;
+}
+
+bool gf_can_spawn_smith_for_player (int lp_player) {
+    // Variable Declarations
+    int lv_c;
+    bool lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_c = UnitGroupCount(UnitGroup("SmithCritter", lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+    if ((lv_c <= 1)) {
+        lv_r = true;
+    }
+
+    return lv_r;
 }
 
 void gf_enable_xmas_settings () {
@@ -18700,6 +18819,18 @@ void gf_add_default_rallies () {
     UnitGroupAdd(gv_spawnergroups[6].lv_all, UnitFromId(76671948));
 }
 
+int gf_get_frosty_spawner_count () {
+    // Variable Declarations
+    int lv_r;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lv_r = UnitCount("FrostySpawner", 7, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    return lv_r;
+}
+
 void gf_focus_weakest () {
     // Variable Declarations
     int lv_target_position;
@@ -20332,6 +20463,7 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
     unitgroup lv_ug;
     unit lv_u;
     string lv_n_ut;
+    int lv_charged_unit_new_max_energy;
 
     // Automatic Variable Declarations
     int autoA57586D2_val;
@@ -20418,7 +20550,7 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
                 lv_n_ut = "HighDensityBattery";
             }
             else if (auto968B0C03_val == "EliteMarine") {
-                if ((RandomInt(1, 100) == 1)) {
+                if ((gf_flip_coin() == 1)) {
                     auto9F2DF62D_val = gf_roll_dice();
                     if (auto9F2DF62D_val == 1) {
                         lv_n_ut = "Mantis";
@@ -20456,8 +20588,8 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
         if ((lv_n_ut != null)) {
             UnitKill(lv_u);
             if ((lv_n_ut == "PickupPalletGas")) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletGas", 0, lp_owner, lp_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(3, "PickupPalletMinerals", 0, lp_owner, lp_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(7, "PickupPalletGas", 0, lp_owner, lp_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing(7, "PickupPalletMinerals", 0, lp_owner, lp_position);
             }
             else {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, lv_n_ut, 0, lp_owner, lp_position);
@@ -20470,8 +20602,9 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
         lv_ug = gf_smith_get_chargeable_units(lp_owner, lp_position);
         lv_u = UnitGroupRandomUnit(lv_ug, c_unitCountAlive);
         if ((lv_u != null)) {
-            UnitSetPropertyFixed(lv_u, c_unitPropEnergyMax, (UnitGetPropertyInt(lv_u, c_unitPropEnergyMax, c_unitPropCurrent) * 5));
-            UnitSetPropertyFixed(lv_u, c_unitPropEnergy, (UnitGetPropertyInt(lv_u, c_unitPropEnergyMax, c_unitPropCurrent) * 5));
+            lv_charged_unit_new_max_energy = (UnitGetPropertyInt(lv_u, c_unitPropEnergyMax, c_unitPropCurrent) + 500);
+            UnitSetPropertyFixed(lv_u, c_unitPropEnergyMax, lv_charged_unit_new_max_energy);
+            UnitSetPropertyFixed(lv_u, c_unitPropEnergy, lv_charged_unit_new_max_energy);
         }
 
         gv_smith_last_used_effect_id = 5;
@@ -22245,6 +22378,8 @@ string gf_tbp_get_zerg_flag_string () {
     string lv_bo;
     string lv_zts;
     string lv_mgcs;
+    string lv_winter;
+    string lv_winter_space;
 
     // Automatic Variable Declarations
     // Variable Initialization
@@ -22256,8 +22391,16 @@ string gf_tbp_get_zerg_flag_string () {
     lv_bo = "";
     lv_zts = "";
     lv_mgcs = "";
+    lv_winter = "";
+    lv_winter_space = "";
 
     // Implementation
+    if ((gf_is_winter() == true) && (gv_difficulty >= 5)) {
+        lv_winter = "Winter Mod";
+        lv_winter_space = " ";
+        lv_xpr = (lv_xpr + 15);
+    }
+
     if ((gv_difficulty >= 5) && (gv_difficulty <= 7)) {
         if ((gf_tbp_mgc_get_vote_result() == 1)) {
             lv_mgcs = "mgc-";
@@ -22363,7 +22506,7 @@ string gf_tbp_get_zerg_flag_string () {
         lv_bo = ")";
     }
 
-    lv_return = ((("XP " + IntToString(lv_xpr)) + ("% " + lv_bi)) + (lv_ds + (lv_ms + (lv_zts + (lv_mgcs + lv_bo)))));
+    lv_return = ((("XP " + IntToString(lv_xpr)) + ("% " + lv_bi)) + (lv_ds + (lv_ms + (lv_zts + ((lv_mgcs + (lv_winter + lv_winter_space)) + lv_bo)))));
     return lv_return;
 }
 
@@ -24447,6 +24590,57 @@ bool gt_eggclustertest_Func (bool testConds, bool runActions) {
 void gt_eggclustertest_Init () {
     gt_eggclustertest = TriggerCreate("gt_eggclustertest_Func");
     TriggerAddEventChatMessage(gt_eggclustertest, c_playerAny, "-eggcluster test", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: -create frostyspawners
+//--------------------------------------------------------------------------------------------------
+bool gt_createfrostyspawners_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    point lv_p;
+    bool lv_d;
+    int lv_i;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = EventPlayer();
+    lv_i = 1;
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_players[lv_player].lv_alive == true))) {
+            return false;
+        }
+
+        if (!((gv_practice_mode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((lv_d == false)) {
+        lv_p = null;
+        lv_p = RegionRandomPoint(RegionFromName(("Bonus " + IntToString(lv_i))));
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "FrostySpawner", 0, 7, lv_p);
+        if ((lv_i == 40)) {
+            lv_d = true;
+        }
+        else {
+            lv_i = (lv_i + 1);
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_createfrostyspawners_Init () {
+    gt_createfrostyspawners = TriggerCreate("gt_createfrostyspawners_Func");
+    TriggerAddEventChatMessage(gt_createfrostyspawners, c_playerAny, "-create frostyspawners", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27734,7 +27928,7 @@ bool gt_spawnturkey_Func (bool testConds, bool runActions) {
 void gt_spawnturkey_Init () {
     gt_spawnturkey = TriggerCreate("gt_spawnturkey_Func");
     TriggerEnable(gt_spawnturkey, false);
-    TriggerAddEventTimePeriodic(gt_spawnturkey, 30.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_spawnturkey, 15.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -27745,9 +27939,14 @@ bool gt_turkeydies_Func (bool testConds, bool runActions) {
     int lv_killing_player;
     point lv_position;
     int lv_rng;
+    int lv_color;
+    int lv_size;
 
     // Automatic Variable Declarations
-    int autoF1B9E811_val;
+    int autoC51E6CD5_val;
+    int auto6A59537F_val;
+    int autoE2CDDB45_val;
+    int auto72968182_val;
 
     // Variable Initialization
 
@@ -27768,87 +27967,63 @@ bool gt_turkeydies_Func (bool testConds, bool runActions) {
     }
 
     lv_killing_player = libNtve_gf_KillingPlayer();
+    lv_color = gf_thxg_get_turkey_color(EventUnit());
+    if ((UnitGetType(EventUnit()) == "SpaceTurkey")) {
+        lv_size = 2;
+    }
+    else {
+        lv_size = 1;
+    }
+    if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
+        lv_size = (lv_size * 2);
+    }
+
     if ((lv_killing_player >= 1) && (lv_killing_player <= 6)) {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_killing_player) + StringExternal("Param/Value/BB169735")));
         lv_position = UnitGetPosition(EventUnit());
-        lv_rng = RandomInt(1, 8);
-        autoF1B9E811_val = lv_rng;
-        if (autoF1B9E811_val == 1) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
+        lv_rng = RandomInt(1, 3);
+        autoC51E6CD5_val = lv_color;
+        if (autoC51E6CD5_val == 1) {
+            auto6A59537F_val = lv_rng;
+            if (auto6A59537F_val == 1) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "AdvancedBattery", 0, lv_killing_player, lv_position);
+            }
+            else if (auto6A59537F_val == 2) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "AdvancedBattery", 0, lv_killing_player, lv_position);
+            }
+            else if (auto6A59537F_val == 3) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "HighDensityBattery", 0, lv_killing_player, lv_position);
             }
             else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "AdvancedBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
             }
         }
-        else if (autoF1B9E811_val == 2) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
+        else if (autoC51E6CD5_val == 2) {
+            autoE2CDDB45_val = lv_rng;
+            if (autoE2CDDB45_val == 1) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "MineralTrader", 0, lv_killing_player, lv_position);
+            }
+            else if (autoE2CDDB45_val == 2) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "GasTrader", 0, lv_killing_player, lv_position);
+            }
+            else if (autoE2CDDB45_val == 3) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "MineralTrader", 0, lv_killing_player, lv_position);
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "GasTrader", 0, lv_killing_player, lv_position);
             }
             else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "MineralTrader", 0, lv_killing_player, lv_position);
             }
         }
-        else if (autoF1B9E811_val == 3) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
+        else if (autoC51E6CD5_val == 3) {
+            auto72968182_val = lv_rng;
+            if (auto72968182_val == 1) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 1), "EliteMarineSkin4", 0, lv_killing_player, lv_position);
+            }
+            else if (auto72968182_val == 2) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 2), "VeteranMarine", 0, lv_killing_player, lv_position);
+            }
+            else if (auto72968182_val == 3) {
+                libNtve_gf_CreateUnitsWithDefaultFacing((lv_size * 2), "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
             }
             else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "GasTrader", 0, lv_killing_player, lv_position);
-            }
-        }
-        else if (autoF1B9E811_val == 4) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "HighDensityBattery", 0, lv_killing_player, lv_position);
-                UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
-            }
-        }
-        else if (autoF1B9E811_val == 5) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(2, "EliteMarineSkin4", 0, lv_killing_player, lv_position);
-            }
-        }
-        else if (autoF1B9E811_val == 6) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(4, "VeteranMarine", 0, lv_killing_player, lv_position);
-            }
-        }
-        else if (autoF1B9E811_val == 7) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(6, "Marine2", 0, lv_killing_player, lv_position);
-            }
-        }
-        else if (autoF1B9E811_val == 8) {
-            if ((gv_players[lv_killing_player].lv_has_pickup_doubler == true)) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
-                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
-            }
-            else {
-                libNtve_gf_CreateUnitsWithDefaultFacing(3, "ChaosSpaceMarine", 0, lv_killing_player, lv_position);
             }
         }
         else {
@@ -28264,6 +28439,10 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    if ((gf_can_spawn_smith_for_player(lv_player) == false)) {
+        lv_rand = RandomInt(1, 34);
+    }
+
     if ((gv_players[lv_player].lv_has_pickup_doubler == true)) {
         lv_reward_multi = (lv_reward_multi + 1);
     }
@@ -28318,8 +28497,8 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
         lv_end_count = (1 * lv_reward_multi);
     }
     else if (auto082B3130_val == 13) {
-        lv_unit_type = "SmithCritter";
-        lv_end_count = (1 * lv_reward_multi);
+        lv_unit_type = "FirebatZergHex";
+        lv_end_count = (2 * lv_reward_multi);
     }
     else if (auto082B3130_val == 14) {
         lv_unit_type = "AatroxArthasCritter";
@@ -28410,8 +28589,8 @@ bool gt_playercollectsbonuscard_Func (bool testConds, bool runActions) {
         lv_end_count = (5 * lv_reward_multi);
     }
     else if (auto082B3130_val == 35) {
-        lv_unit_type = "FirebatZergHex";
-        lv_end_count = (2 * lv_reward_multi);
+        lv_unit_type = "SmithCritter";
+        lv_end_count = (1 * lv_reward_multi);
     }
     else {
     }
@@ -30777,7 +30956,7 @@ bool gt_useidleunits_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder") || (UnitGetType(EventUnit()) == "Corroslash")))) {
+        if (!(((UnitGetType(EventUnit()) == "Slowling") || (UnitGetType(EventUnit()) == "Strikeling") || (UnitGetType(EventUnit()) == "Creeper") || (UnitGetType(EventUnit()) == "Tankling") || (UnitGetType(EventUnit()) == "Roach2") || (UnitGetType(EventUnit()) == "TarRoach") || (UnitGetType(EventUnit()) == "PrimalRoach2") || (UnitGetType(EventUnit()) == "Ultralisk2") || (UnitGetType(EventUnit()) == "Brutalisk2") || (UnitGetType(EventUnit()) == "Beastling") || (UnitGetType(EventUnit()) == "InfusedRoach") || (UnitGetType(EventUnit()) == "Ravator") || (UnitGetType(EventUnit()) == "Torralisk") || (UnitGetType(EventUnit()) == "MeleeMinionHell") || (UnitGetType(EventUnit()) == "RangedMinionHell") || (UnitGetType(EventUnit()) == "ZerglingCarbot") || (UnitGetType(EventUnit()) == "Cyclone3") || (UnitGetType(EventUnit()) == "Firebat2") || (UnitGetType(EventUnit()) == "Marauder2") || (UnitGetType(EventUnit()) == "Marine3") || (UnitGetType(EventUnit()) == "Hellion2") || (UnitGetType(EventUnit()) == "Massalisk") || (UnitGetType(EventUnit()) == "DevilDog") || (UnitGetType(EventUnit()) == "HelsAngelAssault") || (UnitGetType(EventUnit()) == "WarPig") || (UnitGetType(EventUnit()) == "Eroder") || (UnitGetType(EventUnit()) == "Corroslash") || (UnitGetType(EventUnit()) == "MrFrosty")))) {
             return false;
         }
     }
@@ -32039,6 +32218,20 @@ bool gt_spawner_finished_Func (bool testConds, bool runActions) {
 
     }
 
+    if ((gv_is_winter == true)) {
+        if ((gf_get_frosty_spawner_count() <= 20)) {
+            if (((UnitGetType(EventUnitProgressUnit()) == "RoachSpawner") || (UnitGetType(EventUnitProgressUnit()) == "PrimalRoachSpawner"))) {
+                if ((gf_flip_coin() == 1)) {
+                    libNtve_gf_ReplaceUnit(EventUnitProgressUnit(), "FrostySpawner", libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+                    lv_unit_got_replaced = true;
+                }
+
+            }
+
+        }
+
+    }
+
     if ((lv_unit_got_replaced == false) && (gv_difficulty >= 5) && ((UnitGetType(EventUnitProgressUnit()) == "UltraliskSpawner") || (UnitGetType(EventUnitProgressUnit()) == "BrutaliskSpawner"))) {
         if ((UnitGetType(EventUnitProgressUnit()) == "UltraliskSpawner")) {
             if ((gf_flip_coin() == 1)) {
@@ -33138,6 +33331,12 @@ bool gt_entrypoint_Func (bool testConds, bool runActions) {
         }
 
     }
+    if ((gf_is_winter() == true) && (gv_difficulty >= 5)) {
+        gv_is_winter = true;
+        gf_winter_make_snow();
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (StringExternal("Param/Value/0A0266CB") + StringToText("")));
+    }
+
     gf_set_up_modify_players_init();
     gf_create_income_dialog();
     gf_init_tgai_players();
@@ -34687,6 +34886,7 @@ void InitTriggers () {
     gt_inf_Init();
     gt_immortal_Init();
     gt_eggclustertest_Init();
+    gt_createfrostyspawners_Init();
     gt_makemegenetron_Init();
     gt_cheat_Init();
     gt_disabletutorial_Init();

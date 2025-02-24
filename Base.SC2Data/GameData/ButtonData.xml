@@ -4,6 +4,18 @@
         <Icon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
         <AlertIcon value="Assets\Textures\wireframe-critter-ursadakfemale.dds"/>
     </CButton>
+    <CButton id="BuildBloodAltar">
+        <Icon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <Hotkey value="Button/Hotkey/EventTechCenter"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchFasterDrops">
+        <Icon value="Assets\Textures\bloodsplat_4_purple.dds"/>
+        <AlertIcon value="Assets\Textures\bloodsplat_4_purple.dds"/>
+        <Hotkey value="Button/Hotkey/EventTechCenter"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="EnergizeWalls" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds"/>
     <CButton id="AutomatedAssimilator"/>
     <CButton id="BuildMechaExtractor">
@@ -29,6 +41,22 @@
         <AlertIcon value="Assets\Textures\btn-ability-genetron-teslacloakcharge.dds"/>
         <EditorCategories value="Race:Terran"/>
         <Universal value="1"/>
+    </CButton>
+    <CButton id="ResearchLargeDrops">
+        <Icon value="Assets\Textures\bloodsplat_4_purple.dds"/>
+        <AlertIcon value="Assets\Textures\bloodsplat_4_purple.dds"/>
+        <Hotkey value="Button/Hotkey/EventTechCenter"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchVeteranShockTroopers">
+        <Icon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchEliteShockTroopers">
+        <Icon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="SpawnCorroslash">
         <Icon value="Assets\Textures\btn-unit-xayid-reviler.dds"/>

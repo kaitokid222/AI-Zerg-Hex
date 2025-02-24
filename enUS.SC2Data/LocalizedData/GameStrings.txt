@@ -203,6 +203,7 @@ Abil/Name/TrainCowFarm=Train Cow
 Abil/Name/TrainCowLink=Train Cow (Link)
 Abil/Name/TrainCreeper=Train Creeper
 Abil/Name/TrainEroder=Train Eroder
+Abil/Name/TrainFrosty=Train Frosty
 Abil/Name/TrainInfestedMarine=Train Infested Marine
 Abil/Name/TrainMassalisk=Train Massalisk
 Abil/Name/TrainPrimalRoach=Train Primal Roach
@@ -425,6 +426,7 @@ Behavior/Name/EroderAttackReduction=Eroder Attack Reduction
 Behavior/Name/Ferocity=Ferocity
 Behavior/Name/Flamable=Flamable
 Behavior/Name/FragmentBlastPeriodicChard=Fragment Blast - Periodic Chard
+Behavior/Name/FrostySlow=Frosty Slow
 Behavior/Name/GapGeneration=Gap Generation
 Behavior/Name/GenerateFood=Generate Food
 Behavior/Name/GenerateGas=Generate Gas
@@ -553,6 +555,7 @@ Behavior/Name/StrikelingShielded3v3=Shielded
 Behavior/Name/TarRoachInfection=Tar Roach Infection
 Behavior/Name/TarRoachSpawn=Tar Roach Spawn
 Behavior/Name/Test=Test
+Behavior/Name/TraderXMASBuff=Trader XMAS Buff
 Behavior/Name/UnifiedArmor=Unified Armor
 Behavior/Name/UnknownBehavior=Test Buff
 Behavior/Name/UnlimitedEnergy=Unlimited Energy
@@ -561,6 +564,7 @@ Behavior/Name/UpgradedVespeneHarvestingUnlimited=Upgraded Vespene Harvesting
 Behavior/Name/UsingJUICE=Using J.U.I.C.E.
 Behavior/Name/VdayLoveBuff=Vday Love Buff
 Behavior/Name/VespeneHarvestingUnlimited=Vespene Harvesting
+Behavior/Name/Warm=Warm
 Behavior/Name/WeaponDisabled=Weapon Disabled
 Behavior/Name/ZagaraAutoTransfuse3v3=Zagara Auto Transfuse
 Behavior/Name/ZergRallyEqual=Zerg Rally Equal
@@ -587,6 +591,7 @@ Behavior/Tooltip/EnergyNetworkDisconnected=This pylon is not connected to a gene
 Behavior/Tooltip/EnhancedPlatingOmegalisk=The Omegalisk has double the health.
 Behavior/Tooltip/Ferocity=Unit gains attack damage per attack
 Behavior/Tooltip/Flamable=Unit will ignite upon taking damage.
+Behavior/Tooltip/FrostySlow=Target's movement speed is reduced for a period of time.
 Behavior/Tooltip/GapGeneration=Regulary creates shadow.
 Behavior/Tooltip/GenerateGas=Generates 1 gas every second.
 Behavior/Tooltip/GenerateGas2=Generates 2 gas every 5 seconds.
@@ -703,6 +708,7 @@ Behavior/Tooltip/StrikelingShielded=Absorbs one additional hit
 Behavior/Tooltip/StrikelingShielded3v3=Absorbs one additional hit
 Behavior/Tooltip/TarRoachInfection=This unit is infected and will spawn a Tar Roach on dying.
 Behavior/Tooltip/TarRoachSpawn=Spawns a Tar Roach upon death.
+Behavior/Tooltip/TraderXMASBuff=You have collected a lot of blood, which increases the performance of the Chaos Forces.
 Behavior/Tooltip/UnifiedArmor=Walls share health with one another to protect the weakest areas.
 Behavior/Tooltip/UnlimitedEnergy=This unit has unlimited energy
 Behavior/Tooltip/UnstableCore=When this unit dies it will explode.
@@ -732,6 +738,7 @@ Button/Name/BonusIncome=Bonus Income
 Button/Name/BuildAdvancedBattery=Build Advanced Battery
 Button/Name/BuildArmory=Build Armory
 Button/Name/BuildBattery=Build Battery
+Button/Name/BuildBloodAltar=Build Blood Altar
 Button/Name/BuildChaosDefiler=Build Chaos Defiler
 Button/Name/BuildChemicalPlant=Build Chemical Plant
 Button/Name/BuildCloakCharge=Build Cloak Charge
@@ -978,6 +985,8 @@ Button/Name/ResearchDeflectiveShatter=Research Deflective Shatter
 Button/Name/ResearchDualHit=Research Dual Hit
 Button/Name/ResearchDualHit3v3=Research Dual Hit
 Button/Name/ResearchEliteScope=Research Elite Scope
+Button/Name/ResearchEliteShockTroopers=Research Elite Shock Troopers
+Button/Name/ResearchFasterDrops=Research Faster Drops
 Button/Name/ResearchFerocity=Research Ferocity
 Button/Name/ResearchFerocity3v3=Research Ferocity
 Button/Name/ResearchGasExtraction=Research Gas Extraction
@@ -992,6 +1001,7 @@ Button/Name/ResearchImprovedFarming=Research Improved Farming
 Button/Name/ResearchImprovedFarming2=Research Improved Farming 2
 Button/Name/ResearchInfestedSpeedUp=Research Infested Speed Up
 Button/Name/ResearchInstantDischarge=Research Instant Discharge
+Button/Name/ResearchLargeDrops=Research Large Drops
 Button/Name/ResearchMechaUltralisk=Research Mecha Ultralisk
 Button/Name/ResearchMobileSquadTraining=Research Mobile Squad Training
 Button/Name/ResearchOvercharge=Research Overcharge
@@ -1018,6 +1028,7 @@ Button/Name/ResearchTarSpawn3v3=Research Tar Spawn
 Button/Name/ResearchTier2Equipment=Research Tier 2 Equipment
 Button/Name/ResearchTier3Equipment=Research Tier 3 Equipment
 Button/Name/ResearchUnifiedArmor=Research Unified Armor
+Button/Name/ResearchVeteranShockTroopers=Research Veteran Shock Troopers
 Button/Name/ResearchVirtusSelfFixProtocol2=Research Building Durability
 Button/Name/ResearchWeaponCapacity=Research Weapon Capacity
 Button/Name/ResearchZergArmor1=Research Zerg Armor 1
@@ -1234,6 +1245,7 @@ Button/Tooltip/BeastlingSpawner=
 Button/Tooltip/BiggerCashDrops=<c val="ffff8a">Cash Pickups</c> contain +10 resources.<n/><n/>Can be upgraded 15 times.
 Button/Tooltip/Blood=Chaos Marines can pick it up!
 Button/Tooltip/Blood2=Chaos Marines can pick it up!
+Button/Tooltip/BloodAltar=Contains upgrades for Ghosts. Can build Nukes for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
 Button/Tooltip/BombNapalmIcon=Upgrades the generator to produce +3 energy per second.<n/><n/>Can be upgraded 50 times.
 Button/Tooltip/BonusIncome=Note: additional 4 minerals per minute is generated for each missing terran at start of the game. (or early leave)
 Button/Tooltip/Brutalisk2=
@@ -1241,6 +1253,7 @@ Button/Tooltip/BrutaliskSpawner=
 Button/Tooltip/BuildAdvancedBattery=Holds up to 2500 energy and can transform into a static power pylon which distributes energy automatically.
 Button/Tooltip/BuildArmory=Closeby units gain +1 attack damage and +2 range.<n/><n/>Contains various unit upgrades.<n/><n/><c val="F03030">Only one can be built</c>
 Button/Tooltip/BuildBattery=Can hold and transfer energy generated by the generator. Holds up to 700 energy.
+Button/Tooltip/BuildBloodAltar=Passively generates blood.
 Button/Tooltip/BuildBuildGenetronGenerator=Provides large amounts of energy. Uses Gas.
 Button/Tooltip/BuildChaosDefiler=Elite Unit which excels at melee combat but also provides long range artillery. Every defiler consumes 20 Blood Stacks per minute or takes damage until it dies.
 Button/Tooltip/BuildChemicalPlant=Generates gas and allows training of Firebats.<n/><n/>Generates 10 gas every 5 seconds.
@@ -1400,6 +1413,7 @@ Button/Tooltip/Flight2=Flies cloaked over obstacles to a nearby target location.
 Button/Tooltip/Flower=
 Button/Tooltip/Fortification=Increases the durability of walls and structures, also increasing the repair rate of Defenders by 2 hp/s.<n/><n/><c val="E8E191">Walls and Gates</c>: +30% health and +1 armor.<n/><c val="E8E191">Tech Structures</c>: +35 hp.<n/><c val="E8E191">Other</c>: +20 hp. <c val="C0C0C0">(Fruit Farm excluded)</c><n/><n/>Can be upgraded 30 times.
 Button/Tooltip/FragmentBlast=Lays down a carpet of plasma fragments dealing high damage to enemies within the vicinity.<n/><n/><c val="ffff8a">Modulated:</c><n/>Increase area width by 75% with equal impact density.
+Button/Tooltip/FrostySpawner=
 Button/Tooltip/FruitFarm=
 Button/Tooltip/Fruitinator=Converts Fruit to Minerals most effectively.
 Button/Tooltip/GainBounty=<IMG path="Assets\Textures\icon-mineral.dds" height="12" width="12"/><IMG path="Assets\Textures\icon-gas-terran.dds" height="12" width="12"/>
@@ -1532,6 +1546,7 @@ Button/Tooltip/MoreCashDrops3=<c val="ffff8a">Cash Transporter</c> interval redu
 Button/Tooltip/MoreCashDrops4=<c val="ffff8a">Cash Transporters</c> also deliver your teammates with two pickups of each type.
 Button/Tooltip/MoreCashDrops5=<c val="ffff8a">Cash Transporters</c> deliver two more pickups of each type.
 Button/Tooltip/MorphtoOmegalisk=
+Button/Tooltip/MrFrosty=
 Button/Tooltip/Mutalisk3v3=Air unit. Bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/MutateintoBanelingSpawner=Explodes to deal high damage to nearby enemies and launching spores into random directions.<n/><n/><c val="94D1D1">Spawns unlimited</c> <c val="E8E191">(45 sec spawn time +10% per unit)</c>
 Button/Tooltip/MutateintoBeastlingSpawner=Large version of a Slowling. Can pack a punch and deals bonus and area damage to walls.<n/><n/><c val="94D1D1">Re-spawns 2 units</c> <c val="E8E191">(12 sec spawn time)</c>
@@ -1644,6 +1659,8 @@ Button/Tooltip/ResearchDeflectiveShatter=Improves <c val="ffff8a">Marines</c> la
 Button/Tooltip/ResearchDualHit=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.
 Button/Tooltip/ResearchDualHit3v3=Allows all <c val="ffff8a">Strikelings</c> to take 2 hits.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchEliteScope=Increases the attack range, damage and vision of <c val="ffff8a">Elite Marines</c> by one.
+Button/Tooltip/ResearchEliteShockTroopers=Upgrades <c val="ffff8a">Shock Troopers</c> even more.<n/>Increases Energy Maximum by 90<n/>Increases HP by 50<n/>Increases Shock Rifle Damage by 5<n/>Increases Energy Efficiency by 100%
+Button/Tooltip/ResearchFasterDrops=Increases the rate in which Blood Drops get spawned.
 Button/Tooltip/ResearchFerocity=Enables all <c val="ffff8a">Creepers</c> to gain +0.5 damage for each attack to an enemy.
 Button/Tooltip/ResearchFerocity3v3=Enables all <c val="ffff8a">Creepers</c> to gain +0.5 damage for each attack to an enemy. Each attack to an enemy also increase unit duration by 2 seconds.<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/ResearchGasExtraction=Enables the Construction Yard to extract gas from underground as long as it is built outside the main base.<n/><n/>Produces 1 gas every 3 seconds.<n/><n/>Production is doubled with Solid Foundation.
@@ -1658,6 +1675,7 @@ Button/Tooltip/ResearchImprovedFarming=Improves mineral gain from animals eating
 Button/Tooltip/ResearchImprovedFarming2=Further improving mineral gain from animals eating fruit.<n/><n/><c val="ffff8a">Sheep</c> produce 4 minerals (+1)<n/><c val="ffff8a">Cows</c> produce 7 minerals (+2)
 Button/Tooltip/ResearchInfestedSpeedUp=Increases <c val="ffff8a">Infested Units</c> Move Speed by 0.4.
 Button/Tooltip/ResearchInstantDischarge=Enables <c val="ffff8a">Shock Troopers</c> to use the Instant Discharge ability, a long range single target ability dealing 80 damage.
+Button/Tooltip/ResearchLargeDrops=Blood Altar spawns Big Blood Drops instead.
 Button/Tooltip/ResearchMechaUltralisk=Upgrades Ultralisks to be Mecha Ultralisks instead and gain +1 Armor.
 Button/Tooltip/ResearchMobileSquadTraining=Allows <c val="ffff8a">Marines</c> to be promoted anywhere on the map instead of having to be near the Barracks.
 Button/Tooltip/ResearchOvercharge=Enables <c val="ffff8a">Marines</c> to use the Overcharge ability. Overcharge doubles the attack speed for a short duration, can be used once every 30 seconds.
@@ -1684,6 +1702,7 @@ Button/Tooltip/ResearchTarSpawn3v3=Roaches will spawn a Tar Roach upon death.<n/
 Button/Tooltip/ResearchTier2Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Veteran Marine<n/>- Firebat<n/>- Italis
 Button/Tooltip/ResearchTier3Equipment=Better equipment to enable new units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Elite Marine<n/>- Siege Tank
 Button/Tooltip/ResearchUnifiedArmor=Makes Wall and Gate share health when next to each other. Has a brief delay before receiving health after an attack and is ineffective against very high damage rates.<n/><n/>Walls with Construction Yard Buff do not share health with Walls that don't have the buff.<n/><n/>Lowered Gates do not have this effect.
+Button/Tooltip/ResearchVeteranShockTroopers=Upgrades <c val="ffff8a">Shock Troopers</c><n/>Increases Energy Maximum by 45<n/>Increases HP by 25<n/>Increases Shock Rifle Damage by 2
 Button/Tooltip/ResearchVirtusSelfFixProtocol2=<c val="FFFF80">Defensive Buildings</c> gain health and armor.
 Button/Tooltip/ResearchWeaponCapacity=Increases the capacity of energy weapons by 200%.
 Button/Tooltip/ResearchZergArmor1=- Enables spawning of <c val="ffff8a">Infestors</c>.<n/>- Enables spawning of <c val="D95200">Beastlings</c>.<n/>- Increases <c val="ffff8a">Tanklings</c> armor by 1.<n/><n/><c val="E1848D">Research is shared among zerg players.</c>
@@ -1810,7 +1829,7 @@ Button/Tooltip/StrikelingSpawner=Spawns fast moving suicide strikelings.
 Button/Tooltip/StructureBurn=Attacks set structures ablaze, dealing <d ref="Effect,RavatorBurnDamage,Amount/Behavior,RavatorStructureBurning,Period"/> damage per second and reducing armor by 5.<n/><n/>Burning damage is increased with attack upgrades.
 Button/Tooltip/Suicide=Kills itself and generates Blood.
 Button/Tooltip/SummonNydusCanalCreeper=Summons a Creep Tower at the target location. Creep Tower can launch creep in a chosen direction.<n/><n/><c val="D95200">Increase Terrazine income of every player in  your team by 20%.</c></n></n><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Probius Pylons</c> to be stronger.<n/>Increases HP by 600.<n/>Increases HP Armor by 8.<n/>Increases Shield by 750.<n/>Sets Shield Regeneration Delay to 2 seconds.<n/>Increases Shield Regeneration Rate by 8.<n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
+Button/Tooltip/SuperCannons=Upgrades <c val="ffff8a">Probius Pylons</c> to be stronger.<n/>Increases HP by 600.<n/>Increases HP Armor by 8.<n/>Increases Shield by 750.<n/>Sets Shield Regeneration Delay to 2 seconds.<n/>Increases Shield Regeneration Rate by 8.<n/>Decreases Weapon Cooldown by 0.05s.
 Button/Tooltip/SynteticAdrenalPumps=Increases Mechaling Attack Speed by 100%<n/><n/><c val="E1848D">Research is shared among your team.</c>
 Button/Tooltip/Tankling=
 Button/Tooltip/TanklingSpawner=
@@ -1878,8 +1897,8 @@ Button/Tooltip/UpgradeImprovedCombatShield=Upgrades the shield of Veteran and El
 Button/Tooltip/UpgradeImprovedCombatShield2=Upgrades the shield of Veteran and Elite Marines.<n/><n/><c val="ffff8a">Veteran Marines</c> gain +20 life.<n/><c val="ffff8a">Elite Marines</c> gain +35 life.
 Button/Tooltip/UpgradeKarax=Increases Karax Energy capacity and HP.
 Button/Tooltip/UpgradePhotonCannonArmor=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases HP by 150.<n/>Increases HP Armor by 8.
-Button/Tooltip/UpgradePhotonCannonDamage1=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
-Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.1s.
+Button/Tooltip/UpgradePhotonCannonDamage1=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.05s.
+Button/Tooltip/UpgradePhotonCannonDamage2=Upgrades <c val="ffff8a">Probius Pylons</c><n/>Increases Weapon Range by 1.<n/>Decreases Weapon Cooldown by 0.05s.
 Button/Tooltip/UpgradeRefineryToUpgraded=Upgrades the refinery to produce double as much gas and have increased durability.
 Button/Tooltip/UpgradeShieldBattery=Increases Shield Battery Energy Maximum, Starting Amount and Regeneration by 100%
 Button/Tooltip/UpgradeShieldBattery2=Increases Shield Battery Energy Regeneration by 500%.
@@ -2851,6 +2870,26 @@ DocInfo/PatchNote916=Reworked Position Pick Dialog Interaction.
 DocInfo/PatchNote917=Zeratul, Raynor, Probius can no longer attack allies.
 DocInfo/PatchNote918=Added Smith Critter.
 DocInfo/PatchNote919=Improved Halloween Event.
+DocInfo/PatchNote920=Fixed Forever Halloween Issue.
+DocInfo/PatchNote921=Decreased Weapon CD decrease of Probius Pylon Attack Upgrade I & II and Super Pylons Upgrade from 0.1 -> 0.05.
+DocInfo/PatchNote922=Super Pylons Upgrade no longer increases Pylon Range.
+DocInfo/PatchNote923=High Tech
+DocInfo/PatchNote924=Decreased Paralyzing Shock Upgrade Cost 600 -> 450.
+DocInfo/PatchNote925=Added 2 Upgrades to improve Shock Troopers.
+DocInfo/PatchNote926=Added Blood Altar structure for Chaos Bonus.
+DocInfo/PatchNote927=Reworked Thanksgiving Event for more fun.
+DocInfo/PatchNote928=Nerfed new High-Tech Upgrades a bit, but also reduced cost.
+DocInfo/PatchNote929=Added Winter Mod.
+DocInfo/PatchNote930=Adjusted Frosty.
+DocInfo/PatchNote931=Hotfixed Frosty Spawners. They now correctly attack, but sadly dont turn yet.
+DocInfo/PatchNote932=Nerfed Frosty Slow.
+DocInfo/PatchNote933=Nerfed Frosty more.
+DocInfo/PatchNote934=Fixed Generator-Mineral-Exploit.
+DocInfo/PatchNote935=Fixed Position Issue.
+DocInfo/PatchNote936=Limited amount of Smith on the map in ideal condition to 5.
+DocInfo/PatchNote937=Changed Smith Recharge Effect. Instead of e*2 it is now e+500.
+DocInfo/PatchNote938=Nerfed Corroslash. Spawntime 4 -> 5s. Base HP 55 -> 52, Damage 8 -> 6.
+DocInfo/PatchNote939=Limited Smith to 2-3 per Player. (up to 18 in total)
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -2974,6 +3013,8 @@ Effect/Name/BeastlingClawsMainWallDamage=Beastling - Claws (Main Wall Damage)
 Effect/Name/BeastlingClawsSet=Beastling - Claws (Set)
 Effect/Name/BeastlingClawsWallAreaDamage=Beastling - Claws (Wall Area Damage)
 Effect/Name/BeastlingClawsWallSearch=Beastling - Claws (Wall Search)
+Effect/Name/BloodAltarRandomLocationBloodPersistent=Blood Altar - Random Location Blood (Persistent)
+Effect/Name/BloodAltarSpawnBloodSpawn=Blood Altar - Spawn Blood (Spawn)
 Effect/Name/BloodRemoveDeath=BloodRemoveDeath
 Effect/Name/BloodRemoveDelayDeath=BloodRemoveDelayDeath
 Effect/Name/BomberDeployApplyDisable=Bomber - Deploy (Apply Disable)
@@ -3164,12 +3205,16 @@ Effect/Name/EntropyLanceDamageAdd=Entropy Lance (Damage Add)
 Effect/Name/EntropyLanceDamageFree=Entropy Lance (Damage Free)
 Effect/Name/FeedNotificationTrigger=Feed Notification (Trigger)
 Effect/Name/FireAcidSearchDummy=Fire Acid (Search Dummy)
+Effect/Name/FirebatAntidebuffTriggerDummy=Firebat Anti-debuff Trigger Dummy
+Effect/Name/FirebatAntidebuffauraCooldown=Firebat Anti-debuff aura Cooldown
+Effect/Name/FirebatApplyWarmBuff=Firebat Apply Warm Buff
 Effect/Name/FirebatFlameThrowerApplyOutOfGas=Firebat - Flame Thrower (Apply Out Of Gas)
 Effect/Name/FirebatRefreshChargeModifyPlayer=Firebat Refresh Charge (Modify Player)
 Effect/Name/FirebatRefreshChargeModifyUnit=Firebat Refresh Charge (Modify Unit)
 Effect/Name/FirebatRefreshChargeRemoveOutOfGas=Firebat Refresh Charge (Remove Out Of Gas)
 Effect/Name/FirebatRefreshChargeSet=Firebat Refresh Charge (Set)
 Effect/Name/FirebatRefreshChargeSetChange=Firebat Refresh Charge (Set Change)
+Effect/Name/FirebatSpreadWarmSA=Firebat Spread Warm SA
 Effect/Name/FirebatTestDamage=Firebat Test Damage
 Effect/Name/FirelingClaws=Claws (Damage)
 Effect/Name/FirelingFlamableIssueOrder=Fireling - Flamable (Issue Order)
@@ -3186,6 +3231,11 @@ Effect/Name/FlameThrowerPersistent=Flame Thrower (Persistent)
 Effect/Name/FlameThrowerPersistentOld=Flame Thrower (Persistent)
 Effect/Name/FlameThrowerSet=Flame Thrower (Set)
 Effect/Name/FlameThrowerSetOld=Flame Thrower (Set)
+Effect/Name/FrostySlowAB=Frosty Slow AB
+Effect/Name/FrostySlowAOE=Frosty Slow AOE
+Effect/Name/FrostyWeaponImpactDamage=Frosty Weapon Impact (Damage)
+Effect/Name/FrostyWeaponImpactSet=Frosty Weapon Impact (Set)
+Effect/Name/FrostyWeaponLM=Frosty Weapon LM
 Effect/Name/FruitFarmRandomLocationFruitPersistent=Fruit Farm - Random Location Fruit (Persistent)
 Effect/Name/FruitFarmSpawnFruitApplyTimer=Fruit Farm - Spawn Fruit (Apply Timer)
 Effect/Name/FruitFarmSpawnFruitSpawn=Fruit Farm - Spawn Fruit (Spawn)
@@ -3911,6 +3961,7 @@ Param/Value/082AB456= /
 Param/Value/08D49DA9=label test name
 Param/Value/098207DD= more votes needed!
 Param/Value/09A329D0=Item 4 Row 2: text test text test text test text test text test text test text test text test text test text
+Param/Value/0A0266CB=Winter Mod enabled!
 Param/Value/0A04B386=Created
 Param/Value/0A600D60=Build 5 Fruit Farms!
 Param/Value/0BE0E6F9=You respawn as Karax instead!
@@ -4488,6 +4539,7 @@ RequirementNode/Tooltip/LT459509116CountBehaviorFirelingCountDummyStackQueuedOrB
 RequirementNode/Tooltip/LT518456723SumCountUnitGasVentQueuedOrBetter20=Max 20
 RequirementNode/Tooltip/LT554857793SumCountUnitPhotonCannonQueuedOrBetter15=Max 15
 RequirementNode/Tooltip/LT831937892CountUnitProbiusPylonQueuedOrBetter3=You can only have three pylons.
+RequirementNode/Tooltip/Not1222730276CountUnitBloodAltarQueuedOrBetter=Only one Blood Altar
 RequirementNode/Tooltip/Not143893411CountUnitHiveMindEmulatorQueuedOrBetter=Only one Zerg Control Center!
 RequirementNode/Tooltip/Not1498139208CountBehaviorTrafficTowerTransportUnitUndefinedCompleteOnlyAtUnit=Select Transport Unit
 RequirementNode/Tooltip/Not1537753810CountUnitOperationCenterQueuedOrBetter=Only one Operation Center
@@ -4564,6 +4616,7 @@ Unit/Name/BlightbringerEgg=Egg
 Unit/Name/BlightbringerLargeEgg=Egg
 Unit/Name/Blood=Blood
 Unit/Name/Blood2=Blood
+Unit/Name/BloodAltar=Blood Altar
 Unit/Name/BomberMissile=Bomber Missile
 Unit/Name/Brutalisk2=Brutalisk
 Unit/Name/BrutaliskSpawner=Brutalisk Spawner
@@ -4619,6 +4672,7 @@ Unit/Name/Flower=Flower
 Unit/Name/Forge=Probius Forge
 Unit/Name/FragmentBlast=Fragment Blast
 Unit/Name/FragmentBlastShardMissile=Fragment Blast Shard Missile
+Unit/Name/FrostySpawner=Frosty Spawner
 Unit/Name/Fruit=Fruit
 Unit/Name/FruitFarm=Fruit Farm
 Unit/Name/Fruitinator=Fruitinator
@@ -4692,6 +4746,7 @@ Unit/Name/MineralContainer=Mineral Container
 Unit/Name/MineralExtractor=Mineral Extractor
 Unit/Name/MineralGenerator=Mineral Generator
 Unit/Name/MineralTrader=Mineral Trader
+Unit/Name/MrFrosty=Frosty
 Unit/Name/Mutalisk3v3=Mutalisk
 Unit/Name/NapalmBomb=Nuke
 Unit/Name/Nest2=Nest
@@ -4818,6 +4873,7 @@ Upgrade/Name/Base3Dead=Base 3 Dead
 Upgrade/Name/Base4Dead=Base 4 Dead
 Upgrade/Name/Base5Dead=Base 5 Dead
 Upgrade/Name/Base6Dead=Base 6 Dead
+Upgrade/Name/BiggerBloodDrops=Bigger Blood Drops
 Upgrade/Name/BuildingDefenseUpgrade=Building Defense Upgrade
 Upgrade/Name/CasualNoCollide=Casual No Collide
 Upgrade/Name/CasualTraderImprovement=Casual Trader Improvement
@@ -4837,12 +4893,14 @@ Upgrade/Name/CloakedFlight=Cloaked Flight
 Upgrade/Name/DoubleStrikelings=Double Strikelings
 Upgrade/Name/DoubledRewards=Doubled Rewards
 Upgrade/Name/EliteScope=Elite Scope
+Upgrade/Name/EliteShockTroopers=Elite Shock Troopers
 Upgrade/Name/EmpowerShadowCannon=Empower Shadow Cannon
 Upgrade/Name/EnableMineralProduction=Enable Mineral Production
 Upgrade/Name/EnergyCapacity=Energy Capacity
 Upgrade/Name/EnergyCapacity2=Energy Capacity II
 Upgrade/Name/EnergyGeneration=Energy Generation
 Upgrade/Name/EnergyGenerationCapacity=Energy Generation Capacity
+Upgrade/Name/FasterBloodDrops=Faster Blood Drops
 Upgrade/Name/Firelings=Firelings
 Upgrade/Name/Fortification=Fortification
 Upgrade/Name/GameTime215=Game Time 2.15
@@ -4958,6 +5016,7 @@ Upgrade/Name/UnstableCore=Unstable Core
 Upgrade/Name/UpgradedCombatShield=Upgraded Combat Shield
 Upgrade/Name/UpgradedImprovedCombatShield=Upgraded Improved Combat Shield
 Upgrade/Name/UpgradedImprovedCombatShield2=Upgraded Improved Combat Shield II
+Upgrade/Name/VeteranShockTroopers=Veteran Shock Troopers
 Upgrade/Name/WallShields2=Wall Shields 2
 Upgrade/Name/WallShields3=Wall Shields 3
 Upgrade/Name/WallShields4=Wall Shields 4
@@ -5033,6 +5092,8 @@ Weapon/Name/ReaperDoublePistol=Double Pistol
 Weapon/Name/ReaperExplosiveCharge=Explosive Charge
 Weapon/Name/SentryGun2=Sentry Gun
 Weapon/Name/ShockBlastRifle=Shock Blast Rifle
+Weapon/Name/Snowball=Snowball
+Weapon/Name/SpawnerSnowball=SpawnerSnowball
 Weapon/Name/StaticDischarge=Static Discharge
 Weapon/Name/SuicideNeedleClaws=Suicide Needle Claws
 Weapon/Name/TanklingMelee=Melee

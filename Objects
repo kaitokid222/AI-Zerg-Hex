@@ -294,7 +294,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2144310517" Variation="11" Position="138.64,128,7.6042" Rotation="1.5236" Scale="1.2,1.2,1.2995" Type="ZergWallDecorTwoHigh" Pitch="0.1743">
+    <ObjectDoodad Id="2144310517" Variation="11" Position="138.64,128,7.5993" Rotation="1.5236" Scale="1.2,1.2,1.2995" Type="ZergWallDecorTwoHigh" Pitch="0.1743">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -503,7 +503,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8525" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
+    <ObjectDoodad Id="116967515" Variation="3" Position="99.4116,15.955,7.8476" Rotation="2.513" Scale="0.8476,0.8476,0.8476" Type="RockSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -712,7 +712,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1644102867" Variation="10" Position="130.9997,111.1015,7.4365" Rotation="0.847" Scale="1.2,1.2,1.4" Type="ZergWallDecorTwoHigh">
+    <ObjectDoodad Id="1644102867" Variation="10" Position="130.9997,111.1015,7.4272" Rotation="0.847" Scale="1.2,1.2,1.4" Type="ZergWallDecorTwoHigh">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -944,7 +944,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1810215383" Variation="2" Position="131.351,110.39,7.711" Rotation="0.8637" Scale="1.15,1.15,1.15" Type="Aiur_Zerg_Ribs">
+    <ObjectDoodad Id="1810215383" Variation="2" Position="131.351,110.39,7.7104" Rotation="0.8637" Scale="1.15,1.15,1.15" Type="Aiur_Zerg_Ribs">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1025,7 +1025,7 @@
     <ObjectDoodad Id="1174084271" Variation="14" Position="128.6208,148.9692,7.9965" Rotation="1.8408" Scale="1.2,1,1" Type="ZergWallDecorTwoHigh" Roll="0.1743">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.423" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
+    <ObjectDoodad Id="1719998350" Variation="2" Position="214.1123,87.4985,0.432" Rotation="4.9062" Scale="0.856,0.856,0.856" Type="Rock">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
@@ -1038,7 +1038,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="432968074" Variation="10" Position="109.0068,145.2148,7.429" Rotation="3.836" Scale="1.2,1.2,1.4" Type="ZergWallDecorTwoHigh">
+    <ObjectDoodad Id="432968074" Variation="10" Position="109.0068,145.2148,7.4204" Rotation="3.836" Scale="1.2,1.2,1.4" Type="ZergWallDecorTwoHigh">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -1234,7 +1234,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="290082236" Variation="2" Position="108.8698,145.73,7.7001" Rotation="3.9372" Scale="1.1496,1.1496,1.1496" Type="Aiur_Zerg_Ribs">
+    <ObjectDoodad Id="290082236" Variation="2" Position="108.8698,145.73,7.6984" Rotation="3.9372" Scale="1.1496,1.1496,1.1496" Type="Aiur_Zerg_Ribs">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1256,7 +1256,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="487227103" Variation="3" Position="138.7895,128.558,9.6503" Rotation="1.5292" Scale="1.0998,1.0998,1.0998" Type="Aiur_Zerg_Ribs">
+    <ObjectDoodad Id="487227103" Variation="3" Position="138.7895,128.558,9.645" Rotation="1.5292" Scale="1.0998,1.0998,1.0998" Type="Aiur_Zerg_Ribs">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>

@@ -10,6 +10,13 @@
     <CRequirement id="OnlyOneCannonForge">
         <NodeArray index="Use" Link="Not3805471138CountUnitForgeQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="OnlyOneBloodAltar">
+        <NodeArray index="Use" Link="Not1222730276CountUnitBloodAltarQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchBiggerBloodDrops">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeBiggerBloodDropsQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchIncreasedPylonIncome">
         <NodeArray index="Show" Link="LTCountUpgradeIncreasedPylonIncomeQueuedOrBetter1"/>
     </CRequirement>
@@ -26,6 +33,10 @@
     <CRequirement id="ResearchConservationL4">
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL3CompleteOnly999169436"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL4QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchVeteranShockTroopers">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeVeteranShockTroopersQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchPhotonCannonArmor">
         <NodeArray index="Show" Link="NotCountUpgradeProbiusCannonArmorQueuedOrBetter"/>
@@ -79,6 +90,14 @@
     <CRequirement id="ResearchShieldWalls5">
         <NodeArray index="Use" Link="CountUpgradeWallShields4CompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeWallShields5QueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchEliteShockTroopers">
+        <NodeArray index="Use" Link="CountUpgradeVeteranShockTroopersCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeEliteShockTroopersQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="ResearchFasterBloodDrops">
+        <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeFasterBloodDropsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ResearchWallShields">
         <NodeArray index="Show" Link="NotCountUpgradeProbiusWallShieldsQueuedOrBetter"/>

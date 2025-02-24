@@ -31,6 +31,9 @@
 <Actor id="RockSmall" Variations="0,1,2,3,4,5,6,7,8,9,10"/>
 <Actor id="XilSpireLarge" Variations="3"/>
 <Actor id="GainBountyTextKicker"/>
+<Behavior id="SMGlowRed"/>
+<Behavior id="SMGlowBlue"/>
+<Behavior id="SMGlowGreen"/>
 <Behavior id="InfestedVisual"/>
 <Behavior id="ProcessingCorePower"/>
 <Behavior id="TrackAndMirrorGenetronPowerSupply"/>
@@ -273,6 +276,7 @@
 <Unit id="AatroxArthasCritter"/>
 <Unit id="KokCritter"/>
 <Unit id="Barracks2"/>
+<Unit id="FrostySpawner"/>
 <Unit id="SmithCritter"/>
 <Unit id="MechaDrone"/>
 <Unit id="SpaceTurkey"/>

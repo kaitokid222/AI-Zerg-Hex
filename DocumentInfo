@@ -225,6 +225,16 @@
             <Value>1.150</Value>
             <Value>1.151</Value>
             <Value>1.153</Value>
+            <Value>1.154</Value>
+            <Value>1.155</Value>
+            <Value>1.156</Value>
+            <Value>1.158</Value>
+            <Value>1.159</Value>
+            <Value>1.160</Value>
+            <Value>1.161</Value>
+            <Value>1.162</Value>
+            <Value>1.163</Value>
+            <Value>1.164</Value>
         </Version>
         <Date>
             <Value>9/6/2021</Value>
@@ -425,6 +435,16 @@
             <Value>10/6/2024</Value>
             <Value>10/19/2024</Value>
             <Value>10/26/2024</Value>
+            <Value>10/31/2024</Value>
+            <Value>11/4/2024</Value>
+            <Value>11/9/2024</Value>
+            <Value>11/12/2024</Value>
+            <Value>11/27/2024</Value>
+            <Value>11/28/2024</Value>
+            <Value>11/30/2024</Value>
+            <Value>1/29/2025</Value>
+            <Value>2/5/2025</Value>
+            <Value>2/24/2025</Value>
         </Date>
         <Notes>
             <Value>1</Value>
@@ -625,6 +645,16 @@
             <Value>914,915,916</Value>
             <Value>917,918</Value>
             <Value>919</Value>
+            <Value>920</Value>
+            <Value>921,922</Value>
+            <Value>923,924,925</Value>
+            <Value>926,927,928</Value>
+            <Value>929</Value>
+            <Value>930,931,932</Value>
+            <Value>933</Value>
+            <Value>934,935</Value>
+            <Value>936,937,938</Value>
+            <Value>939</Value>
         </Notes>
     </PatchNote>
     <Preload>

@@ -64,6 +64,22 @@
             <Resource index="Vespene" value="125"/>
             <Button DefaultButtonFace="ResearchProbiusL2" Requirements="ResearchProbiusL2"/>
         </InfoArray>
+        <InfoArray index="Research4" Time="30" Upgrade="VeteranShockTroopers">
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchVeteranShockTroopers" Requirements="ResearchVeteranShockTroopers"/>
+        </InfoArray>
+        <InfoArray index="Research5" Time="30" Upgrade="EliteShockTroopers">
+            <Resource index="Vespene" value="450"/>
+            <Button DefaultButtonFace="ResearchEliteShockTroopers" Requirements="ResearchEliteShockTroopers"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="30" Upgrade="FasterBloodDrops">
+            <Resource index="Vespene" value="200"/>
+            <Button DefaultButtonFace="ResearchFasterDrops" Requirements="ResearchFasterBloodDrops"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="30" Upgrade="BiggerBloodDrops">
+            <Resource index="Vespene" value="300"/>
+            <Button DefaultButtonFace="ResearchLargeDrops" Requirements="ResearchBiggerBloodDrops"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="ArtanisLightningDash">
         <Cost index="0">
@@ -636,7 +652,7 @@
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Flags index="IgnoreUnitCost" value="1"/>
         <Flags index="WaitForFood" value="0"/>
-        <InfoArray index="Train1" Time="4" Effect="ApplyPrecursorSpawner">
+        <InfoArray index="Train1" Time="5" Effect="ApplyPrecursorSpawner">
             <Charge>
                 <CountMax value="4"/>
                 <CountStart value="2"/>
@@ -703,6 +719,27 @@
             <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
             <Button DefaultButtonFace="Eroder"/>
             <Unit value="Eroder"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+        <Alert value="NoAlert"/>
+    </CAbilTrain>
+    <CAbilTrain id="TrainFrosty">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <InfoArray index="Train1" Time="5" Effect="ApplyPrecursorSpawner">
+            <Charge>
+                <CountMax value="4"/>
+                <CountStart value="2"/>
+                <CountUse value="1"/>
+                <Link value="Abil/TrainSpawner"/>
+                <Location value="Unit"/>
+            </Charge>
+            <Cooldown Link="Abil/TrainSpawner" TimeUse="1"/>
+            <Button DefaultButtonFace="SpawnSlowling"/>
+            <Unit value="MrFrosty"/>
             <Flags index="AutoCast" value="1"/>
             <Flags index="AutoCastOn" value="1"/>
         </InfoArray>
@@ -1391,7 +1428,7 @@
             <Button DefaultButtonFace="ResearchWeaponCapacity" Requirements="WeaponCapacityRequirement"/>
         </InfoArray>
         <InfoArray index="Research22" Time="30" Upgrade="ParalyzingShock">
-            <Resource index="Vespene" value="600"/>
+            <Resource index="Vespene" value="450"/>
             <Button DefaultButtonFace="ResearchParalyzingShock" Requirements="ResearchParalyzingShock"/>
         </InfoArray>
         <InfoArray index="Research23" Time="90" Upgrade="InfestedOffense">
@@ -3788,6 +3825,9 @@
         </InfoArray>
         <InfoArray index="Build11" Unit="MechaExtractor" Time="10">
             <Button DefaultButtonFace="BuildMechaExtractor"/>
+        </InfoArray>
+        <InfoArray index="Build12" Unit="BloodAltar" Time="20">
+            <Button DefaultButtonFace="BuildBloodAltar" Requirements="OnlyOneBloodAltar"/>
         </InfoArray>
         <ConstructionMover value="Construction"/>
         <FidgetDelayMin value="5"/>

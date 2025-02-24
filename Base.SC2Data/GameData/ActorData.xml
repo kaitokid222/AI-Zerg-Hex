@@ -246,6 +246,131 @@
         <Filter index="Enemy" value="1"/>
         <FixedSize value="20"/>
     </CActorText>
+    <CActorUnit id="BloodAltar" parent="TerranBuildingEx" unitName="BloodAltar">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="QueueAnim"/>
+        <Model value="GhostAcademy"/>
+        <BuildModel value="GhostAcademy"/>
+        <DeathArray index="Normal" ModelLink="GhostAcademyDeath"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="GhostAcademy_Explode"/>
+        <PlacementModel value="GhostAcademyPlacement"/>
+        <PortraitModel value="GhostAcademyPortrait"/>
+        <BarOffset value="125"/>
+        <BarWidth value="155"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-GhostAcademy.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <NameOffset value="100"/>
+        <SoundArray index="Ready" value="GhostAcademy_Ready"/>
+        <SoundArray index="What" value="GhostAcademy_What"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-GhostAcademy.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="BloodAltarBuild" parent="TerranBuildingBuild">
+        <Model value="GhostAcademyBuild"/>
+    </CActorModel>
+    <CActorUnit id="FrostySpawner" parent="ZergBuildingEx" unitName="FrostySpawner">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UpgradeSpawnerMacro"/>
+        <Macros value="InfestorMaxHealthMacroScale068"/>
+        <On index="0" Send="Create SoundEmitter SpawningPool_Ambience"/>
+        <On index="69" Terms="UnitConstruction.FrostySpawner.Start" Send="Create SpawnerBuild"/>
+        <On Terms="UnitDeathCustomize; ModelIsLowQuality" Send="Create SpawningPool_DeathLow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <Model value="MrFrosty"/>
+        <EventDataFootprint index="0" Model="SpawningPoolFootprint"/>
+        <BuildModel value="MrFrosty"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PlacementModel value="SpawnerSlowlingPlacement"/>
+        <PortraitModel value="SpawningPoolPortrait"/>
+        <BarOffset value="85"/>
+        <BarWidth value="100"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SpawningPool_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SpawningPool_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SpawningPool_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SpawningPool_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <SoundArray index="Birth" value="SpawningPool_Birth"/>
+        <SoundArray index="Ready" value="SpawningPool_Ready"/>
+        <SoundArray index="Help" value="SpawningPool_Help"/>
+        <SoundArray index="What" value="SpawningPool_What"/>
+        <SoundArray index="Yes" value="SpawningPool_Yes"/>
+        <SoundArray index="Attack" value="SpawningPool_Attack"/>
+        <SoundArray index="Pissed" value="SpawningPool_Pissed"/>
+        <SoundArray index="Movement" value="SpawningPool_Movement"/>
+        <SoundArray index="Turning" value="SpawningPool_Turning"/>
+        <SoundArray index="Board" value="SpawningPool_Board"/>
+        <SoundArray index="Click" value="SpawningPool_Click"/>
+        <SoundArray index="ClickError" value="SpawningPool_ClickError"/>
+        <SoundArray index="Highlight" value="SpawningPool_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-spawningpool.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-SpawningPool.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="ChilledSlow" parent="ModelAnimationStyleOneShot">
+        <Flags index="SuppressSaveLoad" value="0"/>
+        <On Terms="Effect.FrostySlowAB.Start; At Target" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <AutoScaleFactor value="0.800000"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorMissile id="SnowballSmallMissile" parent="GenericAttackMissile" unitName="FrostyWeapon">
+        <Model value="SnowballSmallMissile"/>
+        <Scale value="0.500000"/>
+    </CActorMissile>
+    <CActorUnit id="MrFrosty" parent="GenericBurrowerStandard" unitName="MrFrosty">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergSmallBurrowEffects"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <PortraitModel value="MrFrosty"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.250000,0.250000"/>
+            <IdlePeriod value="0.200000,0.400000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleTiny"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="30"/>
+        <BarWidth value="45"/>
+        <GroupIcon>
+            <Image value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_ranged_hell.dds"/>
+        </GroupIcon>
+        <HeroIcon value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_ranged_hell.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <MovementHerdNode value="HerdNode_ZergSmall"/>
+        <SoundArray index="Ready" value="Zergling_Ready"/>
+        <SoundArray index="What" value="Zergling_What"/>
+        <SoundArray index="Yes" value="Zergling_Yes"/>
+        <SoundArray index="Attack" value="Merc_Sapper_Attack_Melee_Impact"/>
+        <SoundArray index="Pissed" value="Zergling_Pissed"/>
+        <UnitIcon value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_ranged_hell.dds"/>
+        <Wireframe>
+            <Image value="assets\textures\storm_ui_ingame_targetinfopanel_unit_boe_minion_ranged_hell.dds"/>
+        </Wireframe>
+        <Scale value="0.400000"/>
+    </CActorUnit>
     <CActorUnit id="SmithCritter" parent="GenericUnitCritter" unitName="SmithCritter">
         <Aliases value="_UnitSmall"/>
         <Model value="LabBot"/>
@@ -7361,6 +7486,12 @@
         <LaunchAssets Sound="Infestor_AttackLaunch"/>
         <Missile value="InfestorWeaponMissile"/>
         <ImpactMap index="None" Model="GuardianMPWeaponImpact" Scale="0.700000" Sound="Infestor_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="FrostyAttack" parent="GenericAttack" effectImpact="FrostyWeaponImpactSet" effectLaunch="FrostyWeaponLM">
+        <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
+        <LaunchAssets Sound="Infestor_AttackLaunch"/>
+        <Missile value="SnowballSmallMissile"/>
+        <ImpactMap index="None" Model="" Scale="0.700000" Sound="Infestor_AttackImpact"/>
     </CActorAction>
     <CActorMissile id="InfestorWeaponMissile" parent="GenericAttackMissile" unitName="InfestorWeapon">
         <Model value="GuardianMPWeaponMissile"/>

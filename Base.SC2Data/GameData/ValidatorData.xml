@@ -92,6 +92,11 @@
         <Compare value="GT"/>
         <Vital value="Shields"/>
     </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="UnithasWarmBuff">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="Warm"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorPlayerRequirement id="UmbraShadowCannonResearchCompleted">
         <ResultNoPlayer value="Error"/>
         <Find value="1"/>
@@ -652,6 +657,10 @@
         <CombineArray value="IsForge"/>
         <CombineArray value="IsKaraxCannon"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="UnitNOThasWarmBuff">
+        <WhichUnit Value="Source"/>
+        <Behavior value="Warm"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="UnitisChaos">
         <CombineArray value="IsChaosMarine"/>
         <CombineArray value="IsChaosLord"/>

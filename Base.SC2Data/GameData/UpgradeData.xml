@@ -106,6 +106,20 @@
         <EffectArray Reference="Unit,ChaosCultist,LifeMax" Value="35"/>
         <EffectArray Reference="Unit,ChaosCultist,LifeStart" Value="35"/>
     </CUpgrade>
+    <CUpgrade id="BiggerBloodDrops">
+        <Icon value="Assets\Textures\bloodsplat_4.dds"/>
+        <EffectArray Operation="Set" Reference="Effect,BloodAltarSpawnBloodSpawn,SpawnUnit[0]" Value="Blood2"/>
+        <LeaderAlias value="EliteShockTroopers"/>
+    </CUpgrade>
+    <CUpgrade id="VeteranShockTroopers">
+        <Icon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <EffectArray Reference="Unit,ShockTrooper,EnergyMax" Value="45"/>
+        <EffectArray Reference="Unit,ShockTrooper,LifeStart" Value="25"/>
+        <EffectArray Reference="Unit,ShockTrooper,LifeMax" Value="25"/>
+        <EffectArray Reference="Effect,ShockBlastRifle,Amount" Value="2"/>
+        <EffectArray Reference="Effect,ShockBlastRifleDamageFriendly,Amount" Value="2"/>
+        <LeaderAlias value="EliteShockTroopers"/>
+    </CUpgrade>
     <CUpgrade id="EnergyCapacity2">
         <Icon value="Assets\Textures\btn-ability-protoss-shadowdash.dds"/>
         <EffectArray Reference="Unit,Generator,EnergyMax" Value="10000"/>
@@ -155,23 +169,20 @@
         <EffectArray Reference="Unit,ProbiusPylon,ShieldsMax" Value="750"/>
         <EffectArray Operation="Set" Reference="Unit,ProbiusPylon,ShieldRegenDelay" Value="2.000000"/>
         <EffectArray Reference="Unit,ProbiusPylon,ShieldRegenRate" Value="8.000000"/>
-        <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
-        <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
-        <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.050000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.050000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.050000"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.050000"/>
         <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.050000"/>
         <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.050000"/>
         <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusCannonDamage2">
@@ -179,11 +190,11 @@
         <EffectArray Reference="Weapon,PhotonCannon,Range" Value="1"/>
         <EffectArray Reference="Effect,PhotonCannonU,Amount" Value="10"/>
         <EffectArray Operation="Subtract" Reference="Weapon,PhotonCannon,Period" Value="0.200000"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylon,Period" Value="0.050000"/>
         <EffectArray Reference="Effect,PylonStaticDischargeSearchArea,AreaArray[0].Radius" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,PylonStaticDischarge,Period" Value="0.050000"/>
         <EffectArray Reference="Weapon,PylonStaticDischarge,Range" Value="1"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.100000"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,StaticDischargePylonOvercharged,Period" Value="0.050000"/>
         <EffectArray Reference="Effect,PylonStaticOverchargedSearchArea,AreaArray[0].Radius" Value="1"/>
     </CUpgrade>
     <CUpgrade id="ProbiusWallShields">
@@ -213,6 +224,11 @@
         <EffectArray Reference="Unit,ShieldBattery,EnergyMax" Value="200"/>
         <EffectArray Reference="Unit,ShieldBattery,EnergyStart" Value="50"/>
         <EffectArray Reference="Unit,ShieldBattery,EnergyRegenRate" Value="0.5625"/>
+    </CUpgrade>
+    <CUpgrade id="FasterBloodDrops">
+        <Icon value="Assets\Textures\bloodsplat_4.dds"/>
+        <EffectArray Operation="Set" Reference="Behavior,PeriodicBloodSpawn,Period" Value="3.000000"/>
+        <LeaderAlias value="EliteShockTroopers"/>
     </CUpgrade>
     <CUpgrade id="WallShields2">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
@@ -933,6 +949,15 @@
     <CUpgrade id="TerrazineIncomex2">
         <Icon value="Assets\Textures\btn-tips-droppedterrazine.dds"/>
     </CUpgrade>
+    <CUpgrade id="EliteShockTroopers">
+        <Icon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
+        <EffectArray Reference="Unit,ShockTrooper,EnergyMax" Value="90"/>
+        <EffectArray Reference="Unit,ShockTrooper,LifeStart" Value="50"/>
+        <EffectArray Reference="Unit,ShockTrooper,LifeMax" Value="50"/>
+        <EffectArray Reference="Effect,ShockBlastRifle,Amount" Value="5"/>
+        <EffectArray Operation="Subtract" Reference="Weapon,ShockBlastRifle,Cost.Vital[Energy]" Value="1"/>
+        <EffectArray Reference="Effect,ShockBlastRifleDamageFriendly,Amount" Value="5"/>
+    </CUpgrade>
     <CUpgrade id="ZCCEnergyUpgrade">
         <EffectArray Reference="Unit,HiveMindEmulator,EnergyRegenRate" Value="2.000000"/>
         <MaxLevel value="60"/>
@@ -971,6 +996,8 @@
         <EffectArray Reference="Weapon,HydraliskNeedleSpines2,Level" Value="1"/>
         <EffectArray Reference="Weapon,InfestorWeapon,Level" Value="1"/>
         <EffectArray Reference="Effect,InfestorWeaponImpactDamage,Amount" Value="0.75"/>
+        <EffectArray Reference="Weapon,FrostyWeapon,Level" Value="1"/>
+        <EffectArray Reference="Effect,FrostyWeaponImpactDamage,Amount" Value="0.75"/>
         <EffectArray Reference="Effect,RavatorBurnDamage,Amount" Value="0.75"/>
         <EffectArray Reference="Weapon,RavatorWeapon,Level" Value="1"/>
         <EffectArray Reference="Effect,RavatorWeaponDamage,Amount" Value="1.25"/>
@@ -1205,6 +1232,10 @@
         <EffectArray Reference="Unit,Hellion2,LifeStart" Value="10"/>
         <EffectArray Reference="Unit,Corroslash,LifeStart" Value="5"/>
         <EffectArray Reference="Unit,Corroslash,LifeMax" Value="5"/>
+        <EffectArray Reference="Unit,MrFrosty,LifeStart" Value="300"/>
+        <EffectArray Reference="Unit,MrFrosty,LifeMax" Value="300"/>
+        <EffectArray Reference="Unit,FrostySpawner,LifeStart" Value="2250"/>
+        <EffectArray Reference="Unit,FrostySpawner,LifeMax" Value="2250"/>
     </CUpgrade>
     <CUpgrade id="HydraliskSpawnSize">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-regenrate.dds"/>
@@ -1254,6 +1285,7 @@
         <EffectArray Reference="Unit,Massalisk,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Eroder,Speed" Value="0.398400"/>
         <EffectArray Reference="Unit,Corroslash,Speed" Value="0.398400"/>
+        <EffectArray Reference="Unit,MrFrosty,Speed" Value="0.398400"/>
         <EditorCategories value="Race:Zerg"/>
         <MaxLevel value="3"/>
     </CUpgrade>

@@ -301,6 +301,69 @@
         <LifeRegenDelay value="2"/>
         <LifeArmorLevel value="6"/>
     </CUnit>
+    <CUnit id="BloodAltar">
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="Terr"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1250"/>
+        <LifeMax value="1250"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="75"/>
+        <CostResource index="Vespene" value="75"/>
+        <RepairTime value="40"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="Demolish"/>
+        <AbilArray Link="que5"/>
+        <AbilArray Link="ArmoryResearch3"/>
+        <BehaviorArray Link="PeriodicBloodSpawn"/>
+        <CardLayouts>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Demolish" Type="AbilCmd" AbilCmd="Demolish,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="ResearchFasterDrops" Type="AbilCmd" AbilCmd="ArmoryResearch3,Research6" Row="0" Column="0"/>
+            <LayoutButtons Face="ResearchLargeDrops" Type="AbilCmd" AbilCmd="ArmoryResearch3,Research7" Row="0" Column="1"/>
+        </CardLayouts>
+        <Radius value="1.5"/>
+        <SeparationRadius value="1.5"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3"/>
+        <ScoreMake value="200"/>
+        <ScoreKill value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="1.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <TechAliasArray value="Alias_ShadowOps"/>
+        <GlossaryPriority value="318"/>
+        <HotkeyCategory value="Unit/Category/TerranUnits"/>
+        <TechTreeUnlockedUnitArray value="Ghost"/>
+    </CUnit>
     <CUnit id="Gyre">
         <PlaneArray index="Ground" value="1"/>
         <LifeStart value="50"/>
@@ -354,6 +417,156 @@
         <LeaderAlias value=""/>
         <HotkeyAlias value=""/>
     </CUnit>
+    <CUnit id="MrFrosty">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="AcquireRally" value="1"/>
+        <FlagArray index="IgnoreAttackAlert" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeRegenRate value="2"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="3"/>
+        <SpeedMultiplierCreep value="1.3"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="9"/>
+        <CostCategory value="Army"/>
+        <CostResource index="Minerals" value="25"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="5"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="que1"/>
+        <WeaponArray Link="Snowball"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <CargoSize value="1"/>
+        <ScoreMake value="25"/>
+        <ScoreKill value="25"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="8"/>
+        <MinimapRadius value="0.75"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="Zergling"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="50"/>
+        <GlossaryStrongArray value="Marauder"/>
+        <GlossaryStrongArray value="Hydralisk"/>
+        <GlossaryStrongArray value="Stalker"/>
+        <GlossaryWeakArray value="Hellion"/>
+        <GlossaryWeakArray value="Baneling"/>
+        <GlossaryWeakArray value="Colossus"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <KillDisplay value="Always"/>
+        <RankDisplay value="Always"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="FrostySpawner">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1250"/>
+        <LifeMax value="1250"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="2"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <Food value="-6"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="600"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5"/>
+        <AbilArray Link="TrainFrosty"/>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="UpgradeSlowlingSpawnerInstant"/>
+        <AbilArray Link="DestroyStructure"/>
+        <AbilArray Link="ZergResearchSpawnerSpecialty"/>
+        <AbilArray Link="ZergResetRally"/>
+        <AbilArray Link="CopyRally"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="OnCreep"/>
+        <BehaviorArray Link="ZergBuildingNotOnCreep"/>
+        <BehaviorArray Link="RefundOnDeath"/>
+        <BehaviorArray Link="IsSpawner"/>
+        <BehaviorArray Link="NoAlliedAttacks"/>
+        <BehaviorArray Link="SpawnerSlowDown"/>
+        <WeaponArray Link="SpawnerSnowball" Turret="PhotonCannon"/>
+        <EffectArray index="Birth" value="IncomeSpawnerCreated"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="SpawnSlowling" Type="AbilCmd" AbilCmd="TrainFrosty,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="UpgradeSpawner2" Type="AbilCmd" AbilCmd="UpgradeSlowlingSpawnerInstant,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="DestroyStructure" Type="AbilCmd" AbilCmd="DestroyStructure,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchPackedMass" Type="AbilCmd" AbilCmd="ZergResearchSpawnerSpecialty,Research3" Row="1" Column="2"/>
+            <LayoutButtons Face="ResetRally" Type="AbilCmd" AbilCmd="ZergResetRally,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="CopyRally" Type="Passive" Row="0" Column="2"/>
+        </CardLayouts>
+        <Radius value="1.5"/>
+        <SeparationRadius value="1.5"/>
+        <Footprint value="Footprint2x2CreepContour"/>
+        <PlacementFootprint value="Footprint2x2Creep"/>
+        <ScoreMake value="200"/>
+        <ScoreKill value="250"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1.2"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <GlossaryPriority value="26"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <TechTreeUnlockedUnitArray value="Zergling"/>
+        <TechTreeUnlockedUnitArray value="Queen"/>
+    </CUnit>
     <CUnit id="SmithCritter" parent="Critter">
         <FlagArray index="PlayerRevivable" value="0"/>
         <Attributes index="Biological" value="0"/>
@@ -403,8 +616,8 @@
     </CUnit>
     <CUnit id="Corroslash" parent="CUnitXayid">
         <Attributes index="Armored" value="1"/>
-        <LifeStart value="55"/>
-        <LifeMax value="55"/>
+        <LifeStart value="52"/>
+        <LifeMax value="52"/>
         <LifeArmor value="1"/>
         <Speed value="1.6015"/>
         <Sight value="10"/>
@@ -3270,6 +3483,7 @@
         <LifeRegenRate value="1.5"/>
         <RankDisplay value="Never"/>
         <LifeRegenDelay value="10"/>
+        <BehaviorArray Link="FirebatSpreadsWarmth"/>
     </CUnit>
     <CUnit id="Hercules">
         <Speed value="3.6992"/>
@@ -5980,6 +6194,7 @@
         <EnergyStart value="35"/>
         <EnergyMax value="70"/>
         <BehaviorArray Link="EnergyUserInfantry"/>
+        <BehaviorArray Link="FirebatSpreadsWarmth"/>
     </CUnit>
     <CUnit id="ChemicalPlant">
         <DeathRevealRadius value="3"/>
@@ -6294,6 +6509,11 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="InfestorWeapon" parent="MISSILE">
+        <Race value="Zerg"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectFamily:Campaign,ObjectType:Projectile"/>
+    </CUnit>
+    <CUnit id="FrostyWeapon" parent="MISSILE">
         <Race value="Zerg"/>
         <Mover value="MissileDefault"/>
         <EditorCategories value="ObjectFamily:Campaign,ObjectType:Projectile"/>
@@ -7144,6 +7364,34 @@
             <LayoutButtons index="8" Face="ResearchInstantDischarge" AbilCmd="ArmoryResearch2,Research15" Column="2"/>
             <LayoutButtons index="9" Face="Halt" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
             <LayoutButtons>
+                <Face value="ResearchVeteranShockTroopers"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ArmoryResearch3,Research4"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
+                <SubmenuAbilState value=""/>
+                <SubmenuCardId value=""/>
+                <SubmenuFullSubCmdValidation value="0"/>
+                <SubmenuIsSticky value="0"/>
+                <ShowInGlossary value="1"/>
+                <Row value="1"/>
+                <Column value="3"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="ResearchEliteShockTroopers"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ArmoryResearch3,Research5"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
+                <SubmenuAbilState value=""/>
+                <SubmenuCardId value=""/>
+                <SubmenuFullSubCmdValidation value="0"/>
+                <SubmenuIsSticky value="0"/>
+                <ShowInGlossary value="1"/>
+                <Row value="1"/>
+                <Column value="3"/>
+            </LayoutButtons>
+            <LayoutButtons>
                 <Face value="ResearchPenetratingLaser"/>
                 <Type value="AbilCmd"/>
                 <AbilCmd value="ArmoryResearch2,Research3"/>
@@ -7199,34 +7447,8 @@
                 <Row value="0"/>
                 <Column value="2"/>
             </LayoutButtons>
-            <LayoutButtons>
-                <Face value="ResearchConservationL1"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ArmoryResearch2,Research8"/>
-                <Behavior value=""/>
-                <Requirements value=""/>
-                <SubmenuAbilState value=""/>
-                <SubmenuCardId value=""/>
-                <SubmenuFullSubCmdValidation value="0"/>
-                <SubmenuIsSticky value="0"/>
-                <ShowInGlossary value="1"/>
-                <Row value="0"/>
-                <Column value="1"/>
-            </LayoutButtons>
-            <LayoutButtons>
-                <Face value="ResearchConservationL2"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ArmoryResearch2,Research9"/>
-                <Behavior value=""/>
-                <Requirements value=""/>
-                <SubmenuAbilState value=""/>
-                <SubmenuCardId value=""/>
-                <SubmenuFullSubCmdValidation value="0"/>
-                <SubmenuIsSticky value="0"/>
-                <ShowInGlossary value="1"/>
-                <Row value="0"/>
-                <Column value="1"/>
-            </LayoutButtons>
+            <LayoutButtons Face="ResearchConservationL1" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research8" Row="0" Column="1"/>
+            <LayoutButtons Face="ResearchConservationL2" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research9" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchConservationL3" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research10" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchConservationL4" Type="AbilCmd" AbilCmd="ArmoryResearch3,Research2" Row="0" Column="1"/>
             <LayoutButtons Face="ResearchEliteScope" Type="AbilCmd" AbilCmd="ArmoryResearch2,Research13" Row="2" Column="2"/>
@@ -10144,6 +10366,7 @@
             <LayoutButtons index="5" Face="BuildEventTechCenter" Type="AbilCmd" AbilCmd="BuildBuilder,Build22" Row="1" Column="1"/>
             <LayoutButtons index="6" Face="BuildOperationCenter" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build5" Row="0" Column="1"/>
             <LayoutButtons Face="BuildLargeChemicalPlant" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build6" Row="2" Column="1"/>
+            <LayoutButtons Face="BuildBloodAltar" Type="AbilCmd" AbilCmd="BuildBuilderScalingStructures,Build12" Row="2" Column="1"/>
         </CardLayouts>
         <Food value="0"/>
         <CostResource index="Minerals" value="0"/>
