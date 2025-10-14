@@ -111,6 +111,13 @@
         <EffectArray Operation="Set" Reference="Effect,BloodAltarSpawnBloodSpawn,SpawnUnit[0]" Value="Blood2"/>
         <LeaderAlias value="EliteShockTroopers"/>
     </CUpgrade>
+    <CUpgrade id="ArtanisL2">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Unit,ArtanisVoid,LifeMax" Value="600"/>
+        <EffectArray Operation="Set" Reference="Unit,ArtanisVoid,LifeStart" Value="600"/>
+        <EffectArray Operation="Set" Reference="Unit,ArtanisVoid,ShieldsMax" Value="1000"/>
+        <EffectArray Operation="Set" Reference="Unit,ArtanisVoid,ShieldsStart" Value="1000"/>
+    </CUpgrade>
     <CUpgrade id="VeteranShockTroopers">
         <Icon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
         <EffectArray Reference="Unit,ShockTrooper,EnergyMax" Value="45"/>

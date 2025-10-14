@@ -1851,6 +1851,7 @@ int gf_ai_get_random_player ();
 int gf_ai_get_strongest_player ();
 int gf_ai_get_weakest_player ();
 int gf_get_closest_alive_player_position (point lp_position);
+int gf_get_second_closest_alive_player_position (point lp_position);
 int gf_get_closest_alive_player_position_from_group (point lp_position, playergroup lp_player_group);
 point gf_get_command_center_point_from_player_position (int lp_player_position);
 int gf_get_free_supply ();
@@ -1914,7 +1915,9 @@ void gf_get_speed ();
 void gf_try_buy_supply ();
 void gf_get_unit_upgrades ();
 void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position);
+void gf_umbra_doing_stuff (unit lp_unit, int lp_owner, point lp_position);
 void gf_smith_remove_last_used_effect (unit lp_unit);
+unitgroup gf_umbra_get_upgradeable_units (int lp_owner, point lp_position);
 unitgroup gf_smith_get_upgradeable_units (int lp_owner, point lp_position);
 unitgroup gf_smith_get_chargeable_units (int lp_owner, point lp_position);
 bool gf_is_front_path_blocked (int lp_player);
@@ -2200,7 +2203,7 @@ trigger gt_every15seconds;
 trigger gt_every30seconds;
 trigger gt_everyminute;
 trigger gt_every90seconds;
-trigger gt_every3minutes;
+trigger gt_every7minutes;
 trigger gt_every15minutes;
 
 //--------------------------------------------------------------------------------------------------
@@ -2681,6 +2684,22 @@ void gf_handle_dead_player_afterlife_start (int lp_player) {
     lv_position = gv_players[lp_player].lv_position;
     gf_Remove_weather(lv_position);
     gv_players[lp_player].lv_weather = 0;
+    gf_Create_weather(lv_position, 2, true);
+    gf_Game_Banks_handler("changeweather", lp_player, gv_players[lp_player].lv_elo, 2, 0);
+    libNtve_gf_SetUpgradeLevelForPlayer(lp_player, "ChooseNoWeather", 0);
+    libNtve_gf_SetUpgradeLevelForPlayer(lp_player, "ChooseSnow", 0);
+    libNtve_gf_SetUpgradeLevelForPlayer(lp_player, "ChooseAsh", 0);
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Tombstone", c_unitCreateIgnorePlacement, lp_player, PointFromName(("Zerg Rally " + IntToString(lv_position))));
+    lv_level = gf_get_level_from_xp(gv_players[lp_player].lv_xp);
+    TechTreeUpgradeAddLevel(lp_player, "UnlockPariah", 1);
+    if ((lv_level >= 5)) {
+        TechTreeUpgradeAddLevel(lp_player, "TombstoneLevel2", 1);
+    }
+
+    if ((lv_level >= 7)) {
+        TechTreeUpgradeAddLevel(lp_player, "TombstoneLevel3", 1);
+    }
+
     gf_create_karax_for_player(lp_player, lv_no_point);
     gf_create_afterlife_zerg_position(lv_position);
     libNtve_gf_SetAllianceAspectForPlayerGroup(gv_dead_players, c_allianceIdControl, false);
@@ -3059,6 +3078,7 @@ void gf_apply_support_casual () {
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("BuildBuilder", 23), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch3", 3), true);
             TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("ArmoryResearch3", 4), true);
+            TechTreeAbilityAllow(auto18D3D132_var, AbilityCommand("TombstoneResearch", 8), true);
             autoDBE3DB51_g = UnitGroup("Battery", auto18D3D132_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
             autoDBE3DB51_u = UnitGroupCount(autoDBE3DB51_g, c_unitCountAll);
             for (;; autoDBE3DB51_u -= 1) {
@@ -6081,6 +6101,7 @@ void gf_disable_non_vanilla_content_for_player (int lp_player) {
     TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 3), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("ArmoryResearch3", 4), false);
     TechTreeAbilityAllow(lp_player, AbilityCommand("BuildBuilderScalingStructures", 11), false);
+    TechTreeAbilityAllow(lp_player, AbilityCommand("TombstoneResearch", 8), false);
     if ((libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogUnit, "SCV", "InnerRadius", c_playerAny) == 0.3125)) {
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "ACR", "InnerRadius", lp_player, 0.3125);
         libNtve_gf_CatalogFieldValueSetAsReal(c_gameCatalogUnit, "Scavenger", "InnerRadius", lp_player, 0.3125);
@@ -16564,6 +16585,7 @@ void gf_create_new_egg_cluster () {
     int lv_done;
     int lv_rand;
     int lv_cap;
+    int lv_capnangle;
     int lv_sci;
 
     // Automatic Variable Declarations
@@ -16655,7 +16677,9 @@ void gf_create_new_egg_cluster () {
     if ((gv_difficulty <= 5)) {
     }
     lv_cap = gf_get_closest_alive_player_position_from_group(UnitGroupCenterOfGroup(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners), gv_terrans);
-    UnitGroupIssueOrder(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueReplace);
+    lv_capnangle = gf_get_second_closest_alive_player_position(UnitGroupCenterOfGroup(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners));
+    UnitGroupIssueOrder(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName((("Zerg Flank Rally " + (gf_get_angle_of_neighbour(lv_capnangle, lv_cap) + " Pre ")) + IntToString(lv_cap)))), c_orderQueueReplace);
+    UnitGroupIssueOrder(gv_mgc_positions[lv_egg_cluster_id].lv_ug_spawners, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueAddToEnd);
     gv_mgc_positions[lv_egg_cluster_id].lv_state = 1;
 }
 
@@ -17064,6 +17088,81 @@ int gf_get_closest_alive_player_position (point lp_position) {
             else {
                 lv_distance = DistanceBetweenPoints(lp_position, lv_player_cc_point);
                 lv_return = auto6C8509D7_var;
+            }
+        }
+
+    }
+    lv_return = gv_players[lv_return].lv_position;
+    return lv_return;
+}
+
+int gf_get_second_closest_alive_player_position (point lp_position) {
+    // Variable Declarations
+    fixed lv_distance;
+    int lv_return;
+    point lv_player_cc_point;
+    playergroup lv_pg;
+
+    // Automatic Variable Declarations
+    playergroup auto0E17E556_g;
+    int auto0E17E556_var;
+    playergroup autoBFA754FC_g;
+    int autoBFA754FC_var;
+    playergroup auto32C05E52_g;
+    int auto32C05E52_var;
+
+    // Variable Initialization
+    lv_pg = PlayerGroupEmpty();
+
+    // Implementation
+    auto0E17E556_g = gv_terrans;
+    auto0E17E556_var = -1;
+    while (true) {
+        auto0E17E556_var = PlayerGroupNextPlayer(auto0E17E556_g, auto0E17E556_var);
+        if (auto0E17E556_var < 0) { break; }
+        if ((gv_players[auto0E17E556_var].lv_alive == true)) {
+            lv_player_cc_point = UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto0E17E556_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+            if ((lv_distance != 0.0)) {
+                if ((lv_distance > DistanceBetweenPoints(lp_position, lv_player_cc_point))) {
+                    lv_distance = DistanceBetweenPoints(lp_position, lv_player_cc_point);
+                    lv_return = auto0E17E556_var;
+                }
+
+            }
+            else {
+                lv_distance = DistanceBetweenPoints(lp_position, lv_player_cc_point);
+                lv_return = auto0E17E556_var;
+            }
+        }
+
+    }
+    autoBFA754FC_g = gv_terrans;
+    autoBFA754FC_var = -1;
+    while (true) {
+        autoBFA754FC_var = PlayerGroupNextPlayer(autoBFA754FC_g, autoBFA754FC_var);
+        if (autoBFA754FC_var < 0) { break; }
+        if ((autoBFA754FC_var != lv_return)) {
+            PlayerGroupAdd(lv_pg, autoBFA754FC_var);
+        }
+
+    }
+    auto32C05E52_g = lv_pg;
+    auto32C05E52_var = -1;
+    while (true) {
+        auto32C05E52_var = PlayerGroupNextPlayer(auto32C05E52_g, auto32C05E52_var);
+        if (auto32C05E52_var < 0) { break; }
+        if ((gv_players[auto32C05E52_var].lv_alive == true)) {
+            lv_player_cc_point = UnitGetPosition(UnitGroupUnit(UnitGroup("CommandCenter2", auto32C05E52_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1));
+            if ((lv_distance != 0.0)) {
+                if ((lv_distance > DistanceBetweenPoints(lp_position, lv_player_cc_point))) {
+                    lv_distance = DistanceBetweenPoints(lp_position, lv_player_cc_point);
+                    lv_return = auto32C05E52_var;
+                }
+
+            }
+            else {
+                lv_distance = DistanceBetweenPoints(lp_position, lv_player_cc_point);
+                lv_return = auto32C05E52_var;
             }
         }
 
@@ -20618,12 +20717,64 @@ void gf_smith_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
     }
 }
 
+void gf_umbra_doing_stuff (unit lp_unit, int lp_owner, point lp_position) {
+    // Variable Declarations
+    int lv_rnd;
+    unitgroup lv_ug;
+    unit lv_u;
+    int lv_new_value;
+
+    // Automatic Variable Declarations
+    int auto4CD1100A_val;
+
+    // Variable Initialization
+    lv_ug = UnitGroupEmpty();
+
+    // Implementation
+    lv_rnd = gf_roll_dice();
+    lv_ug = gf_umbra_get_upgradeable_units(lp_owner, lp_position);
+    lv_u = UnitGroupRandomUnit(lv_ug, c_unitCountAlive);
+    auto4CD1100A_val = lv_rnd;
+    if (auto4CD1100A_val == 1) {
+        lv_new_value = (UnitGetPropertyInt(lv_u, c_unitPropLifeMax, c_unitPropCurrent) + 15);
+        UnitSetPropertyFixed(lv_u, c_unitPropLifeMax, lv_new_value);
+        UnitSetPropertyFixed(lv_u, c_unitPropLifeMax, lv_new_value);
+    }
+    else if (auto4CD1100A_val == 2) {
+    }
+    else if (auto4CD1100A_val == 3) {
+    }
+    else if (auto4CD1100A_val == 4) {
+    }
+    else if (auto4CD1100A_val == 5) {
+    }
+    else if (auto4CD1100A_val == 6) {
+    }
+    else {
+    }
+}
+
 void gf_smith_remove_last_used_effect (unit lp_unit) {
     // Automatic Variable Declarations
     // Implementation
     UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraDefense", 1);
     UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraAttack", 1);
     UnitBehaviorRemove(lp_unit, "ProbiusPylonBuffAuraPower", 1);
+}
+
+unitgroup gf_umbra_get_upgradeable_units (int lp_owner, point lp_position) {
+    // Variable Declarations
+    unitgroup lv_result_ug;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_result_ug = UnitGroupEmpty();
+
+    // Implementation
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("Marine2", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("VeteranMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupAddUnitGroup(lv_result_ug, UnitGroup("EliteMarine", lp_owner, RegionCircle(lp_position, 11.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    return lv_result_ug;
 }
 
 unitgroup gf_smith_get_upgradeable_units (int lp_owner, point lp_position) {
@@ -20961,7 +21112,7 @@ void gf_banelings_manage () {
 
     if ((lv_assigned == false) && (UnitGroupCount(gf_banelings_get_all_unassigned_banelings_as_ug(), c_unitCountAlive) >= 30)) {
         UnitGroupAddUnitGroup(lv_attack_ug, gf_banelings_get_all_unassigned_banelings_as_ug());
-        if ((gv_difficulty == 13)) {
+        if ((gv_difficulty <= 13)) {
             lv_target = gf_ai_get_weakest_player();
         }
         else {
@@ -27646,6 +27797,7 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
     unitgroup auto4FDCE40E_g;
     int auto4FDCE40E_u;
     unit auto4FDCE40E_var;
+    string auto168C9364_val;
 
     // Variable Initialization
     lv_owner = UnitGetOwner(EventUnit());
@@ -27746,6 +27898,12 @@ bool gt_CCdestroyed_Func (bool testConds, bool runActions) {
                 if ((GameAttributeGameValue("1") == "0001")) {
                     PlayerModifyPropertyInt(lv_owner, c_playerPropVespene, c_playerPropOperSetTo, 150);
                     PlayerModifyPropertyInt(lv_owner, c_playerPropMinerals, c_playerPropOperSetTo, 150);
+                    auto168C9364_val = gv_players[lv_owner].lv_support_type;
+                    if (auto168C9364_val == "Hightech") {
+                        PlayerModifyPropertyInt(lv_owner, c_playerPropVespene, c_playerPropOperSetTo, 600);
+                    }
+                    else {
+                    }
                     gf_handle_dead_player_afterlife_start(lv_owner);
                 }
 
@@ -29501,6 +29659,8 @@ bool gt_spawnhellforces_Func (bool testConds, bool runActions) {
     unitgroup lv_group;
     unitgroup lv_agroup;
     int lv_offset;
+    int lv_cap;
+    int lv_capnangle;
 
     // Automatic Variable Declarations
     unitgroup autoEE1A3A02_g;
@@ -29558,7 +29718,10 @@ bool gt_spawnhellforces_Func (bool testConds, bool runActions) {
     }
 
     if ((UnitGroupCount(lv_agroup, c_unitCountAlive) > 0)) {
-        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup)))))), c_orderQueueReplace);
+        lv_cap = gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup));
+        lv_capnangle = gf_get_second_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup));
+        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName((("Zerg Flank Rally " + (gf_get_angle_of_neighbour(lv_capnangle, lv_cap) + " Pre ")) + IntToString(lv_cap)))), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueAddToEnd);
     }
 
     return true;
@@ -31612,6 +31775,8 @@ bool gt_spawnwarfieldforces_Func (bool testConds, bool runActions) {
     unitgroup lv_group;
     unitgroup lv_agroup;
     int lv_offset;
+    int lv_cap;
+    int lv_capnangle;
 
     // Automatic Variable Declarations
     unitgroup autoC45F6AFA_g;
@@ -31649,7 +31814,10 @@ bool gt_spawnwarfieldforces_Func (bool testConds, bool runActions) {
             libNtve_gf_CreateUnitsAtPoint2(1, "HelsAngelAssault", 0, 7, UnitGetPosition(autoC45F6AFA_var));
         }
         UnitGroupAddUnitGroup(lv_agroup, UnitLastCreatedGroup());
-        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName(("Zerg Rally " + IntToString(gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup)))))), c_orderQueueReplace);
+        lv_cap = gf_get_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup));
+        lv_capnangle = gf_get_second_closest_alive_player_position(UnitGroupCenterOfGroup(lv_agroup));
+        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("attack", 0), PointFromName((("Zerg Flank Rally " + (gf_get_angle_of_neighbour(lv_capnangle, lv_cap) + " Pre ")) + IntToString(lv_cap)))), c_orderQueueReplace);
+        UnitGroupIssueOrder(lv_agroup, OrderTargetingPoint(AbilityCommand("Rally", 0), PointFromName(("Zerg Rally " + IntToString(lv_cap)))), c_orderQueueAddToEnd);
     }
     return true;
 }
@@ -34778,17 +34946,17 @@ void gt_every90seconds_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: every 3 minutes
+// Trigger: every 7 minutes
 //--------------------------------------------------------------------------------------------------
-bool gt_every3minutes_Func (bool testConds, bool runActions) {
+bool gt_every7minutes_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_every3minutes_Init () {
-    gt_every3minutes = TriggerCreate("gt_every3minutes_Func");
-    TriggerAddEventTimePeriodic(gt_every3minutes, (60.0 * 3.0), c_timeGame);
+void gt_every7minutes_Init () {
+    gt_every7minutes = TriggerCreate("gt_every7minutes_Func");
+    TriggerAddEventTimePeriodic(gt_every7minutes, (60.0 * 7.0), c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -35058,7 +35226,7 @@ void InitTriggers () {
     gt_every30seconds_Init();
     gt_everyminute_Init();
     gt_every90seconds_Init();
-    gt_every3minutes_Init();
+    gt_every7minutes_Init();
     gt_every15minutes_Init();
 }
 

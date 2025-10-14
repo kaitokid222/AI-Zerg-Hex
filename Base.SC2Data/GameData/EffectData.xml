@@ -119,6 +119,11 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="FirebatWarmthAuraCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="UmbraDoingStuffApplyCooldown">
+        <ValidatorArray index="0" value="SmithDoingStuffApplyCooldownTargetFilters"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="UmbraDoingStuffCooldown"/>
+    </CEffectApplyBehavior>
     <CEffectSet id="SmithDoingStuffTriggerDummy">
         <EditorCategories value=""/>
         <EffectArray value="SmithDoingStuffApplyCooldown"/>
@@ -203,6 +208,10 @@
         <EffectArray value="FirebatSpreadWarmSA"/>
         <EffectArray value="FirebatAntidebuffauraCooldown"/>
     </CEffectSet>
+    <CEffectSet id="UmbraDoingStuffTriggerDummy">
+        <EditorCategories value=""/>
+        <EffectArray value="UmbraDoingStuffApplyCooldown"/>
+    </CEffectSet>
     <CEffectRemoveBehavior id="TechLabWarpRemoveProtection">
         <EditorCategories value=""/>
         <BehaviorLink value="SpawnProtection"/>
@@ -263,6 +272,9 @@
         <AreaArray Radius="3" Effect="TechLabWarpRemoveProtection"/>
         <MaxCount value="15"/>
     </CEffectEnumArea>
+    <CEffectDamage id="TwinIbiksCannon">
+        <Amount value="180"/>
+    </CEffectDamage>
     <CEffectEnumArea id="UmbraShadowCannonAOE">
         <ValidatorArray value="UmbraShadowCannonResearchCompleted"/>
         <EditorCategories value="Race:Terran"/>

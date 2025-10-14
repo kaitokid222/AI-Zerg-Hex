@@ -100,13 +100,8 @@
     <!--        </ReviveInfoBase>-->
     <!--    </CUnit-->
     <CUnit id="ArtanisVoid">
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
-        <!--EnergyStart value="200"/>
-        <EnergyMax value="200"/>
-        <EnergyRegenRate value="5.5"/-->
-        <ShieldsStart value="1000"/>
-        <ShieldsMax value="1000"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
     </CUnit>
     <CUnit id="Casnolisk">
         <CostResource index="Minerals" value="0"/>
@@ -119,6 +114,11 @@
     <CUnit id="CitadelCharged">
         <Footprint value="Footprint2x2Contour"/>
         <PlacementFootprint value="Footprint2x2"/>
+    </CUnit>
+    <CUnit id="DevilDog">
+        <LifeStart value="480"/>
+        <LifeMax value="480"/>
+        <LifeArmor value="2"/>
     </CUnit>
     <CUnit id="Fruitinator" parent="Critter">
         <Mob value="Multiplayer"/>
@@ -388,6 +388,11 @@
             <LayoutButtons index="11" removed="1"/>
             <LayoutButtons index="12" removed="1"/>
         </CardLayouts>
+    </CUnit>
+    <CUnit id="HelsAngelAssault">
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
+        <LifeArmor value="4"/>
     </CUnit>
     <CUnit id="MegaPumpkin">
         <DeathRevealRadius value="3"/>
@@ -687,6 +692,32 @@
         <Attributes index="Biological" value="0"/>
         <Attributes index="Mechanical" value="1"/>
     </CUnit>
+    <CUnit id="UmbraCritter" parent="Critter">
+        <FlagArray index="PlayerRevivable" value="0"/>
+        <Attributes index="Biological" value="0"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
+        <LifeRegenRate value="4"/>
+        <ShieldsStart value="50"/>
+        <ShieldsMax value="50"/>
+        <ShieldRegenRate value="8"/>
+        <Speed value="4"/>
+        <Sight value="16"/>
+        <AttackTargetPriority value="5"/>
+        <AbilArray Link="CritterEatFruit"/>
+        <AbilArray Link="CritterSeekFruit"/>
+        <BehaviorArray index="0" Link="CritterFleeTrigger"/>
+        <BehaviorArray Link="UmbraDoingStuff"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Smith" Type="Passive" Row="2" Column="0"/>
+        </CardLayouts>
+        <TacticalAI value="Drone"/>
+        <Fidget>
+            <ChanceArray index="Move" value="0"/>
+            <ChanceArray index="Turn" value="60"/>
+        </Fidget>
+    </CUnit>
     <CUnit id="SpecialZergSpawner" parent="CBuildingXayid">
         <LifeStart value="450"/>
         <LifeMax value="450"/>
@@ -780,6 +811,7 @@
         <BehaviorArray Link="makeCreep3x3Tombstone"/>
         <CardLayouts>
             <LayoutButtons Face="TombstoneInfo" Type="Passive" Row="0" Column="0"/>
+            <LayoutButtons Face="ArtanisL2" Type="AbilCmd" AbilCmd="TombstoneResearch,Research9" Row="1" Column="0"/>
             <LayoutButtons Face="UpgradeTombstoneLevel" Type="AbilCmd" AbilCmd="TombstoneResearch,Research1" Row="1" Column="0"/>
             <LayoutButtons Face="UpgradeTombstoneLevel" Type="AbilCmd" AbilCmd="TombstoneResearch,Research2" Row="1" Column="0"/>
             <LayoutButtons Face="MaterializePariah" Type="AbilCmd" AbilCmd="TombstoneTrain,Train1" Row="2" Column="0"/>
@@ -3240,14 +3272,16 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="MindBolt" Type="AbilCmd" AbilCmd="MindBolt,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="PrimalSlash" Type="AbilCmd" AbilCmd="PrimalSlash,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="K5HeroicFortitude" Type="Passive" Requirements="HaveK5HeroicFortitude" Row="1" Column="0"/>
-            <LayoutButtons Face="PsionicLift" Type="AbilCmd" AbilCmd="PsionicLift,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="K5Cooldowns" Type="Passive" Requirements="HaveK5Cooldowns" Row="1" Column="1"/>
-            <LayoutButtons Face="K5Fury" Type="Passive" Requirements="HaveK5Fury" Row="1" Column="2"/>
-            <LayoutButtons Face="K5DropPods" Type="AbilCmd" AbilCmd="K5DropPods,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="ChainReaction" Type="Passive" Requirements="HaveK5ChainLightning" Row="1" Column="3"/>
+            <LayoutButtons Face="JainaBlizzard" Type="Passive" Row="2" Column="3"/>
+            <LayoutButtons Face="JainaFrostAura" Type="Passive" Row="2" Column="1"/>
+            <LayoutButtons Face="SpawnXMASElemental" Type="Passive" Row="2" Column="2"/>
+            <LayoutButtons Face="JainaUpgrades" Type="Submenu" SubmenuCardId="0002" Row="1" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="0002">
+            <LayoutButtons Face="IncreaseArcaneStrength" Type="Passive" Row="0" Column="0"/>
+            <LayoutButtons Face="ImproveFrostArmor" Type="Passive" Row="0" Column="1"/>
+            <LayoutButtons Face="JainaFrostAura" Type="Passive" Row="0" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
@@ -5534,6 +5568,12 @@
     </CUnit>
     <CUnit id="Virtus">
         <Food value="0"/>
+    </CUnit>
+    <CUnit id="WarPig">
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="1"/>
+        <LifeArmorLevel value="1"/>
     </CUnit>
     <CUnit id="WarpPrism">
         <Speed value="4"/>

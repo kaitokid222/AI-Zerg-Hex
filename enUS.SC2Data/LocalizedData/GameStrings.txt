@@ -726,6 +726,7 @@ Button/Name/AcidSpores=Acid Spores
 Button/Name/Afterburner=Afterburner
 Button/Name/AnimalMove=Animal Move
 Button/Name/AnimalRequestFarm=Animal Request Farm
+Button/Name/ArtanisL2=Artanis L2
 Button/Name/AutomatedAssimilator=Warp in Orbital Assimilator
 Button/Name/AutomaticChargingOFF=Automatic Charging [OFF]
 Button/Name/AutomaticChargingON=Automatic Charging [ON]
@@ -857,7 +858,9 @@ Button/Name/HiveMindEmulator=Build Zerg Control Center
 Button/Name/HydralicAugment=Hydra-lic Augment
 Button/Name/HydraliskDefender3v3=Hydralisk Defender
 Button/Name/ImmortalShakurasShadowCannon2=Stasis Cannon
+Button/Name/ImproveFrostArmor=Improve Frost Armor
 Button/Name/ImprovedLiquids=Improved Liquids
+Button/Name/IncreaseArcaneStrength=Increase Arcane Strength
 Button/Name/IncreaseGas50=Increase 50
 Button/Name/IncreaseMinerals50=Increase 50
 Button/Name/IncreasePower=Increased Power
@@ -878,6 +881,9 @@ Button/Name/Investment6=Investment 6
 Button/Name/Investment7=Investment 7
 Button/Name/IonCannon=Ion Cannon
 Button/Name/ItalisTeleport=Teleport
+Button/Name/JainaBlizzard=Blizzard
+Button/Name/JainaFrostAura=Frost Aura
+Button/Name/JainaUpgrades=Upgrades
 Button/Name/KaraxHeroic=Heroic
 Button/Name/LarvaSpawnOmegaliskCocoon3v3=Larva can Spawn Omegalisk Cocoon
 Button/Name/Lower2=Lower
@@ -1122,6 +1128,7 @@ Button/Name/SpawnTorralisk=Spawn Torralisk
 Button/Name/SpawnTorralisk3v3=Spawn Torralisk
 Button/Name/SpawnUltra3v3=Spawn Ultra
 Button/Name/SpawnUltralisk2=Spawn Ultralisk
+Button/Name/SpawnXMASElemental=Spawn XMAS Elemental
 Button/Name/SpawnerIncomeInfo=Spawner Income Info
 Button/Name/StartArtillery=Start Artillery
 Button/Name/StaticDischarge2=Static Discharge
@@ -1225,6 +1232,7 @@ Button/Tooltip/AcidSpores=Launches 3 Acid Spores in random directions upon deton
 Button/Tooltip/AdvancedBattery=
 Button/Tooltip/AdvancedBatteryPylon=
 Button/Tooltip/Afterburner=Increases the Reapers movement speed by 3 for 4 seconds.
+Button/Tooltip/ArtanisL2=Makes Artanis stronger.
 Button/Tooltip/AutomatedRefineryTextKicker1=<s val="Kicker_Refinery">+1 </s><IMG path="Assets\Textures\icon-gas-terran.dds" height="28" width="28"/>
 Button/Tooltip/AutomatedRefineryTextKicker10=<s val="Kicker_Refinery">+10 </s><IMG path="Assets\Textures\icon-gas-terran.dds" height="28" width="28"/>
 Button/Tooltip/AutomatedRefineryTextKicker2=<s val="Kicker_Refinery">+2 </s><IMG path="Assets\Textures\icon-gas-terran.dds" height="28" width="28"/>
@@ -1462,7 +1470,9 @@ Button/Tooltip/Hydralisk=
 Button/Tooltip/HydraliskDefender3v3=Sturdy ranged unit. <c val="ffff8a">Zerg Armor</c> upgrades increase attack damage, attack range, max health and health regen.<n/><n/><c val="D95200">Cannot attack zerg buildings.</c><n/>
 Button/Tooltip/ImmortalShakurasShadowCannon2=<c val="F03030">Cannot target Zerg inner base.</c><n/>Fires <d ref="Effect,TechLabStasisCannonPersistentShadowCannon,PeriodCount"/> long range Stasis Missiles to target area, dealing <d ref="Effect,TechLabStasisCannonDamage,Amount"/> damage per missile.<n/><n/>Dealing a fatal hit will put units in stasis for <d ref="Behavior,OracleStasisTrapTarget,Duration"/> seconds before dying. Structures cannot be dealt a fatal hit. Stasis can be re-applied.<n/><n/><c val="49D3F1">Costs 4 charges</c>
 Button/Tooltip/ImmortalZergHex=
+Button/Tooltip/ImproveFrostArmor=Jainas Frost Armor protects her from threats.
 Button/Tooltip/ImprovedLiquids=Doubles Mecha energy.<n/><n/><c val="E1848D">Research is shared among your team.</c>
+Button/Tooltip/IncreaseArcaneStrength=Jaina gets more powerful.
 Button/Tooltip/IncreaseGas50=Adjust Vespene Gas cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
 Button/Tooltip/IncreaseMinerals50=Adjust Mineral cargo by +50.<n/><n/><c val="ffff8a">Current amount can be seen below your resources.</c>
 Button/Tooltip/IncreasePower=Every Blood Stack increases HP by 1.
@@ -1493,6 +1503,9 @@ Button/Tooltip/IonCannon=Launches a devastating beam from the sky lasting for 20
 Button/Tooltip/IonStorm=
 Button/Tooltip/ItalisTeleport=Teleport to an allied structure. Requires <d ref="Abil,ItalisTeleport,CastIntroTime[0]"/> seconds to cast and another <d ref="Abil,ItalisTeleport,FinishTime[0]"/> seconds to instantiate after teleportation.<n/><n/>Ability can only be used once every <d ref="Abil,ItalisTeleport,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/Jaina=Queen of Blades and leader of the Swarm. Powerful psionic ranged attacker.
+Button/Tooltip/JainaBlizzard=Causes large amounts of damage and slows in a huge area.
+Button/Tooltip/JainaFrostAura=Causes large amounts of damage and slows in a huge area.
+Button/Tooltip/JainaUpgrades=Upgrade Jaina to make her stronger.
 Button/Tooltip/KaraxHeroic=This unit becomes stronger automatically with every passing minute.<n/><n/>Tier 2 and Tier 3 Equipement upgrades increase weapon efficiency.
 Button/Tooltip/KaraxPhotonCannon=Cannon that can hold a position shortly.
 Button/Tooltip/KokCritter=
@@ -1811,6 +1824,7 @@ Button/Tooltip/SpawnTorralisk=A much stronger mutation of the Ultralisk, deals d
 Button/Tooltip/SpawnTorralisk3v3=A much stronger mutation of the Ultralisk, deals damage in an area in front of him.<n/><n/><c val="D95200">Spawn 1 unit lasting 340 seconds every 300 seconds</c><n/><n/><c val="E2E087">+40 terrazine income per minute</c>
 Button/Tooltip/SpawnUltra3v3=Massively armored, a force to be dealt with.<n/><n/><c val="D95200">Spawn 1 unit lasting 75 seconds every 40 seconds</c><n/><n/><c val="E2E087">+10 terrazine income per minute</c>
 Button/Tooltip/SpawnUltralisk2=Tanky melee creature.
+Button/Tooltip/SpawnXMASElemental=Jaina spawns her Elemental.
 Button/Tooltip/SpawnerIncomeInfo=Adding a spawner would currently give:<n/><c val="83D5E2">+6 minerals </c>per minute to yourself.<n/>and<n/><c val="83D5E2">+6 minerals </c>per minute to your ally.
 Button/Tooltip/SpecialZergSpawner=Spawns Event Units.
 Button/Tooltip/SpineCrawler3=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
@@ -1877,6 +1891,7 @@ Button/Tooltip/TransporterMenuTransporter=Click to select different transport.<n
 Button/Tooltip/Ultralisk2=
 Button/Tooltip/UltraliskSpawner=
 Button/Tooltip/Umbra=Stealthed mobile defense specialist.
+Button/Tooltip/UmbraCritter=A highly intelligent Support Bot. Empowers units and has energy.
 Button/Tooltip/UnlockInducer=Unlocks Inducer.
 Button/Tooltip/UnlockPariah=Unlocks Pariah.
 Button/Tooltip/UnlockUmbra=Unlocks Umbra.
@@ -2890,6 +2905,7 @@ DocInfo/PatchNote936=Limited amount of Smith on the map in ideal condition to 5.
 DocInfo/PatchNote937=Changed Smith Recharge Effect. Instead of e*2 it is now e+500.
 DocInfo/PatchNote938=Nerfed Corroslash. Spawntime 4 -> 5s. Base HP 55 -> 52, Damage 8 -> 6.
 DocInfo/PatchNote939=Limited Smith to 2-3 per Player. (up to 18 in total)
+DocInfo/PatchNote940=Fixed issue.
 DocInfo/Website=https://discord.gg/E6VkTUNsKU
 Effect/Name/90mmCannons2=Arclite Cannon (Damage)
 Effect/Name/AbsorbingCloud=Absorbing Cloud
@@ -3847,6 +3863,8 @@ Effect/Name/TurnConvertGasOnIssueOrder=Turn Convert Gas On (Issue Order)
 Effect/Name/TurnConvertMineralsOffIssueOrder=Turn Convert Minerals Off (Issue Order)
 Effect/Name/TurnConvertMineralsOnIssueOrder=Turn Convert Minerals On (Issue Order)
 Effect/Name/TwinBolter=Twin Bolter
+Effect/Name/UmbraDoingStuffApplyCooldown=Umbra Doing Stuff Apply Cooldown
+Effect/Name/UmbraDoingStuffTriggerDummy=Umbra Doing Stuff Trigger Dummy
 Effect/Name/UmbraShadowCannonAOE=Umbra Shadow Cannon AOE
 Effect/Name/UmbraShadowCannonSet2=Umbra Shadow Cannon Set
 Effect/Name/UnifiedArmorBeingRepairedDamageProc=Unified Armor Being Repaired (Damage Proc)
@@ -4841,6 +4859,7 @@ Unit/Name/Transporter=Transporter
 Unit/Name/UglyTurkey=Ugly Turkey
 Unit/Name/Ultralisk2=Ultralisk
 Unit/Name/UltraliskSpawner=Ultralisk Spawner
+Unit/Name/UmbraCritter=Umbra
 Unit/Name/UpgradedRefinery=Upgraded Refinery
 Unit/Name/Uploader=Wall
 Unit/Name/Uploader2=Wall
@@ -4867,6 +4886,7 @@ UnitSubtitle/PrimalRoach2=
 UnitSubtitle/TarRoach=
 UnitSubtitle/UpgradedSpawner=<c val="78BEF5">Upgraded</c>
 Upgrade/Name/AdvancedBuild=Advanced Build
+Upgrade/Name/ArtanisL2=Artanis L2
 Upgrade/Name/Base1Dead=Base 1 Dead
 Upgrade/Name/Base2Dead=Base 2 Dead
 Upgrade/Name/Base3Dead=Base 3 Dead

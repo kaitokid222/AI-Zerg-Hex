@@ -30,6 +30,22 @@
             <VitalMaxArray index="Life" value="35"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="UmbraDoingStuffCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-unit-keiron-umbra.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="15"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UmbraDoingStuff">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <BuffFlags index="Extend" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Period value="15"/>
+        <PeriodicEffect value="UmbraDoingStuffTriggerDummy"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TraderXMASBuff">
         <BehaviorFlags index="Permanent" value="1"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-protoss-alarak-empowermeslaves.dds"/>

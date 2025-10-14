@@ -200,6 +200,10 @@
         <Range value="8"/>
         <Period value="1.8"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="TwinIbiksCannon">
+        <Range value="8"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="TyphoonMissilePod">
         <Period value="0.1"/>
         <Range value="4"/>

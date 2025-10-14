@@ -465,7 +465,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitBloodAltarQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="BloodAltar" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitChaosDefilerQueuedOrBetter">
@@ -624,6 +623,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="AdvancedBuild" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeArtanisL2QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ArtanisL2" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeBase1DeadCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Base1Dead" State="CompleteOnly"/>
@@ -650,7 +654,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeBiggerBloodDropsQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="BiggerBloodDrops" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeCalibratedEnginesCompleteOnly">
@@ -783,7 +786,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeFasterBloodDropsQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="FasterBloodDrops" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeFirelingsCompleteOnly">
@@ -2213,6 +2215,10 @@
     <CRequirementNot id="NotCountUpgradeAdvancedBuildQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeAdvancedBuildQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeArtanisL2QueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeArtanisL2QueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeBase1DeadCompleteOnly">
         <OperandArray index="0" value="CountUpgradeBase1DeadCompleteOnly"/>
     </CRequirementNot>
@@ -2232,7 +2238,6 @@
         <OperandArray index="0" value="CountUpgradeBase6DeadCompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeBiggerBloodDropsQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeBiggerBloodDropsQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeChaosPowerArmorUpgradeQueuedOrBetter">
@@ -2284,7 +2289,6 @@
         <OperandArray index="0" value="CountUpgradeEnergyGenerationQueuedOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeFasterBloodDropsQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeFasterBloodDropsQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeFirelingsInProgressOnly">

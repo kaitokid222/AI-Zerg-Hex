@@ -10,6 +10,26 @@
         <Hotkey value="Button/Hotkey/EventTechCenter"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="ImproveFrostArmor">
+        <Icon value="assets\textures\storm_ui_icon_jaina_frostarmor.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_frostarmor.dds"/>
+        <EditorCategories value="Race:Human"/>
+    </CButton>
+    <CButton id="JainaUpgrades">
+        <Icon value="assets\textures\storm_ui_icon_jaina_arcaneintellect.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_arcaneintellect.dds"/>
+        <EditorCategories value="Race:Human"/>
+    </CButton>
+    <CButton id="JainaBlizzard">
+        <Icon value="assets\textures\storm_ui_icon_jaina_blizzard.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_blizzard.dds"/>
+        <EditorCategories value="Race:Human"/>
+    </CButton>
+    <CButton id="JainaFrostAura">
+        <Icon value="assets\textures\storm_ui_icon_jaina_ringoffrost.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_ringoffrost.dds"/>
+        <EditorCategories value="Race:Human"/>
+    </CButton>
     <CButton id="ResearchFasterDrops">
         <Icon value="Assets\Textures\bloodsplat_4_purple.dds"/>
         <AlertIcon value="Assets\Textures\bloodsplat_4_purple.dds"/>
@@ -58,10 +78,20 @@
         <AlertIcon value="Assets\Textures\btn-unit-terran-spectre.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="SpawnXMASElemental">
+        <Icon value="assets\textures\storm_ui_icon_jaina_summonwaterelemental.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_summonwaterelemental.dds"/>
+        <EditorCategories value="Race:Human"/>
+    </CButton>
     <CButton id="SpawnCorroslash">
         <Icon value="Assets\Textures\btn-unit-xayid-reviler.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-xayid-reviler.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="IncreaseArcaneStrength">
+        <Icon value="assets\textures\storm_ui_icon_jaina_arcaneintellect.dds"/>
+        <AlertIcon value="assets\textures\storm_ui_icon_jaina_arcaneintellect.dds"/>
+        <EditorCategories value="Race:Human"/>
     </CButton>
     <CButton id="UpgradeShieldBattery">
         <Icon value="Assets\Textures\btn-building-protoss-shieldbattery.dds"/>
@@ -119,6 +149,10 @@
         <AlertIcon value="Assets\Textures\btn-ability-genetron-blazeshield.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="UpgradeShieldBattery"/>
+    </CButton>
+    <CButton id="ArtanisL2">
+        <Icon value="Assets\Textures\btn-unit-protoss-artanishero.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-artanishero.dds"/>
     </CButton>
     <CButton id="UpgradeWallShield" parent="CButtonKeiron" Icon="Assets\Textures\btn-ability-keiron-aegisshield.dds">
         <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>

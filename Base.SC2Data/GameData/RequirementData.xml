@@ -34,6 +34,9 @@
         <NodeArray index="Use" Link="AndCountUpgradeTier3EquipmentCompleteOnly1892408692CountUpgradeMarineConservationL3CompleteOnly999169436"/>
         <NodeArray index="Show" Link="NotCountUpgradeMarineConservationL4QueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="ResearchArtanisL2">
+        <NodeArray index="Show" Link="NotCountUpgradeArtanisL2QueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="ResearchVeteranShockTroopers">
         <NodeArray index="Use" Link="CountUpgradeTier2EquipmentCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeVeteranShockTroopersQueuedOrBetter"/>

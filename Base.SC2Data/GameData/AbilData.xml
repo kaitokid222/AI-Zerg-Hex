@@ -242,6 +242,10 @@
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="EmpoweredShadowCannon" Requirements="UnlockUmbraShadowCannonRequirement"/>
         </InfoArray>
+        <InfoArray index="Research9" Time="300" Upgrade="ArtanisL2">
+            <Resource index="Vespene" value="600"/>
+            <Button DefaultButtonFace="ArtanisL2" Requirements="ResearchArtanisL2"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilTrain id="TombstoneTrain">
         <EditorCategories value="AbilityorEffectType:Units"/>
