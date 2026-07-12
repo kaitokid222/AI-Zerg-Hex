@@ -9490,8 +9490,8 @@
     <CUnit id="LargeSpineCrawler" parent="SpineCrawler">
         <Name value="Unit/Name/LargeSpineCrawler"/>
         <Description value="Button/Tooltip/LargeSpineCrawler"/>
-        <LifeStart value="1300"/>
-        <LifeMax value="1300"/>
+        <LifeStart value="1400"/>
+        <LifeMax value="1400"/>
         <LifeRegenRate value="4"/>
         <CostResource index="Minerals" value="1000"/>
         <CostResource index="Vespene" value="300"/>
